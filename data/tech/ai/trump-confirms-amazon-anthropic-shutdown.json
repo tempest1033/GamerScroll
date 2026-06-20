@@ -1,0 +1,150 @@
+{
+  "slug": "trump-confirms-amazon-anthropic-shutdown",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "2026-06-20T14:00Z",
+  "needTranslate": false,
+  "title": "트럼프도 인정: 페이블을 정지시킨 범인은 아마존",
+  "titleEn": "Trump: Amazon Triggered Fable Halt",
+  "summary": "도널드 트럼프 미국 대통령이 앤트로픽을 고발한 주체로 경쟁사이자 공동 주주인 아마존을 지목했다. 80억 달러를 투자한 최대 주주가 왜 스스로의 투자처를 행정부에 신고했는지 그 배경에 관심이 쏠린다.",
+  "summaryEn": "Trump identified the competitor and co-shareholder that reported Anthropic. Why did Amazon, its $8B lead investor, turn in its own bet to Washington?",
+  "keywords": "아마존 앤트로픽, 페이블 5, 미토스 5, 앤디 재시, 수출 통제",
+  "keywordsEn": "Amazon Anthropic, Fable 5, Mythos 5, Jassy, export controls",
+  "thumbnail": "https://fortune.com/img-assets/wp-content/uploads/2026/06/GettyImages-2282033342-e1781821453221.jpg?resize=1200,600",
+  "sources": [
+    {
+      "name": "Axios",
+      "title": "How Amazon and the White House ended Anthropic's Fable",
+      "url": "https://www.axios.com/2026/06/13/anthropic-amazon-white-house"
+    },
+    {
+      "name": "Fortune",
+      "title": "Inside Trump's Anthropic crackdown, and how a phone call from Amazon CEO Andy Jassy triggered the chaos",
+      "url": "https://fortune.com/2026/06/18/inside-trump-anthropic-mythos-crackdown-ai-regulation-amazon-andy-jassy-phone-call/"
+    },
+    {
+      "name": "The Next Web",
+      "title": "Amazon's CEO reportedly triggered the government crackdown that shut down Anthropic's most powerful AI",
+      "url": "https://thenextweb.com/news/amazon-jassy-triggered-anthropic-fable-mythos-crackdown"
+    },
+    {
+      "name": "Reuters",
+      "title": "Amazon voiced concerns about Anthropic AI models before US government's crackdown",
+      "url": "https://www.reuters.com/business/retail-consumer/amazon-voiced-concerns-about-anthropic-ai-models-before-us-governments-crackdown-2026-06-13/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute",
+      "url": "https://www.anthropic.com/news/anthropic-amazon-compute"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/amazon-andy-jassy-anthropic-shutdown-trigger",
+    "tech:ai/claude-fable-5-mythos-5-government-suspension",
+    "tech:ai/fable-mythos-shutdown-industry-reactions",
+    "tech:ai/anthropic-fable-5-restoration-standoff"
+  ],
+  "relatedArticles": [],
+  "relatedGames": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "인공지능(AI) 스타트업 앤트로픽을 국가 안보 위협으로 고발한 주체가 마침내 밝혀졌다. 도널드 트럼프 미국 대통령이 배후의 이름을 직접 거론했다. 트럼프 대통령은 6월 19일 공개된 액시오스 인터뷰에서 앤트로픽을 고발한 곳이 경쟁사이자 지분을 가진 공동 주주라고 밝혔다.\n\n해당 주주는 앤트로픽에 80억 달러를 투자한 아마존이다. 아마존은 앤트로픽의 신모델 '페이블 5'와 '미토스 5'를 며칠 만에 멈춰 세운 최대 투자자다. [당초 제기된 의혹은](/ko/article/anthropic/amazon-andy-jassy-anthropic-shutdown-trigger/) 익명 제보에 그쳤으나, 이번 발언으로 대통령이 해당 루머가 사실임을 공식적으로 입증했다. 트럼프가 아마존을 주주가 아닌 경쟁사로 먼저 불렀다는 점에서 실제 고발 동기를 유추할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "투자자이자 고발자: 아마존 앤트로픽의 두 얼굴"
+    },
+    {
+      "type": "text",
+      "value": "아마존과 앤트로픽의 비정상적인 파트너십을 이해하려면 양사의 재정적 관계를 보아야 한다. 아마존은 앤트로픽에 80억 달러를 투자한 최대 주주로, 올해 50억 달러를 추가해 최대 250억 달러 투자를 계획하고 있다. 앤트로픽은 그 대가로 10년간 1,000억 달러 규모의 AWS 클라우드 인프라를 사용하기로 했으며, 신모델 '페이블 5' 역시 아마존 베드록에서 구동된다.\n\n이번 사태를 촉발한 계기는 다소 우발적이었다. [포춘](https://fortune.com/2026/06/18/inside-trump-anthropic-mythos-crackdown-ai-regulation-amazon-andy-jassy-phone-call/)에 따르면 앤디 재시 아마존 최고경영자(CEO)는 6월 11일 백악관과의 통화 중 연구진이 발견한 보안 취약점을 언급했다. 백악관 관계자들은 이를 스콧 베센트 재무장관에게 직접 전달할 것을 권고했다. 앤디 재시 CEO는 당일 베센트 장관과 통화했으며, 이 한 통의 전화는 이틀날 밤 서비스 중단으로 이어졌다.\n\n결과는 제 꼬리를 무는 뱀인 우로보로스와 같다. 아마존은 자신이 호스팅하는 모델의 위험성을 정부에 알렸고, 수출 통제가 시행되자 베드록의 페이블 5와 미토스 5 인스턴스도 즉각 중단됐다. 피투자사를 향해 겨눈 칼날이 자체 클라우드 매출 타격으로 되돌아온 격이다."
+    },
+    {
+      "type": "heading",
+      "value": "자기 투자사를 고발한 세 가지 동기"
+    },
+    {
+      "type": "image",
+      "src": "https://media.thenextweb.com/2026/06/amazon-jassy-triggered-anthropic-fable-mythos-crackdown.avif",
+      "caption": "앤디 재시 아마존 CEO",
+      "alt": "정면을 바라보는 앤디 재시 아마존 최고경영자"
+    },
+    {
+      "type": "text",
+      "value": "이로 인해 한 가지 의문이 제기된다. 아마존은 왜 거액을 투자하고 클라우드 매출을 안겨주던 모델을 정부에 신고했을까. 업계 분석가들은 세 가지 동기를 꼽는다.\n\n첫째는 직접적인 시장 경쟁이다. 아마존은 자체 AI 모델인 '노바'를 추진하는 동시에 베드록에서 클로드의 경쟁 모델들을 판매하고 있다. 앤트로픽의 '페이블 5'는 출시 직후 주요 벤치마크 1위를 휩쓸었다. 투자 수익을 차치하더라도, 가장 강력한 경쟁사 제품이 자사 플랫폼을 지배하는 상황은 아마존에 위협적이다. 트럼프 대통령이 아마존을 경쟁사로 규정한 것도 이 맥락과 닿아 있다.\n\n둘째는 전략적 주도권 확보다. 개발자 커뮤니티 등에서는 아마존이 앤트로픽과의 관계에서 우위를 점하려 했다는 관측이 나온다. 투자자가 정부 개입을 지렛대로 삼는 순간, 협상 테이블의 주도권은 투자자에게 넘어가게 된다.\n\n셋째는 규제 리스크 방어와 정부와의 밀착이다. 수많은 정부 및 금융권 고객을 둔 클라우드 제공업체로서 위험 요소를 선제적으로 신고했다는 이력은 일종의 보험이 된다. 재시 CEO가 베센트 장관에게 페이블뿐만 아니라 모든 프런티어 모델의 사이버 보안 위험을 경고한 점도 이 주장을 뒷받침한다."
+    },
+    {
+      "type": "heading",
+      "value": "고발 명분이 된 '페이블 5 탈옥'의 실체"
+    },
+    {
+      "type": "text",
+      "value": "이번 사태의 핵심 근거였던 우회 기술, 즉 '탈옥(jailbreak)' 여부조차 모호하다. 앤트로픽 측은 아마존이 발견한 취약점이 이미 공개된 마이너한 사안에 불과하며, GPT-5.5를 비롯한 타사 모델에서도 동일하게 재현된다고 해명했다. 보안 기업 루타 시큐리티의 케이티 무수리스 대표 역시 보고서를 분석한 결과 실제 탈옥으로 보기 어렵고, 방어자 관점의 일반적인 보안 테스트 질문 수준이었다고 지적했다.\n\n정치권의 반응 역시 안보 위협이 과장되었음을 드러낸다. 수출 통제 조치가 내려진 지 일주일 만에 트럼프 대통령은 액시오스 인터뷰에서 앤트로픽이 이제 안보 위협이 아니라고 말을 바꿨다. 이후 그는 G7 정상회의에서 다리오 아모데이 앤트로픽 CEO를 만나 그를 격려하기도 했다. 국가 안보가 직결된 중대한 사안이었다면 이처럼 신속하게 태도를 전환하기는 어려웠을 것이다.\n\n이면에는 이전부터 쌓여온 갈등이 있었다. 미 행정부는 앤트로픽이 군사적 표적 식별이나 대규모 감시 시스템에 자사 모델 제공을 거부하자 국방부 공급망 리스크 기업으로 지정한 바 있다. 정부의 AI 관련 특별보좌관인 데이비드 색스 역시 앤트로픽이 AI 위험성을 과장해 규제 독점을 시도한다고 비판해 왔다. 이러한 상황에서 아마존의 고발은 이미 달아오른 갈등에 불을 붙인 격이었다."
+    },
+    {
+      "type": "heading",
+      "value": "수면 위로 드러난 AI 권력 구도"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-06/260615-donald-trump-dario-amodei-vl-1058a-aac72c.jpg",
+      "caption": "도널드 트럼프 미국 대통령(왼쪽)과 다리오 아모데이 앤트로픽 CEO",
+      "alt": "분할 화면에 나란히 놓인 트럼프 대통령과 다리오 아모데이"
+    },
+    {
+      "type": "text",
+      "value": "페이블 5와 미토스 5는 곧 정상화될 것이다. 정작 주목할 대목은 이번 사태가 들춰낸 그림이다. 투자자이자 클라우드 사업자, 동시에 경쟁자이기도 한 거대 기업이 정부 규제를 지렛대 삼아 피투자사를 흔드는 장면. AI 산업의 권력 구도를 둘러싼 물밑 다툼이 처음으로 수면 위에 모습을 드러낸 셈이다.\n\n업계가 이번 수출 통제를 두고 '사실상의 AI 면허제'라 부르는 것도 같은 맥락이다. 한 관계자는 [악시오스](https://www.axios.com/2026/06/13/anthropic-amazon-white-house)에 기업들이 앞으로 백악관의 눈치를 살필 수밖에 없을 것이라고 했다. 개발사에 진짜 위협은 모델의 안전성 그 자체가 아니라, 그 안전성이 경쟁과 정치의 카드로 쓰이는 구도다. 앤디 재시의 전화 한 통이 페이블 5와 미토스 5를 멈춰 세웠듯, 트럼프가 무심코 내뱉은 '경쟁사이자 주주'라는 한마디가 그 복잡하게 얽힌 이해관계의 민낯을 그대로 드러낸다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "The source of the complaint is no longer anonymous. President Donald Trump has named the reporter himself. In an Axios interview published June 19, when asked who flagged Anthropic as a national security threat, he answered: \"It was actually a competitor and co-shareholder that reported them.\"\n\nIn the AI industry, that description points to only one company: Amazon, the $8 billion lead investor that helped pull Fable 5 and Mythos 5 off the market under export controls. [When the suspicion first surfaced](/article/anthropic/amazon-andy-jassy-anthropic-shutdown-trigger/), it was based on anonymous reports; now, it has presidential confirmation. Notably, Trump referred to Amazon as a \"competitor\" before \"co-shareholder,\" framing the conflict in terms of market rivalry rather than partnership."
+    },
+    {
+      "type": "heading",
+      "value": "Investor and Informant: The Amazon-Anthropic Duality"
+    },
+    {
+      "type": "text",
+      "value": "To understand the abnormality of this situation, one must look at the financial ties between the two companies. Amazon is Anthropic's largest investor, having committed $8 billion, with an additional $5 billion this year and plans to invest up to $25 billion. In return, Anthropic committed to spending $100 billion on AWS infrastructure over a decade, and its Fable 5 model runs directly on Amazon Bedrock.\n\nThe mechanism that triggered the shutdown was initiated almost casually. According to [Fortune](https://fortune.com/2026/06/18/inside-trump-anthropic-mythos-crackdown-ai-regulation-amazon-andy-jassy-phone-call/), during a routine White House call on an unrelated topic on June 11, Amazon CEO Andy Jassy mentioned a vulnerability identified by his researchers. White House officials advised him to contact Treasury Secretary Scott Bessent directly. Jassy did so that day, initiating a process that culminated in a shutdown the next evening.\n\nThe resulting situation resembles an ouroboros. Amazon flagged the very model it hosts as a threat; when the government imposed export controls, the Fable 5 and Mythos 5 instances on Bedrock were shut down. In attempting to limit its portfolio company, Amazon directly impacted its own cloud hosting revenue."
+    },
+    {
+      "type": "heading",
+      "value": "Why Target Its Own Investment? Three Motives"
+    },
+    {
+      "type": "image",
+      "src": "https://media.thenextweb.com/2026/06/amazon-jassy-triggered-anthropic-fable-mythos-crackdown.avif",
+      "caption": "Amazon CEO Andy Jassy",
+      "alt": "Amazon CEO Andy Jassy facing the camera"
+    },
+    {
+      "type": "text",
+      "value": "This raises a central question: why would Amazon act against a company in which it has a massive financial stake and from which it derives significant cloud revenue? Industry analysts point to three primary motivations.\n\nFirst is direct competition. Amazon is actively promoting its own Nova models while hosting Claude's competitors on Bedrock. When Fable 5, the general-release build of Mythos 5, launched, it led nearly every performance benchmark. Despite potential investment returns, hosting the dominant model in the sector poses a competitive challenge for Amazon. Trump's characterization of Amazon as a \"competitor\" highlights this tension.\n\nSecond is strategic leverage. Inside the developer community, some suggest Amazon seeks to force Anthropic into a subordinate position. Using government intervention as leverage allows an investor to dictate terms at the negotiating table, much as these export controls did.\n\nThird is regulatory compliance and reputation management. For a cloud provider with extensive government and enterprise clients, proactively flagging risks acts as liability insurance. This is supported by Jassy's broader warning to Bessent regarding the cybersecurity risks of all frontier models, not just Fable."
+    },
+    {
+      "type": "heading",
+      "value": "Questions Over the Fable 5 'Jailbreak'"
+    },
+    {
+      "type": "text",
+      "value": "Furthermore, the technical basis for the intervention—the alleged \"jailbreak\"—appears weak. Anthropic stated that the bypass identified by Amazon involved only a small number of minor, previously documented vulnerabilities that were also reproducible on other public models, including GPT-5.5 — hardly the Mythos 5 superweapon the export controls implied. Katie Moussouris, CEO of Luta Security, which reviewed the findings, dismissed the claim, stating the research did not represent a genuine jailbreak but rather standard security queries.\n\nThe political response also suggests the threat was overstated. A week after the export controls were imposed, Trump told Axios that he no longer considered Anthropic a security threat. He subsequently met Anthropic CEO Dario Amodei at the G7 summit and praised him. Such a swift reversal suggests the initial security concerns were not critical.\n\nThis incident unfolds against a backdrop of ongoing friction. The administration had previously designated Anthropic a supply-chain risk after the company refused to allow its models to be used for military targeting and mass surveillance. Additionally, AI czar David Sacks has accused Anthropic of using safety concerns to encourage regulatory capture. Jassy's report acted as the catalyst in an already hostile environment."
+    },
+    {
+      "type": "heading",
+      "value": "The AI Power Struggle Surfaces"
+    },
+    {
+      "type": "image",
+      "src": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-06/260615-donald-trump-dario-amodei-vl-1058a-aac72c.jpg",
+      "caption": "President Donald Trump (left) and Anthropic CEO Dario Amodei",
+      "alt": "Split image of President Trump and Dario Amodei"
+    },
+    {
+      "type": "text",
+      "value": "Fable 5 will be back soon. What deserves attention is the picture this episode exposed: a tech giant that is at once an investor, a cloud host, and a competitor can use government regulation as a lever to shake the very company it funds. For the first time, the behind-the-scenes contest over AI's power structure has surfaced.\n\nThat's the same context in which the industry calls these export controls a de-facto AI licensing regime. One person told [Axios](https://www.axios.com/2026/06/13/anthropic-amazon-white-house) that companies will now watch the White House far more closely. The real threat to developers isn't model safety itself, but a landscape where that safety becomes a card played for competition and politics. Just as Jassy's single phone call took Fable 5 and Mythos 5 offline, the phrase Trump tossed off — \"competitor and co-shareholder\" — lays bare the tangle of interests underneath."
+    }
+  ]
+}
