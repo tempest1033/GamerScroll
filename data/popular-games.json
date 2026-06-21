@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T15:21:49.979Z",
+  "updatedAt": "2026-06-21T17:00:43.098Z",
   "period": "30days",
   "games": [
     {
@@ -13,6 +13,10 @@
     {
       "slug": "궁영롱몽",
       "views": 4
+    },
+    {
+      "slug": "승리의-여신-니케",
+      "views": 3
     },
     {
       "slug": "에브리타운",
@@ -31,6 +35,10 @@
       "views": 2
     },
     {
+      "slug": "sol-enchant",
+      "views": 2
+    },
+    {
       "slug": "swipe-it-board-wooden-puzzle",
       "views": 2
     },
@@ -43,19 +51,7 @@
       "views": 2
     },
     {
-      "slug": "로얄-킹덤-royal-kingdom",
-      "views": 2
-    },
-    {
       "slug": "배틀그라운드",
-      "views": 2
-    },
-    {
-      "slug": "세븐나이츠-리버스",
-      "views": 2
-    },
-    {
-      "slug": "승리의-여신-니케",
       "views": 2
     },
     {
@@ -67,15 +63,19 @@
       "views": 2
     },
     {
-      "slug": "협동-타워-디펜스-친구와-함께",
-      "views": 2
-    },
-    {
       "slug": "aion2",
       "views": 1
     },
     {
       "slug": "bongo-cat",
+      "views": 1
+    },
+    {
+      "slug": "ea-sports-fc-online-m",
+      "views": 1
+    },
+    {
+      "slug": "ez2on-reboot-r",
       "views": 1
     }
   ]
