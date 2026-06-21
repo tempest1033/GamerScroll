@@ -1,19 +1,26 @@
 {
-  "updatedAt": "2026-06-20T02:00:47.451Z",
+  "updatedAt": "2026-06-21T02:29:34.588Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 20,
-      "path": "/wiki/knowledge/gacha-system-history/"
-    },
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
       "views": 17,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 16,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 16,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
@@ -22,23 +29,10 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 13,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
       "type": "issue",
       "slug": "dave-the-diver-in-the-jungle-release",
       "views": 10,
       "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 6,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -55,23 +49,22 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
       "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 5,
       "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
       "views": 4,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "gta6-preorder-june-25",
+      "views": 4,
+      "path": "/magazine/issue/gta6-preorder-june-25/"
     },
     {
       "type": "ranking",
@@ -92,6 +85,13 @@
       "category": "history",
       "views": 4,
       "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "wiki",
@@ -126,9 +126,15 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
+      "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 3,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+      "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 3,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -345,9 +351,15 @@
     },
     {
       "type": "issue",
-      "slug": "gta6-preorder-june-25",
+      "slug": "granblue-relink-endless-ragnarok",
       "views": 2,
-      "path": "/magazine/issue/gta6-preorder-june-25/"
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 2,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -363,15 +375,15 @@
     },
     {
       "type": "issue",
+      "slug": "sol-enchant-dual-market-no1-launch",
+      "views": 2,
+      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "steam-deck-oled-asia-price-hike",
       "views": 2,
       "path": "/magazine/issue/steam-deck-oled-asia-price-hike/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "wiki",
@@ -543,12 +555,6 @@
     },
     {
       "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 1,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-classic-refund-exploit-ban",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
@@ -558,6 +564,12 @@
       "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 1,
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+    },
+    {
+      "type": "issue",
+      "slug": "ps5-price-hike-april-sales-drop",
+      "views": 1,
+      "path": "/magazine/issue/ps5-price-hike-april-sales-drop/"
     },
     {
       "type": "issue",
@@ -573,9 +585,9 @@
     },
     {
       "type": "issue",
-      "slug": "sol-enchant-dual-market-no1-launch",
+      "slug": "silksong-sea-of-sorrow",
       "views": 1,
-      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "issue",
@@ -597,9 +609,21 @@
     },
     {
       "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "steam-april-2026",
       "views": 1,
       "path": "/magazine/ranking/steam-april-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "ranking",
