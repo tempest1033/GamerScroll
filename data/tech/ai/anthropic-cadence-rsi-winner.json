@@ -4,7 +4,7 @@
   "category": "anthropic",
   "status": "approved",
   "needTranslate": false,
-  "date": "",
+  "date": "2026-06-22T14:30Z",
   "title": "앤트로픽의 출시 질주, 재귀개선의 전조인가?",
   "titleEn": "Anthropic's Release Sprint: A Sign of Self-Improvement?",
   "summary": "페이블 5와 미토스 5의 동시 공개로 앤트로픽의 모델 출시 주기가 경쟁사들을 앞서고 있다. 시장에서는 이러한 속도전이 인공지능이 스스로를 학습시키는 재귀개선의 전조라는 해석이 X를 중심으로 제기된다.",
@@ -36,15 +36,47 @@
     {
       "type": "table",
       "caption": "2026년 상반기 앤트로픽 모델 출시 타임라인. 소넷 5는 아직 루머 단계다.",
-      "headers": ["모델", "출시일", "등급·비고"],
+      "headers": [
+        "모델",
+        "출시일",
+        "등급·비고"
+      ],
       "rows": [
-        ["오퍼스 4.6", "2월 5일", "플래그십"],
-        ["소넷 4.6", "2월 18일", "중급 모델"],
-        ["오퍼스 4.7", "4월 16일", "플래그십"],
-        ["오퍼스 4.8", "5월 28일", "플래그십 · 4.7 이후 41일"],
-        ["페이블 5", "6월 9일", "미토스급 공개 모델"],
-        ["미토스 5", "6월 9일", "글래스윙 파트너 전용"],
-        ["소넷 5", "6월 중 예상", "파트너사 슬러그 발견(루머)"]
+        [
+          "오퍼스 4.6",
+          "2월 5일",
+          "플래그십"
+        ],
+        [
+          "소넷 4.6",
+          "2월 18일",
+          "중급 모델"
+        ],
+        [
+          "오퍼스 4.7",
+          "4월 16일",
+          "플래그십"
+        ],
+        [
+          "오퍼스 4.8",
+          "5월 28일",
+          "플래그십 · 4.7 이후 41일"
+        ],
+        [
+          "페이블 5",
+          "6월 9일",
+          "미토스급 공개 모델"
+        ],
+        [
+          "미토스 5",
+          "6월 9일",
+          "글래스윙 파트너 전용"
+        ],
+        [
+          "소넷 5",
+          "6월 중 예상",
+          "파트너사 슬러그 발견(루머)"
+        ]
       ]
     },
     {
@@ -110,15 +142,47 @@
     {
       "type": "table",
       "caption": "Anthropic's model releases in the first half of 2026. Sonnet 5 is still a rumor.",
-      "headers": ["Model", "Release", "Tier / Notes"],
+      "headers": [
+        "Model",
+        "Release",
+        "Tier / Notes"
+      ],
       "rows": [
-        ["Opus 4.6", "Feb 5", "Flagship"],
-        ["Sonnet 4.6", "Feb 18", "Mid tier"],
-        ["Opus 4.7", "Apr 16", "Flagship"],
-        ["Opus 4.8", "May 28", "Flagship · 41 days after 4.7"],
-        ["Fable 5", "Jun 9", "Public Mythos-class model"],
-        ["Mythos 5", "Jun 9", "Glasswing partners only"],
-        ["Sonnet 5", "Expected in June", "Partner-site slug spotted (rumor)"]
+        [
+          "Opus 4.6",
+          "Feb 5",
+          "Flagship"
+        ],
+        [
+          "Sonnet 4.6",
+          "Feb 18",
+          "Mid tier"
+        ],
+        [
+          "Opus 4.7",
+          "Apr 16",
+          "Flagship"
+        ],
+        [
+          "Opus 4.8",
+          "May 28",
+          "Flagship · 41 days after 4.7"
+        ],
+        [
+          "Fable 5",
+          "Jun 9",
+          "Public Mythos-class model"
+        ],
+        [
+          "Mythos 5",
+          "Jun 9",
+          "Glasswing partners only"
+        ],
+        [
+          "Sonnet 5",
+          "Expected in June",
+          "Partner-site slug spotted (rumor)"
+        ]
       ]
     },
     {
