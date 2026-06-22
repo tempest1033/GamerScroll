@@ -1,12 +1,19 @@
 {
-  "updatedAt": "2026-06-21T02:29:34.588Z",
+  "updatedAt": "2026-06-22T00:03:39.280Z",
   "period": "7days",
   "articles": [
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 17,
+      "views": 19,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 17,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "wiki",
@@ -16,16 +23,9 @@
       "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 16,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 14,
+      "views": 13,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
@@ -35,30 +35,16 @@
       "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
     },
     {
-      "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
-      "views": 5,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 5,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 4,
+      "views": 6,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "gabe-newell-steam-adult-content-debate",
+      "views": 4,
+      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",
@@ -67,10 +53,10 @@
       "path": "/magazine/issue/gta6-preorder-june-25/"
     },
     {
-      "type": "ranking",
-      "slug": "steam-january-2026",
+      "type": "issue",
+      "slug": "sol-enchant-dual-market-no1-launch",
       "views": 4,
-      "path": "/magazine/ranking/steam-january-2026/"
+      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
     },
     {
       "type": "wiki",
@@ -81,17 +67,24 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
+      "slug": "platform-fees-comparison",
+      "category": "business",
       "views": 4,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 4,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "wiki",
@@ -99,6 +92,12 @@
       "category": "knowledge",
       "views": 4,
       "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
+    },
+    {
+      "type": "issue",
+      "slug": "crimson-desert-2month-chart-trend",
+      "views": 3,
+      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
     },
     {
       "type": "issue",
@@ -111,12 +110,6 @@
       "slug": "diablo2-resurrected-steam-launch",
       "views": 3,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 3,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",
@@ -137,16 +130,10 @@
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
       "type": "ranking",
-      "slug": "steam-february-2026",
+      "slug": "mobile-january-2026-kr",
       "views": 3,
-      "path": "/magazine/ranking/steam-february-2026/"
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "wiki",
@@ -157,6 +144,13 @@
     },
     {
       "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
       "slug": "pillar-of-fire-cresents",
       "category": "history",
       "views": 3,
@@ -164,10 +158,10 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
+      "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 3,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "issue",
@@ -369,15 +363,9 @@
     },
     {
       "type": "issue",
-      "slug": "mangwol-offline-playtest-recruitment",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 2,
-      "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
-    },
-    {
-      "type": "issue",
-      "slug": "sol-enchant-dual-market-no1-launch",
-      "views": 2,
-      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
@@ -567,6 +555,12 @@
     },
     {
       "type": "issue",
+      "slug": "mangwol-offline-playtest-recruitment",
+      "views": 1,
+      "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
+    },
+    {
+      "type": "issue",
       "slug": "ps5-price-hike-april-sales-drop",
       "views": 1,
       "path": "/magazine/issue/ps5-price-hike-april-sales-drop/"
@@ -576,12 +570,6 @@
       "slug": "roguelike-casual-korea-trend",
       "views": 1,
       "path": "/magazine/issue/roguelike-casual-korea-trend/"
-    },
-    {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 1,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "issue",
@@ -606,30 +594,6 @@
       "slug": "wuthering-waves-korea-grossing-no1",
       "views": 1,
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "steam-april-2026",
-      "views": 1,
-      "path": "/magazine/ranking/steam-april-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
