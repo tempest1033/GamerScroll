@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-06-22T00:03:39.280Z",
+  "updatedAt": "2026-06-23T01:28:52.926Z",
   "period": "7days",
   "articles": [
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 19,
+      "views": 21,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 17,
+      "views": 21,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -25,7 +25,7 @@
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 13,
+      "views": 11,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
@@ -37,7 +37,7 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 6,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -64,13 +64,6 @@
       "category": "business",
       "views": 4,
       "path": "/wiki/business/game-shareholder-returns-low-growth/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -113,12 +106,6 @@
     },
     {
       "type": "issue",
-      "slug": "game-ai-controversy-award-revoked",
-      "views": 3,
-      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
-    },
-    {
-      "type": "issue",
       "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 3,
       "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
@@ -144,10 +131,24 @@
     },
     {
       "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 3,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "black-and-white-demis-hassabis",
       "category": "history",
       "views": 3,
       "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
@@ -162,6 +163,12 @@
       "category": "knowledge",
       "views": 3,
       "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 2,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -315,6 +322,12 @@
     },
     {
       "type": "issue",
+      "slug": "game-ai-controversy-award-revoked",
+      "views": 2,
+      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
+    },
+    {
+      "type": "issue",
       "slug": "game-ai-paradigm-shift-2026",
       "views": 2,
       "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
@@ -351,27 +364,15 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 2,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
-      "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 2,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
-      "slug": "steam-deck-oled-asia-price-hike",
+      "slug": "silksong-sea-of-sorrow",
       "views": 2,
-      "path": "/magazine/issue/steam-deck-oled-asia-price-hike/"
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "wiki",
@@ -501,21 +502,15 @@
     },
     {
       "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 1,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
       "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -543,9 +538,21 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-refund-exploit-ban",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
+    },
+    {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 1,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -573,15 +580,15 @@
     },
     {
       "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
-    },
-    {
-      "type": "issue",
       "slug": "sol-enchant-pre-registration",
       "views": 1,
       "path": "/magazine/issue/sol-enchant-pre-registration/"
+    },
+    {
+      "type": "issue",
+      "slug": "steam-deck-oled-asia-price-hike",
+      "views": 1,
+      "path": "/magazine/issue/steam-deck-oled-asia-price-hike/"
     },
     {
       "type": "issue",
@@ -596,18 +603,18 @@
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
+      "type": "tech",
+      "slug": "2d-animation-tech",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
       "type": "wiki",
       "slug": "app-revenue-ranking-algorithm",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/app-revenue-ranking-algorithm/"
-    },
-    {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
