@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T21:00:34.719Z",
+  "updatedAt": "2026-06-24T21:54:04.323Z",
   "period": "30days",
   "games": [
     {
@@ -51,14 +51,6 @@
       "views": 2
     },
     {
-      "slug": "배틀그라운드",
-      "views": 2
-    },
-    {
-      "slug": "aion2",
-      "views": 1
-    },
-    {
       "slug": "bongo-cat",
       "views": 1
     },
@@ -76,6 +68,14 @@
     },
     {
       "slug": "identity-v-제5인격",
+      "views": 1
+    },
+    {
+      "slug": "idol-company",
+      "views": 1
+    },
+    {
+      "slug": "last-epoch-fractured-legend-supporter-pack",
       "views": 1
     }
   ]
