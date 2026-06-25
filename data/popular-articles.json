@@ -1,31 +1,25 @@
 {
-  "updatedAt": "2026-06-24T01:53:52.872Z",
+  "updatedAt": "2026-06-25T00:01:29.585Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 23,
+      "views": 21,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 22,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "wiki",
       "slug": "gacha-system-history",
       "category": "knowledge",
-      "views": 16,
+      "views": 14,
       "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 10,
+      "views": 11,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -35,16 +29,22 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 7,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
       "type": "issue",
       "slug": "dave-the-diver-in-the-jungle-release",
-      "views": 9,
+      "views": 6,
       "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
     },
     {
       "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "slug": "seedance-2-hollywood-shock-next-version",
       "views": 5,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
       "type": "issue",
@@ -54,61 +54,15 @@
     },
     {
       "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 4,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
-    },
-    {
-      "type": "issue",
       "slug": "gta6-preorder-june-25",
       "views": 4,
       "path": "/magazine/issue/gta6-preorder-june-25/"
     },
     {
       "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 4,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-shareholder-returns-low-growth",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/game-shareholder-returns-low-growth/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
-      "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 3,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 3,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -123,41 +77,6 @@
       "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pillar-of-fire-cresents",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 2,
@@ -165,201 +84,15 @@
     },
     {
       "type": "issue",
-      "slug": "ai-basic-act-game-industry-confusion",
+      "slug": "devil-may-cry-1-remake-rumor",
       "views": 2,
-      "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
+      "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
     },
     {
       "type": "issue",
-      "slug": "aion2-midterm-report-card",
+      "slug": "granblue-relink-endless-ragnarok",
       "views": 2,
-      "path": "/magazine/issue/aion2-midterm-report-card/"
-    },
-    {
-      "type": "issue",
-      "slug": "apple-march-2026-macbook-neo-ai",
-      "views": 2,
-      "path": "/magazine/issue/apple-march-2026-macbook-neo-ai/"
-    },
-    {
-      "type": "issue",
-      "slug": "arknights-endfield-launch-success",
-      "views": 2,
-      "path": "/magazine/issue/arknights-endfield-launch-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "azur-promilia-comicworld-cbt-korea",
-      "views": 2,
-      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
-    },
-    {
-      "type": "issue",
-      "slug": "blue-archive-5th-anniversary-japan",
-      "views": 2,
-      "path": "/magazine/issue/blue-archive-5th-anniversary-japan/"
-    },
-    {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 2,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-game-license-normalization",
-      "views": 2,
-      "path": "/magazine/issue/china-game-license-normalization/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-gaming-superpower-rise",
-      "views": 2,
-      "path": "/magazine/issue/china-gaming-superpower-rise/"
-    },
-    {
-      "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
-      "views": 2,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
-    },
-    {
-      "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
-      "views": 2,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-2month-chart-trend",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-2month-chart-trend/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-6-million-dlc",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-6-million-dlc/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-metacritic-stock-crash",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-metacritic-stock-crash/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-preview-march-2026",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-preview-march-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-sds-origin-march-showdown",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-sds-origin-march-showdown/"
-    },
-    {
-      "type": "issue",
-      "slug": "crimson-desert-trilogy-trailer-2026",
-      "views": 2,
-      "path": "/magazine/issue/crimson-desert-trilogy-trailer-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "ddr5-price-surge-gaming-nightmare",
-      "views": 2,
-      "path": "/magazine/issue/ddr5-price-surge-gaming-nightmare/"
-    },
-    {
-      "type": "issue",
-      "slug": "deepseek-v4-launch-march-2026",
-      "views": 2,
-      "path": "/magazine/issue/deepseek-v4-launch-march-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "devsisters-devnow-2026",
-      "views": 2,
-      "path": "/magazine/issue/devsisters-devnow-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "devsisters-q1-loss-voluntary-retirement",
-      "views": 2,
-      "path": "/magazine/issue/devsisters-q1-loss-voluntary-retirement/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-quest-7-reimagined-metacritic",
-      "views": 2,
-      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-sword-full-refund-server-shutdown",
-      "views": 2,
-      "path": "/magazine/issue/dragon-sword-full-refund-server-shutdown/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-sword-launch-report",
-      "views": 2,
-      "path": "/magazine/issue/dragon-sword-launch-report/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragon-sword-webzen-contract-termination",
-      "views": 2,
-      "path": "/magazine/issue/dragon-sword-webzen-contract-termination/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragonsword-awakening-steam-demo",
-      "views": 2,
-      "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
-    },
-    {
-      "type": "issue",
-      "slug": "gacha-item-relief-center",
-      "views": 2,
-      "path": "/magazine/issue/gacha-item-relief-center/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-controversy-award-revoked",
-      "views": 2,
-      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-paradigm-shift-2026",
-      "views": 2,
-      "path": "/magazine/issue/game-ai-paradigm-shift-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "gaming-device-price-surge-ai-tariff",
-      "views": 2,
-      "path": "/magazine/issue/gaming-device-price-surge-ai-tariff/"
-    },
-    {
-      "type": "issue",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 2,
-      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
-    },
-    {
-      "type": "issue",
-      "slug": "genesis-idle-rpg-surprise-hit",
-      "views": 2,
-      "path": "/magazine/issue/genesis-idle-rpg-surprise-hit/"
-    },
-    {
-      "type": "issue",
-      "slug": "geng-lck-cup-championship",
-      "views": 2,
-      "path": "/magazine/issue/geng-lck-cup-championship/"
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
       "type": "issue",
@@ -375,142 +108,43 @@
     },
     {
       "type": "wiki",
-      "slug": "game-ip-licensing",
+      "slug": "platform-fees-comparison",
       "category": "business",
       "views": 2,
-      "path": "/wiki/business/game-ip-licensing/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
-      "slug": "game-revenue-structure",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/game-revenue-structure/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-game-stocks-2025",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/korean-game-stocks-2025/"
-    },
-    {
-      "type": "wiki",
-      "slug": "publisher-developer-relationship",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/publisher-developer-relationship/"
-    },
-    {
-      "type": "wiki",
-      "slug": "astonishia-story-sonnori",
+      "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 2,
-      "path": "/wiki/history/astonishia-story-sonnori/"
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "legend-of-zelda-history",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/legend-of-zelda-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "nier-series",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/nier-series/"
-    },
-    {
-      "type": "wiki",
-      "slug": "ragnarok-online-history",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/ragnarok-online-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "rollercoaster-tycoon",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/rollercoaster-tycoon/"
-    },
-    {
-      "type": "wiki",
-      "slug": "rts-genre-rise-and-fall",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/rts-genre-rise-and-fall/"
-    },
-    {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "wiki",
-      "slug": "type-moon-fate-origin",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/type-moon-fate-origin/"
-    },
-    {
-      "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
+      "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "raph-koster-theory-of-fun",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gaming-seasonality-spending",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gaming-seasonality-spending/"
-    },
-    {
-      "type": "wiki",
-      "slug": "moba-genre-origin",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/moba-genre-origin/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pc-components-gaming-performance",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/pc-components-gaming-performance/"
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     },
     {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "unreal-engine-6-revealed-rocket-league",
+      "views": 1,
+      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
     },
     {
       "type": "issue",
@@ -520,33 +154,21 @@
     },
     {
       "type": "issue",
-      "slug": "atelier-karia-night-kingdom",
-      "views": 1,
-      "path": "/magazine/issue/atelier-karia-night-kingdom/"
-    },
-    {
-      "type": "issue",
-      "slug": "devil-may-cry-1-remake-rumor",
-      "views": 1,
-      "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
-    },
-    {
-      "type": "issue",
       "slug": "ea-battlefield6-layoffs-despite-record-sales",
       "views": 1,
       "path": "/magazine/issue/ea-battlefield6-layoffs-despite-record-sales/"
     },
     {
       "type": "issue",
-      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
+      "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
-      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
+      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 1,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
@@ -568,21 +190,9 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 1,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "issue",
       "slug": "ps5-price-hike-april-sales-drop",
       "views": 1,
       "path": "/magazine/issue/ps5-price-hike-april-sales-drop/"
-    },
-    {
-      "type": "issue",
-      "slug": "roguelike-casual-korea-trend",
-      "views": 1,
-      "path": "/magazine/issue/roguelike-casual-korea-trend/"
     },
     {
       "type": "issue",
@@ -603,6 +213,12 @@
       "path": "/magazine/issue/zelda-ocarina-of-time-remake-switch2/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
       "type": "tech",
       "slug": "2d-animation-tech",
       "category": "normal",
@@ -611,17 +227,38 @@
     },
     {
       "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
+      "slug": "game-business-metrics",
       "category": "business",
       "views": 1,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "wiki",
-      "slug": "app-store-review-thursday-update",
+      "slug": "game-shareholder-returns-low-growth",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-shareholder-returns-low-growth/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pillar-of-fire-cresents",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/pillar-of-fire-cresents/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+      "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/pd-vs-director/"
     }
   ]
 }
