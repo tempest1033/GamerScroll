@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T21:54:04.323Z",
+  "updatedAt": "2026-06-25T22:54:42.937Z",
   "period": "30days",
   "games": [
     {
@@ -51,6 +51,10 @@
       "views": 2
     },
     {
+      "slug": "엘트릭스",
+      "views": 2
+    },
+    {
       "slug": "bongo-cat",
       "views": 1
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "idol-company",
-      "views": 1
-    },
-    {
-      "slug": "last-epoch-fractured-legend-supporter-pack",
       "views": 1
     }
   ]
