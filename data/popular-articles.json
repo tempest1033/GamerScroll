@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-06-25T00:01:29.585Z",
+  "updatedAt": "2026-06-26T00:03:21.511Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 21,
+      "views": 19,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -19,13 +19,13 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 11,
+      "views": 13,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 10,
+      "views": 9,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
@@ -36,14 +36,8 @@
     },
     {
       "type": "issue",
-      "slug": "dave-the-diver-in-the-jungle-release",
-      "views": 6,
-      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
-    },
-    {
-      "type": "issue",
       "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
@@ -54,21 +48,27 @@
     },
     {
       "type": "issue",
+      "slug": "dave-the-diver-in-the-jungle-release",
+      "views": 4,
+      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
+    },
+    {
+      "type": "issue",
       "slug": "gta6-preorder-june-25",
       "views": 4,
       "path": "/magazine/issue/gta6-preorder-june-25/"
     },
     {
       "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 4,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
       "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 3,
       "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 3,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "ranking",
@@ -96,15 +96,15 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 2,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
-      "type": "issue",
       "slug": "silksong-sea-of-sorrow",
       "views": 2,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
+    },
+    {
+      "type": "issue",
+      "slug": "wuthering-waves-korea-grossing-no1",
+      "views": 2,
+      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
       "type": "wiki",
@@ -129,10 +129,10 @@
     },
     {
       "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
+      "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -172,21 +172,21 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-refund-exploit-ban",
+      "slug": "lol-league-next-2027-overhaul",
       "views": 1,
-      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
-    },
-    {
-      "type": "issue",
-      "slug": "lucky-defense-probability-manipulation-scandal",
-      "views": 1,
-      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
       "slug": "mangwol-offline-playtest-recruitment",
       "views": 1,
       "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 1,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
@@ -202,9 +202,9 @@
     },
     {
       "type": "issue",
-      "slug": "wuthering-waves-korea-grossing-no1",
+      "slug": "wuthering-waves-ko《퍼니싱》 누적 모바일 IAP 111mrea-grossing-no1",
       "views": 1,
-      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
+      "path": "/magazine/issue/wuthering-waves-ko《퍼니싱》 누적 모바일 IAP 111mrea-grossing-no1/"
     },
     {
       "type": "issue",
@@ -248,6 +248,13 @@
     },
     {
       "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 1,
@@ -255,10 +262,10 @@
     },
     {
       "type": "wiki",
-      "slug": "pd-vs-director",
+      "slug": "raph-koster-theory-of-fun",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
