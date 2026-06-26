@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T22:54:42.937Z",
+  "updatedAt": "2026-06-26T23:40:53.133Z",
   "period": "30days",
   "games": [
     {
@@ -12,10 +12,6 @@
     },
     {
       "slug": "limbus-company",
-      "views": 3
-    },
-    {
-      "slug": "승리의-여신-니케",
       "views": 3
     },
     {
@@ -51,6 +47,10 @@
       "views": 2
     },
     {
+      "slug": "승리의-여신-니케",
+      "views": 2
+    },
+    {
       "slug": "엘트릭스",
       "views": 2
     },
@@ -67,11 +67,11 @@
       "views": 1
     },
     {
-      "slug": "i9-인페르노-나인-1주년",
+      "slug": "god-of-war-ragnark",
       "views": 1
     },
     {
-      "slug": "identity-v-제5인격",
+      "slug": "i9-인페르노-나인-1주년",
       "views": 1
     },
     {
