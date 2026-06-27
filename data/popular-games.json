@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T23:40:53.133Z",
+  "updatedAt": "2026-06-27T23:51:04.234Z",
   "period": "30days",
   "games": [
     {
@@ -55,6 +55,10 @@
       "views": 2
     },
     {
+      "slug": "한게임-로얄홀덤",
+      "views": 2
+    },
+    {
       "slug": "bongo-cat",
       "views": 1
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "i9-인페르노-나인-1주년",
-      "views": 1
-    },
-    {
-      "slug": "idol-company",
       "views": 1
     }
   ]
