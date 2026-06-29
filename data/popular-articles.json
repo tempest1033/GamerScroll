@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-06-28T02:02:48.085Z",
+  "updatedAt": "2026-06-29T02:29:42.808Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 22,
+      "views": 19,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 15,
+      "views": 14,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -28,12 +28,6 @@
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
-      "type": "issue",
-      "slug": "sol-enchant-dual-market-no1-launch",
-      "views": 5,
-      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
       "views": 4,
@@ -44,12 +38,6 @@
       "slug": "dave-the-diver-in-the-jungle-release",
       "views": 3,
       "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
-    },
-    {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 3,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
       "type": "issue",
@@ -85,9 +73,9 @@
     },
     {
       "type": "issue",
-      "slug": "gta6-preorder-june-25",
+      "slug": "granblue-relink-endless-ragnarok",
       "views": 2,
-      "path": "/magazine/issue/gta6-preorder-june-25/"
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
       "type": "issue",
@@ -100,12 +88,6 @@
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 2,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "wiki",
@@ -130,13 +112,6 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 2,
@@ -156,15 +131,15 @@
     },
     {
       "type": "issue",
-      "slug": "ea-battlefield6-layoffs-despite-record-sales",
+      "slug": "diablo2-resurrected-steam-launch",
       "views": 1,
-      "path": "/magazine/issue/ea-battlefield6-layoffs-despite-record-sales/"
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
+      "slug": "ea-battlefield6-layoffs-despite-record-sales",
       "views": 1,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
+      "path": "/magazine/issue/ea-battlefield6-layoffs-despite-record-sales/"
     },
     {
       "type": "issue",
@@ -186,15 +161,27 @@
     },
     {
       "type": "issue",
-      "slug": "ps5-price-hike-april-sales-drop",
+      "slug": "roguelike-casual-korea-trend",
       "views": 1,
-      "path": "/magazine/issue/ps5-price-hike-april-sales-drop/"
+      "path": "/magazine/issue/roguelike-casual-korea-trend/"
     },
     {
       "type": "issue",
       "slug": "silksong-sea-of-sorrow",
       "views": 1,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
+    },
+    {
+      "type": "issue",
+      "slug": "sol-enchant-dual-market-no1-launch",
+      "views": 1,
+      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "subculture-newyear-china-wins",
+      "views": 1,
+      "path": "/magazine/issue/subculture-newyear-china-wins/"
     },
     {
       "type": "issue",
@@ -244,6 +231,20 @@
       "category": "normal",
       "views": 1,
       "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
