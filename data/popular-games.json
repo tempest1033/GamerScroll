@@ -1,11 +1,7 @@
 {
-  "updatedAt": "2026-06-28T23:58:35.166Z",
+  "updatedAt": "2026-06-30T01:58:01.632Z",
   "period": "30days",
   "games": [
-    {
-      "slug": "올스타-아레나",
-      "views": 8
-    },
     {
       "slug": "메이플-키우기",
       "views": 5
@@ -76,6 +72,10 @@
     },
     {
       "slug": "i9-인페르노-나인-1주년",
+      "views": 1
+    },
+    {
+      "slug": "idol-company",
       "views": 1
     }
   ]
