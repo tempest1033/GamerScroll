@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T01:58:01.632Z",
+  "updatedAt": "2026-07-01T05:01:21.109Z",
   "period": "30days",
   "games": [
     {
@@ -59,10 +59,6 @@
       "views": 1
     },
     {
-      "slug": "ea-sports-fc-online-m",
-      "views": 1
-    },
-    {
       "slug": "ez2on-reboot-r",
       "views": 1
     },
@@ -76,6 +72,10 @@
     },
     {
       "slug": "idol-company",
+      "views": 1
+    },
+    {
+      "slug": "last-epoch-fractured-legend-supporter-pack",
       "views": 1
     }
   ]
