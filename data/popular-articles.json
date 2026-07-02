@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-07-01T00:07:52.914Z",
+  "updatedAt": "2026-07-02T00:06:04.202Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 16,
+      "views": 19,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 11,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -28,22 +28,11 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
       "views": 4,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 3,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "dave-the-diver-in-the-jungle-release",
-      "views": 3,
-      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "issue",
@@ -52,24 +41,16 @@
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 2,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
+      "slug": "dave-the-diver-in-the-jungle-release",
       "views": 2,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
     },
     {
       "type": "issue",
@@ -113,6 +94,13 @@
       "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
+      "type": "wiki",
+      "slug": "gacha-system-regulations",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 1,
@@ -125,22 +113,10 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "hotpick",
-      "slug": "unreal-engine-6-revealed-rocket-league",
-      "views": 1,
-      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
       "type": "issue",
-      "slug": "devil-may-cry-1-remake-rumor",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
-      "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -162,9 +138,15 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "granblue-relink-endless-ragnarok",
       "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+    },
+    {
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
@@ -183,6 +165,12 @@
       "slug": "roguelike-casual-korea-trend",
       "views": 1,
       "path": "/magazine/issue/roguelike-casual-korea-trend/"
+    },
+    {
+      "type": "issue",
+      "slug": "seedance-2-hollywood-shock-next-version",
+      "views": 1,
+      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
       "type": "issue",
@@ -215,16 +203,10 @@
       "path": "/magazine/issue/wuthering-waves-ko《퍼니싱》 누적 모바일 IAP 111mrea-grossing-no1/"
     },
     {
-      "type": "issue",
-      "slug": "zelda-ocarina-of-time-remake-switch2",
-      "views": 1,
-      "path": "/magazine/issue/zelda-ocarina-of-time-remake-switch2/"
-    },
-    {
       "type": "ranking",
-      "slug": "subculture-april-2026-kr",
+      "slug": "lunar-new-year-2026-kr",
       "views": 1,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
+      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
     },
     {
       "type": "ranking",
@@ -241,10 +223,24 @@
     },
     {
       "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-business-metrics/"
+    },
+    {
+      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "wiki",
