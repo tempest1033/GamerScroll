@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T01:27:00.073Z",
+  "updatedAt": "2026-07-04T01:26:26.206Z",
   "period": "7days",
   "articles": [
     {
@@ -16,28 +16,22 @@
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 5,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
       "views": 5,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 4,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 3,
+      "views": 4,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 3,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "wiki",
@@ -54,13 +48,6 @@
       "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 2,
@@ -68,9 +55,27 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 2,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+    },
+    {
+      "type": "issue",
+      "slug": "lucky-defense-probability-manipulation-scandal",
+      "views": 2,
+      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+    },
+    {
+      "type": "issue",
       "slug": "overwatch-shion-hero-52-skillset",
       "views": 2,
       "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
+    },
+    {
+      "type": "issue",
+      "slug": "tomb-raider-legacy-atlantis-release-date",
+      "views": 2,
+      "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
     },
     {
       "type": "wiki",
@@ -92,6 +97,13 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -131,21 +143,21 @@
     },
     {
       "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
+      "slug": "game-ai-controversy-award-revoked",
       "views": 1,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 1,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 1,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -161,21 +173,9 @@
     },
     {
       "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "issue",
       "slug": "subculture-newyear-china-wins",
       "views": 1,
       "path": "/magazine/issue/subculture-newyear-china-wins/"
-    },
-    {
-      "type": "issue",
-      "slug": "tomb-raider-legacy-atlantis-release-date",
-      "views": 1,
-      "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
     },
     {
       "type": "issue",
@@ -211,6 +211,13 @@
     },
     {
       "type": "wiki",
+      "slug": "game-revenue-structure",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-revenue-structure/"
+    },
+    {
+      "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 1,
@@ -229,13 +236,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",
