@@ -1,25 +1,19 @@
 {
-  "updatedAt": "2026-07-04T01:26:26.206Z",
+  "updatedAt": "2026-07-05T01:14:36.477Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 22,
+      "views": 21,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 10,
+      "views": 12,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 5,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "ranking",
@@ -28,10 +22,28 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 4,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 4,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 4,
+      "views": 3,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 3,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "wiki",
@@ -41,23 +53,10 @@
       "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 2,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 2,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -72,12 +71,6 @@
       "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
     },
     {
-      "type": "issue",
-      "slug": "tomb-raider-legacy-atlantis-release-date",
-      "views": 2,
-      "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
-    },
-    {
       "type": "wiki",
       "slug": "app-revenue-ranking-algorithm",
       "category": "business",
@@ -86,17 +79,10 @@
     },
     {
       "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
+      "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "wiki",
@@ -137,12 +123,6 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 1,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "game-ai-controversy-award-revoked",
       "views": 1,
       "path": "/magazine/issue/game-ai-controversy-award-revoked/"
@@ -161,12 +141,6 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 1,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
-      "type": "issue",
       "slug": "roguelike-casual-korea-trend",
       "views": 1,
       "path": "/magazine/issue/roguelike-casual-korea-trend/"
@@ -179,9 +153,9 @@
     },
     {
       "type": "issue",
-      "slug": "trump-tencent-gaming-divestiture",
+      "slug": "tomb-raider-legacy-atlantis-release-date",
       "views": 1,
-      "path": "/magazine/issue/trump-tencent-gaming-divestiture/"
+      "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
     },
     {
       "type": "ranking",
@@ -222,13 +196,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
