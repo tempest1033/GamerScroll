@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-04T09:58:24.839Z",
+  "updatedAt": "2026-07-05T10:34:41.746Z",
   "period": "30days",
   "games": [
     {
@@ -55,10 +55,6 @@
       "views": 2
     },
     {
-      "slug": "bongo-cat",
-      "views": 1
-    },
-    {
       "slug": "ez2on-reboot-r",
       "views": 1
     },
@@ -75,7 +71,11 @@
       "views": 1
     },
     {
-      "slug": "idol-company",
+      "slug": "last-epoch-fractured-legend-supporter-pack",
+      "views": 1
+    },
+    {
+      "slug": "nba-2k25",
       "views": 1
     }
   ]
