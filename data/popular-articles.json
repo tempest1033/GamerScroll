@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T01:14:36.477Z",
+  "updatedAt": "2026-07-06T01:46:21.847Z",
   "period": "7days",
   "articles": [
     {
@@ -12,7 +12,7 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 12,
+      "views": 11,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -20,6 +20,12 @@
       "slug": "subculture-may-2026-kr",
       "views": 5,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 4,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "issue",
@@ -34,16 +40,16 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 3,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
       "type": "issue",
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 3,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+    },
+    {
+      "type": "issue",
+      "slug": "overwatch-shion-hero-52-skillset",
+      "views": 3,
+      "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
     },
     {
       "type": "wiki",
@@ -53,6 +59,13 @@
       "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 2,
@@ -60,29 +73,27 @@
     },
     {
       "type": "issue",
-      "slug": "lucky-defense-probability-manipulation-scandal",
+      "slug": "2026-subculture-openworld-games",
       "views": 2,
-      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
-      "slug": "overwatch-shion-hero-52-skillset",
+      "slug": "game-ai-controversy-award-revoked",
       "views": 2,
-      "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
+      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
     },
     {
-      "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
-      "category": "business",
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
       "views": 2,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
+      "type": "issue",
+      "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
       "type": "wiki",
@@ -99,12 +110,6 @@
     },
     {
       "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 1,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
-    },
-    {
-      "type": "issue",
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
@@ -117,39 +122,9 @@
     },
     {
       "type": "issue",
-      "slug": "dave-the-diver-in-the-jungle-release",
-      "views": 1,
-      "path": "/magazine/issue/dave-the-diver-in-the-jungle-release/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-controversy-award-revoked",
-      "views": 1,
-      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
-    },
-    {
-      "type": "issue",
       "slug": "heartopia-mobile-animal-crossing-success",
       "views": 1,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 1,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "roguelike-casual-korea-trend",
-      "views": 1,
-      "path": "/magazine/issue/roguelike-casual-korea-trend/"
-    },
-    {
-      "type": "issue",
-      "slug": "subculture-newyear-china-wins",
-      "views": 1,
-      "path": "/magazine/issue/subculture-newyear-china-wins/"
     },
     {
       "type": "issue",
@@ -178,6 +153,13 @@
     },
     {
       "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+    },
+    {
+      "type": "wiki",
       "slug": "game-business-metrics",
       "category": "business",
       "views": 1,
@@ -196,6 +178,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
