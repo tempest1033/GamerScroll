@@ -1,0 +1,150 @@
+{
+  "slug": "gpt-56-anthropic-tipping-point",
+  "status": "approved",
+  "needTranslate": false,
+  "site": "aiscroll",
+  "category": "general",
+  "title": "GPT-5.6 반값 공세, 흔들리는 앤트로픽 파고든다",
+  "titleEn": "GPT-5.6 Price War Hits Anthropic at Its Weakest",
+  "date": "2026-07-06T02:30Z",
+  "thumbnail": "https://images.ctfassets.net/kftzwdyauwt9/48XpR5dxhE6jJQ03HTUnWZ/ac68fbfb7761fa72ac7442c6744dba56/_.png?w=1600&h=900&fit=fill",
+  "keywords": "GPT-5.6 테라, 소넷 5 논란, 페이블 5 구독 제외, 오픈AI 가격 인하",
+  "keywordsEn": "GPT-5.6 Terra, Sonnet 5 benchmark, Fable 5 subscription, OpenAI pricing",
+  "summary": "클로드 소넷 5의 성능 논란과 최상위 모델 페이블 5의 구독 요금제 제외 시점이 오픈AI의 반값 GPT-5.6 출시와 맞물린다. 중위 모델 테라는 GPT-5.5급 성능을 기존의 절반 가격으로 내세웠다.",
+  "summaryEn": "Sonnet 5 backlash and Fable 5 leaving subscriptions collide with OpenAI's half-price GPT-5.6 family. Terra matches GPT-5.5 at half the cost.",
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "Previewing GPT-5.6 Sol: a next-generation model",
+      "url": "https://openai.com/index/previewing-gpt-5-6-sol/"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Redeploying Claude Fable 5",
+      "url": "https://www.anthropic.com/news/redeploying-fable-5"
+    },
+    {
+      "name": "The Register",
+      "title": "Claude Sonnet 5.0 heads straight down the middle of the road to dodge controversy",
+      "url": "https://www.theregister.com/devops/2026/07/01/claude-sonnet-50-heads-straight-down-the-middle-of-the-road-to-dodge-controversy/5265398"
+    },
+    {
+      "name": "BleepingComputer",
+      "title": "Claude Fable 5 isn't permanently leaving subscriptions, Anthropic says",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "OpenAI unveils GPT-5.6 Sol, Terra and Luna models — but only accessible to limited preview partners for now",
+      "url": "https://venturebeat.com/technology/openai-unveils-gpt-5-6-sol-terra-and-luna-models-but-only-accessible-to-limited-preview-partners-for-now-per-us-gov"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-fable-5-restoration-standoff",
+    "tech:ai/gpt-5-5-pro-codex-sighting",
+    "tech:ai/fable-mythos-shutdown-industry-reactions",
+    "tech:ai/codex-hits-5-million-users"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "7월 초 AI 구독 시장의 두 시간표가 맞물린다. 앤트로픽은 7월 7일을 끝으로 최상위 모델인 '클로드 페이블 5'를 구독 요금제에서 제외한다. 오픈AI는 차세대 모델 'GPT-5.6' 제품군의 정식 출시를 '수 주 내'로 예고했는데, 시장은 그 시점을 7월 7일 전후로 보고 있다. 페이블 5가 빠지는 바로 그 자리다.\n\n여기에 지난 6월 말 출시한 중위 모델 '클로드 소넷 5'가 벤치마크 성적 조작 의혹과 사용자 혹평에 직면했다. 앤트로픽은 최상위 제품과 중위 제품이 동시에 흔들리는 위기를 맞았고, 오픈AI는 공격적인 가격 인하 정책을 펼치며 이 틈을 파고들고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "하루 만에 바뀐 차트, 소넷 5 논란 확산"
+    },
+    {
+      "type": "text",
+      "value": "논란은 벤치마크 표 한 장에서 시작됐다. 앤트로픽은 클로드 소넷 5를 출시하며 에이전트 성능 벤치마크 표를 게시했으나, 다음 날 이를 알리지 않고 교체했다. 초기 버전에서 최상위 모델인 오푸스 4.8에 크게 뒤처졌던 수치가 하루 만에 동등한 수준으로 수정됐다.\n\n앤트로픽은 초기 차트가 단순한 측정 방식을 사용해 성능을 과소평가했다고 해명했다. 하지만 개발자 커뮤니티 레딧의 사용자들은 이를 '분위기 그래프 맞춤(vibe graphing)'이라 조롱했고, 논란은 허위 광고 의혹으로 번졌다.\n\n실제 인공지능을 사용해 본 이들의 반응도 부정적이다. 사용자들은 모델이 작업을 거부하거나 훈계하려 든다고 지적했으며, 코드 리뷰 플랫폼인 코드래빗의 검증 결과 버그 검출 능력이 전작 소넷 4.6보다 떨어졌다. IT 매체 더 레지스터는 논란을 피하려고 도로 한가운데로만 달리는 모델이라 평가했다."
+    },
+    {
+      "type": "heading",
+      "value": "페이블 5 구독 요금제 제외, 기한은 7월 7일"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+      "caption": "앤트로픽의 페이블 5 재배포 공지 그래픽",
+      "alt": "앤트로픽 재배포 공지 대표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "중위 모델이 비판을 받는 가운데 최상위 제품은 요금제에서 완전히 제외된다. 앤트로픽은 [재배포 공지](https://www.anthropic.com/news/redeploying-fable-5)를 통해 프로, 맥스, 팀 요금제 이용자의 페이블 5 사용 기한을 7월 7일까지만 유지하며, 그전까지도 주간 제한량의 50%만 제공하겠다고 발표했다.\n\n이후에는 별도의 크레딧을 추가로 구매해야 모델을 쓸 수 있다. 앤트로픽은 이번 조치가 영구적인 변경이 아니라 수요 폭주에 따른 일시적 대응이라고 주장했으나, 사용자들은 반발했다. 온라인 커뮤니티에는 7월 7일에 맞춰 구독을 해지하거나 등급을 내리겠다는 글이 잇따르고 있다.\n\n페이블 5는 출시 사흘 만에 미국 정부의 수출 통제로 서비스가 중단되었다가, [백악관과의 협상](/ko/article/anthropic/anthropic-fable-5-restoration-standoff/)을 거쳐 지난 7월 1일에야 복귀한 모델이다. 우여곡절 끝에 서비스를 재개한 간판 모델이 복귀 직후 구독 요금제 밖으로 밀려났다."
+    },
+    {
+      "type": "heading",
+      "value": "반값 GPT-5.6 출시... 솔·테라·루나 라인업"
+    },
+    {
+      "type": "text",
+      "value": "오픈AI의 신규 라인업은 앤트로픽의 공백기와 정확히 겹친다. GPT-5.6 제품군은 최상위 모델인 솔(Sol), 중위 모델인 테라(Terra), 경량형인 루나(Luna)로 나뉜다. 현재 이 제품군은 미국 정부의 모델 안전성 평가 절차에 따라 약 20개 기관을 대상으로 제한된 비공개 시연을 진행하고 있다.\n\n공개된 가격 정책은 매우 공격적이다. 100만 토큰당 솔은 입력 5달러, 출력 30달러로 GPT-5.5와 가격이 같지만 성능은 크게 높였다. 테라는 입력 2.5달러, 출력 15달러로 GPT-5.5급 성능을 반값에 제공하며, 루나는 1달러와 6달러다. 터미널벤치 2.1 평가에서 테라는 84.3%를 기록해 GPT-5.5(83.4%)를 앞섰다.\n\n최상위 등급 비교에서도 오픈AI가 우위를 점했다. 솔은 동일 벤치마크에서 88.8%의 성적으로 앤트로픽 미토스 5의 88.0%를 넘어섰다. 오픈AI가 공개한 [프리뷰 노트](https://openai.com/index/previewing-gpt-5-6-sol/)에 따르면 성능을 한 단계 더 높인 솔 울트라 모델은 91.9%의 점수를 받았다."
+    },
+    {
+      "type": "heading",
+      "value": "7월 7일 아침, 구독자의 셈법"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/jdtwqhzvc2n1/3lU9GHu18yIWPaRDqvYm2f/4e26e084df7b76a47a4a332857942384/ChatGPT_Image_Jun_26__2026__01_00_08_PM.png?w=800&q=75",
+      "caption": "GPT-5.6 발표를 다룬 벤처비트 기사 일러스트",
+      "alt": "GPT-5.6 솔·테라·루나 발표 기사 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "이제 이용자들의 셈법이 복잡해졌다. 페이블 5를 계속 이용하려면 매달 요금 외에 추가 비용을 지불해야 하고, 소넷 5는 성능 논란으로 시장의 신뢰를 잃었다. 그 자리에 GPT-5.5급 성능을 반값에 쓰게 해주겠다는 테라가 대안으로 자리하고 있다.\n\n오픈AI에는 절호의 기회다. 지난 1년간 기업용 시장에서 앤트로픽에 밀려 고전해 왔지만, 코딩 에이전트 코덱스의 선전으로 격차를 턱밑까지 좁혀 놓은 상태다. 가격 인하와 경쟁사의 요금제 정책 개편이 겹친 이번 여름은 GPT가 점유율을 되찾을 분수령이 될 수 있다. 남은 변수는 제품의 공식 출시 시점과 비공개 평가에서 얻은 벤치마크 결과가 실제 사용 환경에서도 재현될지 여부다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Two clocks are aligned for early July: July 7 marks the final day Anthropic's flagship Claude Fable 5 remains within subscription plans. OpenAI, meanwhile, has penciled in the general release of its GPT-5.6 family for 'the coming weeks' — and the market widely expects it to land right around July 7, the very day Fable 5 drops out.\n\nCoupled with the benchmark controversy and poor reviews surrounding Claude Sonnet 5 since its late June launch, Anthropic's high- and mid-tier models are faltering simultaneously, just as OpenAI arrives with an aggressive pricing offensive."
+    },
+    {
+      "type": "heading",
+      "value": "An Overnight Chart Swap: The Sonnet 5 Backlash"
+    },
+    {
+      "type": "text",
+      "value": "The controversy began with a single benchmark table. Alongside the launch of Sonnet 5, Anthropic published an agentic benchmark table, only to quietly replace it the next day. Data that initially trailed Opus 4.8 by a wide margin suddenly appeared competitive.\n\nAnthropic explained that the original chart relied on a simpler methodology that underestimated the model's capabilities. However, developers on Reddit dismissed the explanation, mocking the revision as 'vibe graphing' and raising allegations of false advertising.\n\nThe backlash extends well beyond the chart swap. Users report that the model frequently refuses tasks and lectures them, while tests by code-review platform CodeRabbit indicate it detects fewer bugs than its predecessor, Sonnet 4.6. Tech outlet The Register quipped that the model 'heads straight down the middle of the road to dodge controversy.'"
+    },
+    {
+      "type": "heading",
+      "value": "Fable 5 Exits Subscriptions on July 7"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+      "caption": "Anthropic's Fable 5 redeployment announcement graphic",
+      "alt": "Anthropic redeployment announcement artwork"
+    },
+    {
+      "type": "text",
+      "value": "While the mid-tier model faces criticism, Anthropic's top-tier offering is exiting subscription packages entirely. In a [redeployment notice](https://www.anthropic.com/news/redeploying-fable-5), the company announced that Pro, Max, and Team plans will only include Fable 5 access until July 7, with weekly usage capped at 50% in the interim.\n\nSubsequently, access will require purchasing separate usage credits. Although Anthropic maintains this is a temporary measure driven by capacity demands rather than a permanent policy change, subscribers are pushing back. Online communities are seeing a surge of users planning to cancel or downgrade their subscriptions on July 7.\n\nFable 5's history has been volatile; the model was suspended under U.S. export controls just three days after its initial launch, returning only on July 1 following [negotiations with the White House](/article/anthropic/anthropic-fable-5-restoration-standoff/). Having barely secured its return, the flagship is now being excluded from standard subscription plans."
+    },
+    {
+      "type": "heading",
+      "value": "Half-Price GPT-5.6: Sol, Terra, and Luna"
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's new lineup is scheduled to arrive during this transitional window. The GPT-5.6 family is divided into the flagship Sol, the mid-tier Terra, and the lightweight Luna. To comply with the U.S. government's model safety review process, the models are currently limited to a private preview involving approximately 20 organizations.\n\nThe pricing strategy is highly aggressive. Per million tokens, Sol is priced at $5 for input and $30 for output—matching GPT-5.5's pricing while delivering significant performance gains. Terra offers GPT-5.5-class performance at half the price, at $2.50 for input and $15 for output, while Luna is priced at $1 and $6. On TerminalBench 2.1, Terra scored 84.3%, slightly outperforming GPT-5.5 at 83.4%.\n\nThe high-end performance comparison also favors OpenAI. Sol recorded 88.8% on the same benchmark, surpassing Anthropic's Mythos 5 at 88.0%. Meanwhile, the premium Sol Ultra variant reached 91.9%, according to data published by OpenAI in its [preview note](https://openai.com/index/previewing-gpt-5-6-sol/)."
+    },
+    {
+      "type": "heading",
+      "value": "July 7: A Subscriber's Math"
+    },
+    {
+      "type": "image",
+      "src": "https://images.ctfassets.net/jdtwqhzvc2n1/3lU9GHu18yIWPaRDqvYm2f/4e26e084df7b76a47a4a332857942384/ChatGPT_Image_Jun_26__2026__01_00_08_PM.png?w=800&q=75",
+      "caption": "VentureBeat's illustration for its GPT-5.6 coverage",
+      "alt": "Illustration from GPT-5.6 Sol, Terra and Luna coverage"
+    },
+    {
+      "type": "text",
+      "value": "The calculations now fall to the subscribers. Retaining access to Fable 5 requires purchasing additional credits, while Sonnet 5 is mired in its benchmark backlash. Concurrently, OpenAI's Terra presents an alternative, offering GPT-5.5-level performance at half the cost.\n\nFor OpenAI, this is a golden opening. It has spent the past year trailing Anthropic in the enterprise market, but the strong run of its coding agent Codex has closed the gap to striking distance. The combination of OpenAI's pricing offensive and Anthropic's subscription changes could make this summer a turning point for GPT's market share. The key remaining variables are the timing of the general release and whether these preview benchmarks translate to real-world environments."
+    }
+  ]
+}

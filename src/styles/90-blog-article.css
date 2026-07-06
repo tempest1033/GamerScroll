@@ -4,7 +4,7 @@
 
 /* 컨테이너 */
 :is(#issue, #ai-article, #wiki-article, #tech-article, #ranking) .page-container {
-  max-width: 1076px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 0 var(--space-block-y) 0;
   display: block;
@@ -29,13 +29,18 @@
   overflow: visible;
 }
 
-/* 블로그 카드 내 본문만 매거진 폭으로 제한 (이미지/표/관련글 등은 카드 폭) */
+/* 블로그 카드 내 본문·미디어를 매거진 폭(720px)으로 통일 정렬 */
 .blog-content > .blog-paragraph,
 .blog-content > .blog-heading,
 .blog-content > ul,
 .blog-content > ol,
 .blog-content > blockquote,
-.blog-content > .blog-summary {
+.blog-content > .blog-summary,
+.blog-content > .blog-figure,
+.blog-content > .blog-table-wrapper,
+.blog-content > .ad-card,
+.blog-content > .blog-link-buttons,
+.blog-content > .blog-video {
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
@@ -76,14 +81,22 @@
 
 /* 제목 - 큰 에디토리얼 타이틀 */
 .blog-title {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.18;
   color: var(--text);
   margin-top: 0;
-  margin-bottom: 18px;
-  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
   text-align: left;
+}
+
+@media (max-width: 768px) {
+  .blog-title {
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
 }
 
 /* 메타 정보 - 깔끔한 한 줄 (작성자 · 날짜) */
@@ -899,7 +912,9 @@
 
 /* 관련 게임 섹션 - 카드 내부 */
 .blog-related-games {
-  padding: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 0;
   border-top: 1px solid var(--border);
 }
 
@@ -954,7 +969,9 @@
 
 /* 관련 이슈 섹션 */
 .blog-related-issues {
-  padding: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 0;
   border-top: 1px solid var(--border);
 }
 
@@ -1042,7 +1059,9 @@
 
 /* 정보 출처 섹션 */
 .blog-sources {
-  padding: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 0;
   border-top: 1px solid var(--border);
 }
 
@@ -1669,9 +1688,9 @@
   background: var(--border);
 }
 
-.podium-bar-1st { height: 120px; background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%); }
-.podium-bar-2nd { height: 90px; background: linear-gradient(180deg, #C0C0C0 0%, #A0A0A0 100%); }
-.podium-bar-3rd { height: 60px; background: linear-gradient(180deg, #CD7F32 0%, #8B4513 100%); }
+.podium-bar-1st { height: 120px; background: var(--medal-gold); }
+.podium-bar-2nd { height: 90px; background: var(--medal-silver); }
+.podium-bar-3rd { height: 60px; background: var(--medal-bronze); }
 
 /* 랭킹 카드 */
 .ranking-card {
@@ -1689,7 +1708,7 @@
 
 .ranking-card-highlight {
   border-color: #FF6B6B;
-  background: linear-gradient(135deg, rgba(255,107,107,0.05) 0%, rgba(255,107,107,0.02) 100%);
+  background: rgba(255, 107, 107, 0.05);
 }
 
 .ranking-card-rank {

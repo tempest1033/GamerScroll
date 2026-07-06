@@ -121,7 +121,7 @@
       --text: #18181B;
       --text-primary: #18181B;
       --text-secondary: #3F3F46;
-      --text-muted: #71717A;
+      --text-muted: #6B6B73;
       --text-tertiary: #A1A1AA;
 
 	      /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
@@ -242,6 +242,11 @@
       --rank-purple: #6d28d9;
       --rank-green: #166534;
       --rank-red: #991b1b;
+
+      /* === Medal Colors (1-3위 solid 톤 - 그라디언트 대체) === */
+      --medal-gold: #f59e0b;
+      --medal-silver: #94a3b8;
+      --medal-bronze: #b45309;
 
       /* === Link Hover === */
       --link-hover-accent: #34d399;

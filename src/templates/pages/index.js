@@ -310,35 +310,45 @@ function generateIndexPage(data) {
         }
       }
       return null;
-    }).filter(Boolean).slice(0, 3);
+    }).filter(Boolean).slice(0, 6);
 
     if (popularItems.length === 0) return '';
 
-    const popularCards = popularItems.map((item, i) => {
-      const imgAttrs = item.srcset
-        ? `src="${item.thumbnail}" srcset="${item.srcset}" sizes="${item.sizes}"`
-        : `src="${item.thumbnail}"`;
-      return `
-      <a href="${item.link}" class="home-popular-card">
-        <div class="home-popular-thumb">
-          ${item.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(item.title)}" ${getPopularImagePerfAttrs(pickLcpImageAttrs)}>` : ''}
+    // 매거진 히어로: 대형 피처 1개 + 옆의 컴팩트 랭크 리스트
+    const feature = popularItems[0];
+    const restItems = popularItems.slice(1);
+
+    const featureImgAttrs = feature.srcset
+      ? `src="${feature.thumbnail}" srcset="${feature.srcset}" sizes="${feature.sizes}"`
+      : `src="${feature.thumbnail}"`;
+    const featureHtml = `
+      <a href="${feature.link}" class="hero-feature">
+        <div class="hero-feature-media">
+          ${feature.thumbnail ? `<img ${featureImgAttrs} alt="${escapeHtmlAttr(feature.title)}" ${getPopularImagePerfAttrs(pickLcpImageAttrs)}>` : ''}
+          ${feature.badge ? `<span class="hero-feature-badge">${feature.badge}</span>` : ''}
         </div>
-        <div class="home-popular-info">
-          <h3 class="home-popular-title">${item.title}</h3>
-          ${item.summary ? `<p class="home-popular-summary">${item.summary}</p>` : ''}
+        <div class="hero-feature-body">
+          <h3 class="hero-feature-title">${feature.title}</h3>
+          ${feature.summary ? `<p class="hero-feature-summary">${feature.summary}</p>` : ''}
         </div>
       </a>
     `;
-    }).join('');
-    const popularListId = 'homePopularList';
+
+    const listHtml = restItems.map((item, i) => `
+      <a href="${item.link}" class="hero-list-item">
+        <span class="hero-list-rank">${i + 2}</span>
+        <h3 class="hero-list-title">${item.title}</h3>
+      </a>
+    `).join('');
 
     return `
-      <div class="home-card" id="home-popular">
-        <div class="home-card-header">
-          <h2 class="home-card-title">인기</h2>
+      <section class="home-hero" id="home-popular">
+        <h2 class="home-section-title">인기</h2>
+        <div class="home-hero-grid">
+          ${featureHtml}
+          <div class="hero-list" id="homePopularList">${listHtml}</div>
         </div>
-        <div class="home-popular-list" id="${popularListId}">${popularCards}</div>
-      </div>
+      </section>
     `;
   }
 
@@ -522,9 +532,7 @@ function generateIndexPage(data) {
 
     return `
       <div class="home-card" id="home-latest">
-        <div class="home-card-header">
-          <h2 class="home-card-title">최신</h2>
-        </div>
+        <h2 class="home-section-title">최신</h2>
         <div class="home-latest-grid">${initialCards.join('')}</div>
         ${deferredCardsJson ? `<script type="application/json" id="homeLatestDeferredData">${deferredCardsJson}</script>${renderDeferredSeoLinks(deferredSeoLinks, 'homeLatestDeferredSeoLinks')}` : ''}
         <div class="home-pagination" data-total="${allArticles.length}" data-per-page="${FEED_PAGE_SIZE}">
@@ -592,9 +600,7 @@ function generateIndexPage(data) {
 
       return `
         <div class="home-card" id="home-wiki-${category}">
-          <div class="home-card-header">
-            <h2 class="home-card-title">${categoryNames[category]}</h2>
-          </div>
+          <h2 class="home-section-title">${categoryNames[category]}</h2>
           <div class="home-trend-grid">${cards}</div>
         </div>
       `;

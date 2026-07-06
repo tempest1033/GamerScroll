@@ -10,14 +10,14 @@ function generateHeader() {
       display: flex !important;
       align-items: center;
       justify-content: space-between !important;
-      max-width: 1076px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0 20px !important;
+      padding: 0 32px !important;
       gap: 24px;
     }
     .gs-logo { flex-shrink: 0; }
     .gs-logo .logo-svg { height: 40px; width: auto; }
-    .gs-search { position: relative; flex-shrink: 0; width: 320px; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
     .gs-search .search-box {
       display: flex;
       align-items: center;

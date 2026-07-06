@@ -243,6 +243,11 @@
       --rank-green: #166534;
       --rank-red: #991b1b;
 
+      /* === Medal Colors (1-3위 solid 톤 - 그라디언트 대체) === */
+      --medal-gold: #f59e0b;
+      --medal-silver: #94a3b8;
+      --medal-bronze: #b45309;
+
       /* === Link Hover === */
       --link-hover-accent: #34d399;
 

@@ -473,57 +473,50 @@ function generateAIBlogIndex(data) {
   const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
   const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
 
-  // 인기 카드 (1,2등 그리드 + 3,4,5등 가로형)
+  // 인기 히어로 (대표 1건 피처 + 컴팩트 랭크 리스트)
   function generatePopularCards() {
     const items = popularArticles.slice(0, 5);
     if (items.length === 0) return '';
 
-    // 1, 2등: 2컬럼 그리드
-    const topItems = items.slice(0, 2);
-    const topGrid = topItems.map((item, idx) => `
-      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="home-trend-card">
-        <div class="home-trend-card-image">
-          ${item.thumbnail ? (() => {
-            const thumbData = getThumbSrcset(item.thumbnail, 320, 640, '(max-width: 768px) 46vw, 360px');
+    // 대표 기사 (1등): 큰 피처 카드
+    const featureItem = items[0];
+    const featureBadge = featureItem.category ? escapeHtml(String(featureItem.category)) : '';
+    const feature = `
+      <a href="${articleHref(featureItem.category || 'general', featureItem.slug, _lang)}" class="hero-feature">
+        <div class="hero-feature-media">
+          ${featureItem.thumbnail ? (() => {
+            const thumbData = getThumbSrcset(featureItem.thumbnail, 320, 640, '(max-width: 768px) 92vw, 640px');
             const imgAttrs = thumbData.srcset
               ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
               : `src="${thumbData.src}"`;
-            const perfAttrs = lazyImageAttrs;
-            return `<img ${imgAttrs} width="640" height="360" alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">`;
+            return `<img ${imgAttrs} width="640" height="360" alt="${escapeHtml(featureItem.title)}" ${lcpImageAttrs} data-img-fallback="hide">`;
           })() : ''}
+          ${featureBadge ? `<span class="hero-feature-badge">${featureBadge}</span>` : ''}
         </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
+        <div class="hero-feature-body">
+          <h3 class="hero-feature-title">${escapeHtml(featureItem.title)}</h3>
+          ${featureItem.summary ? `<p class="hero-feature-summary">${escapeHtml(featureItem.summary)}</p>` : ''}
+        </div>
       </a>
-    `).join('');
+    `;
 
-    // 3, 4, 5등: 가로형
-    const restItems = items.slice(2, 5);
-    const restList = restItems.map((item) => `
-      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="home-popular-card">
-        <div class="home-popular-thumb">
-          ${item.thumbnail ? (() => {
-            const thumbData = getThumbSrcset(item.thumbnail, 200, 400, '(max-width: 768px) 33vw, 200px');
-            const imgAttrs = thumbData.srcset
-              ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
-              : `src="${thumbData.src}"`;
-            return `<img ${imgAttrs} width="400" height="225" alt="${escapeHtml(item.title)}" ${lazyImageAttrs} data-img-fallback="hide">`;
-          })() : ''}
-        </div>
-        <div class="home-popular-info">
-          <h3 class="home-popular-title">${escapeHtml(item.title)}</h3>
-          ${item.summary ? `<p class="home-popular-summary">${escapeHtml(item.summary)}</p>` : ''}
-        </div>
+    // 2등 이하: 컴팩트 랭크 리스트
+    const restItems = items.slice(1, 5);
+    const heroList = restItems.map((item, idx) => `
+      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="hero-list-item">
+        <span class="hero-list-rank">${idx + 2}</span>
+        <span class="hero-list-title">${escapeHtml(item.title)}</span>
       </a>
     `).join('');
 
     return `
-      <div class="home-card" id="home-popular">
-        <div class="home-card-header">
-          <h2 class="home-card-title">${(I18N[_lang] || I18N.en).popular}</h2>
+      <section class="home-hero" id="home-popular">
+        <h2 class="home-section-title">${(I18N[_lang] || I18N.en).popular}</h2>
+        <div class="home-hero-grid">
+          ${feature}
+          <div class="hero-list">${heroList}</div>
         </div>
-        <div class="popular-top-grid">${topGrid}</div>
-        <div class="home-popular-list">${restList}</div>
-      </div>
+      </section>
     `;
   }
 
@@ -537,7 +530,7 @@ function generateAIBlogIndex(data) {
       const imgAttrs = thumbData.srcset
         ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
         : `src="${thumbData.src}"`;
-      const perfAttrs = i === 0 ? lcpImageAttrs : lazyImageAttrs;
+      const perfAttrs = lazyImageAttrs;
       return `
       <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
@@ -553,10 +546,8 @@ function generateAIBlogIndex(data) {
     const totalPages = Math.ceil(items.length / FEED_PAGE_SIZE);
 
     return `
-      <div class="home-card" id="home-latest">
-        <div class="home-card-header">
-          <h2 class="home-card-title">${(I18N[_lang] || I18N.en).latest}</h2>
-        </div>
+      <section class="home-card" id="home-latest">
+        <h2 class="home-section-title">${(I18N[_lang] || I18N.en).latest}</h2>
         <div class="home-latest-grid" id="homeLatestGrid">${cardPayload.initialHtml}</div>
         ${cardPayload.deferredJson ? `<script type="application/json" id="homeLatestDeferredData">${cardPayload.deferredJson}</script>${cardPayload.deferredSeoLinksHtml}` : ''}
         <div class="home-pagination" data-total="${items.length}" data-per-page="${FEED_PAGE_SIZE}" data-initial-render="${INITIAL_FEED_RENDER_COUNT}">
@@ -564,7 +555,7 @@ function generateAIBlogIndex(data) {
           <span class="home-page-info">1 / ${totalPages}</span>
           <button class="home-page-btn home-page-next">›</button>
         </div>
-      </div>
+      </section>
     `;
   }
 
@@ -1025,9 +1016,9 @@ function wrapWithLayout(content, options = {}) {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1076px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 32px;
     }
     .aiscroll-logo {
       flex-shrink: 0;
@@ -1306,7 +1297,7 @@ function wrapWithLayout(content, options = {}) {
       margin-bottom: 16px;
     }
     #sidebar-categories .home-card-header {
-      padding: 12px 16px 8px;
+      padding: 12px 0 8px;
       border-bottom: none;
     }
     #sidebar-categories .home-card-title {

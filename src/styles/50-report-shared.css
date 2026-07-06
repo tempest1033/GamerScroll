@@ -5,7 +5,7 @@
 :root {
   --radius-lg: 20px;
   --transition-elevate: transform 0.2s ease, box-shadow 0.2s ease;
-  --gradient-progress: linear-gradient(90deg, #3b82f6, #2563eb);
+  --gradient-progress: var(--primary);
   --section-gradient: #ffffff;
 }
 
@@ -1094,16 +1094,16 @@
   background: transparent;
 }
 
-/* --- 모바일 edge-to-edge --- */
+/* --- 모바일: 컨테이너 거터로 인셋되므로 둥근 모서리를 유지해 의도된 카드로 보이게 --- */
 @media (max-width: 768px) {
   .weekly-section {
-    border-radius: 0 !important;
+    border-radius: var(--radius-lg) !important;
   }
 
   .weekly-hot-thumb,
   .metric-thumb,
   .industry-thumb {
-    border-radius: 0 !important;
+    border-radius: var(--radius-sm) !important;
   }
 }
 /* purgecss end ignore */
