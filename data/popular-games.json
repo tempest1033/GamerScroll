@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05T10:34:41.746Z",
+  "updatedAt": "2026-07-06T11:10:45.315Z",
   "period": "30days",
   "games": [
     {
@@ -43,10 +43,6 @@
       "views": 2
     },
     {
-      "slug": "승리의-여신-니케",
-      "views": 2
-    },
-    {
       "slug": "엘트릭스",
       "views": 2
     },
@@ -76,6 +72,10 @@
     },
     {
       "slug": "nba-2k25",
+      "views": 1
+    },
+    {
+      "slug": "obs-studio",
       "views": 1
     }
   ]
