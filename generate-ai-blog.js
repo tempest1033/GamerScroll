@@ -1323,6 +1323,22 @@ self.addEventListener('fetch', (event) => {
 `;
   fs.writeFileSync(path.join(DOCS_DIR, 'service-worker.js'), swContent, 'utf8');
   console.log('Service Worker 생성 완료');
+
+  // Cloudflare Pages _headers: long-cache immutable hashed CSS + images/icons.
+  try {
+    const headerLines = [];
+    for (const bundle of AI_CSS_BUNDLES) {
+      if (!/\.[a-f0-9]{8}\.css$/.test(bundle.output)) continue;
+      headerLines.push(`/${bundle.output}`, '  Cache-Control: public, max-age=31536000, immutable', '');
+    }
+    headerLines.push('/assets/images/*', '  Cache-Control: public, max-age=604800', '');
+    headerLines.push('/icon-*.png', '  Cache-Control: public, max-age=2592000', '');
+    headerLines.push('/favicon*', '  Cache-Control: public, max-age=2592000', '');
+    fs.writeFileSync(path.join(DOCS_DIR, '_headers'), headerLines.join('\n') + '\n', 'utf8');
+    console.log('_headers 생성 완료');
+  } catch (err) {
+    console.warn('_headers 생성 실패:', err.message);
+  }
 }
 
 main().catch(console.error);

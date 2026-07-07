@@ -2672,6 +2672,23 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     console.warn('⚠️ _redirects 생성 실패:', err.message);
   }
 
+  // Cloudflare Pages _headers: long-cache immutable hashed CSS + images/icons.
+  try {
+    const headerLines = [];
+    for (const bundle of cssBundles) {
+      const hashedPath = withCssAssetVersion(bundle.publicPath);
+      if (!/\.[a-f0-9]{8}\.css$/.test(hashedPath)) continue;
+      headerLines.push(hashedPath, '  Cache-Control: public, max-age=31536000, immutable', '');
+    }
+    headerLines.push('/assets/images/*', '  Cache-Control: public, max-age=604800', '');
+    headerLines.push('/icon-*.png', '  Cache-Control: public, max-age=2592000', '');
+    headerLines.push('/favicon*', '  Cache-Control: public, max-age=2592000', '');
+    fs.writeFileSync(`${DOCS_DIR}/_headers`, headerLines.join('\n') + '\n', 'utf8');
+    console.log('🧾 _headers 생성 완료');
+  } catch (err) {
+    console.warn('⚠️ _headers 생성 실패:', err.message);
+  }
+
   // RSS 피드 생성
   try {
     const rssCount = generateRSS('./reports', `${DOCS_DIR}/rss.xml`);
@@ -2695,7 +2712,7 @@ Sitemap: https://gamerscroll.com/sitemap.xml
 const STATIC_CACHE = CACHE_NAME + '-static';
 const RUNTIME_CACHE = CACHE_NAME + '-runtime';
 const PRECACHE_URLS = ${JSON.stringify(swPrecacheUrls, null, 2)};
-const STATIC_EXT_RE = /\\\\.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf|json)$/i;
+const STATIC_EXT_RE = /\\.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf|json)$/i;
 
 async function cachePut(cacheName, request, response) {
   if (!response || response.status !== 200) return response;
