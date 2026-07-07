@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T11:10:45.315Z",
+  "updatedAt": "2026-07-07T11:46:47.727Z",
   "period": "30days",
   "games": [
     {
@@ -47,6 +47,10 @@
       "views": 2
     },
     {
+      "slug": "테이스티-트레블-합성-게임",
+      "views": 2
+    },
+    {
       "slug": "한게임-로얄홀덤",
       "views": 2
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "nba-2k25",
-      "views": 1
-    },
-    {
-      "slug": "obs-studio",
       "views": 1
     }
   ]
