@@ -12,7 +12,8 @@ const REPORT_ITEMS = [
   { id: 'issue', name: '이슈', link: '/magazine/issue/' },
   { id: 'insight', name: '인사이트', link: '/magazine/insight/' },
   { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/' },
-  { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/' }
+  { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/' },
+  { id: 'weekly', name: '주간', link: '/magazine/weekly/' }
 ];
 
 const WIKI_ITEMS = [

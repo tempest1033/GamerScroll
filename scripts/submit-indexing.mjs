@@ -1,29 +1,38 @@
 #!/usr/bin/env node
-// Submit new article URLs to Google Indexing API after a build/push.
+// Submit recently-changed indexable URLs to IndexNow (Bing, Yandex, et al.).
+//
+// Why not the Google Indexing API? That API officially supports only
+// JobPosting / BroadcastEvent pages — submitting regular magazine/wiki
+// article URLs has no effect and is ignored by Google. Google discovery for
+// this site therefore relies on the XML sitemap + Search Console (a one-time
+// manual sitemap submission by the site owner). IndexNow covers Bing/Yandex/
+// Seznam/Naver, which do honour URL pings for ordinary content.
 //
 // Inputs:
-//   GOOGLE_INDEXING_SA_KEY   service account JSON (as a string)
-//   INDEXING_URLS            optional newline-separated URL list to submit
-//                            (when absent, the script extracts URLs added/
-//                             changed between HEAD~1 and HEAD by inspecting
-//                             new files under data/tech/ai/, reports/issue/,
-//                             reports/hotpick/, reports/insight/, reports/ranking/,
-//                             data/wiki/, data/tech/normal/, data/tech/vibecoding/).
+//   INDEXING_URLS   optional newline-separated URL list to submit (when
+//                   absent, the script extracts URLs added/changed between
+//                   HEAD~1 and HEAD by inspecting new JSON files under the
+//                   article roots below).
 //
-// The Google Indexing API publish endpoint accepts one URL per call. We POST
-// each URL in sequence and log the response. Non-2xx responses are surfaced
-// but do not abort the run — partial success is preferable to total skip.
+// IndexNow verification: a static key file lives at docs/<KEY>.txt (persisted
+// in git; the build does not clean docs/), served at
+// https://gamerscroll.com/<KEY>.txt. Only gamerscroll.com URLs are submitted —
+// IndexNow requires the key file to share the host of every submitted URL, so
+// aiscroll.io URLs (tech/ai, tech/vibecoding) are skipped here.
+//
+// Failures never abort: IndexNow non-2xx responses are warned but the process
+// exits 0 so CI stays green.
 
 import { readFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
-import { createSign } from 'node:crypto'
 
-const SA_RAW = process.env.GOOGLE_INDEXING_SA_KEY
-if (!SA_RAW) {
-  console.error('[indexing] GOOGLE_INDEXING_SA_KEY env not set')
-  process.exit(1)
-}
-const sa = JSON.parse(SA_RAW)
+const DRY_RUN = process.argv.includes('--dry-run')
+
+// IndexNow key — matches docs/86286c2003176dad721fca31b5423813.txt
+const INDEXNOW_KEY = '86286c2003176dad721fca31b5423813'
+const HOST = 'gamerscroll.com'
+const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`
+const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
 
 const SITE_BY_PREFIX = [
   { prefix: 'data/tech/ai/',         build: ({ slug, category }) => [
@@ -69,63 +78,55 @@ function getUrls() {
   return extractUrlsFromCommit()
 }
 
-function b64url(buf) {
-  return Buffer.from(buf).toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_')
+// IndexNow key files are per-host; only submit URLs on our verified host.
+function onlyOwnHost(urls) {
+  return urls.filter(u => {
+    try { return new URL(u).host === HOST } catch { return false }
+  })
 }
 
-async function getAccessToken() {
-  const now = Math.floor(Date.now() / 1000)
-  const header = b64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }))
-  const payload = b64url(JSON.stringify({
-    iss: sa.client_email,
-    scope: 'https://www.googleapis.com/auth/indexing',
-    aud: 'https://oauth2.googleapis.com/token',
-    iat: now,
-    exp: now + 3600,
-  }))
-  const signer = createSign('RSA-SHA256')
-  signer.update(`${header}.${payload}`)
-  const signature = b64url(signer.sign(sa.private_key))
-  const assertion = `${header}.${payload}.${signature}`
-  const res = await fetch('https://oauth2.googleapis.com/token', {
+async function submitIndexNow(urlList) {
+  const res = await fetch(INDEXNOW_ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion }),
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    body: JSON.stringify({
+      host: HOST,
+      key: INDEXNOW_KEY,
+      keyLocation: KEY_LOCATION,
+      urlList,
+    }),
   })
-  const body = await res.json()
-  if (!res.ok || !body.access_token) throw new Error(`token exchange failed: ${JSON.stringify(body)}`)
-  return body.access_token
-}
-
-async function publish(url, token) {
-  const res = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ url, type: 'URL_UPDATED' }),
-  })
-  const body = await res.json().catch(() => ({}))
-  return { ok: res.ok, status: res.status, body }
+  const text = await res.text().catch(() => '')
+  return { ok: res.ok, status: res.status, body: text }
 }
 
 async function main() {
-  const urls = getUrls()
+  const all = getUrls()
+  const skipped = all.filter(u => { try { return new URL(u).host !== HOST } catch { return true } })
+  const urls = onlyOwnHost(all)
+  if (skipped.length) {
+    console.log(`[indexnow] skipping ${skipped.length} off-host URL(s) (no key file on that host): ${skipped.join(', ')}`)
+  }
   if (urls.length === 0) {
-    console.log('[indexing] no URLs to submit')
+    console.log('[indexnow] no gamerscroll.com URLs to submit')
     return
   }
-  console.log(`[indexing] submitting ${urls.length} URL(s)`)
-  const token = await getAccessToken()
-  for (const url of urls) {
-    const r = await publish(url, token)
-    if (r.ok) {
-      console.log(`[indexing] OK  ${url}`)
-    } else {
-      console.error(`[indexing] FAIL ${r.status} ${url} :: ${JSON.stringify(r.body).slice(0, 300)}`)
-    }
+  console.log(`[indexnow] ${DRY_RUN ? 'would submit' : 'submitting'} ${urls.length} URL(s):`)
+  for (const u of urls) console.log(`  ${u}`)
+  if (DRY_RUN) {
+    console.log('[indexnow] --dry-run: no live submission')
+    return
+  }
+  const r = await submitIndexNow(urls)
+  if (r.ok) {
+    console.log(`[indexnow] OK ${r.status}`)
+  } else {
+    // Warn only — IndexNow non-2xx must not fail the workflow.
+    console.warn(`[indexnow] WARN ${r.status} :: ${String(r.body).slice(0, 300)}`)
   }
 }
 
 main().catch(err => {
-  console.error('[indexing] fatal', err)
-  process.exit(1)
+  // Never fail CI on IndexNow errors; discovery still works via sitemap.
+  console.warn('[indexnow] WARN non-fatal error', err?.message || err)
 })

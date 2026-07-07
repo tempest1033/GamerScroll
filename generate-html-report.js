@@ -2497,6 +2497,7 @@ async function main() {
     { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/magazine/ranking/`, lastmod: sitemapDate, priority: '0.8' },
+    { loc: `${siteBaseUrl}/magazine/weekly/`, lastmod: sitemapDate, priority: '0.8' },
     // 순위/데이터
     { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate, priority: '0.8' },
@@ -2630,6 +2631,27 @@ async function main() {
           priority: '0.6'
         };
       }));
+    }
+
+    // 주간 트렌드 페이지 (빌드된 디렉터리 스캔 — 별도 JSON 소스 없음 → 빌드일 lastmod)
+    const weeklyBriefingDir = `${destBriefingDir}/weekly`;
+    if (fs.existsSync(weeklyBriefingDir)) {
+      const weeklyFolders = fs.readdirSync(weeklyBriefingDir).filter(f =>
+        fs.statSync(`${weeklyBriefingDir}/${f}`).isDirectory()
+      );
+      // noindex 페이지는 sitemap 제외 (head 상단 robots 메타 검사)
+      const indexableWeeklyFolders = weeklyFolders.filter(slug => {
+        try {
+          const indexPath = `${weeklyBriefingDir}/${slug}/index.html`;
+          if (!fs.existsSync(indexPath)) return false;
+          return !fs.readFileSync(indexPath, 'utf8').slice(0, 2000).includes('noindex');
+        } catch (e) { return false; }
+      });
+      magazinePages.push(...indexableWeeklyFolders.map(slug => ({
+        loc: `${siteBaseUrl}/magazine/weekly/${slug}/`,
+        lastmod: sitemapDate,
+        priority: '0.6'
+      })));
     }
   }
 

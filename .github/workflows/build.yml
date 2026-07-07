@@ -76,6 +76,9 @@ jobs:
       - name: Download all images (wiki, tech, issue, insight, hotpick)
         run: node scripts/download-images.js
 
+      - name: Compress oversized images (in-place, threshold-gated)
+        # PNG>=200KB / WebP>=300KB만 재압축, 더 작아질 때만 교체 — 실패해도 빌드 계속.
+        run: node scripts/compress-oversized-images.js || echo "::warning::image compression failed (non-fatal)"
 
       - name: Generate report
         env:

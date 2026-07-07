@@ -1,8 +1,11 @@
-name: Google Indexing API
+name: IndexNow submission
 
-# Submit newly approved article URLs to the Google Indexing API after every
-# push to main. The script inspects the diff between HEAD~1 and HEAD; only
-# JSON files under the article roots whose `status` is `approved` are sent.
+# Ping IndexNow (Bing/Yandex/Seznam/Naver) with newly approved article URLs
+# after every push to main. The script inspects the diff between HEAD~1 and
+# HEAD; only JSON files under the article roots whose `status` is `approved`
+# are sent, filtered to the gamerscroll.com host (its IndexNow key lives at
+# docs/<KEY>.txt). Google discovery is NOT handled here — it relies on the XML
+# sitemap + Search Console (one-time manual sitemap submission by the owner).
 # Manual dispatch is supported with a custom diff range or explicit URL list.
 
 on:
@@ -44,9 +47,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Submit URLs to Google Indexing API
+      - name: Submit URLs to IndexNow
+        # IndexNow non-2xx is warned but never fails the run (script exits 0).
+        continue-on-error: true
         env:
-          GOOGLE_INDEXING_SA_KEY: ${{ secrets.GOOGLE_INDEXING_SA_KEY }}
           INDEXING_URLS: ${{ inputs.urls }}
           # push event: github.event.before..sha (전체 새 커밋 누락 없이 scan)
           # workflow_dispatch: inputs.diff_range 우선, 없으면 HEAD~1..HEAD
