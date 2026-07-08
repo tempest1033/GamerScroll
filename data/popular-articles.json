@@ -1,31 +1,37 @@
 {
-  "updatedAt": "2026-07-07T01:44:29.931Z",
+  "updatedAt": "2026-07-08T01:18:51.959Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 19,
+      "views": 21,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 10,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 5,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 4,
+      "views": 6,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "granblue-relink-endless-ragnarok",
+      "views": 5,
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 5,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
@@ -34,30 +40,24 @@
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
       "views": 4,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 3,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
-      "views": 3,
+      "views": 4,
       "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 3,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "issue",
@@ -88,13 +88,6 @@
       "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 2,
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "hotpick",
@@ -140,6 +133,12 @@
     },
     {
       "type": "issue",
+      "slug": "gta6-preorder-june-25",
+      "views": 1,
+      "path": "/magazine/issue/gta6-preorder-june-25/"
+    },
+    {
+      "type": "issue",
       "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 1,
       "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
@@ -149,6 +148,12 @@
       "slug": "overwatch-shion-hero-52-skillset",
       "views": 1,
       "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
+    },
+    {
+      "type": "issue",
+      "slug": "subculture-newyear-china-wins",
+      "views": 1,
+      "path": "/magazine/issue/subculture-newyear-china-wins/"
     },
     {
       "type": "issue",
@@ -164,6 +169,18 @@
     },
     {
       "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "subculture-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
@@ -174,13 +191,6 @@
       "category": "normal",
       "views": 1,
       "path": "/tech/normal/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
     },
     {
       "type": "wiki",
@@ -198,6 +208,20 @@
     },
     {
       "type": "wiki",
+      "slug": "publisher-developer-relationship",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/publisher-developer-relationship/"
+    },
+    {
+      "type": "wiki",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
+      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
@@ -209,13 +233,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pc-components-gaming-performance",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/pc-components-gaming-performance/"
     },
     {
       "type": "wiki",
