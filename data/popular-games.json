@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-08T13:22:42.990Z",
+  "updatedAt": "2026-07-09T14:23:13.129Z",
   "period": "30days",
   "games": [
     {
@@ -23,7 +23,19 @@
       "views": 2
     },
     {
+      "slug": "brain-puzzle-2-logic-twist",
+      "views": 2
+    },
+    {
       "slug": "coin-master-board-adventure",
+      "views": 2
+    },
+    {
+      "slug": "f1-25",
+      "views": 2
+    },
+    {
+      "slug": "nova-space-armada",
       "views": 2
     },
     {
@@ -39,7 +51,15 @@
       "views": 2
     },
     {
+      "slug": "계급장-키우기",
+      "views": 2
+    },
+    {
       "slug": "명조워더링-웨이브",
+      "views": 2
+    },
+    {
+      "slug": "서머너즈-워-천공의-아레나",
       "views": 2
     },
     {
@@ -57,26 +77,6 @@
     {
       "slug": "한게임-로얄홀덤",
       "views": 2
-    },
-    {
-      "slug": "brain-puzzle-2-logic-twist",
-      "views": 1
-    },
-    {
-      "slug": "ez2on-reboot-r",
-      "views": 1
-    },
-    {
-      "slug": "f1-25",
-      "views": 1
-    },
-    {
-      "slug": "god-of-war-ragnark",
-      "views": 1
-    },
-    {
-      "slug": "hell-is-us",
-      "views": 1
     }
   ]
 }
