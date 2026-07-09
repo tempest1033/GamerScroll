@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-07-08T01:18:51.959Z",
+  "updatedAt": "2026-07-09T01:49:06.948Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 21,
+      "views": 18,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 9,
+      "views": 10,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
@@ -34,23 +34,29 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 4,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 4,
+      "views": 5,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
-      "views": 4,
+      "views": 5,
       "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 4,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 3,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "wiki",
@@ -60,10 +66,23 @@
       "path": "/wiki/business/platform-fees-comparison/"
     },
     {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 2,
       "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
+      "type": "issue",
+      "slug": "china-gaming-superpower-rise",
+      "views": 2,
+      "path": "/magazine/issue/china-gaming-superpower-rise/"
     },
     {
       "type": "issue",
@@ -90,28 +109,17 @@
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 1,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 1,
       "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -139,15 +147,33 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
       "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 1,
       "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
     },
     {
       "type": "issue",
+      "slug": "maplestory-idle-full-refund",
+      "views": 1,
+      "path": "/magazine/issue/maplestory-idle-full-refund/"
+    },
+    {
+      "type": "issue",
       "slug": "overwatch-shion-hero-52-skillset",
       "views": 1,
       "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-review-roundup",
+      "views": 1,
+      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
     },
     {
       "type": "issue",
@@ -160,12 +186,6 @@
       "slug": "tomb-raider-legacy-atlantis-release-date",
       "views": 1,
       "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
-    },
-    {
-      "type": "ranking",
-      "slug": "lunar-new-year-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
     },
     {
       "type": "ranking",
@@ -194,10 +214,10 @@
     },
     {
       "type": "wiki",
-      "slug": "game-business-metrics",
+      "slug": "app-revenue-ranking-algorithm",
       "category": "business",
       "views": 1,
-      "path": "/wiki/business/game-business-metrics/"
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
     },
     {
       "type": "wiki",
@@ -222,24 +242,31 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
+      "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
+      "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+      "path": "/wiki/knowledge/gacha-system-regulations/"
     },
     {
       "type": "wiki",
-      "slug": "pd-vs-director",
+      "slug": "gaming-seasonality-spending",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "path": "/wiki/knowledge/gaming-seasonality-spending/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
