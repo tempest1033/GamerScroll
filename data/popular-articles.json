@@ -1,43 +1,31 @@
 {
-  "updatedAt": "2026-07-09T01:49:06.948Z",
+  "updatedAt": "2026-07-10T00:07:07.240Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 18,
+      "views": 17,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 10,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 7,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "issue",
       "slug": "granblue-relink-endless-ragnarok",
-      "views": 5,
+      "views": 7,
       "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 5,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 5,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 6,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "wiki",
@@ -53,10 +41,28 @@
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 4,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 3,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 3,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "wiki",
@@ -92,9 +98,9 @@
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "issue",
@@ -116,6 +122,32 @@
       "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/pd-vs-director/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "lol-asian-games-2026-korea-roster",
+      "views": 1,
+      "path": "/magazine/hotpick/lol-asian-games-2026-korea-roster/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "unreal-engine-6-revealed-rocket-league",
+      "views": 1,
+      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
+    },
+    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 1,
@@ -123,15 +155,21 @@
     },
     {
       "type": "issue",
-      "slug": "china-game-license-normalization",
+      "slug": "ai-basic-act-game-industry-confusion",
       "views": 1,
-      "path": "/magazine/issue/china-game-license-normalization/"
+      "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
     },
     {
       "type": "issue",
       "slug": "clash-royale-10th-anniversary-success",
       "views": 1,
       "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
+      "views": 1,
+      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
       "type": "issue",
@@ -147,15 +185,15 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
       "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 1,
       "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
+    },
+    {
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
@@ -195,12 +233,6 @@
     },
     {
       "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
@@ -235,10 +267,10 @@
     },
     {
       "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
+      "slug": "astonishia-story-sonnori",
       "category": "history",
       "views": 1,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/wiki/history/astonishia-story-sonnori/"
     },
     {
       "type": "wiki",
@@ -260,13 +292,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gaming-seasonality-spending/"
-    },
-    {
-      "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
