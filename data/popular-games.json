@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09T14:23:13.129Z",
+  "updatedAt": "2026-07-10T15:45:38.213Z",
   "period": "30days",
   "games": [
     {
@@ -19,10 +19,6 @@
       "views": 3
     },
     {
-      "slug": "afk-새로운-여정-힐링-농장",
-      "views": 2
-    },
-    {
       "slug": "brain-puzzle-2-logic-twist",
       "views": 2
     },
@@ -36,6 +32,10 @@
     },
     {
       "slug": "nova-space-armada",
+      "views": 2
+    },
+    {
+      "slug": "pax-dei",
       "views": 2
     },
     {
