@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T15:45:38.213Z",
+  "updatedAt": "2026-07-11T16:16:07.251Z",
   "period": "30days",
   "games": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "slug": "limbus-company",
-      "views": 3
+      "views": 4
     },
     {
       "slug": "sol-enchant",
