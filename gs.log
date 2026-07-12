@@ -1,0 +1,86 @@
+[dotenv@17.2.3] injecting env (11) from .env -- tip: ⚙️  override existing env vars with { override: true }
+📝 드래프트 모드: draft 상태 이슈 리포트 포함
+
+⚡ 퀵 모드 - 캐시 데이터로 빠르게 HTML 생성
+
+📂 캐시 로드 완료 (생성: 2026-07-06T01:46:21.072Z)
+
+
+📄 GAMERSCROLL 일일 보고서 생성 중...
+
+📄 GAMERSCROLL 일일 보고서 생성 중...
+  📦 games.json 로드: 2994개 게임
+  📊 인기 게임 데이터 로드: TOP 19
+  📰 인기 기사 데이터 로드: TOP 31
+  ✅ styles-core.css 압축: 205KB → 131KB (36.0% 감소)
+  ✅ styles-report.css 압축: 23KB → 17KB (24.7% 감소)
+  ✅ styles-game.css 압축: 19KB → 14KB (26.2% 감소)
+  ✅ styles-article.css 압축: 39KB → 27KB (30.1% 감소)
+  ✅ rankings.html
+  ✅ steam.html
+  ✅ upcoming.html
+  ✅ games/index.html
+  ✅ 404.html
+  ⚡ 증분 빌드 모드 (변경된 파일만 빌드)
+
+📊 트렌드 리포트 페이지 생성 중...
+  📰 사이드바 인기글: 전체 10개, 매거진 10개, 위키 10개, 테크 0개
+  📰 사이드바 최신글: 전체 10개, 매거진 10개, 위키 10개, 테크 0개
+  ✅ magazine/index.html
+  ✅ magazine/issue/index.html
+  ✅ magazine/insight/index.html
+  ✅ magazine/hotpick/index.html
+  ✅ magazine/ranking/index.html
+  ✅ 이슈 리포트 페이지 0개 빌드, 136개 스킵 (총 136개)
+  ✅ 인사이트 리포트 페이지 0개 빌드, 4개 스킵 (총 4개)
+  ✅ 핫픽 리포트 페이지 0개 빌드, 9개 스킵 (총 9개)
+  ✅ 순위 분석 리포트 페이지 0개 빌드, 11개 스킵 (총 11개)
+  ✅ index.html
+
+📚 위키 페이지 생성...
+  ✅ wiki/index.html
+  ✅ wiki/business/index.html
+  ✅ wiki/history/index.html
+  ✅ wiki/knowledge/index.html
+  ✅ business 위키 페이지 0개 빌드, 9개 스킵 (총 9개)
+  ✅ history 위키 페이지 0개 빌드, 12개 스킵 (총 12개)
+  ✅ knowledge 위키 페이지 0개 빌드, 12개 스킵 (총 12개)
+
+📱 테크 페이지 빌드...
+  ✅ games/index.html → docs/games/index.html
+  ✅ magazine/ → docs/magazine/
+  🎨 CSS 링크 재작성: 3387개 HTML
+  🧹 비테크 페이지 테크 사이드바 제거: 19개 HTML
+
+🧹 PurgeCSS 실행 중...
+  ✅ styles-core.css: 131KB → 77KB (40.8% 감소)
+  ✅ styles-report.css: 17KB → 13KB (28.5% 감소)
+  ✅ styles-game.css: 14KB → 11KB (19.2% 감소)
+  ✅ styles-article.css: 27KB → 22KB (19.4% 감소)
+  🔁 CSS 해시 재산출(purge 후): 25aae9ba → 789ed400
+  🎨 CSS 링크 재작성: 3387개 HTML
+📍 Sitemap 생성: 메인 14개 + 위키 33개 + 테크 0개 + 매거진 170개 = 총 217개 URL
+🤖 robots.txt 생성 완료
+{
+  "output": "docs\\_redirects",
+  "totalLines": 217,
+  "ai_redirects": 197,
+  "vibecoding_redirects": 13,
+  "skipped": 0,
+  "bytes": 26805
+}
+=== RSS 피드 생성 시작 ===
+
+이슈 리포트: 136개
+핫픽 리포트: 9개
+순위 분석: 11개
+위키 아티클: 35개
+테크 아티클: 222개
+
+총 50개 항목 (최신 50개 제한)
+
+✅ RSS 저장 완료: ./docs/rss.xml
+📡 RSS 피드 생성: 50개 항목
+🔄 Service Worker 생성 완료: gamerscroll-4a2e5958-774743e3 (CSS: /styles-core.css)
+
+✅ 완료! (docs/ 통합 반응형 빌드 + sitemap 갱신)

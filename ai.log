@@ -1,0 +1,62 @@
+=== AIScroll 빌드 시작 ===
+
+0. 변경 사항 확인 중...
+  🎨 CSS 변경 감지
+  📝 템플릿 JS 변경 감지
+  🎨 Favicon SVG 변경 감지
+   → 전체 재빌드 필요
+[AIScroll Analytics] Already updated today (2026-07-06) - using cached data
+   인기 기사 30개 로드됨
+
+1. 글 로드 중...
+   213개 글 로드됨
+   카테고리별: General(80), OpenAI(41), Google(24), Anthropic(50), VibeCoding(14)
+
+2. HTML 생성 중...
+홈페이지 생성 완료 (en)
+글 213개 생성 완료 (en)
+검색용 JSON 생성 완료 (en)
+Privacy Policy 페이지 생성 완료 (en)
+Search 페이지 생성 완료 (en)
+404 페이지 생성 완료 (en)
+카테고리 페이지 7개 생성 완료 (en)
+홈페이지 생성 완료 (ko)
+글 213개 생성 완료 (ko)
+검색용 JSON 생성 완료 (ko)
+Privacy Policy 페이지 생성 완료 (ko)
+Search 페이지 생성 완료 (ko)
+404 페이지 생성 완료 (ko)
+카테고리 페이지 7개 생성 완료 (ko)
+
+2-1. Layout Core 동기화 중...
+
+2-2. Deferred JSON 외부화 중...
+
+3. 스타일 복사 중...
+스타일 번들 생성 완료 (2/2)
+
+4. 에셋 복사 중...
+Favicon PNG 생성 완료 (병렬 처리)
+tech/ai 이미지 복사 완료
+tech/vibecoding 이미지 복사 완료
+issue 이미지 복사 완료
+hotpick 이미지 복사 완료
+wiki 이미지 복사 완료 (2개)
+기사 폴더 이미지 복사 완료
+에셋 복사 완료
+
+5. SEO 파일 생성 중...
+sitemap.xml 생성 완료 (en+ko + hreflang)
+robots.txt 생성 완료
+RSS 피드 생성 완료 EN (200개)
+RSS 피드 생성 완료 KO (200개)
+Service Worker 생성 완료
+
+🧹 PurgeCSS 실행 중...
+  ✅ styles-core.css: 131KB → 50KB (62.1% 감소)
+  ✅ styles-article.css: 27KB → 15KB (44.8% 감소)
+
+빌드 완료! ai-docs/ 폴더에 생성됨
+CloudFront에서 ai-docs/를 aiscroll.io로 연결하세요
+
+=== AIScroll 빌드 완료 ===

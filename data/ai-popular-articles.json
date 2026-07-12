@@ -1,78 +1,60 @@
 {
-  "updatedAt": "2026-07-06T01:57:42.666Z",
+  "updatedAt": "2026-07-12T09:34:08.384Z",
   "period": "7days",
   "articles": [
     {
-      "category": "anthropic",
-      "slug": "anthropic-fable-5-false-positive-easing",
-      "views": 7,
-      "path": "/article/anthropic/anthropic-fable-5-false-positive-easing/"
+      "category": "ai-tools",
+      "slug": "grok-build-composer-2-5-synergy",
+      "views": 5,
+      "path": "/article/ai-tools/grok-build-composer-2-5-synergy/"
     },
     {
       "category": "general",
       "slug": "glm-5-2-user-reviews",
-      "views": 7,
+      "views": 4,
       "path": "/article/general/glm-5-2-user-reviews/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-cadence-rsi-winner",
-      "views": 6,
-      "path": "/article/anthropic/anthropic-cadence-rsi-winner/"
     },
     {
       "category": "general",
       "slug": "le-chaton-fat-mistral-meme",
-      "views": 6,
+      "views": 4,
       "path": "/article/general/le-chaton-fat-mistral-meme/"
     },
     {
       "category": "general",
-      "slug": "nvidia-vera-rubin-agentic-ai",
-      "views": 6,
-      "path": "/article/general/nvidia-vera-rubin-agentic-ai/"
-    },
-    {
-      "category": "openai",
-      "slug": "chatgpt-desktop-app",
-      "views": 6,
-      "path": "/article/openai/chatgpt-desktop-app/"
-    },
-    {
-      "category": "general",
-      "slug": "chatbot-to-agent-paradigm-shift",
-      "views": 5,
-      "path": "/article/general/chatbot-to-agent-paradigm-shift/"
-    },
-    {
-      "category": "openai",
-      "slug": "chatgpt-heavy-thinking-removed-codex-nerf",
+      "slug": "lecun-ami-labs-llm-debate",
       "views": 4,
-      "path": "/article/openai/chatgpt-heavy-thinking-removed-codex-nerf/"
+      "path": "/article/general/lecun-ami-labs-llm-debate/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-deep-think-hallucination-backlash",
+      "views": 4,
+      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
     },
     {
       "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
+      "slug": "claude-code-install-guide-windows",
       "views": 4,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
+      "path": "/article/vibecoding/claude-code-install-guide-windows/"
     },
     {
-      "category": "anthropic",
-      "slug": "claude-fable-5-safety-backlash",
+      "category": "vibecoding",
+      "slug": "vibe-coding-version-control-guide",
+      "views": 4,
+      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
+    },
+    {
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
       "views": 3,
-      "path": "/article/anthropic/claude-fable-5-safety-backlash/"
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
     },
     {
       "category": "general",
-      "slug": "best-coding-agents-2026-ranked",
+      "slug": "ai-subscription-login-gemini-holdout",
       "views": 3,
-      "path": "/article/general/best-coding-agents-2026-ranked/"
-    },
-    {
-      "category": "general",
-      "slug": "karpathy-ai-job-exposure-score",
-      "views": 3,
-      "path": "/article/general/karpathy-ai-job-exposure-score/"
+      "path": "/article/general/ai-subscription-login-gemini-holdout/"
     },
     {
       "category": "general",
@@ -82,105 +64,123 @@
     },
     {
       "category": "general",
-      "slug": "openrouter-fusion-multi-model",
+      "slug": "nvidia-feynman-architecture-2028",
       "views": 3,
-      "path": "/article/general/openrouter-fusion-multi-model/"
+      "path": "/article/general/nvidia-feynman-architecture-2028/"
     },
     {
       "category": "general",
-      "slug": "warsh-ai-american-ingenuity",
+      "slug": "xai-talent-exodus-grok-crisis",
       "views": 3,
-      "path": "/article/general/warsh-ai-american-ingenuity/"
-    },
-    {
-      "category": "general",
-      "slug": "windows-local-ai-nvidia-gpu",
-      "views": 3,
-      "path": "/article/general/windows-local-ai-nvidia-gpu/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-3-5-live-translate-launch",
-      "views": 3,
-      "path": "/article/google/gemini-3-5-live-translate-launch/"
-    },
-    {
-      "category": "google",
-      "slug": "google-spacex-xai-compute-deal",
-      "views": 3,
-      "path": "/article/google/google-spacex-xai-compute-deal/"
-    },
-    {
-      "category": "ai",
-      "slug": "ai-model-intentional-performance-degradation",
-      "views": 2,
-      "path": "/article/ai/ai-model-intentional-performance-degradation/"
-    },
-    {
-      "category": "general",
-      "slug": "ai-subscription-login-gemini-holdout",
-      "views": 2,
-      "path": "/article/general/ai-subscription-login-gemini-holdout/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-vera-cpu-agentic-ai",
-      "views": 2,
-      "path": "/article/general/nvidia-vera-cpu-agentic-ai/"
-    },
-    {
-      "category": "google",
-      "slug": "apple-siri-google-gemini-wwdc",
-      "views": 2,
-      "path": "/article/google/apple-siri-google-gemini-wwdc/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-3-5-pro-leak-frontier-gap",
-      "views": 2,
-      "path": "/article/google/gemini-3-5-pro-leak-frontier-gap/"
+      "path": "/article/general/xai-talent-exodus-grok-crisis/"
     },
     {
       "category": "openai",
-      "slug": "gpt-53-codex-community-reaction",
-      "views": 2,
-      "path": "/article/openai/gpt-53-codex-community-reaction/"
+      "slug": "chatgpt-desktop-app",
+      "views": 3,
+      "path": "/article/openai/chatgpt-desktop-app/"
     },
     {
       "category": "openai",
-      "slug": "openai-compute-investment-600b-cut",
-      "views": 2,
-      "path": "/article/openai/openai-compute-investment-600b-cut/"
-    },
-    {
-      "category": "openai",
-      "slug": "openai-python-sdk-application-push",
-      "views": 2,
-      "path": "/article/openai/openai-python-sdk-application-push/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 2,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
+      "slug": "codex-hits-5-million-users",
+      "views": 3,
+      "path": "/article/openai/codex-hits-5-million-users/"
     },
     {
       "category": "vibecoding",
       "slug": "codex-install-guide-windows",
-      "views": 2,
+      "views": 3,
       "path": "/article/vibecoding/codex-install-guide-windows/"
     },
     {
-      "category": "vibecoding",
-      "slug": "vibe-coding-basics",
+      "category": "anthropic",
+      "slug": "anthropic-cadence-rsi-winner",
       "views": 2,
-      "path": "/article/vibecoding/vibe-coding-basics/"
+      "path": "/article/anthropic/anthropic-cadence-rsi-winner/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-fable-5-false-positive-easing",
+      "views": 2,
+      "path": "/article/anthropic/anthropic-fable-5-false-positive-easing/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-agent-sdk-credit-pause",
+      "views": 2,
+      "path": "/article/anthropic/claude-agent-sdk-credit-pause/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "claude-cowork-saaspocalypse",
+      "views": 2,
+      "path": "/article/anthropic/claude-cowork-saaspocalypse/"
+    },
+    {
+      "category": "general",
+      "slug": "agent-mix-multi-model-stack",
+      "views": 2,
+      "path": "/article/general/agent-mix-multi-model-stack/"
+    },
+    {
+      "category": "general",
+      "slug": "gpt-56-anthropic-tipping-point",
+      "views": 2,
+      "path": "/article/general/gpt-56-anthropic-tipping-point/"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-vera-rubin-agentic-ai",
+      "views": 2,
+      "path": "/article/general/nvidia-vera-rubin-agentic-ai/"
+    },
+    {
+      "category": "general",
+      "slug": "openrouter-fusion-multi-model",
+      "views": 2,
+      "path": "/article/general/openrouter-fusion-multi-model/"
+    },
+    {
+      "category": "general",
+      "slug": "upstage-solar-aaii-40-top3",
+      "views": 2,
+      "path": "/article/general/upstage-solar-aaii-40-top3/"
+    },
+    {
+      "category": "google",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "views": 2,
+      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-31-flash-lite-cost-efficiency",
+      "views": 2,
+      "path": "/article/google/gemini-31-flash-lite-cost-efficiency/"
+    },
+    {
+      "category": "google",
+      "slug": "google-ai-pro-antigravity-rate-limit-crisis",
+      "views": 2,
+      "path": "/article/google/google-ai-pro-antigravity-rate-limit-crisis/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-5-6-checkpoint-svg-leak",
+      "views": 2,
+      "path": "/article/openai/gpt-5-6-checkpoint-svg-leak/"
+    },
+    {
+      "category": "openai",
+      "slug": "gpt-54-one-week-review",
+      "views": 2,
+      "path": "/article/openai/gpt-54-one-week-review/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 2,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
     }
   ]
 }
