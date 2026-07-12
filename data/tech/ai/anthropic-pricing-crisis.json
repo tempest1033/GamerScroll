@@ -1,0 +1,150 @@
+{
+  "slug": "anthropic-pricing-crisis",
+  "site": "aiscroll",
+  "status": "approved",
+  "date": "",
+  "category": "anthropic",
+  "title": "GPT-5.6 출시, 클로드 가격 경쟁력 잃나",
+  "titleEn": "GPT-5.6 Leaves Claude Without Its Edge",
+  "summary": "GPT-5.6이 성능 격차를 좁히고 챗GPT의 번들 경쟁력을 강화한 가운데, 클로드 구독 요금제에서 핵심 모델인 페이블 5가 제외되면서 이용자 유인책이 약화되고 있다.",
+  "summaryEn": "GPT-5.6 has caught up while ChatGPT offers the stronger bundle. With Fable 5 gone from plans, Claude has lost its clearest user-facing edge.",
+  "keywords": "페이블 5 프로모션, 챗GPT 이미지 생성, 클로드 코드 비용, 그록 4.5 가격, 클로드 요금제",
+  "keywordsEn": "Claude Fable 5, GPT-5.6 Sol, Fable 5 cost, ChatGPT subscription, Claude cost",
+  "thumbnail": "https://cdn.sanity.io/images/6vfeftx9/articles/efd73f0ba7d3717cb7eb3d7d0c24ffec11cb8b09-1024x1024.webp?w=1200&auto=format",
+  "needTranslate": false,
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "Pricing | ChatGPT Learn",
+      "url": "https://learn.chatgpt.com/docs/pricing"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 and Claude Mythos 5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "GPT-5.6 benchmarks across Intelligence, Speed and Cost",
+      "url": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "Grok 4.5 brings SpaceXAI to the intelligence frontier",
+      "url": "https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier"
+    },
+    {
+      "name": "The Verge",
+      "title": "Microsoft starts canceling Claude Code licenses",
+      "url": "https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gpt-56-anthropic-tipping-point",
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/ai-token-cost-exceeds-salary",
+    "tech:ai/anthropic-fable-5-restoration-standoff"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic’s five-day extension of promotional access to Fable 5 ends on July 12. Once it ends, the company’s premier consumer model is excluded from Claude subscriptions, requiring separate usage credits. [Anthropic says](https://www.anthropic.com/news/claude-fable-5-mythos-5) it aims to restore Fable 5 as a standard part of subscription plans when capacity allows, so the exclusion is not necessarily permanent. This comes just as OpenAI’s GPT-5.6 achieves comparable performance inside ChatGPT.\n\nThis shift reshapes the landscape for users. ChatGPT now bundles competitive frontier models, Codex, and image generation under a single subscription, while Grok 4.5 offers a lower-cost alternative. Without Fable 5 included, Claude lacks a distinct, user-facing value proposition."
+    },
+    {
+      "type": "heading",
+      "value": "Fable 5 Exits as ChatGPT Enhances Its Bundle"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic initially set July 7 as the deadline for promotional Fable 5 access before extending it to July 12. The extension ends on July 12. A [Claude Help Center notice](https://support.claude.com/en/articles/15424964-claude-fable-5-promotional-access) states that Fable 5 no longer counts toward weekly plan limits after the promotional period and requires separate usage credits.\n\nMeanwhile, OpenAI’s counteroffer is broader and more cost-effective. According to the [official Codex pricing guide](https://learn.chatgpt.com/docs/pricing), Codex is now included in qualifying ChatGPT plans, and Plus subscribers can select GPT-5.6 Sol, Terra, or Luna within standard message limits. Image generation and editing are also integrated into this bundle; though subject to shared caps, they unify conversational, coding, and visual tasks under a single subscription.\n\nConsequently, the critical decision for users is no longer a head-to-head comparison between Fable 5 and Sol. Instead, it is a choice between a Claude plan stripped of its premier model and a comprehensive ChatGPT subscription. For users requiring multi-modal capabilities, ChatGPT has become the more economical and capable option."
+    },
+    {
+      "type": "heading",
+      "value": "GPT-5.6 Closes the Gap"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/2039cc549c023bc855671308211d20d3382828a9-2880x1620.jpg",
+      "caption": "Anthropic’s Claude Sonnet 5 announcement graphic",
+      "alt": "Official graphic for the Sonnet 5 announcement"
+    },
+    {
+      "type": "text",
+      "value": "This bundling advantage is amplified by the fact that GPT-5.6 has virtually erased the performance gap. Benchmark provider [Artificial Analysis](https://artificialanalysis.ai/articles/gpt-5-6-has-landed) scored GPT-5.6 Sol at 59 on its Intelligence Index—just one point behind Fable 5—while its per-task cost is $1.04, only roughly one-third of Fable 5’s cost. Sol also topped the Coding Agent Index with a score of 80, delivering a per-task cost approximately 40% lower than Fable 5 via Claude Code and 10% lower than Opus 4.8.\n\nSonnet 5 does not fill the gap left by Fable 5. Anthropic’s [Sonnet 5 announcement and changelog](https://www.anthropic.com/news/claude-sonnet-5) highlights a 1-million-token context window, and the model is available at discounted API pricing of $2 per million input tokens and $10 per million output tokens through August 31. The company also updated an agentic-search performance chart after discovering that its initial testing methodology understated the model's capabilities. Nonetheless, reports from [The Register](https://www.theregister.com/devops/2026/07/01/claude-sonnet-50-heads-straight-down-the-middle-of-the-road-to-dodge-controversy/5265398) characterized Sonnet 5 as a safer, more economical option that still lags behind Opus and Mythos. Similarly, [CodeRabbit](https://coderabbit.ai/blog/claude-sonnet-5-review) noted that while the model generates cleaner code review comments, its bug recall rate falls short of Sonnet 4.6.\n\nMeanwhile, the release of Opus 4.8 has done little to reclaim the advantage. As [earlier AIScroll coverage](/article/anthropic/claude-opus-4-8-launch/) reported, Opus 4.8 launched with API pricing of $5 per million input tokens and $25 per million output tokens, receiving positive early reviews. However, GPT-5.6 Sol now outperforms Opus 4.8 on the Intelligence Index, consumes fewer output tokens, and incurs lower costs on coding-agent tasks."
+    },
+    {
+      "type": "heading",
+      "value": "Grok 4.5 and Enterprise Budget Cuts Pressure Claude"
+    },
+    {
+      "type": "text",
+      "value": "The emergence of Grok 4.5 further highlights Claude's diminishing differentiation. [Artificial Analysis](https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier) rated Grok 4.5 at 54 on its Intelligence Index with a per-task cost of $0.31, supported by API pricing of $2 per million input tokens and $6 per million output tokens. On the Coding Agent Index, its task cost was $2.49, significantly lower than the $11.80 incurred by Fable 5 via Claude Code. Grok does not need to sweep every benchmark to challenge Anthropic; its aggressive pricing simply exposes the high cost of Claude’s token consumption.\n\nThese efficiency concerns are beginning to influence enterprise procurement. [The Verge](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad) reported that Microsoft plans to phase out most Claude Code licenses within its Experiences and Devices division, directing employees toward Copilot CLI. While Microsoft framed the decision as tool consolidation, sources cited in the report said financial considerations also played a part. Because the transition favors Microsoft’s in-house offerings, it does not represent a neutral market test, and a single corporate shift does not signal an industry-wide migration. It does demonstrate that Claude Code’s operating costs can affect enterprise purchasing decisions even when developers prefer the tool.\n\nThis competitive pressure does not require the arrival of GPT-6. [The AI Daily Brief](https://aidailybrief.ai/e/2026-07-09), cited in [earlier AIScroll coverage](/article/general/mythos-sovereign-ai-memory/), relayed claims that OpenAI may be preparing a larger pretraining base, though OpenAI has confirmed neither its scale nor a launch schedule. Current products are sufficient to challenge Anthropic: GPT-5.6 delivers near-Fable performance within a more versatile bundle, while Grok 4.5 provides a cost-effective alternative for price-sensitive users."
+    },
+    {
+      "type": "heading",
+      "value": "Anthropic’s Crisis Demands a Product-Led Response"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+      "caption": "Anthropic’s Claude Fable 5 redeployment announcement graphic",
+      "alt": "Anthropic product announcement graphic for the redeployment of Claude Fable 5"
+    },
+    {
+      "type": "text",
+      "value": "Claude once offered subscribers a straightforward value proposition: access to a frontier model unmatched by competitors. However, with Fable 5 removed from the standard subscription, that justification has weakened just as rivals have closed the performance gap, expanded their feature bundles, and reduced costs. This represents Anthropic’s most significant consumer product crisis, as the core issue is not a minor benchmark setback, but rather the loss of any clear advantage within the subscription tier itself.\n\nTo address this, Anthropic has three viable product strategies. It can reintroduce Fable 5 to the subscription tier, bundle a new model of equivalent performance for real-world developer tasks, or significantly improve the token efficiency of Claude and Claude Code. While these approaches are not mutually exclusive, each requires Anthropic to deliver value directly through product capabilities rather than relying on marketing or pricing adjustments.\n\nGiven that Fable 5 maintains a one-point lead over GPT-5.6 Sol on the Artificial Analysis Intelligence Index, Anthropic clearly retains its technical capabilities. The critical challenge lies in whether the company can package this strength back into its subscription tier. Until then, ChatGPT’s superior bundle and Grok 4.5’s cost-efficiency will remain highly compelling alternatives, leaving a Fable-free Claude without a clear competitive edge."
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 페이블 5의 프로모션 제공 기간을 닷새 연장했으나 결국 7월 12일부로 종료된다. 종료된 뒤에는 클로드 구독자들이 이 최상위 소비자용 모델을 사용하려면 별도의 크레딧을 구매해야 한다. 앤트로픽은 [용량이 확보되면 페이블 5를 구독 요금제의 기본 제공 모델로 복원하겠다는 방침](https://www.anthropic.com/news/claude-fable-5-mythos-5)을 밝혔다. 따라서 이번 제외가 반드시 영구적이라는 뜻은 아니다. 공교롭게도 이는 오픈AI의 GPT-5.6이 챗GPT 내에서 대등한 수준의 성능을 구현하기 시작한 시점과 맞물린다.\n\n이로 인해 이용자들의 셈법은 복잡해졌다. 챗GPT는 경쟁력을 갖춘 프런티어 모델들과 함께 코덱스, 이미지 생성 기능을 단일 요금제에 묶어 제공하는 반면, 그록 4.5는 저렴한 가격을 무기로 대안을 제시하고 있다. 핵심 무기인 페이블 5를 잃은 클로드 구독 서비스는 소비자에게 매력적인 선택지로 다가가기 어려운 상황이다."
+    },
+    {
+      "type": "heading",
+      "value": "페이블 5 제외된 클로드, 번들 넓힌 챗GPT"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽은 당초 페이블 5의 프로모션 혜택을 7월 7일에 종료할 예정이었으나, 이를 12일까지 연장한 바 있다. 연장 기간은 7월 12일부로 종료된다. [클로드 도움말 공지](https://support.claude.com/en/articles/15424964-claude-fable-5-promotional-access)는 프로모션 기간이 끝난 뒤 페이블 5가 주간 사용 한도에서 제외되고 별도의 사용 크레딧이 필요하다고 안내한다.\n\n반면 오픈AI의 대안은 범위가 넓고 비용 예측도 쉽다. [공식 코덱스 가격 안내](https://learn.chatgpt.com/docs/pricing)에 따르면 대상 챗GPT 요금제에는 코덱스 이용 권한이 제공되며, 플러스 구독자는 사용 한도 내에서 GPT-5.6의 솔, 테라, 루나 모델을 선택할 수 있다. 이미지 생성과 편집도 같은 번들에 들어간다. 공용 한도를 소모하고 무제한은 아니지만 대화와 코딩, 시각 작업을 한 구독으로 처리할 수 있다.\n\n결국 이용자의 관심은 페이블 5와 솔의 일대일 성능 비교를 넘어선다. 주력 소비자 모델이 빠진 클로드 요금제와 범용 대화, 코딩, 이미지 생성을 포괄하는 챗GPT 요금제 사이의 선택 구도로 바뀐 셈이다. 다양한 기능을 요구하는 이용자에게 챗GPT는 더 저렴하면서도 강한 상품이 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "성능 격차 좁힌 GPT-5.6"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/2039cc549c023bc855671308211d20d3382828a9-2880x1620.jpg",
+      "caption": "앤트로픽의 클로드 소넷 5 발표 이미지",
+      "alt": "소넷 5 공개를 알리는 공식 이미지"
+    },
+    {
+      "type": "text",
+      "value": "챗GPT의 번들 강점이 돋보이는 이유는 GPT-5.6이 기술 격차를 크게 좁혔기 때문이다. 성능 평가 기관인 [아티피셜 애널리시스](https://artificialanalysis.ai/articles/gpt-5-6-has-landed)에 따르면 GPT-5.6 솔은 지능 지수 59점을 기록해 페이블 5에 1점 뒤졌으나, 작업당 비용은 1.04달러로 약 3분의 1에 불과하다. 솔은 코딩 에이전트 지수에서 80점으로 1위를 차지했으며, 작업 비용도 클로드 코드 기반의 페이블 5보다 약 40%, 오푸스 4.8보다 10% 낮다.\n\n소넷 5는 페이블 5가 남긴 공백을 메우지 못한다. 앤트로픽의 [공식 발표와 변경 기록](https://www.anthropic.com/news/claude-sonnet-5)은 100만 토큰 컨텍스트 창과 함께 8월 31일까지 입력 100만 토큰당 2달러, 출력 10달러의 할인 가격으로 이용 가능하다. 앤트로픽은 초기 평가 방식이 에이전트 검색 성능을 실제보다 낮게 측정했다며 관련 차트도 고쳤다. [더 레지스터](https://www.theregister.com/devops/2026/07/01/claude-sonnet-50-heads-straight-down-the-middle-of-the-road-to-dodge-controversy/5265398)는 소넷 5가 더 저렴하고 안전하지만 여전히 오푸스와 미토스에는 뒤진다고 평가했고, [코드래빗](https://coderabbit.ai/blog/claude-sonnet-5-review)은 리뷰 문장은 깔끔해졌지만 버그 발견율은 소넷 4.6보다 낮다고 측정했다.\n\n뒤이어 공개된 오푸스 4.8도 전세를 뒤집지는 못했다. [앞선 AIScroll 기사](/ko/article/anthropic/claude-opus-4-8-launch/)가 전했듯 입력 100만 토큰당 5달러, 출력 25달러로 출시돼 초기 호평을 받았다. 그러나 GPT-5.6 솔은 이제 지능 지수에서 오푸스 4.8을 앞서고, 출력 토큰을 덜 쓰며 코딩 에이전트 작업 비용도 낮다."
+    },
+    {
+      "type": "heading",
+      "value": "그록 4.5의 가격 압박과 기업 예산 감축에 갇힌 클로드"
+    },
+    {
+      "type": "text",
+      "value": "그록 4.5의 등장은 클로드의 차별성 약화를 보여준다. [아티피셜 애널리시스](https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier) 측정 기준 그록 4.5의 지능 지수는 54점, 작업당 비용은 0.31달러다. API 가격은 입력 100만 토큰당 2달러, 출력 6달러다. 코딩 에이전트 비용도 2.49달러로 클로드 코드의 페이블 5(11.80달러)보다 훨씬 저렴하다. 모든 평가에서 1위를 하지 못해도 가격 자체가 클로드의 높은 비용을 돋보이게 한다.\n\n이러한 효율 문제는 기업 구매에도 영향을 주기 시작했다. [더 버지](https://www.theverge.com/tech/930447/microsoft-claude-code-discontinued-notepad)는 마이크로소프트가 익스피리언스·디바이스 부문의 클로드 코드 라이선스 대부분을 없애고 코파일럿 CLI로 옮길 계획이라고 보도했다. 회사는 도구 통합을 이유로 들었고, 취재원들은 재무적 고려도 작용했다고 전했다. 자사 제품으로 옮기는 사례라 중립적인 비교는 아니며, 한 기업의 결정만으로 시장 전체의 이탈을 단정할 수도 없다. 다만 직원들이 선호하는 도구라도 운영비가 구매 결정에 영향을 줄 수 있다는 사실은 확인된다.\n\n경쟁 구도를 설명하기 위해 차세대 모델인 GPT-6의 등장까지 거론할 필요도 없다. [AI 데일리 브리프](https://aidailybrief.ai/e/2026-07-09)가 전하고 [앞선 AIScroll 기사](/ko/article/general/mythos-sovereign-ai-memory/)가 인용한 내용은 오픈AI가 더 큰 사전학습 기반을 준비할 수 있다는 주장이다. 오픈AI는 규모나 출시일을 확인하지 않았다. 현재 제품만으로도 위기는 충분하다. GPT-5.6은 페이블급 성능에 여러 기능을 묶었고 그록 4.5는 비용에 민감한 이용자의 대안이 됐다."
+    },
+    {
+      "type": "heading",
+      "value": "위기의 앤트로픽, 가격 방어 대신 제품력으로 답해야"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+      "caption": "앤트로픽의 클로드 페이블 5 재배포 발표 이미지",
+      "alt": "클로드 페이블 5 재배포를 알리는 앤트로픽 공식 이미지"
+    },
+    {
+      "type": "text",
+      "value": "클로드 구독에는 한때 분명한 선택 이유가 있었다. 다른 곳에서 대체하기 어려운 최상위 모델을 쓸 수 있다는 점이었다. 그러나 페이블 5가 구독에서 빠진 순간 경쟁사는 성능 차이를 좁히고 여러 기능을 한 상품으로 제공하며 비용까지 낮췄다. 앤트로픽이 맞은 최대 소비자 상품 위기의 원인은 벤치마크에서의 근소한 열세가 아니라 구독 자체의 실질적 우위가 사라진 데 있다.\n\n앤트로픽이 내놓을 수 있는 상품 차원의 답은 세 가지다. 페이블 5를 기본 구독에 다시 포함하거나, 이용자의 실제 작업에서 그만큼 강한 모델을 기본으로 제공해야 한다. 클로드와 클로드 코드의 토큰 효율을 크게 높이는 방법도 있다. 세 방안은 함께 추진할 수 있지만 모두 상품 안에서 이용자가 체감할 가치를 되찾는 길이어야 한다.\n\n페이블 5는 아티피셜 애널리시스 지능 지수에서 여전히 GPT-5.6 솔을 1점 앞선다. 앤트로픽에는 활용할 기술력이 남아 있다. 관건은 그 강점을 이용자가 결제하는 요금제 안으로 되돌릴 수 있느냐다. 답을 내놓기 전까지는 챗GPT가 더 강한 번들을, 그록 4.5가 쓸 만한 대안을 제공한다. 페이블 5 없는 클로드에는 그에 맞설 만큼 또렷한 선택 이유가 없다."
+    }
+  ]
+}
