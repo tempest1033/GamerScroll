@@ -1,0 +1,150 @@
+{
+  "slug": "mythos-sovereign-ai-memory",
+  "site": "aiscroll",
+  "status": "approved",
+  "date": "",
+  "category": "general",
+  "title": "미토스가 촉발한 소버린 AI 확산과 파라미터 전쟁, 메모리 공급 부족 심화",
+  "titleEn": "Mythos: Sovereign AI Scale Race, Memory Crunch",
+  "summary": "미토스는 프런티어 AI를 국가안보 자산으로 끌어올렸다. 더 큰 사전학습 경쟁과 소버린 AI·데이터센터 확산은 HBM·DRAM 수요를 밀어 올릴 전망이다.",
+  "summaryEn": "Mythos made frontier AI a national-security asset. Larger-scale pretraining and sovereign AI data-center expansion are expected to lift HBM and DRAM demand.",
+  "keywords": "미토스 프리뷰, 대형 사전학습, 하이퍼스케일 경쟁, HBM",
+  "keywordsEn": "pretraining, frontier AI, hyperscale, HBM",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/b7055119423427c40a0e4d84054aed17682b50a2-2880x1620.png",
+  "needTranslate": false,
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude Mythos Preview System Card",
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card"
+    },
+    {
+      "name": "The Information",
+      "title": "Anthropic's Mythos Spooked DeepSeek, Prompting Its $7.4 Billion Fundraising",
+      "url": "https://www.theinformation.com/articles/anthropics-mythos-spooked-deepseek-prompting-7-4-billion-fundraising"
+    },
+    {
+      "name": "Elon Musk on X",
+      "title": "SpaceXAI Colossus 2 now has 7 models in training",
+      "url": "https://x.com/elonmusk/status/2041754402239975479"
+    },
+    {
+      "name": "Epoch AI",
+      "title": "Why GPT-5 used less training compute than GPT-4.5 (but GPT-6 probably won't)",
+      "url": "https://epoch.ai/gradient-updates/why-gpt5-used-less-training-compute-than-gpt45-but-gpt6-probably-wont"
+    },
+    {
+      "name": "SK hynix Newsroom",
+      "title": "2026 Market Outlook: SK hynix's HBM to Fuel AI Memory Boom",
+      "url": "https://news.skhynix.com/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/deepseek-mimo-price-war",
+    "tech:ai/sovereign-ai-global-scramble",
+    "tech:ai/korea-chipmakers-mythos-glasswing-access",
+    "tech:ai/claude-mythos-launch-imminent-signals"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 3월, 앤트로픽은 클로드 미토스 프리뷰를 자사가 만든 모델 가운데 가장 강력한 모델이자 성능의 '단계적 도약'이라고 설명했다. [포천](https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/)이 공개 전 자료 노출을 먼저 전한 뒤 앤트로픽도 모델 훈련과 제한적 테스트 사실을 인정했다. 미토스는 프런티어 경쟁의 초점을 추론 효율에서 다시 대형 사전학습으로 돌려놓았다.\n\n앤트로픽은 모델 규모를 공개하지 않았지만 업계에서는 미토스를 [10T급 거대 모델](https://findskill.ai/blog/claude-mythos-anthropic-leaked-model/)로 보고 있다. 미토스가 보여준 성능 도약은 더 큰 사전학습이 더 큰 성능 격차를 만든다는 전망에 힘을 실었다. 뒤이어 딥시크는 74억 달러 조달에 나섰고, xAI는 10T 모델 훈련을 공식화했다. 프런티어 경쟁의 중심이 다시 하이퍼스케일로 이동한 것이다."
+    },
+    {
+      "type": "heading",
+      "value": "미토스가 되살린 대형 사전학습 경쟁"
+    },
+    {
+      "type": "text",
+      "value": "그 하이퍼스케일 경쟁의 출발점에는 미토스가 보여준 성능 도약이 있었다. 앤트로픽의 [미토스 프리뷰 시스템 카드](https://www.anthropic.com/claude-mythos-preview-system-card)는 미토스를 당시 가장 강력한 프런티어 모델로 규정하고, 클로드 오푸스 4.6보다 여러 평가에서 두드러진 도약을 보였다고 밝혔다. [AISI 평가](https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities)에서도 취약점을 스스로 찾아 악용하고 다단계 공격을 수행하는 능력이 이전 세대를 앞섰다.\n\n시장에 중요했던 것은 정확한 파라미터 숫자보다 성능 도약의 폭이었다. 공식 평가 결과와 비공식적인 대형 모델 추정이 겹치자, 더 큰 사전학습 기반이 여전히 큰 성능 차이를 낼 수 있다는 해석이 힘을 얻었다. 미토스는 끝난 줄 알았던 파라미터 경쟁을 다시 전면으로 끌어냈다."
+    },
+    {
+      "type": "heading",
+      "value": "딥시크 74억 달러, xAI는 10T 훈련 중"
+    },
+    {
+      "type": "image",
+      "src": "https://sherwoodnews.imgix.net/Screenshot%202025-10-22%20at%2012.58.48%E2%80%AFPM.png?auto=compress%2Cformat&cs=srgb",
+      "caption": "지붕에 'MACROHARD' 글자가 표시된 xAI 콜로서스 2 데이터센터의 위성 사진",
+      "alt": "콜로서스 2 데이터센터 지붕을 촬영한 위성 사진"
+    },
+    {
+      "type": "text",
+      "value": "충격은 곧 투자 전략의 변화로 이어졌다. 디인포메이션에 따르면 비용 효율로 [가격 경쟁](/ko/article/general/deepseek-mimo-price-war/)을 주도했던 딥시크는 미토스 프리뷰를 본 뒤 프런티어 경쟁에 더 큰 자본이 필요하다고 판단했다. 량원펑은 74억 달러 규모의 자금 조달에 나섰다. 딥시크의 선택은 비용 효율만으로 프런티어 격차를 좁히기 어렵고, 결국 더 큰 학습 규모를 뒷받침할 자본이 필요하다는 판단을 보여준다.\n\nxAI(스페이스XAI)는 현재 콜로서스 2에서 10T 표기 모델을 훈련하고 있다. 일론 머스크는 2026년 4월 8일 [공식 X 게시물](https://x.com/elonmusk/status/2041754402239975479)에서 이 모델과 함께 1T 모델 2개, 1.5T 모델 2개, 6T 모델 1개, 이매진 V2 등 모두 7개 모델이 훈련 중이라고 밝혔다. 머스크는 10T라는 표기를 썼지만 전체 파라미터인지 활성 파라미터인지는 밝히지 않았다. 딥시크의 자본 확충과 xAI의 현재 훈련은 프런티어 경쟁이 다시 하이퍼스케일로 향하고 있음을 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "GPT-6 대형 모델 루머, 제미나이는 새 사전학습 기반"
+    },
+    {
+      "type": "text",
+      "value": "딥시크와 xAI의 움직임 뒤에는 오픈AI와 구글의 대형화 신호도 잇따랐다. [AI 데일리 브리프](https://aidailybrief.ai/e/2026-07-09)는 정보 유출자 레오와 앤드루 커런을 인용해 GPT-6가 새로운 사전학습 기반을 쓰고 파라미터 수를 크게 늘릴 것이라는 업계 루머를 전했다. [에포크 AI](https://epoch.ai/gradient-updates/why-gpt5-used-less-training-compute-than-gpt45-but-gpt6-probably-wont)는 GPT-6가 GPT-4.5보다 많은 연산을 투입한 대형 사전학습으로 돌아갈 것으로 예측했다. 파라미터 규모는 루머지만 훈련 연산 확대 전망까지 더해지면서 GPT-6 대형화 전망에 힘이 실리고 있다.\n\n구글의 제미나이 3.5 프로도 같은 방향을 가리키는 추가 신호다. [비즈니스인사이더](https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6)는 6월 출시 계획이 7월로 밀렸다고 전했고, [테크타임스](https://www.techtimes.com/articles/319877/20260708/gemini-35-pro-targets-july-17-deepseeks-july-24-deadline-hits-developers-now.htm)는 구글이 기존 기반 모델을 버리고 새 사전학습 주기와 체크포인트로 옮겼다고 전했다. 출시 지연과 기반 교체 보도가 맞물리면서 구글도 기존 체크포인트 보강보다 새 사전학습에 무게를 뒀다는 해석이 나온다.\n\nGPT-6 루머와 에포크 AI의 전망, 제미나이 보도는 출처와 확정 수준이 서로 다르다. 그러나 미토스가 경쟁 기준을 끌어올린 뒤 세 신호는 모두 더 큰 모델, 더 많은 훈련 연산, 새로운 기반 체크포인트라는 같은 하이퍼스케일 방향을 가리켰다."
+    },
+    {
+      "type": "heading",
+      "value": "소버린 AI, HBM·DRAM 공급망 압박 가중"
+    },
+    {
+      "type": "image",
+      "src": "https://d36ae2cxtn9mcr.cloudfront.net/wp-content/uploads/2025/09/11235814/SK-hynix_HBM4-Development_Press-Release_Thumbnail_EN.png",
+      "caption": "SK하이닉스의 HBM4 개발 발표 이미지",
+      "alt": "SK하이닉스 HBM4 제품 발표 이미지"
+    },
+    {
+      "type": "text",
+      "value": "같은 하이퍼스케일 흐름은 미국과 중국의 몇몇 클러스터를 넘어 국가 단위로 퍼지고 있다. 사이버 보안과 국방, 행정, 의료 데이터를 자국 안에 두려는 정부는 소버린 AI 인프라를 현재 확충하고 있다. 미국 신안보센터(CNAS)의 [소버린 AI 인덱스](https://interactives.cnas.org/reports/sovereign-ai-index/)에는 유럽·중동·아시아에서 가동 중이거나 계획된 국가 AI 팩토리와 소버린 클라우드가 정리돼 있다.\n\n국가마다 훈련과 추론 설비를 따로 갖추면 AI 데이터센터 수요는 단일 글로벌 클러스터보다 넓게 퍼진다. 여기에 상시 작동하는 에이전트와 자율주행, 로봇이 더해지면서 가속기뿐 아니라 서버용 DRAM과 저장장치 주문도 늘어날 가능성이 크다.\n\n메모리 반도체 가운데 HBM은 대형 모델 훈련의 핵심 병목이다. 모델과 체크포인트가 커질수록 가속기당 HBM 탑재량과 대역폭 요구가 높아지고, HBM에 생산 능력이 집중되면 범용 DRAM 공급도 빠듯해질 수 있다. [SK하이닉스 뉴스룸](https://news.skhynix.com/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle/)이 인용한 HBM 전망은 2026년 시장을 546억 달러, 전년 대비 58% 성장으로 잡았다. HBM과 DRAM의 공급 부담은 매우 커지고 있다.\n\n삼성전자와 SK하이닉스, 마이크론 등 핵심 메모리 공급업체들이 장기화하는 메모리 슈퍼사이클의 최대 수혜자로 자리 잡을 가능성이 커지고 있다. 대형 사전학습 경쟁과 소버린 AI 데이터센터 확산이 HBM과 DRAM 수요를 동시에 끌어올리기 때문이다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "In March 2026, Anthropic described Claude Mythos Preview as its most capable model to date and a step change in performance. [Fortune](https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/) first reported the exposed pre-release material, after which Anthropic acknowledged that training was complete and limited testing was underway. The model's debut pulled frontier competition back toward large-scale pretraining.\n\nAnthropic did not disclose the model's size, but industry estimates place Mythos in the [10T-class range](https://findskill.ai/blog/claude-mythos-anthropic-leaked-model/). Its capability leap strengthened the outlook that a larger pretraining base can create a wider performance gap. DeepSeek then moved to raise $7.4 billion, while xAI formally announced that it was training a 10T model. The center of frontier competition had shifted back toward hyperscale."
+    },
+    {
+      "type": "heading",
+      "value": "Mythos Revived the Large-Scale Pretraining Race"
+    },
+    {
+      "type": "text",
+      "value": "At the starting point of that hyperscale race was Mythos's capability leap. Anthropic's [Mythos Preview system card](https://www.anthropic.com/claude-mythos-preview-system-card) called it the company's most capable frontier model at the time and described a striking leap across multiple evaluations versus Claude Opus 4.6. The [AISI evaluation](https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities) likewise found stronger autonomous vulnerability discovery and multistage attack performance than the previous generation.\n\nThe market cared less about an exact parameter count than the size of the performance jump. The official evaluation results and the unofficial estimate of a much larger pretraining base revived the view that scale could again produce a major gap. Mythos brought the parameter race back to the center of frontier AI."
+    },
+    {
+      "type": "heading",
+      "value": "DeepSeek Raises $7.4B as xAI Trains 10T Model"
+    },
+    {
+      "type": "image",
+      "src": "https://sherwoodnews.imgix.net/Screenshot%202025-10-22%20at%2012.58.48%E2%80%AFPM.png?auto=compress%2Cformat&cs=srgb",
+      "caption": "A satellite view of xAI's Colossus 2 data center with “MACROHARD” painted on the roof",
+      "alt": "Satellite view of the Colossus 2 data center roof"
+    },
+    {
+      "type": "text",
+      "value": "The shock quickly became a change in investment strategy. According to The Information, DeepSeek—fresh from leading the [price competition](/article/general/deepseek-mimo-price-war/) through cost efficiency—saw the Mythos preview and concluded that frontier competition required more capital. Liang Wenfeng moved to raise $7.4 billion. DeepSeek's move showed that cost efficiency alone was not enough to close the frontier gap; competing at that level still required capital for larger-scale training.\n\nxAI/SpaceXAI is currently training a 10T-labeled model on Colossus 2. In an [official X post](https://x.com/elonmusk/status/2041754402239975479) on April 8, 2026, Elon Musk said it was among seven models in training, alongside two 1T variants, two 1.5T variants, one 6T model, and Imagine V2. Musk used the 10T label without defining whether it referred to total or active parameters. DeepSeek's capital expansion and xAI's current run both point back toward hyperscale competition."
+    },
+    {
+      "type": "heading",
+      "value": "GPT-6 Scale Rumors, Gemini's New Pretraining Base"
+    },
+    {
+      "type": "text",
+      "value": "Behind the moves by DeepSeek and xAI came more scaling signals from OpenAI and Google. [The AI Daily Brief](https://aidailybrief.ai/e/2026-07-09), citing leakers Leo and Andrew Curran, reported the rumor that GPT-6 will use a new pretraining base with substantially more parameters. [Epoch AI](https://epoch.ai/gradient-updates/why-gpt5-used-less-training-compute-than-gpt45-but-gpt6-probably-wont) predicts that GPT-6 will return to a larger pretraining run using more compute than GPT-4.5. The parameter scale remains a rumor, but the compute forecast adds weight to the outlook for a larger GPT-6.\n\nGemini 3.5 Pro provides another signal in the same direction. [Business Insider](https://www.businessinsider.com/google-3-5-pro-july-release-tokens-ai-agents-model-2026-6) reported that the planned June launch slipped to July, while [TechTimes](https://www.techtimes.com/articles/319877/20260708/gemini-35-pro-targets-july-17-deepseeks-july-24-deadline-hits-developers-now.htm) reported that Google abandoned the prior base for a new pretraining cycle and checkpoint. The delay and base-reset report together suggest that Google favored a fresh pretraining foundation over further work on the existing checkpoint.\n\nThe GPT-6 rumor, Epoch AI forecast, and Gemini reports come from different sources and carry different levels of certainty. After Mythos raised the competitive bar, however, all three pointed toward the same hyperscale direction: larger models, more training compute, and new base checkpoints."
+    },
+    {
+      "type": "heading",
+      "value": "Sovereign AI Intensifies HBM and DRAM Demand"
+    },
+    {
+      "type": "image",
+      "src": "https://d36ae2cxtn9mcr.cloudfront.net/wp-content/uploads/2025/09/11235814/SK-hynix_HBM4-Development_Press-Release_Thumbnail_EN.png",
+      "caption": "SK hynix's HBM4 development announcement image",
+      "alt": "SK hynix HBM4 memory development announcement image"
+    },
+    {
+      "type": "text",
+      "value": "The same hyperscale direction is spreading beyond a few US and Chinese clusters to the national level. Governments that want cyber, defense, administrative, and health data to remain inside national borders are currently expanding sovereign AI infrastructure. The Center for a New American Security [Sovereign AI Index](https://interactives.cnas.org/reports/sovereign-ai-index/) catalogs operational and planned national AI factories and sovereign clouds across Europe, the Middle East, and Asia.\n\nWhen each jurisdiction builds its own training and inference capacity, AI data-center demand spreads beyond a single global cluster. Persistent agents, autonomous vehicles, and robotics add server DRAM and storage demand alongside accelerators.\n\nHBM is a central bottleneck for large-model training. Larger models and checkpoints raise capacity and bandwidth requirements per accelerator, while production diverted toward HBM can tighten general-purpose DRAM supply. The [HBM demand outlook from SK hynix's newsroom](https://news.skhynix.com/2026-market-outlook-focus-on-the-hbm-led-memory-supercycle/) puts the 2026 market at $54.6 billion, up 58% year over year. Pressure on HBM and DRAM supply is rising sharply.\n\nSamsung Electronics, SK hynix, Micron, and other core memory suppliers are increasingly positioned as the main beneficiaries of a prolonged memory supercycle. Large-scale pretraining competition and the spread of sovereign AI data centers are lifting HBM and DRAM demand together."
+    }
+  ]
+}
