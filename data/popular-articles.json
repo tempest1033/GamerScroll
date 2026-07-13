@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-12T01:18:50.261Z",
+  "updatedAt": "2026-07-13T01:20:42.083Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 14,
+      "views": 17,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -22,16 +22,23 @@
       "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 6,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
       "views": 6,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
       "views": 5,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "hotpick",
@@ -40,36 +47,22 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 4,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 3,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 4,
+      "views": 3,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "ranking",
       "slug": "subculture-february-2026-kr",
       "views": 3,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
@@ -86,10 +79,10 @@
       "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
       "views": 2,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "issue",
@@ -110,11 +103,31 @@
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
+      "type": "issue",
+      "slug": "seedance-2-hollywood-shock-next-version",
+      "views": 2,
+      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+    },
+    {
+      "type": "tech",
+      "slug": "2d-animation-tech",
+      "category": "normal",
+      "views": 2,
+      "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
       "type": "wiki",
       "slug": "black-and-white-demis-hassabis",
       "category": "history",
       "views": 2,
       "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
@@ -134,12 +147,6 @@
       "slug": "unreal-engine-6-revealed-rocket-league",
       "views": 1,
       "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
-    },
-    {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 1,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -173,6 +180,18 @@
     },
     {
       "type": "issue",
+      "slug": "devil-may-cry-1-remake-rumor",
+      "views": 1,
+      "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragon-sword-full-refund-server-shutdown",
+      "views": 1,
+      "path": "/magazine/issue/dragon-sword-full-refund-server-shutdown/"
+    },
+    {
+      "type": "issue",
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
@@ -182,12 +201,6 @@
       "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
       "views": 1,
       "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
-    },
-    {
-      "type": "issue",
-      "slug": "game-ai-controversy-award-revoked",
-      "views": 1,
-      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
     },
     {
       "type": "issue",
@@ -203,21 +216,21 @@
     },
     {
       "type": "issue",
+      "slug": "heavenhells-sales-decline-launch",
+      "views": 1,
+      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "lck-cup-baron-wins-hle-eliminated",
       "views": 1,
       "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
+      "slug": "lol-league-next-2027-overhaul",
       "views": 1,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 1,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -239,12 +252,6 @@
     },
     {
       "type": "issue",
-      "slug": "overwatch-shion-hero-52-skillset",
-      "views": 1,
-      "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
-    },
-    {
-      "type": "issue",
       "slug": "pokemon-pokopia-review-roundup",
       "views": 1,
       "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
@@ -257,15 +264,15 @@
     },
     {
       "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "issue",
       "slug": "silksong-sea-of-sorrow",
       "views": 1,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
+    },
+    {
+      "type": "issue",
+      "slug": "sol-enchant-dual-market-no1-launch",
+      "views": 1,
+      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
     },
     {
       "type": "issue",
@@ -278,19 +285,6 @@
       "slug": "mobile-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "2d-animation-tech",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/2d-animation-tech/"
     },
     {
       "type": "tech",
