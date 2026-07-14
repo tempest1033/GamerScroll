@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-13T01:20:42.083Z",
+  "updatedAt": "2026-07-14T01:09:58.358Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 17,
+      "views": 19,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -16,16 +16,16 @@
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 8,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
       "views": 6,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "granblue-relink-endless-ragnarok",
+      "views": 6,
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
       "type": "ranking",
@@ -34,23 +34,24 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 5,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 4,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 3,
-      "path": "/magazine/insight/2026-game-trends/"
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "issue",
@@ -66,17 +67,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
+      "slug": "platform-fees-comparison",
+      "category": "business",
       "views": 3,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "hotpick",
@@ -85,16 +79,16 @@
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 2,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
       "type": "issue",
       "slug": "china-gaming-superpower-rise",
       "views": 2,
       "path": "/magazine/issue/china-gaming-superpower-rise/"
-    },
-    {
-      "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
-      "views": 2,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
       "type": "issue",
@@ -131,6 +125,13 @@
     },
     {
       "type": "wiki",
+      "slug": "gacha-system-regulations",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "wiki",
       "slug": "raph-koster-theory-of-fun",
       "category": "knowledge",
       "views": 2,
@@ -159,12 +160,6 @@
       "slug": "aion2-midterm-report-card",
       "views": 1,
       "path": "/magazine/issue/aion2-midterm-report-card/"
-    },
-    {
-      "type": "issue",
-      "slug": "clash-royale-10th-anniversary-success",
-      "views": 1,
-      "path": "/magazine/issue/clash-royale-10th-anniversary-success/"
     },
     {
       "type": "issue",
@@ -204,6 +199,12 @@
     },
     {
       "type": "issue",
+      "slug": "gpt-5-3-garlic-update-rumor",
+      "views": 1,
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "type": "issue",
       "slug": "gta6-preorder-june-25",
       "views": 1,
       "path": "/magazine/issue/gta6-preorder-june-25/"
@@ -219,12 +220,6 @@
       "slug": "heavenhells-sales-decline-launch",
       "views": 1,
       "path": "/magazine/issue/heavenhells-sales-decline-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "lck-cup-baron-wins-hle-eliminated",
-      "views": 1,
-      "path": "/magazine/issue/lck-cup-baron-wins-hle-eliminated/"
     },
     {
       "type": "issue",
@@ -281,17 +276,16 @@
       "path": "/magazine/issue/subculture-newyear-china-wins/"
     },
     {
+      "type": "issue",
+      "slug": "wuthering-waves-korea-grossing-no1",
+      "views": 1,
+      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
+    },
+    {
       "type": "ranking",
       "slug": "mobile-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "rewinding-cadence-technical-test",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/rewinding-cadence-technical-test/"
     },
     {
       "type": "wiki",
@@ -299,6 +293,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/app-revenue-ranking-algorithm/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-ip-licensing",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-ip-licensing/"
     },
     {
       "type": "wiki",
@@ -327,13 +328,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
     },
     {
       "type": "wiki",
