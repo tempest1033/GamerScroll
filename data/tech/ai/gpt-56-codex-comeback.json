@@ -1,0 +1,150 @@
+{
+  "slug": "gpt-56-codex-comeback",
+  "site": "aiscroll",
+  "status": "approved",
+  "date": "",
+  "category": "openai",
+  "title": "GPT-5.6, 뛰어난 성능과 가격 경쟁력으로 초기 호평",
+  "titleEn": "GPT-5.6 Wins Early Praise on Price and Power",
+  "summary": "GPT-5.6이 성능과 비용 효율로 초기 호평을 받고 있다. 오픈AI의 사용량 혜택 확대와 비슷한 시기에 앤트로픽도 한도와 모델 접근 혜택을 늘리며 대응에 나섰다.",
+  "summaryEn": "GPT-5.6 earns early praise for performance and value. As OpenAI expanded usage perks, Anthropic extended its limits and model-access offers in response.",
+  "keywords": "GPT-5.6 성능, 코덱스 리셋, 클로드 코드 경쟁, 사용 한도",
+  "keywordsEn": "GPT-5.6 Sol, GPT-5.6 Codex, Claude Fable 5, OpenAI Codex",
+  "thumbnail": "https://s.yimg.com/lo/mysterio/api/3738816885934a8f025758b146f76cab5cfc0307ff0e02424d2d573581e54f66/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fquartz_855%2Fd09934493d9f88b4a18e4a2e264405f6",
+  "needTranslate": false,
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
+      "url": "https://openai.com/index/gpt-5-6/"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "GPT-5.6 benchmarks across Intelligence, Speed and Cost",
+      "url": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+    },
+    {
+      "name": "Tibo Sottiaux on X",
+      "title": "Codex and ChatGPT Work pass 7M active users",
+      "url": "https://x.com/thsottiaux/status/2076735790567338203"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 promotional access",
+      "url": "https://support.claude.com/en/articles/15424964-claude-fable-5-promotional-access"
+    },
+    {
+      "name": "Anthropic",
+      "title": "Claude Code May–July 2026 weekly limits promotion",
+      "url": "https://support.claude.com/en/articles/15910845-claude-code-may-july-2026-weekly-limits-promotion"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/anthropic-pricing-crisis",
+    "tech:ai/coding-agent-market-share-war-anthropic-openai",
+    "tech:ai/codex-referral-reset-growth",
+    "tech:ai/gpt-56-anthropic-tipping-point"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "GPT-5.6 has received an unusually favorable initial reception. OpenAI's new Sol, Terra, and Luna model family is drawing praise not just for benchmark gains, but for pairing frontier performance with pricing that makes deployment practical. Performance and cost efficiency are therefore at the center of early evaluations.\n\nThe impact is most pronounced in coding. Independent evaluations place Sol near the top of the general intelligence field and at the head of a key coding-agent index. OpenAI is pairing those gains with repeated usage resets to accelerate user growth. While OpenAI has not yet proved it has overtaken Anthropic, the competition has become significantly tighter."
+    },
+    {
+      "type": "heading",
+      "value": "GPT-5.6 Pricing Turns Benchmarks Into a Product Story"
+    },
+    {
+      "type": "text",
+      "value": "This shifting dynamic is driven by the metrics. [OpenAI's launch page](https://openai.com/index/gpt-5-6/) introduces GPT-5.6 as a three-model family, while [Artificial Analysis](https://artificialanalysis.ai/articles/gpt-5-6-has-landed) scored Sol at 59 on its Intelligence Index, just one point behind Claude Fable 5. In those tests, Sol cost $1.04 per task—approximately one-third of Fable 5's cost—and scored 80 on the Coding Agent Index when paired with Codex.\n\nThe model family offers developers a clear pricing tier. Artificial Analysis lists Sol, Terra, and Luna at $5/$30, $2.50/$15, and $1/$6 per million input/output tokens, respectively. At maximum reasoning, Terra and Luna cost roughly 50% and 80% less per Intelligence Index task than Sol. While these figures do not reflect all real-world workloads, they provide a basis for evaluating GPT-5.6's balance of performance and affordability."
+    },
+    {
+      "type": "heading",
+      "value": "Seven Million Users and a Drumbeat of Codex Resets"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/App-view.png",
+      "caption": "Codex project list in the ChatGPT mobile app",
+      "alt": "OpenAI Codex project list integrated into the ChatGPT mobile app on a smartphone"
+    },
+    {
+      "type": "text",
+      "value": "On July 12, OpenAI product lead Tibo Sottiaux [announced on X](https://x.com/thsottiaux/status/2076365965915467978) that Codex and ChatGPT Work had reached 6 million active users after an intense 48 hours. OpenAI temporarily removed the five-hour usage-limit restriction for Plus, Business, and Pro plans and said another usage reset would arrive within the hour.\n\nSottiaux subsequently announced that Codex and ChatGPT Work had surpassed 7 million active users. OpenAI commemorated the milestone by introducing a \"banked reset\" in its desktop app and web interface, allowing users to manually replenish weekly usage."
+    },
+    {
+      "type": "heading",
+      "value": "Anthropic Extends Two Access Promotions"
+    },
+    {
+      "type": "text",
+      "value": "Anthropic has extended two separate promotions through July 19, 2026. Its official Claude Code offer raises weekly limits by 50% for Pro, Max, Team, and legacy seat-based Enterprise users. The increase applies automatically across the command-line interface, IDE extensions, desktop app, and web, while the standard five-hour limit remains unchanged.\n\nIn addition, Anthropic extended its promotional Fable 5 access for paid subscribers through July 19. Anthropic said eligible users can use up to 50% of their weekly subscription limits on Fable 5 at no additional cost. Industry observers may interpret the extensions as Anthropic weighing its next response to intensifying competition, but the company has not said they were timed as a direct reaction to OpenAI. As [earlier AIScroll coverage](/article/anthropic/anthropic-pricing-crisis/) noted, model access, package value, and operating costs are now central to comparisons between the platforms."
+    },
+    {
+      "type": "heading",
+      "value": "A Shifting Coding Landscape as GPT-6 Rumors Circulate"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+      "caption": "Anthropic logo",
+      "alt": "Anthropic logo displayed on a black background"
+    },
+    {
+      "type": "text",
+      "value": "This competitive pressure has fueled speculation of a market shift. Some developers and industry observers suggest that Codex has nearly caught up to Claude Code, pointing to a potential \"golden cross.\" While this narrative captures current market momentum, it does not reflect verified market share, as no audited comparative data proves OpenAI has overtaken Anthropic in the coding agent space.\n\nMeanwhile, speculative focus is already shifting to the next generation of models. [Andrew Curran wrote on X](https://x.com/AndrewCurran_/status/2075005058287300766) that he had independently heard GPT-6 would be OpenAI's next release, potentially arriving within four weeks. Because OpenAI has not confirmed this timeline or any upcoming launch, the report remains a social media rumor rather than an official product roadmap.\n\nOpenAI was widely seen as trailing after Claude Code launched, but GPT-5.6 and Codex have put it back into a tightening race for the lead. With the gap narrowing quickly and GPT-6 rumors now in the mix, the future balance of power is set to become even more compelling to watch."
+    }
+  ],
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈AI의 신규 AI 모델 GPT-5.6이 출시 초기 시장에서 이례적으로 긍정적인 평가를 받고 있다. 새로 공개된 솔(Sol)·테라(Terra)·루나(Luna) 제품군은 벤치마크 점수 향상에 그치지 않고, 기업들이 실무에 바로 도입할 수 있는 합리적인 가격 정책을 제시했다. 성능과 비용 효율성은 GPT-5.6 초기 평가의 핵심 기준으로 꼽힌다.\n\n특히 코딩 에이전트 분야에서 사용자 반응이 가장 뜨겁다. 외부 기관 평가에서 솔은 종합 지능 부문 최상위권에 오른 데 이어 코딩 에이전트 지수에서 단독 1위를 기록했다. 오픈AI는 여기에 사용량 한도 리셋 혜택을 잇달아 더하며 이용자 확대에 속도를 내고 있다. 아직 오픈AI가 경쟁사인 앤트로픽을 완전히 넘어섰다고 보기는 어렵지만 양사 간 경쟁 구도는 이전보다 훨씬 팽팽해졌다."
+    },
+    {
+      "type": "heading",
+      "value": "벤치마크를 제품 경쟁력으로 바꾼 GPT-5.6 가격 정책"
+    },
+    {
+      "type": "text",
+      "value": "양사의 격차가 좁혀진 배경은 구체적인 성능 지표에서 확인된다. [오픈AI 공식 발표](https://openai.com/index/gpt-5-6/)를 보면 GPT-5.6은 총 세 가지 모델로 나뉘는데, 분석 기관인 [아티피셜 애널리시스](https://artificialanalysis.ai/articles/gpt-5-6-has-landed) 평가에서 솔은 지능 지수 59점을 받으며 클로드 페이블 5를 1점 차로 바짝 추격했다. 특히 솔은 작업당 비용이 1.04달러로 클로드 페이블 5의 3분의 1 수준에 불과했으며, 코덱스와 결합한 코딩 에이전트 지수에서는 80점으로 선두에 올랐다.\n\n개발자를 위한 가격 선택지도 다양하게 설계됐다. 아티피셜 애널리시스에 따르면 100만 토큰당 입력·출력 단가는 솔이 5달러·30달러, 테라가 2.50달러·15달러, 루나가 1달러·6달러다. 최대 추론 기능을 기준으로 삼았을 때 테라와 루나의 작업당 비용은 솔보다 각각 50%, 80%가량 저렴했다. 이 수치들이 실제 업무의 모든 상황을 대변하지는 않지만, GPT-5.6의 성능과 가격 경쟁력 간 균형을 평가할 근거는 제공한다."
+    },
+    {
+      "type": "heading",
+      "value": "이용자 700만 돌파와 거듭되는 코덱스 한도 리셋"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/App-view.png",
+      "caption": "코덱스 모바일 앱의 프로젝트 목록 화면",
+      "alt": "스마트폰에 표시된 코덱스 프로젝트 목록"
+    },
+    {
+      "type": "text",
+      "value": "7월 12일 오픈AI 제품 책임자 티보 소티오는 [X를 통해](https://x.com/thsottiaux/status/2076365965915467978) 이틀간 이용이 급증한 뒤 코덱스와 챗GPT 워크의 활성 이용자가 600만 명에 도달했다고 밝혔다. 오픈AI는 플러스, 비즈니스, 프로 요금제의 5시간 사용 제한을 일시 해제하고 한 시간 안에 사용량을 다시 리셋하겠다고 알렸다.\n\n소티오 책임자는 이후 두 서비스의 활성 이용자 수가 700만 명마저 넘어섰다고 덧붙였다. 오픈AI는 데스크톱 앱과 웹 버전에서 사용자가 원할 때 주간 한도를 복구할 수 있는 '뱅크드 리셋(Banked Reset)' 기능을 전면 도입하며 화답했다."
+    },
+    {
+      "type": "heading",
+      "value": "앤트로픽이 꺼낸 두 가지 연장 카드"
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽은 별개의 프로모션 두 건을 2026년 7월 19일까지 연장했다. 먼저 프로, 맥스, 팀 요금제와 기존 좌석제 엔터프라이즈 이용자에게 주간 클로드 코드 사용 한도를 50% 더 제공한다. 이 혜택은 CLI와 IDE 확장 도구, 데스크톱 및 웹 앱에 자동으로 적용되며, 5시간 사용 제한은 기존대로 유지된다.\n\n여기에 더해 앤트로픽은 유료 구독자에게 제공하던 페이블 5 프로모션도 7월 19일까지 연장했다. 앤트로픽은 해당 이용자가 추가 비용 없이 주간 구독 한도의 최대 50%를 페이블 5에 쓸 수 있다고 공지했다. 업계에서는 이를 앤트로픽이 치열해진 경쟁 속에서 다음 대응을 저울질하는 움직임으로 해석하기도 하지만, 앤트로픽은 오픈AI에 대한 직접 대응으로 시기를 정했다고 밝히지 않았다. [앞선 AIScroll 보도](/ko/article/anthropic/anthropic-pricing-crisis/)에서 짚었듯 모델 접근성, 구독 가치, 운영 비용은 이제 두 플랫폼을 비교하는 핵심 기준이다."
+    },
+    {
+      "type": "heading",
+      "value": "골든 크로스 전망과 GPT-6 출시 루머"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+      "caption": "앤트로픽 로고",
+      "alt": "검은 배경에 표시된 앤트로픽 로고"
+    },
+    {
+      "type": "text",
+      "value": "양사의 치열한 대결은 시장 구도가 재편될 수 있다는 관측으로 이어지고 있다. 개발자 커뮤니티에서는 코덱스가 클로드 코드의 턱밑까지 쫓아왔으며 상징적인 '골든 크로스'가 가까울 수 있다는 목소리가 나온다. 다만 이는 최근의 상승세를 표현한 것일 뿐이며, 아직 코덱스가 클로드 코드를 시장 점유율 면에서 앞질렀음을 증명할 객관적인 데이터는 나오지 않았다.\n\n이러한 상황에서 시장의 관심은 벌써 차세대 인공지능 모델로 쏠리는 분위기다. [앤드루 커런은 개인 X 계정을 통해](https://x.com/AndrewCurran_/status/2075005058287300766) 오픈AI의 차기 제품인 GPT-6이 이르면 4주 안에 출시될 수 있다는 이야기를 별도로 들었다고 전했다. 오픈AI 공식 채널이 관련 일정이나 일반 공개 여부를 확인하지 않은 만큼, 현 단계에서는 X에서 시작된 GPT-6 루머로 받아들이는 것이 적절하다.\n\n클로드 코드 출시 이후 한동안 뒤처졌다는 평가를 받던 오픈AI가 GPT-5.6과 코덱스를 앞세워 다시 추격에 속도를 내고 있다. 양사의 격차가 빠르게 좁혀지면서 선두 경쟁도 다시 치열해지는 모습이다. GPT-6 출시 루머까지 더해진 만큼 향후 주도권 변화는 한층 흥미로운 관전 포인트가 될 전망이다."
+    }
+  ]
+}
