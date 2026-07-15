@@ -40,7 +40,8 @@
 .blog-content > .blog-table-wrapper,
 .blog-content > .ad-card,
 .blog-content > .blog-link-buttons,
-.blog-content > .blog-video {
+.blog-content > .blog-video,
+.blog-content > .ranking-card {
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
