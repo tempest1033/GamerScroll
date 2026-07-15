@@ -1,11 +1,7 @@
 {
-  "updatedAt": "2026-07-14T18:57:36.767Z",
+  "updatedAt": "2026-07-15T20:00:39.959Z",
   "period": "30days",
   "games": [
-    {
-      "slug": "메이플-키우기",
-      "views": 5
-    },
     {
       "slug": "limbus-company",
       "views": 4
@@ -24,6 +20,10 @@
     },
     {
       "slug": "coin-master-board-adventure",
+      "views": 2
+    },
+    {
+      "slug": "dbs-에너르기파",
       "views": 2
     },
     {
