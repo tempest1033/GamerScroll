@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-14T01:09:58.358Z",
+  "updatedAt": "2026-07-15T00:12:33.231Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 19,
+      "views": 18,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -22,29 +22,16 @@
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 6,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
-      "views": 6,
+      "views": 5,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
+      "type": "issue",
+      "slug": "granblue-relink-endless-ragnarok",
       "views": 4,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
       "type": "wiki",
@@ -54,16 +41,10 @@
       "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
       "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "wiki",
@@ -71,6 +52,13 @@
       "category": "business",
       "views": 3,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "hotpick",
@@ -101,6 +89,12 @@
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 2,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -199,15 +193,15 @@
     },
     {
       "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
+      "slug": "gow-laufey-jaffe-criticism",
       "views": 1,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+      "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
     },
     {
       "type": "issue",
-      "slug": "gta6-preorder-june-25",
+      "slug": "gpt-5-3-garlic-update-rumor",
       "views": 1,
-      "path": "/magazine/issue/gta6-preorder-june-25/"
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
     },
     {
       "type": "issue",
@@ -229,12 +223,6 @@
     },
     {
       "type": "issue",
-      "slug": "maplestory-idle-full-refund",
-      "views": 1,
-      "path": "/magazine/issue/maplestory-idle-full-refund/"
-    },
-    {
-      "type": "issue",
       "slug": "metacritic-top-10-games-2025",
       "views": 1,
       "path": "/magazine/issue/metacritic-top-10-games-2025/"
@@ -244,6 +232,12 @@
       "slug": "nvidia-gtc-2026-dlss5-gaming",
       "views": 1,
       "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 1,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
@@ -271,9 +265,9 @@
     },
     {
       "type": "issue",
-      "slug": "subculture-newyear-china-wins",
+      "slug": "starcraft-shooter-blizzard-nexon",
       "views": 1,
-      "path": "/magazine/issue/subculture-newyear-china-wins/"
+      "path": "/magazine/issue/starcraft-shooter-blizzard-nexon/"
     },
     {
       "type": "issue",
@@ -310,10 +304,10 @@
     },
     {
       "type": "wiki",
-      "slug": "publisher-developer-relationship",
+      "slug": "google-genie3-unity-stock-crash",
       "category": "business",
       "views": 1,
-      "path": "/wiki/business/publisher-developer-relationship/"
+      "path": "/wiki/business/google-genie3-unity-stock-crash"
     },
     {
       "type": "wiki",
@@ -324,10 +318,10 @@
     },
     {
       "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
       "views": 1,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
