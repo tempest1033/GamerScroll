@@ -41,7 +41,7 @@ const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
 // Article body ads keep the dedicated in-article slots; handling matches feed scroll ads.
 const IN_ARTICLE_SLOTS = [
-  AD_SLOTS.InArticle001, AD_SLOTS.InArticle002
+  AD_SLOTS.InArticle001, AD_SLOTS.InArticle002, AD_SLOTS.InArticle003, AD_SLOTS.InArticle004, AD_SLOTS.InArticle005
 ];
 function getInArticleAdHTML(adIndex) {
   const slotId = IN_ARTICLE_SLOTS[adIndex % IN_ARTICLE_SLOTS.length];
