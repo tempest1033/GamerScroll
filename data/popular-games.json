@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-15T20:00:39.959Z",
+  "updatedAt": "2026-07-16T20:42:59.121Z",
   "period": "30days",
   "games": [
     {
@@ -11,19 +11,11 @@
       "views": 3
     },
     {
-      "slug": "에브리타운",
-      "views": 3
-    },
-    {
       "slug": "brain-puzzle-2-logic-twist",
       "views": 2
     },
     {
       "slug": "coin-master-board-adventure",
-      "views": 2
-    },
-    {
-      "slug": "dbs-에너르기파",
       "views": 2
     },
     {
@@ -77,6 +69,14 @@
     {
       "slug": "한게임-로얄홀덤",
       "views": 2
+    },
+    {
+      "slug": "annoying-uncle-펀칭-게임",
+      "views": 1
+    },
+    {
+      "slug": "baldurs-gate-3",
+      "views": 1
     }
   ]
 }
