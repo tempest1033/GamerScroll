@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-16T01:16:17.177Z",
+  "updatedAt": "2026-07-17T01:20:09.786Z",
   "period": "7days",
   "articles": [
     {
@@ -12,27 +12,27 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 8,
+      "views": 7,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 4,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+      "type": "ranking",
+      "slug": "subculture-june-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "insight",
@@ -42,15 +42,9 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
+      "slug": "heartopia-mobile-animal-crossing-success",
       "views": 3,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-june-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-june-2026-kr/"
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "ranking",
@@ -59,23 +53,10 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 2,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 2,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
@@ -85,21 +66,21 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
+      "slug": "granblue-relink-endless-ragnarok",
       "views": 2,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+    },
+    {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 2,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 2,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "tech",
@@ -117,41 +98,22 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-regulations",
+      "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
-      "slug": "lol-asian-games-2026-korea-roster",
+      "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
-      "path": "/magazine/hotpick/lol-asian-games-2026-korea-roster/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "unreal-engine-6-revealed-rocket-league",
-      "views": 1,
-      "path": "/magazine/hotpick/unreal-engine-6-revealed-rocket-league/"
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
       "slug": "aion2-midterm-report-card",
       "views": 1,
       "path": "/magazine/issue/aion2-midterm-report-card/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-gaming-superpower-rise",
-      "views": 1,
-      "path": "/magazine/issue/china-gaming-superpower-rise/"
     },
     {
       "type": "issue",
@@ -191,21 +153,27 @@
     },
     {
       "type": "issue",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 1,
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
+    },
+    {
+      "type": "issue",
       "slug": "gow-laufey-jaffe-criticism",
       "views": 1,
       "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
       "slug": "heavenhells-sales-decline-launch",
       "views": 1,
       "path": "/magazine/issue/heavenhells-sales-decline-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
@@ -256,6 +224,19 @@
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-business-metrics",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-business-metrics/"
+    },
+    {
       "type": "wiki",
       "slug": "game-ip-licensing",
       "category": "business",
@@ -278,13 +259,6 @@
     },
     {
       "type": "wiki",
-      "slug": "astonishia-story-sonnori",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/astonishia-story-sonnori/"
-    },
-    {
-      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 1,
@@ -292,10 +266,17 @@
     },
     {
       "type": "wiki",
-      "slug": "gaming-seasonality-spending",
+      "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/gaming-seasonality-spending/"
+      "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
