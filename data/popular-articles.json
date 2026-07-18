@@ -1,18 +1,24 @@
 {
-  "updatedAt": "2026-07-17T01:20:09.786Z",
+  "updatedAt": "2026-07-18T01:12:06.793Z",
   "period": "7days",
   "articles": [
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 20,
+      "views": 18,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-june-2026-kr",
+      "views": 10,
+      "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 7,
+      "views": 6,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -22,12 +28,6 @@
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-june-2026-kr",
-      "views": 5,
-      "path": "/magazine/ranking/subculture-june-2026-kr/"
-    },
-    {
       "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
@@ -35,22 +35,16 @@
       "path": "/wiki/business/platform-fees-comparison/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 3,
       "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 3,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "hotpick",
@@ -60,15 +54,9 @@
     },
     {
       "type": "issue",
-      "slug": "gpt-5-3-garlic-update-rumor",
+      "slug": "heartopia-mobile-animal-crossing-success",
       "views": 2,
-      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
-    },
-    {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 2,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -83,25 +71,11 @@
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
-      "type": "tech",
-      "slug": "2d-animation-tech",
-      "category": "normal",
-      "views": 2,
-      "path": "/tech/normal/2d-animation-tech/"
-    },
-    {
       "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -111,15 +85,9 @@
     },
     {
       "type": "issue",
-      "slug": "aion2-midterm-report-card",
+      "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 1,
-      "path": "/magazine/issue/aion2-midterm-report-card/"
-    },
-    {
-      "type": "issue",
-      "slug": "ddr5-price-surge-gaming-nightmare",
-      "views": 1,
-      "path": "/magazine/issue/ddr5-price-surge-gaming-nightmare/"
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
     },
     {
       "type": "issue",
@@ -141,12 +109,6 @@
     },
     {
       "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 1,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
-    },
-    {
-      "type": "issue",
       "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
       "views": 1,
       "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
@@ -162,6 +124,18 @@
       "slug": "gow-laufey-jaffe-criticism",
       "views": 1,
       "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
+    },
+    {
+      "type": "issue",
+      "slug": "gpt-5-3-garlic-update-rumor",
+      "views": 1,
+      "path": "/magazine/issue/gpt-5-3-garlic-update-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "granblue-relink-endless-ragnarok",
+      "views": 1,
+      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
     },
     {
       "type": "issue",
@@ -230,6 +204,19 @@
       "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "tech",
+      "slug": "2d-animation-tech",
+      "category": "normal",
+      "views": 1,
+      "path": "/tech/normal/2d-animation-tech/"
+    },
+    {
       "type": "wiki",
       "slug": "game-business-metrics",
       "category": "business",
@@ -270,6 +257,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "wiki",
