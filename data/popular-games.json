@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T21:41:24.560Z",
+  "updatedAt": "2026-07-18T22:36:50.298Z",
   "period": "30days",
   "games": [
     {
@@ -28,6 +28,10 @@
     },
     {
       "slug": "계급장-키우기",
+      "views": 2
+    },
+    {
+      "slug": "꿈의-집-homescapes",
       "views": 2
     },
     {
@@ -72,10 +76,6 @@
     },
     {
       "slug": "dbs-에너르기파",
-      "views": 1
-    },
-    {
-      "slug": "efootball",
       "views": 1
     }
   ]
