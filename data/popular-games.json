@@ -1,14 +1,10 @@
 {
-  "updatedAt": "2026-07-18T22:36:50.298Z",
+  "updatedAt": "2026-07-19T22:39:44.634Z",
   "period": "30days",
   "games": [
     {
       "slug": "limbus-company",
       "views": 4
-    },
-    {
-      "slug": "sol-enchant",
-      "views": 3
     },
     {
       "slug": "brain-puzzle-2-logic-twist",
@@ -32,10 +28,6 @@
     },
     {
       "slug": "꿈의-집-homescapes",
-      "views": 2
-    },
-    {
-      "slug": "명조워더링-웨이브",
       "views": 2
     },
     {
@@ -76,6 +68,14 @@
     },
     {
       "slug": "dbs-에너르기파",
+      "views": 1
+    },
+    {
+      "slug": "efootball",
+      "views": 1
+    },
+    {
+      "slug": "elden-ring",
       "views": 1
     }
   ]
