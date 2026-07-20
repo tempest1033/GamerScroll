@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-19T22:39:44.634Z",
+  "updatedAt": "2026-07-20T22:45:05.986Z",
   "period": "30days",
   "games": [
     {
@@ -67,15 +67,15 @@
       "views": 1
     },
     {
+      "slug": "counterside",
+      "views": 1
+    },
+    {
       "slug": "dbs-에너르기파",
       "views": 1
     },
     {
       "slug": "efootball",
-      "views": 1
-    },
-    {
-      "slug": "elden-ring",
       "views": 1
     }
   ]
