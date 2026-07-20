@@ -1,38 +1,37 @@
 {
-  "updatedAt": "2026-07-19T01:17:02.056Z",
+  "updatedAt": "2026-07-20T01:20:22.773Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 19,
+      "views": 23,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 17,
+      "views": 14,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 8,
+      "views": 7,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 5,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 4,
+      "views": 5,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
+      "views": 3,
+      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
       "type": "ranking",
@@ -41,16 +40,24 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 2,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 3,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "issue",
+      "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 2,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
@@ -60,29 +67,42 @@
     },
     {
       "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 2,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
       "slug": "lol-league-next-2027-overhaul",
       "views": 2,
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
-      "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
       "views": 2,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
+      "slug": "rts-genre-rise-and-fall",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/history/rts-genre-rise-and-fall/"
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
+      "slug": "the-war-of-genesis",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 1,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "issue",
@@ -98,27 +118,9 @@
     },
     {
       "type": "issue",
-      "slug": "dragon-sword-full-refund-server-shutdown",
-      "views": 1,
-      "path": "/magazine/issue/dragon-sword-full-refund-server-shutdown/"
-    },
-    {
-      "type": "issue",
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
-    },
-    {
-      "type": "issue",
-      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
-      "views": 1,
-      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
-    },
-    {
-      "type": "issue",
-      "slug": "gemini-3-hallucination-memory-overfitting",
-      "views": 1,
-      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
@@ -137,24 +139,6 @@
       "slug": "granblue-relink-endless-ragnarok",
       "views": 1,
       "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
-      "type": "issue",
-      "slug": "heavenhells-sales-decline-launch",
-      "views": 1,
-      "path": "/magazine/issue/heavenhells-sales-decline-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 1,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-gtc-2026-dlss5-gaming",
-      "views": 1,
-      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
     },
     {
       "type": "issue",
@@ -188,6 +172,12 @@
     },
     {
       "type": "ranking",
+      "slug": "endfield-vs-dragonsword-new-year-2026",
+      "views": 1,
+      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
+    },
+    {
+      "type": "ranking",
       "slug": "mobile-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-january-2026-kr/"
@@ -197,13 +187,6 @@
       "slug": "subculture-april-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "tech",
-      "slug": "2d-animation-tech",
-      "category": "normal",
-      "views": 1,
-      "path": "/tech/normal/2d-animation-tech/"
     },
     {
       "type": "wiki",
@@ -228,17 +211,24 @@
     },
     {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 1,
       "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",
