@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-07-20T01:20:22.773Z",
+  "updatedAt": "2026-07-21T01:17:31.958Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 23,
+      "views": 26,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 14,
+      "views": 11,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -26,6 +26,19 @@
       "slug": "gpt-pro-kakao-hot-deal",
       "views": 5,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 5,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "issue",
@@ -48,10 +61,17 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 3,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "issue",
@@ -92,13 +112,6 @@
       "path": "/wiki/history/rts-genre-rise-and-fall/"
     },
     {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 1,
@@ -112,9 +125,9 @@
     },
     {
       "type": "issue",
-      "slug": "devil-may-cry-1-remake-rumor",
+      "slug": "crimson-desert-6-million-dlc",
       "views": 1,
-      "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
+      "path": "/magazine/issue/crimson-desert-6-million-dlc/"
     },
     {
       "type": "issue",
@@ -142,15 +155,9 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "slug": "intel-arc-g3-handheld-gaming",
       "views": 1,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "issue",
-      "slug": "sol-enchant-dual-market-no1-launch",
-      "views": 1,
-      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+      "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
     },
     {
       "type": "issue",
@@ -163,12 +170,6 @@
       "slug": "tomb-raider-legacy-atlantis-release-date",
       "views": 1,
       "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
-    },
-    {
-      "type": "issue",
-      "slug": "wuthering-waves-korea-grossing-no1",
-      "views": 1,
-      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
       "type": "ranking",
@@ -197,13 +198,6 @@
     },
     {
       "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "wiki",
       "slug": "google-genie3-unity-stock-crash",
       "category": "business",
       "views": 1,
@@ -218,13 +212,6 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 1,
@@ -236,13 +223,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "wiki",
