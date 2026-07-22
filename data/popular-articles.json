@@ -1,19 +1,25 @@
 {
-  "updatedAt": "2026-07-21T01:17:31.958Z",
+  "updatedAt": "2026-07-22T01:15:12.364Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 26,
+      "views": 29,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 11,
+      "views": 10,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 7,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
@@ -22,16 +28,17 @@
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 5,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 5,
+      "views": 7,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 6,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -47,17 +54,10 @@
       "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
       "views": 3,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/platform-fees-comparison/"
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "wiki",
@@ -65,13 +65,6 @@
       "category": "history",
       "views": 3,
       "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "issue",
@@ -93,9 +86,21 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
+      "slug": "starcraft-shooter-blizzard",
       "views": 2,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
@@ -106,10 +111,37 @@
     },
     {
       "type": "wiki",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pillar-of-fire-cresents",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/pillar-of-fire-cresents/"
+    },
+    {
+      "type": "wiki",
       "slug": "rts-genre-rise-and-fall",
       "category": "history",
       "views": 2,
       "path": "/wiki/history/rts-genre-rise-and-fall/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 1,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "insight",
@@ -137,9 +169,9 @@
     },
     {
       "type": "issue",
-      "slug": "gow-laufey-jaffe-criticism",
+      "slug": "google-play-fee-cut-epic-settlement",
       "views": 1,
-      "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
+      "path": "/magazine/issue/google-play-fee-cut-epic-settlement/"
     },
     {
       "type": "issue",
@@ -149,21 +181,9 @@
     },
     {
       "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 1,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
-      "type": "issue",
       "slug": "intel-arc-g3-handheld-gaming",
       "views": 1,
       "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
-    },
-    {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard-nexon",
-      "views": 1,
-      "path": "/magazine/issue/starcraft-shooter-blizzard-nexon/"
     },
     {
       "type": "issue",
@@ -184,10 +204,11 @@
       "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
+      "type": "tech",
+      "slug": "game-engine",
+      "category": "normal",
       "views": 1,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
+      "path": "/tech/normal/game-engine/"
     },
     {
       "type": "wiki",
@@ -198,17 +219,10 @@
     },
     {
       "type": "wiki",
-      "slug": "google-genie3-unity-stock-crash",
-      "category": "business",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
       "views": 1,
-      "path": "/wiki/business/google-genie3-unity-stock-crash"
-    },
-    {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
@@ -219,10 +233,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-regulations",
+      "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "wiki",
