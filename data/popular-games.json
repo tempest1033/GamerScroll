@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-21T22:53:28.071Z",
+  "updatedAt": "2026-07-22T23:52:11.618Z",
   "period": "30days",
   "games": [
     {
@@ -8,6 +8,10 @@
     },
     {
       "slug": "brain-puzzle-2-logic-twist",
+      "views": 2
+    },
+    {
+      "slug": "epic-plane-evolution",
       "views": 2
     },
     {
@@ -72,10 +76,6 @@
     },
     {
       "slug": "dbs-에너르기파",
-      "views": 1
-    },
-    {
-      "slug": "efootball",
       "views": 1
     }
   ]
