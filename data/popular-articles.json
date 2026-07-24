@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-07-23T01:23:11.798Z",
+  "updatedAt": "2026-07-24T01:18:58.910Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 31,
+      "views": 34,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 13,
+      "views": 11,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -22,16 +22,9 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 7,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -44,14 +37,15 @@
       "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
-      "views": 5,
+      "views": 6,
       "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
-      "type": "issue",
-      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
-      "views": 4,
-      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -61,6 +55,12 @@
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
+      "type": "issue",
+      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
+      "views": 3,
+      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
+    },
+    {
       "type": "wiki",
       "slug": "the-war-of-genesis",
       "category": "history",
@@ -68,16 +68,16 @@
       "path": "/wiki/history/the-war-of-genesis/"
     },
     {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 2,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
       "type": "issue",
       "slug": "gemini-3-hallucination-memory-overfitting",
       "views": 2,
       "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
-    },
-    {
-      "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 2,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
@@ -106,6 +106,13 @@
     },
     {
       "type": "wiki",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
+      "type": "wiki",
       "slug": "pillar-of-fire-cresents",
       "category": "history",
       "views": 2,
@@ -127,9 +134,9 @@
     },
     {
       "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
+      "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "issue",
@@ -145,6 +152,12 @@
     },
     {
       "type": "issue",
+      "slug": "dragonsword-awakening-steam-demo",
+      "views": 1,
+      "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
+    },
+    {
+      "type": "issue",
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
@@ -157,15 +170,15 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
       "slug": "intel-arc-g3-handheld-gaming",
       "views": 1,
       "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
+    },
+    {
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
@@ -180,16 +193,16 @@
       "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
     },
     {
+      "type": "issue",
+      "slug": "xbox-project-helix-pc-console",
+      "views": 1,
+      "path": "/magazine/issue/xbox-project-helix-pc-console/"
+    },
+    {
       "type": "ranking",
       "slug": "endfield-vs-dragonsword-new-year-2026",
       "views": 1,
       "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "tech",
@@ -200,17 +213,10 @@
     },
     {
       "type": "wiki",
-      "slug": "game-business-metrics",
+      "slug": "game-ip-licensing",
       "category": "business",
       "views": 1,
-      "path": "/wiki/business/game-business-metrics/"
-    },
-    {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/wiki/business/game-ip-licensing/"
     },
     {
       "type": "wiki",
