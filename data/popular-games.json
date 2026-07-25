@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-24T01:18:58.473Z",
+  "updatedAt": "2026-07-25T01:19:49.468Z",
   "period": "30days",
   "games": [
     {
@@ -7,15 +7,7 @@
       "views": 2
     },
     {
-      "slug": "epic-plane-evolution",
-      "views": 2
-    },
-    {
       "slug": "f1-25",
-      "views": 2
-    },
-    {
-      "slug": "limbus-company",
       "views": 2
     },
     {
@@ -76,6 +68,14 @@
     },
     {
       "slug": "counterside",
+      "views": 1
+    },
+    {
+      "slug": "dbs-에너르기파",
+      "views": 1
+    },
+    {
+      "slug": "dont-scream-together",
       "views": 1
     }
   ]

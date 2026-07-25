@@ -1,31 +1,31 @@
 {
-  "updatedAt": "2026-07-24T01:18:58.910Z",
+  "updatedAt": "2026-07-25T01:19:49.758Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 34,
+      "views": 36,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 11,
+      "views": 14,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 9,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 7,
+      "views": 8,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 8,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "insight",
@@ -49,6 +49,13 @@
     },
     {
       "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 5,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 4,
@@ -61,13 +68,6 @@
       "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 2,
@@ -75,9 +75,9 @@
     },
     {
       "type": "issue",
-      "slug": "gemini-3-hallucination-memory-overfitting",
+      "slug": "lol-league-next-2027-overhaul",
       "views": 2,
-      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -96,6 +96,13 @@
       "slug": "subculture-may-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-ip-licensing",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/game-ip-licensing/"
     },
     {
       "type": "wiki",
@@ -140,12 +147,6 @@
     },
     {
       "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
-      "views": 1,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
-    },
-    {
-      "type": "issue",
       "slug": "crimson-desert-6-million-dlc",
       "views": 1,
       "path": "/magazine/issue/crimson-desert-6-million-dlc/"
@@ -161,6 +162,12 @@
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
+    },
+    {
+      "type": "issue",
+      "slug": "gemini-3-hallucination-memory-overfitting",
+      "views": 1,
+      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
     },
     {
       "type": "issue",
@@ -182,9 +189,9 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
+      "slug": "pocketpair-gamers-dont-want-ai",
       "views": 1,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "path": "/magazine/issue/pocketpair-gamers-dont-want-ai/"
     },
     {
       "type": "issue",
@@ -213,13 +220,6 @@
     },
     {
       "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 1,
@@ -231,6 +231,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/pd-vs-director/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
