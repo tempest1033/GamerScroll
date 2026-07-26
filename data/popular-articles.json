@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-07-25T01:19:49.758Z",
+  "updatedAt": "2026-07-26T01:05:04.328Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 36,
+      "views": 30,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 14,
+      "views": 18,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 8,
+      "views": 10,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -28,17 +28,17 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 6,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
       "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 6,
       "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 5,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "wiki",
@@ -55,11 +55,10 @@
       "path": "/wiki/history/the-war-of-genesis/"
     },
     {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 3,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "issue",
@@ -68,16 +67,24 @@
       "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 2,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
       "type": "issue",
       "slug": "lol-league-next-2027-overhaul",
-      "views": 2,
+      "views": 3,
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-ip-licensing",
+      "category": "business",
+      "views": 3,
+      "path": "/wiki/business/game-ip-licensing/"
+    },
+    {
+      "type": "wiki",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "issue",
@@ -86,37 +93,11 @@
       "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
       "type": "wiki",
       "slug": "top-gaming-companies-by-market-cap",
       "category": "business",
       "views": 2,
       "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
@@ -140,6 +121,13 @@
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
       "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 1,
@@ -156,12 +144,6 @@
       "slug": "dragonsword-awakening-steam-demo",
       "views": 1,
       "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
-    },
-    {
-      "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 1,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",
@@ -195,9 +177,9 @@
     },
     {
       "type": "issue",
-      "slug": "tomb-raider-legacy-atlantis-release-date",
+      "slug": "sol-enchant-dual-market-no1-launch",
       "views": 1,
-      "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
+      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
     },
     {
       "type": "issue",
@@ -210,6 +192,18 @@
       "slug": "endfield-vs-dragonsword-new-year-2026",
       "views": 1,
       "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "tech",
