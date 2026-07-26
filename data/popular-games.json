@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-25T01:19:49.468Z",
+  "updatedAt": "2026-07-26T04:50:37.812Z",
   "period": "30days",
   "games": [
     {
@@ -35,10 +35,6 @@
       "views": 2
     },
     {
-      "slug": "엘트릭스",
-      "views": 2
-    },
-    {
       "slug": "테이스티-트레블-합성-게임",
       "views": 2
     },
@@ -51,7 +47,15 @@
       "views": 2
     },
     {
+      "slug": "aion2",
+      "views": 1
+    },
+    {
       "slug": "annoying-uncle-펀칭-게임",
+      "views": 1
+    },
+    {
+      "slug": "arrows-world",
       "views": 1
     },
     {
@@ -72,10 +76,6 @@
     },
     {
       "slug": "dbs-에너르기파",
-      "views": 1
-    },
-    {
-      "slug": "dont-scream-together",
       "views": 1
     }
   ]
