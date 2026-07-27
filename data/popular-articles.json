@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-07-26T01:05:04.328Z",
+  "updatedAt": "2026-07-27T01:05:29.799Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 30,
+      "views": 35,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 18,
+      "views": 21,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 10,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -31,14 +31,8 @@
       "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
-      "views": 6,
+      "views": 7,
       "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 5,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "wiki",
@@ -55,16 +49,16 @@
       "path": "/wiki/history/the-war-of-genesis/"
     },
     {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 4,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 3,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "issue",
-      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
-      "views": 3,
-      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
       "type": "issue",
@@ -87,6 +81,13 @@
       "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
+      "type": "wiki",
+      "slug": "pillar-of-fire-cresents",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/pillar-of-fire-cresents/"
+    },
+    {
       "type": "issue",
       "slug": "starcraft-shooter-blizzard",
       "views": 2,
@@ -94,38 +95,10 @@
     },
     {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pillar-of-fire-cresents",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
-      "type": "wiki",
-      "slug": "rts-genre-rise-and-fall",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/rts-genre-rise-and-fall/"
-    },
-    {
-      "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "hotpick",
@@ -147,9 +120,9 @@
     },
     {
       "type": "issue",
-      "slug": "gemini-3-hallucination-memory-overfitting",
+      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
       "views": 1,
-      "path": "/magazine/issue/gemini-3-hallucination-memory-overfitting/"
+      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
       "type": "issue",
@@ -159,15 +132,21 @@
     },
     {
       "type": "issue",
+      "slug": "gta6-preorder-june-25",
+      "views": 1,
+      "path": "/magazine/issue/gta6-preorder-june-25/"
+    },
+    {
+      "type": "issue",
       "slug": "intel-arc-g3-handheld-gaming",
       "views": 1,
       "path": "/magazine/issue/intel-arc-g3-handheld-gaming/"
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
+      "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 1,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+      "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
       "type": "issue",
@@ -189,15 +168,15 @@
     },
     {
       "type": "ranking",
-      "slug": "endfield-vs-dragonsword-new-year-2026",
-      "views": 1,
-      "path": "/magazine/ranking/endfield-vs-dragonsword-new-year-2026/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-april-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "ranking",
@@ -214,10 +193,24 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-history",
+      "slug": "game-shareholder-returns-low-growth",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-shareholder-returns-low-growth/"
+    },
+    {
+      "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/gacha-system-history/"
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
