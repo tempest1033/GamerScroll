@@ -1,7 +1,11 @@
 {
-  "updatedAt": "2026-07-26T04:50:37.812Z",
+  "updatedAt": "2026-07-27T05:00:41.930Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "꿈의-집-homescapes",
+      "views": 3
+    },
     {
       "slug": "brain-puzzle-2-logic-twist",
       "views": 2
@@ -20,10 +24,6 @@
     },
     {
       "slug": "계급장-키우기",
-      "views": 2
-    },
-    {
-      "slug": "꿈의-집-homescapes",
       "views": 2
     },
     {
@@ -55,7 +55,15 @@
       "views": 1
     },
     {
+      "slug": "arma-reforger",
+      "views": 1
+    },
+    {
       "slug": "arrows-world",
+      "views": 1
+    },
+    {
+      "slug": "assetto-corsa",
       "views": 1
     },
     {
@@ -68,14 +76,6 @@
     },
     {
       "slug": "core-keeper",
-      "views": 1
-    },
-    {
-      "slug": "counterside",
-      "views": 1
-    },
-    {
-      "slug": "dbs-에너르기파",
       "views": 1
     }
   ]
