@@ -30,6 +30,16 @@ jobs:
           git fetch origin main --depth=1
           git reset --hard origin/main || true
 
+      - name: Seed docs from deploy branch
+        # 산출물은 main이 아닌 deploy-gamerscroll에 산다. 이전 배포 트리를 워크트리에만
+        # 복원(인덱스 제외 — restore --worktree)해 증분 빌드와 수동 배치 파일을 보존한다.
+        run: |
+          if git fetch origin deploy-gamerscroll --depth 1; then
+            git restore --source=FETCH_HEAD --worktree -- docs/ || echo "::warning::docs seed restore failed"
+          else
+            echo "::warning::deploy-gamerscroll not found — full rebuild from scratch"
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -139,7 +149,7 @@ jobs:
           # HARD INVARIANT: pathspec-restricted stash (artifacts only).
           # Never run `git stash push -u` without `--` — would swallow active user work
           # (2026-05-20 incident reset working tree twice).
-          git stash push -u -m "ci-build-artifacts" -- docs/ data-cache.json .build-cache.json reports/ data/ history/ snapshots/ || true
+          git stash push -u -m "ci-build-artifacts" -- data-cache.json .build-cache.json reports/ data/ history/ snapshots/ || true
           git pull origin main --rebase --autostash
           # Restore stash with `pop` (auto-drop on success). Artifact paths are
           # throwaway (this run just rebuilt them) — on failure, discard dirty
@@ -148,11 +158,11 @@ jobs:
           if git stash list | grep -q "ci-build-artifacts"; then
             if ! git stash pop; then
               echo "::warning::stash pop failed — discarding dirty artifact paths and retrying"
-              git checkout -- docs/ data-cache.json .build-cache.json history/ 2>/dev/null || true
+              git checkout -- data-cache.json .build-cache.json history/ 2>/dev/null || true
               if ! git stash pop; then
                 echo "::warning::stash pop conflict — resolving artifact paths with stash version"
-                git checkout --theirs docs/ data-cache.json .build-cache.json history/ snapshots/ 2>/dev/null || true
-                git add docs/ data-cache.json .build-cache.json history/ snapshots/ -f 2>/dev/null || true
+                git checkout --theirs data-cache.json .build-cache.json history/ snapshots/ 2>/dev/null || true
+                git add data-cache.json .build-cache.json history/ snapshots/ -f 2>/dev/null || true
                 if git diff --name-only --diff-filter=U | grep -q .; then
                   echo "::error::unresolved conflict outside artifact paths — aborting"
                   git diff --name-only --diff-filter=U
@@ -163,7 +173,8 @@ jobs:
             fi
           fi
           # snapshots/는 gitignore되지만 CI에서만 -f로 커밋해 24h 실시간 차트 데이터를 러너 간 지속화한다.
-          git add docs/ reports/ data-cache.json .build-cache.json history/ data/ snapshots/ -f
+          # docs/는 더 이상 main에 커밋하지 않는다 (deploy-gamerscroll 발행 전용).
+          git add reports/ data-cache.json .build-cache.json history/ data/ snapshots/ -f
           git diff --staged --quiet || git commit -m "Update GamerScroll $(date +'%Y-%m-%d %H:%M')"
           # Race-safe push: retry up to 3 times with rebase on rejection.
           for attempt in 1 2 3; do
@@ -175,8 +186,7 @@ jobs:
           exit 1
 
       - name: Publish docs to deploy branch (single-commit, no history growth)
-        # main 산출물 커밋과 병행하는 이중 발행. Cloudflare Pages(gamerscroll)의
-        # production branch를 deploy-gamerscroll로 전환한 뒤 main 산출물 커밋을 제거한다.
+        # Cloudflare Pages(gamerscroll) production branch = deploy-gamerscroll (2026-07-28 전환 완료).
         if: always()
         run: |
           set -e

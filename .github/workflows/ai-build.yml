@@ -37,6 +37,17 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
 
+      - name: Seed ai-docs from deploy branch
+        # 산출물은 main이 아닌 deploy-aiscroll에 산다. 이전 배포 트리를 워크트리에만 복원.
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          if git fetch origin deploy-aiscroll --depth 1; then
+            git restore --source=FETCH_HEAD --worktree -- ai-docs/ || echo "::warning::ai-docs seed restore failed"
+          else
+            echo "::warning::deploy-aiscroll not found — full rebuild from scratch"
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -66,15 +77,16 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           # HARD INVARIANT: pathspec-restricted stash (artifacts only).
-          git stash push -u -m "ai-build-artifacts" -- ai-docs/ .ai-build-cache.json data/ reports/ functions/ || true
+          # ai-docs/는 더 이상 main에 커밋하지 않는다 (deploy-aiscroll 발행 전용).
+          git stash push -u -m "ai-build-artifacts" -- .ai-build-cache.json data/ reports/ functions/ || true
           git pull origin main --rebase
           if git stash list | grep -q "ai-build-artifacts"; then
             if ! git stash pop; then
-              # ai-docs/, .ai-build-cache.json, functions/는 우리 새 산출물 우선(--theirs는 stash 결과).
+              # .ai-build-cache.json, functions/는 우리 새 산출물 우선(--theirs는 stash 결과).
               # data/, reports/ 같은 user-content path에서 conflict이 남으면 abort.
               echo "::warning::stash pop conflict — resolving artifact paths with stash version"
-              git checkout --theirs ai-docs/ .ai-build-cache.json functions/ 2>/dev/null || true
-              git add ai-docs/ .ai-build-cache.json functions/ 2>/dev/null || true
+              git checkout --theirs .ai-build-cache.json functions/ 2>/dev/null || true
+              git add .ai-build-cache.json functions/ 2>/dev/null || true
               if git diff --name-only --diff-filter=U | grep -q .; then
                 echo "::error::unresolved conflict outside artifact paths — aborting"
                 git diff --name-only --diff-filter=U
@@ -83,7 +95,7 @@ jobs:
               git stash drop 2>/dev/null || true
             fi
           fi
-          git add ai-docs/ data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ -f
+          git add data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ .ai-build-cache.json -f
           git diff --staged --quiet || git commit -m "Build AIScroll $(date +'%Y-%m-%d %H:%M')"
           for attempt in 1 2 3; do
             if git push origin main; then exit 0; fi
@@ -91,15 +103,14 @@ jobs:
             git pull origin main --rebase || exit 1
             # 새 main 위에 stale 산출물이 올라가는 것 방지: 빌드 재실행 후 재 스테이지.
             node generate-ai-blog.js || exit 1
-            git add ai-docs/ data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ -f
+            git add data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ .ai-build-cache.json -f
             git diff --staged --quiet || git commit --amend --no-edit
           done
           echo "::error::push failed after 3 retries"
           exit 1
 
       - name: Publish ai-docs to deploy branch (single-commit, no history growth)
-        # main 산출물 커밋과 병행하는 이중 발행. Cloudflare Pages(aiscroll)의
-        # production branch를 deploy-aiscroll로 전환한 뒤 main 산출물 커밋을 제거한다.
+        # Cloudflare Pages(aiscroll) production branch = deploy-aiscroll (2026-07-28 전환 완료).
         if: always()
         run: |
           set -e

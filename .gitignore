@@ -2,11 +2,13 @@ node_modules/
 .env
 .DS_Store
 
-# HTML - index.html 제외, reports와 docs 포함
+# HTML - reports만 예외
 *.html
 !reports/*.html
-!docs/**/*.html
-!ai-docs/**/*.html
+
+# 빌드 산출물 — main에서 분리, deploy-gamerscroll/deploy-aiscroll 브랜치로만 발행 (2026-07-28)
+docs/
+ai-docs/
 
 # 스냅샷 (로컬에서는 무시, GitHub Actions에서만 커밋)
 snapshots/
