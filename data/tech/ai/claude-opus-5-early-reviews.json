@@ -1,0 +1,190 @@
+{
+  "slug": "claude-opus-5-early-reviews",
+  "site": "aiscroll",
+  "category": "anthropic",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "클로드 오퍼스 5 초기 리뷰 총정리 — 토큰 효율로 왕좌 되찾은 앤트로픽",
+  "titleEn": "Claude Opus 5 Early Reviews: Efficiency King",
+  "summary": "앤트로픽의 클로드 오퍼스 5가 출시 직후 지능 지수 1위에 올랐다. 실사용자들은 뛰어난 토큰 효율성과 비용 절감 효과를 긍정적으로 평가하고 있다. 다만 지식 판단이나 오케스트레이션 등 범용 작업에서는 여전히 페이블 5가 우위를 점하고 있다는 분석이다.",
+  "summaryEn": "Claude Opus 5 leads intelligence index post-launch. Users praise its token efficiency, though Fable 5 remains ahead in general-purpose capabilities.",
+  "keywords": "클로드 오퍼스 5, 앤트로픽 클로드, 토큰 효율, 코딩 벤치마크",
+  "keywordsEn": "Claude Opus 5 reviews, Anthropic token efficiency, Fable 5 orchestration, coding benchmark",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/54b7ab1d2c2521f83ae5d2da5f9d99321c370d24-2880x1620.png",
+  "content": [
+    {
+      "type": "text",
+      "value": "앤트로픽이 7월 24일 신작 '클로드 오퍼스 5'를 출시했다. 출시 나흘이 지난 초기 평가는 우호적이다. 오퍼스 5는 평가 기관 '아티피셜 애널리시스'의 지능 지수에서 61점을 받아, 자사 최상위 모델 페이블 5(60점)를 제치고 처음으로 1위에 올랐다. 이용 요금은 100만 토큰당 입력 5달러, 출력 25달러로 오퍼스 4.8과 같다."
+    },
+    {
+      "type": "text",
+      "value": "다만 실사용자들의 논점은 단순 지능 지수보다 운영 비용에 쏠려 있다. 레딧과 X 등 온라인 커뮤니티에서는 실제 토큰 소모량이 예상보다 적다는 의견이 지배적이다. 앞서 앤트로픽은 [공식 발표](https://www.anthropic.com/news/claude-opus-5)에서 오퍼스 5를 페이블급 지능을 절반 가격에 제공하는 일상용 모델로 소개했으며, 초기 사용자 반응도 이에 부합하는 분위기다."
+    },
+    {
+      "type": "heading",
+      "value": "'사용량 카운터가 안 움직인다'…실사용 토큰 효율 호평"
+    },
+    {
+      "type": "text",
+      "value": "커뮤니티 r/ClaudeAI에서 가장 많이 논의되는 주제는 토큰 소모량이다. [토큰 소모량이 놀랍다는 스레드](https://www.reddit.com/r/ClaudeAI/comments/1v6973n/opus_5_token_usage_is_amazing/)에는 맥스 요금제 구독자마저 사용 한도를 채우기 어렵다는 의견이 올라온다. 한 사용자는 며칠 동안 무거운 에이전트 세션을 구동하고도 주간 허용량의 2%만 사용했다고 밝혔다."
+    },
+    {
+      "type": "text",
+      "value": "이러한 효율성은 새로 도입된 노력(effort) 설정이 기여한 결과다. 비교 테스트 결과, 낮음(low) 설정의 오퍼스 5 품질이 높음(high) 설정의 오퍼스 4.8과 대등한 수준을 기록했다. 처리 실패 빈도가 줄며 재시도 횟수도 감소해, 구독자가 동일한 비용으로 소화할 수 있는 작업량이 대폭 늘어났다는 분석이다."
+    },
+    {
+      "type": "heading",
+      "value": "코딩 벤치마크는 페이블 5급, 비용은 절반"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/1af9dbd742e3812be4bf66903740188fb8fd2e33-3840x2160.png",
+      "caption": "CursorBench 이포트 단계별 작업당 비용 대비 점수 (자료: 앤트로픽)",
+      "alt": "클로드 오퍼스 5와 페이블 5의 CursorBench 비용 대비 성능 그래프"
+    },
+    {
+      "type": "text",
+      "value": "코딩 벤치마크 지표 역시 이러한 효율 호평을 뒷받침한다. CursorBench 3.2 최대 노력(effort) 설정에서 오퍼스 5는 태스크당 절반의 비용으로 페이블 5의 최고 점수에 0.5% 차이까지 근접했다. 에이전틱 코딩 벤치마크인 Frontier-Bench에서는 오퍼스 4.8 대비 두 배 이상의 성적을 거뒀고, 컴퓨터 활용 지표인 OSWorld 2.0에서는 페이블 5의 최고 기록을 3분의 1 수준의 비용으로 넘어섰다."
+    },
+    {
+      "type": "text",
+      "value": "IT 매체 [더 뉴 스택](https://thenewstack.io/opus-5-agentic-coding-cost/)은 이 가격 정책이 에이전틱 코딩의 가성비 구도를 재편하여, 개발팀이 에이전트에게 복잡한 작업을 장시간 맡기는 환경을 가능케 했다고 전했다. 이는 저가형 모델을 쓰는 개념이 아니라, 동일한 비용으로 고성능 실행 시간을 더 많이 얻는 방식에 가깝다."
+    },
+    {
+      "type": "heading",
+      "value": "범용 작업과 오케스트레이션은 여전히 페이블 우위"
+    },
+    {
+      "type": "text",
+      "value": "다만 이러한 강점은 코딩과 실행 태스크에 집중되어 있다. 코드 리뷰 플랫폼 코드래빗의 평가에 따르면, 오퍼스 5는 코드 생성 역량이 우수한 반면 리뷰 성능에서는 약점을 보였다. 정확도는 개선되었으나 문제 식별 범위가 좁아졌고, 기준치 대비 사소한 오류 지적이 4배 가량 증가했다."
+    },
+    {
+      "type": "text",
+      "value": "풍부한 지식 기반의 판단력이나 멀티 에이전트 조율이 필요한 업무에서는 여전히 페이블 5의 평가가 높다. 오퍼스 5는 페이블 5가 검토했을 사안을 두고 조급하게 결론을 내린다는 반응이다. 이에 따라 페이블 5가 설계와 제어를 담당하고 오퍼스 5가 개별 작업을 실행하는 분업 체계가 새로운 표준 워크플로로 부상했다. 오퍼스 5가 범용 플래그십이 아니라 코딩에 특화된 경량 집중형 모델로 자리 잡는 이유다."
+    },
+    {
+      "type": "heading",
+      "value": "다음 승부는 8월…GPT-6 루머와 페이블 5.1"
+    },
+    {
+      "type": "image",
+      "src": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png",
+      "caption": "클로드 로고 그래픽",
+      "alt": "주황색 회로 기판 배경 위의 로고 일러스트"
+    },
+    {
+      "type": "text",
+      "value": "이 경량 집중형 포지션이 힘을 받는 데는 시점도 한몫했다. 앤트로픽은 상반기 소넷 5 역풍과 오퍼스 4.8의 미지근한 반응, [페이블 5 구독제 제외 논란](/ko/article/anthropic/anthropic-pricing-crisis/)을 차례로 겪으며 오픈AI 코덱스에 사용자를 내주던 참이었다. 토큰 효율을 앞세운 클로드 오퍼스 5의 호평이 이어지면서, 그 이탈 흐름이 당분간 진정될 거라는 관측에 무게가 실린다."
+    },
+    {
+      "type": "text",
+      "value": "시선은 이제 8월로 넘어간다. X에서는 오픈AI가 이르면 8월 GPT-6를 내놓는다는 [사전 정보](https://x.com/haider1/status/2080902742600749494)가 돌고, 앤트로픽 쪽에서도 페이블 5.1 관측이 제기된다. 둘 다 공식 발표는 없지만, 업계에서는 유력한 시나리오로 통한다. 특히 상장을 준비 중인 앤트로픽에는 이번 라운드가 어느 때보다 중요한 시기다. 클로드 오퍼스 5로 되찾은 분위기를 8월까지 끌고 갈 수 있느냐가 다음 관전 포인트다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Anthropic released Claude Opus 5 on July 24. Four days post-launch, early reviews are positive. The model scored 61 on the Artificial Analysis Intelligence Index, edging past the company's own flagship Fable 5 (60), marking the first time an Opus-class model has topped the benchmark. Pricing remains at $5 per million input tokens and $25 per million output, unchanged from Opus 4.8."
+    },
+    {
+      "type": "text",
+      "value": "However, user discussions focus less on benchmark scores and more on operating costs. Across Reddit and X, feedback highlights the model's low token consumption. In [the launch post](https://www.anthropic.com/news/claude-opus-5), Anthropic positioned Opus 5 as a daily-use model offering near-Fable intelligence at half the price, a characterization that early adoption patterns seem to validate."
+    },
+    {
+      "type": "heading",
+      "value": "Praise for Token Efficiency: 'The Usage Counter Barely Moves'"
+    },
+    {
+      "type": "text",
+      "value": "Token consumption is the most discussed topic on r/ClaudeAI. In a thread titled [Opus 5 Token Usage is Amazing](https://www.reddit.com/r/ClaudeAI/comments/1v6973n/opus_5_token_usage_is_amazing/), Max-plan subscribers reported difficulty reaching their limits. One user noted that after running heavy agent sessions for days, they had consumed only 2% of their weekly quota."
+    },
+    {
+      "type": "text",
+      "value": "The model's new effort setting drives the token efficiency gains. Comparative reviews show that Claude Opus 5 on a low-effort setting matches the output quality of Opus 4.8 on high effort, and fewer failed runs mean fewer retries. For subscribers, the same monthly fee now stretches across several times more work."
+    },
+    {
+      "type": "heading",
+      "value": "Coding Benchmarks Near Fable 5 at Half the Cost"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/1af9dbd742e3812be4bf66903740188fb8fd2e33-3840x2160.png",
+      "caption": "Score vs. cost per task on CursorBench by effort level (source: Anthropic)",
+      "alt": "Claude Opus 5 and Fable 5 cost-performance chart on CursorBench"
+    },
+    {
+      "type": "text",
+      "value": "Coding benchmark data supports these efficiency reports. On CursorBench 3.2 at maximum effort, Claude Opus 5 lands within 0.5% of Fable 5's peak score at half the cost per task, and on Frontier-Bench it more than doubles Opus 4.8's result. On OSWorld 2.0, a computer-use benchmark, it beats Fable 5's best figure at just over a third of the price."
+    },
+    {
+      "type": "text",
+      "value": "[The New Stack](https://thenewstack.io/opus-5-agentic-coding-cost/) reported that this pricing structure shifts the cost-to-performance ratio for agentic coding, making it viable for development teams to run agents on complex tasks for hours. The efficiency pitch is not simply a lower price, but rather more hours of high-performance coding per dollar."
+    },
+    {
+      "type": "heading",
+      "value": "General-Purpose Work Still Belongs to Fable 5"
+    },
+    {
+      "type": "text",
+      "value": "However, these advantages are primarily limited to coding and execution tasks. In [CodeRabbit's benchmark review](https://www.coderabbit.ai/blog/opus-5-model-review), Opus 5 performed better at code generation than at code review. While its precision improved, its overall issue coverage fell and the volume of minor criticisms quadrupled compared to the baseline."
+    },
+    {
+      "type": "text",
+      "value": "For knowledge-intensive judgment calls and multi-agent orchestration, users still rate Fable 5 significantly higher, noting that Opus 5 tends to jump to conclusions Fable would flag. Consequently, an emerging workflow utilizes Fable 5 for planning and orchestration while employing Opus 5 for execution. This division of labor — Fable 5 handling the orchestration, Opus 5 the build — casts Opus 5 as a specialized execution tool rather than a general-purpose flagship."
+    },
+    {
+      "type": "heading",
+      "value": "The Next Battle: August GPT-6 Rumors and a 5.1 Follow-Up"
+    },
+    {
+      "type": "image",
+      "src": "https://www.bleepstatic.com/content/hl-images/2026/05/07/Claude_AI.png",
+      "caption": "Claude logo artwork",
+      "alt": "Claude logo illustration on an orange circuit background"
+    },
+    {
+      "type": "text",
+      "value": "The timing of this praise matters as much as its content. Anthropic had spent the first half of the year losing users to OpenAI's Codex, battered in turn by the Sonnet 5 backlash, a lukewarm Opus 4.8, and [the subscription-exclusion controversy](/article/anthropic/anthropic-pricing-crisis/) around Fable 5. With token efficiency now the model's calling card, early reviews point to that exodus slowing."
+    },
+    {
+      "type": "text",
+      "value": "Attention now shifts to August. [An X post](https://x.com/haider1/status/2080902742600749494) claims OpenAI could ship GPT-6 as soon as August, while chatter about a Fable 5.1 point release circulates on the Anthropic side. Neither is official, yet both are widely treated as likely scenarios. For Anthropic, preparing to go public, the stakes could hardly be higher — the next question is whether the momentum Claude Opus 5 restored can hold through August."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Introducing Claude Opus 5",
+      "url": "https://www.anthropic.com/news/claude-opus-5"
+    },
+    {
+      "name": "The New Stack",
+      "title": "Opus 5 costs a third of the price — and that's actually the problem",
+      "url": "https://thenewstack.io/opus-5-agentic-coding-cost/"
+    },
+    {
+      "name": "CodeRabbit",
+      "title": "Claude Opus 5 Benchmarks for AI Code Review",
+      "url": "https://www.coderabbit.ai/blog/opus-5-model-review"
+    },
+    {
+      "name": "BleepingComputer",
+      "title": "Claude Fable 5 isn't permanently leaving subscriptions, Anthropic says",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/"
+    },
+    {
+      "name": "Reddit r/ClaudeAI",
+      "title": "Opus 5 Token Usage is Amazing",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1v6973n/opus_5_token_usage_is_amazing/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-early-reviews-praise",
+    "tech:ai/claude-opus-4-8-launch",
+    "tech:ai/anthropic-pricing-crisis",
+    "tech:ai/gpt-56-codex-comeback"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
