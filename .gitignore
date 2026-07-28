@@ -10,6 +10,7 @@ node_modules/
 docs/
 ai-docs/
 /assets/
+/styles-*.css
 
 # 스냅샷 (로컬에서는 무시, GitHub Actions에서만 커밋)
 snapshots/
