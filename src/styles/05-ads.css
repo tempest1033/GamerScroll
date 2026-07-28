@@ -338,6 +338,14 @@ body.ads-disabled .article-layout {
   box-shadow: inset 0 0 0 1px var(--border);
 }
 
+/* Unfilled 상단 슬롯은 자리(높이)를 유지한 채 브랜드 배너로 전환한다:
+   애드센스가 남긴 빈 iframe을 숨기고 중앙 로고만 또렷하게 보여준다. */
+.ad-card-pc:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle,
+.ad-card-pc-home:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle,
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle {
+  visibility: hidden;
+}
+
 .ad-card-pc:has(ins[data-ad-status="unfilled"])::before,
 .ad-card-pc-home:has(ins[data-ad-status="unfilled"])::before,
 .ad-card-mobile-top:has(ins[data-ad-status="unfilled"])::before {
@@ -346,11 +354,11 @@ body.ads-disabled .article-layout {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   background: url('/favicon.svg') center/contain no-repeat;
-  filter: grayscale(1);
-  opacity: 0.4;
+  filter: none;
+  opacity: 1;
   z-index: 1;
 }
 
