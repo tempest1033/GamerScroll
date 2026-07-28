@@ -14,11 +14,11 @@
 //                   HEAD~1 and HEAD by inspecting new JSON files under the
 //                   article roots below).
 //
-// IndexNow verification: a static key file lives at docs/<KEY>.txt (persisted
-// in git; the build does not clean docs/), served at
-// https://gamerscroll.com/<KEY>.txt. Only gamerscroll.com URLs are submitted —
-// IndexNow requires the key file to share the host of every submitted URL, so
-// aiscroll.io URLs (tech/ai, tech/vibecoding) are skipped here.
+// IndexNow verification is per-host: each host serves its own key file at
+// https://<host>/<KEY>.txt. gamerscroll.com's key is a static file persisted
+// at docs/<KEY>.txt; aiscroll.io's key is emitted by generate-ai-blog.js into
+// ai-docs/<KEY>.txt on every build. URLs are grouped by host and each group
+// is submitted with its own key, so both sites get Bing/Yandex/Naver pings.
 //
 // Failures never abort: IndexNow non-2xx responses are warned but the process
 // exits 0 so CI stays green.
@@ -28,11 +28,15 @@ import { execSync } from 'node:child_process'
 
 const DRY_RUN = process.argv.includes('--dry-run')
 
-// IndexNow key — matches docs/86286c2003176dad721fca31b5423813.txt
-const INDEXNOW_KEY = '86286c2003176dad721fca31b5423813'
-const HOST = 'gamerscroll.com'
-const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
+
+// Per-host IndexNow keys — each must match the key file served on that host.
+//   gamerscroll.com -> docs/<KEY>.txt (static, in git)
+//   aiscroll.io     -> ai-docs/<KEY>.txt (written by generate-ai-blog.js)
+const HOST_KEYS = {
+  'gamerscroll.com': '86286c2003176dad721fca31b5423813',
+  'aiscroll.io': '4aa084cf4bb0f0d440cc9c06ee5e0998',
+}
 
 const SITE_BY_PREFIX = [
   { prefix: 'data/tech/ai/',         build: ({ slug, category }) => [
@@ -78,21 +82,29 @@ function getUrls() {
   return extractUrlsFromCommit()
 }
 
-// IndexNow key files are per-host; only submit URLs on our verified host.
-function onlyOwnHost(urls) {
-  return urls.filter(u => {
-    try { return new URL(u).host === HOST } catch { return false }
-  })
+// Group URLs by host; only hosts with a registered key are submittable.
+function groupByHost(urls) {
+  const groups = new Map()
+  const unknown = []
+  for (const u of urls) {
+    let host
+    try { host = new URL(u).host } catch { unknown.push(u); continue }
+    if (!HOST_KEYS[host]) { unknown.push(u); continue }
+    if (!groups.has(host)) groups.set(host, [])
+    groups.get(host).push(u)
+  }
+  return { groups, unknown }
 }
 
-async function submitIndexNow(urlList) {
+async function submitIndexNow(host, urlList) {
+  const key = HOST_KEYS[host]
   const res = await fetch(INDEXNOW_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
     body: JSON.stringify({
-      host: HOST,
-      key: INDEXNOW_KEY,
-      keyLocation: KEY_LOCATION,
+      host,
+      key,
+      keyLocation: `https://${host}/${key}.txt`,
       urlList,
     }),
   })
@@ -102,28 +114,27 @@ async function submitIndexNow(urlList) {
 
 async function main() {
   const all = getUrls()
-  const skipped = all.filter(u => { try { return new URL(u).host !== HOST } catch { return true } })
-  const urls = onlyOwnHost(all)
-  if (skipped.length) {
-    console.log(`[indexnow] skipping ${skipped.length} off-host URL(s) (no key file on that host): ${skipped.join(', ')}`)
+  const { groups, unknown } = groupByHost(all)
+  if (unknown.length) {
+    console.log(`[indexnow] skipping ${unknown.length} URL(s) with no registered host key: ${unknown.join(', ')}`)
   }
-  if (urls.length === 0) {
-    console.log('[indexnow] no gamerscroll.com URLs to submit')
+  if (groups.size === 0) {
+    console.log('[indexnow] no submittable URLs')
     return
   }
-  console.log(`[indexnow] ${DRY_RUN ? 'would submit' : 'submitting'} ${urls.length} URL(s):`)
-  for (const u of urls) console.log(`  ${u}`)
-  if (DRY_RUN) {
-    console.log('[indexnow] --dry-run: no live submission')
-    return
+  for (const [host, urls] of groups) {
+    console.log(`[indexnow] ${DRY_RUN ? 'would submit' : 'submitting'} ${urls.length} URL(s) for ${host}:`)
+    for (const u of urls) console.log(`  ${u}`)
+    if (DRY_RUN) continue
+    const r = await submitIndexNow(host, urls)
+    if (r.ok) {
+      console.log(`[indexnow] OK ${r.status} (${host})`)
+    } else {
+      // Warn only — IndexNow non-2xx must not fail the workflow.
+      console.warn(`[indexnow] WARN ${r.status} (${host}) :: ${String(r.body).slice(0, 300)}`)
+    }
   }
-  const r = await submitIndexNow(urls)
-  if (r.ok) {
-    console.log(`[indexnow] OK ${r.status}`)
-  } else {
-    // Warn only — IndexNow non-2xx must not fail the workflow.
-    console.warn(`[indexnow] WARN ${r.status} :: ${String(r.body).slice(0, 300)}`)
-  }
+  if (DRY_RUN) console.log('[indexnow] --dry-run: no live submission')
 }
 
 main().catch(err => {

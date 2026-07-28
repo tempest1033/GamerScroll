@@ -1128,6 +1128,13 @@ Sitemap: ${SITE_URL}/sitemap.xml
   fs.writeFileSync(path.join(DOCS_DIR, 'robots.txt'), robotsTxt, 'utf8');
   console.log('robots.txt 생성 완료');
 
+  // 2b. IndexNow key file — aiscroll.io host verification consumed by
+  // scripts/submit-indexing.mjs (key must be served on the same host as the
+  // submitted URLs). Regenerated on every build so CI rebuilds keep it.
+  const AISCROLL_INDEXNOW_KEY = '4aa084cf4bb0f0d440cc9c06ee5e0998';
+  fs.writeFileSync(path.join(DOCS_DIR, `${AISCROLL_INDEXNOW_KEY}.txt`), AISCROLL_INDEXNOW_KEY, 'utf8');
+  console.log('IndexNow key 파일 생성 완료 (aiscroll.io)');
+
   // 3a. RSS (en) — cap 200으로 상향 (현 131개, 성장 여지)
   const enRssItems = enArticles
     .sort((a, b) => new Date(b.date) - new Date(a.date))
