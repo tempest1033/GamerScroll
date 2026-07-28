@@ -480,7 +480,11 @@ function generateAIBlogIndex(data) {
 
     // 대표 기사 (1등): 큰 피처 카드
     const featureItem = items[0];
-    const featureBadge = featureItem.category ? escapeHtml(String(featureItem.category)) : '';
+    // 배지는 원문 카테고리 id가 아니라 언어별 라벨로 노출한다 (ko: '일반', en: 'General')
+    const _badgeT = I18N[_lang] || I18N.en;
+    const featureBadge = featureItem.category
+      ? escapeHtml(_badgeT.categoryLabels[featureItem.category] || String(featureItem.category))
+      : '';
     const feature = `
       <a href="${articleHref(featureItem.category || 'general', featureItem.slug, _lang)}" class="hero-feature">
         <div class="hero-feature-media">

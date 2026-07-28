@@ -1210,7 +1210,8 @@
 
 
 .trend-nav-btn.disabled {
-  opacity: 0.85;
+  /* 활성 버튼과 시각적으로 구분되도록 대비를 낮춘다 (0.85는 차이가 없었다) */
+  opacity: 0.45;
   cursor: not-allowed;
   pointer-events: none;
 }
