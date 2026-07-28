@@ -141,12 +141,25 @@ jobs:
           # (2026-05-20 incident reset working tree twice).
           git stash push -u -m "ci-build-artifacts" -- docs/ data-cache.json .build-cache.json reports/ data/ history/ snapshots/ || true
           git pull origin main --rebase --autostash
-          # Restore stash with `pop` (auto-drop on success). On conflict: abort,
-          # do NOT use `checkout --ours` (loses upstream changes silently).
+          # Restore stash with `pop` (auto-drop on success). Artifact paths are
+          # throwaway (this run just rebuilt them) — on failure, discard dirty
+          # artifact copies and retry; on merge conflict, take the stash version
+          # (ai-build.yml pattern). Abort only on conflicts in user-content paths.
           if git stash list | grep -q "ci-build-artifacts"; then
             if ! git stash pop; then
-              echo "::error::stash pop conflict — manual resolve required, aborting"
-              exit 1
+              echo "::warning::stash pop failed — discarding dirty artifact paths and retrying"
+              git checkout -- docs/ data-cache.json .build-cache.json history/ 2>/dev/null || true
+              if ! git stash pop; then
+                echo "::warning::stash pop conflict — resolving artifact paths with stash version"
+                git checkout --theirs docs/ data-cache.json .build-cache.json history/ snapshots/ 2>/dev/null || true
+                git add docs/ data-cache.json .build-cache.json history/ snapshots/ -f 2>/dev/null || true
+                if git diff --name-only --diff-filter=U | grep -q .; then
+                  echo "::error::unresolved conflict outside artifact paths — aborting"
+                  git diff --name-only --diff-filter=U
+                  exit 1
+                fi
+                git stash drop 2>/dev/null || true
+              fi
             fi
           fi
           # snapshots/는 gitignore되지만 CI에서만 -f로 커밋해 24h 실시간 차트 데이터를 러너 간 지속화한다.
