@@ -2160,52 +2160,71 @@ function wrapWithLayout(content, options = {}) {
       scheduleAdEmptyWatch(ad);
     }
     function pushAd(ad) {
-      if (!ad) return;
-      if (document.body.classList.contains('ads-disabled')) return;
-      if (ad.getAttribute('data-gs-ad-pushed') === '1') return;
-      if (isHiddenAd(ad)) return;
+      if (!ad) return false;
+      if (document.body.classList.contains('ads-disabled')) return false;
+      if (ad.getAttribute('data-gs-ad-pushed') === '1') return true;
+      if (isHiddenAd(ad)) return false;
       // Zero-width slot -> skip; pushing into width:0 throws AdSense "availableWidth=0".
       var pushRect = ad.getBoundingClientRect ? ad.getBoundingClientRect() : null;
-      if (pushRect && pushRect.width <= 0) return;
+      if (pushRect && pushRect.width <= 0) return false;
       observeAdVisualSize(ad);
       ad.setAttribute('data-gs-ad-pushed', '1');
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
         ad.removeAttribute('data-gs-ad-pushed');
+        return false;
       }
+      return true;
     }
     // AdSense queue is the standard mechanism: push() before script load is auto-processed on arrival.
+    // BUT push() cannot target a slot — it consumes the FIRST unprocessed <ins>
+    // in DOM order, hidden or not, so hidden slots (other breakpoint's units)
+    // starve visible ones of their pushes. Remove hidden <ins> nodes up front.
+    var liveAds = [];
+    for (var ri = 0; ri < ads.length; ri++) {
+      var cand = ads[ri];
+      if (isHiddenAd(cand)) {
+        if (cand.parentNode) cand.parentNode.removeChild(cand);
+      } else {
+        liveAds.push(cand);
+      }
+    }
+    ads = liveAds;
+    if (!ads.length) return;
     for (var a = 0; a < ads.length; a++) { observeAdVisualSize(ads[a]); }
     var viewportH = window.innerHeight || document.documentElement.clientHeight || 0;
-    var firstVisibleIndex = -1;
-    for (var fi = 0; fi < ads.length; fi++) {
-      if (!isHiddenAd(ads[fi])) { firstVisibleIndex = fi; break; }
+    var btfObserver = null;
+    if ('IntersectionObserver' in window) {
+      btfObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          // Unobserve only after a successful push; a failed attempt (e.g.
+          // zero width mid-layout) stays observed and retries on the next change.
+          if (pushAd(entry.target)) btfObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: '2000px 0px' }); // widened from 1200px: request slightly sooner on intent-to-scroll
+      __gsAdCleanup.push(function() { try { btfObserver.disconnect(); } catch (e) {} });
     }
-    if (firstVisibleIndex >= 0) pushAd(ads[firstVisibleIndex]);
-    if (ads.length > 1) {
-      var btfObserver = null;
-      if ('IntersectionObserver' in window) {
-        btfObserver = new IntersectionObserver(function(entries) {
-          entries.forEach(function(entry) {
-            if (!entry.isIntersecting) return;
-            btfObserver.unobserve(entry.target);
-            pushAd(entry.target);
-          });
-        }, { rootMargin: '2000px 0px' }); // widened from 1200px: request slightly sooner on intent-to-scroll
-        __gsAdCleanup.push(function() { try { btfObserver.disconnect(); } catch (e) {} });
-      }
-      for (var j = (firstVisibleIndex >= 0 ? firstVisibleIndex + 1 : 1); j < ads.length; j++) {
-        // Eager-push slots already within the first screen (+25% slack): visible
-        // without scrolling, so requesting them costs no viewability but recovers
-        // impressions from no-scroll/bounce sessions.
-        var rect = ads[j].getBoundingClientRect ? ads[j].getBoundingClientRect() : null;
-        if (rect && rect.top < viewportH * 1.25 && rect.width > 0) {
-          pushAd(ads[j]);
-          continue;
-        }
-        if (btfObserver) btfObserver.observe(ads[j]);
-        else pushAd(ads[j]);
+    function pushOrWatch(ad) {
+      if (pushAd(ad)) return;
+      if (btfObserver) { btfObserver.observe(ad); return; }
+      var tries = 0;
+      (function retryLater() {
+        if (tries++ >= 5) return;
+        setTimeout(function() { if (!pushAd(ad)) retryLater(); }, 400 * tries);
+      })();
+    }
+    for (var j = 0; j < ads.length; j++) {
+      // First slot + slots within the first screen (+25% slack) request
+      // immediately; the rest wait on the observer's 2000px look-ahead.
+      var rect = ads[j].getBoundingClientRect ? ads[j].getBoundingClientRect() : null;
+      if (j === 0 || (rect && rect.top < viewportH * 1.25 && rect.width > 0)) {
+        pushOrWatch(ads[j]);
+      } else if (btfObserver) {
+        btfObserver.observe(ads[j]);
+      } else {
+        pushOrWatch(ads[j]);
       }
     }
   })();
