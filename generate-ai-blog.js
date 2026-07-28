@@ -1141,6 +1141,23 @@ Sitemap: ${SITE_URL}/sitemap.xml
   fs.writeFileSync(path.join(DOCS_DIR, NAVER_VERIFICATION_FILE), `naver-site-verification: ${NAVER_VERIFICATION_FILE}`, 'utf8');
   console.log('Naver 소유확인 파일 생성 완료 (aiscroll.io)');
 
+  // 2d. 고아 기사 페이지 정리 — 소스 JSON이 사라졌거나(삭제) 발행 목록에서
+  // 빠진 기사의 정적 페이지 디렉토리를 en/ko 트리에서 제거한다 (화석 페이지 방지).
+  const validPageKeys = new Set(articles.map(a => `${a.category || 'general'}/${a.slug}`));
+  for (const articleRoot of [path.join(DOCS_DIR, 'article'), path.join(DOCS_DIR, 'ko', 'article')]) {
+    if (!fs.existsSync(articleRoot)) continue;
+    for (const catEntry of fs.readdirSync(articleRoot, { withFileTypes: true })) {
+      if (!catEntry.isDirectory()) continue;
+      const catDir = path.join(articleRoot, catEntry.name);
+      for (const slugEntry of fs.readdirSync(catDir, { withFileTypes: true })) {
+        if (!slugEntry.isDirectory()) continue;
+        if (validPageKeys.has(`${catEntry.name}/${slugEntry.name}`)) continue;
+        fs.rmSync(path.join(catDir, slugEntry.name), { recursive: true, force: true });
+        console.log(`고아 페이지 제거: ${catEntry.name}/${slugEntry.name}`);
+      }
+    }
+  }
+
   // 3a. RSS (en) — cap 200으로 상향 (현 131개, 성장 여지)
   const enRssItems = enArticles
     .sort((a, b) => new Date(b.date) - new Date(a.date))

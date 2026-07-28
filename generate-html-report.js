@@ -1352,6 +1352,36 @@ async function main() {
     // 정리 실패는 무시
   }
 
+  // 고아 기사 페이지 정리: 소스 JSON이 삭제된 기사의 docs/ 페이지 디렉토리를
+  // 제거한다. 소스가 사라져도 옛 HTML(구버전 인라인 스크립트 포함)이 200으로
+  // 계속 서빙되는 화석 페이지를 방지한다. 사이트맵에는 원래 없던 페이지들이다.
+  try {
+    const orphanTargets = [
+      { pagesDir: './docs/magazine/issue', sourceDir: path.join(__dirname, 'reports', 'issue') },
+      { pagesDir: './docs/magazine/hotpick', sourceDir: path.join(__dirname, 'reports', 'hotpick') },
+      { pagesDir: './docs/magazine/insight', sourceDir: path.join(__dirname, 'reports', 'insight') },
+      { pagesDir: './docs/magazine/ranking', sourceDir: path.join(__dirname, 'reports', 'ranking') },
+      { pagesDir: './docs/wiki/business', sourceDir: path.join(__dirname, 'data', 'wiki', 'business') },
+      { pagesDir: './docs/wiki/history', sourceDir: path.join(__dirname, 'data', 'wiki', 'history') },
+      { pagesDir: './docs/wiki/knowledge', sourceDir: path.join(__dirname, 'data', 'wiki', 'knowledge') }
+    ];
+    for (const target of orphanTargets) {
+      if (!fs.existsSync(target.pagesDir) || !fs.existsSync(target.sourceDir)) continue;
+      const validSlugs = new Set(
+        fs.readdirSync(target.sourceDir)
+          .filter((f) => f.endsWith('.json'))
+          .map((f) => f.replace(/\.json$/, ''))
+      );
+      for (const entry of fs.readdirSync(target.pagesDir, { withFileTypes: true })) {
+        if (!entry.isDirectory() || validSlugs.has(entry.name)) continue;
+        fs.rmSync(path.join(target.pagesDir, entry.name), { recursive: true, force: true });
+        console.log(`  🧹 고아 페이지 제거: ${target.pagesDir.replace('./docs/', '')}/${entry.name}`);
+      }
+    }
+  } catch (e) {
+    // 정리 실패는 무시 (빌드는 계속)
+  }
+
   // ========== 증분 빌드 캐시 로드 ==========
   const incrementalCache = buildCache.loadCache();
   let forceFullRebuild = false;
