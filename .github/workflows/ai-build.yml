@@ -96,3 +96,21 @@ jobs:
           done
           echo "::error::push failed after 3 retries"
           exit 1
+
+      - name: Publish ai-docs to deploy branch (single-commit, no history growth)
+        # main 산출물 커밋과 병행하는 이중 발행. Cloudflare Pages(aiscroll)의
+        # production branch를 deploy-aiscroll로 전환한 뒤 main 산출물 커밋을 제거한다.
+        if: always()
+        run: |
+          set -e
+          rm -rf /tmp/deploy-ai
+          mkdir -p /tmp/deploy-ai
+          cp -a ai-docs /tmp/deploy-ai/ai-docs
+          cp -a functions /tmp/deploy-ai/functions
+          cd /tmp/deploy-ai
+          git init -q -b deploy-aiscroll
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -q -m "Deploy AIScroll $(date +'%Y-%m-%d %H:%M')"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy-aiscroll

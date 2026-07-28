@@ -96,6 +96,21 @@ jobs:
           ADS_ENABLED: 'true'  # 광고 활성화
         run: node scripts/generate-game-pages.js
 
+      - name: Prune old snapshots (filename-date based; CI mtime is unreliable)
+        run: |
+          cutoff_rank=$(date -u -d '45 days ago' +%Y-%m-%d)
+          cutoff_steam=$(date -u -d '7 days ago' +%Y-%m-%d)
+          shopt -s nullglob
+          for f in snapshots/rankings/*.csv; do
+            d=$(basename "$f" | cut -c1-10)
+            if [[ "$d" < "$cutoff_rank" ]]; then rm -f "$f"; fi
+          done
+          for f in snapshots/steam/*.csv; do
+            d=$(basename "$f" | cut -c1-10)
+            if [[ "$d" < "$cutoff_steam" ]]; then rm -f "$f"; fi
+          done
+          true
+
       - name: Move report to docs
         run: |
           mkdir -p docs
@@ -124,7 +139,7 @@ jobs:
           # HARD INVARIANT: pathspec-restricted stash (artifacts only).
           # Never run `git stash push -u` without `--` — would swallow active user work
           # (2026-05-20 incident reset working tree twice).
-          git stash push -u -m "ci-build-artifacts" -- docs/ data-cache.json .build-cache.json reports/ data/ history/ || true
+          git stash push -u -m "ci-build-artifacts" -- docs/ data-cache.json .build-cache.json reports/ data/ history/ snapshots/ || true
           git pull origin main --rebase --autostash
           # Restore stash with `pop` (auto-drop on success). On conflict: abort,
           # do NOT use `checkout --ours` (loses upstream changes silently).
@@ -134,7 +149,8 @@ jobs:
               exit 1
             fi
           fi
-          git add docs/ reports/ data-cache.json .build-cache.json history/ data/ -f
+          # snapshots/는 gitignore되지만 CI에서만 -f로 커밋해 24h 실시간 차트 데이터를 러너 간 지속화한다.
+          git add docs/ reports/ data-cache.json .build-cache.json history/ data/ snapshots/ -f
           git diff --staged --quiet || git commit -m "Update GamerScroll $(date +'%Y-%m-%d %H:%M')"
           # Race-safe push: retry up to 3 times with rebase on rejection.
           for attempt in 1 2 3; do
@@ -144,3 +160,21 @@ jobs:
           done
           echo "::error::push failed after 3 retries"
           exit 1
+
+      - name: Publish docs to deploy branch (single-commit, no history growth)
+        # main 산출물 커밋과 병행하는 이중 발행. Cloudflare Pages(gamerscroll)의
+        # production branch를 deploy-gamerscroll로 전환한 뒤 main 산출물 커밋을 제거한다.
+        if: always()
+        run: |
+          set -e
+          rm -rf /tmp/deploy-gs
+          mkdir -p /tmp/deploy-gs
+          cp -a docs /tmp/deploy-gs/docs
+          cp -a functions /tmp/deploy-gs/functions
+          cd /tmp/deploy-gs
+          git init -q -b deploy-gamerscroll
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -q -m "Deploy GamerScroll $(date +'%Y-%m-%d %H:%M')"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy-gamerscroll
