@@ -17,6 +17,61 @@ const fs = require('fs');
 const path = require('path');
 
 const DEFAULT_SNAPSHOTS_DIR = path.join(__dirname, '..', '..', '..', 'snapshots', 'rankings');
+const DEFAULT_HISTORY_DIR = path.join(__dirname, '..', '..', '..', 'history');
+
+// history/{date}.json 슬림 캐시 — CSV 스냅샷이 없는 날짜의 순위 폴백용.
+// (snapshots/는 2026-05-20부터 gitignore라 CI 크롤 CSV가 커밋되지 않음 → 커밋되는 history/로 보충)
+const historyDayCache = new Map();
+
+function loadHistoryDaySlim(date, historyDir) {
+  const cacheKey = `${historyDir}|${date}`;
+  if (historyDayCache.has(cacheKey)) return historyDayCache.get(cacheKey);
+  let slim = null;
+  const file = path.join(historyDir, `${date}.json`);
+  if (fs.existsSync(file)) {
+    try {
+      const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+      slim = { bestRanks: raw.bestRanks || null, lists: {} };
+      const rankings = raw.rankings || {};
+      for (const [cat, regionsObj] of Object.entries(rankings)) {
+        if (!regionsObj || typeof regionsObj !== 'object') continue;
+        for (const [region, platObj] of Object.entries(regionsObj)) {
+          if (!platObj || typeof platObj !== 'object') continue;
+          for (const [plat, list] of Object.entries(platObj)) {
+            if (!Array.isArray(list)) continue;
+            slim.lists[`${plat}_${region}_${cat}`] = list.map(app => ({
+              id: String(app.appId || app.id || ''),
+              title: String(app.title || '').toLowerCase().trim()
+            }));
+          }
+        }
+      }
+    } catch (e) {
+      slim = null; // 파싱 실패 시 폴백 없음 (CSV 경로 동작 유지)
+    }
+  }
+  historyDayCache.set(cacheKey, slim);
+  return slim;
+}
+
+function lookupHistoryRank(date, platform, region, category, regionAppId, allNames, ctx) {
+  const historyDir = (ctx && ctx.historyDir) || DEFAULT_HISTORY_DIR;
+  const day = loadHistoryDaySlim(date, historyDir);
+  if (!day) return null;
+  const key = `${platform}_${region}_${category}`;
+  if (regionAppId && day.bestRanks && day.bestRanks[key]) {
+    const r = day.bestRanks[key][String(regionAppId)];
+    if (typeof r === 'number' && r > 0) return r;
+  }
+  const list = day.lists[key];
+  if (!list) return null;
+  if (regionAppId) {
+    const idx = list.findIndex(app => app.id === String(regionAppId));
+    if (idx >= 0) return idx + 1;
+  }
+  const idxByName = list.findIndex(app => allNames.includes(app.title));
+  return idxByName >= 0 ? idxByName + 1 : null;
+}
 
 function loadGameRankHistory(gameSlug, startDate, endDate, category, market, ctx) {
   const gamesMap = ctx.gamesMap || {};
@@ -54,15 +109,12 @@ function loadGameRankHistory(gameSlug, startDate, endDate, category, market, ctx
     for (const region of regions) {
       if (platform === 'aos' && region === 'cn') continue;
 
+      let bestRank = null;
+      const regionAppId = appIds[market] || appIds[`${market}:${region}`];
       const csvFile = path.join(snapshotsDir, `${date}_${platform}_${region}_${category}.csv`);
-      if (!fs.existsSync(csvFile)) continue;
-
-      try {
+      if (fs.existsSync(csvFile)) try {
         const content = fs.readFileSync(csvFile, 'utf8');
         const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('time,'));
-
-        let bestRank = null;
-        const regionAppId = appIds[market] || appIds[`${market}:${region}`];
 
         for (const line of lines) {
           const match = line.match(/^[^,]+,(\d+),([^,]+),/);
@@ -91,12 +143,17 @@ function loadGameRankHistory(gameSlug, startDate, endDate, category, market, ctx
             }
           }
         }
-
-        if (bestRank !== null) {
-          dayData[region] = bestRank;
-        }
       } catch (e) {
         // CSV read failure - skip this region for this date
+      }
+
+      // CSV가 없거나 매칭 실패한 날짜는 커밋되는 history/{date}.json에서 보충
+      if (bestRank === null) {
+        bestRank = lookupHistoryRank(date, platform, region, category, regionAppId, allNames, ctx);
+      }
+
+      if (bestRank !== null) {
+        dayData[region] = bestRank;
       }
     }
 
