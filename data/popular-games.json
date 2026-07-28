@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-27T05:00:41.930Z",
+  "updatedAt": "2026-07-28T07:30:17.251Z",
   "period": "30days",
   "games": [
     {
@@ -8,6 +8,10 @@
     },
     {
       "slug": "brain-puzzle-2-logic-twist",
+      "views": 2
+    },
+    {
+      "slug": "efootball",
       "views": 2
     },
     {
@@ -40,10 +44,6 @@
     },
     {
       "slug": "퍼즐앤드래곤",
-      "views": 2
-    },
-    {
-      "slug": "한게임-로얄홀덤",
       "views": 2
     },
     {
