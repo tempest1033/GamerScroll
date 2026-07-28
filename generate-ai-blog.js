@@ -1135,6 +1135,12 @@ Sitemap: ${SITE_URL}/sitemap.xml
   fs.writeFileSync(path.join(DOCS_DIR, `${AISCROLL_INDEXNOW_KEY}.txt`), AISCROLL_INDEXNOW_KEY, 'utf8');
   console.log('IndexNow key 파일 생성 완료 (aiscroll.io)');
 
+  // 2c. Naver Search Advisor 소유확인 파일 (aiscroll.io) — 매 빌드마다 재생성해
+  // CI 리빌드에도 유지된다. 콘텐츠 형식은 docs/의 gamerscroll 파일과 동일.
+  const NAVER_VERIFICATION_FILE = 'naveree802b0be3a1f41301b28d27a2f3b5c8.html';
+  fs.writeFileSync(path.join(DOCS_DIR, NAVER_VERIFICATION_FILE), `naver-site-verification: ${NAVER_VERIFICATION_FILE}`, 'utf8');
+  console.log('Naver 소유확인 파일 생성 완료 (aiscroll.io)');
+
   // 3a. RSS (en) — cap 200으로 상향 (현 131개, 성장 여지)
   const enRssItems = enArticles
     .sort((a, b) => new Date(b.date) - new Date(a.date))
