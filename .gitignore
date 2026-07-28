@@ -9,6 +9,7 @@ node_modules/
 # 빌드 산출물 — main에서 분리, deploy-gamerscroll/deploy-aiscroll 브랜치로만 발행 (2026-07-28)
 docs/
 ai-docs/
+/assets/
 
 # 스냅샷 (로컬에서는 무시, GitHub Actions에서만 커밋)
 snapshots/
