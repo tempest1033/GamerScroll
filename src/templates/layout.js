@@ -2643,8 +2643,21 @@ function unwrapScriptTag(scriptBlock = '') {
     .trim();
 }
 
+// esbuild가 있으면 런타임 번들 minify (실패/부재 시 원문 그대로 — 동작 불변 폴백)
+let __esbuild = null;
+try { __esbuild = require('esbuild'); } catch (e) {}
+function minifyRuntimeBundle(code, label) {
+  if (!__esbuild) return code;
+  try {
+    return __esbuild.transformSync(code, { minify: true, target: 'es2017' }).code;
+  } catch (e) {
+    console.warn(`⚠️ runtime bundle minify 실패 (${label}): ${e.message} — 원문 사용`);
+    return code;
+  }
+}
+
 function buildLayoutCoreBundle() {
-  return `${unwrapScriptTag(lazyCardHydrationScript)}\n`;
+  return minifyRuntimeBundle(`${unwrapScriptTag(lazyCardHydrationScript)}\n`, 'layout-core');
 }
 
 function buildLayoutRuntimeBundle(options = {}) {
@@ -2660,7 +2673,7 @@ function buildLayoutRuntimeBundle(options = {}) {
     mobileScrollHideScript,
     mobileSidePanelScript
   ];
-  return `${scripts.map(unwrapScriptTag).join('\n\n')}\n`;
+  return minifyRuntimeBundle(`${scripts.map(unwrapScriptTag).join('\n\n')}\n`, 'layout-runtime');
 }
 
 function buildCardFeedPagerScript(options = {}) {

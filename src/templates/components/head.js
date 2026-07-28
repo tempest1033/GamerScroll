@@ -360,9 +360,9 @@ function generateHead(options = {}) {
   <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
 	  ${deferredCssInitScript}
 	  ${deferredCssGuardStyle}
-	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
-	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset (unicode-range 청크 분할 — 풀 woff2 ~2MB 대신 사용 글리프 청크만 로드) -->
+	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
 	  <!-- 메인 CSS -->
 	  ${cssLinksHtml}
 	  ${deferredCssGuardScript}

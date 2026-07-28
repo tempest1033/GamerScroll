@@ -1364,6 +1364,9 @@ self.addEventListener('fetch', (event) => {
     headerLines.push('/assets/images/*', '  Cache-Control: public, max-age=604800', '');
     headerLines.push('/icon-*.png', '  Cache-Control: public, max-age=2592000', '');
     headerLines.push('/favicon*', '  Cache-Control: public, max-age=2592000', '');
+  // feed JSON은 파일명에 해시가 박혀 있어 immutable 안전. layout-core.js는 SW precache가
+  // 쿼리 없는 경로를 쓰므로 여기서는 immutable을 걸지 않는다 (stale 고정 방지).
+  headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     fs.writeFileSync(path.join(DOCS_DIR, '_headers'), headerLines.join('\n') + '\n', 'utf8');
     console.log('_headers 생성 완료');
   } catch (err) {

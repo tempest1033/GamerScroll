@@ -2735,6 +2735,10 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     headerLines.push('/assets/images/*', '  Cache-Control: public, max-age=604800', '');
     headerLines.push('/icon-*.png', '  Cache-Control: public, max-age=2592000', '');
     headerLines.push('/favicon*', '  Cache-Control: public, max-age=2592000', '');
+    // 런타임 JS는 ?v=<content-hash>로 버전되고, feed JSON은 파일명에 해시가 박혀 있어 immutable 안전.
+    headerLines.push('/assets/layout-core.js', '  Cache-Control: public, max-age=31536000, immutable', '');
+    headerLines.push('/assets/layout-runtime.js', '  Cache-Control: public, max-age=31536000, immutable', '');
+    headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     fs.writeFileSync(`${DOCS_DIR}/_headers`, headerLines.join('\n') + '\n', 'utf8');
     console.log('🧾 _headers 생성 완료');
   } catch (err) {
