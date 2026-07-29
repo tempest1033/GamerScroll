@@ -1,9 +1,13 @@
 {
-  "updatedAt": "2026-07-28T07:30:17.251Z",
+  "updatedAt": "2026-07-29T07:36:03.555Z",
   "period": "30days",
   "games": [
     {
       "slug": "꿈의-집-homescapes",
+      "views": 3
+    },
+    {
+      "slug": "퍼즐앤드래곤",
       "views": 3
     },
     {
@@ -27,7 +31,15 @@
       "views": 2
     },
     {
+      "slug": "wing-fighter",
+      "views": 2
+    },
+    {
       "slug": "계급장-키우기",
+      "views": 2
+    },
+    {
+      "slug": "명조워더링-웨이브",
       "views": 2
     },
     {
@@ -40,10 +52,6 @@
     },
     {
       "slug": "테이스티-트레블-합성-게임",
-      "views": 2
-    },
-    {
-      "slug": "퍼즐앤드래곤",
       "views": 2
     },
     {
@@ -68,14 +76,6 @@
     },
     {
       "slug": "baldurs-gate-3",
-      "views": 1
-    },
-    {
-      "slug": "cool-holiday-tile",
-      "views": 1
-    },
-    {
-      "slug": "core-keeper",
       "views": 1
     }
   ]
