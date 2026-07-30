@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-29T07:36:03.555Z",
+  "updatedAt": "2026-07-30T09:10:09.799Z",
   "period": "30days",
   "games": [
     {
@@ -51,6 +51,10 @@
       "views": 2
     },
     {
+      "slug": "클래시-오브-클랜",
+      "views": 2
+    },
+    {
       "slug": "테이스티-트레블-합성-게임",
       "views": 2
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "assetto-corsa",
-      "views": 1
-    },
-    {
-      "slug": "baldurs-gate-3",
       "views": 1
     }
   ]
