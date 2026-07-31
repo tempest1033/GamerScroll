@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-30T09:10:09.799Z",
+  "updatedAt": "2026-07-31T10:25:58.901Z",
   "period": "30days",
   "games": [
     {
@@ -28,6 +28,10 @@
     },
     {
       "slug": "pax-dei",
+      "views": 2
+    },
+    {
+      "slug": "sol-enchant",
       "views": 2
     },
     {
@@ -72,10 +76,6 @@
     },
     {
       "slug": "arrows-world",
-      "views": 1
-    },
-    {
-      "slug": "assetto-corsa",
       "views": 1
     }
   ]
