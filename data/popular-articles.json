@@ -1,25 +1,19 @@
 {
-  "updatedAt": "2026-07-30T00:54:18.336Z",
+  "updatedAt": "2026-07-31T01:21:44.201Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 37,
+      "views": 33,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 25,
+      "views": 29,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 6,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -28,10 +22,28 @@
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 5,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 4,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
       "type": "wiki",
       "slug": "game-ip-licensing",
       "category": "business",
-      "views": 5,
+      "views": 4,
       "path": "/wiki/business/game-ip-licensing/"
     },
     {
@@ -41,16 +53,10 @@
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 3,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "slug": "rotk8-remake-pk-mixed-launch",
       "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
       "type": "issue",
@@ -65,11 +71,16 @@
       "path": "/magazine/ranking/mobile-june-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
       "views": 3,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 2,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "insight",
@@ -90,23 +101,11 @@
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
-      "views": 2,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
-    },
-    {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
@@ -117,10 +116,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "issue",
@@ -133,12 +132,6 @@
       "slug": "china-game-license-normalization",
       "views": 1,
       "path": "/magazine/issue/china-game-license-normalization/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragonsword-awakening-steam-demo",
-      "views": 1,
-      "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
     },
     {
       "type": "issue",
@@ -160,15 +153,27 @@
     },
     {
       "type": "issue",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+      "views": 1,
+      "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "pocketpair-gamers-dont-want-ai",
       "views": 1,
       "path": "/magazine/issue/pocketpair-gamers-dont-want-ai/"
     },
     {
       "type": "issue",
-      "slug": "xbox-project-helix-pc-console",
+      "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
-      "path": "/magazine/issue/xbox-project-helix-pc-console/"
+      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+    },
+    {
+      "type": "issue",
+      "slug": "wuthering-waves-korea-grossing-no1",
+      "views": 1,
+      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
       "type": "ranking",
@@ -177,17 +182,18 @@
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
       "type": "wiki",
       "slug": "game-shareholder-returns-low-growth",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/game-shareholder-returns-low-growth/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -205,10 +211,17 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
+      "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "wiki",
