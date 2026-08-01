@@ -1,19 +1,25 @@
 {
-  "updatedAt": "2026-07-31T01:21:44.201Z",
+  "updatedAt": "2026-08-01T01:01:52.911Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "ranking",
-      "slug": "subculture-june-2026-kr",
-      "views": 33,
-      "path": "/magazine/ranking/subculture-june-2026-kr/"
-    },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 29,
+      "views": 32,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-june-2026-kr",
+      "views": 29,
+      "path": "/magazine/ranking/subculture-june-2026-kr/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 6,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -22,15 +28,9 @@
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 5,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 4,
+      "views": 5,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
@@ -40,29 +40,10 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 3,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
       "type": "issue",
       "slug": "rotk8-remake-pk-mixed-launch",
       "views": 3,
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "sol-enchant-dual-market-no1-launch",
-      "views": 3,
-      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
     },
     {
       "type": "ranking",
@@ -78,21 +59,15 @@
     },
     {
       "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 2,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "hotpick",
       "slug": "mac-mini-m4-best-value-2026",
       "views": 2,
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 2,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 2,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -101,18 +76,24 @@
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
+      "type": "issue",
+      "slug": "sol-enchant-dual-market-no1-launch",
+      "views": 2,
+      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-ip-licensing",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/game-ip-licensing/"
+    },
+    {
       "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 2,
       "path": "/wiki/history/heroes-of-might-and-magic/"
-    },
-    {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/the-war-of-genesis/"
     },
     {
       "type": "wiki",
@@ -135,6 +116,24 @@
     },
     {
       "type": "issue",
+      "slug": "devsisters-q1-loss-voluntary-retirement",
+      "views": 1,
+      "path": "/magazine/issue/devsisters-q1-loss-voluntary-retirement/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragonsword-awakening-steam-demo",
+      "views": 1,
+      "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
+    },
+    {
+      "type": "issue",
+      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
+      "views": 1,
+      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
+    },
+    {
+      "type": "issue",
       "slug": "gta6-preorder-june-25",
       "views": 1,
       "path": "/magazine/issue/gta6-preorder-june-25/"
@@ -144,6 +143,18 @@
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 1,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 1,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
+      "type": "issue",
+      "slug": "mongil-star-dive-global-launch",
+      "views": 1,
+      "path": "/magazine/issue/mongil-star-dive-global-launch/"
     },
     {
       "type": "issue",
@@ -159,15 +170,21 @@
     },
     {
       "type": "issue",
-      "slug": "pocketpair-gamers-dont-want-ai",
+      "slug": "pubg-battlegrounds-birth-history",
       "views": 1,
-      "path": "/magazine/issue/pocketpair-gamers-dont-want-ai/"
+      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
     },
     {
       "type": "issue",
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+    },
+    {
+      "type": "issue",
+      "slug": "sony-pc-exit-hulst-confirmation",
+      "views": 1,
+      "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
     },
     {
       "type": "issue",
@@ -211,6 +228,13 @@
     },
     {
       "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 1,
@@ -222,13 +246,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
-      "type": "wiki",
-      "slug": "raph-koster-theory-of-fun",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
