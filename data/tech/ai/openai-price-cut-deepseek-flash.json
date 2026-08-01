@@ -1,0 +1,122 @@
+{
+  "slug": "openai-price-cut-deepseek-flash",
+  "status": "approved",
+  "site": "aiscroll",
+  "needTranslate": false,
+  "category": "openai",
+  "title": "오픈AI GPT-5.6 토큰 가격 최대 80% 인하…딥시크 V4 플래시 맞불",
+  "titleEn": "OpenAI Cuts GPT-5.6 Prices; DeepSeek Fires Back",
+  "date": "",
+  "keywords": "오픈AI 토큰 가격 인하, GPT-5.6 루나, 딥시크 V4 플래시, 앤트로픽 토크나이저",
+  "keywordsEn": "GPT-5.6 Luna price, DeepSeek V4 Flash model, Claude Opus 5, Anthropic tokenizer",
+  "summary": "오픈AI가 7월 30일 GPT-5.6 루나 가격을 80% 인하했다. 하루 뒤 딥시크가 V4 플래시 정식 버전을 출시하며 가격 인하 흐름에 가세했다. 이에 따라 고가 정책을 고수해 온 앤트로픽은 양사 사이에서 어려운 처지에 놓이게 됐다.",
+  "summaryEn": "OpenAI cut GPT-5.6 Luna prices by 80% on July 30. A day later, DeepSeek released a V4 Flash update, squeezing premium-priced Anthropic from both ends.",
+  "thumbnail": "https://images.ctfassets.net/jdtwqhzvc2n1/2fGdveK7V6JapEiEv85EpL/16b6cb580fce352e2d10fc0bcc5f0b21/ChatGPT_Image_Jul_30__2026__05_09_51_PM.png?w=800&q=75",
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "Advancing the price-performance frontier with GPT-5.6",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/"
+    },
+    {
+      "name": "CNBC",
+      "title": "OpenAI cuts prices for two of its GPT-5.6 AI models as companies grow sensitive to costs",
+      "url": "https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html"
+    },
+    {
+      "name": "Yahoo Finance",
+      "title": "OpenAI Says July Annualized Revenue Topped All of Q2",
+      "url": "https://finance.yahoo.com/technology/ai/articles/openai-says-july-annualized-revenue-081436834.html"
+    },
+    {
+      "name": "DeepSeek",
+      "title": "Change Log | DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/updates/"
+    },
+    {
+      "name": "The Register",
+      "title": "Anthropic's extravagant tokenizer complicates AI pricing",
+      "url": "https://www.theregister.com/ai-and-ml/2026/07/14/anthropics-extravagant-tokenizer-complicates-ai-pricing/5270792"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/openai-token-price-cut-anthropic",
+    "tech:ai/deepseek-tops-us-spending-tracker",
+    "tech:ai/deepseek-mimo-price-war",
+    "tech:ai/ai-token-cost-exceeds-salary"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈AI가 7월 30일 GPT-5.6 모델 2종의 API 가격을 내렸다. 최소형 모델인 GPT-5.6 루나는 80% 인하된 100만 토큰당 입력 0.2달러, 출력 1.2달러로 책정됐다. 중간급 모델인 테라도 20% 인하된 2달러와 12달러로 조정된 반면, 최상위 모델인 솔은 기존 가격(5달러·30달러)을 유지했다.\n\n이번 조치는 토큰 요금이 비싸다는 기업 고객의 불만과 중국산 저가 모델의 성장이 맞물려 단행됐다. 오픈AI가 [지난 6월 도입을 검토 중이라고 보도된](/ko/article/openai/openai-token-price-cut-anthropic/) 방안이 약 7주 만에 현실화됐다."
+    },
+    {
+      "type": "heading",
+      "value": "7월 매출, 2분기 전체 실적 추월"
+    },
+    {
+      "type": "text",
+      "value": "오픈AI의 과감한 가격 인하는 기록적인 월간 실적이 뒷받침했기에 가능했다. 지난 7월 9일 GPT-5.6 시리즈(솔·테라·루나)를 출시한 오픈AI는 최근 임직원들에게 7월 연환산 매출이 지난 2분기 전체 실적을 넘어섰다고 공유했다.\n\n사라 프라이어 최고재무책임자(CFO)와 브렛 테일러 이사회 의장은 GPT-5.6과 기업용 서비스인 챗GPT 워크, 코딩 에이전트 코덱스를 성장의 주역으로 꼽았다. 테일러 의장은 클로드 코드를 쓰다 고액의 청구서를 받고 대안을 찾는 고객들이 늘고 있다고 직원들에게 전했다.\n\n주요 타깃은 가성비 코딩 에이전트 시장이다. 인하 후 루나의 입출력 합산 요금은 100만 토큰당 1.4달러로, 구글의 제미나이 3.5 플래시 라이트(2.8달러)의 절반 수준에 불과하다. 관련해 [CNBC](https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html)는 기업들이 AI 지출을 줄이는 추세 속에서 나온 정면 대응이라고 분석했다. 호황기에 저가 라인 가격을 추가로 낮춘 것은 방어가 아닌 공격적인 시장 공세로 풀이된다."
+    },
+    {
+      "type": "heading",
+      "value": "딥시크 V4 플래시, 클로드 오푸스 4.8 추격"
+    },
+    {
+      "type": "image",
+      "src": "https://d.techtimes.com/en/full/470844/photo-taken-september-1-2025-shows-deepseek.jpg",
+      "caption": "스마트폰과 모니터 화면에 표시된 딥시크 로고",
+      "alt": "휴대폰과 화면에 나란히 보이는 딥시크 고래 로고"
+    },
+    {
+      "type": "text",
+      "value": "가성비 시장의 반대편에서는 딥시크가 하루 만에 응수에 나섰다. 딥시크는 7월 31일 V4 플래시 정식 빌드(명칭 0731)를 출시했다. 이 모델은 지난 4월 프리뷰 버전의 2,840억 매개변수 구조를 유지하면서 사후 학습을 다시 거쳤으며, 기존 API 호출에 자동으로 적용된다.\n\n공개된 벤치마크 평가는 즉각 주목을 받았다. 새 빌드는 Terminal-Bench 2.1에서 82.7점을 기록해 앤트로픽의 직전 플래그십인 클로드 오푸스 4.8(85.0점)을 2.3점 차로 바짝 따라붙었다. 깃허브 이슈 해결 벤치마크인 DeepSWE에서도 54.4점을 얻어 오푸스 4.8(58.0점)의 턱밑까지 추격했다. 특히 딥시크의 플래그십 모델인 V4 프로 프리뷰를 9개 에이전트 평가 전반에서 넘어섰다.\n\n합산 요금은 100만 토큰당 0.42달러로, 루나의 3분의 1 미만이다. 딥시크는 조만간 V4 프로 정식 버전을 선보이겠다고 예고했다. 문샷 AI의 키미 K3를 비롯한 중국계 모델들의 출시가 줄을 이으면서, 코딩 에이전트 시장은 성능과 비용을 모두 겨루는 치열한 경쟁 구도로 접어들었다."
+    },
+    {
+      "type": "heading",
+      "value": "토크나이저 역풍과 가격 전쟁에 낀 앤트로픽"
+    },
+    {
+      "type": "text",
+      "value": "이러한 경쟁 구도는 앤트로픽을 난처한 상황으로 몰아가고 있다. 클로드는 여전히 시장에서 가격이 가장 비싼 모델군에 속한다. 게다가 지난 6월 말 도입된 신형 토크나이저가 동일한 타입스크립트 파일을 오픈AI GPT-5.x 제품군 대비 최대 73% 더 많은 토큰으로 계산한다는 분석이 [더레지스터](https://www.theregister.com/ai-and-ml/2026/07/14/anthropics-extravagant-tokenizer-complicates-ai-pricing/5270792)를 통해 전해졌다. 토크나이저를 바꾼 것만으로 실질 요금이 오른 셈이라는 지적이다.\n\n성능 우위마저 흔들리고 있다. 독립 리더보드 SWE-bench Verified에서는 7월 24일 출시된 오푸스 5가 97.0%로 1위를 지켰다. 하지만 GPT-5.6 솔이 96.2%로 사실상 동급까지 따라붙었고, 플래그십 페이블 5(95.0%)는 오히려 솔에 밀렸다. 난도 높은 SWE-bench Pro에서 페이블 5가 80.3%로 솔(64.6%)을 크게 앞서는 것이 남은 격차다.\n\n문제는 그 격차의 값이다. 오푸스 5의 합산 단가는 100만 토큰당 30달러로 루나의 20배가 넘고, 페이블 5(60달러)는 솔(35달러)보다 70% 이상 비싸다. 루나·플래시급 저가 구간에는 맞설 라인업 자체가 없다.\n\n비슷한 성능을 훨씬 싸게 파는 경쟁자들 사이에서, 앤트로픽은 가격을 따라 내리거나 격차를 다시 벌려야 하는 갈림길에 섰다. 오픈AI의 가격 인하와 딥시크의 성능 향상이 겹친 이번 주, 시장의 시선은 앤트로픽의 다음 대응에 쏠리고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI slashed API prices for two of its GPT-5.6 models on July 30. Price tags for Luna, its smallest model, fell 80% to $0.20 per million input tokens and $1.20 per million output tokens, while the mid-tier Terra dropped 20% to $2 and $12. The flagship Sol kept its pricing at $5 and $30.\n\nThe reductions come as enterprise clients grow increasingly frustrated with rising token bills while low-cost Chinese models gain market share. A price cut OpenAI was [reported to be considering in June](/article/openai/openai-token-price-cut-anthropic/) has materialized in just seven weeks."
+    },
+    {
+      "type": "heading",
+      "value": "July Sales Outpaced the Entire Second Quarter"
+    },
+    {
+      "type": "text",
+      "value": "The confidence behind these price cuts stems from record monthly performance. OpenAI launched the GPT-5.6 series—comprising Sol, Terra, and Luna—on July 9, and recently informed employees that July's annualized revenue outpaced the company's entire second-quarter revenue.\n\nCFO Sarah Friar and board chair Bret Taylor credited GPT-5.6, ChatGPT Work, and the Codex coding agent for the growth. \"You're seeing people who went deep on Claude Code, ended up with a very high bill, and started looking for an alternative,\" Taylor told staff.\n\nThe target is the budget-friendly coding agent market. Following the cuts, Luna's combined pricing of $1.40 per million tokens undercuts Google's Gemini 3.5 Flash-Lite at $2.80. A report by [CNBC](https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html) framed the move as a direct response to enterprises tightening their AI budgets. Cutting prices in the middle of a hot streak reads as offense, not defense."
+    },
+    {
+      "type": "heading",
+      "value": "DeepSeek V4 Flash Closes In on Claude Opus 4.8"
+    },
+    {
+      "type": "image",
+      "src": "https://d.techtimes.com/en/full/470844/photo-taken-september-1-2025-shows-deepseek.jpg",
+      "caption": "The DeepSeek logo displayed on a smartphone and a monitor",
+      "alt": "DeepSeek whale logo shown on a phone and a screen"
+    },
+    {
+      "type": "text",
+      "value": "DeepSeek responded within a day on the other side of the budget market. On July 31, the company released the official V4 Flash build (designated 0731). The model retains the 284-billion-parameter architecture of April's preview but has been re-post-trained, and the update was seamlessly applied to existing API calls.\n\nThe published benchmark results drew immediate attention. The new build scored 82.7 on Terminal-Bench 2.1, trailing Anthropic's previous flagship Claude Opus 4.8 (85.0) by only 2.3 points. On the GitHub issue-resolution benchmark DeepSWE, V4 Flash posted 54.4 compared to 58.0 for Opus 4.8. Crucially, it outperformed DeepSeek's own V4 Pro preview across all nine published agent benchmarks.\n\nAt a combined rate of $0.42 per million tokens, the model costs less than one-third of Luna's new pricing. DeepSeek announced that the official V4 Pro release will follow soon. With Moonshot AI's Kimi K3 and other Chinese models launching, the coding agent market has entered an intense race on both capability and unit cost."
+    },
+    {
+      "type": "heading",
+      "value": "Anthropic Squeezed by Tokenizer and Price War"
+    },
+    {
+      "type": "text",
+      "value": "This competitive landscape places Anthropic in a difficult position. Claude remains the most expensive model family on the market. Furthermore, a new tokenizer introduced in late June counts the same TypeScript file as containing up to 73% more tokens than OpenAI's GPT-5.x tokenizer, according to an analysis reported by [The Register](https://www.theregister.com/ai-and-ml/2026/07/14/anthropics-extravagant-tokenizer-complicates-ai-pricing/5270792). Anthropic has acknowledged that the updated tokenizer can map the same input to roughly 1.0 to 1.35 times more tokens. The tokenizer change alone amounts to an effective price hike without any change to official list prices.\n\nEven the performance lead is wobbling. On the independent SWE-bench Verified leaderboard, Claude Opus 5, released on July 24, holds first place at 97.0% — but GPT-5.6 Sol sits at 96.2%, effectively level, while flagship Fable 5 trails at 95.0%. What remains of the gap is the harder SWE-bench Pro, where Fable 5's 80.3% clearly beats Sol's 64.6%.\n\nThe problem is what that remaining edge costs. Opus 5 runs a combined $30 per million tokens — more than 20 times Luna — and Fable 5's $60 sits over 70% above Sol's $35. In the Luna and Flash price band, Anthropic fields no Claude model at all.\n\nSurrounded by rivals selling near-equal performance for far less, Anthropic faces a choice between matching the cuts and rebuilding a clear lead. With OpenAI lowering rates and DeepSeek raising performance in the same week, the next move in the price war belongs to Anthropic."
+    }
+  ]
+}
