@@ -541,9 +541,11 @@ const icons = {
 };
 
 // ========== 이슈/인사이트/핫픽 상세 페이지 (통합 구현, 2026-08-02) ==========
-// 세 타입은 라벨·이미지 경로 헬퍼·URL prefix·레거시 관련문서 폴백 구성만 다르고
+// 세 타입은 라벨·이미지 경로 헬퍼·URL prefix만 다르고
 // 마크업/렌더 로직이 동일해 단일 구현으로 통합했다. 산출 HTML은 통합 전과 byte-identical.
 // (순위 분석은 renderContent가 실제로 달라 별도 구현 유지)
+// 레거시 관련문서 필드(relatedIssues 등)는 parseRelatedDocs(generate-html-report.js)가
+// 단일 경로로 흡수하므로 렌더러 측 폴백은 없다.
 
 const NEWS_DETAIL_CONFIG = {
   issue: {
@@ -552,8 +554,7 @@ const NEWS_DETAIL_CONFIG = {
     notFoundDesc: '이슈를 찾을 수 없습니다.',
     heroAltFallback: '이슈 대표 이미지',
     imagePath: (slug, url, kind, index) => getLocalIssueImagePath(slug, url, kind, index),
-    defaultKeywords: '게임 분석, 이슈, 게임 이슈, 모바일 게임',
-    legacyKinds: ['issue', 'wiki', 'tech']
+    defaultKeywords: '게임 분석, 이슈, 게임 이슈, 모바일 게임'
   },
   insight: {
     notFoundBody: '인사이트를 찾을 수 없습니다',
@@ -561,8 +562,7 @@ const NEWS_DETAIL_CONFIG = {
     notFoundDesc: '인사이트를 찾을 수 없습니다.',
     heroAltFallback: '인사이트 대표 이미지',
     imagePath: (slug, url, kind, index) => getLocalInsightImagePath(slug, url, kind, index),
-    defaultKeywords: '게임 트렌드, 인사이트, 게임 분석, 모바일 게임',
-    legacyKinds: ['insight', 'issue', 'wiki']
+    defaultKeywords: '게임 트렌드, 인사이트, 게임 분석, 모바일 게임'
   },
   hotpick: {
     notFoundBody: '핫픽을 찾을 수 없습니다',
@@ -570,83 +570,9 @@ const NEWS_DETAIL_CONFIG = {
     notFoundDesc: '핫픽을 찾을 수 없습니다.',
     heroAltFallback: '핫픽 대표 이미지',
     imagePath: (slug, url, kind, index) => getLocalHotpickImagePath(slug, url, kind, index),
-    defaultKeywords: '게임 추천, 핫픽, 구매 가이드, 세일 추천',
-    legacyKinds: ['hotpick', 'insight', 'issue', 'wiki']
+    defaultKeywords: '게임 추천, 핫픽, 구매 가이드, 세일 추천'
   }
 };
-
-// 레거시 관련문서 폴백 (parsedRelatedDocs가 없을 때만) — 타입별 구성(legacyKinds) 순서로 렌더.
-// 원본과 동일하게 kind 블록 사이에 '\n        ' 구분자를 유지해 출력 byte 동일성 보장.
-function buildLegacyRelatedDocsHtml(post, cfg, { issueReports, insightReports, hotpickReports, wikiData, techData }) {
-  const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
-  const findInsightBySlug = (slug) => insightReports.find(r => r.slug === slug);
-  const findHotpickBySlug = (slug) => hotpickReports.find(r => r.slug === slug);
-  const findWikiBySlug = (category, slug) => {
-    const articles = wikiData[category] || [];
-    return articles.find(a => a.slug === slug);
-  };
-  const lists = {
-    issue: (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4),
-    insight: (post.relatedInsights || []).map(slug => findInsightBySlug(slug)).filter(Boolean).slice(0, 2),
-    hotpick: (post.relatedHotpicks || []).map(slug => findHotpickBySlug(slug)).filter(Boolean).slice(0, 2),
-    wiki: (post.relatedWiki || []).map(ref => {
-      const [cat, slug] = ref.split('/');
-      const article = findWikiBySlug(cat, slug);
-      return article ? { ...article, category: cat } : null;
-    }).filter(Boolean).slice(0, 4),
-    tech: (post.relatedTech || []).map(ref => {
-      if (typeof ref !== 'string' || !ref.trim()) return null;
-      const parts = ref.split('/');
-      const category = parts.length > 1 ? parts[0] : 'ai';
-      const articleSlug = parts.length > 1 ? parts[1] : parts[0];
-      const article = (techData[category] || []).find(a => a.slug === articleSlug);
-      return article ? { ...article, category } : null;
-    }).filter(Boolean).slice(0, 4)
-  };
-  const renderers = {
-    issue: (issue) => `
-          <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
-          </a>
-        `,
-    insight: (insight) => `
-          <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="${insight.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
-          </a>
-        `,
-    hotpick: (hotpick) => `
-          <a href="/magazine/hotpick/${hotpick.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalHotpickImagePath(hotpick.slug, hotpick.thumbnail, 'thumbnail')}" alt="${hotpick.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${hotpick.title}</span></span>
-          </a>
-        `,
-    wiki: (wiki) => `
-          <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
-          </a>
-        `,
-    tech: (tech) => `
-          <a href="/tech/${tech.category}/${tech.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${fixUrl(tech.thumbnail)}" alt="${tech.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${tech.title}</span></span>
-          </a>
-        `
-  };
-  const hasRelatedDocs = cfg.legacyKinds.some(kind => lists[kind].length > 0);
-  if (!hasRelatedDocs) return '';
-  const body = cfg.legacyKinds.map(kind => lists[kind].map(renderers[kind]).join('')).join('\n        ');
-  return `
-    <div class="blog-related-issues">
-      <div class="blog-related-title">관련 문서</div>
-      <div class="blog-related-issues-list">
-        ${body}
-      </div>
-    </div>
-  `;
-}
 
 function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   const cfg = NEWS_DETAIL_CONFIG[type];
@@ -890,10 +816,10 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
     </div>
   ` : '';
 
-  // 관련 문서 (parsedRelatedDocs 통합 우선, 없으면 레거시 폴백)
+  // 관련 문서 (레거시 필드 흡수 포함 parseRelatedDocs 결과만 사용)
   const relatedDocsHtml = (parsedRelatedDocs && parsedRelatedDocs.length > 0)
     ? renderParsedRelatedDocsHtml(parsedRelatedDocs)
-    : buildLegacyRelatedDocsHtml(post, cfg, { issueReports, insightReports, hotpickReports, wikiData, techData });
+    : '';
 
   // 정보 출처
   const sources = post.sources || [];
@@ -1624,51 +1550,10 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     </div>
   ` : '';
 
-  // 관련 문서 (parsedRelatedDocs 통합 우선, 없으면 레거시 폴백)
-  let relatedDocsHtml = '';
-  if (parsedRelatedDocs && parsedRelatedDocs.length > 0) {
-    relatedDocsHtml = renderParsedRelatedDocsHtml(parsedRelatedDocs);
-  } else {
-    // 레거시 폴백: relatedIssues + relatedTech
-    const legacyRelatedDocs = [];
-    if (post.relatedIssues && post.relatedIssues.length > 0) {
-      post.relatedIssues.forEach(issueSlug => {
-        const issue = issueReports.find(i => i.slug === issueSlug);
-        if (issue) {
-          legacyRelatedDocs.push({ type: 'issue', title: issue.title, link: `/magazine/issue/${issue.slug}/`, thumbnail: issue.thumbnail, slug: issue.slug });
-        }
-      });
-    }
-    if (post.relatedTech && post.relatedTech.length > 0) {
-      post.relatedTech.forEach(techPath => {
-        const parts = techPath.split('/');
-        const category = parts.length > 1 ? parts[0] : 'ai';
-        const slug = parts.length > 1 ? parts[1] : parts[0];
-        const techArticle = (techData[category] || []).find(a => a.slug === slug);
-        if (techArticle) {
-          legacyRelatedDocs.push({ type: 'tech', title: techArticle.title, link: `/tech/${category}/${slug}/`, thumbnail: techArticle.thumbnail, slug: slug });
-        }
-      });
-    }
-    relatedDocsHtml = legacyRelatedDocs.length > 0 ? `
-    <div class="blog-related-issues">
-      <div class="blog-related-title">관련 문서</div>
-      <div class="blog-related-issues-list">
-        ${legacyRelatedDocs.map(doc => {
-          const thumbUrl = doc.thumbnail
-            ? (doc.type === 'tech' ? fixUrl(doc.thumbnail) : getLocalIssueImagePath(doc.slug, doc.thumbnail, 'thumbnail'))
-            : '';
-          return `
-            <a href="${doc.link}" class="blog-related-issue-card">
-              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="${doc.title}" loading="lazy">
-              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${doc.title}</span></span>
-            </a>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  ` : '';
-  }
+  // 관련 문서 (레거시 필드 흡수 포함 parseRelatedDocs 결과만 사용)
+  const relatedDocsHtml = (parsedRelatedDocs && parsedRelatedDocs.length > 0)
+    ? renderParsedRelatedDocsHtml(parsedRelatedDocs)
+    : '';
 
   // 관련 게임 (수동 지정 우선, 없으면 자동 매칭)
   const findGameBySlug = (slug) => {

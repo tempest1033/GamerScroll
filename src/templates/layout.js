@@ -78,12 +78,7 @@ const {
   renderMobileOnlyAd,
   renderContentAd,
   renderNativeAd,
-  renderMultiplexAd,
-  // 하위 호환 별칭
-  renderPCAd,
-  renderPCHomeAd,
-  renderVerticalAd,
-  renderRectangleAd
+  renderMultiplexAd
 } = require('./components/ads');
 const { generateHeader } = require('./components/header');
 const { generateNav } = require('./components/nav');

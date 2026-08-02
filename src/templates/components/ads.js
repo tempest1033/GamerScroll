@@ -239,41 +239,6 @@ function renderMultiplexAd(slotId) {
 // 하위 호환용 별칭 (기존 코드 호환)
 // ============================================================
 
-/** @deprecated renderResponsiveTopAd 사용 권장 */
-function renderPCAd(slotId) {
-  return renderResponsiveTopAd(slotId);
-}
-
-/** @deprecated renderResponsiveHomeAd 사용 권장 */
-function renderPCHomeAd(slotId) {
-  return renderResponsiveHomeAd(slotId);
-}
-
-/** @deprecated renderSidebarVerticalAd 사용 권장 */
-function renderVerticalAd(slotId) {
-  return renderSidebarVerticalAd(slotId);
-}
-
-/** @deprecated renderSidebarRectangleAd 사용 권장 */
-function renderRectangleAd(slotId) {
-  return renderSidebarRectangleAd(slotId);
-}
-
-/** @deprecated renderMobileOnlyAd 사용 권장 */
-function renderMobileAd(slotId) {
-  return renderMobileOnlyAd(slotId);
-}
-
-/** @deprecated renderMobileOnlyAd 사용 권장 */
-function renderMobileTopAd(slotId) {
-  return renderMobileOnlyAd(slotId);
-}
-
-/** @deprecated renderContentAd 사용 권장 */
-function renderMobileMidAd(slotId) {
-  return renderContentAd(slotId);
-}
-
 /** @deprecated 호환용 */
 function renderAdCard(slotId, options = {}) {
   if (!ADS_ENABLED || !slotId) return '';
@@ -297,13 +262,6 @@ module.exports = {
   renderContentAd,
   renderNativeAd,
   renderMultiplexAd,
-  // 하위 호환 별칭 (deprecated)
-  renderAdCard,
-  renderPCAd,
-  renderPCHomeAd,
-  renderVerticalAd,
-  renderRectangleAd,
-  renderMobileAd,
-  renderMobileTopAd,
-  renderMobileMidAd
+  // 하위 호환 별칭 (deprecated — layout.generateAdSlot 경유로만 사용)
+  renderAdCard
 };

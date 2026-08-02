@@ -257,7 +257,9 @@ function stripTechSidebarFromNonTechDocs(docsDir, includePrefixes = null) {
  * 형식: ["wiki:slug", "wiki:category/slug", "issue:slug", "tech:category/slug",
  *        "insight:slug", "hotpick:slug", "ranking:slug"]
  * 프리픽스 없이 slug만 넣어도 자동 검색 (issue → insight → hotpick → ranking → wiki → tech 순)
- * 하위 호환: relatedArticles, relatedIssues, relatedInsights, relatedHotpicks가 있으면 폴백
+ * 하위 호환: relatedArticles, relatedIssues, relatedInsights, relatedHotpicks,
+ *            relatedWiki("cat/slug"), relatedTech("cat/slug"|"slug")가 있으면 폴백
+ *            (레거시 폴백의 단일 경로 — 렌더러 측 폴백은 2026-08-02 제거됨)
  */
 function parseRelatedDocs(article, currentCategory, wikiData, techData, issueReports, insightReports = [], hotpickReports = [], rankingReports = []) {
   const result = [];
@@ -391,6 +393,28 @@ function parseRelatedDocs(article, currentCategory, wikiData, techData, issueRep
     for (const slug of article.relatedHotpicks) {
       const found = hotpickReports.find(r => r.slug === slug);
       if (found) result.push({ type: 'hotpick', ...found });
+    }
+  }
+
+  // 6. 레거시 폴백: relatedWiki ("category/slug")
+  if (article.relatedWiki && article.relatedWiki.length > 0) {
+    for (const ref of article.relatedWiki) {
+      if (typeof ref !== 'string' || !ref.trim()) continue;
+      const [cat, slug] = ref.split('/');
+      const found = (wikiData[cat] || []).find(a => a.slug === slug);
+      if (found) result.push({ type: 'wiki', ...found, category: cat });
+    }
+  }
+
+  // 7. 레거시 폴백: relatedTech ("category/slug" 또는 "slug")
+  if (article.relatedTech && article.relatedTech.length > 0) {
+    for (const ref of article.relatedTech) {
+      if (typeof ref !== 'string' || !ref.trim()) continue;
+      const parts = ref.split('/');
+      const cat = parts.length > 1 ? parts[0] : 'ai';
+      const slug = parts.length > 1 ? parts[1] : parts[0];
+      const found = (techData[cat] || []).find(a => a.slug === slug);
+      if (found) result.push({ type: 'tech', ...found, category: cat });
     }
   }
 
