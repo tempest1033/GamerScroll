@@ -83,10 +83,11 @@ const TECH_NORMAL_MOVED = {
 };
 lines.push('');
 lines.push('# tech/normal → magazine 재배치 (2026-08-02)');
+// 같은 호스트 리다이렉트는 절대 URL이면 CF Pages가 룰을 무시함 → 상대 경로로 emit (검증: 2026-08-02)
 for (const [slug, type] of Object.entries(TECH_NORMAL_MOVED)) {
-  emit(`/tech/normal/${slug}/*`, `https://gamerscroll.com/magazine/${type}/${slug}/:splat`);
+  emit(`/tech/normal/${slug}/*`, `/magazine/${type}/${slug}/:splat`);
 }
-emit('/tech/normal/', 'https://gamerscroll.com/magazine/');
+emit('/tech/normal/', '/magazine/');
 
 // Hub fallback: any remaining /tech/* lands on aiscroll.io homepage
 lines.push('');
