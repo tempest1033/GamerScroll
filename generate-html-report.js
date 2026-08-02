@@ -2772,11 +2772,16 @@ Sitemap: https://gamerscroll.com/sitemap.xml
   fs.writeFileSync(`${DOCS_DIR}/robots.txt`, robotsTxt, 'utf8');
   console.log('🤖 robots.txt 생성 완료');
 
-  // GamerScroll -> AIScroll legacy redirects are generated from source tech data.
+  // 레거시 /tech/* 301은 functions/_middleware.js가 단일 소스 (2026-08-02 전환).
+  // 과거 gen-gs-redirects.js가 만들던 docs/_redirects는 CF Pages 동적 룰 상한으로
+  // 전부 죽어 있던 무게였음 — 배포 seed로 되살아나지 않게 잔재를 제거한다.
   try {
-    execFileSync(process.execPath, [path.join(__dirname, 'scripts', 'gen-gs-redirects.js')], { stdio: 'inherit' });
+    if (fs.existsSync(`${DOCS_DIR}/_redirects`)) {
+      fs.unlinkSync(`${DOCS_DIR}/_redirects`);
+      console.log('🧹 죽은 docs/_redirects 제거 (middleware 단일 소스)');
+    }
   } catch (err) {
-    console.warn('⚠️ _redirects 생성 실패:', err.message);
+    // 제거 실패는 무시
   }
 
   // Cloudflare Pages _headers: long-cache immutable hashed CSS + images/icons.

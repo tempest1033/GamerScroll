@@ -18,17 +18,51 @@ async function resolveAiscrollCategory(slug, fallback = "general") {
 
 async function handleGamerScrollLegacyRedirect(url, path) {
   const match = path.match(/^\/tech\/(ai|vibecoding)\/([^/]+)(\/.*)?$/);
-  if (!match) return null;
+  if (match) {
+    const section = match[1];
+    const slug = decodeURIComponent(match[2] || "");
+    const suffix = match[3] && match[3] !== "/" ? match[3] : "/";
+    const category = section === "vibecoding"
+      ? "vibecoding"
+      : await resolveAiscrollCategory(slug, "general");
+    const target = `https://aiscroll.io/ko/article/${category}/${encodeURIComponent(slug)}${suffix}`;
+    return Response.redirect(target + url.search, 301);
+  }
 
-  const section = match[1];
-  const slug = decodeURIComponent(match[2] || "");
-  const suffix = match[3] && match[3] !== "/" ? match[3] : "/";
-  const category = section === "vibecoding"
-    ? "vibecoding"
-    : await resolveAiscrollCategory(slug, "general");
-  const target = `https://aiscroll.io/ko/article/${category}/${encodeURIComponent(slug)}${suffix}`;
-  return Response.redirect(target + url.search, 301);
+  // tech/normal → 게이머스크롤 매거진 재배치 (2026-08-02): 소스 JSON은 reports/issue·hotpick으로 이동됨.
+  const normalMatch = path.match(/^\/tech\/normal\/([^/]+)\/?$/);
+  if (normalMatch) {
+    const slug = decodeURIComponent(normalMatch[1] || "");
+    const type = TECH_NORMAL_MOVED[slug];
+    if (type) {
+      return Response.redirect(`${url.origin}/magazine/${type}/${encodeURIComponent(slug)}/` + url.search, 301);
+    }
+  }
+
+  // 잔여 /tech/* (허브·미이관 슬러그) → AIScroll 홈.
+  // 과거 docs/_redirects의 /tech/* 캐치올은 동적 룰 상한으로 항상 죽어 있었음 — 여기서 의도 복원.
+  if (path === "/tech" || path.startsWith("/tech/")) {
+    return Response.redirect("https://aiscroll.io/ko/", 301);
+  }
+
+  return null;
 }
+
+// 2026-08-02 매거진 재배치 슬러그 맵 (구 /tech/normal/<slug> → /magazine/<type>/<slug>/)
+const TECH_NORMAL_MOVED = {
+  "intel-core-ultra-200s-plus": "issue",
+  "macbook-neo-reviews": "issue",
+  "nakwon-last-paradise-cbt": "issue",
+  "nvidia-dlss5-controversy": "issue",
+  "rewinding-cadence-technical-test": "issue",
+  "2d-animation-tech": "hotpick",
+  "agile-jira-confluence-game-dev": "hotpick",
+  "firebase-serverless-game-backend": "hotpick",
+  "game-engine": "hotpick",
+  "gantt-chart": "hotpick",
+  "python-pandas-data-analysis": "hotpick",
+  "version-control-system": "hotpick"
+};
 
 export async function onRequest(context) {
   const { request, next } = context;
