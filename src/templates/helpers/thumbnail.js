@@ -48,7 +48,21 @@ function getLocalReportThumbnailSrcset(type, slug, originalUrl) {
   };
 }
 
+// wsrv.nl 프록시 URL용 srcset/sizes 속성 문자열 생성 (아티클 본문 이미지 반응형)
+// 로컬 이미지는 단일 사이즈만 존재하므로 wsrv URL일 때만 생성. 원본 w 파라미터 초과 업스케일은 제외.
+function buildWsrvSrcsetAttrs(src, sizes = '(max-width: 768px) 100vw, 800px') {
+  const s = String(src || '');
+  const m = s.match(/[?&]w=(\d+)/);
+  if (!s.includes('wsrv.nl/') || !m) return '';
+  const baseWidth = parseInt(m[1], 10) || 0;
+  const widths = [480, 800, 1200].filter(w => w <= baseWidth);
+  if (widths.length < 2) return '';
+  const entries = widths.map(w => `${s.replace(/([?&])w=\d+/, `$1w=${w}`)} ${w}w`);
+  return ` srcset="${entries.join(', ')}" sizes="${sizes}"`;
+}
+
 module.exports = {
   getLocalReportThumbnail,
   getLocalReportThumbnailSrcset,
+  buildWsrvSrcsetAttrs,
 };

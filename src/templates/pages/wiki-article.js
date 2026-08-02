@@ -12,6 +12,7 @@ const {
   generateSidebarArticles: sharedSidebarArticles
 } = require('../components/sidebar');
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
+const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -190,7 +191,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
         result.push(`
           <figure class="blog-figure">
-            <img class="blog-image" src="${imgSrc}" alt="${altText}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <img class="blog-image" src="${imgSrc}"${buildWsrvSrcsetAttrs(imgSrc)} alt="${altText}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
             ${caption}
           </figure>
         `);

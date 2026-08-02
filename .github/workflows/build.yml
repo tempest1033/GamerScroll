@@ -119,6 +119,8 @@ jobs:
             d=$(basename "$f" | cut -c1-10)
             if [[ "$d" < "$cutoff_steam" ]]; then rm -f "$f"; fi
           done
+          # history/*.json 컴팩션: 7일 이전 파일은 순위 차트용 필드만 유지 (repo 비대화 방지)
+          node scripts/compact-history.js || true
           true
 
       - name: Move report to docs

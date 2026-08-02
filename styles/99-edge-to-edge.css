@@ -227,17 +227,17 @@
     padding: 8px 0 24px !important;
   }
 
-  /* 본문 이미지 - 풀블리드(컨테이너 거터만큼 음수 마진으로 화면 끝까지) */
+  /* 본문 이미지 - 본문과 동일한 컨테이너 거터를 유지하는 인셋 카드.
+     (과거 풀블리드 음수 마진은 이미지·차트가 여백 없이 화면 끝까지 붙어
+      본문 정렬과 어긋나는 문제를 만들어 제거했다) */
   #issue .blog-figure,
   #insight .blog-figure,
   #hotpick .blog-figure,
   #wiki-article .blog-figure,
   #ranking .blog-figure,
   #tech-article .blog-figure {
-    margin: 16px calc(-1 * var(--edge-gutter, 16px)) !important;
-    border-radius: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
+    margin: 16px 0 !important;
+    border-radius: var(--radius-sm) !important;
   }
 
   /* 상단 대표 이미지 - 인셋(컨테이너 거터), 둥근 모서리 유지 */
@@ -268,7 +268,6 @@
     width: 100% !important;
     max-height: 200px !important;
     object-fit: cover !important;
-    border-radius: 0 !important;
   }
 
   /* 단락 제목 - 폰트 크기 (변수로 통일) */

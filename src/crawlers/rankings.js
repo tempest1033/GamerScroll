@@ -36,78 +36,89 @@ async function fetchIosRanking(store, chart, collection, country) {
   }
 }
 
-// 마켓 순위 데이터
+// Android 앱 매핑
+function mapAndroidApp(a) {
+  return {
+    title: a.title,
+    developer: a.developer,
+    icon: a.icon,
+    appId: a.appId || ''
+  };
+}
+
+// 국가 하나의 iOS/Android 순위 수집 (국가 내부는 순차 → 스토어별 동시 요청 부하 제한)
+async function fetchCountryRankings(gplay, store, c) {
+  const out = { code: c.code, grossingIos: [], freeIos: [], grossingAndroid: [], freeAndroid: [] };
+
+  // iOS - Grossing
+  try {
+    out.grossingIos = await fetchIosRanking(
+      store, 'topGrossing', store.collection.TOP_GROSSING_IOS, c.code
+    );
+  } catch (e) {
+    console.log(`  iOS Grossing error (${c.code}): ${e.message}`);
+  }
+
+  // iOS - Free
+  try {
+    out.freeIos = await fetchIosRanking(
+      store, 'topFree', store.collection.TOP_FREE_IOS, c.code
+    );
+  } catch (e) {
+    console.log(`  iOS Free error (${c.code}): ${e.message}`);
+  }
+
+  // Android (중국 제외)
+  if (c.code !== 'cn') {
+    // 국가별 언어 매핑
+    const langMap = { kr: 'ko', jp: 'ja', us: 'en', tw: 'zh-TW' };
+    const lang = langMap[c.code] || 'en';
+
+    try {
+      const androidGrossing = await gplay.list({
+        collection: gplay.collection.GROSSING,
+        category: gplay.category.GAME,
+        country: c.code,
+        lang: lang,
+        num: 200
+      });
+      out.grossingAndroid = androidGrossing.map(mapAndroidApp);
+    } catch (e) {
+      console.log(`  Android Grossing error (${c.code}): ${e.message}`);
+    }
+
+    try {
+      const androidFree = await gplay.list({
+        collection: gplay.collection.TOP_FREE,
+        category: gplay.category.GAME,
+        country: c.code,
+        lang: lang,
+        num: 200
+      });
+      out.freeAndroid = androidFree.map(mapAndroidApp);
+    } catch (e) {
+      console.log(`  Android Free error (${c.code}): ${e.message}`);
+    }
+  }
+
+  return out;
+}
+
+// 마켓 순위 데이터 (국가 단위 병렬 수집 — 결과 구조는 기존과 동일)
 async function fetchRankings(gplay, store) {
   const results = {
     grossing: {},
     free: {}
   };
 
-  for (const c of countries) {
-    console.log(`Fetching ${c.name}...`);
-    results.grossing[c.code] = { ios: [], android: [] };
-    results.free[c.code] = { ios: [], android: [] };
+  console.log(`Fetching ${countries.map(c => c.name).join(', ')} (병렬)...`);
+  const perCountry = await Promise.all(
+    countries.map(c => fetchCountryRankings(gplay, store, c))
+  );
 
-    // iOS - Grossing
-    try {
-      results.grossing[c.code].ios = await fetchIosRanking(
-        store, 'topGrossing', store.collection.TOP_GROSSING_IOS, c.code
-      );
-    } catch (e) {
-      console.log(`  iOS Grossing error: ${e.message}`);
-    }
-
-    // iOS - Free
-    try {
-      results.free[c.code].ios = await fetchIosRanking(
-        store, 'topFree', store.collection.TOP_FREE_IOS, c.code
-      );
-    } catch (e) {
-      console.log(`  iOS Free error: ${e.message}`);
-    }
-
-    // Android (중국 제외)
-    if (c.code !== 'cn') {
-      // 국가별 언어 매핑
-      const langMap = { kr: 'ko', jp: 'ja', us: 'en', tw: 'zh-TW' };
-      const lang = langMap[c.code] || 'en';
-
-      try {
-        const androidGrossing = await gplay.list({
-          collection: gplay.collection.GROSSING,
-          category: gplay.category.GAME,
-          country: c.code,
-          lang: lang,
-          num: 200
-        });
-        results.grossing[c.code].android = androidGrossing.map(a => ({
-          title: a.title,
-          developer: a.developer,
-          icon: a.icon,
-          appId: a.appId || ''
-        }));
-      } catch (e) {
-        console.log(`  Android Grossing error: ${e.message}`);
-      }
-
-      try {
-        const androidFree = await gplay.list({
-          collection: gplay.collection.TOP_FREE,
-          category: gplay.category.GAME,
-          country: c.code,
-          lang: lang,
-          num: 200
-        });
-        results.free[c.code].android = androidFree.map(a => ({
-          title: a.title,
-          developer: a.developer,
-          icon: a.icon,
-          appId: a.appId || ''
-        }));
-      } catch (e) {
-        console.log(`  Android Free error: ${e.message}`);
-      }
-    }
+  for (const r of perCountry) {
+    results.grossing[r.code] = { ios: r.grossingIos, android: r.grossingAndroid };
+    results.free[r.code] = { ios: r.freeIos, android: r.freeAndroid };
   }
   return results;
 }

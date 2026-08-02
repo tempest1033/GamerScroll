@@ -19,6 +19,7 @@ function generateHead(options = {}) {
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     ogImage = '',
+    preloadImage = null,  // LCP 이미지 preload {src, srcset, sizes} 또는 URL 문자열
     cssFilename = '/styles-core.css',  // 기본 CSS 파일명 (하위 호환)
     cssFilenames = null  // 다중 CSS 파일명
   } = options;
@@ -147,7 +148,7 @@ function generateHead(options = {}) {
   </script>` : '';
   const articleOgMeta = articleSchema ? [
     articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.datePublished))}">` : '',
-    articleSchema.dateModified ? `<meta property="article:modified_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.dateModified))}">` : '',
+    (articleSchema.dateModified || articleSchema.datePublished) ? `<meta property="article:modified_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.dateModified || articleSchema.datePublished))}">` : '',
     `<meta property="article:section" content="${escapeHtmlAttr(articleSection || '게임')}">`,
     `<meta property="article:author" content="게이머스크롤">`,
     ...keywordTags.map(tag => `<meta property="article:tag" content="${escapeHtmlAttr(tag)}">`)
@@ -162,7 +163,7 @@ function generateHead(options = {}) {
     "headline": ${jsonString(articleSchema.headline || title)},
     "description": ${jsonString(articleSchema.description || description)},
     ${articleSchema.datePublished ? `"datePublished": ${jsonString(ensureTimezone(articleSchema.datePublished))},` : ''}
-    ${articleSchema.dateModified ? `"dateModified": ${jsonString(ensureTimezone(articleSchema.dateModified))},` : ''}
+    ${(articleSchema.dateModified || articleSchema.datePublished) ? `"dateModified": ${jsonString(ensureTimezone(articleSchema.dateModified || articleSchema.datePublished))},` : ''}
     "author": {
       "@type": "Person",
       "name": ${jsonString(articleSchema.author || 'Editor J')}
@@ -233,7 +234,7 @@ function generateHead(options = {}) {
 	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
 	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
-	  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
 	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
 	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
@@ -277,6 +278,17 @@ function generateHead(options = {}) {
 	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${ADS_ENABLED ? `
 	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
 	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->${(() => {
+	    const opt = preloadImage && typeof preloadImage === 'object'
+	      ? preloadImage
+	      : (preloadImage ? { src: String(preloadImage) } : null);
+	    const src = (opt && opt.src) || (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) || '';
+	    if (!src) return '';
+	    const srcsetAttr = opt && opt.srcset ? ` imagesrcset="${escapeHtmlAttr(opt.srcset)}"` : '';
+	    const sizesAttr = opt && opt.sizes ? ` imagesizes="${escapeHtmlAttr(opt.sizes)}"` : '';
+	    return `
+	  <link rel="preload" as="image" fetchpriority="high" href="${escapeHtmlAttr(src)}"${srcsetAttr}${sizesAttr}>`;
+	  })()}
 		  <title>${pageTitleText}</title>
   <!-- SEO -->
   <meta name="description" content="${safeDescription}">
@@ -350,9 +362,7 @@ function generateHead(options = {}) {
   <link rel="manifest" href="/manifest.json">
   <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
   <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
   <link rel="dns-prefetch" href="https://www.gstatic.com">
-  <link rel="dns-prefetch" href="https://wsrv.nl">
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
   <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
   <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
@@ -360,9 +370,9 @@ function generateHead(options = {}) {
   <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
 	  ${deferredCssInitScript}
 	  ${deferredCssGuardStyle}
-	  <!-- 폰트 CSS: Pretendard Variable dynamic subset (unicode-range 청크 분할 — 풀 woff2 ~2MB 대신 사용 글리프 청크만 로드) -->
-	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.min.css"></noscript>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
 	  <!-- 메인 CSS -->
 	  ${cssLinksHtml}
 	  ${deferredCssGuardScript}

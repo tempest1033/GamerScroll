@@ -2153,6 +2153,21 @@ const adLazyLoadScript = `
     }
   }
 
+  function centerTopAdCreative(ad, wrap, iframe) {
+    // 크리에이티브가 카드보다 작게 오는 경우 상하좌우 중앙 정렬.
+    // aswift host div가 iframe을 감싸면 스타일시트의 '> iframe' 규칙이 안 걸리므로
+    // 인라인 important로 원본 크기를 고정하고 flex 센터링 클래스를 부여한다.
+    var natWidth = parseInt(iframe.getAttribute('width'), 10) || 0;
+    var natHeight = parseInt(iframe.getAttribute('height'), 10) || 0;
+    var wrapWidth = Math.round(wrap.getBoundingClientRect().width || wrap.offsetWidth || 0);
+    if (natWidth > 0 && wrapWidth > 0 && wrapWidth - natWidth > 4) {
+      iframe.style.setProperty('width', natWidth + 'px', 'important');
+      iframe.style.setProperty('max-width', '100%', 'important');
+      if (natHeight > 0) iframe.style.setProperty('height', natHeight + 'px', 'important');
+    }
+    ad.classList.add('gs-ad-center');
+  }
+
   function normalizeAdVisualSize(ad) {
     if (maybeMarkAdEmpty(ad, false, 'status')) return;
     var wrap = getAdVisualWrapper(ad);
@@ -2166,6 +2181,7 @@ const adLazyLoadScript = `
 
     var isMobileTopAd = wrap.classList.contains('ad-card-mobile-top');
     var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
+    if (isTopAd && !isMobileTopAd) centerTopAdCreative(ad, wrap, iframe);
     var minHeight = isTopAd
       ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 100 : 90)
       : 0;
@@ -2183,9 +2199,6 @@ const adLazyLoadScript = `
     ad.style.height = targetHeight + 'px';
     ad.style.minHeight = targetHeight + 'px';
 
-    if (isShortTopAd) {
-      iframe.style.minHeight = minHeight + 'px';
-    }
     if (isMobileTopAd) {
       var mobileAdMaxWidth = 320;
       var parentRect = wrap.parentElement && wrap.parentElement.getBoundingClientRect
@@ -2840,6 +2853,22 @@ function wrapWithLayout(content, options = {}) {
   const shouldLoadApexCharts = loadApexCharts || /ApexCharts/.test(pageScripts || '') || /ApexCharts/.test(content || '');
   const shouldLoadTwitterWidget = loadTwitterWidget || /twitter-tweet/.test(content || '') || /twitter-tweet/.test(pageScripts || '');
 
+  // LCP 후보 자동 preload: 본문 첫 fetchpriority="high" 이미지 추출
+  // (아티클 페이지는 articleSchema.image로 head.js가 처리하므로 제외)
+  const lcpPreloadImage = articleSchema ? null : (() => {
+    const m = /<img\b[^>]*\bfetchpriority="high"[^>]*>/i.exec(String(content || ''));
+    if (!m) return null;
+    const tag = m[0];
+    const unescape = (v) => String(v || '').replace(/&amp;/g, '&');
+    const src = unescape((tag.match(/\bsrc="([^"]+)"/i) || [])[1]);
+    if (!src || src.indexOf('data:') === 0) return null;
+    return {
+      src,
+      srcset: unescape((tag.match(/\bsrcset="([^"]+)"/i) || [])[1]),
+      sizes: (tag.match(/\bsizes="([^"]+)"/i) || [])[1] || ''
+    };
+  })();
+
   // article:section 자동 추론 (명시적으로 전달되지 않은 경우 canonical URL에서 파생)
   const resolvedArticleSection = articleSection || (() => {
     if (!articleSchema) return '';
@@ -2859,7 +2888,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
@@ -2876,7 +2905,7 @@ function wrapWithLayout(content, options = {}) {
   ${generateFooter()}
   <script defer src="${runtimeScriptUrl}"></script>
   ${shouldLoadTwitterWidget ? '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>' : ''}
-  ${shouldLoadApexCharts ? '<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.1/dist/apexcharts.min.js" defer></script>' : ''}
+  ${shouldLoadApexCharts ? '<script src="/assets/apexcharts-3.45.1.min.js" defer></script>' : ''}
   <script>
     (function() {
       if (!('serviceWorker' in navigator)) return;

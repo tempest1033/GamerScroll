@@ -11,15 +11,13 @@ const {
   generateSidebarArticles: sharedSidebarArticles
 } = require('../components/sidebar');
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
+const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
 
 // docs 폴더 경로 (이미지 로컬 확인용)
 const docsDir = path.join(__dirname, '../../../docs');
-
-// history 폴더 경로 (순위 분석 차트용)
-const historyDir = path.join(__dirname, '../../../history');
 
 // games.json 경로
 const gamesJsonPath = path.join(__dirname, '../../../data/games.json');
@@ -626,7 +624,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}"${buildWsrvSrcsetAttrs(imgSrc)} alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -1065,7 +1063,7 @@ function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, i
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}"${buildWsrvSrcsetAttrs(imgSrc)} alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -1495,7 +1493,7 @@ function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, h
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}" alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgSrc}"${buildWsrvSrcsetAttrs(imgSrc)} alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${caption}
             </figure>
           `);
@@ -1968,7 +1966,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           const imgCaption = block.caption ? `<figcaption class="blog-caption">${parseMarkdownLinks(block.caption)}</figcaption>` : '';
           result.push(`
             <figure class="blog-figure">
-              <img class="blog-image" src="${imgUrl}" alt="${escapeHtmlAttr(block.alt || block.caption || title)}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <img class="blog-image" src="${imgUrl}"${buildWsrvSrcsetAttrs(imgUrl)} alt="${escapeHtmlAttr(block.alt || block.caption || title)}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
               ${imgCaption}
             </figure>
           `);

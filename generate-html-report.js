@@ -453,7 +453,7 @@ function updateHistoryBestRanks(date, bestRanks) {
   try {
     const data = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
     data.bestRanks = bestRanks;
-    fs.writeFileSync(historyFile, JSON.stringify(data, null, 2), 'utf8');
+    fs.writeFileSync(historyFile, JSON.stringify(data), 'utf8');
     return true;
   } catch (e) {
     return false;
@@ -482,7 +482,7 @@ function saveDailyHistorySnapshot(date, cache) {
     data.bestRanks = existing.bestRanks;
   }
 
-  fs.writeFileSync(historyFile, JSON.stringify(data, null, 2), 'utf8');
+  fs.writeFileSync(historyFile, JSON.stringify(data), 'utf8');
   console.log(`📁 일간 히스토리 저장: ${historyFile}`);
 }
 
@@ -581,7 +581,7 @@ function updateHistoryRankingsFromCSV(date) {
     }
 
     if (updated) {
-      fs.writeFileSync(historyFile, JSON.stringify(data, null, 2), 'utf8');
+      fs.writeFileSync(historyFile, JSON.stringify(data), 'utf8');
     }
     return updated;
   } catch (e) {
@@ -2460,6 +2460,29 @@ async function main() {
       }
       copyDirRecursive(srcFeedDir, destFeedDir);
     }
+
+    // 셀프호스팅 벤더 에셋 동기화 (버전 경로라 존재하면 스킵 — deploy 브랜치 seed로 CI 간에도 유지)
+    // 경로 버전은 head.js(폰트)/layout.js(ApexCharts)의 참조와 일치해야 한다.
+    const fontSrcDir = './node_modules/pretendard/dist/web/variable';
+    const fontDestDir = `${docsAssetsDir}/fonts/pretendard-1.3.9`;
+    if (!fs.existsSync(fontDestDir) && fs.existsSync(fontSrcDir)) {
+      fs.mkdirSync(`${fontDestDir}/woff2-dynamic-subset`, { recursive: true });
+      fs.copyFileSync(
+        `${fontSrcDir}/pretendardvariable-dynamic-subset.css`,
+        `${fontDestDir}/pretendardvariable-dynamic-subset.css`
+      );
+      const subsetSrc = `${fontSrcDir}/woff2-dynamic-subset`;
+      for (const f of fs.readdirSync(subsetSrc)) {
+        fs.copyFileSync(`${subsetSrc}/${f}`, `${fontDestDir}/woff2-dynamic-subset/${f}`);
+      }
+      console.log('  ✅ Pretendard 폰트 셀프호스팅 동기화 (docs/assets/fonts/pretendard-1.3.9)');
+    }
+    const apexSrc = './node_modules/apexcharts/dist/apexcharts.min.js';
+    const apexDest = `${docsAssetsDir}/apexcharts-3.45.1.min.js`;
+    if (!fs.existsSync(apexDest) && fs.existsSync(apexSrc)) {
+      fs.copyFileSync(apexSrc, apexDest);
+      console.log('  ✅ ApexCharts 셀프호스팅 동기화 (docs/assets/apexcharts-3.45.1.min.js)');
+    }
   } catch (e) {
     console.error(`⚠️ 런타임 스크립트 복사 실패(docs/assets): ${e.message}`);
   }
@@ -2739,6 +2762,9 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     headerLines.push('/assets/layout-core.js', '  Cache-Control: public, max-age=31536000, immutable', '');
     headerLines.push('/assets/layout-runtime.js', '  Cache-Control: public, max-age=31536000, immutable', '');
     headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
+    // 벤더 에셋은 경로에 버전이 박혀 있어 immutable 안전
+    headerLines.push('/assets/fonts/*', '  Cache-Control: public, max-age=31536000, immutable', '');
+    headerLines.push('/assets/apexcharts-*.min.js', '  Cache-Control: public, max-age=31536000, immutable', '');
     fs.writeFileSync(`${DOCS_DIR}/_headers`, headerLines.join('\n') + '\n', 'utf8');
     console.log('🧾 _headers 생성 완료');
   } catch (err) {

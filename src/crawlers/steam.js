@@ -1,10 +1,51 @@
-// Steam 개발사 + 이미지 정보 가져오기 (배치 처리)
+const fs = require('fs');
+const path = require('path');
+
+// Steam 상세(개발사/이미지) 캐시 — 거의 안 바뀌는 데이터라 7일 TTL로 재조회 최소화.
+// data/ 경로는 CI가 커밋하는 위치라 러너 간에도 캐시가 유지된다.
+const STEAM_DETAILS_CACHE_FILE = path.join(__dirname, '../../data/steam-details-cache.json');
+const STEAM_DETAILS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+function loadSteamDetailsCache() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(STEAM_DETAILS_CACHE_FILE, 'utf8'));
+    return raw && typeof raw === 'object' ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveSteamDetailsCache(cache) {
+  try {
+    fs.writeFileSync(STEAM_DETAILS_CACHE_FILE, JSON.stringify(cache), 'utf8');
+  } catch (e) {
+    // 캐시 저장 실패는 무시 (다음 실행에서 재조회)
+  }
+}
+
+// Steam 개발사 + 이미지 정보 가져오기 (배치 처리 + 7일 TTL 파일 캐시)
 async function fetchSteamDetails(axios, appids) {
   const detailsMap = {};
   const batchSize = 10;
+  const cache = loadSteamDetailsCache();
+  const now = Date.now();
 
-  for (let i = 0; i < appids.length; i += batchSize) {
-    const batch = appids.slice(i, i + batchSize);
+  // 캐시 히트 분리: TTL 이내 + developer 확보된 항목은 재조회하지 않음
+  const staleAppids = [];
+  for (const appid of appids) {
+    const entry = cache[appid];
+    if (entry && entry.developer && entry.ts && now - entry.ts < STEAM_DETAILS_TTL_MS) {
+      detailsMap[appid] = { developer: entry.developer, img: entry.img || '' };
+    } else {
+      staleAppids.push(appid);
+    }
+  }
+  if (appids.length > 0) {
+    console.log(`  Steam 상세 캐시: ${appids.length - staleAppids.length}/${appids.length} 히트`);
+  }
+
+  for (let i = 0; i < staleAppids.length; i += batchSize) {
+    const batch = staleAppids.slice(i, i + batchSize);
     const promises = batch.map(async (appid) => {
       try {
         const res = await axios.get(`https://store.steampowered.com/api/appdetails?appids=${appid}&l=korean`, {
@@ -17,15 +58,24 @@ async function fetchSteamDetails(axios, appids) {
             developer: data.developers?.[0] || data.publishers?.[0] || '',
             img: data.header_image || ''
           };
+          cache[appid] = { ...detailsMap[appid], ts: now };
         }
       } catch (e) {
         // 개별 실패는 무시
       }
     });
     await Promise.all(promises);
-    if (i + batchSize < appids.length) {
+    if (i + batchSize < staleAppids.length) {
       await new Promise(r => setTimeout(r, 200));
     }
+  }
+
+  if (staleAppids.length > 0) {
+    // 만료 항목 정리 후 저장 (파일 무한 성장 방지)
+    for (const [appid, entry] of Object.entries(cache)) {
+      if (!entry || !entry.ts || now - entry.ts >= STEAM_DETAILS_TTL_MS) delete cache[appid];
+    }
+    saveSteamDetailsCache(cache);
   }
   return detailsMap;
 }
