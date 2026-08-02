@@ -29798,6 +29798,28 @@
         }
       ],
       "addedAt": "2026-08-02T17:57:31.318Z"
+    },
+    {
+      "title": "Cat Collector: 진짜 고양이",
+      "status": "single",
+      "appIds": {
+        "ios": 6783591388
+      },
+      "developer": "Nftstory",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/bd/ed/e5bded6d-c934-5e95-f98b-2e32bd4844b5/CatCollector-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-02T20:27:24.014Z"
+    },
+    {
+      "title": "강원랜드 오피셜",
+      "status": "single",
+      "appIds": {
+        "android": "com.bitzaoma.blackgorder2"
+      },
+      "developer": "TOV ANKARA",
+      "icon": "https://play-lh.googleusercontent.com/sKFbSTfQnhyv8uL2euX0Vx_LGualbpesYXSZ7lw8EF0u6QHIwGyYP8cWXmsyP8CGifBS-nUX9DGoHNdugha_Rg",
+      "searchResults": [],
+      "addedAt": "2026-08-02T20:27:24.242Z"
     }
   ],
   "approved": [

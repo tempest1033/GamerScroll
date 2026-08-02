@@ -42970,8 +42970,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "Cat Collector: 진짜 고양이": {
+      "appIds": {
+        "ios": 6783591388
+      },
+      "aliases": [],
+      "developer": "Nftstory",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/bd/ed/e5bded6d-c934-5e95-f98b-2e32bd4844b5/CatCollector-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "slug": "cat-collector-진짜-고양이",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "강원랜드 오피셜": {
+      "appIds": {
+        "android": "com.bitzaoma.blackgorder2"
+      },
+      "aliases": [],
+      "developer": "TOV ANKARA",
+      "icon": "https://play-lh.googleusercontent.com/sKFbSTfQnhyv8uL2euX0Vx_LGualbpesYXSZ7lw8EF0u6QHIwGyYP8cWXmsyP8CGifBS-nUX9DGoHNdugha_Rg",
+      "slug": "강원랜드-오피셜",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-03",
-  "totalGames": 3273
+  "totalGames": 3275
 }
