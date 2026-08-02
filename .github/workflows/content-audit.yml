@@ -1,0 +1,38 @@
+name: Weekly Content Audit
+
+on:
+  schedule:
+    - cron: '0 21 * * 0'  # 매주 월요일 06:00 KST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Python + kiwipiepy (morph matching)
+        run: pip install kiwipiepy --quiet
+
+      - name: Audit meta keywords (morph)
+        run: |
+          set +e
+          node scripts/audit-meta-keywords.js --morph | tee audit.txt
+          code=$?
+          {
+            echo '## 주간 콘텐츠 오딧 (audit-meta-keywords --morph)'
+            echo '```'
+            cat audit.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          # 플래그 존재는 리포트일 뿐 CI 실패로 만들지 않는다
+          exit 0

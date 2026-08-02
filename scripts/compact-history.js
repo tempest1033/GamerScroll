@@ -25,8 +25,12 @@ function compactRankings(rankings) {
       out[cat][region] = {};
       for (const [platform, items] of Object.entries(platforms || {})) {
         if (!Array.isArray(items)) continue;
-        // buildRankIndex 폴백은 배열 순서(i+1)를 순위로 사용 → appId만 순서대로 유지
-        out[cat][region][platform] = items.map(it => ({ appId: (it && it.appId) || '' }));
+        // buildRankIndex 폴백은 배열 순서(i+1)를 순위로 사용.
+        // title은 ranking-blocks.js lookupHistoryRank()의 이름 기반 폴백(appId 미등록 게임 차트)에 필요 → 유지.
+        out[cat][region][platform] = items.map(it => ({
+          appId: (it && it.appId) || '',
+          title: (it && it.title) || ''
+        }));
       }
     }
   }
