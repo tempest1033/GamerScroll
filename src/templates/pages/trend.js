@@ -540,13 +540,122 @@ const icons = {
   globe: `<svg class="weekly-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`
 };
 
-function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
+// ========== 이슈/인사이트/핫픽 상세 페이지 (통합 구현, 2026-08-02) ==========
+// 세 타입은 라벨·이미지 경로 헬퍼·URL prefix·레거시 관련문서 폴백 구성만 다르고
+// 마크업/렌더 로직이 동일해 단일 구현으로 통합했다. 산출 HTML은 통합 전과 byte-identical.
+// (순위 분석은 renderContent가 실제로 달라 별도 구현 유지)
+
+const NEWS_DETAIL_CONFIG = {
+  issue: {
+    notFoundBody: '포스트를 찾을 수 없습니다',
+    notFoundTitle: '게이머스크롤 | 이슈',
+    notFoundDesc: '이슈를 찾을 수 없습니다.',
+    heroAltFallback: '이슈 대표 이미지',
+    imagePath: (slug, url, kind, index) => getLocalIssueImagePath(slug, url, kind, index),
+    defaultKeywords: '게임 분석, 이슈, 게임 이슈, 모바일 게임',
+    legacyKinds: ['issue', 'wiki', 'tech']
+  },
+  insight: {
+    notFoundBody: '인사이트를 찾을 수 없습니다',
+    notFoundTitle: '게이머스크롤 | 인사이트',
+    notFoundDesc: '인사이트를 찾을 수 없습니다.',
+    heroAltFallback: '인사이트 대표 이미지',
+    imagePath: (slug, url, kind, index) => getLocalInsightImagePath(slug, url, kind, index),
+    defaultKeywords: '게임 트렌드, 인사이트, 게임 분석, 모바일 게임',
+    legacyKinds: ['insight', 'issue', 'wiki']
+  },
+  hotpick: {
+    notFoundBody: '핫픽을 찾을 수 없습니다',
+    notFoundTitle: '게이머스크롤 | 핫픽',
+    notFoundDesc: '핫픽을 찾을 수 없습니다.',
+    heroAltFallback: '핫픽 대표 이미지',
+    imagePath: (slug, url, kind, index) => getLocalHotpickImagePath(slug, url, kind, index),
+    defaultKeywords: '게임 추천, 핫픽, 구매 가이드, 세일 추천',
+    legacyKinds: ['hotpick', 'insight', 'issue', 'wiki']
+  }
+};
+
+// 레거시 관련문서 폴백 (parsedRelatedDocs가 없을 때만) — 타입별 구성(legacyKinds) 순서로 렌더.
+// 원본과 동일하게 kind 블록 사이에 '\n        ' 구분자를 유지해 출력 byte 동일성 보장.
+function buildLegacyRelatedDocsHtml(post, cfg, { issueReports, insightReports, hotpickReports, wikiData, techData }) {
+  const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
+  const findInsightBySlug = (slug) => insightReports.find(r => r.slug === slug);
+  const findHotpickBySlug = (slug) => hotpickReports.find(r => r.slug === slug);
+  const findWikiBySlug = (category, slug) => {
+    const articles = wikiData[category] || [];
+    return articles.find(a => a.slug === slug);
+  };
+  const lists = {
+    issue: (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4),
+    insight: (post.relatedInsights || []).map(slug => findInsightBySlug(slug)).filter(Boolean).slice(0, 2),
+    hotpick: (post.relatedHotpicks || []).map(slug => findHotpickBySlug(slug)).filter(Boolean).slice(0, 2),
+    wiki: (post.relatedWiki || []).map(ref => {
+      const [cat, slug] = ref.split('/');
+      const article = findWikiBySlug(cat, slug);
+      return article ? { ...article, category: cat } : null;
+    }).filter(Boolean).slice(0, 4),
+    tech: (post.relatedTech || []).map(ref => {
+      if (typeof ref !== 'string' || !ref.trim()) return null;
+      const parts = ref.split('/');
+      const category = parts.length > 1 ? parts[0] : 'ai';
+      const articleSlug = parts.length > 1 ? parts[1] : parts[0];
+      const article = (techData[category] || []).find(a => a.slug === articleSlug);
+      return article ? { ...article, category } : null;
+    }).filter(Boolean).slice(0, 4)
+  };
+  const renderers = {
+    issue: (issue) => `
+          <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
+          </a>
+        `,
+    insight: (insight) => `
+          <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="${insight.title}" loading="lazy">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
+          </a>
+        `,
+    hotpick: (hotpick) => `
+          <a href="/magazine/hotpick/${hotpick.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalHotpickImagePath(hotpick.slug, hotpick.thumbnail, 'thumbnail')}" alt="${hotpick.title}" loading="lazy">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${hotpick.title}</span></span>
+          </a>
+        `,
+    wiki: (wiki) => `
+          <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
+          </a>
+        `,
+    tech: (tech) => `
+          <a href="/tech/${tech.category}/${tech.slug}/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="${fixUrl(tech.thumbnail)}" alt="${tech.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${tech.title}</span></span>
+          </a>
+        `
+  };
+  const hasRelatedDocs = cfg.legacyKinds.some(kind => lists[kind].length > 0);
+  if (!hasRelatedDocs) return '';
+  const body = cfg.legacyKinds.map(kind => lists[kind].map(renderers[kind]).join('')).join('\n        ');
+  return `
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        ${body}
+      </div>
+    </div>
+  `;
+}
+
+function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
+  const cfg = NEWS_DETAIL_CONFIG[type];
   if (!post) {
-    return wrapWithLayout('<div class="home-empty">포스트를 찾을 수 없습니다</div>', {
+    return wrapWithLayout(`<div class="home-empty">${cfg.notFoundBody}</div>`, {
       currentPage: 'magazine',
-      title: '게이머스크롤 | 이슈',
-      description: '이슈를 찾을 수 없습니다.',
-      canonical: `${siteBaseUrl}/magazine/issue/`,
+      title: cfg.notFoundTitle,
+      description: cfg.notFoundDesc,
+      canonical: `${siteBaseUrl}/magazine/${type}/`,
       noindex: true
     });
   }
@@ -567,10 +676,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   const parseTableCell = (str) => parseMarkdownLinks(str)
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '이슈 대표 이미지');
-
-  // 마크다운 표 변환은 공통 helper(content-text)로 위임
-  const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'blog-table-wrapper' });
+  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : cfg.heroAltFallback);
 
   // 관련 게임 찾기
   const findRelatedGames = (text, limit = 4) => {
@@ -619,7 +725,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
 
         case 'image':
           // 로컬 이미지 우선, 없으면 외부 URL
-          const imgSrc = getLocalIssueImagePath(slug, block.src, 'content', imageIndex);
+          const imgSrc = cfg.imagePath(slug, block.src, 'content', imageIndex);
           imageIndex++;
           const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
           result.push(`
@@ -785,57 +891,9 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   ` : '';
 
   // 관련 문서 (parsedRelatedDocs 통합 우선, 없으면 레거시 폴백)
-  let relatedDocsHtml = '';
-  if (parsedRelatedDocs && parsedRelatedDocs.length > 0) {
-    relatedDocsHtml = renderParsedRelatedDocsHtml(parsedRelatedDocs);
-  } else {
-    // 레거시 폴백: relatedIssues + relatedWiki + relatedTech
-    const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
-    const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
-    const findWikiBySlug = (category, slug) => {
-      const articles = wikiData[category] || [];
-      return articles.find(a => a.slug === slug);
-    };
-    const relatedWikiList = (post.relatedWiki || []).map(ref => {
-      const [cat, slug] = ref.split('/');
-      const article = findWikiBySlug(cat, slug);
-      return article ? { ...article, category: cat } : null;
-    }).filter(Boolean).slice(0, 4);
-    const relatedTechList = (post.relatedTech || []).map(ref => {
-      if (typeof ref !== 'string' || !ref.trim()) return null;
-      const parts = ref.split('/');
-      const category = parts.length > 1 ? parts[0] : 'ai';
-      const articleSlug = parts.length > 1 ? parts[1] : parts[0];
-      const article = (techData[category] || []).find(a => a.slug === articleSlug);
-      return article ? { ...article, category } : null;
-    }).filter(Boolean).slice(0, 4);
-    const hasRelatedDocs = relatedIssuesList.length > 0 || relatedWikiList.length > 0 || relatedTechList.length > 0;
-    relatedDocsHtml = hasRelatedDocs ? `
-    <div class="blog-related-issues">
-      <div class="blog-related-title">관련 문서</div>
-      <div class="blog-related-issues-list">
-        ${relatedIssuesList.map(issue => `
-          <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
-          </a>
-        `).join('')}
-        ${relatedWikiList.map(wiki => `
-          <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
-          </a>
-        `).join('')}
-        ${relatedTechList.map(tech => `
-          <a href="/tech/${tech.category}/${tech.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${fixUrl(tech.thumbnail)}" alt="${tech.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${tech.title}</span></span>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-  }
+  const relatedDocsHtml = (parsedRelatedDocs && parsedRelatedDocs.length > 0)
+    ? renderParsedRelatedDocsHtml(parsedRelatedDocs)
+    : buildLegacyRelatedDocsHtml(post, cfg, { issueReports, insightReports, hotpickReports, wikiData, techData });
 
   // 정보 출처
   const sources = post.sources || [];
@@ -853,9 +911,9 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   // 네비게이션
   const navHtml = `
     <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/magazine/issue/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
+      ${nav.prev ? `<a href="/magazine/${type}/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
       <a href="/magazine/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/magazine/issue/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
+      ${nav.next ? `<a href="/magazine/${type}/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;
 
@@ -875,7 +933,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     sidebarPopularArticles, sidebarLatestArticles,
     { activeLink: `/magazine/${currentType}/${currentSlug}/` }
   );
-  const sidebarHTML = generateSidebarCategories() + generateSidebarArticles(slug, 'issue');
+  const sidebarHTML = generateSidebarCategories() + generateSidebarArticles(slug, type);
 
   const sidebarScript = sidebarHTML ? `
     <script>
@@ -898,7 +956,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   ` : '';
 
   const pageContent = `
-    <section class="section active" id="issue">
+    <section class="section active" id="${type}">
 
       <article class="page-container issue-container">
         <div class="article-layout">
@@ -917,7 +975,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalIssueImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
+                  <img class="blog-image" src="${cfg.imagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -948,7 +1006,7 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
   // JSON-LD용 이미지 URL (로컬 경로를 전체 URL로 변환)
   const schemaImage = thumbnail
     ? (() => {
-        const localPath = getLocalIssueImagePath(slug, thumbnail, 'thumbnail');
+        const localPath = cfg.imagePath(slug, thumbnail, 'thumbnail');
         return localPath.startsWith('/') ? `${siteBaseUrl}${localPath}` : localPath;
       })()
     : null;
@@ -966,885 +1024,31 @@ function generateIssueDetailPage({ post, nav = {}, parsedRelatedDocs = null, iss
     currentPage: 'magazine',
     title: title,
     description: summary || title,
-    keywords: post.keywords || '게임 분석, 이슈, 게임 이슈, 모바일 게임',
-    canonical: `${siteBaseUrl}/magazine/issue/${slug}/`,
+    keywords: post.keywords || cfg.defaultKeywords,
+    canonical: `${siteBaseUrl}/magazine/${type}/${slug}/`,
     articleSchema,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
-      { name: title, url: `${siteBaseUrl}/magazine/issue/${slug}/` }
+      { name: title, url: `${siteBaseUrl}/magazine/${type}/${slug}/` }
     ],
     sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
     ogImage: schemaImage
   });
+}
+
+function generateIssueDetailPage(params) {
+  return generateNewsDetailPage('issue', params);
 }
 
 // ========== 인사이트 상세 페이지 ==========
-function generateInsightDetailPage({ post, nav = {}, parsedRelatedDocs = null, insightReports = [], issueReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
-  if (!post) {
-    return wrapWithLayout('<div class="home-empty">인사이트를 찾을 수 없습니다</div>', {
-      currentPage: 'magazine',
-      title: '게이머스크롤 | 인사이트',
-      description: '인사이트를 찾을 수 없습니다.',
-      canonical: `${siteBaseUrl}/magazine/insight/`,
-      noindex: true
-    });
-  }
-
-  const { slug, title, date, thumbnail, summary, content = [] } = post;
-  const editorName = post.editor || 'Editor J';
-  // 화면 표시용 dateModified (YYYY-MM-DD)
-  const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
-  const escapeHtmlAttr = (value) => String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-  const parseMarkdownLinks = (str) => {
-    const escaped = escapeHtmlAttr(str);
-    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-  };
-  const parseTableCell = (str) => parseMarkdownLinks(str)
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '인사이트 대표 이미지');
-
-  // 마크다운 표 변환은 공통 helper(content-text)로 위임
-  const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'blog-table-wrapper' });
-
-  // 관련 게임 찾기
-  const findRelatedGames = (text, limit = 4) => {
-    if (!text || !Object.keys(gamesMap).length) return [];
-    const found = [];
-    for (const [name, game] of Object.entries(gamesMap)) {
-      if (text.includes(name) || (game.aliases && game.aliases.some(a => text.includes(a)))) {
-        found.push({ name, ...game });
-        if (found.length >= limit) break;
-      }
-    }
-    return found;
-  };
-
-  // 본문 렌더링
-  const renderContent = () => {
-    let imageIndex = 1;
-    const result = [];
-
-    // 연속 link 블록 그룹화 전처리
-    const processedContent = [];
-    let linkGroup = [];
-    content.forEach((block, idx) => {
-      if (block.type === 'link') {
-        linkGroup.push(block);
-      } else {
-        if (linkGroup.length > 0) {
-          processedContent.push({ type: 'link-group', links: linkGroup });
-          linkGroup = [];
-        }
-        processedContent.push(block);
-      }
-    });
-    if (linkGroup.length > 0) {
-      processedContent.push({ type: 'link-group', links: linkGroup });
-    }
-
-    let sectionCount = 1;
-    let adCount = 0;
-    processedContent.forEach((block) => {
-      switch (block.type) {
-        case 'text': {
-          result.push(renderTextBlock(block.value, { tableClass: 'blog-table-wrapper' }));
-          break;
-        }
-
-        case 'image':
-          const imgSrc = getLocalInsightImagePath(slug, block.src, 'content', imageIndex);
-          imageIndex++;
-          const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
-          result.push(`
-            <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}"${buildWsrvSrcsetAttrs(imgSrc)} alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
-              ${caption}
-            </figure>
-          `);
-          break;
-
-        case 'ad':
-          break;
-
-        case 'quote':
-          result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
-          break;
-
-        case 'note':
-          result.push(`<div class="blog-note">${block.value}</div>`);
-          break;
-
-        case 'video':
-          const videoUrl = block.url || '';
-          const videoMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-          if (videoMatch) {
-            const videoId = videoMatch[1];
-            const videoCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
-            result.push(`
-              <figure class="blog-figure blog-video">
-                <div class="blog-video-wrapper">
-                  <iframe
-                    src="https://www.youtube.com/embed/${videoId}"
-                    title="${block.caption || 'YouTube video'}"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy">
-                  </iframe>
-                </div>
-                ${videoCaption}
-              </figure>
-            `);
-          }
-          break;
-
-        case 'heading':
-          sectionCount++;
-          if (sectionCount % 2 === 0) {
-            result.push(getInArticleAdHTML(adCount++));
-          }
-          result.push(`<h2 class="blog-heading">${block.value}</h2>`);
-          break;
-
-        case 'table':
-          if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
-          const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
-          ).join('');
-          result.push(`
-            <figure class="blog-figure blog-table">
-              ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
-              <div class="table-scroll">
-                <table class="wiki-table">
-                  <thead><tr>${tblHeaders}</tr></thead>
-                  <tbody>${tblRows}</tbody>
-                </table>
-              </div>
-            </figure>
-          `);
-          break;
-
-        case 'game-ranking':
-          if (!block.items || !Array.isArray(block.items)) break;
-          const rankingItems = block.items.map(item => `
-            <div class="game-ranking-item">
-              <span class="game-ranking-rank">${item.rank}</span>
-              <div class="game-ranking-thumb">
-                <img src="${item.image}" alt="${item.name}" loading="lazy">
-              </div>
-              <div class="game-ranking-info">
-                <div class="game-ranking-name">${item.name}${item.price ? ` <span class="game-ranking-price">(${item.price})</span>` : ''}</div>
-                ${item.desc ? `<div class="game-ranking-desc">${item.desc}</div>` : ''}
-              </div>
-            </div>
-          `).join('');
-          result.push(`
-            <div class="game-ranking-list">
-              ${block.caption ? `<div class="game-ranking-title">${block.caption}</div>` : ''}
-              ${rankingItems}
-            </div>
-          `);
-          break;
-
-        case 'link-group':
-          const linkItems = block.links.map(link => {
-            if (!link.url || !link.text) return '';
-            let iconHtml = '';
-            if (link.url.startsWith('/games/')) {
-              const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
-              for (const [name, game] of Object.entries(gamesMap)) {
-                if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
-                  break;
-                }
-              }
-            }
-            const subtext = link.subtext ? `<span class="blog-link-subtext">${link.subtext}</span>` : '';
-            return `<a href="${link.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${link.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`;
-          }).filter(Boolean).join('');
-          if (linkItems) {
-            result.push(`<div class="blog-link-grid">${linkItems}</div>`);
-          }
-          break;
-
-        case 'link':
-          if (block.url && block.text) {
-            let iconHtml = '';
-            if (block.url.startsWith('/games/')) {
-              const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
-              for (const [name, game] of Object.entries(gamesMap)) {
-                if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
-                  break;
-                }
-              }
-            }
-            const subtext = block.subtext ? `<span class="blog-link-subtext">${block.subtext}</span>` : '';
-            result.push(`<a href="${block.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${block.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
-          }
-          break;
-      }
-    });
-
-    return result.join('');
-  };
-
-  // 관련 게임 (수동 지정 우선, 없으면 자동 매칭)
-  const findGameBySlug = (slug) => {
-    for (const [name, game] of Object.entries(gamesMap)) {
-      if (game.slug === slug) return { name, ...game };
-    }
-    return null;
-  };
-  const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
-  const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
-  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText);
-  const relatedGamesHtml = relatedGames.length > 0 ? `
-    <div class="blog-related-games">
-      <div class="blog-related-title">관련 게임</div>
-      <div class="blog-related-grid">
-        ${relatedGames.map(g => `
-          <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-name">${g.name}</span>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 관련 문서 (parsedRelatedDocs 통합 우선, 없으면 레거시 폴백)
-  let relatedDocsHtml = '';
-  if (parsedRelatedDocs && parsedRelatedDocs.length > 0) {
-    relatedDocsHtml = renderParsedRelatedDocsHtml(parsedRelatedDocs);
-  } else {
-    // 레거시 폴백: relatedInsights + relatedIssues + relatedWiki
-    const findInsightBySlug = (slug) => insightReports.find(r => r.slug === slug);
-    const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
-    const relatedInsightsList = (post.relatedInsights || []).map(slug => findInsightBySlug(slug)).filter(Boolean).slice(0, 2);
-    const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
-    const findWikiBySlug = (category, slug) => {
-      const articles = wikiData[category] || [];
-      return articles.find(a => a.slug === slug);
-    };
-    const relatedWikiList = (post.relatedWiki || []).map(ref => {
-      const [cat, slug] = ref.split('/');
-      const article = findWikiBySlug(cat, slug);
-      return article ? { ...article, category: cat } : null;
-    }).filter(Boolean).slice(0, 4);
-    const hasRelatedDocs = relatedInsightsList.length > 0 || relatedIssuesList.length > 0 || relatedWikiList.length > 0;
-    relatedDocsHtml = hasRelatedDocs ? `
-    <div class="blog-related-issues">
-      <div class="blog-related-title">관련 문서</div>
-      <div class="blog-related-issues-list">
-        ${relatedInsightsList.map(insight => `
-          <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="${insight.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
-          </a>
-        `).join('')}
-        ${relatedIssuesList.map(issue => `
-          <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
-          </a>
-        `).join('')}
-        ${relatedWikiList.map(wiki => `
-          <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-  }
-
-  // 정보 출처
-  const sources = post.sources || [];
-  const sourcesHtml = sources.length > 0 ? `
-    <div class="blog-sources">
-      <div class="blog-sources-title">정보 출처</div>
-      <ul class="blog-sources-list">
-        ${sources.map(s => `
-          <li><a href="${s.url}" target="_blank" rel="noopener">${s.name ? `${s.name} - ` : ''}${s.title || s.name || s.url}</a></li>
-        `).join('')}
-      </ul>
-    </div>
-  ` : '';
-
-  // 네비게이션
-  const navHtml = `
-    <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/magazine/insight/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/magazine/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/magazine/insight/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
-    </div>
-  `;
-
-  // 사이드바 (공용 컴포넌트)
-  const generateSidebarCategories = () => sharedSidebarCategories({
-    issue: (issueReports || []).length,
-    insight: (insightReports || []).length,
-    hotpick: (hotpickReports || []).length,
-    ranking: (rankingReports || []).length,
-    history: wikiCounts.history || 0,
-    knowledge: wikiCounts.knowledge || 0,
-    business: wikiCounts.business || 0
-  });
-
-  // 사이드바: 인기/최신 글 (공용 컴포넌트 - 현재 글 하이라이트 유지)
-  const generateSidebarArticles = (currentSlug, currentType) => sharedSidebarArticles(
-    sidebarPopularArticles, sidebarLatestArticles,
-    { activeLink: `/magazine/${currentType}/${currentSlug}/` }
-  );
-  const sidebarHTML = generateSidebarCategories() + generateSidebarArticles(slug, 'insight');
-
-  const sidebarScript = sidebarHTML ? `
-    <script>
-      (function() {
-        var init = function() {
-          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
-          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
-        };
-        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
-          init();
-        } else if (typeof window.__gsOnReady === 'function') {
-          window.__gsOnReady(init);
-        } else if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', init, { once: true });
-        } else {
-          init();
-        }
-      })();
-    </script>
-  ` : '';
-
-  const pageContent = `
-    <section class="section active" id="insight">
-
-      <article class="page-container issue-container">
-        <div class="article-layout">
-          <div class="article-main">
-            ${topAds}
-            <div class="blog-card">
-              <header class="blog-header">
-                <h1 class="blog-title">${title}</h1>
-                <div class="blog-meta">
-                  <span class="blog-editor">${editorName}</span>
-                  ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
-                    ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
-                    : `<time class="blog-date">${formatDateKorean(date)}</time>`
-                  }
-                </div>
-              </header>
-              ${thumbnail ? `
-                <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalInsightImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
-                </figure>
-              ` : ''}
-              ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
-              <div class="blog-content">
-                ${renderContent()}
-              </div>
-              ${relatedDocsHtml}
-              ${relatedGamesHtml}
-              ${sourcesHtml}
-            </div>
-
-            ${navHtml}
-          </div>
-
-          ${sidebarHTML ? `
-          <aside class="article-sidebar">
-            <div class="article-sidebar-sticky">
-              ${sidebarHTML}
-            </div>
-          </aside>
-          ` : ''}
-        </div>
-      </article>
-    </section>
-    ${sidebarScript}
-  `;
-
-  // JSON-LD용 이미지 URL (로컬 경로를 전체 URL로 변환)
-  const schemaImage = thumbnail
-    ? (() => {
-        const localPath = getLocalInsightImagePath(slug, thumbnail, 'thumbnail');
-        return localPath.startsWith('/') ? `${siteBaseUrl}${localPath}` : localPath;
-      })()
-    : null;
-
-  const articleSchema = {
-    headline: title,
-    description: summary || title,
-    datePublished: date,
-    dateModified: resolveModifiedKST(post.modifiedAt),
-    image: schemaImage,
-    author: editorName
-  };
-
-  return wrapWithLayout(pageContent, {
-    currentPage: 'magazine',
-    title: title,
-    description: summary || title,
-    keywords: post.keywords || '게임 트렌드, 인사이트, 게임 분석, 모바일 게임',
-    canonical: `${siteBaseUrl}/magazine/insight/${slug}/`,
-    articleSchema,
-    breadcrumbs: [
-      { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
-      { name: title, url: `${siteBaseUrl}/magazine/insight/${slug}/` }
-    ],
-    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
-    ogImage: schemaImage
-  });
+function generateInsightDetailPage(params) {
+  return generateNewsDetailPage('insight', params);
 }
 
 // ========== 핫픽 상세 페이지 ==========
-function generateHotpickDetailPage({ post, nav = {}, parsedRelatedDocs = null, hotpickReports = [], issueReports = [], insightReports = [], rankingReports = [], wikiData = {}, wikiCounts = {}, techCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
-  if (!post) {
-    return wrapWithLayout('<div class="home-empty">핫픽을 찾을 수 없습니다</div>', {
-      currentPage: 'magazine',
-      title: '게이머스크롤 | 핫픽',
-      description: '핫픽을 찾을 수 없습니다.',
-      canonical: `${siteBaseUrl}/magazine/hotpick/`,
-      noindex: true
-    });
-  }
-
-  const { slug, title, date, thumbnail, summary, content = [] } = post;
-  const editorName = post.editor || 'Editor J';
-  // 화면 표시용 dateModified (YYYY-MM-DD)
-  const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
-  const escapeHtmlAttr = (value) => String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-  const parseMarkdownLinks = (str) => {
-    const escaped = escapeHtmlAttr(str);
-    return escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-  };
-  const parseTableCell = (str) => parseMarkdownLinks(str)
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  const heroAlt = escapeHtmlAttr(title ? `${title} 대표 이미지` : '핫픽 대표 이미지');
-
-  // 마크다운 표 변환은 공통 helper(content-text)로 위임
-  const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'blog-table-wrapper' });
-
-  // 관련 게임 찾기
-  const findRelatedGames = (text, limit = 4) => {
-    if (!text || !Object.keys(gamesMap).length) return [];
-    const found = [];
-    for (const [name, game] of Object.entries(gamesMap)) {
-      if (text.includes(name) || (game.aliases && game.aliases.some(a => text.includes(a)))) {
-        found.push({ name, ...game });
-        if (found.length >= limit) break;
-      }
-    }
-    return found;
-  };
-
-  // 본문 렌더링
-  const renderContent = () => {
-    let imageIndex = 1;
-    const result = [];
-
-    // 연속 link 블록 그룹화 전처리
-    const processedContent = [];
-    let linkGroup = [];
-    content.forEach((block, idx) => {
-      if (block.type === 'link') {
-        linkGroup.push(block);
-      } else {
-        if (linkGroup.length > 0) {
-          processedContent.push({ type: 'link-group', links: linkGroup });
-          linkGroup = [];
-        }
-        processedContent.push(block);
-      }
-    });
-    if (linkGroup.length > 0) {
-      processedContent.push({ type: 'link-group', links: linkGroup });
-    }
-
-    let sectionCount = 1;
-    let adCount = 0;
-    processedContent.forEach((block) => {
-      switch (block.type) {
-        case 'text': {
-          result.push(renderTextBlock(block.value, { tableClass: 'blog-table-wrapper' }));
-          break;
-        }
-
-        case 'image':
-          const imgSrc = getLocalHotpickImagePath(slug, block.src, 'content', imageIndex);
-          imageIndex++;
-          const caption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
-          result.push(`
-            <figure class="blog-figure">
-              <img class="blog-image" src="${imgSrc}"${buildWsrvSrcsetAttrs(imgSrc)} alt="${escapeHtmlAttr(block.alt || block.caption || '')}" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
-              ${caption}
-            </figure>
-          `);
-          break;
-
-        case 'ad':
-          break;
-
-        case 'quote':
-          result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
-          break;
-
-        case 'note':
-          result.push(`<div class="blog-note">${block.value}</div>`);
-          break;
-
-        case 'video':
-          const videoUrl = block.url || '';
-          const videoMatch = videoUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
-          if (videoMatch) {
-            const videoId = videoMatch[1];
-            const videoCaption = block.caption ? `<figcaption class="blog-caption">${block.caption}</figcaption>` : '';
-            result.push(`
-              <figure class="blog-figure blog-video">
-                <div class="blog-video-wrapper">
-                  <iframe
-                    src="https://www.youtube.com/embed/${videoId}"
-                    title="${block.caption || 'YouTube video'}"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy">
-                  </iframe>
-                </div>
-                ${videoCaption}
-              </figure>
-            `);
-          }
-          break;
-
-        case 'heading':
-          sectionCount++;
-          if (sectionCount % 2 === 0) {
-            result.push(getInArticleAdHTML(adCount++));
-          }
-          result.push(`<h2 class="blog-heading">${block.value}</h2>`);
-          break;
-
-        case 'table':
-          if (!block.headers || !block.rows) break;
-          const tblHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
-          const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
-          ).join('');
-          result.push(`
-            <figure class="blog-figure blog-table">
-              ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
-              <div class="table-scroll">
-                <table class="wiki-table">
-                  <thead><tr>${tblHeaders}</tr></thead>
-                  <tbody>${tblRows}</tbody>
-                </table>
-              </div>
-            </figure>
-          `);
-          break;
-
-        case 'game-ranking':
-          if (!block.items || !Array.isArray(block.items)) break;
-          const rankingItems = block.items.map(item => `
-            <div class="game-ranking-item">
-              <span class="game-ranking-rank">${item.rank}</span>
-              <div class="game-ranking-thumb">
-                <img src="${item.image}" alt="${item.name}" loading="lazy">
-              </div>
-              <div class="game-ranking-info">
-                <div class="game-ranking-name">${item.name}${item.price ? ` <span class="game-ranking-price">(${item.price})</span>` : ''}</div>
-                ${item.desc ? `<div class="game-ranking-desc">${item.desc}</div>` : ''}
-              </div>
-            </div>
-          `).join('');
-          result.push(`
-            <div class="game-ranking-list">
-              ${block.caption ? `<div class="game-ranking-title">${block.caption}</div>` : ''}
-              ${rankingItems}
-            </div>
-          `);
-          break;
-
-        case 'link-group':
-          const linkItems = block.links.map(link => {
-            if (!link.url || !link.text) return '';
-            let iconHtml = '';
-            if (link.url.startsWith('/games/')) {
-              const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
-              for (const [name, game] of Object.entries(gamesMap)) {
-                if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
-                  break;
-                }
-              }
-            }
-            const subtext = link.subtext ? `<span class="blog-link-subtext">${link.subtext}</span>` : '';
-            return `<a href="${link.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${link.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`;
-          }).filter(Boolean).join('');
-          if (linkItems) {
-            result.push(`<div class="blog-link-grid">${linkItems}</div>`);
-          }
-          break;
-
-        case 'link':
-          if (block.url && block.text) {
-            let iconHtml = '';
-            if (block.url.startsWith('/games/')) {
-              const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
-              for (const [name, game] of Object.entries(gamesMap)) {
-                if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
-                  break;
-                }
-              }
-            }
-            const subtext = block.subtext ? `<span class="blog-link-subtext">${block.subtext}</span>` : '';
-            result.push(`<a href="${block.url}" class="blog-link-button">${iconHtml}<div class="blog-link-content"><span class="blog-link-text">${block.text}</span>${subtext}</div><span class="blog-link-arrow">›</span></a>`);
-          }
-          break;
-      }
-    });
-
-    return result.join('');
-  };
-
-  // 관련 게임
-  const findGameBySlug = (slug) => {
-    for (const [name, game] of Object.entries(gamesMap)) {
-      if (game.slug === slug) return { name, ...game };
-    }
-    return null;
-  };
-  const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
-  const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
-  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText);
-  const relatedGamesHtml = relatedGames.length > 0 ? `
-    <div class="blog-related-games">
-      <div class="blog-related-title">관련 게임</div>
-      <div class="blog-related-grid">
-        ${relatedGames.map(g => `
-          <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-name">${g.name}</span>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  // 관련 문서 (parsedRelatedDocs 통합 우선, 없으면 레거시 폴백)
-  let relatedDocsHtml = '';
-  if (parsedRelatedDocs && parsedRelatedDocs.length > 0) {
-    relatedDocsHtml = renderParsedRelatedDocsHtml(parsedRelatedDocs);
-  } else {
-    // 레거시 폴백: relatedHotpicks + relatedInsights + relatedIssues + relatedWiki
-    const findHotpickBySlug = (slug) => hotpickReports.find(r => r.slug === slug);
-    const findInsightBySlug = (slug) => insightReports.find(r => r.slug === slug);
-    const findIssueBySlug = (slug) => issueReports.find(r => r.slug === slug);
-    const relatedHotpicksList = (post.relatedHotpicks || []).map(slug => findHotpickBySlug(slug)).filter(Boolean).slice(0, 2);
-    const relatedInsightsList = (post.relatedInsights || []).map(slug => findInsightBySlug(slug)).filter(Boolean).slice(0, 2);
-    const relatedIssuesList = (post.relatedIssues || []).map(slug => findIssueBySlug(slug)).filter(Boolean).slice(0, 4);
-    const findWikiBySlug = (category, slug) => {
-      const articles = wikiData[category] || [];
-      return articles.find(a => a.slug === slug);
-    };
-    const relatedWikiList = (post.relatedWiki || []).map(ref => {
-      const [cat, slug] = ref.split('/');
-      const article = findWikiBySlug(cat, slug);
-      return article ? { ...article, category: cat } : null;
-    }).filter(Boolean).slice(0, 4);
-    const hasRelatedDocs = relatedHotpicksList.length > 0 || relatedInsightsList.length > 0 || relatedIssuesList.length > 0 || relatedWikiList.length > 0;
-    relatedDocsHtml = hasRelatedDocs ? `
-    <div class="blog-related-issues">
-      <div class="blog-related-title">관련 문서</div>
-      <div class="blog-related-issues-list">
-        ${relatedHotpicksList.map(hotpick => `
-          <a href="/magazine/hotpick/${hotpick.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalHotpickImagePath(hotpick.slug, hotpick.thumbnail, 'thumbnail')}" alt="${hotpick.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${hotpick.title}</span></span>
-          </a>
-        `).join('')}
-        ${relatedInsightsList.map(insight => `
-          <a href="/magazine/insight/${insight.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalInsightImagePath(insight.slug, insight.thumbnail, 'thumbnail')}" alt="${insight.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${insight.title}</span></span>
-          </a>
-        `).join('')}
-        ${relatedIssuesList.map(issue => `
-          <a href="/magazine/issue/${issue.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalIssueImagePath(issue.slug, issue.thumbnail, 'thumbnail')}" alt="${issue.title}" loading="lazy">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${issue.title}</span></span>
-          </a>
-        `).join('')}
-        ${relatedWikiList.map(wiki => `
-          <a href="/wiki/${wiki.category}/${wiki.slug}/" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${getLocalWikiThumbPath(wiki.category, wiki.slug, wiki.thumbnail)}" alt="${wiki.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
-            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${wiki.title}</span></span>
-          </a>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-  }
-
-  // 정보 출처
-  const sources = post.sources || [];
-  const sourcesHtml = sources.length > 0 ? `
-    <div class="blog-sources">
-      <div class="blog-sources-title">정보 출처</div>
-      <ul class="blog-sources-list">
-        ${sources.map(s => `
-          <li><a href="${s.url}" target="_blank" rel="noopener">${s.name ? `${s.name} - ` : ''}${s.title || s.name || s.url}</a></li>
-        `).join('')}
-      </ul>
-    </div>
-  ` : '';
-
-  // 네비게이션
-  const navHtml = `
-    <div class="trend-detail-nav">
-      ${nav.prev ? `<a href="/magazine/hotpick/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/magazine/" class="trend-nav-btn list">목록</a>
-      ${nav.next ? `<a href="/magazine/hotpick/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
-    </div>
-  `;
-
-  // 사이드바 (공용 컴포넌트)
-  const generateSidebarCategories = () => sharedSidebarCategories({
-    issue: (issueReports || []).length,
-    insight: (insightReports || []).length,
-    hotpick: (hotpickReports || []).length,
-    ranking: (rankingReports || []).length,
-    history: wikiCounts.history || 0,
-    knowledge: wikiCounts.knowledge || 0,
-    business: wikiCounts.business || 0
-  });
-
-  // 사이드바: 인기/최신 글 (공용 컴포넌트 - 현재 글 하이라이트 유지)
-  const generateSidebarArticles = (currentSlug, currentType) => sharedSidebarArticles(
-    sidebarPopularArticles, sidebarLatestArticles,
-    { activeLink: `/magazine/${currentType}/${currentSlug}/` }
-  );
-  const sidebarHTML = generateSidebarCategories() + generateSidebarArticles(slug, 'hotpick');
-
-  const sidebarScript = sidebarHTML ? `
-    <script>
-      (function() {
-        var init = function() {
-          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
-          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
-        };
-        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
-          init();
-        } else if (typeof window.__gsOnReady === 'function') {
-          window.__gsOnReady(init);
-        } else if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', init, { once: true });
-        } else {
-          init();
-        }
-      })();
-    </script>
-  ` : '';
-
-  const pageContent = `
-    <section class="section active" id="hotpick">
-
-      <article class="page-container issue-container">
-        <div class="article-layout">
-          <div class="article-main">
-            ${topAds}
-            <div class="blog-card">
-              <header class="blog-header">
-                <h1 class="blog-title">${title}</h1>
-                <div class="blog-meta">
-                  <span class="blog-editor">${editorName}</span>
-                  ${_displayDateModified && _displayDateModified !== (date || '').slice(0, 10)
-                    ? `<time class="blog-date">${formatDateKorean(date)} 발행</time><time class="blog-date">${formatDateKorean(_displayDateModified)} 최종 수정</time>`
-                    : `<time class="blog-date">${formatDateKorean(date)}</time>`
-                  }
-                </div>
-              </header>
-              ${thumbnail ? `
-                <figure class="blog-figure">
-                  <img class="blog-image" src="${getLocalHotpickImagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
-                </figure>
-              ` : ''}
-              ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
-              <div class="blog-content">
-                ${renderContent()}
-              </div>
-              ${relatedDocsHtml}
-              ${relatedGamesHtml}
-              ${sourcesHtml}
-            </div>
-
-            ${navHtml}
-          </div>
-
-          ${sidebarHTML ? `
-          <aside class="article-sidebar">
-            <div class="article-sidebar-sticky">
-              ${sidebarHTML}
-            </div>
-          </aside>
-          ` : ''}
-        </div>
-      </article>
-    </section>
-    ${sidebarScript}
-  `;
-
-  // JSON-LD용 이미지 URL
-  const schemaImage = thumbnail
-    ? (() => {
-        const localPath = getLocalHotpickImagePath(slug, thumbnail, 'thumbnail');
-        return localPath.startsWith('/') ? `${siteBaseUrl}${localPath}` : localPath;
-      })()
-    : null;
-
-  const articleSchema = {
-    headline: title,
-    description: summary || title,
-    datePublished: date,
-    dateModified: resolveModifiedKST(post.modifiedAt),
-    image: schemaImage,
-    author: editorName
-  };
-
-  return wrapWithLayout(pageContent, {
-    currentPage: 'magazine',
-    title: title,
-    description: summary || title,
-    keywords: post.keywords || '게임 추천, 핫픽, 구매 가이드, 세일 추천',
-    canonical: `${siteBaseUrl}/magazine/hotpick/${slug}/`,
-    articleSchema,
-    breadcrumbs: [
-      { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
-      { name: title, url: `${siteBaseUrl}/magazine/hotpick/${slug}/` }
-    ],
-    sidebarArticles: { popular: sidebarPopularArticles, latest: sidebarLatestArticles },
-    ogImage: schemaImage
-  });
+function generateHotpickDetailPage(params) {
+  return generateNewsDetailPage('hotpick', params);
 }
 
 /**
