@@ -447,6 +447,41 @@
       "type": "02.webp",
       "failedAt": "2026-06-19T07:42:05.927Z",
       "error": "Timeout: https://www.trendingtopics.eu/wp-content/uploads/2026/06/Zhipu-AI-2000x1333-1.jpg"
+    },
+    {
+      "url": "https://www.live2d.com/wp-content/themes/cubism_new/assets/img/en/cubism/cubism-main-en.jpg",
+      "slug": "2d-animation-tech",
+      "type": "thumbnail.webp",
+      "failedAt": "2026-08-02T11:18:58.635Z",
+      "error": "Timeout: https://www.live2d.com/wp-content/themes/cubism_new/assets/img/en/cubism/cubism-main-en.jpg"
+    },
+    {
+      "url": "https://www.live2d.com/wp-content/themes/cubism_new/assets/img/cubism/cubism-about_01.jpg",
+      "slug": "2d-animation-tech",
+      "type": "01.webp",
+      "failedAt": "2026-08-02T11:19:03.884Z",
+      "error": "Timeout: https://www.live2d.com/wp-content/themes/cubism_new/assets/img/cubism/cubism-about_01.jpg"
+    },
+    {
+      "url": "https://wp.vginsights.com/wp-content/uploads/2025/02/engine-split-1024x575.png",
+      "slug": "game-engine",
+      "type": "05.webp",
+      "failedAt": "2026-08-02T11:19:14.546Z",
+      "error": "getaddrinfo ENOTFOUND wp.vginsights.com"
+    },
+    {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Henry_Gantt.jpg",
+      "slug": "gantt-chart",
+      "type": "01.webp",
+      "failedAt": "2026-08-02T11:19:15.256Z",
+      "error": "HTTP 429: https://upload.wikimedia.org/wikipedia/commons/e/e8/Henry_Gantt.jpg"
+    },
+    {
+      "url": "https://cdn-jbaml.nitrocdn.com/TslETkoQPZQfqKchqmbgIbVlJeZplxgv/assets/images/optimized/rev-8cab4df/gamedesignskills.com/wp-content/uploads/2024/08/image7.png",
+      "slug": "version-control-system",
+      "type": "05.webp",
+      "failedAt": "2026-08-02T11:19:24.973Z",
+      "error": "HTTP 404: https://cdn-jbaml.nitrocdn.com/TslETkoQPZQfqKchqmbgIbVlJeZplxgv/assets/images/optimized/rev-8cab4df/gamedesignskills.com/wp-content/uploads/2024/08/image7.png"
     }
   ]
 }
