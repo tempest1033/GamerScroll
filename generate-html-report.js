@@ -1388,7 +1388,9 @@ async function main() {
       { pagesDir: './docs/magazine/ranking', sourceDir: path.join(__dirname, 'reports', 'ranking') },
       { pagesDir: './docs/wiki/business', sourceDir: path.join(__dirname, 'data', 'wiki', 'business') },
       { pagesDir: './docs/wiki/history', sourceDir: path.join(__dirname, 'data', 'wiki', 'history') },
-      { pagesDir: './docs/wiki/knowledge', sourceDir: path.join(__dirname, 'data', 'wiki', 'knowledge') }
+      { pagesDir: './docs/wiki/knowledge', sourceDir: path.join(__dirname, 'data', 'wiki', 'knowledge') },
+      // tech/normal: 2026-08-02 매거진 재배치 후 잔여 화석 페이지 제거 (소스는 .gitkeep만 남은 빈 dir)
+      { pagesDir: './docs/tech/normal', sourceDir: path.join(__dirname, 'data', 'tech', 'normal') }
     ];
     for (const target of orphanTargets) {
       if (!fs.existsSync(target.pagesDir) || !fs.existsSync(target.sourceDir)) continue;
@@ -1402,6 +1404,11 @@ async function main() {
         fs.rmSync(path.join(target.pagesDir, entry.name), { recursive: true, force: true });
         console.log(`  🧹 고아 페이지 제거: ${target.pagesDir.replace('./docs/', '')}/${entry.name}`);
       }
+    }
+    // tech/normal 허브 화석 완전 제거 (매거진 재배치 완료 — deploy 브랜치 seed로 되살아나는 index.html 포함)
+    if (fs.existsSync('./docs/tech/normal')) {
+      fs.rmSync('./docs/tech/normal', { recursive: true, force: true });
+      console.log('  🧹 화석 허브 제거: tech/normal (매거진 재배치 완료)');
     }
   } catch (e) {
     // 정리 실패는 무시 (빌드는 계속)

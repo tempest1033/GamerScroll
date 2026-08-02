@@ -65,6 +65,29 @@ if (fs.existsSync(TECH_VIBE_DIR)) {
   }
 }
 
+// tech/normal/<slug> → 게이머스크롤 매거진 재배치 (2026-08-02 복구 이관)
+// 발행됐지만 사이트맵/내부링크에서 보이지 않던 화석 페이지 12건을 issue/hotpick으로 재발행.
+const TECH_NORMAL_MOVED = {
+  'intel-core-ultra-200s-plus': 'issue',
+  'macbook-neo-reviews': 'issue',
+  'nakwon-last-paradise-cbt': 'issue',
+  'nvidia-dlss5-controversy': 'issue',
+  'rewinding-cadence-technical-test': 'issue',
+  '2d-animation-tech': 'hotpick',
+  'agile-jira-confluence-game-dev': 'hotpick',
+  'firebase-serverless-game-backend': 'hotpick',
+  'game-engine': 'hotpick',
+  'gantt-chart': 'hotpick',
+  'python-pandas-data-analysis': 'hotpick',
+  'version-control-system': 'hotpick'
+};
+lines.push('');
+lines.push('# tech/normal → magazine 재배치 (2026-08-02)');
+for (const [slug, type] of Object.entries(TECH_NORMAL_MOVED)) {
+  emit(`/tech/normal/${slug}/*`, `https://gamerscroll.com/magazine/${type}/${slug}/:splat`);
+}
+emit('/tech/normal/', 'https://gamerscroll.com/magazine/');
+
 // Hub fallback: any remaining /tech/* lands on aiscroll.io homepage
 lines.push('');
 lines.push('# Hub fallback for un-migrated tech paths (normal/ + unknown slugs)');
