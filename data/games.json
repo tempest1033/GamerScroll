@@ -42946,8 +42946,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Secret Tiles - Spicy Reels": {
+      "appIds": {
+        "android": "com.reels.tiles.spicy.gp"
+      },
+      "aliases": [],
+      "developer": "MOHAMED ELEWA",
+      "icon": "https://play-lh.googleusercontent.com/ZzCaeV89tlVwjiOCwW4KNYysWoY_ilJH9oSNX43RjTRRryxauSh4qjUer0wsRYCI5jl2cn3rmaueOWQYafn2vw",
+      "slug": "secret-tiles-spicy-reels",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-03",
-  "totalGames": 3271
+  "totalGames": 3272
 }
