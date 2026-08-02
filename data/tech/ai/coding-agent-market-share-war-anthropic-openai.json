@@ -91,7 +91,7 @@
       "value": "같은 '2배'인데 왜 이렇게 다를까"
     },
     {
-      "type": "comparison_table",
+      "type": "table",
       "headers": [
         "항목",
         "클로드 2배",
@@ -224,7 +224,7 @@
       "value": "Same '2x' Label, Wildly Different Playbooks"
     },
     {
-      "type": "comparison_table",
+      "type": "table",
       "headers": [
         "Category",
         "Claude 2x",
