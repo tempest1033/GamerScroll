@@ -29820,6 +29820,31 @@
       "icon": "https://play-lh.googleusercontent.com/sKFbSTfQnhyv8uL2euX0Vx_LGualbpesYXSZ7lw8EF0u6QHIwGyYP8cWXmsyP8CGifBS-nUX9DGoHNdugha_Rg",
       "searchResults": [],
       "addedAt": "2026-08-02T20:27:24.242Z"
+    },
+    {
+      "title": "Cross Stitch Coloring Art",
+      "status": "matched",
+      "appIds": {
+        "android": "com.playcus.crosstitchcoloringart",
+        "ios": 1587318796
+      },
+      "developer": "Playcus Limited",
+      "icon": "https://play-lh.googleusercontent.com/LSUxZzJzD2MO9omRBlg2q8L6QpMJFivMMrPJC-JaclH68Gb_zp-fbQlWMskQ4TcB0fdBy8x61qEinohase44",
+      "searchResults": [
+        {
+          "title": "Cross Stitch Coloring Art",
+          "appId": 1587318796
+        },
+        {
+          "title": "십자수: Cross Stitch",
+          "appId": 1246165006
+        },
+        {
+          "title": "Cross Stitch: Coloring Art",
+          "appId": 1413137373
+        }
+      ],
+      "addedAt": "2026-08-02T22:26:19.788Z"
     }
   ],
   "approved": [

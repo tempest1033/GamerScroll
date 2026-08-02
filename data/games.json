@@ -42994,8 +42994,22 @@
       "platforms": [
         "android"
       ]
+    },
+    "Cross Stitch Coloring Art": {
+      "appIds": {
+        "android": "com.playcus.crosstitchcoloringart",
+        "ios": 1587318796
+      },
+      "aliases": [],
+      "developer": "Playcus Limited",
+      "icon": "https://play-lh.googleusercontent.com/LSUxZzJzD2MO9omRBlg2q8L6QpMJFivMMrPJC-JaclH68Gb_zp-fbQlWMskQ4TcB0fdBy8x61qEinohase44",
+      "slug": "cross-stitch-coloring-art",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-03",
-  "totalGames": 3275
+  "totalGames": 3276
 }
