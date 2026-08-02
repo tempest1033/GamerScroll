@@ -32,6 +32,32 @@ function emit(fromPath, toUrl) {
   lines.push(`${fromPath} ${toUrl} 301`);
 }
 
+// tech/normal/<slug> → 게이머스크롤 매거진 재배치 (2026-08-02 복구 이관)
+// CF Pages가 파일 후반부(~215룰 이후) 동적 룰을 조용히 버리는 것이 실측 확인됨
+// (기존 /tech/* 캐치올도 같은 이유로 항상 죽어 있었음) → 정적 exact 룰로 최상단 배치.
+const TECH_NORMAL_MOVED = {
+  'intel-core-ultra-200s-plus': 'issue',
+  'macbook-neo-reviews': 'issue',
+  'nakwon-last-paradise-cbt': 'issue',
+  'nvidia-dlss5-controversy': 'issue',
+  'rewinding-cadence-technical-test': 'issue',
+  '2d-animation-tech': 'hotpick',
+  'agile-jira-confluence-game-dev': 'hotpick',
+  'firebase-serverless-game-backend': 'hotpick',
+  'game-engine': 'hotpick',
+  'gantt-chart': 'hotpick',
+  'python-pandas-data-analysis': 'hotpick',
+  'version-control-system': 'hotpick'
+};
+lines.push('# tech/normal → magazine 재배치 (2026-08-02) — 정적 exact 룰 (동적 룰 상한 회피)');
+for (const [slug, type] of Object.entries(TECH_NORMAL_MOVED)) {
+  emit(`/tech/normal/${slug}`, `/magazine/${type}/${slug}/`);
+  emit(`/tech/normal/${slug}/`, `/magazine/${type}/${slug}/`);
+}
+emit('/tech/normal', '/magazine/');
+emit('/tech/normal/', '/magazine/');
+lines.push('');
+
 // tech/ai/<slug> → article/<category>/<slug>
 if (fs.existsSync(TECH_AI_DIR)) {
   const files = fs.readdirSync(TECH_AI_DIR).filter(f => f.endsWith('.json'));
@@ -64,30 +90,6 @@ if (fs.existsSync(TECH_VIBE_DIR)) {
     }
   }
 }
-
-// tech/normal/<slug> → 게이머스크롤 매거진 재배치 (2026-08-02 복구 이관)
-// 발행됐지만 사이트맵/내부링크에서 보이지 않던 화석 페이지 12건을 issue/hotpick으로 재발행.
-const TECH_NORMAL_MOVED = {
-  'intel-core-ultra-200s-plus': 'issue',
-  'macbook-neo-reviews': 'issue',
-  'nakwon-last-paradise-cbt': 'issue',
-  'nvidia-dlss5-controversy': 'issue',
-  'rewinding-cadence-technical-test': 'issue',
-  '2d-animation-tech': 'hotpick',
-  'agile-jira-confluence-game-dev': 'hotpick',
-  'firebase-serverless-game-backend': 'hotpick',
-  'game-engine': 'hotpick',
-  'gantt-chart': 'hotpick',
-  'python-pandas-data-analysis': 'hotpick',
-  'version-control-system': 'hotpick'
-};
-lines.push('');
-lines.push('# tech/normal → magazine 재배치 (2026-08-02)');
-// 같은 호스트 리다이렉트는 절대 URL이면 CF Pages가 룰을 무시함 → 상대 경로로 emit (검증: 2026-08-02)
-for (const [slug, type] of Object.entries(TECH_NORMAL_MOVED)) {
-  emit(`/tech/normal/${slug}/*`, `/magazine/${type}/${slug}/:splat`);
-}
-emit('/tech/normal/', '/magazine/');
 
 // Hub fallback: any remaining /tech/* lands on aiscroll.io homepage
 lines.push('');
