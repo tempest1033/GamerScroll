@@ -781,7 +781,8 @@ const PURGECSS_SAFELIST = {
     'ads-disabled', 'deferred-css-pending', 'realtime',
   ],
   deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/],
-  greedy: [],
+  // gs-ad-*는 외부 번들(layout-core.js)의 classList.add로만 붙어 purge 스캔에 안 잡힘
+  greedy: [/^gs-ad-/],
 };
 
 // PurgeCSS: docs/ 내 CSS 번들에서 미사용 CSS 제거
