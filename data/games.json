@@ -42958,8 +42958,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "IQ 블록: Brain Buster": {
+      "appIds": {
+        "android": "com.lixobags.nouburo"
+      },
+      "aliases": [],
+      "developer": "DayOne LLC",
+      "icon": "https://play-lh.googleusercontent.com/L8m7vT3EPbWVfaUliVlQ93cQD91h-7a-Ddgive5ih3tRdZpMJoEcd-ESoWE0yBxGBWSzjy1I2pI17ZtMrz1l_A",
+      "slug": "iq-블록-brain-buster",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-03",
-  "totalGames": 3272
+  "totalGames": 3273
 }

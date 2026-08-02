@@ -29774,6 +29774,30 @@
       "icon": "https://play-lh.googleusercontent.com/ZzCaeV89tlVwjiOCwW4KNYysWoY_ilJH9oSNX43RjTRRryxauSh4qjUer0wsRYCI5jl2cn3rmaueOWQYafn2vw",
       "searchResults": [],
       "addedAt": "2026-08-02T16:53:25.359Z"
+    },
+    {
+      "title": "IQ 블록: Brain Buster",
+      "status": "single",
+      "appIds": {
+        "android": "com.lixobags.nouburo"
+      },
+      "developer": "DayOne LLC",
+      "icon": "https://play-lh.googleusercontent.com/L8m7vT3EPbWVfaUliVlQ93cQD91h-7a-Ddgive5ih3tRdZpMJoEcd-ESoWE0yBxGBWSzjy1I2pI17ZtMrz1l_A",
+      "searchResults": [
+        {
+          "title": "Blockudoku - 블록퍼즐게임",
+          "appId": 1452227871
+        },
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "Block Buster - No Timer",
+          "appId": 6745272388
+        }
+      ],
+      "addedAt": "2026-08-02T17:57:31.318Z"
     }
   ],
   "approved": [
