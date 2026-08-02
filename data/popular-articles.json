@@ -1,25 +1,19 @@
 {
-  "updatedAt": "2026-08-01T01:01:52.911Z",
+  "updatedAt": "2026-08-02T01:04:08.149Z",
   "period": "7days",
   "articles": [
+    {
+      "type": "ranking",
+      "slug": "subculture-june-2026-kr",
+      "views": 37,
+      "path": "/magazine/ranking/subculture-june-2026-kr/"
+    },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 32,
+      "views": 28,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-june-2026-kr",
-      "views": 29,
-      "path": "/magazine/ranking/subculture-june-2026-kr/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 6,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -30,7 +24,7 @@
     {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
@@ -38,6 +32,12 @@
       "slug": "subculture-may-2026-kr",
       "views": 4,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 3,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
@@ -82,6 +82,12 @@
       "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
     },
     {
+      "type": "issue",
+      "slug": "wuthering-waves-korea-grossing-no1",
+      "views": 2,
+      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
+    },
+    {
       "type": "wiki",
       "slug": "game-ip-licensing",
       "category": "business",
@@ -90,10 +96,10 @@
     },
     {
       "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
+      "slug": "black-and-white-demis-hassabis",
       "category": "history",
       "views": 2,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "wiki",
@@ -146,12 +152,6 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 1,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
-      "type": "issue",
       "slug": "mongil-star-dive-global-launch",
       "views": 1,
       "path": "/magazine/issue/mongil-star-dive-global-launch/"
@@ -167,6 +167,12 @@
       "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
       "views": 1,
       "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-global-sold-out",
+      "views": 1,
+      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
     },
     {
       "type": "issue",
@@ -188,9 +194,9 @@
     },
     {
       "type": "issue",
-      "slug": "wuthering-waves-korea-grossing-no1",
+      "slug": "starcraft-shooter-blizzard",
       "views": 1,
-      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
       "type": "ranking",
@@ -214,10 +220,10 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
+      "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 1,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
@@ -228,17 +234,17 @@
     },
     {
       "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",
