@@ -43118,8 +43118,22 @@
       "platforms": [
         "android"
       ]
+    },
+    "Ocean Block Shoot": {
+      "appIds": {
+        "android": "com.ocean.block.shoot",
+        "ios": 6786939435
+      },
+      "aliases": [],
+      "developer": "HM Games Pty Ltd",
+      "icon": "https://play-lh.googleusercontent.com/qYCQxjlULRaIEXUneAa6ID9K0kz4xReoCDBe1sTu0z9njT2-jXbHJZj34DYxCxaOeIpSetV_CYHaYMA2OAjT",
+      "slug": "ocean-block-shoot",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-04",
-  "totalGames": 3285
+  "totalGames": 3286
 }
