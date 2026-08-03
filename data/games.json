@@ -43056,8 +43056,70 @@
       "platforms": [
         "ios"
       ]
+    },
+    "각성소녀: 욕망의 여정": {
+      "appIds": {
+        "android": "com.mjwygirls.kr"
+      },
+      "aliases": [],
+      "developer": "HONGKONG YOLO TECHNOLOGY CO., LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/mQkd4RQPNlBPjFLVY0AnXTcHeddOTjNwtRXZU0M4tvEK4W7Aeox4AO_ZsVXGSrgjpvwth3hgrGsdSkE0nup4",
+      "slug": "각성소녀-욕망의-여정",
+      "platforms": [
+        "android"
+      ]
+    },
+    "버블 드림": {
+      "appIds": {
+        "android": "com.girl.tiles.gp.bubbledreams",
+        "ios": 6760458884
+      },
+      "aliases": [],
+      "developer": "Shahin Soft",
+      "icon": "https://play-lh.googleusercontent.com/svnme9CecrSNpvhK4coHUtXlZdpNszbXf4yUXl6SCFDZciO07eYl0wR1D15PtTYmxvQm1oY2Z77oN-pDi7C0_tg",
+      "slug": "버블-드림",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Giants attack 3D": {
+      "appIds": {
+        "android": "com.alurum.giant.wanted"
+      },
+      "aliases": [],
+      "developer": "Playcus Limited",
+      "icon": "https://play-lh.googleusercontent.com/wIl2GBvtU1Arj313tJ7OVjuVFfEwIYnQ3BhzC2dAezaIyba8yIfHJRrH_XsuWCXoYdr7frQSp6Ja0noDTBPX",
+      "slug": "giants-attack-3d",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Chameleon Hunt: Hide & Seek": {
+      "appIds": {
+        "android": "com.fliqs.chameleon.hunt.hide.seek"
+      },
+      "aliases": [],
+      "developer": "MobGame Pte. Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/2tiICNKLadnJ9SiNyAoaplsth1EH-ZJ6RAxyAcEsx3fWFhCh5Dh8hJmIpm6AThNo_NMXEdQVuAfil-cJy0ZapQ",
+      "slug": "chameleon-hunt-hide-seek",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Ragdoll Monster Sandbox !": {
+      "appIds": {
+        "android": "com.RC12B.ragdoll.sandbox.monster"
+      },
+      "aliases": [],
+      "developer": "Sprigame",
+      "icon": "https://play-lh.googleusercontent.com/ZITS2oeLcejp0w5IvHI2Xx-Aku_-oASbDDiNmFPFoftBrbYGpJ3j0a9z13FjUgOp7nHRd4OJb980PIajLyoP3sc",
+      "slug": "ragdoll-monster-sandbox",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-04",
-  "totalGames": 3280
+  "totalGames": 3285
 }

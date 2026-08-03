@@ -29867,6 +29867,114 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/16/d3/fb/16d3fb19-cec2-afd8-6e6e-7f62bad42fcb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-03T12:16:39.281Z"
+    },
+    {
+      "title": "각성소녀: 욕망의 여정",
+      "status": "single",
+      "appIds": {
+        "android": "com.mjwygirls.kr"
+      },
+      "developer": "HONGKONG YOLO TECHNOLOGY CO., LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/mQkd4RQPNlBPjFLVY0AnXTcHeddOTjNwtRXZU0M4tvEK4W7Aeox4AO_ZsVXGSrgjpvwth3hgrGsdSkE0nup4",
+      "searchResults": [],
+      "addedAt": "2026-08-03T22:02:12.448Z"
+    },
+    {
+      "title": "버블 드림",
+      "status": "matched",
+      "appIds": {
+        "android": "com.girl.tiles.gp.bubbledreams",
+        "ios": 6760458884
+      },
+      "developer": "Shahin Soft",
+      "icon": "https://play-lh.googleusercontent.com/svnme9CecrSNpvhK4coHUtXlZdpNszbXf4yUXl6SCFDZciO07eYl0wR1D15PtTYmxvQm1oY2Z77oN-pDi7C0_tg",
+      "searchResults": [
+        {
+          "title": "버블 드림",
+          "appId": 6760458884
+        },
+        {
+          "title": "앵그리버드 드림 블라스트",
+          "appId": 1432579280
+        },
+        {
+          "title": "Bubble Pop Dream",
+          "appId": 1622939649
+        }
+      ],
+      "addedAt": "2026-08-03T22:02:12.789Z"
+    },
+    {
+      "title": "Giants attack 3D",
+      "status": "single",
+      "appIds": {
+        "android": "com.alurum.giant.wanted"
+      },
+      "developer": "Playcus Limited",
+      "icon": "https://play-lh.googleusercontent.com/wIl2GBvtU1Arj313tJ7OVjuVFfEwIYnQ3BhzC2dAezaIyba8yIfHJRrH_XsuWCXoYdr7frQSp6Ja0noDTBPX",
+      "searchResults": [
+        {
+          "title": "Monster Archer 3D: Ogre Hunter",
+          "appId": 6450946918
+        },
+        {
+          "title": "거대 고릴라 Kong 도시 공격 3D",
+          "appId": 6499500386
+        },
+        {
+          "title": "퍼즐 컴뱃 (Puzzle Combat) 매치3 RPG",
+          "appId": 1455487903
+        }
+      ],
+      "addedAt": "2026-08-03T22:02:13.062Z"
+    },
+    {
+      "title": "Chameleon Hunt: Hide & Seek",
+      "status": "single",
+      "appIds": {
+        "android": "com.fliqs.chameleon.hunt.hide.seek"
+      },
+      "developer": "MobGame Pte. Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/2tiICNKLadnJ9SiNyAoaplsth1EH-ZJ6RAxyAcEsx3fWFhCh5Dh8hJmIpm6AThNo_NMXEdQVuAfil-cJy0ZapQ",
+      "searchResults": [
+        {
+          "title": "숨바꼭질 3D",
+          "appId": 1638904079
+        },
+        {
+          "title": "Hide Online: Prop Hunt",
+          "appId": 1408624516
+        },
+        {
+          "title": "숨바꼭질 온라인 - 실시간 숨바꼭질",
+          "appId": 1177590613
+        }
+      ],
+      "addedAt": "2026-08-03T22:02:13.335Z"
+    },
+    {
+      "title": "Ragdoll Monster Sandbox !",
+      "status": "single",
+      "appIds": {
+        "android": "com.RC12B.ragdoll.sandbox.monster"
+      },
+      "developer": "Sprigame",
+      "icon": "https://play-lh.googleusercontent.com/ZITS2oeLcejp0w5IvHI2Xx-Aku_-oASbDDiNmFPFoftBrbYGpJ3j0a9z13FjUgOp7nHRd4OJb980PIajLyoP3sc",
+      "searchResults": [
+        {
+          "title": "애니멀 리볼트 배틀 시뮬레이터: 공룡게임",
+          "appId": 1584343172
+        },
+        {
+          "title": "Monster Sandbox Playground 3D",
+          "appId": 6479595396
+        },
+        {
+          "title": "Addons for Ragdoll Playground",
+          "appId": 6472606888
+        }
+      ],
+      "addedAt": "2026-08-03T22:02:13.668Z"
     }
   ],
   "approved": [
