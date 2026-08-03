@@ -43008,8 +43008,32 @@
         "android",
         "ios"
       ]
+    },
+    "Street Fighter™ 6 - Year 4 Character Pass": {
+      "appIds": {
+        "steam": "4412680"
+      },
+      "aliases": [],
+      "developer": "CAPCOM Co., Ltd.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4412680/96f9f1757bbd0161f3c0e18f12b4310cf041271a/capsule_231x87.jpg?t=1784618343",
+      "slug": "street-fighter-6-year-4-character-pass",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Street Fighter™ 6 - Year 4 Ultimate Pass": {
+      "appIds": {
+        "steam": "4412690"
+      },
+      "aliases": [],
+      "developer": "CAPCOM Co., Ltd.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4412690/859a178fdb1ed3eb7bc66002ca8527e2e463780e/capsule_231x87.jpg?t=1784618777",
+      "slug": "street-fighter-6-year-4-ultimate-pass",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-03",
-  "totalGames": 3276
+  "totalGames": 3278
 }
