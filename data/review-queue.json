@@ -29845,6 +29845,28 @@
         }
       ],
       "addedAt": "2026-08-02T22:26:19.788Z"
+    },
+    {
+      "title": "킹덤2: 타오르는 전장",
+      "status": "single",
+      "appIds": {
+        "ios": 6756558621
+      },
+      "developer": "Fow Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/56/83/f9/5683f93f-bb4d-b3c9-8a49-9e8f5b1a7493/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-03T12:16:38.982Z"
+    },
+    {
+      "title": "던전 견문록",
+      "status": "single",
+      "appIds": {
+        "ios": 6782771784
+      },
+      "developer": "SuperPlanet",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/16/d3/fb/16d3fb19-cec2-afd8-6e6e-7f62bad42fcb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-03T12:16:39.281Z"
     }
   ],
   "approved": [

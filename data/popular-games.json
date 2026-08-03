@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-02T11:19:44.912Z",
+  "updatedAt": "2026-08-03T12:16:21.463Z",
   "period": "30days",
   "games": [
     {
@@ -51,10 +51,6 @@
       "views": 2
     },
     {
-      "slug": "아키에이지-워-archeage-war",
-      "views": 2
-    },
-    {
       "slug": "클래시-오브-클랜",
       "views": 2
     },
@@ -76,6 +72,10 @@
     },
     {
       "slug": "arrows-world",
+      "views": 1
+    },
+    {
+      "slug": "assetto-corsa",
       "views": 1
     }
   ]
