@@ -30054,6 +30054,17 @@
         }
       ],
       "addedAt": "2026-08-04T19:05:40.544Z"
+    },
+    {
+      "title": "Running Fred",
+      "status": "single",
+      "appIds": {
+        "ios": 492146903
+      },
+      "developer": "Dedalord S.R.L.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/73/16/1f731680-dc74-1930-2bcf-11b1a9b3b900/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-04T23:31:54.969Z"
     }
   ],
   "approved": [
