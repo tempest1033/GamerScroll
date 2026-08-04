@@ -43132,8 +43132,20 @@
         "android",
         "ios"
       ]
+    },
+    "Big Walk": {
+      "appIds": {
+        "steam": "1478500"
+      },
+      "aliases": [],
+      "developer": "House House",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1478500/44da9fb07ebe477387355d7fce29560b55125cce/capsule_231x87.jpg?t=1785848401",
+      "slug": "big-walk",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-08-04",
-  "totalGames": 3286
+  "lastUpdated": "2026-08-05",
+  "totalGames": 3287
 }
