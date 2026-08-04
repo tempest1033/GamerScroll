@@ -43035,14 +43035,16 @@
     },
     "킹덤2: 타오르는 전장": {
       "appIds": {
-        "ios": 6756558621
+        "ios": 6756558621,
+        "android": "com.fowgames.kingdom2"
       },
       "aliases": [],
       "developer": "Fow Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/56/83/f9/5683f93f-bb4d-b3c9-8a49-9e8f5b1a7493/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "킹덤2-타오르는-전장",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "던전 견문록": {
@@ -43144,8 +43146,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Tricky Puzzle: Fun Brain Story": {
+      "appIds": {
+        "android": "com.fp.helpmeplease.trickystories"
+      },
+      "aliases": [],
+      "developer": "Brames",
+      "icon": "https://play-lh.googleusercontent.com/mHwpQaZ9lOtAqsQ4S10jH9UAiECNrcygHVqEmmBrD-BDMX0mqBeNfXImpoyakpekP4FMtRHXORMWGwInlfgw",
+      "slug": "tricky-puzzle-fun-brain-story",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Stack Smash - Block 3D Puzzle": {
+      "appIds": {
+        "android": "com.tripledot.blockssmashgame"
+      },
+      "aliases": [],
+      "developer": "Tripledot Studios Limited",
+      "icon": "https://play-lh.googleusercontent.com/ZokGuQq95KXWg7Oj_Q-CTofEh8V4gci8t9zqd5bk_iy11QJq4Q9KDjWKsOJ1rab1A2WaeJTyrDk4nFdBv1P3",
+      "slug": "stack-smash-block-3d-puzzle",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-05",
-  "totalGames": 3287
+  "totalGames": 3289
 }

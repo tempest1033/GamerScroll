@@ -29848,13 +29848,19 @@
     },
     {
       "title": "킹덤2: 타오르는 전장",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6756558621
+        "ios": 6756558621,
+        "android": "com.fowgames.kingdom2"
       },
       "developer": "Fow Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/56/83/f9/5683f93f-bb4d-b3c9-8a49-9e8f5b1a7493/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "킹덤2: 타오르는 전장",
+          "appId": 6756558621
+        }
+      ],
       "addedAt": "2026-08-03T12:16:38.982Z"
     },
     {
@@ -30000,6 +30006,54 @@
         }
       ],
       "addedAt": "2026-08-03T23:34:09.658Z"
+    },
+    {
+      "title": "Tricky Puzzle: Fun Brain Story",
+      "status": "single",
+      "appIds": {
+        "android": "com.fp.helpmeplease.trickystories"
+      },
+      "developer": "Brames",
+      "icon": "https://play-lh.googleusercontent.com/mHwpQaZ9lOtAqsQ4S10jH9UAiECNrcygHVqEmmBrD-BDMX0mqBeNfXImpoyakpekP4FMtRHXORMWGwInlfgw",
+      "searchResults": [
+        {
+          "title": "Brain Puzzle: Tricky Quest",
+          "appId": 6670789598
+        },
+        {
+          "title": "브레인 테스트 (Brain Test) 2:교묘한 이야기",
+          "appId": 1509517244
+        },
+        {
+          "title": "Tricky Story",
+          "appId": 6754748829
+        }
+      ],
+      "addedAt": "2026-08-04T19:05:40.257Z"
+    },
+    {
+      "title": "Stack Smash - Block 3D Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.tripledot.blockssmashgame"
+      },
+      "developer": "Tripledot Studios Limited",
+      "icon": "https://play-lh.googleusercontent.com/ZokGuQq95KXWg7Oj_Q-CTofEh8V4gci8t9zqd5bk_iy11QJq4Q9KDjWKsOJ1rab1A2WaeJTyrDk4nFdBv1P3",
+      "searchResults": [
+        {
+          "title": "Stack Smash - 3D Puzzle Game",
+          "appId": 6784602967
+        },
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "스택 볼",
+          "appId": 1456732568
+        }
+      ],
+      "addedAt": "2026-08-04T19:05:40.544Z"
     }
   ],
   "approved": [
