@@ -1,37 +1,37 @@
 {
-  "updatedAt": "2026-08-03T01:07:03.535Z",
+  "updatedAt": "2026-08-04T01:52:50.244Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 47,
+      "views": 51,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 27,
+      "views": 28,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 7,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 7,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 6,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 6,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "ranking",
@@ -71,10 +71,16 @@
       "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
+      "type": "issue",
+      "slug": "seedance-2-hollywood-shock-next-version",
+      "views": 2,
+      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+    },
+    {
+      "type": "issue",
+      "slug": "silksong-sea-of-sorrow",
+      "views": 2,
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "issue",
@@ -89,25 +95,17 @@
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
-      "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
       "views": 2,
-      "path": "/wiki/business/game-ip-licensing/"
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "wiki",
@@ -115,6 +113,13 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "issue",
@@ -154,15 +159,21 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "limbus-company-ios-top5-record",
       "views": 1,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
       "slug": "mongil-star-dive-global-launch",
       "views": 1,
       "path": "/magazine/issue/mongil-star-dive-global-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "nioh3-hotpick-soulslike-masterpiece",
+      "views": 1,
+      "path": "/magazine/issue/nioh3-hotpick-soulslike-masterpiece/"
     },
     {
       "type": "issue",
@@ -190,18 +201,6 @@
     },
     {
       "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
-    },
-    {
-      "type": "issue",
       "slug": "sony-pc-exit-hulst-confirmation",
       "views": 1,
       "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
@@ -214,10 +213,17 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
+      "slug": "game-ip-licensing",
+      "category": "business",
       "views": 1,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
+      "path": "/wiki/business/game-ip-licensing/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -225,13 +231,6 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/heroes-of-might-and-magic/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pillar-of-fire-cresents",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/pillar-of-fire-cresents/"
     },
     {
       "type": "wiki",
@@ -249,10 +248,10 @@
     },
     {
       "type": "wiki",
-      "slug": "pd-vs-director",
+      "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     }
   ]
 }
