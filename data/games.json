@@ -43230,8 +43230,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "MHA: UNITED SURVIVAL": {
+      "appIds": {
+        "ios": 6758648051
+      },
+      "aliases": [],
+      "developer": "KLab Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/01/2a/fd/012afd89-c95c-62c2-593e-9beed5911561/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mha-united-survival",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-05",
-  "totalGames": 3294
+  "totalGames": 3295
 }
