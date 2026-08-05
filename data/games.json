@@ -43316,8 +43316,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "The Bazaar - The Dragons": {
+      "appIds": {
+        "steam": "4908380"
+      },
+      "aliases": [],
+      "developer": "Tempo",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4908380/d63ab715dcf0fbd07d22253b910b96d54c47e7ca/capsule_231x87.jpg?t=1785951762",
+      "slug": "the-bazaar-the-dragons",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-06",
-  "totalGames": 3301
+  "totalGames": 3302
 }
