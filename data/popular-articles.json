@@ -1,49 +1,37 @@
 {
-  "updatedAt": "2026-08-04T01:52:50.244Z",
+  "updatedAt": "2026-08-05T01:53:25.123Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 51,
+      "views": 54,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 28,
+      "views": 30,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 9,
+      "views": 10,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 6,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
-    },
-    {
-      "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-june-2026-kr",
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
       "views": 4,
-      "path": "/magazine/ranking/mobile-june-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 4,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "wiki",
@@ -53,22 +41,24 @@
       "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
       "views": 3,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
+      "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
       "views": 3,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
-      "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
+      "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
       "views": 3,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+      "path": "/wiki/history/the-war-of-genesis/"
     },
     {
       "type": "issue",
@@ -84,28 +74,21 @@
     },
     {
       "type": "issue",
-      "slug": "sol-enchant-dual-market-no1-launch",
-      "views": 2,
-      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "wuthering-waves-korea-grossing-no1",
       "views": 2,
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
       "type": "ranking",
+      "slug": "mobile-june-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/mobile-june-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "subculture-january-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
       "type": "wiki",
@@ -122,6 +105,18 @@
       "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "version-control-system",
+      "views": 1,
+      "path": "/magazine/hotpick/version-control-system/"
+    },
+    {
       "type": "issue",
       "slug": "2026-subculture-openworld-games",
       "views": 1,
@@ -132,12 +127,6 @@
       "slug": "chatgpt-vs-gemini-comparison-2026",
       "views": 1,
       "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "china-game-license-normalization",
-      "views": 1,
-      "path": "/magazine/issue/china-game-license-normalization/"
     },
     {
       "type": "issue",
@@ -165,6 +154,12 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
       "slug": "mongil-star-dive-global-launch",
       "views": 1,
       "path": "/magazine/issue/mongil-star-dive-global-launch/"
@@ -174,6 +169,12 @@
       "slug": "nioh3-hotpick-soulslike-masterpiece",
       "views": 1,
       "path": "/magazine/issue/nioh3-hotpick-soulslike-masterpiece/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-gtc-2026-dlss5-gaming",
+      "views": 1,
+      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
     },
     {
       "type": "issue",
@@ -201,6 +202,12 @@
     },
     {
       "type": "issue",
+      "slug": "rotk8-remake-pk-mixed-launch",
+      "views": 1,
+      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "sony-pc-exit-hulst-confirmation",
       "views": 1,
       "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
@@ -212,11 +219,17 @@
       "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
+      "type": "issue",
+      "slug": "subculture-newyear-china-wins",
+      "views": 1,
+      "path": "/magazine/issue/subculture-newyear-china-wins/"
+    },
+    {
       "type": "wiki",
-      "slug": "game-ip-licensing",
+      "slug": "game-revenue-structure",
       "category": "business",
       "views": 1,
-      "path": "/wiki/business/game-ip-licensing/"
+      "path": "/wiki/business/game-revenue-structure/"
     },
     {
       "type": "wiki",
@@ -227,6 +240,20 @@
     },
     {
       "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "wiki",
+      "slug": "astonishia-story-sonnori",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/astonishia-story-sonnori/"
+    },
+    {
+      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 1,
@@ -234,10 +261,10 @@
     },
     {
       "type": "wiki",
-      "slug": "the-war-of-genesis",
+      "slug": "rts-genre-rise-and-fall",
       "category": "history",
       "views": 1,
-      "path": "/wiki/history/the-war-of-genesis/"
+      "path": "/wiki/history/rts-genre-rise-and-fall/"
     },
     {
       "type": "wiki",
@@ -252,6 +279,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }

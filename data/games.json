@@ -43218,8 +43218,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "MARVEL Tōkon: Fighting Souls": {
+      "appIds": {
+        "steam": "3787240"
+      },
+      "aliases": [],
+      "developer": "ARC SYSTEM WORKS CO., LTD",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3787240/59af95e2175fe017802e3fe79588197a52bef6c0/capsule_231x87.jpg?t=1784908718",
+      "slug": "marvel-tkon-fighting-souls",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-05",
-  "totalGames": 3293
+  "totalGames": 3294
 }
