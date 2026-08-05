@@ -1,0 +1,122 @@
+{
+  "slug": "grok-46-launch-frontier-push",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "그록 4.6 출시 임박: xAI, 프론티어 3강 구도 조준",
+  "titleEn": "Grok 4.6 Launch Set: xAI Targets the Frontier",
+  "summary": "일론 머스크가 그록 4.6의 8월 7일 출시를 발표했다. 커서와 공동 학습한 그록 4.5가 한 달간 긍정적인 평가를 쌓은 가운데, xAI는 GPT-5.6과 오푸스 5, 파블 5가 주도하는 프론티어 AI 시장에 본격적으로 도전장을 내민다.",
+  "summaryEn": "Musk announced Grok 4.6 for August 7. Following Grok 4.5's successful month, xAI aims to challenge the frontier held by Opus 5, Fable 5, and GPT-5.6.",
+  "keywords": "그록 4.6 출시일, 커서 공동 학습, xAI 프론티어 모델, 머스크 로드맵",
+  "keywordsEn": "Cursor, frontier, Opus 5, Arena",
+  "thumbnail": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/grok-4.5-og-image.png",
+  "content": [
+    {
+      "type": "text",
+      "value": "일론 머스크는 지난 7월 28일 X를 통해 xAI가 8월 7일경 그록 4.6을 출시할 예정이라고 발표했다. 새 모델은 1조 5,000억 개의 매개변수(파라미터)를 갖췄으며, 지도 미세조정(SFT)과 강화학습(RL) 성능이 대폭 개선됐다. 몇 주 뒤에는 더 큰 규모의 후속 모델인 그록 4.7도 이어서 공개된다.\n\n이번 발표는 시장이 출시 일정을 신뢰하는 분위기 속에서 이뤄졌다. 지난 7월 8일 출시돼 커서와 공동 학습을 진행한 그록 4.5가 한 달간 긍정적인 평판을 쌓아 올린 덕분이다. 이로써 xAI는 올해 초만 해도 확보하기 어려웠던 기술적 신뢰를 구축하는 데 성공했다."
+    },
+    {
+      "type": "heading",
+      "value": "8월 7일 출시 예고에 실린 자신감"
+    },
+    {
+      "type": "text",
+      "value": "머스크의 이번 발표는 외부의 긍정적인 평가 지표에 반응하는 과정에서 나왔다. 기예르모 라우흐 버셀 최고경영자(CEO)가 자체 테스트 결과 그록 4.5를 가성비가 가장 뛰어난 사이버 보안 모델로 꼽자, 머스크는 [로드맵 공개](https://crypto.news/grok-4-6-gets-aug-7-launch-date-grok-4-7-follows/)로 답했다. 라우흐 CEO의 분석에 따르면 그록 4.5는 GPT-5.6 솔보다 10배, 오푸스 5보다 5.7배 저렴하다.\n\n머스크는 후속작인 그록 4.7이 2조 1,000억 개의 매개변수를 보유하며, 추론 지연 시간을 제외한 모든 지표에서 4.6을 앞설 것이라고 덧붙였다. 머스크의 로드맵 공개에 발맞춰 챗봇 아레나 역시 그록 4.6 출시 다음 주에 공개 평가를 진행하겠다고 밝혔다. 두 출시일은 확정안이 아닌 목표 단계이나, 한 달 새 두 모델의 출시를 예고한 속도전은 xAI의 강한 자신감을 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "그록 4.5가 전환한 시장의 분위기"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/a17185f728c7c1f29fa9c6c9bacf8d07fe559fc0-680x680.jpg?w=1200&auto=format",
+      "caption": "xAI 그록 4.5 로고",
+      "alt": "그록 4.5 모델 로고 아트"
+    },
+    {
+      "type": "text",
+      "value": "그록 4.5는 개발자와 에이전트 간의 상호작용이 담긴 수조 규모의 토큰 데이터를 기반으로 커서와 공동 학습한 전문가 혼합(MoE) 모델이다. 커서는 지난 6월 스페이스X에 [600억 달러에 인수](/ko/article/general/spacex-acquire-cursor-60b/)돼 이미 한 식구다. 이용 요금은 입력 100만 토큰당 2달러, 출력 6달러다. 현재 커서의 데스크톱, 웹, iOS 앱, CLI 환경에 기본 탑재돼 작동한다.\n\n실제 성능 지표도 이러한 설계를 뒷받침한다. 그록 4.5는 아티피셜 애널리시스의 지능 지수에서 54점을 획득하며 4위에 올랐다. 그록 시리즈 중 최초로 프론티어 모델 그룹에 합류한 순간이다. 실무 프로그래밍 작업을 평가하는 스노클의 GDPval+ 벤치마크에서도 평균 통과율 29%로 GPT-5.5(22%)와 오푸스 4.8(21%)을 누르고 1위를 차지했다.\n\n개발자들의 실제 반응도 이러한 지표와 흐름을 같이한다. 커뮤니티 [레딧 r/cursor](https://www.reddit.com/r/cursor/comments/1v094vj/cursor_grok_45_is_good_but_anyone_suggesting_its/)에서는 빠른 속도와 안정성, 그리고 오푸스에 준하는 성능을 훨씬 싼 값에 쓸 수 있다는 점을 높이 평가하는 목소리가 많다. 하지만 해당 스레드에서도 그록 4.5가 GPT-5.6이나 파블 5와 대등하다는 의견에는 선을 긋는 분위기다. 이 성능 격차를 좁히는 것이 그록 4.6이 해결해야 할 과제다."
+    },
+    {
+      "type": "heading",
+      "value": "선두를 지키는 세 경쟁 모델"
+    },
+    {
+      "type": "text",
+      "value": "그록 4.5가 검증을 받는 동안 선두 모델 그룹에서는 두 번의 세대 교체가 있었다. 오픈AI는 [가성비를 높인 GPT-5.6](/ko/article/openai/gpt-56-codex-comeback/)을 출시해 시장 영향력을 넓혔으며, 라우흐 CEO는 여전히 솔 버전이 업계 최고라고 평가한다. 앤트로픽 또한 지난 7월 28일 출시 직후 [지능 지수 1위에 오른 오푸스 5](/ko/article/anthropic/claude-opus-5-early-reviews/)를 선보였고, 범용 모델 시장은 파블 5가 지키고 있다.\n\n그록 4.6에 주어진 과제는 명확하다. 기존의 2달러·6달러 요금 구조를 유지하면서 선두 모델들과의 성능 격차를 얼마나 좁힐 수 있느냐다. 다음 주 공개될 챗봇 아레나의 평가 결과가 첫 객관적 성적표가 될 것이며, 이미 확보한 커서의 직접 배급망은 강력한 구조적 해자로 작용하고 있다.\n\n그록 4.6이 지금 가격 그대로 3강에 근접한 성능만 보여줘도 프론티어 경쟁은 4파전으로 바뀐다. 반대로 기대에 못 미친다면, 몇 주 간격으로 그록 4.7을 바로 붙여 둔 일정 자체가 xAI도 기회의 창이 길지 않다는 걸 알고 있다는 얘기다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "xAI will release Grok 4.6 \"around August 7,\" Elon Musk announced in a July 28 post on X. The upcoming model features 1.5 trillion parameters alongside substantial improvements to supervised fine-tuning (SFT) and reinforcement learning (RL). A larger model, Grok 4.7, is scheduled to follow within weeks.\n\nThe announcement arrives as the market shows unusual confidence in the timeline. Grok 4.5, released on July 8 and trained jointly with Cursor, has built a strong reputation over the past month, establishing the credibility xAI struggled to secure earlier this year."
+    },
+    {
+      "type": "heading",
+      "value": "Confidence Behind the August 7 Launch Target"
+    },
+    {
+      "type": "text",
+      "value": "Musk's announcement came in response to favorable third-party evaluation data. Vercel CEO Guillermo Rauch ranked Grok 4.5 as the most cost-effective cybersecurity model in Vercel's internal tests, noting it is 10 times cheaper than GPT-5.6 Sol and 5.7 times cheaper than Opus 5. In response, Musk shared [a two-model roadmap](https://crypto.news/grok-4-6-gets-aug-7-launch-date-grok-4-7-follows/).\n\nMusk noted that the subsequent Grok 4.7 will feature 2.1 trillion parameters, describing it as superior to Grok 4.6 in all metrics except serving latency. Meanwhile, LMSYS Chatbot Arena plans to begin public evaluations of Grok 4.6 the week following its release. While both launch dates remain targets rather than firm commitments, the rapid-fire scheduling of two major models within a single month signals xAI's growing confidence."
+    },
+    {
+      "type": "heading",
+      "value": "How Grok 4.5 Shifted Market Sentiment"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/a17185f728c7c1f29fa9c6c9bacf8d07fe559fc0-680x680.jpg?w=1200&auto=format",
+      "caption": "Grok 4.5 logo",
+      "alt": "xAI Grok 4.5 model logo art"
+    },
+    {
+      "type": "text",
+      "value": "Grok 4.5 is a mixture-of-experts (MoE) model trained alongside Cursor using trillions of tokens of developer-agent interaction logs. The two are already one house: Cursor was [acquired by SpaceX for $60 billion](/article/general/spacex-acquire-cursor-60b/) in June. Priced at $2 per million input tokens and $6 per million output tokens, the model is integrated natively into Cursor's desktop, web, iOS, and command-line interface (CLI) applications.\n\nPerformance metrics have validated the design. The model scored 54 on the Artificial Analysis Intelligence Index, ranking fourth and marking the first time a Grok model has entered the frontier tier. Additionally, in Snorkel's GDPval+ benchmark evaluating real professional work tasks, Grok 4.5 achieved a 29% mean pass rate to secure first place, outperforming GPT-5.5 (22%) and Opus 4.8 (21%).\n\nDeveloper reception has mirrored these benchmarks. On the [r/cursor](https://www.reddit.com/r/cursor/comments/1v094vj/cursor_grok_45_is_good_but_anyone_suggesting_its/) subreddit, users have lauded its execution speed, reliability, and Opus-class capability at a fraction of the price. However, the community remains skeptical of claims that Grok 4.5 equals GPT-5.6 or Fable 5. Addressing this performance gap is the primary objective for Grok 4.6."
+    },
+    {
+      "type": "heading",
+      "value": "Three Rivals Guarding the Frontier"
+    },
+    {
+      "type": "text",
+      "value": "The competitive frontier advanced twice during Grok 4.5's evaluation period. OpenAI expanded its footprint with a [cost-reduced GPT-5.6](/article/openai/gpt-56-codex-comeback/), though Rauch still maintains that the Sol variant leads the market. Meanwhile, Anthropic's Opus 5 [claimed the top spot](/article/anthropic/claude-opus-5-early-reviews/) on the Intelligence Index shortly after its July 28 debut, while Fable 5 retains the lead in general-purpose capabilities.\n\nFor Grok 4.6, the challenge is clear: closing the raw capability gap while maintaining the competitive $2/$6 pricing model. Arena's post-launch evaluations next week will provide the first independent assessment, while native integration within Cursor continues to serve as a key distribution moat.\n\nIf Grok 4.6 can match the performance of the leading trio on Arena at its current price point, the frontier market will expand into a four-way competition. Should it fall short, the aggressive schedule for Grok 4.7 suggests xAI is acutely aware of its limited window of opportunity."
+    }
+  ],
+  "sources": [
+    {
+      "name": "crypto.news",
+      "title": "Grok 4.6 gets Aug. 7 launch date, Grok 4.7 follows",
+      "url": "https://crypto.news/grok-4-6-gets-aug-7-launch-date-grok-4-7-follows/"
+    },
+    {
+      "name": "Cursor",
+      "title": "Introducing Grok 4.5",
+      "url": "https://cursor.com/blog/grok-4-5"
+    },
+    {
+      "name": "xAI",
+      "title": "Introducing Grok 4.5",
+      "url": "https://x.ai/news/grok-4-5"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "Grok 4.5 brings SpaceXAI to the intelligence frontier",
+      "url": "https://artificialanalysis.ai/articles/grok-4-5-brings-spacexai-to-the-the-intelligence-frontier"
+    },
+    {
+      "name": "Snorkel AI",
+      "title": "Grok 4.5 testing results: how the new model performs on real professional work",
+      "url": "https://snorkel.ai/blog/grok-4-5-testing-results-how-spacexais-new-model-performs-on-real-professional-work/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-opus-5-early-reviews",
+    "tech:ai/gpt-56-codex-comeback",
+    "tech:ai/spacex-acquire-cursor-60b",
+    "tech:ai/grok-build-composer-2-5-synergy"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
