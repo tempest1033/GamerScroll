@@ -30085,13 +30085,19 @@
     },
     {
       "title": "티니핑 매직 매치",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6786589102
+        "ios": 6786589102,
+        "android": "com.plaium.tmm"
       },
       "developer": "BY4M STUDIO CO.,LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/fd/58/aefd581d-1c9a-0a5c-a6ad-11ce9aaf218a/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "티니핑 매직 매치",
+          "appId": 6786589102
+        }
+      ],
       "addedAt": "2026-08-05T14:45:30.004Z"
     },
     {
