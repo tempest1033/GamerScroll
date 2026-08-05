@@ -43049,14 +43049,16 @@
     },
     "던전 견문록": {
       "appIds": {
-        "ios": 6782771784
+        "ios": 6782771784,
+        "android": "com.superplanet.odyssey"
       },
       "aliases": [],
       "developer": "SuperPlanet",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/16/d3/fb/16d3fb19-cec2-afd8-6e6e-7f62bad42fcb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "던전-견문록",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "각성소녀: 욕망의 여정": {
@@ -43290,8 +43292,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "NBA 덩크 시티": {
+      "appIds": {
+        "ios": 6751222389
+      },
+      "aliases": [],
+      "developer": "NETEASE INTERACTIVE ENTERTAINMENT PTE. LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/96/94/de96948f-9265-e74d-3218-6463cf604754/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
+      "slug": "nba-덩크-시티",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "조운과 아두": {
+      "appIds": {
+        "android": "com.zyyad.mihuan"
+      },
+      "aliases": [],
+      "developer": "Mihuan Limited",
+      "icon": "https://play-lh.googleusercontent.com/N8JO4T8tPs_yYOTpbkW_IjmGvaUzN6FUJsoI5iK5xiuILtsBfJXikAbAuUSeB329K-YgbNFnO2zVRaK5tXK3ans",
+      "slug": "조운과-아두",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-06",
-  "totalGames": 3299
+  "totalGames": 3301
 }
