@@ -1,9 +1,21 @@
 {
-  "updatedAt": "2026-08-04T12:27:48.534Z",
+  "updatedAt": "2026-08-05T14:45:11.384Z",
   "period": "30days",
   "games": [
     {
+      "slug": "할리우드-머지",
+      "views": 4
+    },
+    {
+      "slug": "pax-dei",
+      "views": 3
+    },
+    {
       "slug": "꿈의-집-homescapes",
+      "views": 3
+    },
+    {
+      "slug": "명조워더링-웨이브",
       "views": 3
     },
     {
@@ -11,7 +23,35 @@
       "views": 3
     },
     {
+      "slug": "adventure-capitalist",
+      "views": 2
+    },
+    {
+      "slug": "alabaster-dawn",
+      "views": 2
+    },
+    {
       "slug": "brain-puzzle-2-logic-twist",
+      "views": 2
+    },
+    {
+      "slug": "caves-of-qud",
+      "views": 2
+    },
+    {
+      "slug": "cyberpunk-2077",
+      "views": 2
+    },
+    {
+      "slug": "dark-hours",
+      "views": 2
+    },
+    {
+      "slug": "destiny-2-renegades",
+      "views": 2
+    },
+    {
+      "slug": "devil-may-cry-5",
       "views": 2
     },
     {
@@ -23,60 +63,20 @@
       "views": 2
     },
     {
-      "slug": "nova-space-armada",
+      "slug": "iq-블록-brain-buster",
       "views": 2
     },
     {
-      "slug": "pax-dei",
+      "slug": "left-4-dead-2",
       "views": 2
     },
     {
-      "slug": "sol-enchant",
+      "slug": "lethal-company",
       "views": 2
     },
     {
-      "slug": "wing-fighter",
+      "slug": "limbus-company",
       "views": 2
-    },
-    {
-      "slug": "계급장-키우기",
-      "views": 2
-    },
-    {
-      "slug": "명조워더링-웨이브",
-      "views": 2
-    },
-    {
-      "slug": "서머너즈-워-천공의-아레나",
-      "views": 2
-    },
-    {
-      "slug": "클래시-오브-클랜",
-      "views": 2
-    },
-    {
-      "slug": "테이스티-트레블-합성-게임",
-      "views": 2
-    },
-    {
-      "slug": "aion2",
-      "views": 1
-    },
-    {
-      "slug": "annoying-uncle-펀칭-게임",
-      "views": 1
-    },
-    {
-      "slug": "arma-reforger",
-      "views": 1
-    },
-    {
-      "slug": "arrows-world",
-      "views": 1
-    },
-    {
-      "slug": "assetto-corsa",
-      "views": 1
     }
   ]
 }

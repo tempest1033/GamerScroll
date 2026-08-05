@@ -43242,8 +43242,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "티니핑 매직 매치": {
+      "appIds": {
+        "ios": 6786589102
+      },
+      "aliases": [],
+      "developer": "BY4M STUDIO CO.,LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/fd/58/aefd581d-1c9a-0a5c-a6ad-11ce9aaf218a/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "티니핑-매직-매치",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-05",
-  "totalGames": 3295
+  "totalGames": 3296
 }
