@@ -43254,8 +43254,44 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Fields of Mistria": {
+      "appIds": {
+        "steam": "2142790"
+      },
+      "aliases": [],
+      "developer": "NPC Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2142790/9b112d1eec7cda592c2c96b50f66421f80cde937/capsule_231x87.jpg?t=1785944891",
+      "slug": "fields-of-mistria",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Doloc Town": {
+      "appIds": {
+        "steam": "2285550"
+      },
+      "aliases": [],
+      "developer": "RedSaw Games Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2285550/e5335203d8773ca19758644dd161f076fa3b211b/capsule_231x87.jpg?t=1785467653",
+      "slug": "doloc-town",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Kill The Shadow": {
+      "appIds": {
+        "steam": "2660230"
+      },
+      "aliases": [],
+      "developer": "Shadowlight",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2660230/e18f13987e821170978e7b821c8ce4f0801bef8b/capsule_231x87.jpg?t=1785894948",
+      "slug": "kill-the-shadow",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-08-05",
-  "totalGames": 3296
+  "lastUpdated": "2026-08-06",
+  "totalGames": 3299
 }
