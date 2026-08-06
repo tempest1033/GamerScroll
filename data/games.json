@@ -43330,8 +43330,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "STEINS;GATE RE:BOOT": {
+      "appIds": {
+        "steam": "4012810"
+      },
+      "aliases": [],
+      "developer": "MAGES. Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4012810/66cd3882f3926e2d0e88c598fde47213517e9a70/capsule_231x87.jpg?t=1785993257",
+      "slug": "steinsgate-reboot",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-06",
-  "totalGames": 3302
+  "totalGames": 3303
 }
