@@ -1,82 +1,82 @@
 {
-  "updatedAt": "2026-08-05T14:45:11.384Z",
+  "updatedAt": "2026-08-06T15:10:49.490Z",
   "period": "30days",
   "games": [
     {
-      "slug": "할리우드-머지",
-      "views": 4
+      "slug": "mount-blade-ii-bannerlord-war-sails",
+      "views": 9
     },
     {
-      "slug": "pax-dei",
-      "views": 3
+      "slug": "egypt-path-of-oasis",
+      "views": 7
     },
     {
-      "slug": "꿈의-집-homescapes",
-      "views": 3
+      "slug": "super-robot-wars-30",
+      "views": 7
     },
     {
-      "slug": "명조워더링-웨이브",
-      "views": 3
+      "slug": "danganronpa-another-episode-ultra-despair-girls",
+      "views": 6
+    },
+    {
+      "slug": "roterra-4-magical-revolution",
+      "views": 6
     },
     {
       "slug": "퍼즐앤드래곤",
-      "views": 3
+      "views": 6
+    },
+    {
+      "slug": "craft-world-block-building-3d",
+      "views": 5
+    },
+    {
+      "slug": "lucky-arrow-out",
+      "views": 5
+    },
+    {
+      "slug": "mobile-suit-gundam-battle-operation-2",
+      "views": 5
+    },
+    {
+      "slug": "pick-me-up-3d-택시-게임",
+      "views": 5
+    },
+    {
+      "slug": "swipe-it-board-wooden-puzzle",
+      "views": 5
+    },
+    {
+      "slug": "warframe-voruna-prime-access-prime-pack",
+      "views": 5
+    },
+    {
+      "slug": "word-screw-나사와-단어",
+      "views": 5
+    },
+    {
+      "slug": "히어로-모험단",
+      "views": 5
+    },
+    {
+      "slug": "18사쿠라-사가",
+      "views": 4
+    },
+    {
+      "slug": "33-immortals",
+      "views": 4
+    },
+    {
+      "slug": "4컷-연애게임",
+      "views": 4
     },
     {
       "slug": "adventure-capitalist",
-      "views": 2
+      "views": 4
     },
     {
-      "slug": "alabaster-dawn",
-      "views": 2
-    },
-    {
-      "slug": "brain-puzzle-2-logic-twist",
-      "views": 2
-    },
-    {
-      "slug": "caves-of-qud",
-      "views": 2
-    },
-    {
-      "slug": "cyberpunk-2077",
-      "views": 2
-    },
-    {
-      "slug": "dark-hours",
-      "views": 2
-    },
-    {
-      "slug": "destiny-2-renegades",
-      "views": 2
-    },
-    {
-      "slug": "devil-may-cry-5",
-      "views": 2
-    },
-    {
-      "slug": "efootball",
-      "views": 2
-    },
-    {
-      "slug": "f1-25",
-      "views": 2
-    },
-    {
-      "slug": "iq-블록-brain-buster",
-      "views": 2
-    },
-    {
-      "slug": "left-4-dead-2",
-      "views": 2
-    },
-    {
-      "slug": "lethal-company",
-      "views": 2
-    },
-    {
-      "slug": "limbus-company",
-      "views": 2
+      "slug": "arrow-line-puzzle",
+      "views": 4
     }
   ]
 }

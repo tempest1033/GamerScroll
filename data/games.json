@@ -43354,8 +43354,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Dig, Dig, Die": {
+      "appIds": {
+        "steam": "4074010"
+      },
+      "aliases": [],
+      "developer": "Alice Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4074010/5c13e0cbf30028fdb0e760186a294c2ea21610fc/capsule_231x87.jpg?t=1786016977",
+      "slug": "dig-dig-die",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-08-06",
-  "totalGames": 3304
+  "lastUpdated": "2026-08-07",
+  "totalGames": 3305
 }
