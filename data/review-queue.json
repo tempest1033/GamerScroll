@@ -30144,6 +30144,57 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f9/fe/96/f9fe967b-1253-0c0a-dea8-fd9fc636b212/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-06T10:44:35.181Z"
+    },
+    {
+      "title": "히어로 랜드M",
+      "status": "single",
+      "appIds": {
+        "ios": 6754679035
+      },
+      "developer": "Orienjoy International Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/9a/cd/779acda8-ed1e-0654-79c0-aa16be279a14/icon_IOS-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-07T05:29:54.258Z"
+    },
+    {
+      "title": "Brain Crush: Blush Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.brbp.brain.crush.xmcp"
+      },
+      "developer": "Joyvix Games",
+      "icon": "https://play-lh.googleusercontent.com/beZePLC4RkkLHj8ldPnzGdsztDbBupX9hEDKIQXX7HxJr7wYIdCvAT-LcHf_BoWFOv9rSahLAEZu4W-VtMjr3g",
+      "searchResults": [
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        }
+      ],
+      "addedAt": "2026-08-07T05:29:54.675Z"
+    },
+    {
+      "title": "Bus Loop:Jam Master",
+      "status": "single",
+      "appIds": {
+        "android": "bus.loop.traffic.jam.fever.bus.puzzle"
+      },
+      "developer": "Shoyo Mobi Tech Limited-Marble",
+      "icon": "https://play-lh.googleusercontent.com/UvgbXHSx-Vffdeh2LX-SyLo3iEdfwYi1YsFfuS2jJUpv4gfk2btpTHO9HiFx5s5-Kmpio5KByh21EpAfKS0_",
+      "searchResults": [
+        {
+          "title": "Bus Loop: Traffic Jam Master",
+          "appId": 6766772662
+        },
+        {
+          "title": "Car Jam Loop - 트래픽 버스게임",
+          "appId": 6783277968
+        },
+        {
+          "title": "Bus Traffic Fever!",
+          "appId": 6759763476
+        }
+      ],
+      "addedAt": "2026-08-07T05:29:55.013Z"
     }
   ],
   "approved": [

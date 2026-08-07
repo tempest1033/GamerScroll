@@ -43418,8 +43418,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "히어로 랜드M": {
+      "appIds": {
+        "ios": 6754679035
+      },
+      "aliases": [],
+      "developer": "Orienjoy International Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/9a/cd/779acda8-ed1e-0654-79c0-aa16be279a14/icon_IOS-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "히어로-랜드m",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Brain Crush: Blush Puzzle": {
+      "appIds": {
+        "android": "com.brbp.brain.crush.xmcp"
+      },
+      "aliases": [],
+      "developer": "Joyvix Games",
+      "icon": "https://play-lh.googleusercontent.com/beZePLC4RkkLHj8ldPnzGdsztDbBupX9hEDKIQXX7HxJr7wYIdCvAT-LcHf_BoWFOv9rSahLAEZu4W-VtMjr3g",
+      "slug": "brain-crush-blush-puzzle",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Bus Loop:Jam Master": {
+      "appIds": {
+        "android": "bus.loop.traffic.jam.fever.bus.puzzle"
+      },
+      "aliases": [],
+      "developer": "Shoyo Mobi Tech Limited-Marble",
+      "icon": "https://play-lh.googleusercontent.com/UvgbXHSx-Vffdeh2LX-SyLo3iEdfwYi1YsFfuS2jJUpv4gfk2btpTHO9HiFx5s5-Kmpio5KByh21EpAfKS0_",
+      "slug": "bus-loopjam-master",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-07",
-  "totalGames": 3309
+  "totalGames": 3312
 }
