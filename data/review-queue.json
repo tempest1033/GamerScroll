@@ -30259,6 +30259,22 @@
         }
       ],
       "addedAt": "2026-08-07T18:09:54.102Z"
+    },
+    {
+      "title": "타이탄 러쉬: 서바이벌",
+      "status": "single",
+      "appIds": {
+        "android": "com.ratinghope.gplay"
+      },
+      "developer": "RATING GAME",
+      "icon": "https://play-lh.googleusercontent.com/sxhliWIHQkxvxkVnR1YJa-Bls74C3av7VXIAcZKGnbbO12vLFpw1bINH8VeCZ2yw8uwL5ApP1cQ16g7FMJWYnQ",
+      "searchResults": [
+        {
+          "title": "라스트 워: 서바이벌",
+          "appId": 6448786147
+        }
+      ],
+      "addedAt": "2026-08-07T21:08:32.974Z"
     }
   ],
   "approved": [

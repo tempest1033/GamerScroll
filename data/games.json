@@ -43518,8 +43518,20 @@
         "android",
         "ios"
       ]
+    },
+    "타이탄 러쉬: 서바이벌": {
+      "appIds": {
+        "android": "com.ratinghope.gplay"
+      },
+      "aliases": [],
+      "developer": "RATING GAME",
+      "icon": "https://play-lh.googleusercontent.com/sxhliWIHQkxvxkVnR1YJa-Bls74C3av7VXIAcZKGnbbO12vLFpw1bINH8VeCZ2yw8uwL5ApP1cQ16g7FMJWYnQ",
+      "slug": "타이탄-러쉬-서바이벌",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-08",
-  "totalGames": 3317
+  "totalGames": 3318
 }
