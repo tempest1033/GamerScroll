@@ -30108,13 +30108,19 @@
     },
     {
       "title": "NBA 덩크 시티",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6751222389
+        "ios": "6751222389",
+        "android": "com.netease.dunkcdjp"
       },
       "developer": "NETEASE INTERACTIVE ENTERTAINMENT PTE. LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/96/94/de96948f-9265-e74d-3218-6463cf604754/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "NBA 덩크 시티",
+          "appId": "6751222389"
+        }
+      ],
       "addedAt": "2026-08-05T20:06:11.625Z"
     },
     {

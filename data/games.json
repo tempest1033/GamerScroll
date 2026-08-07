@@ -43299,14 +43299,16 @@
     },
     "NBA 덩크 시티": {
       "appIds": {
-        "ios": 6751222389
+        "ios": "6751222389",
+        "android": "com.netease.dunkcdjp"
       },
       "aliases": [],
       "developer": "NETEASE INTERACTIVE ENTERTAINMENT PTE. LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/96/94/de96948f-9265-e74d-3218-6463cf604754/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
       "slug": "nba-덩크-시티",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "조운과 아두": {
