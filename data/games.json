@@ -43490,8 +43490,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Arrow Escape 3D": {
+      "appIds": {
+        "ios": 6793088032
+      },
+      "aliases": [],
+      "developer": "Kyung Hyun Park",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/00/2c/86002c2b-e018-9dc1-9b14-d2f491b54b30/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "arrow-escape-3d",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-08",
-  "totalGames": 3315
+  "totalGames": 3316
 }
