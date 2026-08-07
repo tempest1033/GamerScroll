@@ -30195,6 +30195,28 @@
         }
       ],
       "addedAt": "2026-08-07T05:29:55.013Z"
+    },
+    {
+      "title": "전사들과 모험",
+      "status": "single",
+      "appIds": {
+        "ios": 6769693924
+      },
+      "developer": "Ryoko Navi Online Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a7/62/9d/a7629d66-1b5b-d92f-82d0-a52818c61c5b/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-07T14:08:41.632Z"
+    },
+    {
+      "title": "Titan Rush: Survival",
+      "status": "single",
+      "appIds": {
+        "ios": 6759817762
+      },
+      "developer": "Ourpalm Co.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/57/3d/42573d75-7812-3818-14f5-8ae560aec79b/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-07T14:08:41.812Z"
     }
   ],
   "approved": [
