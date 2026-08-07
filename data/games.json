@@ -43235,14 +43235,16 @@
     },
     "MHA: UNITED SURVIVAL": {
       "appIds": {
-        "ios": 6758648051
+        "ios": 6758648051,
+        "android": "com.klab.heroaca.united.survival"
       },
       "aliases": [],
       "developer": "KLab Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/01/2a/fd/012afd89-c95c-62c2-593e-9beed5911561/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "mha-united-survival",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "티니핑 매직 매치": {
@@ -43366,8 +43368,56 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ReStory: Chill Electronics Repairs": {
+      "appIds": {
+        "steam": "3812600"
+      },
+      "aliases": [],
+      "developer": "Mandragora",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3812600/c6b42e4ff45667bddcffc9710ed4c4184b6d6950/header_alt_assets_3_koreana.jpg?t=1786056257",
+      "slug": "restory-chill-electronics-repairs",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "IRON NEST: Heavy Turret Simulator": {
+      "appIds": {
+        "steam": "2950790"
+      },
+      "aliases": [],
+      "developer": "Nick Nieuwoudt",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2950790/922472560f653fd897313ab7a10dd86b018d373f/capsule_231x87.jpg?t=1786028313",
+      "slug": "iron-nest-heavy-turret-simulator",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "DragonSword : Awakening - Costume : Moonlight on the Night Sea": {
+      "appIds": {
+        "steam": "5000050"
+      },
+      "aliases": [],
+      "developer": "Hound13 Inc.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5000050/a674f5f0c30f0960a2dd9c51c7cced14e8c8f2a5/capsule_231x87.jpg?t=1786058937",
+      "slug": "dragonsword-awakening-costume-moonlight-on-the-night-sea",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Sovereign Tower": {
+      "appIds": {
+        "steam": "4113940"
+      },
+      "aliases": [],
+      "developer": "WILD WITS GAMES",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4113940/08f713104c04740bb30f585787db8ae39b8372fe/capsule_231x87.jpg?t=1786033469",
+      "slug": "sovereign-tower",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-07",
-  "totalGames": 3305
+  "totalGames": 3309
 }

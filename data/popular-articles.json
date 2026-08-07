@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-08-06T01:55:24.229Z",
+  "updatedAt": "2026-08-07T00:37:41.968Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 55,
+      "views": 60,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 29,
+      "views": 22,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 10,
+      "views": 12,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 7,
+      "views": 8,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
@@ -35,10 +35,23 @@
     },
     {
       "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 5,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 5,
       "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 3,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
@@ -48,11 +61,16 @@
       "path": "/wiki/history/black-and-white-demis-hassabis/"
     },
     {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/the-war-of-genesis/"
+      "type": "hotpick",
+      "slug": "agile-jira-confluence-game-dev",
+      "views": 2,
+      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-global-sold-out",
+      "views": 2,
+      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
     },
     {
       "type": "issue",
@@ -73,37 +91,11 @@
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
       "type": "wiki",
       "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -179,18 +171,6 @@
     },
     {
       "type": "issue",
-      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
-      "views": 1,
-      "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "pokemon-pokopia-global-sold-out",
-      "views": 1,
-      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
-    },
-    {
-      "type": "issue",
       "slug": "pubg-battlegrounds-birth-history",
       "views": 1,
       "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
@@ -238,6 +218,12 @@
       "path": "/magazine/ranking/mobile-june-2026-kr/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
       "type": "wiki",
       "slug": "game-revenue-structure",
       "category": "business",
@@ -278,6 +264,20 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "wiki",

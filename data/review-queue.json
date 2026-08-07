@@ -30074,13 +30074,19 @@
     },
     {
       "title": "MHA: UNITED SURVIVAL",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6758648051
+        "ios": 6758648051,
+        "android": "com.klab.heroaca.united.survival"
       },
       "developer": "KLab Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/01/2a/fd/012afd89-c95c-62c2-593e-9beed5911561/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "MHA: UNITED SURVIVAL",
+          "appId": 6758648051
+        }
+      ],
       "addedAt": "2026-08-05T10:29:28.018Z"
     },
     {
