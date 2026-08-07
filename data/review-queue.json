@@ -30147,13 +30147,19 @@
     },
     {
       "title": "히어로 랜드M",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6754679035
+        "ios": 6754679035,
+        "android": "com.orienjoy.heroland.kr"
       },
       "developer": "Orienjoy International Company Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/9a/cd/779acda8-ed1e-0654-79c0-aa16be279a14/icon_IOS-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "히어로 랜드M",
+          "appId": 6754679035
+        }
+      ],
       "addedAt": "2026-08-07T05:29:54.258Z"
     },
     {
@@ -30228,6 +30234,31 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/00/2c/86002c2b-e018-9dc1-9b14-d2f491b54b30/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-07T16:15:24.649Z"
+    },
+    {
+      "title": "라인업: 몽타주 그리기",
+      "status": "matched",
+      "appIds": {
+        "android": "com.jhulse.lineup",
+        "ios": 1510322856
+      },
+      "developer": "Kwalee Ltd",
+      "icon": "https://play-lh.googleusercontent.com/NvbedFYwOULoTGVAAR_5VCmtzjICUigXorzbtmOS3WvtQZt8utVNWz8vOrjCAIfg1FfgrlzRfJjYa4BlA0QRIQ",
+      "searchResults": [
+        {
+          "title": "라인업: 몽타주 그리기",
+          "appId": 1510322856
+        },
+        {
+          "title": "교사 시뮬레이터",
+          "appId": 1523627747
+        },
+        {
+          "title": "공항 보안",
+          "appId": 1588094496
+        }
+      ],
+      "addedAt": "2026-08-07T18:09:54.102Z"
     }
   ],
   "approved": [

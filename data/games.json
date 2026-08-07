@@ -43421,14 +43421,16 @@
     },
     "히어로 랜드M": {
       "appIds": {
-        "ios": 6754679035
+        "ios": 6754679035,
+        "android": "com.orienjoy.heroland.kr"
       },
       "aliases": [],
       "developer": "Orienjoy International Company Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/9a/cd/779acda8-ed1e-0654-79c0-aa16be279a14/icon_IOS-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "히어로-랜드m",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Brain Crush: Blush Puzzle": {
@@ -43502,8 +43504,22 @@
       "platforms": [
         "ios"
       ]
+    },
+    "라인업: 몽타주 그리기": {
+      "appIds": {
+        "android": "com.jhulse.lineup",
+        "ios": 1510322856
+      },
+      "aliases": [],
+      "developer": "Kwalee Ltd",
+      "icon": "https://play-lh.googleusercontent.com/NvbedFYwOULoTGVAAR_5VCmtzjICUigXorzbtmOS3WvtQZt8utVNWz8vOrjCAIfg1FfgrlzRfJjYa4BlA0QRIQ",
+      "slug": "라인업-몽타주-그리기",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-08",
-  "totalGames": 3316
+  "totalGames": 3317
 }
