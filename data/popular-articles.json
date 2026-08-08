@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-08-07T00:37:41.968Z",
+  "updatedAt": "2026-08-08T01:17:09.400Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 60,
+      "views": 68,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 22,
+      "views": 21,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -24,7 +24,7 @@
     {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 8,
+      "views": 7,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
@@ -68,15 +68,9 @@
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-global-sold-out",
+      "slug": "nvidia-gtc-2026-dlss5-gaming",
       "views": 2,
-      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
-    },
-    {
-      "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 2,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
+      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
     },
     {
       "type": "issue",
@@ -89,6 +83,13 @@
       "slug": "wuthering-waves-korea-grossing-no1",
       "views": 2,
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
+    },
+    {
+      "type": "wiki",
+      "slug": "astonishia-story-sonnori",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/astonishia-story-sonnori/"
     },
     {
       "type": "wiki",
@@ -117,6 +118,12 @@
     },
     {
       "type": "issue",
+      "slug": "ai-basic-act-game-industry-confusion",
+      "views": 1,
+      "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
+    },
+    {
+      "type": "issue",
       "slug": "devsisters-q1-loss-voluntary-retirement",
       "views": 1,
       "path": "/magazine/issue/devsisters-q1-loss-voluntary-retirement/"
@@ -126,12 +133,6 @@
       "slug": "dragonsword-awakening-steam-demo",
       "views": 1,
       "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
-    },
-    {
-      "type": "issue",
-      "slug": "galaxy-z-flip8-snapdragon-exynos-surge",
-      "views": 1,
-      "path": "/magazine/issue/galaxy-z-flip8-snapdragon-exynos-surge/"
     },
     {
       "type": "issue",
@@ -165,9 +166,9 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-gtc-2026-dlss5-gaming",
+      "slug": "pokemon-pokopia-global-sold-out",
       "views": 1,
-      "path": "/magazine/issue/nvidia-gtc-2026-dlss5-gaming/"
+      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
     },
     {
       "type": "issue",
@@ -177,9 +178,9 @@
     },
     {
       "type": "issue",
-      "slug": "rotk8-remake-pk-mixed-launch",
+      "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
-      "path": "/magazine/issue/rotk8-remake-pk-mixed-launch/"
+      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
     },
     {
       "type": "issue",
@@ -192,6 +193,12 @@
       "slug": "starcraft-shooter-blizzard",
       "views": 1,
       "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
+      "type": "issue",
+      "slug": "steam-deck-oled-price-hike-may-2026",
+      "views": 1,
+      "path": "/magazine/issue/steam-deck-oled-price-hike-may-2026/"
     },
     {
       "type": "issue",
@@ -243,13 +250,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
-      "slug": "astonishia-story-sonnori",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/astonishia-story-sonnori/"
     },
     {
       "type": "wiki",
