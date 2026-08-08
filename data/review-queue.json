@@ -30275,6 +30275,17 @@
         }
       ],
       "addedAt": "2026-08-07T21:08:32.974Z"
+    },
+    {
+      "title": "여전사 키우기 : 듀얼 방치형",
+      "status": "single",
+      "appIds": {
+        "ios": 6761979765
+      },
+      "developer": "GT Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2d/cc/32/2dcc324b-b7f1-40fb-4d23-cf0ee13badf4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-08T04:34:36.889Z"
     }
   ],
   "approved": [
