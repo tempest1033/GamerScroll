@@ -43618,8 +43618,20 @@
         "android",
         "ios"
       ]
+    },
+    "Cast n Chill": {
+      "appIds": {
+        "steam": "3483740"
+      },
+      "aliases": [],
+      "developer": "Wombat Brawler",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3483740/69a88dc7c3311e0db03d43816ceb585f49295113/capsule_231x87.jpg?t=1785377115",
+      "slug": "cast-n-chill",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-10",
-  "totalGames": 3325
+  "totalGames": 3326
 }
