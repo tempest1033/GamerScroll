@@ -30343,6 +30343,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bb/31/72/bb317292-a733-c1c3-c57a-5cc5cd077f5f/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-09T10:27:03.573Z"
+    },
+    {
+      "title": "POINPY",
+      "status": "single",
+      "appIds": {
+        "ios": 1529163722
+      },
+      "developer": "Devolver",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e7/c0/b1/e7c0b19d-f33d-78a7-3966-a1d64769f411/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-09T13:44:00.699Z"
     }
   ],
   "approved": [
