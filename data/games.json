@@ -43471,14 +43471,16 @@
     },
     "전사들과 모험": {
       "appIds": {
-        "ios": 6769693924
+        "ios": 6769693924,
+        "android": "com.mz.fzcqkr"
       },
       "aliases": [],
       "developer": "Ryoko Navi Online Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a7/62/9d/a7629d66-1b5b-d92f-82d0-a52818c61c5b/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
       "slug": "전사들과-모험",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Titan Rush: Survival": {
@@ -43554,8 +43556,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "환수 진화": {
+      "appIds": {
+        "android": "com.hsjh.kr3"
+      },
+      "aliases": [],
+      "developer": "RRMM007",
+      "icon": "https://play-lh.googleusercontent.com/_3YXd4xAFA1CyLox73Gd83JVMJIwUB6gDjmttNVWQ-99U3vSPrwfBFE-_ZZdQgigGN1wQRXkc8jGNYBaTb4QeY8",
+      "slug": "환수-진화",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Dream Tiles: Puzzle Link​": {
+      "appIds": {
+        "android": "com.dream.tiles.puzzlelink"
+      },
+      "aliases": [],
+      "developer": "Magic Products",
+      "icon": "https://play-lh.googleusercontent.com/s5H8AOpxlf5s_7YZhOzy13AZzepOEhxru-R6X6uYuunPvo-6YxH_KvnxQ4zbGmmS2hOOQjDopFzFo2LVUH6DFMQ",
+      "slug": "dream-tiles-puzzle-link",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-09",
-  "totalGames": 3320
+  "totalGames": 3322
 }

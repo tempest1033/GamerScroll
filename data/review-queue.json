@@ -30204,13 +30204,19 @@
     },
     {
       "title": "전사들과 모험",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6769693924
+        "ios": 6769693924,
+        "android": "com.mz.fzcqkr"
       },
       "developer": "Ryoko Navi Online Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a7/62/9d/a7629d66-1b5b-d92f-82d0-a52818c61c5b/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "전사들과 모험",
+          "appId": 6769693924
+        }
+      ],
       "addedAt": "2026-08-07T14:08:41.632Z"
     },
     {
@@ -30286,6 +30292,46 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2d/cc/32/2dcc324b-b7f1-40fb-4d23-cf0ee13badf4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-08T04:34:36.889Z"
+    },
+    {
+      "title": "환수 진화",
+      "status": "single",
+      "appIds": {
+        "android": "com.hsjh.kr3"
+      },
+      "developer": "RRMM007",
+      "icon": "https://play-lh.googleusercontent.com/_3YXd4xAFA1CyLox73Gd83JVMJIwUB6gDjmttNVWQ-99U3vSPrwfBFE-_ZZdQgigGN1wQRXkc8jGNYBaTb4QeY8",
+      "searchResults": [
+        {
+          "title": "만수 세계 - 산해경에 나오는 신화 속 짐승들의 이야기",
+          "appId": 6764329663
+        }
+      ],
+      "addedAt": "2026-08-09T07:48:49.165Z"
+    },
+    {
+      "title": "Dream Tiles: Puzzle Link​",
+      "status": "single",
+      "appIds": {
+        "android": "com.dream.tiles.puzzlelink"
+      },
+      "developer": "Magic Products",
+      "icon": "https://play-lh.googleusercontent.com/s5H8AOpxlf5s_7YZhOzy13AZzepOEhxru-R6X6uYuunPvo-6YxH_KvnxQ4zbGmmS2hOOQjDopFzFo2LVUH6DFMQ",
+      "searchResults": [
+        {
+          "title": "Domino Dreams™",
+          "appId": 6444043291
+        },
+        {
+          "title": "Disney Solitaire 디즈니 솔리테어",
+          "appId": 6475757306
+        },
+        {
+          "title": "로얄 매치 (Royal Match)",
+          "appId": 1482155847
+        }
+      ],
+      "addedAt": "2026-08-09T07:48:49.472Z"
     }
   ],
   "approved": [
