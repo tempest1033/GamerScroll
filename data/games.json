@@ -43580,8 +43580,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "캡팝: 키캡 클리커": {
+      "appIds": {
+        "ios": 6791143065
+      },
+      "aliases": [],
+      "developer": "SEYUN JEONG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bb/31/72/bb317292-a733-c1c3-c57a-5cc5cd077f5f/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "캡팝-키캡-클리커",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-09",
-  "totalGames": 3322
+  "totalGames": 3323
 }

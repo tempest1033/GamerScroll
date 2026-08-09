@@ -30332,6 +30332,17 @@
         }
       ],
       "addedAt": "2026-08-09T07:48:49.472Z"
+    },
+    {
+      "title": "캡팝: 키캡 클리커",
+      "status": "single",
+      "appIds": {
+        "ios": 6791143065
+      },
+      "developer": "SEYUN JEONG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bb/31/72/bb317292-a733-c1c3-c57a-5cc5cd077f5f/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-09T10:27:03.573Z"
     }
   ],
   "approved": [
