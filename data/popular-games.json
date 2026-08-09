@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-08T15:26:43.837Z",
+  "updatedAt": "2026-08-09T15:56:25.579Z",
   "period": "30days",
   "games": [
     {
@@ -20,10 +20,6 @@
     },
     {
       "slug": "roterra-4-magical-revolution",
-      "views": 6
-    },
-    {
-      "slug": "퍼즐앤드래곤",
       "views": 6
     },
     {
@@ -52,6 +48,10 @@
     },
     {
       "slug": "word-screw-나사와-단어",
+      "views": 5
+    },
+    {
+      "slug": "퍼즐앤드래곤",
       "views": 5
     },
     {
