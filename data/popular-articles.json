@@ -1,37 +1,37 @@
 {
-  "updatedAt": "2026-08-08T01:17:09.400Z",
+  "updatedAt": "2026-08-09T01:09:55.308Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 68,
+      "views": 72,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 21,
+      "views": 20,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 12,
+      "views": 15,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 7,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 6,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "wiki",
@@ -54,17 +54,16 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
       "type": "hotpick",
       "slug": "agile-jira-confluence-game-dev",
       "views": 2,
       "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
+    },
+    {
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 2,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -79,12 +78,6 @@
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
-      "type": "issue",
-      "slug": "wuthering-waves-korea-grossing-no1",
-      "views": 2,
-      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
-    },
-    {
       "type": "wiki",
       "slug": "astonishia-story-sonnori",
       "category": "history",
@@ -93,10 +86,17 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-history",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-history/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "hotpick",
@@ -112,27 +112,9 @@
     },
     {
       "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 1,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
-    },
-    {
-      "type": "issue",
       "slug": "ai-basic-act-game-industry-confusion",
       "views": 1,
       "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
-    },
-    {
-      "type": "issue",
-      "slug": "devsisters-q1-loss-voluntary-retirement",
-      "views": 1,
-      "path": "/magazine/issue/devsisters-q1-loss-voluntary-retirement/"
-    },
-    {
-      "type": "issue",
-      "slug": "dragonsword-awakening-steam-demo",
-      "views": 1,
-      "path": "/magazine/issue/dragonsword-awakening-steam-demo/"
     },
     {
       "type": "issue",
@@ -154,12 +136,6 @@
     },
     {
       "type": "issue",
-      "slug": "mongil-star-dive-global-launch",
-      "views": 1,
-      "path": "/magazine/issue/mongil-star-dive-global-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "nioh3-hotpick-soulslike-masterpiece",
       "views": 1,
       "path": "/magazine/issue/nioh3-hotpick-soulslike-masterpiece/"
@@ -172,27 +148,9 @@
     },
     {
       "type": "issue",
-      "slug": "pubg-battlegrounds-birth-history",
-      "views": 1,
-      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
-    },
-    {
-      "type": "issue",
       "slug": "seedance-2-hollywood-shock-next-version",
       "views": 1,
       "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "issue",
-      "slug": "sony-pc-exit-hulst-confirmation",
-      "views": 1,
-      "path": "/magazine/issue/sony-pc-exit-hulst-confirmation/"
-    },
-    {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
-      "views": 1,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
       "type": "issue",
@@ -211,6 +169,18 @@
       "slug": "tomb-raider-legacy-atlantis-release-date",
       "views": 1,
       "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
+    },
+    {
+      "type": "issue",
+      "slug": "wuthering-waves-korea-grossing-no1",
+      "views": 1,
+      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "ranking",
@@ -260,17 +230,17 @@
     },
     {
       "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",
