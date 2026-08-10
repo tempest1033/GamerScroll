@@ -30371,6 +30371,17 @@
         }
       ],
       "addedAt": "2026-08-09T18:37:28.833Z"
+    },
+    {
+      "title": "돼지 농장",
+      "status": "single",
+      "appIds": {
+        "ios": 991847114
+      },
+      "developer": "EAGLE, K.K.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3a/89/75/3a8975ac-9a52-c76f-6b67-a47c70febf95/AppIcon-0-0-1x_U007emarketing-0-9-0-85-220.jpeg/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-10T08:23:54.692Z"
     }
   ],
   "approved": [
