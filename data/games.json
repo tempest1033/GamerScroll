@@ -43654,8 +43654,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Bubble Shooter - Puzzle Games": {
+      "appIds": {
+        "ios": 1382135981
+      },
+      "aliases": [],
+      "developer": "俊威 钟",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6b/52/97/6b52976f-2300-9e1d-0e2b-59d0718df94e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "bubble-shooter-puzzle-games",
+      "platforms": [
+        "ios"
+      ]
     }
   },
-  "lastUpdated": "2026-08-10",
-  "totalGames": 3328
+  "lastUpdated": "2026-08-11",
+  "totalGames": 3329
 }
