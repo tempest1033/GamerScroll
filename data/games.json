@@ -43642,8 +43642,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Slime Up！": {
+      "appIds": {
+        "ios": 6762334135
+      },
+      "aliases": [],
+      "developer": "ZPLAY (HK) TECHNOLOGY CO., LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/06/13/53061362-ee86-796b-74cb-9409a60bf5c9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "slime-up",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-10",
-  "totalGames": 3327
+  "totalGames": 3328
 }
