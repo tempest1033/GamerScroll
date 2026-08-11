@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-10T01:11:29.677Z",
+  "updatedAt": "2026-08-11T01:52:39.280Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 58,
+      "views": 55,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
@@ -18,14 +18,8 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 16,
+      "views": 14,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 6,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "issue",
@@ -34,24 +28,17 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 5,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
       "type": "wiki",
       "slug": "the-war-of-genesis",
       "category": "history",
-      "views": 5,
+      "views": 4,
       "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
@@ -67,22 +54,16 @@
       "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
       "views": 2,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026"
     },
     {
-      "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
       "views": 2,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 2,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "issue",
@@ -97,6 +78,12 @@
       "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
       "type": "wiki",
       "slug": "astonishia-story-sonnori",
       "category": "history",
@@ -105,29 +92,16 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
-      "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
       "views": 1,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "version-control-system",
-      "views": 1,
-      "path": "/magazine/hotpick/version-control-system/"
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -149,6 +123,18 @@
     },
     {
       "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-90day-benefit-controversy",
+      "views": 1,
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
       "slug": "nioh3-hotpick-soulslike-masterpiece",
       "views": 1,
       "path": "/magazine/issue/nioh3-hotpick-soulslike-masterpiece/"
@@ -158,18 +144,6 @@
       "slug": "pokemon-pokopia-global-sold-out",
       "views": 1,
       "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
-    },
-    {
-      "type": "issue",
-      "slug": "seedance-2-hollywood-shock-next-version",
-      "views": 1,
-      "path": "/magazine/issue/seedance-2-hollywood-shock-next-version/"
-    },
-    {
-      "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "issue",
@@ -223,6 +197,13 @@
     },
     {
       "type": "wiki",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
       "slug": "pillar-of-fire-cresents",
       "category": "history",
       "views": 1,
@@ -241,6 +222,27 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pc-components-gaming-performance",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/pc-components-gaming-performance/"
     },
     {
       "type": "wiki",
