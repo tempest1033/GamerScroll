@@ -30437,6 +30437,51 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/09/b2/55/09b2558d-6190-75c0-dac7-f2174b574db8/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-11T16:58:05.021Z"
+    },
+    {
+      "title": "넷플릭스 퍼즐 모음",
+      "status": "matched",
+      "appIds": {
+        "android": "com.netflix.NGP.Pandora",
+        "ios": 6742752351
+      },
+      "developer": "Netflix, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/B1ke2ZAxwcyHubL-g2pbV-mJSuZ-j5j5La_nNHi5O4WOEBoIW_bwESc08erH3HhxgMP3tDlXt89cNm2Z4d6koA",
+      "searchResults": [
+        {
+          "title": "넷플릭스 퍼즐 모음",
+          "appId": 6742752351
+        },
+        {
+          "title": "데이터 필요없는 게임 - 와이파이 필요없는 게임",
+          "appId": 6448104157
+        }
+      ],
+      "addedAt": "2026-08-11T18:53:56.094Z"
+    },
+    {
+      "title": "미니 게임과 편안한 장난감",
+      "status": "single",
+      "appIds": {
+        "android": "com.tvf.anti.stress.relaxing.mini.games"
+      },
+      "developer": "The Fashion Valley",
+      "icon": "https://play-lh.googleusercontent.com/4KWBPssWM4-LSzSPcF04LMho2fPCQY1Z20Wzvmi6jF9JlApKfw8Td1GNUdaEax8wEP8sTI0WvcsnxGVBK9Xhuw",
+      "searchResults": [
+        {
+          "title": "편안한 장난감 미니 게임",
+          "appId": 6695740631
+        },
+        {
+          "title": "미니 편안한 게임 - 팝잇",
+          "appId": 6502332995
+        },
+        {
+          "title": "스트레스 해소용 미니 게임",
+          "appId": 6526489443
+        }
+      ],
+      "addedAt": "2026-08-11T18:53:56.426Z"
     }
   ],
   "approved": [

@@ -43738,8 +43738,34 @@
       "platforms": [
         "steam"
       ]
+    },
+    "넷플릭스 퍼즐 모음": {
+      "appIds": {
+        "android": "com.netflix.NGP.Pandora",
+        "ios": 6742752351
+      },
+      "aliases": [],
+      "developer": "Netflix, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/B1ke2ZAxwcyHubL-g2pbV-mJSuZ-j5j5La_nNHi5O4WOEBoIW_bwESc08erH3HhxgMP3tDlXt89cNm2Z4d6koA",
+      "slug": "넷플릭스-퍼즐-모음",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "미니 게임과 편안한 장난감": {
+      "appIds": {
+        "android": "com.tvf.anti.stress.relaxing.mini.games"
+      },
+      "aliases": [],
+      "developer": "The Fashion Valley",
+      "icon": "https://play-lh.googleusercontent.com/4KWBPssWM4-LSzSPcF04LMho2fPCQY1Z20Wzvmi6jF9JlApKfw8Td1GNUdaEax8wEP8sTI0WvcsnxGVBK9Xhuw",
+      "slug": "미니-게임과-편안한-장난감",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-12",
-  "totalGames": 3335
+  "totalGames": 3337
 }
