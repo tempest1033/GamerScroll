@@ -43666,8 +43666,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Jurassic World Evolution 3: Crocodilia Coast": {
+      "appIds": {
+        "steam": "4553980"
+      },
+      "aliases": [],
+      "developer": "Frontier Developments",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4553980/114f0cf51f9a5e9455b5fd2fe42801daec90bdea/capsule_231x87.jpg?t=1786453318",
+      "slug": "jurassic-world-evolution-3-crocodilia-coast",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-11",
-  "totalGames": 3329
+  "totalGames": 3330
 }
