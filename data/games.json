@@ -43678,8 +43678,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Echoes of Mystralia": {
+      "appIds": {
+        "steam": "974480"
+      },
+      "aliases": [],
+      "developer": "Borealys Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/974480/d63c3300a5d6dae08d25bab637b689e81700b804/capsule_231x87_alt_assets_1.jpg?t=1786458488",
+      "slug": "echoes-of-mystralia",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-11",
-  "totalGames": 3330
+  "totalGames": 3331
 }
