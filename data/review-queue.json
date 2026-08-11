@@ -30404,6 +30404,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6b/52/97/6b52976f-2300-9e1d-0e2b-59d0718df94e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-10T16:47:23.269Z"
+    },
+    {
+      "title": "크로코 악어 복불복",
+      "status": "single",
+      "appIds": {
+        "ios": 1501486372
+      },
+      "developer": "Junyoung Lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/66/f2/e2/66f2e2e1-f54a-c37c-591f-b39c2f310f57/AppIcon-1x_U007emarketing-0-7-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-11T16:58:04.687Z"
+    },
+    {
+      "title": "Jewel Loop - Coloring Sort",
+      "status": "single",
+      "appIds": {
+        "ios": 6790707229
+      },
+      "developer": "Ta Ta Game Technology Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/43/89/c2/4389c206-bfb9-86c2-b45b-4ee1f6674e9a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-11T16:58:04.866Z"
+    },
+    {
+      "title": "Merge Aquarium",
+      "status": "single",
+      "appIds": {
+        "ios": 6751398349
+      },
+      "developer": "PIVOT GAMES, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/09/b2/55/09b2558d-6190-75c0-dac7-f2174b574db8/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-11T16:58:05.021Z"
     }
   ],
   "approved": [
