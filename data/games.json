@@ -43764,8 +43764,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Jewel Color Sort: 픽셀 아트 퍼즐 게임": {
+      "appIds": {
+        "ios": 6772975295
+      },
+      "aliases": [],
+      "developer": "HappyTapLand Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/34/68/bf346863-bcb6-54af-48e6-1580d56e0adc/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "jewel-color-sort-픽셀-아트-퍼즐-게임",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-12",
-  "totalGames": 3337
+  "totalGames": 3338
 }
