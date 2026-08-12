@@ -43812,8 +43812,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Last Extract": {
+      "appIds": {
+        "ios": 6758199685
+      },
+      "aliases": [],
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/94/ab/5294ab61-faee-4df8-9d6e-a4a466830561/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "last-extract",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-12",
-  "totalGames": 3341
+  "totalGames": 3342
 }

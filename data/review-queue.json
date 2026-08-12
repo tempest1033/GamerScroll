@@ -30493,6 +30493,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/34/68/bf346863-bcb6-54af-48e6-1580d56e0adc/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-11T19:57:48.621Z"
+    },
+    {
+      "title": "Last Extract",
+      "status": "single",
+      "appIds": {
+        "ios": 6758199685
+      },
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/94/ab/5294ab61-faee-4df8-9d6e-a4a466830561/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-12T08:12:08.422Z"
     }
   ],
   "approved": [
