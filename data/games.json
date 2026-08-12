@@ -43788,8 +43788,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Phantom Blade Zero": {
+      "appIds": {
+        "steam": "4115450"
+      },
+      "aliases": [],
+      "developer": "S-GAME Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4115450/aef06490c9a4ad912142fe3b766ee08a2b38ef80/capsule_231x87.jpg?t=1786499411",
+      "slug": "phantom-blade-zero",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-12",
-  "totalGames": 3339
+  "totalGames": 3340
 }
