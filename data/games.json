@@ -43872,8 +43872,32 @@
       "platforms": [
         "ios"
       ]
+    },
+    "JoJo's Bizarre Adventure: GS": {
+      "appIds": {
+        "ios": 6757908157
+      },
+      "aliases": [],
+      "developer": "HOOLAI GAME LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/a6/cc/bca6cc72-6cb5-82d9-677b-1a4e58230230/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "jojos-bizarre-adventure-gs",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "DreamEcho": {
+      "appIds": {
+        "steam": "3226060"
+      },
+      "aliases": [],
+      "developer": "HotWaterStudio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3226060/af9a08a2598d9c7e0d4414c62bddb20346f04d47/capsule_231x87.jpg?t=1786410129",
+      "slug": "dreamecho",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-13",
-  "totalGames": 3346
+  "totalGames": 3348
 }
