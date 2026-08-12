@@ -43800,8 +43800,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Mandate Order": {
+      "appIds": {
+        "steam": "1733690"
+      },
+      "aliases": [],
+      "developer": "Digital Sky",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1733690/8302211c2b2549465a9f91b8309a4c7cdb90d596/capsule_231x87.jpg?t=1786506106",
+      "slug": "mandate-order",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-12",
-  "totalGames": 3340
+  "totalGames": 3341
 }
