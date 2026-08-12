@@ -43848,8 +43848,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "랜덤 다이스 2": {
+      "appIds": {
+        "ios": 6748432502
+      },
+      "aliases": [],
+      "developer": "111%",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/26/14/fa2614c8-99a7-c75d-77c5-dfb9584ba4db/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "랜덤-다이스-2",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "데블2M": {
+      "appIds": {
+        "ios": 6779062310
+      },
+      "aliases": [],
+      "developer": "Sunflower Network Technology Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/3d/fc/273dfcb9-481e-e868-d1c0-3da7271c7b55/Kokr2Icon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
+      "slug": "데블2m",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-13",
-  "totalGames": 3344
+  "totalGames": 3346
 }
