@@ -29352,13 +29352,19 @@
     },
     {
       "title": "Loop Master: 컬러 정렬 퍼즐",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6761603258
+        "ios": 6761603258,
+        "android": "com.loop.clear.cube.free.card.puzzle.sort.match"
       },
       "developer": "Orange One Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/37/b5/e537b5e5-9ba9-a3bf-4f13-268153d047ad/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Loop Master: 컬러 정렬 퍼즐",
+          "appId": 6761603258
+        }
+      ],
       "addedAt": "2026-07-28T08:15:20.883Z"
     },
     {
@@ -30762,6 +30768,17 @@
       "icon": "https://play-lh.googleusercontent.com/wdxFNXMoe9WaO1jA6YYjh9TlD4Z4ONiXBmTNnh1Q8OiYky2hRT9GgGACUeeiwQISwWj8ZivLfIubEfyQWeXeTk0",
       "searchResults": [],
       "addedAt": "2026-08-13T18:27:42.894Z"
+    },
+    {
+      "title": "우라노스",
+      "status": "single",
+      "appIds": {
+        "android": "com.new.shanggu.android"
+      },
+      "developer": "Kronos Studios",
+      "icon": "https://play-lh.googleusercontent.com/hqWvlw8xyvopSywpOzTLkgg0djAzseYwLhU1Prg03_4bNfq540_LcN8NXcdU3waUIXYDIkGYqTCPXeaMgs7D1w",
+      "searchResults": [],
+      "addedAt": "2026-08-13T19:34:44.289Z"
     }
   ],
   "approved": [

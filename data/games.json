@@ -42335,14 +42335,16 @@
     },
     "Loop Master: 컬러 정렬 퍼즐": {
       "appIds": {
-        "ios": 6761603258
+        "ios": 6761603258,
+        "android": "com.loop.clear.cube.free.card.puzzle.sort.match"
       },
       "aliases": [],
       "developer": "Orange One Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e5/37/b5/e537b5e5-9ba9-a3bf-4f13-268153d047ad/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "loop-master-컬러-정렬-퍼즐",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Endless Puncher": {
@@ -44104,8 +44106,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "우라노스": {
+      "appIds": {
+        "android": "com.new.shanggu.android"
+      },
+      "aliases": [],
+      "developer": "Kronos Studios",
+      "icon": "https://play-lh.googleusercontent.com/hqWvlw8xyvopSywpOzTLkgg0djAzseYwLhU1Prg03_4bNfq540_LcN8NXcdU3waUIXYDIkGYqTCPXeaMgs7D1w",
+      "slug": "우라노스",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-14",
-  "totalGames": 3365
+  "totalGames": 3366
 }
