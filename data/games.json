@@ -43971,14 +43971,16 @@
     },
     "Servant of the Lake": {
       "appIds": {
-        "ios": "6748751735"
+        "ios": "6748751735",
+        "steam": "3636770"
       },
       "aliases": [],
       "developer": "Rusty Lake",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/d7/79/5cd7790e-3be3-4e1a-71c6-b7b18fb72f08/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "servant-of-the-lake",
       "platforms": [
-        "ios"
+        "ios",
+        "steam"
       ]
     },
     "Zoodoku！": {
