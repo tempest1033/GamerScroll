@@ -30561,6 +30561,30 @@
         }
       ],
       "addedAt": "2026-08-13T01:19:46.538Z"
+    },
+    {
+      "title": "Duel Player Game",
+      "status": "single",
+      "appIds": {
+        "android": "com.jmg.the.buddy.battles"
+      },
+      "developer": "Just Make Games",
+      "icon": "https://play-lh.googleusercontent.com/wijW8sUeXzzgeM7Lt1LbTxfChowRUZfzuAKnwYEyV_-0ykwLyjOSNaMq30-RpyLdMCKHs0s8Wfe4TrYEl0h7vcc",
+      "searchResults": [
+        {
+          "title": "2 Player Games : the Challenge",
+          "appId": 1465731199
+        },
+        {
+          "title": "2~4 인용 미니게임",
+          "appId": 1269516792
+        },
+        {
+          "title": "Geometry Dash Lite",
+          "appId": 698255242
+        }
+      ],
+      "addedAt": "2026-08-13T03:38:32.136Z"
     }
   ],
   "approved": [

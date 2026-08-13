@@ -43908,8 +43908,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Duel Player Game": {
+      "appIds": {
+        "android": "com.jmg.the.buddy.battles"
+      },
+      "aliases": [],
+      "developer": "Just Make Games",
+      "icon": "https://play-lh.googleusercontent.com/wijW8sUeXzzgeM7Lt1LbTxfChowRUZfzuAKnwYEyV_-0ykwLyjOSNaMq30-RpyLdMCKHs0s8Wfe4TrYEl0h7vcc",
+      "slug": "duel-player-game",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-13",
-  "totalGames": 3349
+  "totalGames": 3350
 }
