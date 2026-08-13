@@ -1,51 +1,43 @@
 {
-  "updatedAt": "2026-08-12T01:18:24.464Z",
+  "updatedAt": "2026-08-13T01:19:29.607Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 54,
+      "views": 58,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 19,
+      "views": 20,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 16,
+      "views": 18,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
-      "views": 5,
+      "views": 3,
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 3,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 4,
+      "views": 3,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 4,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "ranking",
@@ -55,16 +47,17 @@
     },
     {
       "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 3,
       "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "agile-jira-confluence-game-dev",
-      "views": 2,
-      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
       "type": "hotpick",
@@ -77,12 +70,6 @@
       "slug": "switch-2-buying-guide-2026",
       "views": 2,
       "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 2,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "insight",
@@ -130,6 +117,13 @@
     },
     {
       "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
@@ -141,6 +135,12 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "agile-jira-confluence-game-dev",
+      "views": 1,
+      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
       "type": "hotpick",
@@ -168,9 +168,21 @@
     },
     {
       "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 1,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
       "slug": "devsisters-devnow-2026",
       "views": 1,
       "path": "/magazine/issue/devsisters-devnow-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 1,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -195,12 +207,6 @@
       "slug": "granblue-relink-endless-ragnarok",
       "views": 1,
       "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
-      "type": "issue",
-      "slug": "krafton-shareholder-return-1-trillion",
-      "views": 1,
-      "path": "/magazine/issue/krafton-shareholder-return-1-trillion/"
     },
     {
       "type": "issue",
@@ -252,12 +258,6 @@
     },
     {
       "type": "issue",
-      "slug": "subculture-newyear-china-wins",
-      "views": 1,
-      "path": "/magazine/issue/subculture-newyear-china-wins/"
-    },
-    {
-      "type": "issue",
       "slug": "tomb-raider-legacy-atlantis-release-date",
       "views": 1,
       "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
@@ -276,9 +276,27 @@
     },
     {
       "type": "ranking",
+      "slug": "steam-april-2026",
+      "views": 1,
+      "path": "/magazine/ranking/steam-april-2026/"
+    },
+    {
+      "type": "ranking",
       "slug": "steam-february-2026",
       "views": 1,
       "path": "/magazine/ranking/steam-february-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-january-2026",
+      "views": 1,
+      "path": "/magazine/ranking/steam-january-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
       "type": "wiki",
@@ -303,10 +321,31 @@
     },
     {
       "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "publisher-developer-relationship",
       "category": "business",
       "views": 1,
       "path": "/wiki/business/publisher-developer-relationship/"
+    },
+    {
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "wiki",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
@@ -342,13 +381,6 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/ragnarok-online-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",

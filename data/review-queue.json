@@ -30537,6 +30537,30 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/a6/cc/bca6cc72-6cb5-82d9-677b-1a4e58230230/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-12T19:35:43.989Z"
+    },
+    {
+      "title": "프로젝트 오리진 : X",
+      "status": "single",
+      "appIds": {
+        "android": "com.carrottechnology.projectoriginx"
+      },
+      "developer": "Carrot Technology Co.,Limited",
+      "icon": "https://play-lh.googleusercontent.com/MkOspucQeL7BpFPG284qFxi0uVLCPOAQRA7kMLzMZiHfooqpeoZBzjf_JMorBj_3egZ_CbnGkNdWy15R9VkbcQQ",
+      "searchResults": [
+        {
+          "title": "Amazon Prime Video",
+          "appId": 545519333
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "No One Crash - Classic Zigzag",
+          "appId": 1040371600
+        }
+      ],
+      "addedAt": "2026-08-13T01:19:46.538Z"
     }
   ],
   "approved": [

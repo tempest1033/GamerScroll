@@ -43896,8 +43896,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "프로젝트 오리진 : X": {
+      "appIds": {
+        "android": "com.carrottechnology.projectoriginx"
+      },
+      "aliases": [],
+      "developer": "Carrot Technology Co.,Limited",
+      "icon": "https://play-lh.googleusercontent.com/MkOspucQeL7BpFPG284qFxi0uVLCPOAQRA7kMLzMZiHfooqpeoZBzjf_JMorBj_3egZ_CbnGkNdWy15R9VkbcQQ",
+      "slug": "프로젝트-오리진-x",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-13",
-  "totalGames": 3348
+  "totalGames": 3349
 }
