@@ -30645,6 +30645,123 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/fc/a2/c2fca26f-ac49-ff99-927f-bfceb14b2918/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-13T08:20:58.971Z"
+    },
+    {
+      "title": "방 정렬 - 평면도 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.gamincat.roomsort"
+      },
+      "developer": "Gamincat",
+      "icon": "https://play-lh.googleusercontent.com/B8UxrXvUjtCFqJ23SwPp90wJeRN1ZzXWi4rwcoUufCl4KGNtSXGsQ98xI80T021pmKjxLJ_G0fp-HAz9jKQfiw",
+      "searchResults": [],
+      "addedAt": "2026-08-13T18:27:41.335Z"
+    },
+    {
+      "title": "GOGO! Blast",
+      "status": "matched",
+      "appIds": {
+        "android": "com.nebula.arrows",
+        "ios": 6776522053
+      },
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/kiK_hOKbnJjBDuFWG5WkmBViq9ERsoGDzSreFNxCs1eRUdZPJATX8VXKPVP9klnf-m-WpU-x_MgiRmOzW4WEA98",
+      "searchResults": [
+        {
+          "title": "GOGO! Blast",
+          "appId": 6776522053
+        },
+        {
+          "title": "앵그리버드 드림 블라스트",
+          "appId": 1432579280
+        },
+        {
+          "title": "우드 블록 퍼즐 게임",
+          "appId": 1466197423
+        }
+      ],
+      "addedAt": "2026-08-13T18:27:41.628Z"
+    },
+    {
+      "title": "Lucky Coin Saga",
+      "status": "single",
+      "appIds": {
+        "android": "com.luckcoinon.saga.luck"
+      },
+      "developer": "yassine ghezz",
+      "icon": "https://play-lh.googleusercontent.com/TyfQnVvv-ysEta4rxP3P0Mnh18pzozi70oe_GOQyqMmYk8oyMovXtPQSssk_FtHq9K9LOxtEJe8qOG_hPogPXA",
+      "searchResults": [],
+      "addedAt": "2026-08-13T18:27:41.810Z"
+    },
+    {
+      "title": "Rose Girl Match",
+      "status": "single",
+      "appIds": {
+        "android": "com.rosegirl.ds2ew.match.com"
+      },
+      "developer": "luisi",
+      "icon": "https://play-lh.googleusercontent.com/8RytnRncvu43vSSmK9O_Eas5ZMUFQZ5qWAs4jPXWmXkE_kCcL75YdmfF6hNIBNuPyeQUh94NEdptrAalTMPD",
+      "searchResults": [
+        {
+          "title": "Girls Soccer",
+          "appId": 992456409
+        },
+        {
+          "title": "Rose Garden Match 3",
+          "appId": 1294719439
+        },
+        {
+          "title": "NPC Match",
+          "appId": 6468643410
+        }
+      ],
+      "addedAt": "2026-08-13T18:27:42.045Z"
+    },
+    {
+      "title": "Arrows For Beauty",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrows.fosr.beauty.cn"
+      },
+      "developer": "Pelvix Operations LLC",
+      "icon": "https://play-lh.googleusercontent.com/EgoqkG4EvUAa3vUQ-OFTvRLlTA7axsy2_aG1SAWhYukpt3UzU-un7JPmX7JnVZmjWgTBj0g8pbQdT2vWWdX6Ww",
+      "searchResults": [
+        {
+          "title": "Beauty Photos-Editing Pictures",
+          "appId": 1206189787
+        },
+        {
+          "title": "Doll Race 3D -Beauty Challenge",
+          "appId": 1579651275
+        },
+        {
+          "title": "Block Away: Tap Tap Puzzle",
+          "appId": 6758039797
+        }
+      ],
+      "addedAt": "2026-08-13T18:27:42.305Z"
+    },
+    {
+      "title": "퍼펙트 벤토: 블록 마스터",
+      "status": "single",
+      "appIds": {
+        "android": "com.fc.p.cp.perfect.bento.block.master"
+      },
+      "developer": "Think Different FC.",
+      "icon": "https://play-lh.googleusercontent.com/ZFfK5k6_Zmx7aQU6KOakEkrTIcLi8ftufkmidVLyRF-0VrACgav4dKcym-rk_pg7AtpIIoesAGnO2NkL7RRDZw",
+      "searchResults": [],
+      "addedAt": "2026-08-13T18:27:42.650Z"
+    },
+    {
+      "title": "떡상 디펜스 - 운빨, 전략, 그리고 떡상!",
+      "status": "single",
+      "appIds": {
+        "android": "com.yqgames.boomdefense.gg"
+      },
+      "developer": "FRAMEVERA",
+      "icon": "https://play-lh.googleusercontent.com/wdxFNXMoe9WaO1jA6YYjh9TlD4Z4ONiXBmTNnh1Q8OiYky2hRT9GgGACUeeiwQISwWj8ZivLfIubEfyQWeXeTk0",
+      "searchResults": [],
+      "addedAt": "2026-08-13T18:27:42.894Z"
     }
   ],
   "approved": [

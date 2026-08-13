@@ -44018,8 +44018,94 @@
       "platforms": [
         "steam"
       ]
+    },
+    "방 정렬 - 평면도 게임": {
+      "appIds": {
+        "android": "com.gamincat.roomsort"
+      },
+      "aliases": [],
+      "developer": "Gamincat",
+      "icon": "https://play-lh.googleusercontent.com/B8UxrXvUjtCFqJ23SwPp90wJeRN1ZzXWi4rwcoUufCl4KGNtSXGsQ98xI80T021pmKjxLJ_G0fp-HAz9jKQfiw",
+      "slug": "방-정렬-평면도-게임",
+      "platforms": [
+        "android"
+      ]
+    },
+    "GOGO! Blast": {
+      "appIds": {
+        "android": "com.nebula.arrows",
+        "ios": 6776522053
+      },
+      "aliases": [],
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/kiK_hOKbnJjBDuFWG5WkmBViq9ERsoGDzSreFNxCs1eRUdZPJATX8VXKPVP9klnf-m-WpU-x_MgiRmOzW4WEA98",
+      "slug": "gogo-blast",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Lucky Coin Saga": {
+      "appIds": {
+        "android": "com.luckcoinon.saga.luck"
+      },
+      "aliases": [],
+      "developer": "yassine ghezz",
+      "icon": "https://play-lh.googleusercontent.com/TyfQnVvv-ysEta4rxP3P0Mnh18pzozi70oe_GOQyqMmYk8oyMovXtPQSssk_FtHq9K9LOxtEJe8qOG_hPogPXA",
+      "slug": "lucky-coin-saga",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Rose Girl Match": {
+      "appIds": {
+        "android": "com.rosegirl.ds2ew.match.com"
+      },
+      "aliases": [],
+      "developer": "luisi",
+      "icon": "https://play-lh.googleusercontent.com/8RytnRncvu43vSSmK9O_Eas5ZMUFQZ5qWAs4jPXWmXkE_kCcL75YdmfF6hNIBNuPyeQUh94NEdptrAalTMPD",
+      "slug": "rose-girl-match",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Arrows For Beauty": {
+      "appIds": {
+        "android": "com.arrows.fosr.beauty.cn"
+      },
+      "aliases": [],
+      "developer": "Pelvix Operations LLC",
+      "icon": "https://play-lh.googleusercontent.com/EgoqkG4EvUAa3vUQ-OFTvRLlTA7axsy2_aG1SAWhYukpt3UzU-un7JPmX7JnVZmjWgTBj0g8pbQdT2vWWdX6Ww",
+      "slug": "arrows-for-beauty",
+      "platforms": [
+        "android"
+      ]
+    },
+    "퍼펙트 벤토: 블록 마스터": {
+      "appIds": {
+        "android": "com.fc.p.cp.perfect.bento.block.master"
+      },
+      "aliases": [],
+      "developer": "Think Different FC.",
+      "icon": "https://play-lh.googleusercontent.com/ZFfK5k6_Zmx7aQU6KOakEkrTIcLi8ftufkmidVLyRF-0VrACgav4dKcym-rk_pg7AtpIIoesAGnO2NkL7RRDZw",
+      "slug": "퍼펙트-벤토-블록-마스터",
+      "platforms": [
+        "android"
+      ]
+    },
+    "떡상 디펜스 - 운빨, 전략, 그리고 떡상!": {
+      "appIds": {
+        "android": "com.yqgames.boomdefense.gg"
+      },
+      "aliases": [],
+      "developer": "FRAMEVERA",
+      "icon": "https://play-lh.googleusercontent.com/wdxFNXMoe9WaO1jA6YYjh9TlD4Z4ONiXBmTNnh1Q8OiYky2hRT9GgGACUeeiwQISwWj8ZivLfIubEfyQWeXeTk0",
+      "slug": "떡상-디펜스-운빨-전략-그리고-떡상",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-14",
-  "totalGames": 3358
+  "totalGames": 3365
 }
