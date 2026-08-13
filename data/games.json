@@ -43920,8 +43920,44 @@
       "platforms": [
         "android"
       ]
+    },
+    "멍꿀 클래식 : 방치형 파밍 RPG": {
+      "appIds": {
+        "android": "com.ChoGames.DogPigClassic"
+      },
+      "aliases": [],
+      "developer": "CHOGames",
+      "icon": "https://play-lh.googleusercontent.com/4EH0Ac8RH8lYNK16W-vvn0sT52Qd7lmy8djrK0c9di-72wdbC1ISsJtVTBEjBjfIM2rGM4gA2_c9aaYDySG8Dw",
+      "slug": "멍꿀-클래식-방치형-파밍-rpg",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Aimy(아이미)캐릭터 만들기&옷 입히기&AI채팅": {
+      "appIds": {
+        "ios": 6450537255
+      },
+      "aliases": [],
+      "developer": "aisaac inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/45/50/0c/45500c24-dc82-4ebd-8bad-155c3fe316b6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "aimy아이미캐릭터-만들기옷-입히기ai채팅",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Coin collection challenge": {
+      "appIds": {
+        "steam": "3460220"
+      },
+      "aliases": [],
+      "developer": "LI YIFEI",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3460220/9c9daebddffe102fbb758a54e6c968df08964786/capsule_231x87.jpg?t=1738669382",
+      "slug": "coin-collection-challenge",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-13",
-  "totalGames": 3350
+  "totalGames": 3353
 }

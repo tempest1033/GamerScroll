@@ -30585,6 +30585,33 @@
         }
       ],
       "addedAt": "2026-08-13T03:38:32.136Z"
+    },
+    {
+      "title": "멍꿀 클래식 : 방치형 파밍 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.ChoGames.DogPigClassic"
+      },
+      "developer": "CHOGames",
+      "icon": "https://play-lh.googleusercontent.com/4EH0Ac8RH8lYNK16W-vvn0sT52Qd7lmy8djrK0c9di-72wdbC1ISsJtVTBEjBjfIM2rGM4gA2_c9aaYDySG8Dw",
+      "searchResults": [
+        {
+          "title": "멍꿀멍꿀 : 방치형 파밍 RPG",
+          "appId": 6593674767
+        }
+      ],
+      "addedAt": "2026-08-13T05:30:18.767Z"
+    },
+    {
+      "title": "Aimy(아이미)캐릭터 만들기&옷 입히기&AI채팅",
+      "status": "single",
+      "appIds": {
+        "ios": 6450537255
+      },
+      "developer": "aisaac inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/45/50/0c/45500c24-dc82-4ebd-8bad-155c3fe316b6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-13T05:30:19.205Z"
     }
   ],
   "approved": [
