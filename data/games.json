@@ -44206,8 +44206,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "프로스트킹덤: 머지 생존전략 SLG": {
+      "appIds": {
+        "ios": 6768952155
+      },
+      "aliases": [],
+      "developer": "NEXUS Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/6d/8e/566d8e97-63d7-b1a7-f8d0-21f48d80e504/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "프로스트킹덤-머지-생존전략-slg",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Mini Football - Soccer Game": {
+      "appIds": {
+        "ios": 1502383491
+      },
+      "aliases": [],
+      "developer": "Miniclip.com",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/20/3c/d9/203cd939-317a-a497-40c6-05e5f851dcba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mini-football-soccer-game",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-14",
-  "totalGames": 3373
+  "totalGames": 3375
 }
