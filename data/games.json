@@ -43855,14 +43855,16 @@
     },
     "랜덤 다이스 2": {
       "appIds": {
-        "ios": 6748432502
+        "ios": "6748432502",
+        "android": "com.percent.aos.randomdice2"
       },
       "aliases": [],
       "developer": "111%",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/26/14/fa2614c8-99a7-c75d-77c5-dfb9584ba4db/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "랜덤-다이스-2",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "데블2M": {
@@ -44290,8 +44292,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "GunZ: The Duel": {
+      "appIds": {
+        "steam": "3139440"
+      },
+      "aliases": [],
+      "developer": "Masangsoft",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3139440/5b24031199ba7142d76ef740c6356b869966f603/capsule_231x87.jpg?t=1786696577",
+      "slug": "gunz-the-duel",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3380
+  "totalGames": 3381
 }

@@ -30519,13 +30519,19 @@
     },
     {
       "title": "랜덤 다이스 2",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6748432502
+        "ios": "6748432502",
+        "android": "com.percent.aos.randomdice2"
       },
       "developer": "111%",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/26/14/fa2614c8-99a7-c75d-77c5-dfb9584ba4db/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "랜덤 다이스 2",
+          "appId": "6748432502"
+        }
+      ],
       "addedAt": "2026-08-12T17:27:48.090Z"
     },
     {
