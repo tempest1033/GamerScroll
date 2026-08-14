@@ -30779,6 +30779,30 @@
       "icon": "https://play-lh.googleusercontent.com/hqWvlw8xyvopSywpOzTLkgg0djAzseYwLhU1Prg03_4bNfq540_LcN8NXcdU3waUIXYDIkGYqTCPXeaMgs7D1w",
       "searchResults": [],
       "addedAt": "2026-08-13T19:34:44.289Z"
+    },
+    {
+      "title": "Fishing Clash: 스포츠 낚시 게임 3D",
+      "status": "single",
+      "appIds": {
+        "android": "com.tensquaregames.letsfish2"
+      },
+      "developer": "Ten Square Games",
+      "icon": "https://play-lh.googleusercontent.com/9kavKVAgvLXWv63jEvu7k9m0aI-G6k4NtvPQyn-xlfD6VmVlRH9jyoAgfKxlNZ3Umd-PeRaUBmHuhCJU7t6-8g",
+      "searchResults": [
+        {
+          "title": "Fishing Clash: 스포츠 게임",
+          "appId": 1151811380
+        },
+        {
+          "title": "낚시의 신",
+          "appId": 694972182
+        },
+        {
+          "title": "피싱마스터",
+          "appId": 532741325
+        }
+      ],
+      "addedAt": "2026-08-14T01:19:33.356Z"
     }
   ],
   "approved": [

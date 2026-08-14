@@ -1,25 +1,32 @@
 {
-  "updatedAt": "2026-08-13T01:19:29.607Z",
+  "updatedAt": "2026-08-14T01:19:14.250Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 58,
+      "views": 56,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 20,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 20,
+      "views": 19,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 18,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 5,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -35,9 +42,9 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "slug": "starcraft-shooter-blizzard",
       "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
       "type": "ranking",
@@ -53,11 +60,10 @@
       "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 2,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "hotpick",
@@ -79,6 +85,12 @@
     },
     {
       "type": "issue",
+      "slug": "chatgpt-vs-gemini-comparison-2026",
+      "views": 2,
+      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
+    },
+    {
+      "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 2,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
@@ -88,18 +100,6 @@
       "slug": "mobile-february-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/mobile-february-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
@@ -117,13 +117,6 @@
     },
     {
       "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 2,
@@ -135,12 +128,6 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-history/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "agile-jira-confluence-game-dev",
-      "views": 1,
-      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
       "type": "hotpick",
@@ -165,12 +152,6 @@
       "slug": "ai-basic-act-game-industry-confusion",
       "views": 1,
       "path": "/magazine/issue/ai-basic-act-game-industry-confusion/"
-    },
-    {
-      "type": "issue",
-      "slug": "chatgpt-vs-gemini-comparison-2026",
-      "views": 1,
-      "path": "/magazine/issue/chatgpt-vs-gemini-comparison-2026/"
     },
     {
       "type": "issue",
@@ -240,33 +221,21 @@
     },
     {
       "type": "issue",
-      "slug": "pokemon-pokopia-global-sold-out",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 1,
-      "path": "/magazine/issue/pokemon-pokopia-global-sold-out/"
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
+      "slug": "opus-4-6-vs-gpt-5-3-codex-same-day-launch",
       "views": 1,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+      "path": "/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/"
     },
     {
       "type": "issue",
       "slug": "steam-deck-oled-price-hike-may-2026",
       "views": 1,
       "path": "/magazine/issue/steam-deck-oled-price-hike-may-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "tomb-raider-legacy-atlantis-release-date",
-      "views": 1,
-      "path": "/magazine/issue/tomb-raider-legacy-atlantis-release-date/"
-    },
-    {
-      "type": "issue",
-      "slug": "wuthering-waves-korea-grossing-no1",
-      "views": 1,
-      "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
       "type": "ranking",
@@ -294,9 +263,21 @@
     },
     {
       "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "subculture-february-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
@@ -318,6 +299,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/game-ip-licensing/"
+    },
+    {
+      "type": "wiki",
+      "slug": "google-genie3-unity-stock-crash",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/google-genie3-unity-stock-crash/"
     },
     {
       "type": "wiki",
@@ -381,6 +369,20 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/ragnarok-online-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",

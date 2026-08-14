@@ -44118,8 +44118,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Fishing Clash: 스포츠 낚시 게임 3D": {
+      "appIds": {
+        "android": "com.tensquaregames.letsfish2"
+      },
+      "aliases": [],
+      "developer": "Ten Square Games",
+      "icon": "https://play-lh.googleusercontent.com/9kavKVAgvLXWv63jEvu7k9m0aI-G6k4NtvPQyn-xlfD6VmVlRH9jyoAgfKxlNZ3Umd-PeRaUBmHuhCJU7t6-8g",
+      "slug": "fishing-clash-스포츠-낚시-게임-3d",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-14",
-  "totalGames": 3366
+  "totalGames": 3367
 }
