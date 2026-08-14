@@ -44304,8 +44304,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "죠죠의 기묘한 모험: 골든 스피릿": {
+      "appIds": {
+        "android": "com.wanda.jojo.gp.global"
+      },
+      "aliases": [],
+      "developer": "Wanda Cinemas Games",
+      "icon": "https://play-lh.googleusercontent.com/hjTS4jkjAub0T_kWpD1igt2ve3p_at2E1zOz0Un63W-XhF6I7N55Qc75w_qBSeqHr_5H672nu45CIGl1CuF_yQ",
+      "slug": "죠죠의-기묘한-모험-골든-스피릿",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3381
+  "totalGames": 3382
 }
