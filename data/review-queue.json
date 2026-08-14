@@ -30424,13 +30424,19 @@
     },
     {
       "title": "Jewel Loop - Coloring Sort",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6790707229
+        "ios": 6790707229,
+        "android": "com.jewel.sort.coloring.loop.match.paint.jigsaw"
       },
       "developer": "Ta Ta Game Technology Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/43/89/c2/4389c206-bfb9-86c2-b45b-4ee1f6674e9a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Jewel Loop - Coloring Sort",
+          "appId": 6790707229
+        }
+      ],
       "addedAt": "2026-08-11T16:58:04.866Z"
     },
     {
@@ -30524,13 +30530,19 @@
     },
     {
       "title": "데블2M",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6779062310
+        "ios": 6779062310,
+        "android": "com.tg.jsxw.kr"
       },
       "developer": "Sunflower Network Technology Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/27/3d/fc/273dfcb9-481e-e868-d1c0-3da7271c7b55/Kokr2Icon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "데블2M",
+          "appId": 6779062310
+        }
+      ],
       "addedAt": "2026-08-12T17:27:48.280Z"
     },
     {
@@ -30803,6 +30815,95 @@
         }
       ],
       "addedAt": "2026-08-14T01:19:33.356Z"
+    },
+    {
+      "title": "쾅냥 서바이버 : 좀비 쓸어버리기",
+      "status": "single",
+      "appIds": {
+        "ios": 6771702904
+      },
+      "developer": "PurpleCow Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/45/f0/bd/45f0bd5b-8cbd-4a67-f0ae-93f7694419a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-14T03:36:50.275Z"
+    },
+    {
+      "title": "진귀한 동물 수조",
+      "status": "single",
+      "appIds": {
+        "ios": 1522819775
+      },
+      "developer": "Ryota Kikuchi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/08/f4/6f/08f46f6a-91b2-f0f2-7d33-61addc0b0afe/AppIcon-1x_U007emarketing-0-7-0-GLES2_U002c0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-14T03:36:50.476Z"
+    },
+    {
+      "title": "크로코? 크로코 룰렛",
+      "status": "single",
+      "appIds": {
+        "android": "com.OVJECT.CrocoR"
+      },
+      "developer": "OVJECT",
+      "icon": "https://play-lh.googleusercontent.com/IKh0loc5PKYNgALVivWt41tg6_qiXn_f52Vxi-6ny4lAQOzUn2XaJJBh9C3eoEg3zKKg_tmjSXkInLxvAW5e",
+      "searchResults": [
+        {
+          "title": "크로코 악어 복불복",
+          "appId": 1501486372
+        }
+      ],
+      "addedAt": "2026-08-14T03:36:50.830Z"
+    },
+    {
+      "title": "Paint & Hide: Color Guys",
+      "status": "single",
+      "appIds": {
+        "android": "com.hp.hide.hunt.paint"
+      },
+      "developer": "HIGAME GLOBAL",
+      "icon": "https://play-lh.googleusercontent.com/1HTRU1KwDb965uWFVmGZghmjvvG0lhA36vHT0opJ00uOxaQhP4QxdbnQ8RIei93LYyaPSNYGY0D1t9N12lJ0CA",
+      "searchResults": [
+        {
+          "title": "Paint Hide And Seek Camo Guys",
+          "appId": 6789789711
+        },
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "Chameleon Hide Online",
+          "appId": 6789756267
+        }
+      ],
+      "addedAt": "2026-08-14T03:36:51.254Z"
+    },
+    {
+      "title": "심연 삼국 -2222 무료 뽑기",
+      "status": "single",
+      "appIds": {
+        "android": "com.fzsg.kr.and"
+      },
+      "developer": "Xsoga Game",
+      "icon": "https://play-lh.googleusercontent.com/VbdbhgENGab48ONbxGG8Y9qdOSmWRVI70MNGf96UxAw_L5TE9P1gtAmWlunIO4grSNv5hYCeyNAVB8FZW1mPQA",
+      "searchResults": [],
+      "addedAt": "2026-08-14T03:36:51.494Z"
+    },
+    {
+      "title": "MAJO - 아포칼립스 택틱스 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.darkwind.majo"
+      },
+      "developer": "DarkWind Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/eMf9zaHmPPz-7fQ-7Vd2ZJ_w7URtPPGQ0ZW_GdBAVPRGLPI7CmdUzPUDv-K6A2QIh60sro60wrWSahWhxphXsg",
+      "searchResults": [
+        {
+          "title": "MAJO - 아포칼립스 마녀 택틱스 RPG",
+          "appId": 6742809054
+        }
+      ],
+      "addedAt": "2026-08-14T03:36:51.788Z"
     }
   ],
   "approved": [
