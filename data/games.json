@@ -44230,8 +44230,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Mr and Mrs Shooter: City Hunt": {
+      "appIds": {
+        "ios": 6670426445
+      },
+      "aliases": [],
+      "developer": "Celik Comak Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/06/43/03/06430393-4e79-b1c3-6212-6bfe54435ee9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mr-and-mrs-shooter-city-hunt",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-14",
-  "totalGames": 3375
+  "totalGames": 3376
 }
