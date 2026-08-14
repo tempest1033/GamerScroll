@@ -37521,14 +37521,16 @@
     },
     "Number Sums - 숫자 퍼즐 게임": {
       "appIds": {
-        "ios": 6449427809
+        "ios": 6449427809,
+        "android": "com.easybrain.number.sums.puzzle"
       },
       "aliases": [],
       "developer": "Easybrain Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/48/97/6a/48976ac0-16a2-68a0-7d67-cc15bbc69447/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "number-sums-숫자-퍼즐-게임",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Alima's Baby 2 Baby Pet": {
@@ -44356,8 +44358,36 @@
         "android",
         "ios"
       ]
+    },
+    "Get Color Pack: Sort Puzzle": {
+      "appIds": {
+        "android": "com.zm.waterpack",
+        "ios": 6756665708
+      },
+      "aliases": [
+        "Get Color Pack: Sort puzzle"
+      ],
+      "developer": "Tripledot Studios Limited",
+      "icon": "https://play-lh.googleusercontent.com/zXwvPceO-9N_WofhzEXC__Jqep4a7Qk7c-j3qV3bQ9tT78PT035eRVaJkaxDxCytlHM3r1iobNcY2D1vlcc",
+      "slug": "get-color-pack-sort-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "스피릿 각성: 방치형 RPG": {
+      "appIds": {
+        "android": "com.jljx.kr4"
+      },
+      "aliases": [],
+      "developer": "Nine9",
+      "icon": "https://play-lh.googleusercontent.com/2_KznLZ7AwBTeFv4tvX6pat_zieb6HZW4RzKF5hJzmUEtWcn6__WySmWnBLh16Oh9XaoUZbFN0-BVJSTv08ggg",
+      "slug": "스피릿-각성-방치형-rpg",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3385
+  "totalGames": 3387
 }

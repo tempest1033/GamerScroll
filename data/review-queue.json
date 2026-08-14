@@ -25703,13 +25703,27 @@
     },
     {
       "title": "Number Sums - 숫자 퍼즐 게임",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6449427809
+        "ios": 6449427809,
+        "android": "com.easybrain.number.sums.puzzle"
       },
       "developer": "Easybrain Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/48/97/6a/48976ac0-16a2-68a0-7d67-cc15bbc69447/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Number Sums - 숫자 퍼즐 게임",
+          "appId": 6449427809
+        },
+        {
+          "title": "Number Match - 숫자 퍼즐",
+          "appId": 1545567989
+        },
+        {
+          "title": "Nonogram.com - 노노그램 숫자퍼즐 게임",
+          "appId": 1452992954
+        }
+      ],
       "addedAt": "2026-06-18T17:44:48.028Z"
     },
     {
@@ -31038,6 +31052,47 @@
         }
       ],
       "addedAt": "2026-08-14T18:15:26.438Z"
+    },
+    {
+      "title": "Get Color Pack: Sort Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.zm.waterpack",
+        "ios": 6756665708
+      },
+      "developer": "Tripledot Studios Limited",
+      "icon": "https://play-lh.googleusercontent.com/zXwvPceO-9N_WofhzEXC__Jqep4a7Qk7c-j3qV3bQ9tT78PT035eRVaJkaxDxCytlHM3r1iobNcY2D1vlcc",
+      "searchResults": [
+        {
+          "title": "Get Color Pack: Sort puzzle",
+          "appId": 6756665708
+        },
+        {
+          "title": "Water Sort! 3D 워터 정렬 퍼즐 게임",
+          "appId": 6758611499
+        },
+        {
+          "title": "Color Cube Match: 정렬 게임",
+          "appId": 6749919145
+        }
+      ],
+      "addedAt": "2026-08-14T19:27:54.183Z"
+    },
+    {
+      "title": "스피릿 각성: 방치형 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.jljx.kr4"
+      },
+      "developer": "Nine9",
+      "icon": "https://play-lh.googleusercontent.com/2_KznLZ7AwBTeFv4tvX6pat_zieb6HZW4RzKF5hJzmUEtWcn6__WySmWnBLh16Oh9XaoUZbFN0-BVJSTv08ggg",
+      "searchResults": [
+        {
+          "title": "갓오브하이스쿨 체인지: 방치형 RPG",
+          "appId": 6755411352
+        }
+      ],
+      "addedAt": "2026-08-14T19:27:55.178Z"
     }
   ],
   "approved": [
