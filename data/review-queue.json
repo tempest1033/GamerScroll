@@ -30965,6 +30965,79 @@
       "icon": "https://play-lh.googleusercontent.com/hjTS4jkjAub0T_kWpD1igt2ve3p_at2E1zOz0Un63W-XhF6I7N55Qc75w_qBSeqHr_5H672nu45CIGl1CuF_yQ",
       "searchResults": [],
       "addedAt": "2026-08-14T17:26:37.700Z"
+    },
+    {
+      "title": "Mystery Dumpling: Unbox ASMR",
+      "status": "single",
+      "appIds": {
+        "android": "com.mystery.dumplings.asmr.unboxing.squishy"
+      },
+      "developer": "Brocker Bus Studio",
+      "icon": "https://play-lh.googleusercontent.com/7uy9gD6pAIczuJCnbxFpOPOHGUXmps6q3xfc9PikaXTe4Zhsb2hG50Ouqc7A1CU84lcyeU0Pyuz0XI3-nShebQ",
+      "searchResults": [
+        {
+          "title": "Rare Glitter Dumpling Slime",
+          "appId": 1394355304
+        },
+        {
+          "title": "Squishy AntiStress ASMR",
+          "appId": 1561892915
+        },
+        {
+          "title": "Glitter Dumpling Squishy Slime",
+          "appId": 1521412120
+        }
+      ],
+      "addedAt": "2026-08-14T18:15:25.783Z"
+    },
+    {
+      "title": "Zoodoku: 스도쿠 논리 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.nebula.zoodoku"
+      },
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/UEe42pjBXevhw2K8l6xzyJQWVyingMf3zrx9wx2hV_12AuQRGMwm-7uJL_DYbIxLXCN9x4htICrfscgX1U261A",
+      "searchResults": [
+        {
+          "title": "Zoodoku！",
+          "appId": 6781525746
+        },
+        {
+          "title": "Zoodoku - 동물 퍼즐",
+          "appId": 6785400656
+        },
+        {
+          "title": "Meowdoku!",
+          "appId": 6761760135
+        }
+      ],
+      "addedAt": "2026-08-14T18:15:26.147Z"
+    },
+    {
+      "title": "Find Hidden Cats- Spot it!",
+      "status": "matched",
+      "appIds": {
+        "android": "spot.hidden.cat.find.hidden.objects",
+        "ios": 6749609468
+      },
+      "developer": "Playful Bytes",
+      "icon": "https://play-lh.googleusercontent.com/w79UWp33_M0CTFx5M34BHfOLU52QjiP3JLaWcQAIIjS3xyzVIJ0LhGJDxXzVOkOJEGKTA-bey22ZVmSup6qoNg",
+      "searchResults": [
+        {
+          "title": "Find Hidden Cats - Spot it!",
+          "appId": 6749609468
+        },
+        {
+          "title": "Find The Cat 2 - Spot It!",
+          "appId": 6758662578
+        },
+        {
+          "title": "Find The Cat - Hidden Objects",
+          "appId": 6523424272
+        }
+      ],
+      "addedAt": "2026-08-14T18:15:26.438Z"
     }
   ],
   "approved": [

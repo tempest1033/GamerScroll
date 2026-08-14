@@ -44316,8 +44316,48 @@
       "platforms": [
         "android"
       ]
+    },
+    "Mystery Dumpling: Unbox ASMR": {
+      "appIds": {
+        "android": "com.mystery.dumplings.asmr.unboxing.squishy"
+      },
+      "aliases": [],
+      "developer": "Brocker Bus Studio",
+      "icon": "https://play-lh.googleusercontent.com/7uy9gD6pAIczuJCnbxFpOPOHGUXmps6q3xfc9PikaXTe4Zhsb2hG50Ouqc7A1CU84lcyeU0Pyuz0XI3-nShebQ",
+      "slug": "mystery-dumpling-unbox-asmr",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Zoodoku: 스도쿠 논리 퍼즐": {
+      "appIds": {
+        "android": "com.nebula.zoodoku"
+      },
+      "aliases": [],
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/UEe42pjBXevhw2K8l6xzyJQWVyingMf3zrx9wx2hV_12AuQRGMwm-7uJL_DYbIxLXCN9x4htICrfscgX1U261A",
+      "slug": "zoodoku-스도쿠-논리-퍼즐",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Find Hidden Cats- Spot it!": {
+      "appIds": {
+        "android": "spot.hidden.cat.find.hidden.objects",
+        "ios": 6749609468
+      },
+      "aliases": [
+        "Find Hidden Cats - Spot it!"
+      ],
+      "developer": "Playful Bytes",
+      "icon": "https://play-lh.googleusercontent.com/w79UWp33_M0CTFx5M34BHfOLU52QjiP3JLaWcQAIIjS3xyzVIJ0LhGJDxXzVOkOJEGKTA-bey22ZVmSup6qoNg",
+      "slug": "find-hidden-cats-spot-it",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3382
+  "totalGames": 3385
 }
