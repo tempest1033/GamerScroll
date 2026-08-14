@@ -44242,8 +44242,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Total War: WARHAMMER": {
+      "appIds": {
+        "steam": "364360"
+      },
+      "aliases": [],
+      "developer": "CREATIVE ASSEMBLY",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/364360/capsule_231x87.jpg?t=1780389642",
+      "slug": "total-war-warhammer",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-14",
-  "totalGames": 3376
+  "totalGames": 3377
 }
