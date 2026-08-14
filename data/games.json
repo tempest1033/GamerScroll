@@ -44388,8 +44388,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Mortal Shell II": {
+      "appIds": {
+        "steam": "2584270"
+      },
+      "aliases": [],
+      "developer": "Cold Symmetry",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2584270/be45d87c9974a36f690480bceb01f03987a0c23a/capsule_231x87.jpg?t=1786719153",
+      "slug": "mortal-shell-ii",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3387
+  "totalGames": 3388
 }
