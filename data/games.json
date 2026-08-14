@@ -44254,8 +44254,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Brainstorm Test: 두뇌 퍼즐": {
+      "appIds": {
+        "ios": 1602077913
+      },
+      "aliases": [],
+      "developer": "Tribom Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/99/ea/9f/99ea9f35-fd28-709d-63e3-e0e57f3362a6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "brainstorm-test-두뇌-퍼즐",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-14",
-  "totalGames": 3377
+  "totalGames": 3378
 }
