@@ -44213,14 +44213,16 @@
     },
     "프로스트킹덤: 머지 생존전략 SLG": {
       "appIds": {
-        "ios": 6768952155
+        "ios": 6768952155,
+        "android": "com.nexus.frostkingdom"
       },
       "aliases": [],
       "developer": "NEXUS Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/6d/8e/566d8e97-63d7-b1a7-f8d0-21f48d80e504/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "프로스트킹덤-머지-생존전략-slg",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Mini Football - Soccer Game": {
