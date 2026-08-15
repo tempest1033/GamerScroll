@@ -44414,8 +44414,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "요괴야행록": {
+      "appIds": {
+        "android": "com.hcgmkr.google"
+      },
+      "aliases": [],
+      "developer": "Ziscolstudio",
+      "icon": "https://play-lh.googleusercontent.com/TcP2FK2QbeIYW-xyEA19JRSzQOGPkyTEcN5a-cg187Elhqd6gWJ-fK87XpputV6ZZnDiuw-dUR2Pxk_iOy3uqA",
+      "slug": "요괴야행록",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3389
+  "totalGames": 3390
 }

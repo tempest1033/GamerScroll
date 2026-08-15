@@ -31129,6 +31129,17 @@
         }
       ],
       "addedAt": "2026-08-15T00:51:25.613Z"
+    },
+    {
+      "title": "요괴야행록",
+      "status": "single",
+      "appIds": {
+        "android": "com.hcgmkr.google"
+      },
+      "developer": "Ziscolstudio",
+      "icon": "https://play-lh.googleusercontent.com/TcP2FK2QbeIYW-xyEA19JRSzQOGPkyTEcN5a-cg187Elhqd6gWJ-fK87XpputV6ZZnDiuw-dUR2Pxk_iOy3uqA",
+      "searchResults": [],
+      "addedAt": "2026-08-15T03:12:04.259Z"
     }
   ],
   "approved": [
