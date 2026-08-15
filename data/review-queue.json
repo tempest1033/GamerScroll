@@ -31140,6 +31140,41 @@
       "icon": "https://play-lh.googleusercontent.com/TcP2FK2QbeIYW-xyEA19JRSzQOGPkyTEcN5a-cg187Elhqd6gWJ-fK87XpputV6ZZnDiuw-dUR2Pxk_iOy3uqA",
       "searchResults": [],
       "addedAt": "2026-08-15T03:12:04.259Z"
+    },
+    {
+      "title": "Golden Touch: Merge & Makeover",
+      "status": "single",
+      "appIds": {
+        "ios": 6794267367
+      },
+      "developer": "Wind Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/ea/ee/8feaee64-68fc-0d80-a965-336bf368579b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-15T07:51:17.781Z"
+    },
+    {
+      "title": "Unblock Jam - Car Parking Game",
+      "status": "single",
+      "appIds": {
+        "android": "com.hashbytestudio.unblockjam"
+      },
+      "developer": "INDOVIA",
+      "icon": "https://play-lh.googleusercontent.com/my_VBauq6D7uS81M77KRZx6B_BmlPOnOVcOjYSJYHRofI040s5OJTNAzTFKemvmQ9FusbhQbrnTJNK3Qpeb9eQ",
+      "searchResults": [
+        {
+          "title": "Farm Jam: Frenzy Farming Game",
+          "appId": 1629034559
+        },
+        {
+          "title": "버스 시뮬레이터 : Ultimate",
+          "appId": 1461749632
+        },
+        {
+          "title": "주차 잼: 자동차 차단 해제",
+          "appId": 1615939088
+        }
+      ],
+      "addedAt": "2026-08-15T07:51:18.185Z"
     }
   ],
   "approved": [

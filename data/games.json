@@ -44450,8 +44450,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Golden Touch: Merge & Makeover": {
+      "appIds": {
+        "ios": 6794267367
+      },
+      "aliases": [],
+      "developer": "Wind Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/ea/ee/8feaee64-68fc-0d80-a965-336bf368579b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "golden-touch-merge-makeover",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Unblock Jam - Car Parking Game": {
+      "appIds": {
+        "android": "com.hashbytestudio.unblockjam"
+      },
+      "aliases": [],
+      "developer": "INDOVIA",
+      "icon": "https://play-lh.googleusercontent.com/my_VBauq6D7uS81M77KRZx6B_BmlPOnOVcOjYSJYHRofI040s5OJTNAzTFKemvmQ9FusbhQbrnTJNK3Qpeb9eQ",
+      "slug": "unblock-jam-car-parking-game",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3392
+  "totalGames": 3394
 }
