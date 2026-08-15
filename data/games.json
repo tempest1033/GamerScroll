@@ -44426,8 +44426,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "ZERO Sievert": {
+      "appIds": {
+        "steam": "1782120"
+      },
+      "aliases": [],
+      "developer": "CABO Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1782120/bc0c9c174402754ff2d1016726f2eb6b512879d3/capsule_231x87_alt_assets_7.jpg?t=1786641921",
+      "slug": "zero-sievert",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3390
+  "totalGames": 3391
 }
