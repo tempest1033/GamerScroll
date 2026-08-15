@@ -44474,8 +44474,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Mafia: The Old Country": {
+      "appIds": {
+        "steam": "1941540"
+      },
+      "aliases": [],
+      "developer": "Hangar 13",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1941540/9a13bbc742d1da6d7c5c5f53daeb1f46798067f7/capsule_231x87_alt_assets_3.jpg?t=1786750937",
+      "slug": "mafia-the-old-country",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3394
+  "totalGames": 3395
 }
