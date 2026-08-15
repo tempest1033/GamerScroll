@@ -2,7 +2,7 @@
   "meta": {
     "cssHash": "f0f71967",
     "templateVersion": "1.0",
-    "lastBuild": "2026-08-15T09:49:21.863Z",
+    "lastBuild": "2026-08-15T10:16:27.143Z",
     "sourceCssHash": "e89dbf9ed16e",
     "templateJsHash": "a27f447a5a75",
     "gamePagesCssMtime": 1779708874895.531,
@@ -3758,6 +3758,6 @@
   "daily": {},
   "weekly": {},
   "inputFiles": {
-    "gamePages": "c2c133072898"
+    "gamePages": "d03156165b21"
   }
 }
