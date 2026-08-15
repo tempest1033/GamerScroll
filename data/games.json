@@ -43945,14 +43945,16 @@
     },
     "Aimy(아이미)캐릭터 만들기&옷 입히기&AI채팅": {
       "appIds": {
-        "ios": 6450537255
+        "ios": 6450537255,
+        "android": "jp.aimy.mobile"
       },
       "aliases": [],
       "developer": "aisaac inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/45/50/0c/45500c24-dc82-4ebd-8bad-155c3fe316b6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "aimy아이미캐릭터-만들기옷-입히기ai채팅",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Coin collection challenge": {
@@ -44400,8 +44402,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "물건 매칭 정리 퍼즐 게임: Goods Sort 3D": {
+      "appIds": {
+        "android": "com.goods.sorting.games.triple.match3d.puzzle"
+      },
+      "aliases": [],
+      "developer": "Joymaster Puzzle Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/YEFfySzFI7prV3Pw7Qyswx5wry32q3YxdU9aEM6wXG4Rs6K-9Yj4J_XdDSYgRbBB2iuqYQv0jqF1s5aiBeqmNg",
+      "slug": "물건-매칭-정리-퍼즐-게임-goods-sort-3d",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3388
+  "totalGames": 3389
 }
