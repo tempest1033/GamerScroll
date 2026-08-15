@@ -44438,8 +44438,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Sandustry": {
+      "appIds": {
+        "steam": "2764460"
+      },
+      "aliases": [],
+      "developer": "Lantto Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2764460/f0a29d6c91be4e91e9fa2f384dd5ae695bfd6b5b/capsule_231x87.jpg?t=1786703049",
+      "slug": "sandustry",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-15",
-  "totalGames": 3391
+  "totalGames": 3392
 }
