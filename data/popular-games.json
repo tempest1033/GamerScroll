@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-15T18:18:28.093Z",
+  "updatedAt": "2026-08-16T18:18:45.092Z",
   "period": "30days",
   "games": [
     {
@@ -51,6 +51,10 @@
       "views": 5
     },
     {
+      "slug": "좀비-웨이브스",
+      "views": 5
+    },
+    {
       "slug": "퍼즐앤드래곤",
       "views": 5
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "adventure-capitalist",
-      "views": 4
-    },
-    {
-      "slug": "arrow-line-puzzle",
       "views": 4
     }
   ]
