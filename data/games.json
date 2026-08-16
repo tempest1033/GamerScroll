@@ -44500,8 +44500,20 @@
         "android",
         "ios"
       ]
+    },
+    "냥스파 - 고양이 마사지 샵": {
+      "appIds": {
+        "ios": 1543729168
+      },
+      "aliases": [],
+      "developer": "Seeplay Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/99/c6/ff/99c6ffc3-9ab6-108c-efb2-1d46423eae02/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "냥스파-고양이-마사지-샵",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-16",
-  "totalGames": 3396
+  "totalGames": 3397
 }
