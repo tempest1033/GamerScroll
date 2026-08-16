@@ -31195,13 +31195,19 @@
     },
     {
       "title": "냥스파 - 고양이 마사지 샵",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 1543729168
+        "ios": 1543729168,
+        "android": "com.hyperbeard.catopia"
       },
       "developer": "Seeplay Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/99/c6/ff/99c6ffc3-9ab6-108c-efb2-1d46423eae02/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "냥스파 - 고양이 마사지 샵",
+          "appId": 1543729168
+        }
+      ],
       "addedAt": "2026-08-16T04:59:46.428Z"
     },
     {
