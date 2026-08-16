@@ -44524,8 +44524,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "A Total War Saga: TROY": {
+      "appIds": {
+        "steam": "1099410"
+      },
+      "aliases": [],
+      "developer": "CREATIVE ASSEMBLY",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1099410/capsule_231x87.jpg?t=1763642600",
+      "slug": "a-total-war-saga-troy",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-17",
-  "totalGames": 3398
+  "totalGames": 3399
 }
