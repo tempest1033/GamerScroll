@@ -44486,8 +44486,22 @@
       "platforms": [
         "steam"
       ]
+    },
+    "사신소년 키우기": {
+      "appIds": {
+        "android": "com.BillionaireGames.TicketHero",
+        "ios": 6768860167
+      },
+      "aliases": [],
+      "developer": "BillionaireGames",
+      "icon": "https://play-lh.googleusercontent.com/-cya2aw0g811BXjXedyeVh-4jtRsrJaC1OnociY5swJHq6xU25-kL0RLgMNGaFbBbCTOPRd0khwy5EnmybU2Ews",
+      "slug": "사신소년-키우기",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-16",
-  "totalGames": 3395
+  "totalGames": 3396
 }

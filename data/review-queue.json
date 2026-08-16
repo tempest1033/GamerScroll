@@ -31175,6 +31175,23 @@
         }
       ],
       "addedAt": "2026-08-15T07:51:18.185Z"
+    },
+    {
+      "title": "사신소년 키우기",
+      "status": "matched",
+      "appIds": {
+        "android": "com.BillionaireGames.TicketHero",
+        "ios": 6768860167
+      },
+      "developer": "BillionaireGames",
+      "icon": "https://play-lh.googleusercontent.com/-cya2aw0g811BXjXedyeVh-4jtRsrJaC1OnociY5swJHq6xU25-kL0RLgMNGaFbBbCTOPRd0khwy5EnmybU2Ews",
+      "searchResults": [
+        {
+          "title": "사신소년 키우기",
+          "appId": 6768860167
+        }
+      ],
+      "addedAt": "2026-08-16T00:54:30.716Z"
     }
   ],
   "approved": [
