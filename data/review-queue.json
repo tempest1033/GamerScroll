@@ -31203,6 +31203,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/99/c6/ff/99c6ffc3-9ab6-108c-efb2-1d46423eae02/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-16T04:59:46.428Z"
+    },
+    {
+      "title": "팔라독(Paladog)",
+      "status": "single",
+      "appIds": {
+        "ios": "409687884"
+      },
+      "developer": "kim jin hyuk",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/69/05/9a/69059a2a-2908-1df3-42e2-fd90153501c8/mzl.pgoctvfn.jpg/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-16T07:53:52.373Z"
     }
   ],
   "approved": [

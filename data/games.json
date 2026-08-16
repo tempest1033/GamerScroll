@@ -44512,8 +44512,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "팔라독(Paladog)": {
+      "appIds": {
+        "ios": "409687884"
+      },
+      "aliases": [],
+      "developer": "kim jin hyuk",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple69/v4/69/05/9a/69059a2a-2908-1df3-42e2-fd90153501c8/mzl.pgoctvfn.jpg/512x512bb.jpg",
+      "slug": "팔라독paladog",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-16",
-  "totalGames": 3397
+  "totalGames": 3398
 }
