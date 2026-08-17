@@ -44562,8 +44562,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "MLB 9이닝스 GM": {
+      "appIds": {
+        "ios": "1214192685"
+      },
+      "aliases": [],
+      "developer": "Com2uS Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1e/ad/4e/1ead4edd-8800-ee10-0efd-b5455625ad24/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mlb-9이닝스-gm",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-17",
-  "totalGames": 3401
+  "totalGames": 3402
 }
