@@ -2,7 +2,7 @@
   "meta": {
     "cssHash": "f0f71967",
     "templateVersion": "1.0",
-    "lastBuild": "2026-08-17T12:30:25.659Z",
+    "lastBuild": "2026-08-17T12:51:24.523Z",
     "sourceCssHash": "e89dbf9ed16e",
     "templateJsHash": "a27f447a5a75",
     "gamePagesCssMtime": 1779708874895.531,
@@ -3760,11 +3760,12 @@
     "mobile-january-2026-kr": "15259ab65a82",
     "subculture-january-2026-kr": "9d3d29ce546b",
     "endfield-vs-dragonsword-new-year-2026": "3b01b65529ac",
-    "mobile-july-2026-kr": "92047b058fcc"
+    "mobile-july-2026-kr": "92047b058fcc",
+    "subculture-july-2026-kr": "ab251c950469"
   },
   "daily": {},
   "weekly": {},
   "inputFiles": {
-    "gamePages": "225eda49e49f"
+    "gamePages": "2606f451e986"
   }
 }
