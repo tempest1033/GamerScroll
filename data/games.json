@@ -44600,8 +44600,20 @@
         "android",
         "ios"
       ]
+    },
+    "Discounty : 크레이지 마트": {
+      "appIds": {
+        "ios": 6753793150
+      },
+      "aliases": [],
+      "developer": "Snapbreak Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/a6/11/7ca61175-d808-cd83-f179-22353e5cb20e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "discounty-크레이지-마트",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-18",
-  "totalGames": 3404
+  "totalGames": 3405
 }
