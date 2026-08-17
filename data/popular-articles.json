@@ -1,25 +1,12 @@
 {
-  "updatedAt": "2026-08-16T00:54:13.411Z",
+  "updatedAt": "2026-08-17T00:52:24.158Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 56,
+      "views": 58,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 17,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 15,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "wiki",
@@ -27,6 +14,31 @@
       "category": "knowledge",
       "views": 14,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 14,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 13,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "starcraft-shooter-blizzard",
+      "views": 6,
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-july-2026-kr",
+      "views": 6,
+      "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
       "type": "wiki",
@@ -39,20 +51,8 @@
       "type": "wiki",
       "slug": "pd-vs-director",
       "category": "knowledge",
-      "views": 6,
+      "views": 5,
       "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
-      "views": 5,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-july-2026-kr",
-      "views": 5,
-      "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
       "type": "insight",
@@ -68,6 +68,19 @@
       "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 3,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
+    },
+    {
       "type": "insight",
       "slug": "2026-game-trends",
       "views": 3,
@@ -81,6 +94,12 @@
     },
     {
       "type": "issue",
+      "slug": "gow-laufey-jaffe-criticism",
+      "views": 3,
+      "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-subscription-return",
       "views": 3,
       "path": "/magazine/issue/lineage-classic-subscription-return/"
@@ -90,6 +109,12 @@
       "slug": "steam-february-2026",
       "views": 3,
       "path": "/magazine/ranking/steam-february-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-january-2026",
+      "views": 3,
+      "path": "/magazine/ranking/steam-january-2026/"
     },
     {
       "type": "wiki",
@@ -121,17 +146,31 @@
     },
     {
       "type": "wiki",
+      "slug": "astonishia-story-sonnori",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/astonishia-story-sonnori/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/korean-esports-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "nier-series",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/nier-series/"
+    },
+    {
+      "type": "wiki",
       "slug": "ragnarok-online-history",
       "category": "history",
       "views": 3,
       "path": "/wiki/history/ragnarok-online-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",
@@ -161,12 +200,6 @@
     },
     {
       "type": "hotpick",
-      "slug": "mac-mini-m4-best-value-2026",
-      "views": 2,
-      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
-    },
-    {
-      "type": "hotpick",
       "slug": "switch-2-buying-guide-2026",
       "views": 2,
       "path": "/magazine/hotpick/switch-2-buying-guide-2026"
@@ -191,12 +224,6 @@
     },
     {
       "type": "issue",
-      "slug": "gow-laufey-jaffe-criticism",
-      "views": 2,
-      "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
-    },
-    {
-      "type": "issue",
       "slug": "limbus-company-ios-top5-record",
       "views": 2,
       "path": "/magazine/issue/limbus-company-ios-top5-record/"
@@ -206,6 +233,12 @@
       "slug": "nvidia-dlss5-controversy",
       "views": 2,
       "path": "/magazine/issue/nvidia-dlss5-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "pokemon-pokopia-review-roundup",
+      "views": 2,
+      "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
     },
     {
       "type": "ranking",
@@ -220,31 +253,11 @@
       "path": "/magazine/ranking/steam-april-2026/"
     },
     {
-      "type": "ranking",
-      "slug": "steam-january-2026",
-      "views": 2,
-      "path": "/magazine/ranking/steam-january-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "astonishia-story-sonnori",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/astonishia-story-sonnori/"
-    },
-    {
       "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 2,
       "path": "/wiki/history/heroes-of-might-and-magic/"
-    },
-    {
-      "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/korean-esports-history/"
     },
     {
       "type": "wiki",
@@ -255,13 +268,6 @@
     },
     {
       "type": "wiki",
-      "slug": "nier-series",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/nier-series/"
-    },
-    {
-      "type": "wiki",
       "slug": "rollercoaster-tycoon",
       "category": "history",
       "views": 2,
@@ -269,10 +275,23 @@
     },
     {
       "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+    },
+    {
+      "type": "wiki",
       "slug": "moba-genre-origin",
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/moba-genre-origin/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "python-pandas-data-analysis",
+      "views": 1,
+      "path": "/magazine/hotpick/python-pandas-data-analysis/"
     },
     {
       "type": "issue",
@@ -294,12 +313,6 @@
     },
     {
       "type": "issue",
-      "slug": "dragon-quest-7-reimagined-metacritic",
-      "views": 1,
-      "path": "/magazine/issue/dragon-quest-7-reimagined-metacritic/"
-    },
-    {
-      "type": "issue",
       "slug": "dragon-sword-full-refund-server-shutdown",
       "views": 1,
       "path": "/magazine/issue/dragon-sword-full-refund-server-shutdown/"
@@ -309,18 +322,6 @@
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
-    },
-    {
-      "type": "issue",
-      "slug": "granblue-relink-endless-ragnarok",
-      "views": 1,
-      "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
@@ -372,12 +373,6 @@
     },
     {
       "type": "ranking",
-      "slug": "mobile-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-april-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
@@ -408,20 +403,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pillar-of-fire-cresents",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
-      "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
