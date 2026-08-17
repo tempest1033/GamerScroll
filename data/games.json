@@ -44550,8 +44550,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "The Sinking City 2": {
+      "appIds": {
+        "steam": "2825860"
+      },
+      "aliases": [],
+      "developer": "Frogwares",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2825860/ab1b4d4026f073bd59648051622773657a506da6/capsule_231x87_alt_assets_1.jpg?t=1786356731",
+      "slug": "the-sinking-city-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-17",
-  "totalGames": 3400
+  "totalGames": 3401
 }
