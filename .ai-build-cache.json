@@ -3,7 +3,7 @@
     "cssHash": "196a8612cd72",
     "templateJsHash": "a209e586da97",
     "faviconSvgHash": "5a7e73e93309",
-    "lastBuild": "2026-08-05T09:32:43.373Z"
+    "lastBuild": "2026-08-17T11:58:23.318Z"
   },
   "articles": {
     "grok-46-launch-frontier-push": "3b6e6e824e55",
@@ -224,6 +224,7 @@
     "mac-mini-m4-best-value-2026": "376afd9a1974",
     "moltbot-clawdbot-ai-assistant": "4090a86b0799",
     "chatgpt-desktop-app": "e57a4c516586",
-    "vibe-coding": "a13ffdb68575"
+    "vibe-coding": "a13ffdb68575",
+    "xai-cursor-grok-comeback": "b4ed9bd87618"
   }
 }
