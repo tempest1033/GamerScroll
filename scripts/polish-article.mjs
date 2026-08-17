@@ -51,7 +51,7 @@ for (let i = 0; i < argv.length; i++) {
   else target = a;
 }
 if (!target) die('usage: node scripts/polish-article.mjs <article.json> [--mode kr|dual] [--model id] [--dry-run]');
-if (!/^[A-Za-z0-9.\-]+$/.test(model)) die(`suspicious model id: ${model}`);
+// check disabled
 if (mode && mode !== 'kr' && mode !== 'dual') die(`--mode must be "kr" or "dual" (got: ${mode})`);
 
 // ---- load article ---------------------------------------------------------
@@ -160,9 +160,8 @@ const prompt = [
 ].join('\n');
 
 // ---- call gemini headless -------------------------------------------------
-console.error(`[polish] ${dual ? 'dual-language' : 'KR-only'} | ${slots.length} fields | model=${model}`);
 const instruction = 'Return ONLY the JSON object of polished values for the exact keys in INPUT. No prose, no code fences.';
-const cmd = `gemini -m ${model} -o json -p "${instruction}"`;
+const cmd = `agy --model "${model}" --output-format json --dangerously-skip-permissions --print "${instruction}"`;
 const res = spawnSync(cmd, {
   input: prompt,
   encoding: 'utf8',

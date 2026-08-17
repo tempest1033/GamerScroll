@@ -1,0 +1,122 @@
+{
+  "slug": "xai-cursor-grok-comeback",
+  "site": "aiscroll",
+  "category": "general",
+  "status": "approved",
+  "date": "",
+  "needTranslate": false,
+  "title": "xAI 커서 인수 후 광폭 행보, 그록 4.6·그록봇까지 잇따른 흥행",
+  "titleEn": "xAI After Cursor: Grok 4.6 and Grok Bot Surge",
+  "summary": "커서 인수를 마친 SpaceXAI가 그록 4.6과 그록봇을 잇달아 선보였다. 모델 성능과 유통망, 구독 결합을 앞세워 프런티어 경쟁 구도를 재편하고 있다.",
+  "summaryEn": "SpaceXAI pairs its Cursor acquisition with Grok 4.6 and Grok Bot, turning model gains, developer distribution, and subscription bundling into a frontier push.",
+  "keywords": "그록 4.6 성능, xAI 커서 인수, 그록봇, AI 3강",
+  "keywordsEn": "Grok 4.6 benchmarks, Cursor acquisition, Grok Bot, Cursor integration",
+  "thumbnail": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/uploads/close-og-image-1-B5D1caLmbVsj0JInrL2qKgXzLPMGoU.png",
+  "content": [
+    {
+      "type": "text",
+      "value": "스페이스X가 8월 14일 600억 달러 규모의 커서 인수를 완료했다. 앞서 xAI를 품으며 SpaceXAI 체제를 갖춘 만큼, 법적 인수 주체는 스페이스X지만 기술과 제품 관점에서는 xAI와 커서가 단일 조직처럼 움직이게 됐다.\n\n인수 발표 당시에는 600억 달러를 투입한 전략이 어떤 성과로 이어질지 의문도 적지 않았다. 하지만 불과 몇 주 만에 그록 4.5와 그록 4.6, 그록봇이 연달아 호평을 받으며 분위기가 반전됐다. 지금 시장의 관심은 인수의 당위성을 넘어, 이 결합이 GPT와 클로드를 얼마나 빠르게 추격해 AI 3강을 굳힐지로 쏠리고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "xAI 커서 인수, 연산력과 유통망의 전격 결합"
+    },
+    {
+      "type": "text",
+      "value": "이러한 시선 변화는 커서가 품은 두 가지 핵심 자산에서 출발한다. 커서는 [인수 완료 발표](https://cursor.com/blog/joining-spacex)에서 세계 최대 규모의 GPU 자원에 직접 접근해 더 강력한 모델을 더 낮은 추론 비용으로 서비스하게 됐다고 밝혔다. SpaceXAI 입장에서는 대규모 학습용 연산력과 함께 수많은 개발자가 매일 상주하는 배포 플랫폼을 단숨에 확보한 셈이다.\n\n제품 통합 속도도 매섭다. 커서 환경과 함께 훈련한 그록 4.5가 코딩 성능으로 먼저 호평을 받았고, 후속 모델은 출시 당일부터 커서와 그록 빌드에 곧바로 탑재됐다. 슈퍼그록 헤비 가입자가 계정을 연결하면 월 200달러 상당의 커서 울트라를 추가 비용 없이 쓰는 [결합 혜택](https://cursor.com/help/grok-bot/supergrok-heavy)도 제공된다. 기존 이용자의 추가 부담을 없애면서, xAI 커서 인수는 모델 학습과 유통망, 구독 체계를 한 고리로 묶는 공격적인 확장으로 이어졌다."
+    },
+    {
+      "type": "heading",
+      "value": "그록 4.6 성능, 제미나이를 밀어낸 AI 3강 구도"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/evals-4.6-space-x-03-light-RfPXLdwnvrX89InlepuJovKbmJkQB1.png",
+      "caption": "그록 4.6과 주요 프런티어 모델 벤치마크 비교표",
+      "alt": "그록 4.6의 지능 지수와 코딩·에이전트 벤치마크를 경쟁 모델과 비교한 표"
+    },
+    {
+      "type": "text",
+      "value": "그 결합 고리에 힘을 실어준 결정적 계기는 그록 4.6 성능의 가파른 도약이다. 아티피셜 애널리시스 지능 지수에서 그록 4.6은 61점을 기록하며 GPT-5.6 솔과 어깨를 나란히 했다. 클로드 오푸스 5(63점)와 클로드 페이블 5(62점)가 앞자리를 지켰지만, 프런티어 그룹이 앤트로픽·오픈AI·SpaceXAI 중심으로 좁혀지면서 제미나이는 선두권 밖으로 밀려났다.\n\n도약의 속도는 순위 이상으로 주목받는다. 그록 4.6은 불과 한 달여 만에 그록 4.5보다 5점을 끌어올렸고, 터미널 벤치 2.1에서도 88.4%를 달성했다. 입력과 출력 100만 토큰당 각각 2달러와 6달러인 API 가격은 유지되어 오푸스 5 및 GPT-5.6 솔 대비 60% 이상 저렴하다. [출시 전부터 예고된 빠른 세대 교체](/ko/article/general/grok-46-launch-frontier-push/)가 실측 수치로 입증되면서 xAI는 AI 3강의 확고한 축으로 자리 잡기 시작했다."
+    },
+    {
+      "type": "heading",
+      "value": "연속 흥행 이후, 다음 모델이 남은 관전 포인트"
+    },
+    {
+      "type": "text",
+      "value": "점수 상승과 가격 경쟁력만으로 xAI의 반등세를 다 설명하기는 어렵다. 그록봇은 전용 클라우드 컴퓨터를 기반으로 Gmail과 주요 웹 서비스에 접속하며, 이용자가 노트북을 덮어도 백그라운드 작업을 멈추지 않는다. 여러 봇이 역할을 나눠 맥락을 이어받는 협업 구조 역시 커서 계정과 매끄럽게 맞물린다.\n\n초기 반응도 이 일체형 경험에 쏠렸다. [벤처비트가 전한 테스터 평가](https://venturebeat.com/orchestration/spacexais-grok-bot-turns-agents-into-persistent-digital-coworkers-that-can-operate-your-apps-for-120-per-month)에 따르면 복잡한 자동화 파이프라인을 짤 필요 없이 동료에게 업무를 넘기듯 다룰 수 있다는 호평이 이어졌다. 그록봇을 슈퍼그록 헤비와 커서 울트라 모두에 기본 포함하면서 기존 가입자의 진입 장벽도 낮췄다.\n\n이제 SpaceXAI를 한 단계 아래의 추격자로 치부하기는 어렵다. 향후 그록 4.7이 4.5에서 4.6으로 보여준 발전 속도를 이어가며, 장기 복합 추론에서 GPT와 클로드의 아성을 얼마나 흔들지가 다음 관전 포인트다. 커서 인수 이후 이어진 연타석 흥행은 xAI가 이미 프런티어 경쟁의 핵심 주체로 올라섰음을 보여준다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "SpaceX completed its $60 billion acquisition of Cursor on August 14. With xAI already integrated into the parent company under the SpaceXAI banner, the transaction effectively placed xAI and Cursor under one roof.\n\nThe strategic rationale behind purchasing an expensive developer platform initially raised questions. That skepticism faded quickly as Cursor integration helped Grok 4.5, Grok 4.6, and Grok Bot earn back-to-back acclaim within weeks. The industry is no longer questioning the Cursor acquisition, but watching how rapidly the combined group can challenge GPT and Claude."
+    },
+    {
+      "type": "heading",
+      "value": "The Cursor Acquisition: Compute Meets Distribution"
+    },
+    {
+      "type": "text",
+      "value": "That shift in focus builds directly on the dual assets Cursor brings to the table. In its [acquisition announcement](https://cursor.com/blog/joining-spacex), Cursor noted that direct access to the world's largest GPU fleet would power more capable models at significantly lower operating costs. SpaceXAI secured massive training compute alongside a developer environment programmers already live in every day.\n\nDeep Cursor integration delivered quick results. Grok 4.5 was trained in close collaboration with Cursor and won early praise for coding, while its successor landed inside Cursor and Grok Build on day one. SuperGrok Heavy subscribers can also link their accounts to unlock the $200-per-month Cursor Ultra tier at no extra cost through an official [bundled offer](https://cursor.com/help/grok-bot/supergrok-heavy). By removing the secondary subscription barrier for active users, the Cursor acquisition has materialized into an aggressive push connecting frontier training, daily developer distribution, and unified subscriptions."
+    },
+    {
+      "type": "heading",
+      "value": "Grok 4.6 Benchmarks Redraw the Frontier"
+    },
+    {
+      "type": "image",
+      "src": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/evals-4.6-space-x-03-light-RfPXLdwnvrX89InlepuJovKbmJkQB1.png",
+      "caption": "Grok 4.6 benchmark comparison with leading frontier models",
+      "alt": "Table comparing Grok 4.6 intelligence, coding, and agent benchmarks with rival models"
+    },
+    {
+      "type": "text",
+      "value": "That unified strategy gained immediate momentum when the Grok 4.6 benchmarks revealed substantial performance jumps. Grok 4.6 posted a score of 61 on the Artificial Analysis Intelligence Index, matching GPT-5.6 Sol. While Claude Opus 5 led at 63 and Claude Fable 5 reached 62, the frontier tier effectively narrowed to Anthropic, OpenAI, and SpaceXAI, leaving Gemini outside the top flight.\n\nThe velocity of improvement proved just as notable as the raw ranking. Grok 4.6 gained five points over Grok 4.5 in roughly a month and hit 88.4% on Terminal-Bench 2.1. API pricing held firm at $2 per million input tokens and $6 per million output tokens—over 60% cheaper than Opus 5 and GPT-5.6 Sol. As highlighted in a [rapid release cycle previewed before launch](/article/general/grok-46-launch-frontier-push/), rapid execution has translated into concrete benchmarks across the frontier AI race."
+    },
+    {
+      "type": "heading",
+      "value": "From Model Momentum to an Agent Product"
+    },
+    {
+      "type": "text",
+      "value": "Competitive benchmarks and discount pricing tell only half the story behind xAI's resurgence. Grok Bot equips each agent with a dedicated cloud computer, letting it log into Gmail and web services to sustain tasks long after a user shuts their laptop. Multiple bots coordinate by dividing specialized roles and passing shared context, all anchored seamlessly to Cursor accounts.\n\nEarly feedback highlighted this frictionless Cursor integration. Practitioners interviewed by [VentureBeat](https://venturebeat.com/orchestration/spacexais-grok-bot-turns-agents-into-persistent-digital-coworkers-that-can-operate-your-apps-for-120-per-month) noted that agents took over end-to-end workflows without requiring convoluted automation setups. Bundling Grok Bot access into both SuperGrok Heavy and Cursor Ultra lowered adoption friction for heavy daily users.\n\nSpaceXAI has firmly moved past the tier of secondary contenders. The benchmark for Grok 4.7 is whether it can sustain the steep progress shown between 4.5 and 4.6 while closing the remaining gap with GPT and Claude on long-horizon reasoning. The post-acquisition cadence and deeper Cursor integration make clear that xAI is competing at the very front of the frontier AI race."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Cursor",
+      "title": "Cursor is now a part of SpaceX",
+      "url": "https://cursor.com/blog/joining-spacex"
+    },
+    {
+      "name": "Cursor",
+      "title": "Introducing Grok 4.6",
+      "url": "https://cursor.com/blog/grok-4-6"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "Grok 4.6 returns SpaceXAI to the intelligence frontier and leads on cost efficiency",
+      "url": "https://artificialanalysis.ai/articles/grok-4-6-benchmarks-and-analysis"
+    },
+    {
+      "name": "Cursor",
+      "title": "Get access with SuperGrok Heavy",
+      "url": "https://cursor.com/help/grok-bot/supergrok-heavy"
+    },
+    {
+      "name": "VentureBeat",
+      "title": "SpaceX's Grok Bot turns agents into persistent digital coworkers that can operate your apps for $120-per-month",
+      "url": "https://venturebeat.com/orchestration/spacexais-grok-bot-turns-agents-into-persistent-digital-coworkers-that-can-operate-your-apps-for-120-per-month"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/grok-46-launch-frontier-push",
+    "tech:ai/spacex-acquire-cursor-60b",
+    "tech:ai/grok-build-composer-2-5-synergy",
+    "tech:ai/gemini-3-5-pro-leak-frontier-gap"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
