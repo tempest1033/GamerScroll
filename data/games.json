@@ -44586,8 +44586,22 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Quack Bag: Duck Mafia": {
+      "appIds": {
+        "android": "com.bag.blob",
+        "ios": 6785419179
+      },
+      "aliases": [],
+      "developer": "NOODLE GAMES LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/NekekNjDw0pPPPlSOTk2nVIHI8G6tw6g3BXWTeiC864c9_FUdqXngzR_0lWJVAEEfd7h9V7lcrCKeRz1P-gHzR8",
+      "slug": "quack-bag-duck-mafia",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-18",
-  "totalGames": 3403
+  "totalGames": 3404
 }
