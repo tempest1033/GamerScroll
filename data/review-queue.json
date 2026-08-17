@@ -31270,6 +31270,31 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/a6/11/7ca61175-d808-cd83-f179-22353e5cb20e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-17T19:50:36.333Z"
+    },
+    {
+      "title": "Medal Hunter: 밀리터리 게임",
+      "status": "matched",
+      "appIds": {
+        "android": "com.tensquaregames.medalhunter",
+        "ios": 6762197056
+      },
+      "developer": "Ten Square Games",
+      "icon": "https://play-lh.googleusercontent.com/WR2twMlKIjnCO0cOTgYdj_RhtmLuQfcQiBgkAIij6ippigFl-aZRDbu14ATzZoz5O8lH6AFGknjTVfKqn_xayh4",
+      "searchResults": [
+        {
+          "title": "Medal Hunter: 밀리터리 게임",
+          "appId": 6762197056
+        },
+        {
+          "title": "월드워 히어로즈: WW2 슈팅게임온라인",
+          "appId": 1281535229
+        },
+        {
+          "title": "Metalstorm: 전투기 전쟁 게임",
+          "appId": 1461423243
+        }
+      ],
+      "addedAt": "2026-08-17T20:52:13.279Z"
     }
   ],
   "approved": [

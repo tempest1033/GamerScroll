@@ -44612,8 +44612,22 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Medal Hunter: 밀리터리 게임": {
+      "appIds": {
+        "android": "com.tensquaregames.medalhunter",
+        "ios": 6762197056
+      },
+      "aliases": [],
+      "developer": "Ten Square Games",
+      "icon": "https://play-lh.googleusercontent.com/WR2twMlKIjnCO0cOTgYdj_RhtmLuQfcQiBgkAIij6ippigFl-aZRDbu14ATzZoz5O8lH6AFGknjTVfKqn_xayh4",
+      "slug": "medal-hunter-밀리터리-게임",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-18",
-  "totalGames": 3405
+  "totalGames": 3406
 }
