@@ -44666,8 +44666,34 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Loop Sort": {
+      "appIds": {
+        "android": "com.Garawell.LoopSort",
+        "ios": 6751101794
+      },
+      "aliases": [],
+      "developer": "VOODOO",
+      "icon": "https://play-lh.googleusercontent.com/obKgCUtg7tviXGMR0ooG8un-oqQztLYC4uJfhRnF1Tow9WGQNZcNk5QTMbm9nPajahXCEjxcNn0J1aGq8HPRQA",
+      "slug": "loop-sort",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Darkest Dungeon®: The Fire's Edge": {
+      "appIds": {
+        "steam": "4964110"
+      },
+      "aliases": [],
+      "developer": "Red Hook Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4964110/87ed3331c3cb8e53df5492ef06c5b46fa7d447fa/capsule_231x87.jpg?t=1787072060",
+      "slug": "darkest-dungeon-the-fires-edge",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3409
+  "totalGames": 3411
 }

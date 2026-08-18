@@ -31311,6 +31311,31 @@
         }
       ],
       "addedAt": "2026-08-17T22:48:42.831Z"
+    },
+    {
+      "title": "Loop Sort",
+      "status": "matched",
+      "appIds": {
+        "android": "com.Garawell.LoopSort",
+        "ios": 6751101794
+      },
+      "developer": "VOODOO",
+      "icon": "https://play-lh.googleusercontent.com/obKgCUtg7tviXGMR0ooG8un-oqQztLYC4uJfhRnF1Tow9WGQNZcNk5QTMbm9nPajahXCEjxcNn0J1aGq8HPRQA",
+      "searchResults": [
+        {
+          "title": "Loop Sort",
+          "appId": 6751101794
+        },
+        {
+          "title": "Loop Master: 컬러 정렬 퍼즐",
+          "appId": 6761603258
+        },
+        {
+          "title": "Sand Loop",
+          "appId": 6754363534
+        }
+      ],
+      "addedAt": "2026-08-18T17:52:30.614Z"
     }
   ],
   "approved": [
