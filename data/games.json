@@ -44642,8 +44642,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Zombie Army 4: Dead War": {
+      "appIds": {
+        "steam": "694280"
+      },
+      "aliases": [],
+      "developer": "Rebellion",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/694280/capsule_231x87.jpg?t=1786965015",
+      "slug": "zombie-army-4-dead-war",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-18",
-  "totalGames": 3407
+  "totalGames": 3408
 }
