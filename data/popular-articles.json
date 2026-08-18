@@ -1,31 +1,31 @@
 {
-  "updatedAt": "2026-08-17T00:52:24.158Z",
+  "updatedAt": "2026-08-18T00:50:02.414Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 58,
+      "views": 54,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
-      "views": 14,
+      "views": 15,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 14,
+      "views": 15,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 13,
+      "views": 14,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -56,6 +56,12 @@
     },
     {
       "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 4,
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
       "views": 4,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
@@ -81,12 +87,6 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 3,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
       "type": "issue",
       "slug": "devsisters-devnow-2026",
       "views": 3,
@@ -103,6 +103,12 @@
       "slug": "lineage-classic-subscription-return",
       "views": 3,
       "path": "/magazine/issue/lineage-classic-subscription-return/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-dlss5-controversy",
+      "views": 3,
+      "path": "/magazine/issue/nvidia-dlss5-controversy/"
     },
     {
       "type": "ranking",
@@ -224,18 +230,6 @@
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 2,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-dlss5-controversy",
-      "views": 2,
-      "path": "/magazine/issue/nvidia-dlss5-controversy/"
-    },
-    {
-      "type": "issue",
       "slug": "pokemon-pokopia-review-roundup",
       "views": 2,
       "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
@@ -325,21 +319,27 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
+      "slug": "limbus-company-ios-top5-record",
+      "views": 1,
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
+    },
+    {
+      "type": "issue",
       "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 1,
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
     },
     {
       "type": "issue",
-      "slug": "nexon-maple-scandal-chief-fired",
+      "slug": "nvidia-gpu-launch-halt-ai-priority",
       "views": 1,
-      "path": "/magazine/issue/nexon-maple-scandal-chief-fired/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 1,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+      "path": "/magazine/issue/nvidia-gpu-launch-halt-ai-priority/"
     },
     {
       "type": "issue",
@@ -384,6 +384,12 @@
       "path": "/magazine/ranking/subculture-february-2026-kr/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-july-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-july-2026-kr/"
+    },
+    {
       "type": "wiki",
       "slug": "app-revenue-ranking-algorithm",
       "category": "business",
@@ -406,10 +412,10 @@
     },
     {
       "type": "wiki",
-      "slug": "pc-components-gaming-performance",
-      "category": "knowledge",
+      "slug": "black-and-white-demis-hassabis",
+      "category": "history",
       "views": 1,
-      "path": "/wiki/knowledge/pc-components-gaming-performance/"
+      "path": "/wiki/history/black-and-white-demis-hassabis/"
     }
   ]
 }
