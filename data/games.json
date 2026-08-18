@@ -44692,8 +44692,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "젤리 마스터: 먹방 ASMR": {
+      "appIds": {
+        "android": "com.fc.p.cp.jelly.mukbang.asmr.live.diy"
+      },
+      "aliases": [],
+      "developer": "FALCON GAME",
+      "icon": "https://play-lh.googleusercontent.com/8zwRqKu-8rUD_EOwZ6MjmbPPwtpi-wieyKho9PrijmM_cWvdG-GTj88kgxorRomEBmaOcvAq38HJaNfQuxqX",
+      "slug": "젤리-마스터-먹방-asmr",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3411
+  "totalGames": 3412
 }

@@ -31336,6 +31336,30 @@
         }
       ],
       "addedAt": "2026-08-18T17:52:30.614Z"
+    },
+    {
+      "title": "젤리 마스터: 먹방 ASMR",
+      "status": "single",
+      "appIds": {
+        "android": "com.fc.p.cp.jelly.mukbang.asmr.live.diy"
+      },
+      "developer": "FALCON GAME",
+      "icon": "https://play-lh.googleusercontent.com/8zwRqKu-8rUD_EOwZ6MjmbPPwtpi-wieyKho9PrijmM_cWvdG-GTj88kgxorRomEBmaOcvAq38HJaNfQuxqX",
+      "searchResults": [
+        {
+          "title": "탕후루의 달인 - 두쫀쿠, 급식, 배달 먹방 ASMR",
+          "appId": 6466620626
+        },
+        {
+          "title": "젤리 마스터: 먹방 게임",
+          "appId": 6738694162
+        },
+        {
+          "title": "케이크 마스터: 먹방 ASMR",
+          "appId": 6744336055
+        }
+      ],
+      "addedAt": "2026-08-18T18:27:38.464Z"
     }
   ],
   "approved": [
