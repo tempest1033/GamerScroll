@@ -14673,15 +14673,19 @@
     "Stumble Guys": {
       "appIds": {
         "ios": "1541153375",
-        "android": "com.kitkagames.fallbuddies"
+        "android": "com.kitkagames.fallbuddies",
+        "steam": "1677740"
       },
       "aliases": [
         "Stumble Guys 스텀블 가이즈"
       ],
+      "developer": "Scopely",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1677740/header.jpg?t=1784624338",
       "slug": "stumble-guys",
       "platforms": [
         "ios",
-        "android"
+        "android",
+        "steam"
       ]
     },
     "메카 르네상스": {
@@ -44744,8 +44748,80 @@
         "android",
         "ios"
       ]
+    },
+    "REMATCH": {
+      "appIds": {
+        "steam": "2138720"
+      },
+      "aliases": [],
+      "developer": "Sloclap",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2138720/header.jpg?t=1781682466",
+      "slug": "rematch",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "RuneScape ®": {
+      "appIds": {
+        "steam": "1343400"
+      },
+      "aliases": [],
+      "developer": "Jagex Ltd",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1343400/164e54273831e76f820378b4c6e0c21e0a4834e2/header.jpg?t=1771947591",
+      "slug": "runescape",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Pathfinder: Wrath of the Righteous - Enhanced Edition": {
+      "appIds": {
+        "steam": "1184370"
+      },
+      "aliases": [],
+      "developer": "Owlcat Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1184370/header.jpg?t=1781096468",
+      "slug": "pathfinder-wrath-of-the-righteous-enhanced-edition",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Pax Autocratica": {
+      "appIds": {
+        "steam": "1067360"
+      },
+      "aliases": [],
+      "developer": "Multiverse",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1067360/d492e901f3aec578ea3b3fc45c25f09784313d8c/header.jpg?t=1786694191",
+      "slug": "pax-autocratica",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "MARVEL SNAP": {
+      "appIds": {
+        "steam": "1997040"
+      },
+      "aliases": [],
+      "developer": "Second Dinner Studios, Inc.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1997040/47bfae67977f349b56d1cfdceba9e6f9f9f4951e/header.jpg?t=1782145280",
+      "slug": "marvel-snap",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "KovaaK's": {
+      "appIds": {
+        "steam": "824270"
+      },
+      "aliases": [],
+      "developer": "KovaaK Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/824270/header.jpg?t=1786726218",
+      "slug": "kovaaks",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3415
+  "totalGames": 3421
 }
