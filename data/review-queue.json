@@ -31401,6 +31401,23 @@
       "icon": "https://play-lh.googleusercontent.com/IfpJ-KyW1q3--RXTJz-OgrNfBnrVoDqWddG8uzW8vD0XVB2YabCll0JDL2KlTwKZA01ZKDCJBuy73FpauJTD_D4",
       "searchResults": [],
       "addedAt": "2026-08-18T19:07:36.832Z"
+    },
+    {
+      "title": "모아용: 최강영웅 서버대전",
+      "status": "matched",
+      "appIds": {
+        "android": "com.moayong.google",
+        "ios": 6778730598
+      },
+      "developer": "엔트릴게임즈",
+      "icon": "https://play-lh.googleusercontent.com/F2eeXYDsLIRw9n5x_JK2nHM-ROYD9z31wak8FVmECawT2qab6etO9BD8rlY2Lw8mdZiszwhY_6_y1yurs7TD2Q",
+      "searchResults": [
+        {
+          "title": "모아용: 최강영웅 서버대전",
+          "appId": 6778730598
+        }
+      ],
+      "addedAt": "2026-08-18T21:46:14.854Z"
     }
   ],
   "approved": [

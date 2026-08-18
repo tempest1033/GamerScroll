@@ -44730,8 +44730,22 @@
       "platforms": [
         "android"
       ]
+    },
+    "모아용: 최강영웅 서버대전": {
+      "appIds": {
+        "android": "com.moayong.google",
+        "ios": 6778730598
+      },
+      "aliases": [],
+      "developer": "엔트릴게임즈",
+      "icon": "https://play-lh.googleusercontent.com/F2eeXYDsLIRw9n5x_JK2nHM-ROYD9z31wak8FVmECawT2qab6etO9BD8rlY2Lw8mdZiszwhY_6_y1yurs7TD2Q",
+      "slug": "모아용-최강영웅-서버대전",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3414
+  "totalGames": 3415
 }
