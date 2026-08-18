@@ -42500,7 +42500,11 @@
         "ios": "6749251466",
         "android": "com.devsisters.cc"
       },
-      "aliases": [],
+      "aliases": [
+        "쿠키런 키우기",
+        "쿠키런: 크럼블",
+        "쿠키런 크럼블"
+      ],
       "developer": "Devsisters",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/27/f0/7d/27f07d15-d812-f8b5-9062-40868d131f70/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "쿠키런-키우기-쿠키런-크럼블",

@@ -14,6 +14,7 @@
  *   meta/site            - `site` field present (HARD rule; missing => excluded from both builds)
  *   meta/sources         - exactly 5 sources (HARD rule)
  *   meta/related-docs    - 3-4 relatedDocs, each target JSON exists on disk
+ *   meta/related-games   - every explicit relatedGames slug exists in games.json
  *   meta/thumbnail       - non-empty thumbnail
  *   meta/summary-len     - summary (and summaryEn) <= 160 chars
  *   meta/dual-language   - AIScroll: titleEn/summaryEn/keywordsEn/contentEn present, keywordsEn != keywords, needTranslate false
@@ -42,6 +43,9 @@ const { spawnSync } = require('node:child_process');
 const REPO_ROOT = path.resolve(__dirname, '..');
 const MORPH_SCRIPT = path.join(__dirname, 'morph_analyze.py');
 const PYTHON_BIN = process.env.PYTHON_BIN || 'python';
+const GAMES_PATH = path.join(REPO_ROOT, 'data', 'games.json');
+const GAMES = JSON.parse(fs.readFileSync(GAMES_PATH, 'utf8').replace(/^\uFEFF/, '')).games || {};
+const GAME_SLUGS = new Set(Object.values(GAMES).map((game) => game.slug).filter(Boolean));
 
 const {
   DENSITY_MIN,
@@ -273,6 +277,15 @@ function evalArticle(file, json, morph, morphIdx) {
     name: 'meta/related-docs',
     pass: rd.length >= 3 && rd.length <= 4 && rdMissing.length === 0,
     detail: rd.length === 0 ? 'empty (required 3-4)' : rdMissing.length ? `dead targets: ${rdMissing.join(', ')}` : `${rd.length} ok`,
+  });
+
+  const rg = Array.isArray(json.relatedGames) ? json.relatedGames : [];
+  const rgSlugs = rg.map((item) => (typeof item === 'string' ? item : item && item.slug)).filter(Boolean);
+  const rgMissing = rgSlugs.filter((slug) => !GAME_SLUGS.has(slug));
+  checks.push({
+    name: 'meta/related-games',
+    pass: rgMissing.length === 0,
+    detail: rgMissing.length ? `dead targets: ${rgMissing.join(', ')}` : rgSlugs.length ? `${rgSlugs.length} ok` : 'empty (automatic matching)',
   });
 
   checks.push({ name: 'meta/thumbnail', pass: !!(json.thumbnail && String(json.thumbnail).trim()), detail: json.thumbnail ? 'set' : 'MISSING' });

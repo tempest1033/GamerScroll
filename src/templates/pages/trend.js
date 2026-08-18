@@ -801,7 +801,8 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
   };
   const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
   const fullText = content.filter(b => b.type === 'text').map(b => b.value).join(' ');
-  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText);
+  const hasManualGames = Array.isArray(post.relatedGames) && post.relatedGames.length > 0;
+  const relatedGames = hasManualGames ? manualGames : findRelatedGames(fullText);
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
       <div class="blog-related-title">관련 게임</div>
@@ -1564,7 +1565,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   };
   const manualGames = (post.relatedGames || []).map(slug => findGameBySlug(slug)).filter(Boolean);
   const fullText = content.map(b => b.value || '').join(' ');
-  const relatedGames = 'relatedGames' in post ? manualGames : findRelatedGames(fullText, 4);
+  const hasManualGames = Array.isArray(post.relatedGames) && post.relatedGames.length > 0;
+  const relatedGames = hasManualGames ? manualGames : findRelatedGames(fullText, 4);
   const relatedGamesHtml = relatedGames.length > 0 ? `
     <div class="blog-related-games">
       <div class="blog-related-title">관련 게임</div>

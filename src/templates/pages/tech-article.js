@@ -406,7 +406,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
 
   // 수동 지정된 relatedGames가 있으면 사용 (최대 4개)
   let relatedGames = [];
-  if ('relatedGames' in article) {
+  if (Array.isArray(article.relatedGames) && article.relatedGames.length > 0) {
     relatedGames = article.relatedGames.map(item => {
       const slugValue = typeof item === 'string' ? item : item.slug;
       const game = Object.entries(gamesMap).find(([_, g]) => g.slug === slugValue);
