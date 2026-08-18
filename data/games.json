@@ -44654,8 +44654,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Nioh 3 Season Pass": {
+      "appIds": {
+        "steam": "4003930"
+      },
+      "aliases": [],
+      "developer": "KOEI TECMO GAMES CO., LTD.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4003930/f7b42d99ae941c0bd16c8eb1ca2d606f0d19fc5e/capsule_231x87.jpg?t=1783578334",
+      "slug": "nioh-3-season-pass",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-08-18",
-  "totalGames": 3408
+  "lastUpdated": "2026-08-19",
+  "totalGames": 3409
 }
