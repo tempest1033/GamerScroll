@@ -31234,13 +31234,19 @@
     },
     {
       "title": "어쩌다 도굴",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6768283144
+        "ios": 6768283144,
+        "android": "com.krmojin.google"
       },
       "developer": "Pixel Faith Technology Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/98/08/0f980864-8ec2-88a7-3086-a1ae2b85d5b0/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "어쩌다 도굴",
+          "appId": 6768283144
+        }
+      ],
       "addedAt": "2026-08-17T16:54:38.195Z"
     },
     {
@@ -31360,6 +31366,41 @@
         }
       ],
       "addedAt": "2026-08-18T18:27:38.464Z"
+    },
+    {
+      "title": "Just Soccer: 축구 PvP",
+      "status": "single",
+      "appIds": {
+        "android": "com.whoyaho.football"
+      },
+      "developer": "Whoyaho Corp.",
+      "icon": "https://play-lh.googleusercontent.com/snXS785XGCHYB2GUK1AHJ0HMJ6IuST5bGX3Li2WTDh1t6NjRrCw6QX6-pE9vlEBOKbJLQEe_KSPV9mbH4tzmQ_o",
+      "searchResults": [
+        {
+          "title": "스코어! 매치 - 멀티 플레이어 축구",
+          "appId": 1145420529
+        },
+        {
+          "title": "Goal Battle - 축구 게임",
+          "appId": 6477293095
+        },
+        {
+          "title": "Ultimate Clash Soccer",
+          "appId": 1506588619
+        }
+      ],
+      "addedAt": "2026-08-18T19:07:36.543Z"
+    },
+    {
+      "title": "Arrow Smash：Earn Cash",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrowswishwin.aethernova"
+      },
+      "developer": "PT ANUGRAH KERTAS UTAMA",
+      "icon": "https://play-lh.googleusercontent.com/IfpJ-KyW1q3--RXTJz-OgrNfBnrVoDqWddG8uzW8vD0XVB2YabCll0JDL2KlTwKZA01ZKDCJBuy73FpauJTD_D4",
+      "searchResults": [],
+      "addedAt": "2026-08-18T19:07:36.832Z"
     }
   ],
   "approved": [
