@@ -44820,8 +44820,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "MAJO - 아포칼립스 마녀 택틱스 RPG": {
+      "appIds": {
+        "ios": 6742809054
+      },
+      "aliases": [],
+      "developer": "DarkWind Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d0/e9/02/d0e90238-05fc-7c0f-4470-1d4387d42037/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "majo-아포칼립스-마녀-택틱스-rpg",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3421
+  "totalGames": 3422
 }
