@@ -44844,8 +44844,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Nioh 3 Hell Rising": {
+      "appIds": {
+        "steam": "4003950"
+      },
+      "aliases": [],
+      "developer": "KOEI TECMO GAMES CO., LTD.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4003950/86c18f2c27df31470dc796fe1eb2b2eaeb23acc4/capsule_231x87.jpg?t=1787112015",
+      "slug": "nioh-3-hell-rising",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3423
+  "totalGames": 3424
 }
