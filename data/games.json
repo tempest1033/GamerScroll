@@ -44856,8 +44856,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Love Makeover: 패션 스타일리스트 Games": {
+      "appIds": {
+        "ios": 6785442752
+      },
+      "aliases": [],
+      "developer": "洵 何",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/46/90/6c/46906c20-8a99-4b01-a131-6ae3cd31cb70/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "love-makeover-패션-스타일리스트-games",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3424
+  "totalGames": 3425
 }
