@@ -44892,8 +44892,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Hearth and Hamlet": {
+      "appIds": {
+        "steam": "4315040"
+      },
+      "aliases": [],
+      "developer": "Phorust Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4315040/cef23bc7f825aa8da91b16ea1d57ac1ce677b9ea/capsule_231x87.jpg?t=1787157670",
+      "slug": "hearth-and-hamlet",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-20",
-  "totalGames": 3427
+  "totalGames": 3428
 }
