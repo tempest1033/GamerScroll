@@ -38837,14 +38837,16 @@
     },
     "가이더스 원": {
       "appIds": {
-        "android": "com.izzle.go"
+        "android": "com.izzle.go",
+        "ios": 6752554540
       },
       "aliases": [],
       "developer": "izzle",
       "icon": "https://play-lh.googleusercontent.com/zFU1LL2mU6jh-9aG4a7aRgjQhHyoDBNVHCvzPzvQS9PSPEB-rbJhVlcHmYjF2XEMUHP4ZHowf0KO8Nckhum4f1I",
       "slug": "가이더스-원",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ]
     },
     "냥찍 히어로즈 : 방치형 RPG": {

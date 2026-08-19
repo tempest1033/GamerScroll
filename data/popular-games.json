@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-18T19:07:18.077Z",
+  "updatedAt": "2026-08-19T19:48:13.188Z",
   "period": "30days",
   "games": [
     {
@@ -39,6 +39,10 @@
       "views": 5
     },
     {
+      "slug": "sakura-school-simulator",
+      "views": 5
+    },
+    {
       "slug": "swipe-it-board-wooden-puzzle",
       "views": 5
     },
@@ -51,32 +55,28 @@
       "views": 5
     },
     {
+      "slug": "블라이트-워-사후-처리국",
+      "views": 5
+    },
+    {
+      "slug": "산너머-도원마을",
+      "views": 5
+    },
+    {
       "slug": "좀비-웨이브스",
+      "views": 5
+    },
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 5
+    },
+    {
+      "slug": "크로스림오디세이",
       "views": 5
     },
     {
       "slug": "퍼즐앤드래곤",
       "views": 5
-    },
-    {
-      "slug": "히어로-모험단",
-      "views": 5
-    },
-    {
-      "slug": "18사쿠라-사가",
-      "views": 4
-    },
-    {
-      "slug": "33-immortals",
-      "views": 4
-    },
-    {
-      "slug": "4컷-연애게임",
-      "views": 4
-    },
-    {
-      "slug": "adventure-capitalist",
-      "views": 4
     }
   ]
 }
