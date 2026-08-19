@@ -44832,8 +44832,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Puzzle Artis: 아트 퍼즐": {
+      "appIds": {
+        "ios": 6753987369
+      },
+      "aliases": [],
+      "developer": "Brightika, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cd/66/63/cd66634a-9e19-64d0-9a05-a59965e16b53/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "puzzle-artis-아트-퍼즐",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-19",
-  "totalGames": 3422
+  "totalGames": 3423
 }
