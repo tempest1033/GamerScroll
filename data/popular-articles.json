@@ -1,38 +1,38 @@
 {
-  "updatedAt": "2026-08-18T00:50:02.414Z",
+  "updatedAt": "2026-08-19T00:50:49.234Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 54,
+      "views": 57,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "app-store-review-thursday-update",
       "category": "knowledge",
-      "views": 15,
+      "views": 16,
       "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 15,
+      "views": 14,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 14,
+      "views": 10,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
+      "type": "insight",
+      "slug": "cookierun-crumble-performance",
       "views": 6,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+      "path": "/magazine/insight/cookierun-crumble-performance/"
     },
     {
       "type": "ranking",
@@ -41,24 +41,17 @@
       "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
+      "type": "issue",
+      "slug": "starcraft-shooter-blizzard",
+      "views": 5,
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
       "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
-      "views": 6,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
       "views": 5,
-      "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 4,
-      "path": "/magazine/insight/2026-game-trends/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "insight",
@@ -68,17 +61,16 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
+      "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 4,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/gacha-system-history/"
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 3,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -87,47 +79,22 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "issue",
-      "slug": "devsisters-devnow-2026",
+      "type": "hotpick",
+      "slug": "switch-2-buying-guide-2026",
       "views": 3,
-      "path": "/magazine/issue/devsisters-devnow-2026/"
+      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     },
     {
-      "type": "issue",
-      "slug": "gow-laufey-jaffe-criticism",
+      "type": "insight",
+      "slug": "2026-game-trends",
       "views": 3,
-      "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-subscription-return",
-      "views": 3,
-      "path": "/magazine/issue/lineage-classic-subscription-return/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-dlss5-controversy",
-      "views": 3,
-      "path": "/magazine/issue/nvidia-dlss5-controversy/"
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "ranking",
-      "slug": "steam-february-2026",
+      "slug": "subculture-july-2026-kr",
       "views": 3,
-      "path": "/magazine/ranking/steam-february-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "steam-january-2026",
-      "views": 3,
-      "path": "/magazine/ranking/steam-january-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "game-business-metrics",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/game-business-metrics/"
+      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "wiki",
@@ -138,65 +105,23 @@
     },
     {
       "type": "wiki",
-      "slug": "game-revenue-structure",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/game-revenue-structure/"
-    },
-    {
-      "type": "wiki",
-      "slug": "publisher-developer-relationship",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/publisher-developer-relationship/"
-    },
-    {
-      "type": "wiki",
-      "slug": "astonishia-story-sonnori",
+      "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 3,
-      "path": "/wiki/history/astonishia-story-sonnori/"
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "nier-series",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/nier-series/"
-    },
-    {
-      "type": "wiki",
-      "slug": "ragnarok-online-history",
-      "category": "history",
-      "views": 3,
-      "path": "/wiki/history/ragnarok-online-history/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-regulations",
+      "slug": "gacha-system-history",
       "category": "knowledge",
       "views": 3,
-      "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gaming-seasonality-spending",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/gaming-seasonality-spending/"
+      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
+      "slug": "agile-jira-confluence-game-dev",
       "views": 2,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
       "type": "hotpick",
@@ -205,22 +130,10 @@
       "path": "/magazine/hotpick/game-engine/"
     },
     {
-      "type": "hotpick",
-      "slug": "switch-2-buying-guide-2026",
+      "type": "issue",
+      "slug": "azur-promilia-comicworld-cbt-korea",
       "views": 2,
-      "path": "/magazine/hotpick/switch-2-buying-guide-2026"
-    },
-    {
-      "type": "hotpick",
-      "slug": "switch-2-buying-guide-2026",
-      "views": 2,
-      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 2,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
+      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
     },
     {
       "type": "issue",
@@ -230,9 +143,39 @@
     },
     {
       "type": "issue",
+      "slug": "devsisters-devnow-2026",
+      "views": 2,
+      "path": "/magazine/issue/devsisters-devnow-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "gow-laufey-jaffe-criticism",
+      "views": 2,
+      "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-classic-subscription-return",
+      "views": 2,
+      "path": "/magazine/issue/lineage-classic-subscription-return/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-dlss5-controversy",
+      "views": 2,
+      "path": "/magazine/issue/nvidia-dlss5-controversy/"
+    },
+    {
+      "type": "issue",
       "slug": "pokemon-pokopia-review-roundup",
       "views": 2,
       "path": "/magazine/issue/pokemon-pokopia-review-roundup/"
+    },
+    {
+      "type": "issue",
+      "slug": "silksong-sea-of-sorrow",
+      "views": 2,
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "ranking",
@@ -242,23 +185,63 @@
     },
     {
       "type": "ranking",
-      "slug": "steam-april-2026",
+      "slug": "steam-february-2026",
       "views": 2,
-      "path": "/magazine/ranking/steam-april-2026/"
+      "path": "/magazine/ranking/steam-february-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-january-2026",
+      "views": 2,
+      "path": "/magazine/ranking/steam-january-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
+      "slug": "game-business-metrics",
+      "category": "business",
       "views": 2,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/wiki/business/game-business-metrics/"
     },
     {
       "type": "wiki",
-      "slug": "legend-of-zelda-history",
+      "slug": "publisher-developer-relationship",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/publisher-developer-relationship/"
+    },
+    {
+      "type": "wiki",
+      "slug": "astonishia-story-sonnori",
       "category": "history",
       "views": 2,
-      "path": "/wiki/history/legend-of-zelda-history/"
+      "path": "/wiki/history/astonishia-story-sonnori/"
+    },
+    {
+      "type": "wiki",
+      "slug": "korean-esports-history",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/korean-esports-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "nier-series",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/nier-series/"
+    },
+    {
+      "type": "wiki",
+      "slug": "ragnarok-online-history",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/ragnarok-online-history/"
     },
     {
       "type": "wiki",
@@ -276,10 +259,29 @@
     },
     {
       "type": "wiki",
-      "slug": "moba-genre-origin",
+      "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/moba-genre-origin/"
+      "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gaming-seasonality-spending",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gaming-seasonality-spending/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "2d-animation-tech",
+      "views": 1,
+      "path": "/magazine/hotpick/2d-animation-tech/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "nioh3-hotpick-soulslike-masterpiece",
+      "views": 1,
+      "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
     },
     {
       "type": "hotpick",
@@ -295,12 +297,6 @@
     },
     {
       "type": "issue",
-      "slug": "azur-promilia-comicworld-cbt-korea",
-      "views": 1,
-      "path": "/magazine/issue/azur-promilia-comicworld-cbt-korea/"
-    },
-    {
-      "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
       "views": 1,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
@@ -313,27 +309,21 @@
     },
     {
       "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 1,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
-    },
-    {
-      "type": "issue",
       "slug": "heartopia-mobile-animal-crossing-success",
       "views": 1,
       "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 1,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
       "slug": "lucky-defense-probability-manipulation-scandal",
       "views": 1,
       "path": "/magazine/issue/lucky-defense-probability-manipulation-scandal/"
+    },
+    {
+      "type": "issue",
+      "slug": "neverness-to-everness-launch-date",
+      "views": 1,
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "issue",
@@ -355,27 +345,33 @@
     },
     {
       "type": "issue",
+      "slug": "pubg-battlegrounds-birth-history",
+      "views": 1,
+      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
+    },
+    {
+      "type": "issue",
       "slug": "rewinding-cadence-technical-test",
       "views": 1,
       "path": "/magazine/issue/rewinding-cadence-technical-test/"
     },
     {
       "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
+      "slug": "seven-deadly-sins-origin-steam-early-reviews",
       "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
+      "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
     },
     {
       "type": "ranking",
-      "slug": "lunar-new-year-2026-kr",
+      "slug": "mobile-february-2026-kr",
       "views": 1,
-      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "ranking",
-      "slug": "subculture-april-2026-kr",
+      "slug": "steam-april-2026",
       "views": 1,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
+      "path": "/magazine/ranking/steam-april-2026/"
     },
     {
       "type": "ranking",
@@ -385,16 +381,16 @@
     },
     {
       "type": "ranking",
-      "slug": "subculture-july-2026-kr",
+      "slug": "subculture-january-2026-kr",
       "views": 1,
-      "path": "/magazine/ranking/subculture-july-2026-kr/"
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
+      "slug": "game-revenue-structure",
       "category": "business",
       "views": 1,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+      "path": "/wiki/business/game-revenue-structure/"
     },
     {
       "type": "wiki",
@@ -405,17 +401,45 @@
     },
     {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
       "slug": "black-and-white-demis-hassabis",
       "category": "history",
       "views": 1,
       "path": "/wiki/history/black-and-white-demis-hassabis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "legend-of-zelda-history",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/legend-of-zelda-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "moba-genre-origin",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/moba-genre-origin/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
