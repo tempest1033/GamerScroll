@@ -45026,8 +45026,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Satisfying Toys : Calm Games": {
+      "appIds": {
+        "android": "com.kkz.antistress.satisfying.relax.toys.games"
+      },
+      "aliases": [],
+      "developer": "Koko Zone",
+      "icon": "https://play-lh.googleusercontent.com/kOSjhKmkkv49boNbDoW2OEobDqqG3QgwlAKuFad9mV2wg9ABic4nM-sXrRDrHp9XFDTeb-zykzexBiva-1XRsw",
+      "slug": "satisfying-toys-calm-games",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3438
+  "totalGames": 3439
 }

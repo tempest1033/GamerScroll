@@ -31486,6 +31486,30 @@
         }
       ],
       "addedAt": "2026-08-20T05:55:27.107Z"
+    },
+    {
+      "title": "Satisfying Toys : Calm Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.kkz.antistress.satisfying.relax.toys.games"
+      },
+      "developer": "Koko Zone",
+      "icon": "https://play-lh.googleusercontent.com/kOSjhKmkkv49boNbDoW2OEobDqqG3QgwlAKuFad9mV2wg9ABic4nM-sXrRDrHp9XFDTeb-zykzexBiva-1XRsw",
+      "searchResults": [
+        {
+          "title": "Antistress - relaxation toys",
+          "appId": 1207565651
+        },
+        {
+          "title": "Color & Draw : Satisfying Game",
+          "appId": 6737589556
+        },
+        {
+          "title": "Mini Antistress Relaxing Games",
+          "appId": 6480044742
+        }
+      ],
+      "addedAt": "2026-08-20T17:22:42.124Z"
     }
   ],
   "approved": [
