@@ -44954,8 +44954,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "PengPong": {
+      "appIds": {
+        "steam": "2766910"
+      },
+      "aliases": [],
+      "developer": "SANDY FLOOR",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2766910/4c9e595611021f83827cc05a23f630f816f7e335/capsule_231x87.jpg?t=1787209472",
+      "slug": "pengpong",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-20",
-  "totalGames": 3432
+  "totalGames": 3433
 }
