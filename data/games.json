@@ -45078,8 +45078,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Darling Dream Crush": {
+      "appIds": {
+        "android": "com.hcg.darling.dream.crush"
+      },
+      "aliases": [],
+      "developer": "High city Games",
+      "icon": "https://play-lh.googleusercontent.com/VIvc7JRJQ60zyT3FBzDgrfqkTwJ26sz3V6HjAAVfus2H49OIc7K4SyOg64XPBTeS00m--xnPqjQ2igmfXm4g9w",
+      "slug": "darling-dream-crush",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3442
+  "totalGames": 3443
 }
