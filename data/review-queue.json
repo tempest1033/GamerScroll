@@ -31462,6 +31462,30 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/28/49/43/28494367-6995-0967-52de-3ca5fe2b26bf/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-19T16:55:44.454Z"
+    },
+    {
+      "title": "Craft Battle: Block Wars",
+      "status": "single",
+      "appIds": {
+        "android": "com.novas.craft.battle.mod.block.war"
+      },
+      "developer": "Coup Coup LTD",
+      "icon": "https://play-lh.googleusercontent.com/E208PHqFgw-m7qi4BWMRXIVWosEOm9pqIW6Wuvu_3avIhE1pw0xgwLj4IEcrNNoBJoSc_VN57-mrQrW4qFd1",
+      "searchResults": [
+        {
+          "title": "Minecraft 온라인으로 친구들과 함께 플레이하세요",
+          "appId": 479516143
+        },
+        {
+          "title": "Pixel Gun 3D: PVP 건 슈팅 액션 게임",
+          "appId": 640111933
+        },
+        {
+          "title": "서머너즈 워: 백년전쟁",
+          "appId": 1545531760
+        }
+      ],
+      "addedAt": "2026-08-20T05:55:27.107Z"
     }
   ],
   "approved": [

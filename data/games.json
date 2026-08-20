@@ -44930,8 +44930,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Craft Battle: Block Wars": {
+      "appIds": {
+        "android": "com.novas.craft.battle.mod.block.war"
+      },
+      "aliases": [],
+      "developer": "Coup Coup LTD",
+      "icon": "https://play-lh.googleusercontent.com/E208PHqFgw-m7qi4BWMRXIVWosEOm9pqIW6Wuvu_3avIhE1pw0xgwLj4IEcrNNoBJoSc_VN57-mrQrW4qFd1",
+      "slug": "craft-battle-block-wars",
+      "platforms": [
+        "android"
+      ]
+    },
+    "DJMAX RESPECT V - CLEAR PASS : S20 CLEAR POINT BOOSTER": {
+      "appIds": {
+        "steam": "5004470"
+      },
+      "aliases": [],
+      "developer": "NEOWIZ",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5004470/e889f360f744196eab6a85667d6687a15a34c55d/capsule_231x87.jpg?t=1787194965",
+      "slug": "djmax-respect-v-clear-pass-s20-clear-point-booster",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-20",
-  "totalGames": 3430
+  "totalGames": 3432
 }
