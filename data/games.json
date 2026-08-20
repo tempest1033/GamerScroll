@@ -44966,8 +44966,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "S.T.A.L.K.E.R. 2: Cost of Hope": {
+      "appIds": {
+        "steam": "3765020"
+      },
+      "aliases": [],
+      "developer": "GSC Game World",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3765020/cf54eeef49dd4dd779f9ad8ac88b3694ae49d18f/capsule_231x87.jpg?t=1787230770",
+      "slug": "stalker-2-cost-of-hope",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Gallipoli": {
+      "appIds": {
+        "steam": "3065940"
+      },
+      "aliases": [],
+      "developer": "BlackMill Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3065940/8241f8f3e49226d916e09f31f642fb0f5d05f463/capsule_231x87.jpg?t=1787227986",
+      "slug": "gallipoli",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Yet Another Zombie Survivors": {
+      "appIds": {
+        "steam": "2163330"
+      },
+      "aliases": [],
+      "developer": "Awesome Games Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2163330/765e6898cbb4faffa34991912775d813be58cc56/capsule_231x87.jpg?t=1787228521",
+      "slug": "yet-another-zombie-survivors",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-20",
-  "totalGames": 3433
+  "totalGames": 3436
 }
