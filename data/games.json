@@ -45090,8 +45090,34 @@
       "platforms": [
         "android"
       ]
+    },
+    "Z 루트: 리뎀션": {
+      "appIds": {
+        "android": "com.zroute.global",
+        "ios": "6762268182"
+      },
+      "aliases": [],
+      "developer": "37GAMES GLOBAL",
+      "icon": "https://play-lh.googleusercontent.com/TjTh8zzc8P1KTREfLDpNTHmpRnca_kedbb4eCT2p_T8XTP1x_fFtunw3q1L7slKv8dxleAfxVw245EeqhWcxCQ",
+      "slug": "z-루트-리뎀션",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "PetDoctor": {
+      "appIds": {
+        "steam": "4656920"
+      },
+      "aliases": [],
+      "developer": "Viacheslav Drozdov",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4656920/b1ca11023ebab4c14e6def590bdd0b9fcf235239/capsule_231x87.jpg?t=1780683602",
+      "slug": "petdoctor",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3443
+  "totalGames": 3445
 }

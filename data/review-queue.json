@@ -31582,6 +31582,23 @@
         }
       ],
       "addedAt": "2026-08-20T21:52:45.608Z"
+    },
+    {
+      "title": "Z 루트: 리뎀션",
+      "status": "matched",
+      "appIds": {
+        "android": "com.zroute.global",
+        "ios": "6762268182"
+      },
+      "developer": "37GAMES GLOBAL",
+      "icon": "https://play-lh.googleusercontent.com/TjTh8zzc8P1KTREfLDpNTHmpRnca_kedbb4eCT2p_T8XTP1x_fFtunw3q1L7slKv8dxleAfxVw245EeqhWcxCQ",
+      "searchResults": [
+        {
+          "title": "Z 루트: 리뎀션",
+          "appId": "6762268182"
+        }
+      ],
+      "addedAt": "2026-08-20T23:49:09.859Z"
     }
   ],
   "approved": [
