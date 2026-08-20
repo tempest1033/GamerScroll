@@ -44906,8 +44906,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "DJMAX RESPECT V - CLEAR PASS : S20 PREMIUM TICKET": {
+      "appIds": {
+        "steam": "4745140"
+      },
+      "aliases": [],
+      "developer": "NEOWIZ",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4745140/26d00af61aa5a7871d9daac7c8ac95296bc6c649/capsule_231x87.jpg?t=1787194960",
+      "slug": "djmax-respect-v-clear-pass-s20-premium-ticket",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Pizza House Simulator🍕": {
+      "appIds": {
+        "steam": "4132330"
+      },
+      "aliases": [],
+      "developer": "Broken Lyre Entertainment",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4132330/30e0db1cba795cfaefd61c946efe97c5df73ab0c/capsule_231x87.jpg?t=1787166636",
+      "slug": "pizza-house-simulator",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-20",
-  "totalGames": 3428
+  "totalGames": 3430
 }
