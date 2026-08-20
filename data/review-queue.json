@@ -31510,6 +31510,31 @@
         }
       ],
       "addedAt": "2026-08-20T17:22:42.124Z"
+    },
+    {
+      "title": "Bus Fever! Car Jam Escape",
+      "status": "matched",
+      "appIds": {
+        "android": "gridplus.busjam.carpuzzle",
+        "ios": 6746743297
+      },
+      "developer": "Lumi Games",
+      "icon": "https://play-lh.googleusercontent.com/P5X4m-dDF31hnhlQvGE1L3MAJonj8KmnQQxj4nQl77Eg8kI2K-XFLu3UGStPC7hgP7VMrTf8ieurxA-rqdukwQ",
+      "searchResults": [
+        {
+          "title": "Bus Fever-Car Jam Escape",
+          "appId": 6746743297
+        },
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 3D",
+          "appId": 6505095234
+        },
+        {
+          "title": "Bus Escape: Traffic Jam",
+          "appId": 6689516366
+        }
+      ],
+      "addedAt": "2026-08-20T18:29:27.571Z"
     }
   ],
   "approved": [

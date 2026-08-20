@@ -45038,8 +45038,24 @@
       "platforms": [
         "android"
       ]
+    },
+    "Bus Fever! Car Jam Escape": {
+      "appIds": {
+        "android": "gridplus.busjam.carpuzzle",
+        "ios": 6746743297
+      },
+      "aliases": [
+        "Bus Fever-Car Jam Escape"
+      ],
+      "developer": "Lumi Games",
+      "icon": "https://play-lh.googleusercontent.com/P5X4m-dDF31hnhlQvGE1L3MAJonj8KmnQQxj4nQl77Eg8kI2K-XFLu3UGStPC7hgP7VMrTf8ieurxA-rqdukwQ",
+      "slug": "bus-fever-car-jam-escape",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3439
+  "totalGames": 3440
 }
