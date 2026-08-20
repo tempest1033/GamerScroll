@@ -45066,8 +45066,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Car Jam Solver:카잼 솔버、버스게임、주차게임": {
+      "appIds": {
+        "android": "car.parking.jam.solver.puzzle.games"
+      },
+      "aliases": [],
+      "developer": "Ladaneta Games",
+      "icon": "https://play-lh.googleusercontent.com/K-kk0DZSa5PGTqE7oSEi-x9q2d8WZNhB76mIQ3i2y5LP3CTLOwfrGg_omkd-ZBt9VgSBRpa3sfFTnvbFwmAyJrA",
+      "slug": "car-jam-solver카잼-솔버버스게임주차게임",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3441
+  "totalGames": 3442
 }

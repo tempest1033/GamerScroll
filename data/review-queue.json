@@ -31546,6 +31546,26 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/00/d1/d0/00d1d0c2-1599-de6c-f593-554a76dd9f05/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-20T19:55:07.746Z"
+    },
+    {
+      "title": "Car Jam Solver:카잼 솔버、버스게임、주차게임",
+      "status": "single",
+      "appIds": {
+        "android": "car.parking.jam.solver.puzzle.games"
+      },
+      "developer": "Ladaneta Games",
+      "icon": "https://play-lh.googleusercontent.com/K-kk0DZSa5PGTqE7oSEi-x9q2d8WZNhB76mIQ3i2y5LP3CTLOwfrGg_omkd-ZBt9VgSBRpa3sfFTnvbFwmAyJrA",
+      "searchResults": [
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 3D",
+          "appId": 6505095234
+        },
+        {
+          "title": "TrafficOut:Car Jam주차장 달인&차버스게임",
+          "appId": 6569244657
+        }
+      ],
+      "addedAt": "2026-08-20T20:55:29.200Z"
     }
   ],
   "approved": [
