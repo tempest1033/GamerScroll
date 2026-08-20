@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-19T19:48:13.188Z",
+  "updatedAt": "2026-08-20T19:54:50.043Z",
   "period": "30days",
   "games": [
     {
@@ -23,6 +23,14 @@
       "views": 6
     },
     {
+      "slug": "sakura-school-simulator",
+      "views": 6
+    },
+    {
+      "slug": "arrow-pro-3d",
+      "views": 5
+    },
+    {
       "slug": "craft-world-block-building-3d",
       "views": 5
     },
@@ -39,10 +47,6 @@
       "views": 5
     },
     {
-      "slug": "sakura-school-simulator",
-      "views": 5
-    },
-    {
       "slug": "swipe-it-board-wooden-puzzle",
       "views": 5
     },
@@ -52,6 +56,10 @@
     },
     {
       "slug": "word-screw-나사와-단어",
+      "views": 5
+    },
+    {
+      "slug": "로드러쉬",
       "views": 5
     },
     {
@@ -68,14 +76,6 @@
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 5
-    },
-    {
-      "slug": "크로스림오디세이",
-      "views": 5
-    },
-    {
-      "slug": "퍼즐앤드래곤",
       "views": 5
     }
   ]

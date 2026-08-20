@@ -45054,8 +45054,20 @@
         "android",
         "ios"
       ]
+    },
+    "LUNAR：에버소울": {
+      "appIds": {
+        "ios": 6763241219
+      },
+      "aliases": [],
+      "developer": "CLOVER GAMES",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/00/d1/d0/00d1d0c2-1599-de6c-f593-554a76dd9f05/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "lunar에버소울",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3440
+  "totalGames": 3441
 }
