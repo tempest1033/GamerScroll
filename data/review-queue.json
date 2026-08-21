@@ -31599,6 +31599,30 @@
         }
       ],
       "addedAt": "2026-08-20T23:49:09.859Z"
+    },
+    {
+      "title": "Block Bloom: Color Blast",
+      "status": "single",
+      "appIds": {
+        "android": "com.nebula.blockbloom"
+      },
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/oIgMl1g8JA-w6N_2e9nGB6tKD6nrBLUmfWY3u-C9-zvXsJ-DxAfqQxdJ8efKqDgSeyUJIBflG2fyeaix28q2Ebs",
+      "searchResults": [
+        {
+          "title": "Block Bloom Journey",
+          "appId": 6466299204
+        },
+        {
+          "title": "포켓몬 카드 게임 Pocket",
+          "appId": 6479970832
+        },
+        {
+          "title": "Bloom - a puzzle adventure",
+          "appId": 1577359755
+        }
+      ],
+      "addedAt": "2026-08-21T02:20:54.342Z"
     }
   ],
   "approved": [

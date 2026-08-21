@@ -45116,8 +45116,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Block Bloom: Color Blast": {
+      "appIds": {
+        "android": "com.nebula.blockbloom"
+      },
+      "aliases": [],
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/oIgMl1g8JA-w6N_2e9nGB6tKD6nrBLUmfWY3u-C9-zvXsJ-DxAfqQxdJ8efKqDgSeyUJIBflG2fyeaix28q2Ebs",
+      "slug": "block-bloom-color-blast",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3445
+  "totalGames": 3446
 }
