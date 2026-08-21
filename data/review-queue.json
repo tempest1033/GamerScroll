@@ -31692,6 +31692,33 @@
         }
       ],
       "addedAt": "2026-08-21T16:32:05.602Z"
+    },
+    {
+      "title": "Muse Glow Crush",
+      "status": "single",
+      "appIds": {
+        "android": "com.hcg.muse.glow.crush"
+      },
+      "developer": "High city Games",
+      "icon": "https://play-lh.googleusercontent.com/G9VAeT0Tj-AjVvPuwDZ3zAtuVBAa6zWIuHhgX78EvPigshk8VhX2qw169K83Yp1iMLOffg4lMlnPWgBQEY-_2Q",
+      "searchResults": [],
+      "addedAt": "2026-08-21T18:26:57.340Z"
+    },
+    {
+      "title": "Tile Fortune Mahjong Match",
+      "status": "single",
+      "appIds": {
+        "android": "com.tilemahjong.matych.fortunes"
+      },
+      "developer": "DW Digital",
+      "icon": "https://play-lh.googleusercontent.com/8TK6hCPGg0IpXbAVdB4J_jelpx_5JRLlmGZjKIiKTphTvYO_vS4qudM8owWykLm9I-Te57Kft-UsKkGHDafc0g",
+      "searchResults": [
+        {
+          "title": "Mahjong Triple 3D: Tile Match",
+          "appId": 1539562220
+        }
+      ],
+      "addedAt": "2026-08-21T18:26:57.610Z"
     }
   ],
   "approved": [
