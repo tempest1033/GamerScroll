@@ -45190,8 +45190,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "환수 월드": {
+      "appIds": {
+        "ios": 6784069456
+      },
+      "aliases": [],
+      "developer": "DR HUNG CLINIC JOINT STOCK COMPANY",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/85/24/40852471-eb21-7fb7-567f-4e218ce039e1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "환수-월드",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3451
+  "totalGames": 3452
 }
