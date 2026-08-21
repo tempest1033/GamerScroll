@@ -31667,6 +31667,31 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/85/24/40852471-eb21-7fb7-567f-4e218ce039e1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-21T13:40:12.938Z"
+    },
+    {
+      "title": "아처캐슬 키우기 : 방치형 RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "com.springgames.archercastle",
+        "ios": 6788215554
+      },
+      "developer": "SPRING Games",
+      "icon": "https://play-lh.googleusercontent.com/usvCI1Lo7H4Zxg_DB9uo_2cMcbL-ov3k0CRjcDo2olQ9jMgHsduMf0VdU5jC4Bm9vjxOM9o2tpjhT2mO6Eil",
+      "searchResults": [
+        {
+          "title": "방치형 킹덤 디펜스",
+          "appId": 1589164531
+        },
+        {
+          "title": "아처캐슬 키우기 : 방치형 RPG",
+          "appId": 6788215554
+        },
+        {
+          "title": "Shooting Tower: 타워디펜스게임",
+          "appId": 1605594063
+        }
+      ],
+      "addedAt": "2026-08-21T16:32:05.602Z"
     }
   ],
   "approved": [

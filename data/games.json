@@ -45202,8 +45202,22 @@
       "platforms": [
         "ios"
       ]
+    },
+    "아처캐슬 키우기 : 방치형 RPG": {
+      "appIds": {
+        "android": "com.springgames.archercastle",
+        "ios": 6788215554
+      },
+      "aliases": [],
+      "developer": "SPRING Games",
+      "icon": "https://play-lh.googleusercontent.com/usvCI1Lo7H4Zxg_DB9uo_2cMcbL-ov3k0CRjcDo2olQ9jMgHsduMf0VdU5jC4Bm9vjxOM9o2tpjhT2mO6Eil",
+      "slug": "아처캐슬-키우기-방치형-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-22",
-  "totalGames": 3452
+  "totalGames": 3453
 }
