@@ -20185,14 +20185,16 @@
     },
     "여고생과 리셋중! - 로그라이크 x 방치형 RPG": {
       "appIds": {
-        "android": "com.supercandy.resetworld"
+        "android": "com.supercandy.resetworld",
+        "ios": 6751321112
       },
       "aliases": [],
       "developer": "SUPER CANDY",
       "icon": "https://play-lh.googleusercontent.com/vip6BDjGYZHI0R3qteXIQk4BM0YNhL9J0oMuBvY-TodFDpC1iHHYj1sXsgbUnqVv6y8",
       "slug": "여고생과-리셋중-로그라이크-x-방치형-rpg",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ]
     },
     "Absolum": {
@@ -45164,8 +45166,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "머지 쿡토피아": {
+      "appIds": {
+        "ios": 6754389442
+      },
+      "aliases": [],
+      "developer": "DaVinciNote Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/44/fc/2b44fc19-5486-d881-369d-0c459b0ef4c6/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "머지-쿡토피아",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "오늘두호두-날마다 두뇌 트레이닝": {
+      "appIds": {
+        "ios": 6760736230
+      },
+      "aliases": [],
+      "developer": "Kakao Games Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/3e/c4/ae3ec423-f5b9-7154-4e95-7a6c56f3b0fc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "오늘두호두-날마다-두뇌-트레이닝",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-21",
-  "totalGames": 3449
+  "totalGames": 3451
 }
