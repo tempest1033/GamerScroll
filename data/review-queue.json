@@ -31781,6 +31781,17 @@
         }
       ],
       "addedAt": "2026-08-22T18:20:06.887Z"
+    },
+    {
+      "title": "우주떡집 : 떡볶이 타이쿤",
+      "status": "single",
+      "appIds": {
+        "ios": 6780835418
+      },
+      "developer": "Minipact Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/eb/d8/58/ebd85887-9c73-96c8-3641-d85124abcdcc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-22T19:44:45.035Z"
     }
   ],
   "approved": [
