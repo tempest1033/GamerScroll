@@ -43833,14 +43833,16 @@
     },
     "Last Extract": {
       "appIds": {
-        "ios": 6758199685
+        "ios": 6758199685,
+        "android": "com.xiaomo.lastextract"
       },
       "aliases": [],
       "developer": "Voodoo",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/94/ab/5294ab61-faee-4df8-9d6e-a4a466830561/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "last-extract",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Ultimate Fishing Simulator®": {
@@ -45059,14 +45061,16 @@
     },
     "LUNAR：에버소울": {
       "appIds": {
-        "ios": 6763241219
+        "ios": "6763241219",
+        "android": "com.hhsykr.gcz"
       },
       "aliases": [],
       "developer": "CLOVER GAMES",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/00/d1/d0/00d1d0c2-1599-de6c-f593-554a76dd9f05/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "lunar에버소울",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Car Jam Solver:카잼 솔버、버스게임、주차게임": {
@@ -45240,8 +45244,38 @@
       "platforms": [
         "android"
       ]
+    },
+    "Block Puzzle: Combo Master": {
+      "appIds": {
+        "android": "com.mia.free.puzzle.block",
+        "ios": 6762116947
+      },
+      "aliases": [
+        "Block Puzzle：Combo Master"
+      ],
+      "developer": "Mia Game.",
+      "icon": "https://play-lh.googleusercontent.com/Q6lgCdwbD0_Kb6UpQv-y9FymXrEDV9yVrfnXsreJyJzrq6t3sXSb5tkml2rKSsqc2UbDVpSahwbfh_kgAXVLlsU",
+      "slug": "block-puzzle-combo-master",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "픽셀 테이머즈": {
+      "appIds": {
+        "android": "com.returnpixel.pixelsummoners",
+        "ios": 6670596973
+      },
+      "aliases": [],
+      "developer": "ReturnPixel",
+      "icon": "https://play-lh.googleusercontent.com/PzDln9srgjngvBbJ4wfI99wUOwLEFSFFNfA7de-KRXIHjeaprkLcNxAAB-6vhhUCMpMU5mKGv-aNWjJxOElj",
+      "slug": "픽셀-테이머즈",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-23",
-  "totalGames": 3455
+  "totalGames": 3457
 }

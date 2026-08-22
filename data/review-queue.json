@@ -30522,13 +30522,27 @@
     },
     {
       "title": "Last Extract",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6758199685
+        "ios": 6758199685,
+        "android": "com.xiaomo.lastextract"
       },
       "developer": "Voodoo",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/94/ab/5294ab61-faee-4df8-9d6e-a4a466830561/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Last Extract",
+          "appId": 6758199685
+        },
+        {
+          "title": "Last Call: Extraction",
+          "appId": 6795866033
+        },
+        {
+          "title": "Last Frame Extractor",
+          "appId": 6770129008
+        }
+      ],
       "addedAt": "2026-08-12T08:12:08.422Z"
     },
     {
@@ -31538,13 +31552,19 @@
     },
     {
       "title": "LUNAR：에버소울",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6763241219
+        "ios": "6763241219",
+        "android": "com.hhsykr.gcz"
       },
       "developer": "CLOVER GAMES",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/00/d1/d0/00d1d0c2-1599-de6c-f593-554a76dd9f05/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "LUNAR：에버소울",
+          "appId": "6763241219"
+        }
+      ],
       "addedAt": "2026-08-20T19:55:07.746Z"
     },
     {
@@ -31719,6 +31739,48 @@
         }
       ],
       "addedAt": "2026-08-21T18:26:57.610Z"
+    },
+    {
+      "title": "Block Puzzle: Combo Master",
+      "status": "matched",
+      "appIds": {
+        "android": "com.mia.free.puzzle.block",
+        "ios": 6762116947
+      },
+      "developer": "Mia Game.",
+      "icon": "https://play-lh.googleusercontent.com/Q6lgCdwbD0_Kb6UpQv-y9FymXrEDV9yVrfnXsreJyJzrq6t3sXSb5tkml2rKSsqc2UbDVpSahwbfh_kgAXVLlsU",
+      "searchResults": [
+        {
+          "title": "Block Puzzle：Combo Master",
+          "appId": 6762116947
+        },
+        {
+          "title": "Block Puzzle: Combo Master",
+          "appId": 1589588349
+        },
+        {
+          "title": "블록 크러시 (Block Crush)",
+          "appId": 1638139403
+        }
+      ],
+      "addedAt": "2026-08-22T18:20:06.616Z"
+    },
+    {
+      "title": "픽셀 테이머즈",
+      "status": "matched",
+      "appIds": {
+        "android": "com.returnpixel.pixelsummoners",
+        "ios": 6670596973
+      },
+      "developer": "ReturnPixel",
+      "icon": "https://play-lh.googleusercontent.com/PzDln9srgjngvBbJ4wfI99wUOwLEFSFFNfA7de-KRXIHjeaprkLcNxAAB-6vhhUCMpMU5mKGv-aNWjJxOElj",
+      "searchResults": [
+        {
+          "title": "픽셀 테이머즈",
+          "appId": 6670596973
+        }
+      ],
+      "addedAt": "2026-08-22T18:20:06.887Z"
     }
   ],
   "approved": [
