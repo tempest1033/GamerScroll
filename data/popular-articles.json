@@ -1,44 +1,37 @@
 {
-  "updatedAt": "2026-08-22T00:50:48.108Z",
+  "updatedAt": "2026-08-23T00:54:32.833Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 66,
+      "views": 68,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 20,
+      "views": 22,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 16,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+      "type": "ranking",
+      "slug": "subculture-july-2026-kr",
+      "views": 11,
+      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 11,
+      "views": 10,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 10,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-july-2026-kr",
-      "views": 7,
-      "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
       "type": "insight",
@@ -48,28 +41,34 @@
     },
     {
       "type": "ranking",
-      "slug": "subculture-july-2026-kr",
-      "views": 6,
-      "path": "/magazine/ranking/subculture-july-2026-kr/"
+      "slug": "mobile-july-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "game-engine",
       "views": 4,
-      "path": "/magazine/hotpick/game-engine/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
     },
     {
       "type": "hotpick",
       "slug": "2d-animation-tech",
       "views": 3,
       "path": "/magazine/hotpick/2d-animation-tech/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "agile-jira-confluence-game-dev",
+      "views": 3,
+      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "game-engine",
+      "views": 3,
+      "path": "/magazine/hotpick/game-engine/"
     },
     {
       "type": "hotpick",
@@ -92,17 +91,17 @@
     },
     {
       "type": "wiki",
-      "slug": "game-revenue-structure",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/game-revenue-structure/"
-    },
-    {
-      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 3,
       "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
@@ -117,12 +116,6 @@
       "category": "knowledge",
       "views": 3,
       "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "agile-jira-confluence-game-dev",
-      "views": 2,
-      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
       "type": "hotpick",
@@ -156,6 +149,12 @@
     },
     {
       "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 2,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-like-genre-decline-paradigm-shift",
       "views": 2,
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
@@ -180,12 +179,6 @@
     },
     {
       "type": "ranking",
-      "slug": "mobile-june-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/mobile-june-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-january-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
@@ -198,17 +191,24 @@
     },
     {
       "type": "wiki",
-      "slug": "legend-of-zelda-history",
-      "category": "history",
+      "slug": "game-revenue-structure",
+      "category": "business",
       "views": 2,
-      "path": "/wiki/history/legend-of-zelda-history/"
+      "path": "/wiki/business/game-revenue-structure/"
     },
     {
       "type": "wiki",
-      "slug": "moba-genre-origin",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 2,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
       "category": "knowledge",
       "views": 2,
-      "path": "/wiki/knowledge/moba-genre-origin/"
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "hotpick",
@@ -242,6 +242,12 @@
     },
     {
       "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 1,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "dragon-sword-launch-report",
       "views": 1,
       "path": "/magazine/issue/dragon-sword-launch-report/"
@@ -251,12 +257,6 @@
       "slug": "gow-laufey-jaffe-criticism",
       "views": 1,
       "path": "/magazine/issue/gow-laufey-jaffe-criticism/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 1,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -302,12 +302,6 @@
     },
     {
       "type": "issue",
-      "slug": "rewinding-cadence-technical-test",
-      "views": 1,
-      "path": "/magazine/issue/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "issue",
       "slug": "seven-deadly-sins-origin-steam-early-reviews",
       "views": 1,
       "path": "/magazine/issue/seven-deadly-sins-origin-steam-early-reviews/"
@@ -323,12 +317,6 @@
       "slug": "wuthering-waves-korea-grossing-no1",
       "views": 1,
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
-    },
-    {
-      "type": "ranking",
-      "slug": "steam-april-2026",
-      "views": 1,
-      "path": "/magazine/ranking/steam-april-2026/"
     },
     {
       "type": "ranking",
@@ -365,6 +353,13 @@
     },
     {
       "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
+    },
+    {
+      "type": "wiki",
       "slug": "astonishia-story-sonnori",
       "category": "history",
       "views": 1,
@@ -383,6 +378,13 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/korean-esports-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "legend-of-zelda-history",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/legend-of-zelda-history/"
     },
     {
       "type": "wiki",
@@ -414,24 +416,10 @@
     },
     {
       "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "wiki",
@@ -446,6 +434,13 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gaming-seasonality-spending/"
+    },
+    {
+      "type": "wiki",
+      "slug": "moba-genre-origin",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/moba-genre-origin/"
     },
     {
       "type": "wiki",
