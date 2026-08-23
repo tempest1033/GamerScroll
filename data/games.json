@@ -45312,8 +45312,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Police Car Shape Shifting Race": {
+      "appIds": {
+        "android": "com.vng.police.car.shape.shifting.games"
+      },
+      "aliases": [],
+      "developer": "Verdure Gogo",
+      "icon": "https://play-lh.googleusercontent.com/3qxvBAbE0qmVx5_igp01_M89BYjLcU6QWOoQcFbeXAew0WUpaqQzsBaPaH8MhjL4YkQzQH8fjlzcZcP8izogaa8",
+      "slug": "police-car-shape-shifting-race",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-24",
-  "totalGames": 3460
+  "totalGames": 3461
 }
