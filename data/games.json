@@ -45300,8 +45300,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Truck Sprint 3D-Swing Racing": {
+      "appIds": {
+        "android": "com.carswande.spran"
+      },
+      "aliases": [],
+      "developer": "GuonianGame",
+      "icon": "https://play-lh.googleusercontent.com/o3Y0DfGGaCuNdgNnyFTrMX2u_yIETadsiqEmAkPCGWp54T8SofPjI5zrb1nwhkRebhw3U_7dY0CWRsb5hGXUQw",
+      "slug": "truck-sprint-3d-swing-racing",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-24",
-  "totalGames": 3459
+  "totalGames": 3460
 }
