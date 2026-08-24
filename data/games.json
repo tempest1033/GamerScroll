@@ -45372,8 +45372,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "STAR WARS Zero Company™": {
+      "appIds": {
+        "steam": "2075800"
+      },
+      "aliases": [],
+      "developer": "Bit Reactor",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2075800/56484e8832119b4b37b3fa3a6a5ec23209cd835c/capsule_231x87.jpg?t=1787045473",
+      "slug": "star-wars-zero-company",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-24",
-  "totalGames": 3465
+  "totalGames": 3466
 }
