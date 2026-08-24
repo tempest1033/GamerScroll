@@ -31841,13 +31841,19 @@
     },
     {
       "title": "제우스: 오만의 신",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6504389641
+        "ios": 6504389641,
+        "android": "com.com2us.es.android.google.kr.normal"
       },
       "developer": "Com2uS Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/09/5b/18/095b186b-f487-8247-a100-97b19b03ceb4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "제우스: 오만의 신",
+          "appId": 6504389641
+        }
+      ],
       "addedAt": "2026-08-24T07:36:10.220Z"
     },
     {
