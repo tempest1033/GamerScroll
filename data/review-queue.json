@@ -31885,6 +31885,30 @@
         }
       ],
       "addedAt": "2026-08-24T16:29:19.004Z"
+    },
+    {
+      "title": "브릭 팩토리: 색상 정렬 퍼즐!",
+      "status": "single",
+      "appIds": {
+        "android": "com.fc.color.brick.sort.match"
+      },
+      "developer": "FALCON GAMES",
+      "icon": "https://play-lh.googleusercontent.com/MOiaQ8uPNzJDWHD2gbrUKI2nLqo0alEzDA7HrQUraHq4DaEcPjIyoes3tm_RUpOEWLFQzsCs8U7F0vaxs5B5PmI",
+      "searchResults": [
+        {
+          "title": "브릭 팩토리!",
+          "appId": 6756774105
+        },
+        {
+          "title": "캔디크러쉬사가",
+          "appId": 553834731
+        },
+        {
+          "title": "2048",
+          "appId": 840919914
+        }
+      ],
+      "addedAt": "2026-08-24T17:56:54.823Z"
     }
   ],
   "approved": [

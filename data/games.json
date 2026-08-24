@@ -45398,8 +45398,20 @@
         "android",
         "ios"
       ]
+    },
+    "브릭 팩토리: 색상 정렬 퍼즐!": {
+      "appIds": {
+        "android": "com.fc.color.brick.sort.match"
+      },
+      "aliases": [],
+      "developer": "FALCON GAMES",
+      "icon": "https://play-lh.googleusercontent.com/MOiaQ8uPNzJDWHD2gbrUKI2nLqo0alEzDA7HrQUraHq4DaEcPjIyoes3tm_RUpOEWLFQzsCs8U7F0vaxs5B5PmI",
+      "slug": "브릭-팩토리-색상-정렬-퍼즐",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-25",
-  "totalGames": 3467
+  "totalGames": 3468
 }
