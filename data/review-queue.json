@@ -31860,6 +31860,31 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple71/v4/3b/f0/b8/3bf0b819-74c3-1fbe-3cef-8a479147b537/mzl.bnarvmtd.jpg/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-24T10:31:58.496Z"
+    },
+    {
+      "title": "Captain Smash",
+      "status": "matched",
+      "appIds": {
+        "android": "gs.chaos.candyfest",
+        "ios": 6783261848
+      },
+      "developer": "MOBİLEVERSE DİJİTAL HİZMETLER LİMİTED ŞİRKETİ",
+      "icon": "https://play-lh.googleusercontent.com/td-nRkb-Df6630dj6ABi9rOOwkhQH9xJV3rZTAj1P5nGWL0TnmxXbOGCEBmAtgQoKucQz7-gW3nLWfYk3gvfjPE",
+      "searchResults": [
+        {
+          "title": "Captain Smash",
+          "appId": 6783261848
+        },
+        {
+          "title": "Ace Captain Junior free",
+          "appId": 850399239
+        },
+        {
+          "title": "Captain Tomato & the Magic Gate",
+          "appId": 895809394
+        }
+      ],
+      "addedAt": "2026-08-24T16:29:19.004Z"
     }
   ],
   "approved": [

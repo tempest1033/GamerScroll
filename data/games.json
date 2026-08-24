@@ -45384,8 +45384,22 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Captain Smash": {
+      "appIds": {
+        "android": "gs.chaos.candyfest",
+        "ios": 6783261848
+      },
+      "aliases": [],
+      "developer": "MOBİLEVERSE DİJİTAL HİZMETLER LİMİTED ŞİRKETİ",
+      "icon": "https://play-lh.googleusercontent.com/td-nRkb-Df6630dj6ABi9rOOwkhQH9xJV3rZTAj1P5nGWL0TnmxXbOGCEBmAtgQoKucQz7-gW3nLWfYk3gvfjPE",
+      "slug": "captain-smash",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-25",
-  "totalGames": 3466
+  "totalGames": 3467
 }
