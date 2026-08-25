@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-08-24T00:53:00.779Z",
+  "updatedAt": "2026-08-25T00:52:43.035Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 66,
+      "views": 64,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 24,
+      "views": 25,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 12,
+      "views": 13,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
@@ -30,13 +30,13 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 9,
+      "views": 8,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
       "slug": "cookierun-crumble-performance",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/insight/cookierun-crumble-performance/"
     },
     {
@@ -89,13 +89,6 @@
       "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
       "type": "hotpick",
       "slug": "version-control-system",
       "views": 2,
@@ -118,6 +111,12 @@
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 2,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "silksong-sea-of-sorrow",
+      "views": 2,
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "ranking",
@@ -174,17 +173,17 @@
     },
     {
       "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
       "slug": "excel-formulas-for-game-balance",
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-history",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/gacha-system-history/"
     },
     {
       "type": "wiki",
@@ -212,12 +211,6 @@
       "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
     },
     {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
       "type": "issue",
       "slug": "azur-promilia-comicworld-cbt-korea",
       "views": 1,
@@ -237,15 +230,15 @@
     },
     {
       "type": "issue",
-      "slug": "neverness-to-everness-launch-date",
+      "slug": "limbus-company-ios-top5-record",
       "views": 1,
-      "path": "/magazine/issue/neverness-to-everness-launch-date/"
+      "path": "/magazine/issue/limbus-company-ios-top5-record/"
     },
     {
       "type": "issue",
-      "slug": "nvidia-gpu-launch-halt-ai-priority",
+      "slug": "neverness-to-everness-launch-date",
       "views": 1,
-      "path": "/magazine/issue/nvidia-gpu-launch-halt-ai-priority/"
+      "path": "/magazine/issue/neverness-to-everness-launch-date/"
     },
     {
       "type": "issue",
@@ -261,22 +254,15 @@
     },
     {
       "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
-    },
-    {
-      "type": "issue",
       "slug": "wuthering-waves-korea-grossing-no1",
       "views": 1,
       "path": "/magazine/issue/wuthering-waves-korea-grossing-no1/"
     },
     {
-      "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
+      "type": "issue",
+      "slug": "xbox-project-helix-pc-console",
       "views": 1,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
+      "path": "/magazine/issue/xbox-project-helix-pc-console/"
     },
     {
       "type": "wiki",
@@ -291,6 +277,20 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/rts-genre-rise-and-fall/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-history",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-history/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gacha-system-regulations",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/gacha-system-regulations/"
     },
     {
       "type": "wiki",

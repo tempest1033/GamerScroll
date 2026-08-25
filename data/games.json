@@ -45412,8 +45412,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "TierSnap - 롤, 옵치, 브롤 티어 맞추기": {
+      "appIds": {
+        "android": "com.brainrottedgames.tiersnap"
+      },
+      "aliases": [],
+      "developer": "Brainrotted",
+      "icon": "https://play-lh.googleusercontent.com/8ksPccDZwCKE3ZO9Km9nE81w0zwzZTVB5VPenmVNpmI4vDnZSrWpGD2h2QapaUVjjlIppQtMVGWQbtyBMQZH",
+      "slug": "tiersnap-롤-옵치-브롤-티어-맞추기",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-25",
-  "totalGames": 3468
+  "totalGames": 3469
 }
