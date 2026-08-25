@@ -15,7 +15,7 @@
 //
 // Default model: gemini-3.1-pro-preview (verified available on the local OAuth CLI tier).
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve, join } from 'node:path';
@@ -37,6 +37,7 @@ let target = null;
 let model = DEFAULT_MODEL;
 let skillPath = DEFAULT_SKILL;
 let dryRun = false;
+let reuseOut = false;
 let mode = null; // 'kr' | 'dual'; null = auto-detect from contentEn
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
@@ -44,6 +45,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--skill') skillPath = argv[++i];
   else if (a === '--mode') mode = argv[++i];
   else if (a === '--dry-run') dryRun = true;
+  else if (a === '--reuse-out') reuseOut = true;
   else if (a === '-h' || a === '--help') {
     console.log('usage: node scripts/polish-article.mjs <article.json> [--mode kr|dual] [--model id] [--skill SKILL.md] [--dry-run]');
     process.exit(0);
@@ -160,16 +162,29 @@ const prompt = [
 ].join('\n');
 
 // ---- call gemini headless -------------------------------------------------
-const instruction = 'Return ONLY the JSON object of polished values for the exact keys in INPUT. No prose, no code fences.';
-const cmd = `agy --model "${model}" --output-format json --dangerously-skip-permissions --print "${instruction}"`;
-const res = spawnSync(cmd, {
-  input: prompt,
-  encoding: 'utf8',
-  maxBuffer: 64 * 1024 * 1024,
-  shell: true,
-});
-if (res.error) die(`failed to spawn gemini: ${res.error.message}`);
-if (res.status !== 0) die(`gemini exited ${res.status}\n${(res.stderr || '').slice(0, 2000)}`);
+// agy ignores piped stdin in --print mode (verified 2026-08-25: a stdin-only prompt
+// comes back as "{}"), so the prompt is handed over as a file for the agent to read and
+// the reply is written to a file — this also sidesteps the ~32k Windows argument cap.
+const tmpDir = join(REPO_ROOT, '.tmp-polish');
+mkdirSync(tmpDir, { recursive: true });
+const promptPath = join(tmpDir, 'prompt.txt');
+const outPath = join(tmpDir, 'out.json');
+writeFileSync(promptPath, prompt, 'utf8');
+let res = { stdout: '' };
+if (reuseOut && existsSync(outPath)) {
+  console.error(`[polish] --reuse-out: reusing ${outPath} (no model call)`);
+} else {
+  rmSync(outPath, { force: true });
+  const instruction = `Read the instruction file at ${promptPath} and carry it out exactly. Write ONLY the resulting JSON object (no commentary, no code fences) as UTF-8 to ${outPath}. Do not print the JSON in your reply.`;
+  const cmd = `agy --model "${model}" --output-format json --dangerously-skip-permissions --print-timeout 15m --print "${instruction}"`;
+  res = spawnSync(cmd, {
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+    shell: true,
+  });
+  if (res.error) die(`failed to spawn gemini: ${res.error.message}`);
+  if (res.status !== 0) die(`gemini exited ${res.status}\n${(res.stderr || '').slice(0, 2000)}`);
+}
 
 // ---- parse model output ---------------------------------------------------
 function parseModelJson(stdout) {
@@ -195,7 +210,8 @@ function parseModelJson(stdout) {
   try { return JSON.parse(text); }
   catch (e) { die(`could not parse model JSON:\n${e.message}\n--- raw stdout (first 2KB) ---\n${stdout.slice(0, 2000)}`); }
 }
-const polished = parseModelJson(res.stdout);
+const rawReply = existsSync(outPath) ? readFileSync(outPath, 'utf8') : res.stdout;
+const polished = parseModelJson(rawReply);
 
 // ---- validate before touching the file ------------------------------------
 const inKeys = Object.keys(payload);
@@ -225,4 +241,5 @@ if (dryRun) {
 }
 for (const s of slots) s.write(polished[s.key]);
 writeFileSync(articlePath, JSON.stringify(art, null, 2) + '\n', 'utf8');
+rmSync(tmpDir, { recursive: true, force: true });
 console.error(`[polish] wrote ${slots.length} polished fields -> ${articlePath}`);
