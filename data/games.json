@@ -45474,8 +45474,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "FEED THE AI": {
+      "appIds": {
+        "steam": "4486870"
+      },
+      "aliases": [],
+      "developer": "Weird Kid Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4486870/a43c8fc4ca7aad2b8e03b6a37bc6cabe40949adb/capsule_231x87.jpg?t=1787603661",
+      "slug": "feed-the-ai",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-25",
-  "totalGames": 3473
+  "totalGames": 3474
 }
