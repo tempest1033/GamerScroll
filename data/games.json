@@ -45522,8 +45522,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Tiny Room Stories Eclipse": {
+      "appIds": {
+        "ios": 6502894306
+      },
+      "aliases": [],
+      "developer": "Kiary Games Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/3c/a5/d53ca5ab-bc6e-0a1a-3645-5da648ef1e7a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "tiny-room-stories-eclipse",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3477
+  "totalGames": 3478
 }
