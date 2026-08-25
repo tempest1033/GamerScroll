@@ -1,9 +1,9 @@
 {
   "meta": {
     "cssHash": "196a8612cd72",
-    "templateJsHash": "a209e586da97",
+    "templateJsHash": "ea5612f79b38",
     "faviconSvgHash": "5a7e73e93309",
-    "lastBuild": "2026-08-17T11:58:23.318Z"
+    "lastBuild": "2026-08-25T03:41:05.951Z"
   },
   "articles": {
     "grok-46-launch-frontier-push": "3b6e6e824e55",
@@ -225,6 +225,7 @@
     "moltbot-clawdbot-ai-assistant": "4090a86b0799",
     "chatgpt-desktop-app": "e57a4c516586",
     "vibe-coding": "a13ffdb68575",
-    "xai-cursor-grok-comeback": "b4ed9bd87618"
+    "xai-cursor-grok-comeback": "b4ed9bd87618",
+    "frontier-ai-release-deadlock": "b45f0ea4bddc"
   }
 }
