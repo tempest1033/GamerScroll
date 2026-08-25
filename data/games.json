@@ -45498,8 +45498,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Dead by Daylight: Chorus of Sin": {
+      "appIds": {
+        "steam": "5060920"
+      },
+      "aliases": [],
+      "developer": "Behaviour Interactive Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5060920/86788405ea6e2e1a78e47add4189d1c89b1fb186/capsule_231x87.jpg?t=1787669838",
+      "slug": "dead-by-daylight-chorus-of-sin",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3475
+  "totalGames": 3476
 }
