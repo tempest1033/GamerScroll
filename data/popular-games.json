@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-24T21:26:01.901Z",
+  "updatedAt": "2026-08-25T21:51:54.805Z",
   "period": "30days",
   "games": [
     {
@@ -15,6 +15,10 @@
       "views": 7
     },
     {
+      "slug": "sakura-school-simulator",
+      "views": 7
+    },
+    {
       "slug": "danganronpa-another-episode-ultra-despair-girls",
       "views": 6
     },
@@ -23,7 +27,19 @@
       "views": 6
     },
     {
-      "slug": "sakura-school-simulator",
+      "slug": "블라이트-워-사후-처리국",
+      "views": 6
+    },
+    {
+      "slug": "산너머-도원마을",
+      "views": 6
+    },
+    {
+      "slug": "에픽세븐",
+      "views": 6
+    },
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 6
     },
     {
@@ -35,7 +51,15 @@
       "views": 5
     },
     {
+      "slug": "hero-siege",
+      "views": 5
+    },
+    {
       "slug": "lucky-arrow-out",
+      "views": 5
+    },
+    {
+      "slug": "mistfall-hunter",
       "views": 5
     },
     {
@@ -43,39 +67,15 @@
       "views": 5
     },
     {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 5
+    },
+    {
       "slug": "pick-me-up-3d-택시-게임",
       "views": 5
     },
     {
-      "slug": "swipe-it-board-wooden-puzzle",
-      "views": 5
-    },
-    {
-      "slug": "warframe-voruna-prime-access-prime-pack",
-      "views": 5
-    },
-    {
-      "slug": "word-screw-나사와-단어",
-      "views": 5
-    },
-    {
-      "slug": "로드러쉬",
-      "views": 5
-    },
-    {
-      "slug": "블라이트-워-사후-처리국",
-      "views": 5
-    },
-    {
-      "slug": "산너머-도원마을",
-      "views": 5
-    },
-    {
-      "slug": "에픽세븐",
-      "views": 5
-    },
-    {
-      "slug": "좀비-웨이브스",
+      "slug": "sled-surfers-슬로프-어드벤처",
       "views": 5
     }
   ]
