@@ -43329,14 +43329,16 @@
     },
     "조운과 아두": {
       "appIds": {
-        "android": "com.zyyad.mihuan"
+        "android": "com.zyyad.mihuan",
+        "ios": 6755426265
       },
       "aliases": [],
       "developer": "Mihuan Limited",
       "icon": "https://play-lh.googleusercontent.com/N8JO4T8tPs_yYOTpbkW_IjmGvaUzN6FUJsoI5iK5xiuILtsBfJXikAbAuUSeB329K-YgbNFnO2zVRaK5tXK3ans",
       "slug": "조운과-아두",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ]
     },
     "The Bazaar - The Dragons": {
