@@ -45510,8 +45510,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "골드 마인 디펜더": {
+      "appIds": {
+        "android": "com.yuegame.defender"
+      },
+      "aliases": [],
+      "developer": "yuegame",
+      "icon": "https://play-lh.googleusercontent.com/Ds_Wy7u34nF1VgJkdGYOonX-VuApOGc30uJzZ2nBsx9CW-FkK_x7uX-uktNjLuI_Bp0UbT2jYdCBvfh4Cmb1",
+      "slug": "골드-마인-디펜더",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3476
+  "totalGames": 3477
 }

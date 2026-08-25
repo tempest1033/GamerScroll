@@ -31937,6 +31937,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/a9/2c/37a92c90-98be-7ff0-ca08-211b3e669868/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-25T10:58:55.070Z"
+    },
+    {
+      "title": "골드 마인 디펜더",
+      "status": "single",
+      "appIds": {
+        "android": "com.yuegame.defender"
+      },
+      "developer": "yuegame",
+      "icon": "https://play-lh.googleusercontent.com/Ds_Wy7u34nF1VgJkdGYOonX-VuApOGc30uJzZ2nBsx9CW-FkK_x7uX-uktNjLuI_Bp0UbT2jYdCBvfh4Cmb1",
+      "searchResults": [],
+      "addedAt": "2026-08-25T18:29:47.303Z"
     }
   ],
   "approved": [
