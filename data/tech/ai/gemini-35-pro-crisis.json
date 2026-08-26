@@ -1,0 +1,210 @@
+{
+  "slug": "gemini-35-pro-crisis",
+  "site": "aiscroll",
+  "status": "approved",
+  "date": "",
+  "category": "google",
+  "needTranslate": false,
+  "title": "제미나이 3.5 사실상 포기? 4로 선회한 구글의 최대 위기",
+  "titleEn": "Gemini 3.5 Pro Shelved for Gemini 4?",
+  "summary": "6월 출시가 무산된 제미나이 3.5 프로 대신 구글이 제미나이 4 사전훈련에 돌입했다. 가성비 중심의 3.7 플래시로 버티는 사이 핵심 설계 인력 이탈까지 겹쳤다.",
+  "summaryEn": "Gemini 3.5 Pro missed its June launch as Google began Gemini 4 pretraining. Reliance on 3.7 Flash and key researcher departures compound the delay.",
+  "keywords": "제미나이 3.5 프로, 제미나이 4 사전훈련, 제미나이 3.7 플래시, 제미나이 로드맵",
+  "keywordsEn": "Gemini 3.5 Pro, Gemini 4 model, Google Gemini model, Google Gemini flagship",
+  "thumbnail": "https://substackcdn.com/image/fetch/$s_!FSby!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F67a15605-b600-4aa7-8634-9c4a39bdd877_1672x941.png",
+  "sources": [
+    {
+      "name": "Google",
+      "title": "Gemini 3.5: frontier intelligence with action",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
+    },
+    {
+      "name": "Google",
+      "title": "Introducing Gemini 3.7 Flash",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/"
+    },
+    {
+      "name": "SemiAnalysis",
+      "title": "Gemini is Cooked but GCP is Cooking",
+      "url": "https://newsletter.semianalysis.com/p/gemini-is-cooked-but-gcp-is-cooking"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "GLM-5.3 vs Grok 4.6: Intelligence, Performance and Price Analysis",
+      "url": "https://artificialanalysis.ai/models/comparisons/glm-5-3-vs-grok-4-6"
+    },
+    {
+      "name": "Reuters",
+      "title": "Inside the Google executive moves that led to its big AI reshuffle",
+      "url": "https://www.reuters.com/world/inside-google-executive-moves-that-led-its-big-ai-reshuffle-2026-08-12/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/gemini-3-5-pro-leak-frontier-gap",
+    "tech:ai/glm-5-2-overtakes-gemini-flash",
+    "tech:ai/gemini-reliability-crisis-trust",
+    "tech:ai/google-io-2026-agentic-gemini"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "구글은 지난 5월 19일 제미나이 3.5 프로를 다음 달 출시하겠다고 예고했다. 당초 목표였던 6월이 지난 8월 26일 현재까지도 공식 출시일은 나오지 않았다. 그사이 경영진의 대외 메시지는 차세대 모델인 제미나이 4로 옮겨갔다.\n\n[SemiAnalysis](https://newsletter.semianalysis.com/p/gemini-is-cooked-but-gcp-is-cooking)는 구글이 3.5 프로를 접고 차세대 모델에 집중한다고 보도했다. 구글은 취소를 부인하며 테스트를 지속한다는 입장이다. 그러나 [6월 초기 성능 논란](/ko/article/google/gemini-3-5-pro-leak-frontier-gap/) 이후 일정이 밀리며 3.5 프로를 건너뛸 것이라는 관측이 힘을 얻고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "6월 출시 약속, 8월에도 나오지 않은 3.5 프로"
+    },
+    {
+      "type": "text",
+      "value": "[구글 공식 발표](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/)에는 3.5 프로를 이미 사내에서 쓰고 있으며 다음 달 출시한다는 계획이 명시됐다. 하지만 6월은 출시 없이 지나갔다. 구글은 7월에 3.6 플래시와 경량 모델을 선보이면서도 플래그십 출시는 준비가 끝나는 대로 진행하겠다는 말만 되풀이했다.\n\n로이터는 내부 벤치마크에서 코딩 성능이 경쟁 모델에 뒤처지며 출시가 두 달가량 밀렸다고 보도했다. 구글 역시 코딩과 에이전트 역량의 추가 개선 필요성을 인정했다. 단순한 일정 조율이 아니라 목표치 도달에 어려움을 겪은 기술적 난제가 지연의 주원인이다."
+    },
+    {
+      "type": "table",
+      "caption": "제미나이 플래그십 일정 변화",
+      "headers": [
+        "시점",
+        "발표와 변화"
+      ],
+      "rows": [
+        [
+          "5월 19일",
+          "제미나이 3.5 프로를 다음 달 공개한다고 예고"
+        ],
+        [
+          "6월",
+          "당초 출시 목표를 넘겼지만 새 일정은 미발표"
+        ],
+        [
+          "7월 21일",
+          "3.6 플래시 공개, 3.5 프로는 파트너 테스트 유지"
+        ],
+        [
+          "8월 13일",
+          "3.7 플래시 출시, 3.5 프로 일정은 여전히 공백"
+        ],
+        [
+          "8월",
+          "제미나이 4 사전훈련과 더 큰 기반 모델을 반복 강조"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "3.5 대신 제미나이 4 사전훈련으로 선회한 구글"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gemini-general-4-1152x648.jpg",
+      "caption": "검은 배경에 표시된 구글 제미나이 심벌",
+      "alt": "다색 그라데이션으로 표현된 제미나이 로고"
+    },
+    {
+      "type": "text",
+      "value": "비어 있는 일정표를 채운 것은 3.5 프로가 아닌 제미나이 4였다. 순다르 피차이 구글 CEO는 차세대 경쟁을 위해 더 큰 기반 모델이 필요하다며 제미나이 4 훈련을 진행 중이라고 밝혔다. 구글 관계자도 이를 회사 역사상 가장 야심 찬 사전훈련이라고 [설명했다](https://9to5google.com/2026/07/26/google-gemini-4-teases/).\n\n제미나이 4 사전훈련은 개발 파이프라인의 출발점일 뿐 완성된 모델 공개를 뜻하지 않는다. 사후 훈련과 안전성 평가, 제품 연동, 추론 최적화 과정이 뒤따라야 한다. 구글은 구체적 출시 일정을 밝히지 않았다. 연말인 11월이나 12월에 공개되더라도 당초 3.5 프로 목표였던 6월과 비교하면 반년 가까운 공백이 생긴다.\n\n3.5 프로가 중간 징검다리로 뒤늦게 나올 가능성은 남아 있다. 하지만 구글의 연산 자원과 전략적 관심은 이미 제미나이 4에 쏠려 있다. 이번 지연의 본질은 단순한 출시 연기가 아니라 중간 세대 모델의 로드맵 자체가 흔들렸다는 데 있다."
+    },
+    {
+      "type": "heading",
+      "value": "가성비 라인업으로 방어 나선 제미나이 3.7 플래시"
+    },
+    {
+      "type": "text",
+      "value": "로드맵이 흔들리며 제미나이 4 이전까지의 라인업 공백이 당면 과제로 떠올랐다. 구글의 선택은 새 프로 모델이 아닌 제미나이 3.7 플래시였다. 구글은 이 모델을 코딩과 에이전트 작업에 맞춘 실무형 모델로 자리매김했다. API 가격도 100만 토큰당 입력 0.75달러, 출력 3.75달러로 책정해 기존 3.6 플래시 대비 절반으로 낮췄다.\n\n성능 자체가 떨어지는 것은 아니다. 제미나이 3.7 플래시는 [Artificial Analysis](https://artificialanalysis.ai/articles/gemini-3-7-time-frontier) 지능 지수에서 56점을 기록하며 빠른 속도와 가성비를 입증했다. 다만 강점은 최고 지능보다 작업당 비용 효율에 쏠려 있다. 3.5 프로의 공백을 가성비 모델이 대신 방어하는 형국이다.\n\n문제는 가성비 라인업조차 안심하기 어렵다는 사실이다. 같은 8월 공개된 스페이스XAI의 그록 4.6은 지능 지수 61점, 중국 Z.ai의 오픈웨이트 모델 GLM-5.3은 60점을 기록했다. [최신 비교](https://artificialanalysis.ai/models/comparisons/glm-5-3-vs-grok-4-6)에서 제미나이 3.7 플래시는 56점에 머문다. 미국 경쟁사 플래그십뿐 아니라 중국 공개 모델에도 밀리는 상황이다."
+    },
+    {
+      "type": "heading",
+      "value": "핵심 인력 이탈 속 시험대에 오른 제미나이 4"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iL6RvMN9DMHE/v1/1200x800.jpg",
+      "caption": "세계경제포럼 행사에서 발언하는 데미스 허사비스",
+      "alt": "푸른 세계경제포럼 배경 앞에서 두 손을 펼친 데미스 허사비스"
+    },
+    {
+      "type": "text",
+      "value": "벤치마크 점수보다 수습하기 까다로운 과제는 연구 인력의 공백이다. 구글은 8월 딥마인드 지도부를 개편하며 데미스 허사비스를 일상 경영에서 물러나게 하고 이사회 의장에 앉혔다. 제미나이 개발을 초기부터 이끌던 제프 딘과 오리올 비냘스도 회사를 떠나 새로운 AI 스타트업을 설립했다.\n\n앞서 공동 책임자였던 노암 셰이지어는 오픈AI로, 알파폴드 핵심 연구자 존 점퍼는 앤트로픽으로 이직했다. [로이터가 보도한 조직 개편](https://www.reuters.com/world/inside-google-executive-moves-that-led-its-big-ai-reshuffle-2026-08-12/)에서 드러났듯 차세대 모델을 책임질 핵심 설계자들의 연쇄 이탈은 개발 역량에 부담으로 작용하고 있다.\n\nSemiAnalysis는 딥마인드가 최첨단 연구소 지위를 잃었으며 제미나이 4로도 국면 전환이 어려울 것이라는 분석을 내놨다. 이는 시장의 비관적 시각이지만 구글은 여전히 자체 TPU 인프라와 막대한 자본, 검색·안드로이드·워크스페이스로 이어지는 강력한 배포망을 쥐고 있다.\n\n결국 제미나이 4는 훈련 시작 당시가 아니라 출시 시점의 최전선 모델을 넘어서야 한다. 연산 자원 배분과 조직 안정화라는 과제를 안은 채 개발을 완주해야 하는 상황이다. 제미나이 3.5 프로의 지연이 단순한 일정 차질에 그칠지, 주도권 상실의 시작이 될지는 제미나이 4의 성패에 달려 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "On May 19, Google announced that Gemini 3.5 Pro would arrive “next month,” setting its target release for June. As of August 26, the flagship model still lacks a release date, while executive messaging has already shifted toward Gemini 4.\n\n[SemiAnalysis](https://newsletter.semianalysis.com/p/gemini-is-cooked-but-gcp-is-cooking) reported that Google quietly shelved 3.5 Pro to focus resources on its next generation. Google has denied any cancellation, maintaining that partner testing remains underway. Yet following [early performance concerns in June](/article/google/gemini-3-5-pro-leak-frontier-gap/), the two-month delay has fueled industry speculation that 3.5 Pro will be skipped entirely."
+    },
+    {
+      "type": "heading",
+      "value": "A June Promise, Still Unmet in August"
+    },
+    {
+      "type": "text",
+      "value": "Google's [official announcement](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/) stated that 3.5 Pro was already in internal use and would launch the following month. June passed without a release. In July, Google launched 3.6 Flash alongside lighter models, leaving the flagship's release date at an indefinite “when ready.”\n\nReuters reported that internal testing showed the flagship trailing rival models in coding performance, forcing a two-month delay. Google acknowledged that coding and agentic workflows required further refinement. The setback stemmed from technical hurdles in hitting target benchmarks rather than simple scheduling adjustments."
+    },
+    {
+      "type": "table",
+      "caption": "How Google's Gemini flagship schedule changed",
+      "headers": [
+        "Date",
+        "Announcement or change"
+      ],
+      "rows": [
+        [
+          "May 19",
+          "Google promises Gemini 3.5 Pro the following month"
+        ],
+        [
+          "June",
+          "The target passes with no replacement date"
+        ],
+        [
+          "July 21",
+          "3.6 Flash ships while 3.5 Pro remains in partner testing"
+        ],
+        [
+          "August 13",
+          "3.7 Flash ships with no new 3.5 Pro schedule"
+        ],
+        [
+          "August",
+          "Executives repeatedly emphasize Gemini 4 pretraining and a larger base model"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Google Pivots Public Focus to Gemini 4"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/gemini-general-4-1152x648.jpg",
+      "caption": "Google's Gemini symbol on a dark background",
+      "alt": "Multicolor Gemini star centered on a black textured background"
+    },
+    {
+      "type": "text",
+      "value": "The model now filling the roadmap is not 3.5 Pro, but Gemini 4. CEO Sundar Pichai stated that competing at the frontier requires a larger foundation model, confirming that training is underway. Google described the effort as the company's “most ambitious pre-training run yet,” according to [9to5Google](https://9to5google.com/2026/07/26/google-gemini-4-teases/).\n\nPretraining Gemini 4 marks only the initial phase of development, not an impending release. Post-training, safety evaluations, product integration, and inference optimization must follow. Google has not provided an official timetable. Even a year-end release in November or December would leave a five-to-six-month gap from the original June target.\n\nGemini 3.5 Pro could still appear as a bridge release. However, Google's compute allocation and strategic focus have already shifted to Gemini 4. The underlying issue extends beyond a single delayed launch: an entire intermediate model generation has lost its standing in the roadmap."
+    },
+    {
+      "type": "heading",
+      "value": "Gemini 3.7 Flash Anchors the Value Tier"
+    },
+    {
+      "type": "text",
+      "value": "The disrupted roadmap creates an immediate challenge: what sustains the lineup until Gemini 4 arrives? Google's response was not another Pro model, but Gemini 3.7 Flash. Rather than positioning it as a frontier-reclaiming flagship, Google framed it as a workhorse model optimized for coding and agentic tasks. Pricing reinforces that role: through year-end, API pricing is set at $0.75 per million input tokens and $3.75 per million output tokens, halving the cost of 3.6 Flash.\n\nGemini 3.7 Flash remains competitive, scoring 56 on the [Artificial Analysis](https://artificialanalysis.ai/articles/gemini-3-7-time-frontier) Intelligence Index with high throughput and low latency. Yet its core strength lies in task-level cost efficiency rather than top-tier reasoning. In the absence of 3.5 Pro, a budget-focused offering is holding ground it was never designed to defend alone.\n\nThat value tier faces mounting competitive pressure as well. SpaceXAI's Grok 4.6 scored 61 on the latest Intelligence Index, while Chinese developer Z.ai's open-weight GLM-5.3 reached 60. In the [latest comparison](https://artificialanalysis.ai/models/comparisons/glm-5-3-vs-grok-4-6), Gemini 3.7 Flash remains at 56. Google's current offering trails both a proprietary US flagship and an open-weight Chinese release."
+    },
+    {
+      "type": "heading",
+      "value": "Gemini 4 Must Prove Itself Amid Key Departures"
+    },
+    {
+      "type": "image",
+      "src": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iL6RvMN9DMHE/v1/1200x800.jpg",
+      "caption": "Demis Hassabis speaking at the World Economic Forum",
+      "alt": "Demis Hassabis gesturing with both hands against a blue World Economic Forum backdrop"
+    },
+    {
+      "type": "text",
+      "value": "Beyond benchmark results, Google faces leadership transitions and talent loss across its AI division. An August reorganization shifted Demis Hassabis from operational management to board chair at DeepMind, while early Gemini co-leads Jeff Dean and Oriol Vinyals departed to launch a new AI startup.\n\nEarlier departures included co-lead Noam Shazeer to OpenAI and AlphaFold researcher John Jumper to Anthropic. As the [DeepMind reorganization reported by Reuters](https://www.reuters.com/world/inside-google-executive-moves-that-led-its-big-ai-reshuffle-2026-08-12/) indicates, the loss of foundational architects creates substantial execution risk for Gemini 4.\n\nSemiAnalysis argued that DeepMind is no longer a frontier lab and that Gemini 4 will struggle to reverse current momentum. While that represents an aggressive analyst perspective, Google still commands custom TPU infrastructure, massive capital reserves, and distribution reach spanning Search, Android, and Workspace.\n\nEven so, Gemini 4 must outperform rival models at its eventual launch rather than where the market stood when pretraining began. The company must navigate compute allocation, research turnover, and execution timelines. Whether the Gemini 3.5 Pro delay marks a temporary setback or a deeper strategic retreat now rests on Gemini 4."
+    }
+  ]
+}
