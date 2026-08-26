@@ -45606,8 +45606,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Rummy 500 - Card Game *": {
+      "appIds": {
+        "ios": 6742179041
+      },
+      "aliases": [],
+      "developer": "Fiogonia Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a5/43/b8/a543b8a5-5f03-8911-3983-9a5458e108e5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "rummy-500-card-game",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Sticker Life - 스티커 방꾸미기 게임": {
+      "appIds": {
+        "ios": 6768258203
+      },
+      "aliases": [],
+      "developer": "Gloryway Puzzle",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1d/25/c8/1d25c8a9-c822-30dc-d9da-2b9dcf70fdfb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "sticker-life-스티커-방꾸미기-게임",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3484
+  "totalGames": 3486
 }
