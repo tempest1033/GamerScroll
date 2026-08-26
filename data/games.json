@@ -45678,8 +45678,44 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Desire Girls: Mahjong Match": {
+      "appIds": {
+        "android": "com.Desire.Girls.Mahjong.Match.Tile"
+      },
+      "aliases": [],
+      "developer": "PT. Setapak Perintis Teknologi",
+      "icon": "https://play-lh.googleusercontent.com/XU8tf3i-_ptUY6Ac3Hd6xPi0hPpWJHwgEq1IYU-FBHPZ7vO7X-esVCyZ5cLdOJfhwjGnbJZzQlw3jGytDVS4",
+      "slug": "desire-girls-mahjong-match",
+      "platforms": [
+        "android"
+      ]
+    },
+    "CAPTAIN TSUBASA 2: WORLD FIGHTERS": {
+      "appIds": {
+        "steam": "2172910"
+      },
+      "aliases": [],
+      "developer": "TAMSOFT CORPORATION",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2172910/ec22e9816bf3c0cdffa04a10a40cd362284f6f46/capsule_231x87.jpg?t=1786012449",
+      "slug": "captain-tsubasa-2-world-fighters",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Get To Work": {
+      "appIds": {
+        "steam": "2706170"
+      },
+      "aliases": [],
+      "developer": "Isto Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2706170/731f1cc59b5e983e3f5565c0e46622307e808429/capsule_231x87.jpg?t=1773163509",
+      "slug": "get-to-work",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-08-26",
-  "totalGames": 3490
+  "lastUpdated": "2026-08-27",
+  "totalGames": 3493
 }
