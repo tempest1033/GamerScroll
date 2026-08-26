@@ -45570,8 +45570,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Battle Night": {
+      "appIds": {
+        "ios": "1449448167"
+      },
+      "aliases": [],
+      "developer": "Feelingtouch Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/08/58/36/08583641-0400-9877-ff14-a93b2d87b3b4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "battle-night",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3481
+  "totalGames": 3482
 }
