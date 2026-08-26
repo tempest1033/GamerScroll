@@ -32061,6 +32061,28 @@
         }
       ],
       "addedAt": "2026-08-26T18:14:11.445Z"
+    },
+    {
+      "title": "몬스터슈퍼리그",
+      "status": "single",
+      "appIds": {
+        "ios": "1092463295"
+      },
+      "developer": "Smart Study Games Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/b5/92/36b59242-7cc8-6b20-3e36-ead73144c981/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-26T20:27:13.372Z"
+    },
+    {
+      "title": "플랜츠 온 파이어",
+      "status": "single",
+      "appIds": {
+        "ios": 6757785541
+      },
+      "developer": "Nuverse Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/26/62/83266291-2dbb-72df-b42b-e6773000a18b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-26T20:27:13.553Z"
     }
   ],
   "approved": [

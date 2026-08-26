@@ -45740,8 +45740,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "몬스터슈퍼리그": {
+      "appIds": {
+        "ios": "1092463295"
+      },
+      "aliases": [],
+      "developer": "Smart Study Games Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/b5/92/36b59242-7cc8-6b20-3e36-ead73144c981/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "몬스터슈퍼리그",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "플랜츠 온 파이어": {
+      "appIds": {
+        "ios": 6757785541
+      },
+      "aliases": [],
+      "developer": "Nuverse Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/26/62/83266291-2dbb-72df-b42b-e6773000a18b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "플랜츠-온-파이어",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-27",
-  "totalGames": 3495
+  "totalGames": 3497
 }
