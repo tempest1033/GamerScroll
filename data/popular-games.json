@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-25T21:51:54.805Z",
+  "updatedAt": "2026-08-26T23:56:00.321Z",
   "period": "30days",
   "games": [
     {
@@ -19,11 +19,19 @@
       "views": 7
     },
     {
+      "slug": "arrow-pro-3d",
+      "views": 6
+    },
+    {
       "slug": "danganronpa-another-episode-ultra-despair-girls",
       "views": 6
     },
     {
       "slug": "roterra-4-magical-revolution",
+      "views": 6
+    },
+    {
+      "slug": "로드러쉬",
       "views": 6
     },
     {
@@ -43,8 +51,12 @@
       "views": 6
     },
     {
-      "slug": "arrow-pro-3d",
-      "views": 5
+      "slug": "탈출-게임-암스테르담",
+      "views": 6
+    },
+    {
+      "slug": "탑-히어로즈-영웅의-시대",
+      "views": 6
     },
     {
       "slug": "craft-world-block-building-3d",
@@ -64,18 +76,6 @@
     },
     {
       "slug": "mobile-suit-gundam-battle-operation-2",
-      "views": 5
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 5
-    },
-    {
-      "slug": "pick-me-up-3d-택시-게임",
-      "views": 5
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
       "views": 5
     }
   ]

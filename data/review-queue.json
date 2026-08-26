@@ -31668,13 +31668,19 @@
     },
     {
       "title": "오늘두호두-날마다 두뇌 트레이닝",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6760736230
+        "ios": 6760736230,
+        "android": "com.kakaogames.hodoo"
       },
       "developer": "Kakao Games Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/3e/c4/ae3ec423-f5b9-7154-4e95-7a6c56f3b0fc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "오늘두호두-날마다 두뇌 트레이닝",
+          "appId": 6760736230
+        }
+      ],
       "addedAt": "2026-08-21T10:56:41.006Z"
     },
     {
