@@ -32036,6 +32036,31 @@
       "icon": "https://play-lh.googleusercontent.com/XU8tf3i-_ptUY6Ac3Hd6xPi0hPpWJHwgEq1IYU-FBHPZ7vO7X-esVCyZ5cLdOJfhwjGnbJZzQlw3jGytDVS4",
       "searchResults": [],
       "addedAt": "2026-08-26T16:14:18.235Z"
+    },
+    {
+      "title": "Theme Park Manager",
+      "status": "matched",
+      "appIds": {
+        "android": "com.albus.themeparktycoon",
+        "ios": 6746152382
+      },
+      "developer": "Supercent, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/yf_841voY6lCHJX0CePNN0yNXtCLwwZTitOMFh1DWpGmAqY3q-65vmFAsWlXwu7BfOEFhDQyJEa5ycurCuiA",
+      "searchResults": [
+        {
+          "title": "Theme Park Manager",
+          "appId": 6746152382
+        },
+        {
+          "title": "Idle Theme Park - Tycoon Game",
+          "appId": 1460772578
+        },
+        {
+          "title": "롤러코스터 타이쿤 터치 NETFLIX",
+          "appId": 6451004655
+        }
+      ],
+      "addedAt": "2026-08-26T18:14:11.445Z"
     }
   ],
   "approved": [
