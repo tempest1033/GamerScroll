@@ -45582,8 +45582,32 @@
       "platforms": [
         "ios"
       ]
+    },
+    "여신 디프": {
+      "appIds": {
+        "android": "com.gp.qsnmale.beauty.goddessdiff"
+      },
+      "aliases": [],
+      "developer": "LanFei Dream",
+      "icon": "https://play-lh.googleusercontent.com/6s_piKMIe5KoxE8qYMleIG3AptcclGrM3eegtpIDv6XZPRdWHIDhblJhoOKwdbHxPRjywECtujerdBG0SYYP7A",
+      "slug": "여신-디프",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Dead by Daylight - Resident Evil: PROJECT W Chapter": {
+      "appIds": {
+        "steam": "2102730"
+      },
+      "aliases": [],
+      "developer": "Behaviour Interactive Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2102730/capsule_231x87.jpg?t=1760968571",
+      "slug": "dead-by-daylight-resident-evil-project-w-chapter",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3482
+  "totalGames": 3484
 }
