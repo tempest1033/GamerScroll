@@ -45642,8 +45642,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Dead by Daylight - Resident Evil Chapter": {
+      "appIds": {
+        "steam": "1634040"
+      },
+      "aliases": [],
+      "developer": "Behaviour Interactive Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1634040/capsule_231x87.jpg?t=1682013373",
+      "slug": "dead-by-daylight-resident-evil-chapter",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3487
+  "totalGames": 3488
 }
