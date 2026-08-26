@@ -45534,8 +45534,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Arrow Swift Out": {
+      "appIds": {
+        "android": "com.swiftft.outtu.arrowsw"
+      },
+      "aliases": [],
+      "developer": "Bengkel Online",
+      "icon": "https://play-lh.googleusercontent.com/7OzahBFzrYbdfRSXQbmDYf3kWqJOfCSfx7PmDsDp7WGAvHlJ3W8jB_1wW6i9w60NNykYoxu84UoHw_kJ2SZOow",
+      "slug": "arrow-swift-out",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3478
+  "totalGames": 3479
 }
