@@ -45630,8 +45630,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Fatal Claw": {
+      "appIds": {
+        "steam": "2827750"
+      },
+      "aliases": [],
+      "developer": "NDEV GAMES",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2827750/51e25c8198055dda1e23f3df4deb6b80cc38ca2d/capsule_231x87.jpg?t=1787727739",
+      "slug": "fatal-claw",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3486
+  "totalGames": 3487
 }
