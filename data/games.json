@@ -45654,8 +45654,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Shadow Dungeon": {
+      "appIds": {
+        "steam": "4423580"
+      },
+      "aliases": [],
+      "developer": "OO Cat",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4423580/733613c22fca72b0399ed6147890e71587828e3b/capsule_231x87.jpg?t=1787744876",
+      "slug": "shadow-dungeon",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-26",
-  "totalGames": 3488
+  "totalGames": 3489
 }
