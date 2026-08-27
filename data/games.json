@@ -45778,8 +45778,68 @@
       "platforms": [
         "steam"
       ]
+    },
+    "뚜까펫: 서바이벌": {
+      "appIds": {
+        "ios": "6741567125"
+      },
+      "aliases": [],
+      "developer": "Farlight Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/1b/77/fa1b779a-3e8d-6b76-7c40-c9e598e87f75/AppIcon-Global-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "뚜까펫-서바이벌",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Car Evolve": {
+      "appIds": {
+        "ios": 6754464806
+      },
+      "aliases": [],
+      "developer": "Heseri Games Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/4a/f2/6a4af240-fcd1-ac68-5627-fcf7aec25d19/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "car-evolve",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Resonance: A Plague Tale Legacy": {
+      "appIds": {
+        "steam": "2713000"
+      },
+      "aliases": [],
+      "developer": "Asobo Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2713000/0d06636f2a2c3dcf0b473c91212f36a0b3e2e1a8/capsule_231x87.jpg?t=1787849814",
+      "slug": "resonance-a-plague-tale-legacy",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Tom Clancy’s The Division 2 – Red Horizon Supply Drop": {
+      "appIds": {
+        "steam": "4974000"
+      },
+      "aliases": [],
+      "developer": "Ubisoft",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4974000/22e896c10d8a9f880e7cfdbfceeb656c68802b6f/capsule_231x87.jpg?t=1787818832",
+      "slug": "tom-clancys-the-division-2-red-horizon-supply-drop",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Hero Siege - Bard (Class)": {
+      "appIds": {
+        "steam": "3305660"
+      },
+      "aliases": [],
+      "developer": "Panic Art Studios Ltd",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3305660/6ff06e42442f5962e6896ce8ceaaf1a8c1c27619/capsule_231x87.jpg?t=1749206381",
+      "slug": "hero-siege-bard-class",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-08-27",
-  "totalGames": 3498
+  "lastUpdated": "2026-08-28",
+  "totalGames": 3503
 }

@@ -32089,6 +32089,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/26/62/83266291-2dbb-72df-b42b-e6773000a18b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-26T20:27:13.553Z"
+    },
+    {
+      "title": "뚜까펫: 서바이벌",
+      "status": "single",
+      "appIds": {
+        "ios": "6741567125"
+      },
+      "developer": "Farlight Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/1b/77/fa1b779a-3e8d-6b76-7c40-c9e598e87f75/AppIcon-Global-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-27T18:04:02.354Z"
+    },
+    {
+      "title": "Car Evolve",
+      "status": "single",
+      "appIds": {
+        "ios": 6754464806
+      },
+      "developer": "Heseri Games Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/4a/f2/6a4af240-fcd1-ac68-5627-fcf7aec25d19/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-27T18:04:02.674Z"
     }
   ],
   "approved": [
