@@ -45757,14 +45757,16 @@
     },
     "플랜츠 온 파이어": {
       "appIds": {
-        "ios": 6757785541
+        "ios": 6757785541,
+        "android": "com.nvsgames.pt"
       },
       "aliases": [],
       "developer": "Nuverse Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/26/62/83266291-2dbb-72df-b42b-e6773000a18b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "플랜츠-온-파이어",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Graveyard Keeper 2": {
@@ -45938,8 +45940,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Mosquito Bite 3D": {
+      "appIds": {
+        "ios": 1562644477
+      },
+      "aliases": [],
+      "developer": "JoyPac",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/9c/23/529c236c-93c1-1deb-145b-5d2e14791768/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mosquito-bite-3d",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "METAL GEAR SOLID 4: Guns of the Patriots - Master Collection Version": {
+      "appIds": {
+        "steam": "2492670"
+      },
+      "aliases": [],
+      "developer": "KONAMI",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2492670/3b47bbb2415a3b5d76316b2cf9c4063e8f03759a/capsule_231x87.jpg?t=1787835863",
+      "slug": "metal-gear-solid-4-guns-of-the-patriots-master-collection-version",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "WakuWaku Park": {
+      "appIds": {
+        "steam": "3850800"
+      },
+      "aliases": [],
+      "developer": "DOUJIN3ARIES",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3850800/692fe24f578f2e3487cc37ebf54a600514f522f8/capsule_231x87.jpg?t=1787904537",
+      "slug": "wakuwaku-park",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-08-28",
-  "totalGames": 3511
+  "lastUpdated": "2026-08-29",
+  "totalGames": 3514
 }

@@ -32081,13 +32081,19 @@
     },
     {
       "title": "플랜츠 온 파이어",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6757785541
+        "ios": 6757785541,
+        "android": "com.nvsgames.pt"
       },
       "developer": "Nuverse Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/26/62/83266291-2dbb-72df-b42b-e6773000a18b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "플랜츠 온 파이어",
+          "appId": 6757785541
+        }
+      ],
       "addedAt": "2026-08-26T20:27:13.553Z"
     },
     {
@@ -32156,6 +32162,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/0a/04/580a048b-0df4-9893-87d5-d66fb518f563/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-28T07:51:44.359Z"
+    },
+    {
+      "title": "Mosquito Bite 3D",
+      "status": "single",
+      "appIds": {
+        "ios": 1562644477
+      },
+      "developer": "JoyPac",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/9c/23/529c236c-93c1-1deb-145b-5d2e14791768/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-28T23:38:48.968Z"
     }
   ],
   "approved": [
