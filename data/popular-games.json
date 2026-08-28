@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-26T23:56:00.321Z",
+  "updatedAt": "2026-08-28T02:15:10.732Z",
   "period": "30days",
   "games": [
     {
@@ -32,10 +32,6 @@
     },
     {
       "slug": "로드러쉬",
-      "views": 6
-    },
-    {
-      "slug": "블라이트-워-사후-처리국",
       "views": 6
     },
     {
@@ -76,6 +72,10 @@
     },
     {
       "slug": "mobile-suit-gundam-battle-operation-2",
+      "views": 5
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
       "views": 5
     }
   ]

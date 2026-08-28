@@ -32092,13 +32092,19 @@
     },
     {
       "title": "뚜까펫: 서바이벌",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6741567125"
+        "ios": "6741567125",
+        "android": "com.farlightgames.pgame.gp"
       },
       "developer": "Farlight Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/1b/77/fa1b779a-3e8d-6b76-7c40-c9e598e87f75/AppIcon-Global-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "뚜까펫: 서바이벌",
+          "appId": "6741567125"
+        }
+      ],
       "addedAt": "2026-08-27T18:04:02.354Z"
     },
     {
@@ -32111,6 +32117,23 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/4a/f2/6a4af240-fcd1-ac68-5627-fcf7aec25d19/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-27T18:04:02.674Z"
+    },
+    {
+      "title": "벙커 딸깍 디펜스: 랜덤TD",
+      "status": "matched",
+      "appIds": {
+        "android": "com.TeamSparta.brd",
+        "ios": 6778697840
+      },
+      "developer": "Teamsparta Inc.",
+      "icon": "https://play-lh.googleusercontent.com/0DDzk4evRfO0Kmt2jPEXOQKDrAZMyZR2VtOiv33dIKQnCLFiQgy6O4253g4PII_W3EAYq8g5cvHz1Jw49ju_sA",
+      "searchResults": [
+        {
+          "title": "벙커 딸깍 디펜스: 랜덤TD",
+          "appId": 6778697840
+        }
+      ],
+      "addedAt": "2026-08-28T02:15:29.090Z"
     }
   ],
   "approved": [

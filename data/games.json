@@ -45781,14 +45781,16 @@
     },
     "뚜까펫: 서바이벌": {
       "appIds": {
-        "ios": "6741567125"
+        "ios": "6741567125",
+        "android": "com.farlightgames.pgame.gp"
       },
       "aliases": [],
       "developer": "Farlight Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/1b/77/fa1b779a-3e8d-6b76-7c40-c9e598e87f75/AppIcon-Global-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "뚜까펫-서바이벌",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Car Evolve": {
@@ -45838,8 +45840,46 @@
       "platforms": [
         "steam"
       ]
+    },
+    "벙커 딸깍 디펜스: 랜덤TD": {
+      "appIds": {
+        "android": "com.TeamSparta.brd",
+        "ios": 6778697840
+      },
+      "aliases": [],
+      "developer": "Teamsparta Inc.",
+      "icon": "https://play-lh.googleusercontent.com/0DDzk4evRfO0Kmt2jPEXOQKDrAZMyZR2VtOiv33dIKQnCLFiQgy6O4253g4PII_W3EAYq8g5cvHz1Jw49ju_sA",
+      "slug": "벙커-딸깍-디펜스-랜덤td",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "ELDEN RING Tarnished Pack": {
+      "appIds": {
+        "steam": "3655690"
+      },
+      "aliases": [],
+      "developer": "FromSoftware, Inc.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3655690/c6fd066656060ea1d8bd540873beb90762dafdc9/capsule_231x87.jpg?t=1787867987",
+      "slug": "elden-ring-tarnished-pack",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Hero Siege - Butcher Class": {
+      "appIds": {
+        "steam": "2735920"
+      },
+      "aliases": [],
+      "developer": "Panic Art Studios Ltd",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2735920/capsule_231x87.jpg?t=1710866468",
+      "slug": "hero-siege-butcher-class",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-28",
-  "totalGames": 3503
+  "totalGames": 3506
 }
