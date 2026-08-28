@@ -32134,6 +32134,28 @@
         }
       ],
       "addedAt": "2026-08-28T02:15:29.090Z"
+    },
+    {
+      "title": "슬레이 더 타이탄  : 덱빌딩 RPG",
+      "status": "single",
+      "appIds": {
+        "ios": "6741893290"
+      },
+      "developer": "Dreamplay Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ce/6c/07/ce6c07e0-23ca-132e-6c92-49ea37593ead/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-28T07:51:44.198Z"
+    },
+    {
+      "title": "연탄후라이 키우기",
+      "status": "single",
+      "appIds": {
+        "ios": 6745242463
+      },
+      "developer": "Yujin Jeong",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/0a/04/580a048b-0df4-9893-87d5-d66fb518f563/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-28T07:51:44.359Z"
     }
   ],
   "approved": [
