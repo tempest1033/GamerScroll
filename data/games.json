@@ -46012,8 +46012,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "픽셀 탐험대": {
+      "appIds": {
+        "android": "com.guanyang.pixelquestgp"
+      },
+      "aliases": [],
+      "developer": "feixin games",
+      "icon": "https://play-lh.googleusercontent.com/C_4p6_gr_JNf2vwgPBMrP-uQNqikFW7iGSLHx8VvQppJbfk9Tn-HKuvEse5OxMzpakqlL2Rgru7JI28Tanu7kw",
+      "slug": "픽셀-탐험대",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-30",
-  "totalGames": 3517
+  "totalGames": 3518
 }

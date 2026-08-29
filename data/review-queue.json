@@ -32224,6 +32224,26 @@
         }
       ],
       "addedAt": "2026-08-29T19:28:14.618Z"
+    },
+    {
+      "title": "픽셀 탐험대",
+      "status": "single",
+      "appIds": {
+        "android": "com.guanyang.pixelquestgp"
+      },
+      "developer": "feixin games",
+      "icon": "https://play-lh.googleusercontent.com/C_4p6_gr_JNf2vwgPBMrP-uQNqikFW7iGSLHx8VvQppJbfk9Tn-HKuvEse5OxMzpakqlL2Rgru7JI28Tanu7kw",
+      "searchResults": [
+        {
+          "title": "우당탕탕 탐험대: 방치형 RPG",
+          "appId": 6479223917
+        },
+        {
+          "title": "동굴 탐험대 스토리",
+          "appId": 6468572535
+        }
+      ],
+      "addedAt": "2026-08-29T21:53:01.876Z"
     }
   ],
   "approved": [
