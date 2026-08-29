@@ -45988,8 +45988,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "글램 디프": {
+      "appIds": {
+        "android": "com.qunsamllih.gp.find.glamdiff"
+      },
+      "aliases": [],
+      "developer": "Huizhou Hanyu Game",
+      "icon": "https://play-lh.googleusercontent.com/seV9O6lpJ9ejCee3RDJ7e-CopeMRqLgNAn_sBYHd3NEA1PTYoSccNnkvLvw-jgfcnyWMLF1m8qhcjCL9Q2SrFg",
+      "slug": "글램-디프",
+      "platforms": [
+        "android"
+      ]
+    },
+    "궁수키우기 : 스틱맨RPG": {
+      "appIds": {
+        "android": "com.juokstudio.archer"
+      },
+      "aliases": [],
+      "developer": "JU-OK STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/EJMV7CrdXFsuLSRt6CzuOzVIi2IPfwA13FVUZvVRmmjdMbuGE_mOy48Wq5LxxQo02QDIegKdv-JYBOv7Jlw1rQ",
+      "slug": "궁수키우기-스틱맨rpg",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-30",
-  "totalGames": 3515
+  "totalGames": 3517
 }
