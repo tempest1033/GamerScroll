@@ -32173,6 +32173,30 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/9c/23/529c236c-93c1-1deb-145b-5d2e14791768/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-08-28T23:38:48.968Z"
+    },
+    {
+      "title": "Knock Out",
+      "status": "single",
+      "appIds": {
+        "android": "com.combo.knockout"
+      },
+      "developer": "Combo Game",
+      "icon": "https://play-lh.googleusercontent.com/znXwhixoLeAfAyQe3-jisa-72IsfkP1UG0wTDZrGadNHWPlsoXjOj8ZP_5J5tHUMQPAu5Tg0ZB7qVZ1ZsBycLw",
+      "searchResults": [
+        {
+          "title": "Knock Out : Physics Puzzle",
+          "appId": 6782096197
+        },
+        {
+          "title": "Royal Smash! - Physics Puzzle",
+          "appId": 6780891673
+        },
+        {
+          "title": "ProKnockOut사진 편집기 합성사진 음식사진",
+          "appId": 944665061
+        }
+      ],
+      "addedAt": "2026-08-29T05:05:40.571Z"
     }
   ],
   "approved": [

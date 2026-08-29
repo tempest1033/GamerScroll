@@ -45976,8 +45976,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Knock Out": {
+      "appIds": {
+        "android": "com.combo.knockout"
+      },
+      "aliases": [],
+      "developer": "Combo Game",
+      "icon": "https://play-lh.googleusercontent.com/znXwhixoLeAfAyQe3-jisa-72IsfkP1UG0wTDZrGadNHWPlsoXjOj8ZP_5J5tHUMQPAu5Tg0ZB7qVZ1ZsBycLw",
+      "slug": "knock-out",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-29",
-  "totalGames": 3514
+  "totalGames": 3515
 }
