@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-08-29T05:05:22.910Z",
+  "updatedAt": "2026-08-30T02:55:26.000Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 53,
+      "views": 50,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 27,
+      "views": 24,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 21,
+      "views": 19,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
@@ -36,8 +36,14 @@
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 6,
+      "views": 7,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
+      "type": "issue",
+      "slug": "zeus-dual-market-revenue-no1",
+      "views": 6,
+      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
     },
     {
       "type": "issue",
@@ -52,13 +58,6 @@
       "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
       "type": "hotpick",
       "slug": "agile-jira-confluence-game-dev",
       "views": 4,
@@ -71,12 +70,6 @@
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
-      "type": "issue",
-      "slug": "zeus-dual-market-revenue-no1",
-      "views": 4,
-      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
-    },
-    {
       "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
@@ -85,10 +78,23 @@
     },
     {
       "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
       "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 4,
       "path": "/wiki/knowledge/pd-vs-director/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "2d-animation-tech",
+      "views": 3,
+      "path": "/magazine/hotpick/2d-animation-tech/"
     },
     {
       "type": "insight",
@@ -117,23 +123,10 @@
     },
     {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 3,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 3,
       "path": "/wiki/history/heroes-of-might-and-magic/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "2d-animation-tech",
-      "views": 2,
-      "path": "/magazine/hotpick/2d-animation-tech/"
     },
     {
       "type": "hotpick",
@@ -142,22 +135,10 @@
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
-      "type": "hotpick",
-      "slug": "nioh3-hotpick-soulslike-masterpiece",
-      "views": 2,
-      "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
-    },
-    {
       "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -179,6 +160,12 @@
     },
     {
       "type": "issue",
+      "slug": "starcraft-shooter-blizzard",
+      "views": 2,
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
+      "type": "issue",
       "slug": "xbox-project-helix-pc-console",
       "views": 2,
       "path": "/magazine/issue/xbox-project-helix-pc-console/"
@@ -191,17 +178,10 @@
     },
     {
       "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
       "views": 2,
-      "path": "/wiki/history/the-war-of-genesis/"
-    },
-    {
-      "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
@@ -211,10 +191,23 @@
       "path": "/wiki/knowledge/gacha-system-regulations/"
     },
     {
+      "type": "wiki",
+      "slug": "pc-components-gaming-performance",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/pc-components-gaming-performance/"
+    },
+    {
       "type": "hotpick",
       "slug": "game-engine",
       "views": 1,
       "path": "/magazine/hotpick/game-engine/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "nioh3-hotpick-soulslike-masterpiece",
+      "views": 1,
+      "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
     },
     {
       "type": "hotpick",
@@ -224,9 +217,9 @@
     },
     {
       "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
+      "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 1,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
     },
     {
       "type": "issue",
@@ -239,6 +232,12 @@
       "slug": "granblue-relink-endless-ragnarok",
       "views": 1,
       "path": "/magazine/issue/granblue-relink-endless-ragnarok/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 1,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -263,12 +262,6 @@
       "slug": "sol-enchant-dual-market-no1-launch",
       "views": 1,
       "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
-      "views": 1,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
       "type": "ranking",
@@ -324,6 +317,13 @@
     },
     {
       "type": "wiki",
+      "slug": "the-war-of-genesis",
+      "category": "history",
+      "views": 1,
+      "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
       "slug": "chzzk-soop-p2p-grid",
       "category": "knowledge",
       "views": 1,
@@ -342,13 +342,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/moba-genre-origin/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pc-components-gaming-performance",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/pc-components-gaming-performance/"
     }
   ]
 }
