@@ -46024,8 +46024,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Last Shelter: War Z": {
+      "appIds": {
+        "ios": 6760406772
+      },
+      "aliases": [],
+      "developer": "LAST ORIGIN STUDIO LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/7b/7d/bc7b7d5b-d8b2-09ff-54e0-03f9e7dd3ef9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "last-shelter-war-z",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-08-30",
-  "totalGames": 3518
+  "totalGames": 3519
 }
