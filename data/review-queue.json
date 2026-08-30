@@ -32247,13 +32247,19 @@
     },
     {
       "title": "Last Shelter: War Z",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6760406772
+        "ios": 6760406772,
+        "android": "com.more.lastshelter.gp"
       },
       "developer": "LAST ORIGIN STUDIO LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/7b/7d/bc7b7d5b-d8b2-09ff-54e0-03f9e7dd3ef9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Last Shelter: War Z",
+          "appId": 6760406772
+        }
+      ],
       "addedAt": "2026-08-30T08:49:47.351Z"
     },
     {
@@ -32304,6 +32310,17 @@
         }
       ],
       "addedAt": "2026-08-30T21:20:29.504Z"
+    },
+    {
+      "title": "큐티펫 파티",
+      "status": "single",
+      "appIds": {
+        "android": "com.mcpd.kr1"
+      },
+      "developer": "Kirkburton Electrical Holdings Limited",
+      "icon": "https://play-lh.googleusercontent.com/h-dQeUUdZz5eUqXt8djVyROLUUr4kUrXG4Rvr6FrpPPUrQXtNRqEGGrYb3Kn_n7kKKTWyjwBYADzAQbELwXO6A",
+      "searchResults": [],
+      "addedAt": "2026-08-30T23:40:51.398Z"
     }
   ],
   "approved": [
