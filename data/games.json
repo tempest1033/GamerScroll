@@ -46036,8 +46036,34 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Splash Buster": {
+      "appIds": {
+        "android": "com.nebula.splashbuster",
+        "ios": 6793949299
+      },
+      "aliases": [],
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/jjosaZOyKGtjL6N--FRuGbNuaStI8iEYRAEj0G78I4OasXfvtZd2M0Sv5_xv8wqzctWA84WyK7MAAjG3AXoz",
+      "slug": "splash-buster",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "스테이트.io — 전략 게임에서 세계를 정복하라": {
+      "appIds": {
+        "android": "io.state.fight"
+      },
+      "aliases": [],
+      "developer": "CASUAL AZUR GAMES",
+      "icon": "https://play-lh.googleusercontent.com/MsVWwLwcGaSH0RwBhTaFfKrWLvrRqITC55sjOeWTds5Xr6Xk6otsvXNowSsV_c6LH7fV2PV42wmzJJ-pWyp_pq0",
+      "slug": "스테이트io-전략-게임에서-세계를-정복하라",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-08-31",
-  "totalGames": 3519
+  "totalGames": 3521
 }
