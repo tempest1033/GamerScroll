@@ -46100,8 +46100,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Broken Arrow: Russian Guard": {
+      "appIds": {
+        "steam": "4232510"
+      },
+      "aliases": [],
+      "developer": "Steel Balalaika",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4232510/5433a21f686bd270380b3ca9edb11915d7b9ba94/capsule_231x87.jpg?t=1788175973",
+      "slug": "broken-arrow-russian-guard",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-31",
-  "totalGames": 3524
+  "totalGames": 3525
 }
