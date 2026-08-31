@@ -46160,8 +46160,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "로그W: 리메인즈 오브 갓": {
+      "appIds": {
+        "ios": 6764247964
+      },
+      "aliases": [],
+      "developer": "EFUN UNIVERSE COMPANY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/df/0a/46/df0a4677-a91b-850b-8d5a-f585fea96acd/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "로그w-리메인즈-오브-갓",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Breathedge 2": {
+      "appIds": {
+        "steam": "2412960"
+      },
+      "aliases": [],
+      "developer": "RedRuins Softworks",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2412960/cefe019bbfe451516fb65d6efa180910715bd72e/capsule_231x87.jpg?t=1788197184",
+      "slug": "breathedge-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-01",
-  "totalGames": 3529
+  "totalGames": 3531
 }
