@@ -1,0 +1,222 @@
+{
+  "slug": "china-frontier-model-surge",
+  "site": "aiscroll",
+  "status": "approved",
+  "date": "",
+  "category": "general",
+  "needTranslate": false,
+  "title": "중국 AI 모델의 궐기, 프론티어급 오픈웨이트가 쏟아진다",
+  "titleEn": "Chinese AI Models Reach the Frontier",
+  "summary": "GLM-5.3-Flash, Qwen3.8-Flash-Next, Kimi K3가 잇달아 출시됐다. AAII 점수는 56~57점으로 미국 최고 모델과 4~7점 차이다.",
+  "summaryEn": "GLM-5.3-Flash, Qwen3.8-Flash-Next, and Kimi K3 scored 56–57 on AAII, landing within 4–7 points of leading US frontier models.",
+  "keywords": "중국 AI 모델, 오픈웨이트 모델, 프론티어 AI, 중국 영상 AI",
+  "keywordsEn": "Chinese AI models, open-weight AI models, frontier AI models, Chinese AI video",
+  "thumbnail": "https://cdn.decrypt.co/resize/1024/height/512/wp-content/uploads/2025/11/China-USA-gID_7.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "문샷 AI가 7월 16일 Kimi K3를 공개한 데 이어, 8월 26일에는 Z.ai의 GLM-5.3-Flash와 알리바바의 Qwen3.8-Flash-Next가 나란히 출시됐다. 세 모델 모두 가중치를 전면 공개한 멀티모달 AI다. 두 달이 채 되지 않는 기간에 중국 주요 AI 연구소 세 곳이 프론티어 경쟁 무대에 신형 모델을 잇달아 올렸다."
+    },
+    {
+      "type": "text",
+      "value": "단일 모델의 선전이라면 벤치마크 특수성이나 가격 공세로 넘길 수 있다. 하지만 이번 흐름은 성격이 다르다. 서로 다른 규모와 아키텍처를 채택한 세 모델이 독립 평가에서 좁은 고득점 구간에 나란히 안착했다. 개별 제품의 일시적 이변이 아니라 프론티어급 오픈웨이트 모델이 지속 공급되는 단계로 진입했다는 신호다."
+    },
+    {
+      "type": "heading",
+      "value": "AAII 56~57점 구간에 수렴한 중국 3대 모델"
+    },
+    {
+      "type": "text",
+      "value": "이 같은 변화는 [아티피셜 애널리시스 모델 순위](https://artificialanalysis.ai/models)에서 구체적 수치로 확인된다. AAII v4.1.1 지표는 코딩과 과학, 지식, 에이전트 수행 등 9개 핵심 역량을 종합한다. 종합 점수 기준 클로드 오푸스 5가 63점, 클로드 페이블 5가 62점이며 GPT-5.6 Sol과 그록 4.6이 61점을 기록 중이다."
+    },
+    {
+      "type": "text",
+      "value": "그 바로 아래에 중국 모델 세 개가 줄지어 자리했다. Kimi K3와 GLM-5.3-Flash가 57점, Qwen3.8-Flash-Next가 56점이다. 오픈웨이트 모델 3종과 미국 선두 모델 간 격차는 4~7점이다. 종합 1위는 여전히 미국 진영이 지키고 있으나, 세 모델 모두 제미나이 3.7 Flash의 종합 점수(56점)와 같거나 그 이상의 구간에 들어섰다."
+    },
+    {
+      "type": "text",
+      "value": "더 중요한 신호는 격차가 좁혀지는 속도다. [에포크 AI의 추산](https://epoch.ai/data-insights/us-vs-china-eci)에 따르면 2023년 이후 중국 모델은 미국 프론티어를 평균 7개월 뒤쫓았다. 하지만 8월 출시된 GLM-5.3-Flash와 Kimi K3는 5월 나온 클로드 오푸스 4.8과 동일한 AAII 57점을 받았다. 반년 넘던 시차가 2~3개월짜리 단일 출시 주기로 줄었고, 개별 코딩과 에이전트 평가에서는 중국 모델이 앞서는 결과도 나온다."
+    },
+    {
+      "type": "heading",
+      "value": "GLM·Qwen·Kimi, 서로 다른 설계 경로"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/04/zhipu-ai-logo-wall.jpg",
+      "caption": "Z.ai 로고 월",
+      "alt": "파란 배경에 반복된 중국 AI 모델 기업 Z.ai 로고"
+    },
+    {
+      "type": "text",
+      "value": "세 모델의 고득점은 단일 설계를 공유한 결과가 아니다. GLM-5.3-Flash는 총 3,200억 개 매개변수 중 180억 개만 활성화하며 100만 토큰 문맥을 지원한다. Z.ai는 이전 세대인 GLM-5.2 대비 전체 규모와 활성 파라미터를 줄이면서도 성능을 개선했고, 출시 전 테스트 트래픽 전량을 중국산 AI 칩으로 처리했다고 밝혔다."
+    },
+    {
+      "type": "text",
+      "value": "Qwen3.8-Flash-Next는 1,250억 개 본체 매개변수에 510억 개 N-gram 임베딩을 결합해 토큰당 60억 개 매개변수만 활성화한다. 알리바바는 이 모델을 향후 선보일 Qwen4 아키텍처의 사전 공개 버전으로 정의했다. 전작 Qwen3.7-Plus 대비 훈련 비용을 약 9분의 1 수준으로 절감하면서도 코딩과 실무 처리 성능을 대폭 개선했다는 설명이다."
+    },
+    {
+      "type": "text",
+      "value": "Kimi K3는 정반대 방향에 선 초대형 MoE 모델이다. 총 2조 8,000억 개 매개변수와 1,040억 개 활성 파라미터, 100만 토큰 문맥을 갖춰 장기 코딩과 지식 작업, 영상 이해에 초점을 맞췄다. 문샷 AI는 모델 가중치 전량을 공개했다. 극단적인 경량화와 초대형 용량이라는 상반된 접근법이 모두 실전 배치 가능한 프론티어급 오픈웨이트라는 같은 결론에 도달했다."
+    },
+    {
+      "type": "heading",
+      "value": "영상 생성 분야로 번진 중국 기업 간 선두 경쟁"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/amplify_video_thumb/2083038163015233536/img/IU9_cIwGrmzyJwYU.jpg",
+      "caption": "시댄스 2.5 공개 영상 'The Missing Pair'의 한 장면",
+      "alt": "세탁기 안 양말 캐릭터가 등장하는 시댄스 2.5 영상 장면"
+    },
+    {
+      "type": "text",
+      "value": "이러한 흐름은 텍스트 모델에 그치지 않는다. 바이트댄스가 7월 31일 출시한 시댄스 2.5는 단일 생성으로 음성이 동기화된 30초 영상을 제작한다. 이미지 30장과 영상 10편, 음원 10개를 참조 자료로 처리할 수 있다. [Arena의 8월 집계](https://x.com/arena/status/2089448812159045848)에서는 영상 편집 1위, 이미지 기반 영상 2위, 텍스트 기반 영상 4위를 기록했다."
+    },
+    {
+      "type": "text",
+      "value": "한편 텍스트 기반 영상 부문에서는 알리바바의 Wan 3.0이 [아티피셜 애널리시스 순위](https://artificialanalysis.ai/video/leaderboard/text-to-video) 1위를 차지했다. 시댄스 2.5가 모든 영상 생성 분야를 독점하는 구조는 아니다. 핵심적인 변화는 주요 영상 벤치마크 상위권을 중국 모델들이 선점하며 자국 기업끼리 1위를 다투는 구도가 정착됐다는 점이다."
+    },
+    {
+      "type": "text",
+      "value": "영상 생성은 성능 개선을 직관적으로 체감할 수 있는 분야다. 긴 장면의 일관성이나 음성과 입 모양의 일치, 다중 참조 합성 능력은 복잡한 벤치마크 지표 없이도 한눈에 드러난다. 중국 영상 AI가 글로벌 시장의 주목을 받는 배경에는 모델 공개 직후 누구나 결과물의 완성도를 직접 검증할 수 있다는 점이 자리한다."
+    },
+    {
+      "type": "heading",
+      "value": "다음 세대 프론티어, 중국 모델을 배제할 수 없는 이유"
+    },
+    {
+      "type": "text",
+      "value": "중국 기업 간의 자체 경쟁이 중요한 이유는 출시 주기 가속화에 있다. 문샷 AI가 Kimi K3의 가중치 전량을 공개한 지 한 달도 되지 않아 GLM과 Qwen의 신형 모델이 연이어 등장했다. 개발자들은 단순한 API 요금 비교를 넘어 프론티어급 가중치를 직접 내려받아 자체 인프라에 배포하고 미세조정할 수 있게 됐다. 성능 격차가 줄어들수록 오픈웨이트 모델의 선택지는 더욱 강력해진다."
+    },
+    {
+      "type": "text",
+      "value": "반면 같은 기간 미국 연구소들의 출시 속도는 둔화됐다. 오픈AI와 앤트로픽은 사이버 위험 평가 등을 이유로 공개 일정을 늦췄고, 구글은 코딩 벤치마크 문제로 제미나이 3.5 프로 출시를 연기했다. 이러한 정체는 [미국 선두 연구소들의 출시 지연](/ko/article/general/frontier-ai-release-deadlock/)과 [제미나이 3.5 프로 위기](/ko/article/google/gemini-35-pro-crisis/) 보도에서도 다룬 바 있다."
+    },
+    {
+      "type": "text",
+      "value": "AAII 종합 최상단은 여전히 클로드와 GPT, 그록이 지키고 있다. 그러나 프론티어 AI를 평가하는 기본 구도는 확실히 달라졌다. 중국 AI 모델은 이제 뒤늦게 덧붙이는 참고 항목이 아니라, 출시 주기마다 가장 먼저 검토해야 할 핵심 후보군으로 자리 잡았다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Moonshot AI released Kimi K3 on July 16, followed on August 26 by Z.ai's GLM-5.3-Flash and Alibaba's Qwen3.8-Flash-Next. All three are open-weight multimodal systems. In less than two months, three Chinese labs placed new models directly into the frontier race."
+    },
+    {
+      "type": "text",
+      "value": "A single breakout could be dismissed as a benchmark quirk or a pricing stunt. This wave is harder to discount. The three models use different scales and architectures, yet independent testing places them in the same narrow band. The story is no longer an isolated Chinese winner, but a continuous supply of frontier-class open-weight AI models."
+    },
+    {
+      "type": "heading",
+      "value": "Three Chinese Models Converge at 56–57"
+    },
+    {
+      "type": "text",
+      "value": "That pattern is visible on the [Artificial Analysis model leaderboard](https://artificialanalysis.ai/models). The AAII v4.1.1 index combines nine evaluations spanning coding, science, knowledge, and agentic tasks. On the composite index, Claude Opus 5 scores 63 and Claude Fable 5 scores 62, while GPT-5.6 Sol and Grok 4.6 reach 61."
+    },
+    {
+      "type": "text",
+      "value": "A cluster of three Chinese releases sits directly below them. Kimi K3 and GLM-5.3-Flash score 57, while Qwen3.8-Flash-Next reaches 56. That leaves the three open-weight AI models four to seven points behind the US leaders. The overall crown remains American, but all three now match or exceed Gemini 3.7 Flash's composite score of 56."
+    },
+    {
+      "type": "text",
+      "value": "The more important signal is how quickly the time gap is compressing. [Epoch AI estimates](https://epoch.ai/data-insights/us-vs-china-eci) that Chinese models have trailed the US frontier by seven months on average since 2023. Yet August's GLM-5.3-Flash and Kimi K3 match the 57-point AAII score of Claude Opus 4.8, released in May. A gap measured in more than half a year now resembles one two-to-three-month release cycle, with Chinese models already winning individual coding and agentic evaluations."
+    },
+    {
+      "type": "heading",
+      "value": "GLM, Qwen, and Kimi Take Different Routes"
+    },
+    {
+      "type": "image",
+      "src": "https://the-decoder.com/wp-content/uploads/2026/04/zhipu-ai-logo-wall.jpg",
+      "caption": "A wall of Z.ai logos",
+      "alt": "Rows of Z.ai logos representing Chinese AI models on a blue background"
+    },
+    {
+      "type": "text",
+      "value": "Those benchmark scores do not stem from a single shared design. GLM-5.3-Flash activates 18 billion of its 320 billion parameters and supports a 1-million-token context. Z.ai stated that it reduced overall scale and active capacity compared to GLM-5.2 while lifting performance, running its pre-release test traffic entirely on domestic Chinese AI silicon."
+    },
+    {
+      "type": "text",
+      "value": "Qwen3.8-Flash-Next combines a 125-billion-parameter backbone with 51 billion parameters of N-gram embeddings, activating only 6 billion parameters per token. Alibaba positioned the release as a preview of its upcoming Qwen4 architecture. The company noted that training costs dropped to roughly one-ninth of Qwen3.7-Plus, even as coding and productivity performance improved."
+    },
+    {
+      "type": "text",
+      "value": "Kimi K3 sits at the opposite extreme as an enormous MoE model with 2.8 trillion total parameters, 104 billion active parameters, and a 1-million-token context window. Moonshot AI released the full model weights to target long-horizon coding, knowledge tasks, and video comprehension. Whether through ultra-sparse efficiency or massive capacity, both design philosophies have converged on deployable, frontier-tier open weights."
+    },
+    {
+      "type": "heading",
+      "value": "Video Generation Turns Into an Internal Chinese Contest"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/amplify_video_thumb/2083038163015233536/img/IU9_cIwGrmzyJwYU.jpg",
+      "caption": "A frame from Seedance 2.5's 'The Missing Pair' demo",
+      "alt": "A sock character inside a washing machine in the Seedance 2.5 demo"
+    },
+    {
+      "type": "text",
+      "value": "This convergence extends well beyond text models. ByteDance released Seedance 2.5 on July 31, capable of generating 30-second synchronized audio-video clips in a single pass while accepting up to 30 images, 10 videos, and 10 audio tracks as references. In [Arena's August update](https://x.com/arena/status/2089448812159045848), it took first place in video editing, second in image-to-video, and fourth in text-to-video."
+    },
+    {
+      "type": "text",
+      "value": "Meanwhile, Alibaba's Wan 3.0 topped the [Artificial Analysis text-to-video leaderboard](https://artificialanalysis.ai/video/leaderboard/text-to-video). Seedance does not hold an undisputed monopoly across all modalities. The broader shift is that Chinese video models now occupy leading tiers across major benchmarks, competing primarily against each other for the top spots."
+    },
+    {
+      "type": "text",
+      "value": "Video generation makes capability gains immediately visible in practical use. Long-scene consistency, synchronized lip movement, and multi-reference blending can be assessed at a glance without parsing benchmark tables. Chinese video AI is commanding global attention because users can inspect the output quality the moment each model ships."
+    },
+    {
+      "type": "heading",
+      "value": "The Next Frontier Cycle Cannot Exclude China"
+    },
+    {
+      "type": "text",
+      "value": "This domestic competition matters because it accelerates the deployment cadence. Less than a month after Moonshot AI released Kimi K3's full weights, upgraded GLM and Qwen models followed. Developers are no longer just comparing API pricing; they can download, host, and fine-tune open-weight AI models directly as the performance gap narrows."
+    },
+    {
+      "type": "text",
+      "value": "American frontier labs have slowed during the same window. OpenAI and Anthropic postponed release milestones to assess advanced cyber risks, while Google pushed back Gemini 3.5 Pro following coding benchmark issues. This friction aligns with AIScroll's reporting on the [frontier release deadlock](/article/general/frontier-ai-release-deadlock/) and the [Gemini 3.5 Pro crisis](/article/google/gemini-35-pro-crisis/)."
+    },
+    {
+      "type": "text",
+      "value": "Claude, GPT, and Grok retain the top spots on the AAII leaderboard. What has shifted is the baseline for frontier discourse. Chinese AI models are no longer afterthoughts added late to benchmark charts, but primary contenders driving each release cycle."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Artificial Analysis",
+      "title": "Comparison of AI Models across Intelligence, Performance, and Price",
+      "url": "https://artificialanalysis.ai/models"
+    },
+    {
+      "name": "Z.ai",
+      "title": "GLM-5.3-Flash Official Release",
+      "url": "https://www.zhipuai.cn/zh/research/163"
+    },
+    {
+      "name": "Qwen Team",
+      "title": "Qwen3.8-Flash-Next: A New Architecture, Towards Ultimate Cost-Efficiency",
+      "url": "https://github.com/QwenLM/Qwen3.8-Flash-Next/blob/main/README.md"
+    },
+    {
+      "name": "Moonshot AI",
+      "title": "Kimi K3 Model Card",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3"
+    },
+    {
+      "name": "ByteDance Seed",
+      "title": "One-take Creation, Flexible Referencing: Introducing Seedance 2.5",
+      "url": "https://seed.bytedance.com/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/frontier-ai-release-deadlock",
+    "tech:ai/glm-5-2-overtakes-gemini-flash",
+    "tech:ai/minimax-m3-open-weight-launch",
+    "tech:ai/china-ai-video-kling3-seedance2"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
