@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-08-30T02:55:26.000Z",
+  "updatedAt": "2026-08-31T02:48:42.629Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 50,
+      "views": 43,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 24,
+      "views": 22,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -30,8 +30,14 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "zeus-dual-market-revenue-no1",
+      "views": 8,
+      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
     },
     {
       "type": "insight",
@@ -41,21 +47,16 @@
     },
     {
       "type": "issue",
-      "slug": "zeus-dual-market-revenue-no1",
-      "views": 6,
-      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
-    },
-    {
-      "type": "issue",
       "slug": "nvidia-gpu-launch-halt-ai-priority",
       "views": 5,
       "path": "/magazine/issue/nvidia-gpu-launch-halt-ai-priority/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-july-2026-kr",
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
       "views": 5,
-      "path": "/magazine/ranking/mobile-july-2026-kr/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "hotpick",
@@ -70,18 +71,17 @@
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
+      "type": "ranking",
+      "slug": "mobile-july-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/mobile-july-2026-kr/"
+    },
+    {
       "type": "wiki",
       "slug": "platform-fees-comparison",
       "category": "business",
       "views": 4,
       "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "wiki",
@@ -101,18 +101,6 @@
       "slug": "cookierun-crumble-performance",
       "views": 3,
       "path": "/magazine/insight/cookierun-crumble-performance/"
-    },
-    {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
-      "views": 3,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "wiki",
@@ -135,6 +123,18 @@
       "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
+      "type": "hotpick",
+      "slug": "gantt-chart",
+      "views": 2,
+      "path": "/magazine/hotpick/gantt-chart/"
+    },
+    {
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 2,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
+    },
+    {
       "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
@@ -145,6 +145,12 @@
       "slug": "lineage-classic-90day-benefit-controversy",
       "views": 2,
       "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 2,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
@@ -175,13 +181,6 @@
       "slug": "subculture-may-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
@@ -223,6 +222,18 @@
     },
     {
       "type": "issue",
+      "slug": "devil-may-cry-1-remake-rumor",
+      "views": 1,
+      "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "gabe-newell-steam-adult-content-debate",
+      "views": 1,
+      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
+    },
+    {
+      "type": "issue",
       "slug": "game-ai-controversy-award-revoked",
       "views": 1,
       "path": "/magazine/issue/game-ai-controversy-award-revoked/"
@@ -250,6 +261,12 @@
       "slug": "lineage-classic-day-one-reaction",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-day-one-reaction/"
+    },
+    {
+      "type": "issue",
+      "slug": "nikke-doro-meme-success",
+      "views": 1,
+      "path": "/magazine/issue/nikke-doro-meme-success/"
     },
     {
       "type": "issue",
@@ -293,6 +310,13 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/game-ip-licensing"
+    },
+    {
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
