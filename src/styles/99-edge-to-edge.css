@@ -153,6 +153,25 @@
     padding-bottom: 0 !important;
   }
 
+  /* AIScroll 모바일 메인: 광고·최신 피드의 이중 배경 프레임 제거 */
+  .home-main:has(#homeLatestGrid) > .ad-card-mobile-top {
+    background: transparent !important;
+  }
+
+  #homeLatestGrid {
+    gap: 16px !important;
+  }
+
+  #homeLatestGrid > .home-latest-item {
+    background: transparent !important;
+  }
+
+  #homeLatestGrid > .home-latest-item:not(:last-child) {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
   /* 페이지네이션 하단 스타일 */
   .home-pagination {
     padding: 12px 8px !important;
