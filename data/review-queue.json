@@ -32321,6 +32321,63 @@
       "icon": "https://play-lh.googleusercontent.com/h-dQeUUdZz5eUqXt8djVyROLUUr4kUrXG4Rvr6FrpPPUrQXtNRqEGGrYb3Kn_n7kKKTWyjwBYADzAQbELwXO6A",
       "searchResults": [],
       "addedAt": "2026-08-30T23:40:51.398Z"
+    },
+    {
+      "title": "슝슝 수련기",
+      "status": "single",
+      "appIds": {
+        "ios": "6737012203"
+      },
+      "developer": "IClockwork Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/f4/35/5cf43532-10ce-db35-f50b-a25676e8b5f8/AppIcon2-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-31T17:11:27.492Z"
+    },
+    {
+      "title": "Blockman GO",
+      "status": "single",
+      "appIds": {
+        "ios": "1426189000"
+      },
+      "developer": "GVERSE INTERNATIONAL PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/cd/82/2bcd8296-43b7-8ca7-3eb6-f2cdde02e58e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-31T17:11:27.715Z"
+    },
+    {
+      "title": "Connect Tracks: 로직 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6793115010
+      },
+      "developer": "Oakever Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/8f/cc/878fcc15-bbac-6fda-00df-b839cdf58188/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-08-31T17:11:27.940Z"
+    },
+    {
+      "title": "Gugu Gaga: Keyboard Escape",
+      "status": "single",
+      "appIds": {
+        "android": "com.metax.obby.escape.run"
+      },
+      "developer": "Goldoint",
+      "icon": "https://play-lh.googleusercontent.com/QJ0VDPM6VOPGtYQAbdG6AuraNRfUA4O3qenkEhE-IqEuy58NuoVMSA17G62xaNVMSp8VTTZDKsYiM02W3pEKkw",
+      "searchResults": [
+        {
+          "title": "GuguGaga Penguin: Adventures",
+          "appId": 6790723051
+        },
+        {
+          "title": "Obby Parkour italian brainrot",
+          "appId": 6746331170
+        },
+        {
+          "title": "Gugu Gaga Penguin: Mini Games",
+          "appId": 6749620828
+        }
+      ],
+      "addedAt": "2026-08-31T17:11:28.311Z"
     }
   ],
   "approved": [

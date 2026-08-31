@@ -46112,8 +46112,56 @@
       "platforms": [
         "steam"
       ]
+    },
+    "슝슝 수련기": {
+      "appIds": {
+        "ios": "6737012203"
+      },
+      "aliases": [],
+      "developer": "IClockwork Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/f4/35/5cf43532-10ce-db35-f50b-a25676e8b5f8/AppIcon2-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "슝슝-수련기",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Blockman GO": {
+      "appIds": {
+        "ios": "1426189000"
+      },
+      "aliases": [],
+      "developer": "GVERSE INTERNATIONAL PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/cd/82/2bcd8296-43b7-8ca7-3eb6-f2cdde02e58e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "blockman-go",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Connect Tracks: 로직 퍼즐": {
+      "appIds": {
+        "ios": 6793115010
+      },
+      "aliases": [],
+      "developer": "Oakever Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/8f/cc/878fcc15-bbac-6fda-00df-b839cdf58188/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "connect-tracks-로직-퍼즐",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Gugu Gaga: Keyboard Escape": {
+      "appIds": {
+        "android": "com.metax.obby.escape.run"
+      },
+      "aliases": [],
+      "developer": "Goldoint",
+      "icon": "https://play-lh.googleusercontent.com/QJ0VDPM6VOPGtYQAbdG6AuraNRfUA4O3qenkEhE-IqEuy58NuoVMSA17G62xaNVMSp8VTTZDKsYiM02W3pEKkw",
+      "slug": "gugu-gaga-keyboard-escape",
+      "platforms": [
+        "android"
+      ]
     }
   },
-  "lastUpdated": "2026-08-31",
-  "totalGames": 3525
+  "lastUpdated": "2026-09-01",
+  "totalGames": 3529
 }
