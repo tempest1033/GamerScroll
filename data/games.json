@@ -46076,8 +46076,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "ZENONIA 1": {
+      "appIds": {
+        "steam": "4538960"
+      },
+      "aliases": [],
+      "developer": "Com2us Holdings",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4538960/ee739aba1a55941cb64d61b70d1571cf2d5996fd/capsule_231x87.jpg?t=1788159622",
+      "slug": "zenonia-1",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "IfSunSets": {
+      "appIds": {
+        "steam": "2271930"
+      },
+      "aliases": [],
+      "developer": "POLYMORPH",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2271930/1d6488fef3d4be7ed32cab38f662eab7feef21c7/capsule_231x87.jpg?t=1783660051",
+      "slug": "ifsunsets",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-08-31",
-  "totalGames": 3522
+  "totalGames": 3524
 }

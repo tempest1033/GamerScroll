@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T08:49:29.653Z",
+  "updatedAt": "2026-08-31T09:11:17.746Z",
   "period": "30days",
   "games": [
     {
@@ -16,6 +16,10 @@
     },
     {
       "slug": "sakura-school-simulator",
+      "views": 7
+    },
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 7
     },
     {
@@ -40,10 +44,6 @@
     },
     {
       "slug": "에픽세븐",
-      "views": 6
-    },
-    {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 6
     },
     {
