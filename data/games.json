@@ -46208,8 +46208,44 @@
       "platforms": [
         "ios"
       ]
+    },
+    "아쿠아랜드: 크레이지 서바이벌": {
+      "appIds": {
+        "ios": "6780387121"
+      },
+      "aliases": [],
+      "developer": "Hong Kong Just Game Technology Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/38/75/d13875d0-7942-54d3-e1e3-cfe3959803fb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "아쿠아랜드-크레이지-서바이벌",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "미스터 수달셰프": {
+      "appIds": {
+        "ios": 6791102475
+      },
+      "aliases": [],
+      "developer": "Arumgames",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/7a/70/0b7a702f-6a7b-7754-151d-da6fe653805c/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/512x512bb.jpg",
+      "slug": "미스터-수달셰프",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "불릿 히어로즈: 타워 디펜스 게임": {
+      "appIds": {
+        "ios": 6752606721
+      },
+      "aliases": [],
+      "developer": "HOMA GAMES",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/fc/a1/90fca1bb-1d10-1e4c-4bed-288408d5f9df/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "불릿-히어로즈-타워-디펜스-게임",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-01",
-  "totalGames": 3533
+  "totalGames": 3536
 }

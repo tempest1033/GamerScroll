@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T09:11:17.746Z",
+  "updatedAt": "2026-09-01T11:53:30.289Z",
   "period": "30days",
   "games": [
     {
@@ -7,7 +7,15 @@
       "views": 9
     },
     {
+      "slug": "sakura-school-simulator",
+      "views": 8
+    },
+    {
       "slug": "super-robot-wars-30",
+      "views": 8
+    },
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 8
     },
     {
@@ -15,11 +23,11 @@
       "views": 7
     },
     {
-      "slug": "sakura-school-simulator",
+      "slug": "산너머-도원마을",
       "views": 7
     },
     {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "slug": "에픽세븐",
       "views": 7
     },
     {
@@ -31,7 +39,27 @@
       "views": 6
     },
     {
+      "slug": "hero-siege",
+      "views": 6
+    },
+    {
+      "slug": "mistfall-hunter",
+      "views": 6
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 6
+    },
+    {
       "slug": "roterra-4-magical-revolution",
+      "views": 6
+    },
+    {
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 6
+    },
+    {
+      "slug": "라스트-라이트",
       "views": 6
     },
     {
@@ -39,11 +67,7 @@
       "views": 6
     },
     {
-      "slug": "산너머-도원마을",
-      "views": 6
-    },
-    {
-      "slug": "에픽세븐",
+      "slug": "블라이트-워-사후-처리국",
       "views": 6
     },
     {
@@ -53,30 +77,6 @@
     {
       "slug": "탑-히어로즈-영웅의-시대",
       "views": 6
-    },
-    {
-      "slug": "craft-world-block-building-3d",
-      "views": 5
-    },
-    {
-      "slug": "hero-siege",
-      "views": 5
-    },
-    {
-      "slug": "lucky-arrow-out",
-      "views": 5
-    },
-    {
-      "slug": "mistfall-hunter",
-      "views": 5
-    },
-    {
-      "slug": "mobile-suit-gundam-battle-operation-2",
-      "views": 5
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 5
     }
   ]
 }
