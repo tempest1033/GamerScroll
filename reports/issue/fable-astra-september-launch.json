@@ -1,0 +1,116 @@
+{
+  "slug": "fable-astra-september-launch",
+  "site": "gamerscroll",
+  "status": "approved",
+  "date": "",
+  "title": "앤트로픽 페이블 5.1·OpenAI 아스트라, 9월 동시 출격 예고",
+  "summary": "앤트로픽 페이블 5.1과 OpenAI 아스트라가 9월 동시 출격을 앞두고 막바지 채비에 들어갔다. 클라우드 모델 등록과 외부 비공개 테스트, 샘 알트만 CEO의 발언이 맞대결 임박설을 뒷받침한다.",
+  "keywords": [
+    "페이블 5.1",
+    "OpenAI 아스트라",
+    "AI 모델 출시",
+    "앤트로픽 신모델"
+  ],
+  "thumbnail": "https://img.36krcdn.com/hsossms/20260827/v2_6ba1f3b58e164cc4b838199ba66c730c@5091053@ai_oswg1044735oswg1053oswg495_img_png~tplv-1marlgjv7f-ai-v3:600:400:600:400:q70.jpg",
+  "content": [
+    {
+      "type": "text",
+      "value": "9월 들어 프런티어 AI 진영의 시계가 가파르게 돌아가기 시작했다. 앤트로픽의 '페이블 5.1'은 클라우드 모델 등록과 비공개 테스트 정황이 잇따라 포착됐고, OpenAI 차세대 플래그십 '아스트라'는 내부 검증을 거쳐 일반 공개 채비에 들어갔다.\n\n양사 모두 공식 출시 일정을 공표하지는 않았으나 시장 분위기는 이미 달아올랐다. 여러 경로에서 포착된 배포 단서와 경영진 발언이 일제히 9월 초중순을 가리키면서, 차세대 AI 모델 맞대결이 초읽기에 들어갔다는 관측이 지배적이다."
+    },
+    {
+      "type": "heading",
+      "value": "페이블 5.1, 400에서 404로 바뀐 모델 등록"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/4zrzovbb/website/b7055119423427c40a0e4d84054aed17682b50a2-2880x1620.png",
+      "caption": "앤트로픽의 클로드 페이블 5 공식 발표 이미지",
+      "alt": "나비와 식물 무늬로 구성된 숫자 5 그래픽"
+    },
+    {
+      "type": "text",
+      "value": "가장 구체적인 기술적 신호는 아마존 베드록에서 포착됐다. 개발자들이 모델 엔드포인트 `us.anthropic.claude-fable-5-1`을 호출했을 때 8월 24일에는 미등록 상태를 뜻하는 400 에러가 반환됐다. 8월 31일에는 서비스 준비 중임을 알리는 404 응답으로 바뀌었다. 임의의 문자열이나 `claude-opus-5-1`은 여전히 400 에러를 반환한다."
+    },
+    {
+      "type": "text",
+      "value": "이 같은 상태 코드 변화는 페이블 5.1이 앤트로픽의 실제 배포 파이프라인에 진입했음을 보여준다. IT 전문 매체 [ArkeonTech](https://arkeontech.de/en/blog/claude-fable-5-1-release-2026/)는 이 단서를 바탕으로 모델 공개 시점을 9월 1일 전후로 내다봤다.\n\n`claude-melon-eap`과 `claude-marshmallow-eap` 등 조기 접근(EAP) 식별자도 잠시 노출됐다 사라졌다. 중국 IT 매체 [36Kr](https://eu.36kr.com/en/p/3957012144012425)은 일부 외부 개발자가 이미 비공개 테스트에 참여 중이라고 전했다. 테스트 참가자들 사이에서는 프런트엔드 코드 생성과 장문 추론 시의 맥락 유지력, 도구 호출 성능이 대폭 향상됐다는 평가가 나온다.\n\n업계에서는 '멜론(melon)'을 페이블 5.1의 내부 체크포인트로 꼽는다. 공식 모델 카드는 아직 공개되지 않았으나, 앤트로픽의 신모델 출시 준비가 막바지 단계에 도달했다는 분석이다."
+    },
+    {
+      "type": "heading",
+      "value": "OpenAI 아스트라, '조금 더'가 9월을 가리킨다"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-in-Seoul.jpg?w=1024",
+      "caption": "서울 사무실 외벽에 설치된 OpenAI 로고",
+      "alt": "OpenAI 로고가 설치된 건물 외벽"
+    },
+    {
+      "type": "text",
+      "value": "페이블 5.1의 배포 징후가 뚜렷해진 가운데, OpenAI의 차세대 플래그십 '아스트라' 역시 출격 채비에 들어갔다. OpenAI는 공식 블로그를 통해 수학과 이론 컴퓨터과학 10대 미해결 난제에서 괄목할 성과를 거뒀다며 아스트라의 연구 성과를 [공개했다](https://openai.com/index/ten-advances-in-mathematics/). 정식 출시 전 연구 성과와 모델명을 미리 공개한 것은 이례적인 행보다."
+    },
+    {
+      "type": "text",
+      "value": "샘 알트만 OpenAI 최고경영자(CEO)는 아스트라 출시를 준비 중이나 안전성 검증을 위해 '시간이 조금 더 필요하다'고 밝혔다. IT 매체 [TechCrunch](https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/)는 OpenAI가 배포 속도를 조절했다고 보도했다. 자체 준비태세 프레임워크(Preparedness Framework) 기준 '중대(Critical)' 사이버 역량에 도달할 위험을 사전에 점검하기 위한 조치였다.\n\n이후 안전 조치를 보강한 새 체크포인트가 사내 실무에 투입되면서 9월 초 출시설에 힘이 실렸다. AI 소식을 추적하는 티보르 블라호 역시 아스트라를 OpenAI 최초의 중대 사이버 역량 모델로 [지목했다](https://x.com/btibor91/status/2086432881514340784). 고강도 안전 점검이 일정을 다소 늦췄지만, 역설적으로 모델 완성이 최종 단계에 접어들었음을 보여주는 대목이다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 모델 출시 시계가 같은 주를 향한다"
+    },
+    {
+      "type": "text",
+      "value": "두 갈래 흐름을 종합하면 9월 동시 출격설의 윤곽은 한층 뚜렷해진다. 페이블 5.1은 베드록 등록과 외부 비공개 테스트가 동시에 포착됐고, OpenAI 아스트라는 사내 시험과 안전성 검증이 막바지에 이르렀다. 공개 일자가 완전히 일치하지 않더라도, [두 회사의 일정](/magazine/issue/)이 9월 초중순 특정 주간에 맞물릴 가능성이 높다는 관측이다."
+    },
+    {
+      "type": "text",
+      "value": "앤트로픽이 당초 아스트라 공개를 지켜본 뒤 페이블 5.1을 내놓으려다 선제 공세로 돌아섰다는 관측도 나온다. 시장 주도권을 내주지 않겠다는 계산이다. 지난 7월 24일 공개된 오푸스 5가 페이블 5급 성능을 절반 가격에 선보인 지 불과 한 달여 만에 최상위 라인업까지 판올림하는 공격적인 행보다.\n\n반면 오푸스 5.1의 동시 출격 가능성에는 무게가 덜 실린다. 후보군으로 거론되던 '마시멜로(marshmallow)'는 용처가 불분명하고, 베드록의 `claude-opus-5-1` 엔드포인트 역시 미등록 상태인 400 에러를 반환하고 있어서다. 지금까지 확인된 단서를 종합하면 9월 격전지의 주역은 페이블 5.1과 아스트라 두 모델로 압축된다."
+    },
+    {
+      "type": "heading",
+      "value": "9월의 승부, 실제 성능에서 갈린다"
+    },
+    {
+      "type": "text",
+      "value": "두 모델의 출격이 임박하면서 시장의 시선은 실질적인 성능 격차로 쏠린다. 페이블 5.1은 장시간 자율 에이전트 구동과 코딩, 도구 연동의 안정성을 핵심 경쟁력으로 내세울 전망이다. 반면 OpenAI 아스트라는 고난도 수학 연구와 심층 에이전트 코딩, 사이버 보안 분야에서 기술 도약을 자신하는 분위기다."
+    },
+    {
+      "type": "text",
+      "value": "이번 맞대결은 단순 벤치마크 점수를 넘어 실전 활용도와 가격 경쟁력, 안전장치의 완성도에서 판가름 날 전망이다. 앤트로픽이 장기 작업의 안정성을 먼저 입증할지, 아스트라가 심층 연구 역량으로 판도를 뒤흔들지가 핵심 관전 포인트다.\n\n기업공개(IPO)를 앞둔 양사 입장에서 모델 성능은 곧 기업가치다. 앤트로픽은 노동절 연휴 직후 투자설명서 공개를 준비 중이고, OpenAI 역시 지난 6월 미국 증권거래위원회(SEC)에 비공개 상장 서류를 냈다고 [로이터](https://www.reuters.com/technology/openai-files-us-ipo-after-anthropic-ai-giants-head-public-markets-2026-06-08/)가 전했다. 딥시크와 GLM-5.2, Kimi K3 등 중국 모델의 추격 속에, 또 다른 [로이터 보도](https://www.reuters.com/world/china/a-new-inexpensive-chinese-ai-model-is-catching-up-with-anthropic-openai-their-2026-07-02/)대로 기술 격차는 좁혀지고 가격 압박은 가중되는 모양새다.\n\n공식 발표 절차가 남았지만 최고 수준(SOTA)의 지위를 지켜야 하는 두 회사에 9월은 단순 신제품 공개를 넘어선다. 향후 시장 주도권과 기업가치를 결정지을 최대 승부처가 될 전망이다."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "Claude Fable 5 and Claude Mythos 5",
+      "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    },
+    {
+      "name": "ArkeonTech",
+      "title": "Claude Fable 5.1 Arrives on 1 September: What Businesses Can Expect",
+      "url": "https://arkeontech.de/en/blog/claude-fable-5-1-release-2026/"
+    },
+    {
+      "name": "36Kr",
+      "title": "Breaking News: Fable 5.1 Officially Enters Grayscale Release Phase",
+      "url": "https://eu.36kr.com/en/p/3957012144012425"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Ten Advances in Mathematics and Theoretical Computer Science",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/"
+    },
+    {
+      "name": "TechCrunch",
+      "title": "OpenAI Says It Slowed Astra Model Development Over Security Concerns",
+      "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/"
+    }
+  ],
+  "relatedDocs": [
+    "issue:opus-4-6-vs-gpt-5-3-codex-same-day-launch",
+    "issue:chatgpt-vs-gemini-comparison-2026",
+    "issue:deepseek-v4-launch-march-2026",
+    "issue:gpt-5-3-garlic-update-rumor"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
