@@ -32450,6 +32450,82 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/fc/a1/90fca1bb-1d10-1e4c-4bed-288408d5f9df/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-01T11:53:53.562Z"
+    },
+    {
+      "title": "삼국지: 제후의 전쟁",
+      "status": "single",
+      "appIds": {
+        "ios": 6794261919
+      },
+      "developer": "REALITY SQUARED GAME CO., LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/d3/e5/23d3e52f-be4e-9bc5-9bc9-26f772d8c97f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-01T21:54:05.330Z"
+    },
+    {
+      "title": "Galactic Merge Idle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.OxtailGames.IdleSpaceRaces",
+        "ios": 6760320168
+      },
+      "developer": "VOODOO",
+      "icon": "https://play-lh.googleusercontent.com/Gwc34xwxF8_ged05VUMN9xRP2bsrJB-aJ_ftt3yU13w4-JXSScHpc-EuDHNUbITbYMD6XI5-9Gx0jPxPNWu2Bg",
+      "searchResults": [
+        {
+          "title": "Galactic Merge Idle",
+          "appId": 6760320168
+        }
+      ],
+      "addedAt": "2026-09-01T21:54:05.687Z"
+    },
+    {
+      "title": "Mystery Dumpling Glitter Unbox",
+      "status": "single",
+      "appIds": {
+        "android": "com.hp.mystery.dumpling.glitter.unbox"
+      },
+      "developer": "HIGAME Studio",
+      "icon": "https://play-lh.googleusercontent.com/s8g3CydaTpeDkm_6jtgeEo1Ef3vq5R6i4eXIzymDO8CEP2DUJjrV7h-uRXg5wZRVesxix1swxYcLlZFBzm7p8A",
+      "searchResults": [
+        {
+          "title": "Rare Glitter Dumpling Slime",
+          "appId": 1394355304
+        },
+        {
+          "title": "Squishy Fidget Toys - Unbox It",
+          "appId": 1582577850
+        },
+        {
+          "title": "Dumpling Squishy Art Designer",
+          "appId": 1622514201
+        }
+      ],
+      "addedAt": "2026-09-01T21:54:05.971Z"
+    },
+    {
+      "title": "다크 나이트 키우기 : 방치형 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.retrocatcher.dk"
+      },
+      "developer": "KIM MIN HYE",
+      "icon": "https://play-lh.googleusercontent.com/gol2JhJ6-HnMLCC59q5-ZA3Ax5dZBmsZ-DnDo3uYP-XD0986Tbj31XLpThZViElCQtjd3fPZQiKqP-E-SOGKWA",
+      "searchResults": [
+        {
+          "title": "다크 클랜: 수집 방치형 RPG",
+          "appId": 6468973299
+        },
+        {
+          "title": "Whipper - 간단한 방치 RPG",
+          "appId": 1602383020
+        },
+        {
+          "title": "Dark Knight kiugi : Idle",
+          "appId": 6785444645
+        }
+      ],
+      "addedAt": "2026-09-01T21:54:06.312Z"
     }
   ],
   "approved": [

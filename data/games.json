@@ -46260,8 +46260,58 @@
       "platforms": [
         "steam"
       ]
+    },
+    "삼국지: 제후의 전쟁": {
+      "appIds": {
+        "ios": 6794261919
+      },
+      "aliases": [],
+      "developer": "REALITY SQUARED GAME CO., LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/d3/e5/23d3e52f-be4e-9bc5-9bc9-26f772d8c97f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "삼국지-제후의-전쟁",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Galactic Merge Idle": {
+      "appIds": {
+        "android": "com.OxtailGames.IdleSpaceRaces",
+        "ios": 6760320168
+      },
+      "aliases": [],
+      "developer": "VOODOO",
+      "icon": "https://play-lh.googleusercontent.com/Gwc34xwxF8_ged05VUMN9xRP2bsrJB-aJ_ftt3yU13w4-JXSScHpc-EuDHNUbITbYMD6XI5-9Gx0jPxPNWu2Bg",
+      "slug": "galactic-merge-idle",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Mystery Dumpling Glitter Unbox": {
+      "appIds": {
+        "android": "com.hp.mystery.dumpling.glitter.unbox"
+      },
+      "aliases": [],
+      "developer": "HIGAME Studio",
+      "icon": "https://play-lh.googleusercontent.com/s8g3CydaTpeDkm_6jtgeEo1Ef3vq5R6i4eXIzymDO8CEP2DUJjrV7h-uRXg5wZRVesxix1swxYcLlZFBzm7p8A",
+      "slug": "mystery-dumpling-glitter-unbox",
+      "platforms": [
+        "android"
+      ]
+    },
+    "다크 나이트 키우기 : 방치형 RPG": {
+      "appIds": {
+        "android": "com.retrocatcher.dk"
+      },
+      "aliases": [],
+      "developer": "KIM MIN HYE",
+      "icon": "https://play-lh.googleusercontent.com/gol2JhJ6-HnMLCC59q5-ZA3Ax5dZBmsZ-DnDo3uYP-XD0986Tbj31XLpThZViElCQtjd3fPZQiKqP-E-SOGKWA",
+      "slug": "다크-나이트-키우기-방치형-rpg",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-02",
-  "totalGames": 3537
+  "totalGames": 3541
 }
