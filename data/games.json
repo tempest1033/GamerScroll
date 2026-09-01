@@ -46163,14 +46163,18 @@
     },
     "로그W: 리메인즈 오브 갓": {
       "appIds": {
-        "ios": 6764247964
+        "ios": "6764247964",
+        "android": "com.krd8.google"
       },
-      "aliases": [],
+      "aliases": [
+        "로그W : 리메인즈 오브 갓"
+      ],
       "developer": "EFUN UNIVERSE COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/df/0a/46/df0a4677-a91b-850b-8d5a-f585fea96acd/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "로그w-리메인즈-오브-갓",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Breathedge 2": {
