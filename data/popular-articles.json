@@ -1,25 +1,25 @@
 {
-  "updatedAt": "2026-08-31T02:48:42.629Z",
+  "updatedAt": "2026-09-01T01:03:14.989Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 43,
+      "views": 42,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-july-2026-kr",
+      "views": 18,
+      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 22,
+      "views": 18,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-july-2026-kr",
-      "views": 19,
-      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "insight",
@@ -28,28 +28,41 @@
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
+      "type": "issue",
+      "slug": "zeus-dual-market-revenue-no1",
+      "views": 10,
+      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
+    },
+    {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
       "views": 9,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
-      "type": "issue",
-      "slug": "zeus-dual-market-revenue-no1",
-      "views": 8,
-      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
-    },
-    {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 7,
+      "views": 8,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
+      "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 5,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
       "slug": "nvidia-gpu-launch-halt-ai-priority",
       "views": 5,
       "path": "/magazine/issue/nvidia-gpu-launch-halt-ai-priority/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 5,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -65,23 +78,22 @@
       "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "type": "insight",
+      "slug": "2026-game-trends",
       "views": 4,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+      "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-cozy-game-revenue-record",
+      "views": 4,
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
     },
     {
       "type": "ranking",
       "slug": "mobile-july-2026-kr",
       "views": 4,
       "path": "/magazine/ranking/mobile-july-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 4,
-      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -97,10 +109,10 @@
       "path": "/magazine/hotpick/2d-animation-tech/"
     },
     {
-      "type": "insight",
-      "slug": "cookierun-crumble-performance",
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 3,
-      "path": "/magazine/insight/cookierun-crumble-performance/"
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "wiki",
@@ -129,16 +141,10 @@
       "path": "/magazine/hotpick/gantt-chart/"
     },
     {
-      "type": "issue",
-      "slug": "2026-subculture-openworld-games",
+      "type": "insight",
+      "slug": "cookierun-crumble-performance",
       "views": 2,
-      "path": "/magazine/issue/2026-subculture-openworld-games/"
-    },
-    {
-      "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
-      "views": 2,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/insight/cookierun-crumble-performance/"
     },
     {
       "type": "issue",
@@ -148,39 +154,28 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 2,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "issue",
       "slug": "roguelike-casual-korea-trend",
       "views": 2,
       "path": "/magazine/issue/roguelike-casual-korea-trend/"
     },
     {
-      "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
+      "type": "ranking",
+      "slug": "mobile-january-2026-kr",
       "views": 2,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
-    },
-    {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
-      "views": 2,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
-    },
-    {
-      "type": "issue",
-      "slug": "xbox-project-helix-pc-console",
-      "views": 2,
-      "path": "/magazine/issue/xbox-project-helix-pc-console/"
+      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-may-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/subculture-may-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "top-gaming-companies-by-market-cap",
+      "category": "business",
+      "views": 2,
+      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
     },
     {
       "type": "wiki",
@@ -213,6 +208,12 @@
       "slug": "switch-2-buying-guide-2026",
       "views": 1,
       "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
+    },
+    {
+      "type": "issue",
+      "slug": "2026-subculture-openworld-games",
+      "views": 1,
+      "path": "/magazine/issue/2026-subculture-openworld-games/"
     },
     {
       "type": "issue",
@@ -252,12 +253,6 @@
     },
     {
       "type": "issue",
-      "slug": "limbus-company-ios-top5-record",
-      "views": 1,
-      "path": "/magazine/issue/limbus-company-ios-top5-record/"
-    },
-    {
-      "type": "issue",
       "slug": "lineage-classic-day-one-reaction",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-day-one-reaction/"
@@ -276,9 +271,33 @@
     },
     {
       "type": "issue",
+      "slug": "silksong-sea-of-sorrow",
+      "views": 1,
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
+    },
+    {
+      "type": "issue",
       "slug": "sol-enchant-dual-market-no1-launch",
       "views": 1,
       "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "starcraft-shooter-blizzard",
+      "views": 1,
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
+    },
+    {
+      "type": "issue",
+      "slug": "xbox-game-pass-march-2026",
+      "views": 1,
+      "path": "/magazine/issue/xbox-game-pass-march-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "lunar-new-year-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
     },
     {
       "type": "ranking",
@@ -313,13 +332,6 @@
     },
     {
       "type": "wiki",
-      "slug": "top-gaming-companies-by-market-cap",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/top-gaming-companies-by-market-cap/"
-    },
-    {
-      "type": "wiki",
       "slug": "black-and-white-demis-hassabis",
       "category": "history",
       "views": 1,
@@ -338,13 +350,6 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/the-war-of-genesis/"
     },
     {
       "type": "wiki",
