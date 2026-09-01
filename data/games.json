@@ -12814,7 +12814,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990"
+        "steam": "1329410"
       },
       "aliases": [
         "雀魂麻将(MahjongSoul)"
@@ -46244,8 +46244,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Zad Archery": {
+      "appIds": {
+        "steam": "4412000"
+      },
+      "aliases": [],
+      "developer": "Samharia Studios",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4412000/80212772e01a767a3fa1d3bd811476969468adac/capsule_231x87.jpg?t=1788269212",
+      "slug": "zad-archery",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-01",
-  "totalGames": 3536
+  "lastUpdated": "2026-09-02",
+  "totalGames": 3537
 }
