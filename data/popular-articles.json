@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-09-01T01:03:14.989Z",
+  "updatedAt": "2026-09-02T02:19:28.554Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 42,
+      "views": 39,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 18,
+      "views": 17,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 18,
+      "views": 17,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
@@ -30,20 +30,32 @@
     {
       "type": "issue",
       "slug": "zeus-dual-market-revenue-no1",
-      "views": 10,
+      "views": 11,
       "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 9,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "agile-jira-confluence-game-dev",
+      "views": 8,
+      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 8,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "issue",
+      "slug": "fable-astra-september-launch",
+      "views": 5,
+      "path": "/magazine/issue/fable-astra-september-launch/"
     },
     {
       "type": "issue",
@@ -59,23 +71,10 @@
     },
     {
       "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 5,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
+      "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 5,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "agile-jira-confluence-game-dev",
-      "views": 4,
-      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "insight",
@@ -85,9 +84,15 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-cozy-game-revenue-record",
+      "slug": "dlss-5-leak-backlash",
       "views": 4,
-      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+      "path": "/magazine/issue/dlss-5-leak-backlash/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 4,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "ranking",
@@ -97,10 +102,10 @@
     },
     {
       "type": "wiki",
-      "slug": "pd-vs-director",
+      "slug": "app-store-review-thursday-update",
       "category": "knowledge",
       "views": 4,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "hotpick",
@@ -110,9 +115,9 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "slug": "silksong-sea-of-sorrow",
       "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "wiki",
@@ -123,16 +128,17 @@
     },
     {
       "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 3,
+      "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "heroes-of-might-and-magic",
       "category": "history",
       "views": 3,
       "path": "/wiki/history/heroes-of-might-and-magic/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 2,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -148,9 +154,15 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
+      "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
+      "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
+    },
+    {
+      "type": "issue",
+      "slug": "heartopia-mobile-animal-crossing-success",
+      "views": 2,
+      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
     },
     {
       "type": "issue",
@@ -179,6 +191,13 @@
     },
     {
       "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
       "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 2,
@@ -190,6 +209,12 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/pc-components-gaming-performance/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 1,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -217,6 +242,12 @@
     },
     {
       "type": "issue",
+      "slug": "china-game-license-normalization",
+      "views": 1,
+      "path": "/magazine/issue/china-game-license-normalization/"
+    },
+    {
+      "type": "issue",
       "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 1,
       "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
@@ -226,6 +257,12 @@
       "slug": "devil-may-cry-1-remake-rumor",
       "views": 1,
       "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
+    },
+    {
+      "type": "issue",
+      "slug": "devsisters-devnow-2026",
+      "views": 1,
+      "path": "/magazine/issue/devsisters-devnow-2026/"
     },
     {
       "type": "issue",
@@ -247,15 +284,9 @@
     },
     {
       "type": "issue",
-      "slug": "heartopia-mobile-animal-crossing-success",
+      "slug": "lineage-classic-90day-benefit-controversy",
       "views": 1,
-      "path": "/magazine/issue/heartopia-mobile-animal-crossing-success/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-classic-day-one-reaction",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-day-one-reaction/"
+      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
     },
     {
       "type": "issue",
@@ -268,12 +299,6 @@
       "slug": "rewinding-cadence-technical-test",
       "views": 1,
       "path": "/magazine/issue/rewinding-cadence-technical-test/"
-    },
-    {
-      "type": "issue",
-      "slug": "silksong-sea-of-sorrow",
-      "views": 1,
-      "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
       "type": "issue",
@@ -339,13 +364,6 @@
     },
     {
       "type": "wiki",
-      "slug": "korean-esports-history",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/korean-esports-history/"
-    },
-    {
-      "type": "wiki",
       "slug": "pillar-of-fire-cresents",
       "category": "history",
       "views": 1,
@@ -357,20 +375,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "moba-genre-origin",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/moba-genre-origin/"
     }
   ]
 }
