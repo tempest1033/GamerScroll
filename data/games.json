@@ -46322,8 +46322,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Beauty Foodie™: Sort & Stories": {
+      "appIds": {
+        "android": "com.beauty.foodie.story.sort.skewer.grill.makeover.match.puzzle"
+      },
+      "aliases": [],
+      "developer": "Pexix Inc.",
+      "icon": "https://play-lh.googleusercontent.com/utc-jpxD7Jl221nIq4bHmDWTH1bvcKyQ5nCISxnbdf6hXdc9pPKOcy_ASUZDN3qlvMZgTLz3Up6sU7lhE9xbZQA",
+      "slug": "beauty-foodie-sort-stories",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-02",
-  "totalGames": 3542
+  "totalGames": 3543
 }

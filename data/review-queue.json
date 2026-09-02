@@ -32537,6 +32537,30 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/c0/f0/52c0f0de-b3ad-da79-b1ae-8d08ff51fe16/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-02T02:19:47.806Z"
+    },
+    {
+      "title": "Beauty Foodie™: Sort & Stories",
+      "status": "single",
+      "appIds": {
+        "android": "com.beauty.foodie.story.sort.skewer.grill.makeover.match.puzzle"
+      },
+      "developer": "Pexix Inc.",
+      "icon": "https://play-lh.googleusercontent.com/utc-jpxD7Jl221nIq4bHmDWTH1bvcKyQ5nCISxnbdf6hXdc9pPKOcy_ASUZDN3qlvMZgTLz3Up6sU7lhE9xbZQA",
+      "searchResults": [
+        {
+          "title": "Foodie Sizzle: 미식 시즐",
+          "appId": 6746246179
+        },
+        {
+          "title": "푸디 스큐어: 그릴 오더 (Foodie Skewer)",
+          "appId": 6756866395
+        },
+        {
+          "title": "그릴 요리: 정렬 챌린지 (Grill Cooking)",
+          "appId": 6746896422
+        }
+      ],
+      "addedAt": "2026-09-02T07:14:07.386Z"
     }
   ],
   "approved": [
