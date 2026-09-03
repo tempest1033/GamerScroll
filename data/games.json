@@ -46382,8 +46382,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "낚시의 신": {
+      "appIds": {
+        "ios": "694972182"
+      },
+      "aliases": [],
+      "developer": "Com2uS Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/43/56/06435641-9433-4a7a-fbe7-6f8d23716540/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "낚시의-신",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Crimson Desert Enhanced: Charting the Unknown": {
+      "appIds": {
+        "steam": "5001840"
+      },
+      "aliases": [],
+      "developer": "Pearl Abyss",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5001840/d4418c85583f7f430db4666df10f6618036f6ed3/capsule_231x87.jpg?t=1788453433",
+      "slug": "crimson-desert-enhanced-charting-the-unknown",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "FINAL FANTASY VII REVELATION": {
+      "appIds": {
+        "steam": "4354570"
+      },
+      "aliases": [],
+      "developer": "Square Enix",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4354570/172998b01015e23ef0cf8bf05b0052b081213e7f/capsule_231x87.jpg?t=1788444187",
+      "slug": "final-fantasy-vii-revelation",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-03",
-  "totalGames": 3547
+  "lastUpdated": "2026-09-04",
+  "totalGames": 3550
 }
