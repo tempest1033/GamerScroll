@@ -1,31 +1,25 @@
 {
-  "updatedAt": "2026-09-02T02:19:28.554Z",
+  "updatedAt": "2026-09-03T00:27:10.925Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 39,
+      "views": 30,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 17,
+      "views": 20,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 17,
+      "views": 20,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 11,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "issue",
@@ -35,20 +29,20 @@
     },
     {
       "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 8,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 9,
+      "views": 7,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
     },
     {
       "type": "hotpick",
-      "slug": "agile-jira-confluence-game-dev",
-      "views": 8,
-      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
-    },
-    {
-      "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 8,
+      "views": 6,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -64,17 +58,10 @@
       "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-gpu-launch-halt-ai-priority",
-      "views": 5,
-      "path": "/magazine/issue/nvidia-gpu-launch-halt-ai-priority/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "type": "hotpick",
+      "slug": "agile-jira-confluence-game-dev",
+      "views": 4,
+      "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
     },
     {
       "type": "insight",
@@ -89,23 +76,11 @@
       "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 4,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-july-2026-kr",
-      "views": 4,
-      "path": "/magazine/ranking/mobile-july-2026-kr/"
-    },
-    {
       "type": "wiki",
-      "slug": "app-store-review-thursday-update",
+      "slug": "pd-vs-director",
       "category": "knowledge",
       "views": 4,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -115,16 +90,21 @@
     },
     {
       "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 3,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "issue",
       "slug": "silksong-sea-of-sorrow",
       "views": 3,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
     },
     {
-      "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
-      "category": "business",
+      "type": "ranking",
+      "slug": "mobile-july-2026-kr",
       "views": 3,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+      "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
       "type": "wiki",
@@ -135,22 +115,16 @@
     },
     {
       "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
       "views": 3,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
     },
     {
       "type": "hotpick",
       "slug": "gantt-chart",
       "views": 2,
       "path": "/magazine/hotpick/gantt-chart/"
-    },
-    {
-      "type": "insight",
-      "slug": "cookierun-crumble-performance",
-      "views": 2,
-      "path": "/magazine/insight/cookierun-crumble-performance/"
     },
     {
       "type": "issue",
@@ -177,10 +151,11 @@
       "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
+      "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
       "views": 2,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
     },
     {
       "type": "wiki",
@@ -191,10 +166,10 @@
     },
     {
       "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
       "views": 2,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "wiki",
@@ -202,13 +177,6 @@
       "category": "knowledge",
       "views": 2,
       "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pc-components-gaming-performance",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/pc-components-gaming-performance/"
     },
     {
       "type": "hotpick",
@@ -284,27 +252,27 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-classic-90day-benefit-controversy",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-90day-benefit-controversy/"
-    },
-    {
-      "type": "issue",
       "slug": "nikke-doro-meme-success",
       "views": 1,
       "path": "/magazine/issue/nikke-doro-meme-success/"
     },
     {
       "type": "issue",
-      "slug": "rewinding-cadence-technical-test",
+      "slug": "nvidia-gpu-launch-halt-ai-priority",
       "views": 1,
-      "path": "/magazine/issue/rewinding-cadence-technical-test/"
+      "path": "/magazine/issue/nvidia-gpu-launch-halt-ai-priority/"
     },
     {
       "type": "issue",
       "slug": "sol-enchant-dual-market-no1-launch",
       "views": 1,
       "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
+    },
+    {
+      "type": "issue",
+      "slug": "starcraft-shooter-blizzard-nexon",
+      "views": 1,
+      "path": "/magazine/issue/starcraft-shooter-blizzard-nexon/"
     },
     {
       "type": "issue",
@@ -371,10 +339,17 @@
     },
     {
       "type": "wiki",
-      "slug": "chzzk-soop-p2p-grid",
+      "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 1,
-      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pc-components-gaming-performance",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/pc-components-gaming-performance/"
     }
   ]
 }
