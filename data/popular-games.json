@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T12:12:51.402Z",
+  "updatedAt": "2026-09-03T13:43:55.022Z",
   "period": "30days",
   "games": [
     {
@@ -19,6 +19,10 @@
       "views": 7
     },
     {
+      "slug": "로드러쉬",
+      "views": 7
+    },
+    {
       "slug": "산너머-도원마을",
       "views": 7
     },
@@ -28,6 +32,10 @@
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 7
+    },
+    {
+      "slug": "탑-히어로즈-영웅의-시대",
       "views": 7
     },
     {
@@ -51,6 +59,10 @@
       "views": 6
     },
     {
+      "slug": "palworld",
+      "views": 6
+    },
+    {
       "slug": "roterra-4-magical-revolution",
       "views": 6
     },
@@ -59,23 +71,11 @@
       "views": 6
     },
     {
+      "slug": "where-winds-meet",
+      "views": 6
+    },
+    {
       "slug": "단어-찾기-단어-게임",
-      "views": 6
-    },
-    {
-      "slug": "라스트-라이트",
-      "views": 6
-    },
-    {
-      "slug": "로드러쉬",
-      "views": 6
-    },
-    {
-      "slug": "블라이트-워-사후-처리국",
-      "views": 6
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
       "views": 6
     }
   ]
