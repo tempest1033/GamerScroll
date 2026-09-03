@@ -46358,8 +46358,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Asterika: Phantom Rose Refrain": {
+      "appIds": {
+        "steam": "3690850"
+      },
+      "aliases": [],
+      "developer": "makaroll",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3690850/3a99f87270a606d65180a30b486d68264d86ae79/capsule_231x87.jpg?t=1788393899",
+      "slug": "asterika-phantom-rose-refrain",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-03",
-  "totalGames": 3545
+  "totalGames": 3546
 }
