@@ -46430,8 +46430,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Break A Leg !!": {
+      "appIds": {
+        "android": "com.felixx1502.breakaleg"
+      },
+      "aliases": [],
+      "developer": "Fragile Tendons",
+      "icon": "https://play-lh.googleusercontent.com/XiIGXD3AW3aKlUqtjEHUNvkrZou-isLdvkI1TdNaCBn4ZFVmvfGhH-XKYXPQHQoP6dJW1lL0pnLY4xGjaHaR",
+      "slug": "break-a-leg",
+      "platforms": [
+        "android"
+      ]
+    },
+    "집행검 클래식": {
+      "appIds": {
+        "android": "playuc.net.executioner"
+      },
+      "aliases": [],
+      "developer": "(주)플레이유씨",
+      "icon": "https://play-lh.googleusercontent.com/lwgt5Pm-q-4OI0d09v6AVTNXvKkoVGPiivrEUBgq5cr6fwaVWNbAhvrObQsyAOaWr7RKLK-p3bPzTE-92_7u",
+      "slug": "집행검-클래식",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Triple Harvest™: 3D Match Game": {
+      "appIds": {
+        "android": "com.flyfox.triple.harvest.explorer.match3d.puzzle"
+      },
+      "aliases": [],
+      "developer": "Flyfox Games",
+      "icon": "https://play-lh.googleusercontent.com/CEJi5eCXbroBFX465ZEztBIq8W7bJfGjsODpxyq7E2ffIL3HubWYScchzku8kChx4H3c9qm_Z4Vsnffi0Wx9YA",
+      "slug": "triple-harvest-3d-match-game",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-04",
-  "totalGames": 3551
+  "totalGames": 3554
 }

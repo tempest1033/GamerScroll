@@ -32583,6 +32583,65 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/43/56/06435641-9433-4a7a-fbe7-6f8d23716540/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-03T17:27:19.675Z"
+    },
+    {
+      "title": "Break A Leg !!",
+      "status": "single",
+      "appIds": {
+        "android": "com.felixx1502.breakaleg"
+      },
+      "developer": "Fragile Tendons",
+      "icon": "https://play-lh.googleusercontent.com/XiIGXD3AW3aKlUqtjEHUNvkrZou-isLdvkI1TdNaCBn4ZFVmvfGhH-XKYXPQHQoP6dJW1lL0pnLY4xGjaHaR",
+      "searchResults": [
+        {
+          "title": "Break A Leg Comedy",
+          "appId": 6761667791
+        },
+        {
+          "title": "Brickit: Your Brick Collection",
+          "appId": 1477221636
+        },
+        {
+          "title": "포트나이트",
+          "appId": 6483539426
+        }
+      ],
+      "addedAt": "2026-09-03T22:28:09.152Z"
+    },
+    {
+      "title": "집행검 클래식",
+      "status": "single",
+      "appIds": {
+        "android": "playuc.net.executioner"
+      },
+      "developer": "(주)플레이유씨",
+      "icon": "https://play-lh.googleusercontent.com/lwgt5Pm-q-4OI0d09v6AVTNXvKkoVGPiivrEUBgq5cr6fwaVWNbAhvrObQsyAOaWr7RKLK-p3bPzTE-92_7u",
+      "searchResults": [],
+      "addedAt": "2026-09-03T22:28:09.456Z"
+    },
+    {
+      "title": "Triple Harvest™: 3D Match Game",
+      "status": "single",
+      "appIds": {
+        "android": "com.flyfox.triple.harvest.explorer.match3d.puzzle"
+      },
+      "developer": "Flyfox Games",
+      "icon": "https://play-lh.googleusercontent.com/CEJi5eCXbroBFX465ZEztBIq8W7bJfGjsODpxyq7E2ffIL3HubWYScchzku8kChx4H3c9qm_Z4Vsnffi0Wx9YA",
+      "searchResults": [
+        {
+          "title": "Triple Harvest™: 매치 게임",
+          "appId": 6786219113
+        },
+        {
+          "title": "Tile Harvest: Match 3 Puzzle",
+          "appId": 6769982673
+        },
+        {
+          "title": "Farm Tiles: Triple Match",
+          "appId": 6775237063
+        }
+      ],
+      "addedAt": "2026-09-03T22:28:09.828Z"
     }
   ],
   "approved": [
