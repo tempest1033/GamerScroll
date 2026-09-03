@@ -1,0 +1,340 @@
+{
+  "slug": "september-ai-model-war",
+  "site": "aiscroll",
+  "status": "approved",
+  "date": "",
+  "category": "general",
+  "needTranslate": false,
+  "title": "9월 AI 프론티어 경쟁 개막, 빅테크 5곳 맞대결",
+  "titleEn": "September AI Race: Five Labs Enter the Field",
+  "summary": "클로드 페이블 5.1이 지능 지수 66점으로 선두에 오른 가운데 제미나이 3.8과 뮤즈 스파크 1.3이 추격에 나섰다. 여기에 GPT 아스트라와 그록 4.7 출시가 맞물리며 9월 AI 시장은 빅테크 5곳이 맞붙는 프론티어 각축전으로 확대됐다.",
+  "summaryEn": "Claude Fable 5.1 set a new benchmark as Gemini and Muse closed in. With GPT Astra and Grok 4.7 on deck, September has become a five-lab frontier race.",
+  "keywords": "9월 AI 모델 경쟁, 제미나이 3.8 플래시, 뮤즈 스파크 1.3, GPT 아스트라, 그록 4.7",
+  "keywordsEn": "Fable model performance, Gemini Flash performance, Meta frontier, OpenAI Astra model, Grok model performance",
+  "thumbnail": "https://cdn.sanity.io/images/4zrzovbb/website/932ca7d6f414ca22fd5a26dcc131410575b9b3e5-1200x630.jpg",
+  "sources": [
+    {
+      "name": "Artificial Analysis",
+      "title": "LLM Leaderboard — Comparison of AI Models",
+      "url": "https://artificialanalysis.ai/leaderboards/models"
+    },
+    {
+      "name": "Google",
+      "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+    },
+    {
+      "name": "Meta AI",
+      "title": "Introducing Muse Spark 1.3",
+      "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Path to Astra: critical capabilities and frontier safeguards",
+      "url": "https://openai.com/index/path-to-astra/"
+    },
+    {
+      "name": "Elon Musk",
+      "title": "Grok 4.7 comes out in 10 days",
+      "url": "https://x.com/elonmusk/status/2094983639780204846"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/grok-46-launch-frontier-push",
+    "tech:ai/agent-mix-multi-model-stack",
+    "tech:ai/gemini-omni-antigravity-trail-sota",
+    "tech:ai/xai-cursor-grok-comeback"
+  ],
+  "relatedGames": [],
+  "relatedArticles": [],
+  "content": [
+    {
+      "type": "text",
+      "value": "2026년 여름 AI 시장의 시선은 딥시크와 Z.ai, 문샷 AI를 앞세운 중국 프론티어 연구소에 집중됐다. 이들은 저렴한 비용과 빠른 추론 속도를 무기로 성능 격차를 좁혔고, 이는 [중국 프론티어 모델의 약진](/ko/article/general/china-frontier-model-surge/)에서도 확인된 흐름이었다. 미국 빅테크 연구소 역시 제품 갱신을 이어갔지만 최상위권 순위표를 뒤흔드는 대형 세대교체는 잠시 숨을 고르는 모습이었다.\n\n이러한 소강상태는 9월 시작과 동시에 깨졌다. 앤트로픽이 9월 1일 클로드 페이블 5.1을 내놓자, 구글과 메타가 이튿날 제미나이 3.8 플래시와 뮤즈 스파크 1.3을 나란히 공개하며 맞불을 놨다. 여기에 오픈AI의 GPT 아스트라와 xAI의 그록 4.7까지 출격을 앞두면서 선두를 지키려는 기존 강자와 매섭게 따라붙는 후발주자 간 5파전이 본격화됐다."
+    },
+    {
+      "type": "heading",
+      "value": "페이블 5.1, 지능 지수 66점으로 1위"
+    },
+    {
+      "type": "text",
+      "value": "첫 주도권은 클로드 페이블 5.1이 잡았다. 최고 추론 설정으로 [Artificial Analysis 지능 지수](https://artificialanalysis.ai/leaderboards/models)에서 66점을 얻어 전작 페이블 5보다 4점, 클로드 오퍼스 5 max(63점)보다 3점 앞섰다. 세부 지표에서도 HLE 59.1%, SciCode 62.0%, Terminal-Bench v2.1 91.4%로 종합 추론과 과학, 코딩 전반 1위를 차지했다.\n\n최고 성능에 걸맞게 단가 부담은 상당하다. 페이블 5.1 max의 과제당 평균 비용은 3.69달러로 경쟁 모델을 크게 웃돈다. 앤트로픽은 100만 토큰 컨텍스트와 장기 에이전트 실행력, 프롬프트 캐시 읽기 비용 75% 인하를 내세워 높은 가격대를 방어했다. 전체 평가 출력 토큰의 약 4%가 다른 클로드 모델로 우회 처리된 점을 감안하더라도 9월 초반 선두 자리는 페이블 5.1의 몫이었다.\n\n하지만 66점이 독주의 마침표는 아니었다. 페이블의 뒤를 쫓는 도전자들은 지능 지수에서 소폭 뒤처지는 대신 저렴한 작업 단가와 빠른 추론 속도를 앞세워 실용성 경쟁으로 판을 흔들기 시작했다."
+    },
+    {
+      "type": "table",
+      "caption": "Artificial Analysis 동일 평가 체계 기준",
+      "headers": [
+        "모델·설정",
+        "지능 지수",
+        "작업당 비용",
+        "비고"
+      ],
+      "rows": [
+        [
+          "클로드 페이블 5.1 max",
+          "66",
+          "3.69달러",
+          "전체 1위"
+        ],
+        [
+          "뮤즈 스파크 1.3 max",
+          "62",
+          "미공개",
+          "제한 프리뷰"
+        ],
+        [
+          "뮤즈 스파크 1.3 xhigh",
+          "61",
+          "0.55달러",
+          "일반 제공"
+        ],
+        [
+          "제미나이 3.8 플래시 high",
+          "59",
+          "0.58달러",
+          "일반 제공"
+        ],
+        [
+          "그록 4.6 high",
+          "61",
+          "0.94달러",
+          "그록 4.7의 전작"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "제미나이 3.8 플래시의 반격, 프론티어 추격전 재합류"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-8_flash__blog__header__16-9__light.width-1300.png",
+      "caption": "구글의 제미나이 3.8 플래시 공식 발표 이미지",
+      "alt": "푸른 배경에 표시된 제미나이 3.8 플래시 모델명과 제미나이 심벌"
+    },
+    {
+      "type": "text",
+      "value": "실용성을 앞세운 추격의 맨 앞자리에는 구글이 섰다. 당초 [차기 프로 모델의 출시 지연](/ko/article/google/gemini-35-pro-crisis/)과 가성비 중심의 3.7 플래시 공개로 인해 구글이 프론티어 경쟁에서 밀려났다는 시각이 적지 않았다. 그러나 제미나이 3.8 플래시가 직전 버전 출시 후 불과 3주 만에 모습을 드러내며 시장 분위기를 반전시켰다.\n\n제미나이 3.8 플래시 high는 지능 지수 59점을 기록하며 3.7 플래시보다 3점 상승했다. DeepSWE v1.1 73.7%, Terminal-Bench 2.1 89.4%, HLE-Verified 54.9%를 찍으며 체급을 뛰어넘는 코딩과 추론 성적을 거뒀다. 초당 약 300토큰에 달하는 빠른 출력 속도와 과제당 0.58달러 수준의 비용 경쟁력도 힘을 보탰다.\n\n페이블의 66점에는 아직 미치지 못하지만, 구글의 이번 복귀는 단순한 순위 한 계단 이상의 의미를 갖는다. 구글은 6주 사이에 플래시 모델을 세 차례 갱신하며 가성비 중심이던 플래시 제품군을 본격적인 프론티어 추격자의 반열에 올려놓았다."
+    },
+    {
+      "type": "table",
+      "caption": "각 회사가 공개한 주요 코딩·에이전트 성적",
+      "headers": [
+        "모델",
+        "벤치마크",
+        "점수",
+        "해석"
+      ],
+      "rows": [
+        [
+          "클로드 페이블 5.1",
+          "Terminal-Bench v2.1",
+          "91.4%",
+          "Artificial Analysis 독립 평가"
+        ],
+        [
+          "제미나이 3.8 플래시",
+          "DeepSWE v1.1 / Terminal-Bench 2.1",
+          "73.7% / 89.4%",
+          "구글 공개 수치"
+        ],
+        [
+          "뮤즈 스파크 1.3",
+          "DeepSWE v1.1 / Terminal-Bench 2.1",
+          "75.4% / 88.8%",
+          "메타 공개 수치"
+        ],
+        [
+          "클로드 페이블 5.1",
+          "Terminal-Bench 4.0",
+          "55.8%",
+          "2.1과 직접 비교 불가"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "메타의 깜짝 도약, 프론티어 경쟁권 진입"
+    },
+    {
+      "type": "text",
+      "value": "깜짝 반전을 연출한 곳은 구글만이 아니었다. 메타의 뮤즈 스파크 1.3 max는 지능 지수 62점에 도달하며 페이블 5.1과 오퍼스 5의 뒤를 바짝 추격했다. 널리 쓰이는 xhigh 설정도 61점을 얻어 GPT-5.6 Sol max 및 그록 4.6 high와 어깨를 나란히 했다. 후발주자로 평가받던 메타가 단숨에 프론티어 선두권으로 뛰어오른 모양새다.\n\n세부 벤치마크 지표 역시 이 같은 종합 점수를 뒷받침한다. 뮤즈 스파크 1.3은 DeepSWE v1.1에서 75.4%를 기록해 제미나이를 제쳤고, Terminal-Bench 2.1에서도 88.8%를 거뒀다. 과제당 비용은 0.55달러로 지능 지수 59점 이상 모델 중 가장 저렴하다. 전작 뮤즈 스파크 1.2 대비 도구 호출을 약 20%, 토큰 소모를 25% 줄이며 운영 효율을 끌어올렸다.\n\n이번 성과는 단순한 3위 진입에 그치지 않는다. 메타는 뮤즈 스파크 1.3의 오픈웨이트 공개를 약속한 상태다. 공개 가중치에서도 동일한 성능이 확인된다면 상용 API 공급자와 오픈소스 진영 모두에 상당한 가격 및 성능 압박이 가해진다. 메타는 이제 선두를 뒤쫓는 추격자에 머물지 않고 순위표의 규칙을 직접 흔드는 주체로 올라섰다."
+    },
+    {
+      "type": "heading",
+      "value": "GPT 아스트라, 'Critical' 등급으로 키운 GPT-6 기대감"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
+      "caption": "코드 화면을 배경으로 놓인 오픈AI 로고",
+      "alt": "컴퓨터 코드 화면 앞에 배치된 흰색 OpenAI 로고"
+    },
+    {
+      "type": "text",
+      "value": "앞서 공개된 세 모델의 성적표는 9월 프론티어 레이스의 전반전에 불과하다. 가장 큰 변수는 오픈AI가 [공식 발표](https://openai.com/index/path-to-astra/)를 통해 곧 출시하겠다고 예고한 GPT 아스트라다. 범용 추론과 코딩 종합 점수는 아직 베일에 싸여 있으나, 먼저 공개된 기술 지표는 이전 세대와의 뚜렷한 격차를 예고하고 있다.\n\n아스트라는 오픈AI 모델 가운데 최초로 사이버 보안 역량에서 `Critical` 등급을 부여받았다. 알려진 취약점 41개를 검증하는 ExploitBench에서는 성공률 100%를 기록했다. 최근 발견된 V8 취약점 20개를 대상으로 한 평가에서도 GPT-5.6 Sol보다 적은 토큰으로 더 높은 임의 코드 실행률을 보였으며, 제로데이 취약점 2건을 직접 찾아내기도 했다.\n\n오픈AI가 공식 명칭을 GPT-6.0으로 확정한 것은 아니다. 그럼에도 최고 수준의 위험 등급 지정과 내부 지표에서의 성능 향상은 아스트라가 차세대 모델로 통한다는 기대를 키우고 있다. 출시 시점에 공개될 공식 벤치마크가 이를 입증한다면 9월 초 페이블이 세운 지능 지수 66점 기록도 다시 깨질 가능성이 높다."
+    },
+    {
+      "type": "heading",
+      "value": "그록 4.7 가세로 완성된 5파전 구도"
+    },
+    {
+      "type": "text",
+      "value": "2차 공세를 준비하는 주자가 아스트라만 있는 것은 아니다. 일론 머스크는 9월 2일 그록 4.7이 열흘 뒤 공개될 것이라며 9월 12일 전후 출시를 예고했다. 직전 버전인 그록 4.6 high가 지능 지수 61점으로 GPT-5.6 Sol max와 동점을 기록했던 만큼, 새 모델이 보여줄 성능 도약의 폭에 시장의 관심이 쏠린다.\n\n아직 공식 모델 카드나 세부 벤치마크 수치는 공개되지 않았다. 하지만 xAI가 예고된 일정을 맞춘다면 그록 4.7은 페이블과 제미나이, 뮤즈가 맞붙은 첫 주 대결 직후 곧바로 순위표의 새로운 전선을 형성하게 된다."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2094983639780204846",
+      "caption": "일론 머스크가 그록 4.7의 열흘 뒤 출시를 예고한 게시물"
+    },
+    {
+      "type": "text",
+      "value": "지난여름 이어진 중국 프론티어 연구소들의 약진은 미국 빅테크를 움직이게 만든 결정적 자극제였다. 그 결과 앤트로픽과 오픈AI, 구글이 형성하던 전통적 3강 구도에 메타와 xAI가 프론티어 경쟁자로 합류했다. 후발주자로 여겨지던 기업들까지 최상위권 점수에 진입하면서 올 한 해 중 시장 판도가 가장 크게 출렁이는 국면이 열렸다.\n\n9월 첫 주에만 페이블 5.1과 제미나이 3.8 플래시, 뮤즈 스파크 1.3이 연달아 출시됐고, 다음 차례로 GPT 아스트라와 그록 4.7이 대기 중이다. 이번 9월은 고착화된 서열을 지켜보는 시기가 아니라 한 달 안에도 선두가 여러 차례 뒤바뀔 수 있는 연쇄 출시의 장이다. 프론티어 AI 경쟁의 시계가 한층 더 빨라졌다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Chinese frontier labs led the industry's focus throughout the summer of 2026. DeepSeek, Z.ai, and Moonshot AI narrowed the performance gap with faster, lower-cost releases—a trend examined in AIScroll's account of [the summer shift in China](/article/general/china-frontier-model-surge/). Leading American labs continued shipping updates, but a major reshuffling at the top of the leaderboard remained on pause.\n\nSeptember broke that lull immediately. Anthropic released Claude Fable 5.1 on September 1, followed a day later by Google's Gemini 3.8 Flash and Meta's Muse Spark 1.3. With OpenAI's GPT Astra and xAI's Grok 4.7 nearing release, the race has opened into a five-way contest between established incumbents and fast-moving challengers."
+    },
+    {
+      "type": "heading",
+      "value": "Fable Model Performance Leads at 66"
+    },
+    {
+      "type": "text",
+      "value": "The frontier model leaderboard has an opening leader: Claude Fable 5.1. Its maximum-reasoning configuration scored an all-time high of 66 on the [Artificial Analysis Intelligence Index](https://artificialanalysis.ai/leaderboards/models), four points above Fable 5 and surpassing Claude Opus 5 max at 63. The model also posted 59.1% on HLE, 62.0% on SciCode, and 91.4% on Terminal-Bench v2.1, leading across general reasoning, scientific problem-solving, and coding.\n\nThat top-tier performance comes at a steep price. Fable 5.1 max averaged $3.69 per Intelligence Index task, well above competing models. Anthropic defended the premium with a 1-million-token context window, enhanced long-horizon agent execution, and a 75% price reduction for prompt caching. Even with roughly 4% of evaluation output routed to other Claude models for safety, Fable secured the early September lead.\n\nYet 66 points did not close the contest. Challengers trailing Fable traded a few index points for sharply lower operational costs and faster inference speeds."
+    },
+    {
+      "type": "table",
+      "caption": "Models tested under the Artificial Analysis framework",
+      "headers": [
+        "Model and setting",
+        "Intelligence Index",
+        "Cost per task",
+        "Status"
+      ],
+      "rows": [
+        [
+          "Claude Fable 5.1 max",
+          "66",
+          "$3.69",
+          "Overall leader"
+        ],
+        [
+          "Muse Spark 1.3 max",
+          "62",
+          "Undisclosed",
+          "Limited preview"
+        ],
+        [
+          "Muse Spark 1.3 xhigh",
+          "61",
+          "$0.55",
+          "Generally available"
+        ],
+        [
+          "Gemini 3.8 Flash high",
+          "59",
+          "$0.58",
+          "Generally available"
+        ],
+        [
+          "Grok 4.6 high",
+          "61",
+          "$0.94",
+          "Baseline for Grok 4.7"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Gemini Rebounds: 3.8 Flash Rejoins the Frontier Hunt"
+    },
+    {
+      "type": "image",
+      "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-8_flash__blog__header__16-9__light.width-1300.png",
+      "caption": "Google's official Gemini 3.8 Flash announcement graphic",
+      "alt": "Gemini Flash performance graphic showing the Gemini 3.8 Flash name on a blue background"
+    },
+    {
+      "type": "text",
+      "value": "Google spearheaded that pursuit. Delays surrounding [the next Pro model](/article/google/gemini-35-pro-crisis/) and the launch of the cost-oriented 3.7 Flash had fueled sentiment that Google was falling behind at the frontier. Gemini 3.8 Flash countered that narrative just three weeks after its predecessor debuted.\n\nGemini 3.8 Flash high recorded 59 on the Intelligence Index, three points above 3.7 Flash. The Google Gemini benchmarks also logged 73.7% on DeepSWE v1.1, 89.4% on Terminal-Bench 2.1, and 54.9% on HLE-Verified. Generating roughly 300 tokens per second at $0.58 per task, the model pairs high throughput with aggressive cost efficiency.\n\nTaken together, the Google Gemini benchmarks still trail Fable's 66 points, but the comeback carries significance beyond one leaderboard position. By shipping three Flash iterations in six weeks, Google has turned what was once an efficiency-first tier into a genuine frontier contender."
+    },
+    {
+      "type": "table",
+      "caption": "Selected coding and agent benchmark results",
+      "headers": [
+        "Model",
+        "Benchmark",
+        "Score",
+        "Context"
+      ],
+      "rows": [
+        [
+          "Claude Fable 5.1",
+          "Terminal-Bench v2.1",
+          "91.4%",
+          "Independent Artificial Analysis run"
+        ],
+        [
+          "Gemini 3.8 Flash",
+          "DeepSWE v1.1 / Terminal-Bench 2.1",
+          "73.7% / 89.4%",
+          "Google-reported"
+        ],
+        [
+          "Muse Spark 1.3",
+          "DeepSWE v1.1 / Terminal-Bench 2.1",
+          "75.4% / 88.8%",
+          "Meta-reported"
+        ],
+        [
+          "Claude Fable 5.1",
+          "Terminal-Bench 4.0",
+          "55.8%",
+          "Not comparable with v2.1"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "value": "Meta's Surprise Surge Reaches the Frontier"
+    },
+    {
+      "type": "text",
+      "value": "Google was not alone in staging a dramatic move. Meta's Muse Spark 1.3 max reached 62 on the Intelligence Index, trailing only Fable 5.1 and Opus 5 tiers. Its widely accessible xhigh configuration scored 61, matching GPT-5.6 Sol max and Grok 4.6 high. That leap propelled a provider once viewed as a late entrant directly into the frontier echelon.\n\nGranular benchmarks backed that composite score. Muse Spark 1.3 posted 75.4% on DeepSWE v1.1, edging Gemini, and scored 88.8% on Terminal-Bench 2.1. At $0.55 per task, the xhigh tier is the lowest-cost model scoring 59 or higher on the index. Meta also cut tool calls by roughly 20% and token consumption by 25% compared with Muse Spark 1.2.\n\nThe impact extends well beyond claiming third place. Meta has committed to releasing Muse Spark 1.3 as open weights. If public weights match these benchmark results, Meta will exert pricing and performance pressure on commercial APIs and open-source models alike. Rather than following the leaders, Meta is directly rewriting the rules of the leaderboard."
+    },
+    {
+      "type": "heading",
+      "value": "GPT Astra: 'Critical' Rating Fuels GPT-6 Expectations"
+    },
+    {
+      "type": "image",
+      "src": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
+      "caption": "The OpenAI logo against a computer code display",
+      "alt": "White OpenAI logo positioned in front of lines of computer code"
+    },
+    {
+      "type": "text",
+      "value": "The three released models represent only the opening chapter of September's contest. The largest wildcard is OpenAI's GPT Astra, previewed as an impending release in an [official capability update](https://openai.com/index/path-to-astra/). Although broad reasoning and coding benchmark totals remain under wraps, early technical disclosures point to a distinct generational shift.\n\nAstra is the first OpenAI model to earn a `Critical` designation in cybersecurity capability. It achieved a 100% success rate on ExploitBench across 41 known vulnerabilities. Tested against 20 recent V8 flaws, Astra delivered higher arbitrary code-execution rates than GPT-5.6 Sol with fewer tokens, while unearthing two zero-day vulnerabilities in the process.\n\nOpenAI has not confirmed GPT-6.0 as the model's official release name. Nevertheless, the elevated risk rating and performance gains over GPT-5.6 Sol have fueled expectations that Astra represents the next major generational leap. If public benchmarks validate those internal metrics upon release, the 66-point ceiling established early this month could quickly fall."
+    },
+    {
+      "type": "heading",
+      "value": "Grok 4.7 Launch Completes the Five-Way Contest"
+    },
+    {
+      "type": "text",
+      "value": "Astra is not the only challenger lined up for the second wave. On September 2, Elon Musk said the Grok 4.7 launch would come in ten days, pointing to a debut around September 12. Because the preceding Grok 4.6 high had already scored 61 on the Intelligence Index to tie GPT-5.6 Sol max, expectations for the new version's performance gain run high.\n\nOfficial model cards and granular benchmark tables have yet to appear. If xAI meets Musk's timetable, the Grok 4.7 launch will open a second ranking contest immediately after the first-week clash among Fable, Gemini, and Muse."
+    },
+    {
+      "type": "video",
+      "url": "https://x.com/i/status/2094983639780204846",
+      "caption": "Elon Musk's post announcing Grok 4.7 in ten days"
+    },
+    {
+      "type": "text",
+      "value": "The summer surge from Chinese labs pushed American Big Tech to accelerate. The frontier competition now extends beyond Anthropic, OpenAI, and Google to include Meta and xAI. As former latecomers pull level with the leading pack, the market has entered its most volatile stretch of the year.\n\nFable 5.1, Gemini 3.8 Flash, and Muse Spark 1.3 arrived in rapid sequence during the first week of September, with GPT Astra and Grok 4.7 next. Rather than cementing a fixed frontier model leaderboard, September has started a release cycle in which the top spot could shift several times before month's end. The AI race has entered a new phase."
+    }
+  ]
+}
