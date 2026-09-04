@@ -9892,14 +9892,16 @@
     },
     "Vampire Survivors": {
       "appIds": {
-        "steam": "1794680"
+        "steam": "1794680",
+        "ios": 6444525702
       },
       "aliases": [],
       "developer": "poncle",
       "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1794680/header.jpg?t=1763675244",
       "slug": "vampire-survivors",
       "platforms": [
-        "steam"
+        "steam",
+        "ios"
       ]
     },
     "Mount & Blade: Warband": {
@@ -46502,8 +46504,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "냥냥타워": {
+      "appIds": {
+        "ios": 6769293338
+      },
+      "aliases": [],
+      "developer": "LoadComplete",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/76/52/01/76520197-1b99-dec2-16fa-b73736348fce/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "냥냥타워",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "For the Fatherland: Chronicle of Park Chung-hee": {
+      "appIds": {
+        "steam": "5035220"
+      },
+      "aliases": [],
+      "developer": "KMS STUDIO",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5035220/a3f3a370e4dfd21a2387a1eae4016fc2cb9d6542/capsule_231x87.jpg?t=1788494476",
+      "slug": "for-the-fatherland-chronicle-of-park-chung-hee",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-04",
-  "totalGames": 3557
+  "totalGames": 3559
 }
