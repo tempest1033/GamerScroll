@@ -1,0 +1,282 @@
+{
+  "slug": "muse-spark-1-3-opencode",
+  "site": "aiscroll",
+  "status": "approved",
+  "date": "",
+  "category": "general",
+  "needTranslate": false,
+  "title": "뮤즈 스파크 1.3, 딥시크 꺾고 OpenCode 일간 1위",
+  "titleEn": "Muse Spark 1.3 Tops OpenCode Daily Usage",
+  "summary": "메타의 뮤즈 스파크 1.3이 출시 이틀 만에 OpenCode 일간 토큰 사용량 1위에 올랐다. 데이터 학습과 연계한 Contributor 요금제와 대규모 AI 투자가 개발 현장의 실제 점유율로 이어졌다.",
+  "summaryEn": "Muse Spark 1.3 topped OpenCode daily token usage two days after launch, converting Meta's Contributor strategy and massive AI spending into live adoption.",
+  "keywords": "뮤즈 스파크 1.3, OpenCode 모델 순위, Contributor 데이터, 메타 AI 투자",
+  "keywordsEn": "Muse Spark model, OpenCode tokens, Contributor data, Meta AI model",
+  "thumbnail": "https://lookaside.fbsbx.com/elementpath/media/?media_id=954058993611225&version=1788350660",
+  "content": [
+    {
+      "type": "text",
+      "value": "OpenCode 순위표에서 딥시크의 독주가 멈췄다. 선두를 바꾼 주인공은 출시 이틀을 맞은 메타의 뮤즈 스파크 1.3이다. OpenCode 창업자 dax는 9월 4일 [22초짜리 순위표 영상](https://x.com/thdxr/status/2095568817275441409)을 공개하며 “메타 뮤즈 스파크가 딥시크를 밀어냈다”고 밝혔다."
+    },
+    {
+      "type": "text",
+      "value": "알렉산더 왕 메타 최고AI책임자(CAIO)는 해당 영상을 공유하며 'A M E R I C A'라는 짤막한 반응을 남겼다. [OpenCode Data](https://opencode.ai/data)에 따르면 9월 4일 오후 1시 54분(UTC) 기준 뮤즈 스파크 1.3의 일간 처리량은 2.7조 토큰으로, 1.9조 토큰에 그친 딥시크 V4 플래시를 앞질렀다. 미국 모델이 이 순위표 정상을 차지한 것은 이번이 처음이다."
+    },
+    {
+      "type": "heading",
+      "value": "딥시크·GLM 격전지서 1위 오른 뮤즈 스파크 1.3"
+    },
+    {
+      "type": "text",
+      "value": "이번 순위 변동이 주목받는 이유는 OpenCode가 메타 전용 플랫폼이 아니기 때문이다. OpenCode Zen은 모델과 인프라 조합을 직접 검증한 뒤 코딩 에이전트에 최적화된 모델만 선별해 제공한다. 순위표에는 GPT-5.6 루나와 딥시크 V4 플래시, GLM 5.3, 키미 K3, MiMo-V2.5처럼 가성비를 앞세운 모델이 대거 포진해 있다."
+    },
+    {
+      "type": "text",
+      "value": "누적 사용량 순위만 봐도 경쟁 강도가 드러난다. 최근 집계에서 딥시크 V4 플래시는 25조 토큰으로 1위를 지켰고, 뮤즈 스파크 1.2 Contributor(13조 토큰), MiMo-V2.5(10조 토큰)와 GLM·키미 계열이 뒤를 이었다. 여기에 출시 이틀 만에 6.1조 토큰을 처리한 뮤즈 스파크 1.3이 일간 1위로 단숨에 올라섰다."
+    },
+    {
+      "type": "text",
+      "value": "대안이 없어서 나타난 쏠림이 아니다. 개발자가 비용과 지연 시간, 성능을 실시간으로 비교하며 손쉽게 모델을 바꾸는 환경에서 거둔 성과다. 코딩 에이전트 시장을 주도하던 중국계 가성비 모델 틈바구니에서 미국 프런티어 모델이 의미 있는 트래픽을 처음으로 확보했다."
+    },
+    {
+      "type": "heading",
+      "value": "Contributor 정책: 비용 낮추고 학습 데이터 확보하는 구조"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/amplify_video_thumb/2095568706860634112/img/PcdZB6AzqH-r5zF8.jpg",
+      "caption": "OpenCode 창업자 dax가 공개한 영상 속 왕관을 쓴 딥시크 볼링핀 캐릭터",
+      "alt": "왕관을 쓴 딥시크 볼링핀 캐릭터가 등장한 OpenCode 영상"
+    },
+    {
+      "type": "text",
+      "value": "가파른 순위 상승 뒤에는 메타의 공격적인 배포 전략이 자리 잡고 있다. 메타는 서비스를 Standard와 Contributor 두 등급으로 나누고, 데이터 학습 활용에 동의한 개발자에게 요금을 대폭 낮췄다. OpenCode는 여기에 더해 뮤즈 스파크 1.3 Contributor를 한시적 무료로 제공하며 도입 장벽을 허물었다."
+    },
+    {
+      "type": "table",
+      "caption": "뮤즈 스파크 1.3 이용 정책 비교",
+      "headers": [
+        "구분",
+        "입력 100만 토큰",
+        "출력 100만 토큰",
+        "데이터 조건"
+      ],
+      "rows": [
+        [
+          "Standard",
+          "1.25달러",
+          "4.25달러",
+          "모델 학습에 사용하지 않음"
+        ],
+        [
+          "Contributor",
+          "0.10달러",
+          "0.20달러",
+          "프롬프트·응답의 학습 활용 허용"
+        ],
+        [
+          "OpenCode Zen",
+          "무료",
+          "무료",
+          "Contributor 조건 적용"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "[메타의 공식 요금 안내](https://ai.developer.meta.com/docs/pricing-rate-limits/)는 이 거래 조건을 명확히 밝히고 있다. Standard 이용자의 프롬프트와 결과물은 학습에 쓰이지 않지만, Contributor 이용자는 차기 모델 훈련에 데이터를 활용할 권한을 메타에 부여한다. 개발자는 최상위급 코딩 모델을 부담 없이 쓰고, 메타는 실제 개발 환경에서 나오는 고밀도 데이터를 축적하는 구조다."
+    },
+    {
+      "type": "text",
+      "value": "이 정책은 일회성 프로모션에 그치지 않고 배포와 데이터 확보가 맞물려 돌아가는 성장 축으로 작동한다. OpenCode 집계 기준 1.3 Contributor는 순 사용자 5만 명과 115만 건의 세션 완료를 기록했고, 입력 토큰의 92%가 프롬프트 캐시로 처리됐다. 메타는 이용 문턱을 낮춰 즉각적인 점유율을 챙기고, 이를 다시 차세대 모델 훈련 자원으로 전환하고 있다."
+    },
+    {
+      "type": "heading",
+      "value": "1,450억 달러와 알렉산더 왕, 제품으로 이어진 메타의 AI 투자"
+    },
+    {
+      "type": "text",
+      "value": "이번 성과는 치밀한 구조적 투자가 낳은 결과다. 메타는 2025년 6월 스케일AI 지분 49%를 143억 달러에 인수하고 창업자 알렉산더 왕을 메타 초지능 연구소 수장으로 영입했다. 인수 당시 지나치게 높은 몸값으로 평가받았던 투자가 불과 1년여 만에 개발자 채택을 이끄는 주력 모델로 결실을 맺었다."
+    },
+    {
+      "type": "text",
+      "value": "인프라에 투입한 자본 규모는 더 방대하다. 메타는 2026년 연간 자본지출 전망치로 1,300억~1,450억 달러를 제시했으며, 2분기에만 310억 8,000만 달러를 집행했다. 하이페리온 데이터센터와 전면 개편한 사전학습 스택을 바탕으로, 초대 뮤즈 스파크는 라마 4 매버릭 수준의 역량을 10분의 1도 안 되는 연산량으로 구현해냈다."
+    },
+    {
+      "type": "text",
+      "value": "신모델 공개 속도 역시 투자 규모에 발맞춰 빨라졌다. 지난 4월 첫 버전을 선보인 후 7월 1.1, 8월 1.2, 9월 1.3 버전을 연달아 출시하며 5개월 동안 네 차례 업데이트를 마쳤다. 메타는 1.3 버전이 1.2 버전보다 도구 호출을 약 20%, 토큰 소모를 약 25% 줄였다고 밝혔으며, 이러한 효율 개선은 개발자 유입으로 직결됐다."
+    },
+    {
+      "type": "heading",
+      "value": "벤치마크 아닌 현업 채택이 만든 1위"
+    },
+    {
+      "type": "text",
+      "value": "무료 혜택만으로 115만 건의 완료 세션을 설명할 수는 없다. 출시 직후 개발자들은 다중 이미지 입력을 쓴 [P의 거짓 기계 심장 3D 데모](https://x.com/filicroval/status/2095577855073616125)와 [1.75달러로 만든 카운터스트라이크 재현물](https://x.com/Archilinho/status/2095572254570553446)을 잇달아 올렸다. 알렉산더 왕이 공유한 이 시연들은 현업의 빠른 반응을 보여준다."
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/amplify_video_thumb/2095571413688111107/img/5Da3Z6EKUpLLoLBw.jpg",
+      "caption": "Fable 5.1과 뮤즈 스파크 1.3의 카운터스트라이크 재현 결과·비용 비교 화면",
+      "alt": "뮤즈 스파크 1.3과 Fable 5.1이 재현한 카운터스트라이크 화면과 제작비 비교"
+    },
+    {
+      "type": "text",
+      "value": "이번 성과는 메타의 연구 개발과 인프라, 배포 전략이 유기적으로 맞물린 결과다. 개발자가 직접 선택한 세션 수와 토큰 처리량이 모델 성능을 입증했고, 출시 이틀 만에 딥시크를 제치는 동력이 됐다. [소비자용 코딩 에이전트로 보폭을 넓히는 메타](/ko/article/general/meta-hatch-vibe-coding-agent/)는 뮤즈 스파크 1.3을 통해 자체 모델의 경쟁력을 명확한 숫자로 증명했다."
+    },
+    {
+      "type": "text",
+      "value": "메타는 그동안 막대한 AI 투자가 제품 대신 장밋빛 청사진만 낳는다는 시장의 회의론을 받아왔다. 하지만 투입된 자본은 전용 인프라로 전환됐고, 새 리더십은 고효율 모델을 내놓았으며, Contributor 정책은 이를 수만 명의 개발자에게 전달했다. 일간 2.7조 토큰은 이 투자 구조가 시장에서 작동하기 시작했다는 명확한 증거다. 뮤즈 스파크 1.3의 초기 돌풍이 메타의 장기 AI 투자를 지속적인 결실로 이끌지 주목된다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "DeepSeek's reign atop the OpenCode leaderboard has ended. The model that unseated it is Meta's newly released Muse Spark 1.3, launched just two days earlier. On September 4, OpenCode founder dax posted [a 22-second leaderboard video](https://x.com/thdxr/status/2095568817275441409) announcing that “Meta Muse Spark has dethroned DeepSeek.”"
+    },
+    {
+      "type": "text",
+      "value": "Meta Chief AI Officer Alexandr Wang quote-posted the clip with a single reaction: “A M E R I C A.” According to [OpenCode Data](https://opencode.ai/data), Muse Spark 1.3 processed 2.7 trillion tokens on September 4 as of 1:54 p.m. UTC, surpassing DeepSeek V4 Flash's 1.9 trillion. It marks the first time an American model has taken first place on the platform."
+    },
+    {
+      "type": "heading",
+      "value": "Muse Spark 1.3 Takes First in an Arena Dominated by Low-Cost Rivals"
+    },
+    {
+      "type": "text",
+      "value": "The milestone carries weight because OpenCode is not Meta's proprietary ecosystem. OpenCode Zen evaluates model-and-provider pairings before selecting those best optimized for coding agents. Its leaderboard is dense with price-competitive alternatives, including GPT-5.6 Luna, DeepSeek V4 Flash, GLM 5.3, Kimi K3, and MiMo-V2.5."
+    },
+    {
+      "type": "text",
+      "value": "Cumulative token metrics illustrate how steep that competition is. In recent tallies, DeepSeek V4 Flash led overall volume with 25 trillion tokens, followed by Muse Spark 1.2 Contributor at 13 trillion and MiMo-V2.5 at 10 trillion alongside GLM and Kimi variants. Muse Spark 1.3 accumulated 6.1 trillion tokens in its first two days before claiming the daily number-one spot."
+    },
+    {
+      "type": "text",
+      "value": "This surge was not the result of a captive audience. Developers actively evaluate cost against latency and performance, switching providers with minimal friction. For the first time, an American frontier model has captured substantial volume in a coding-agent market previously dominated by Chinese cost-efficient models."
+    },
+    {
+      "type": "heading",
+      "value": "Contributor Pricing: Low Cost Upfront, Training Data in Return"
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/amplify_video_thumb/2095568706860634112/img/PcdZB6AzqH-r5zF8.jpg",
+      "caption": "A crowned DeepSeek bowling-pin character in the video shared by OpenCode founder dax",
+      "alt": "OpenCode video frame showing a crowned DeepSeek bowling pin"
+    },
+    {
+      "type": "text",
+      "value": "Meta's distribution strategy laid the groundwork for this rapid ascent. The company split access into two tiers—Standard and Contributor—steeply discounting rates for developers who allow their interactions to be used for model training. OpenCode lowered the threshold further by making Muse Spark 1.3 Contributor free for a promotional window."
+    },
+    {
+      "type": "table",
+      "caption": "Muse Spark 1.3 access policy",
+      "headers": [
+        "Tier",
+        "Input per 1M tokens",
+        "Output per 1M tokens",
+        "Data terms"
+      ],
+      "rows": [
+        [
+          "Standard",
+          "$1.25",
+          "$4.25",
+          "Not used for model training"
+        ],
+        [
+          "Contributor",
+          "$0.10",
+          "$0.20",
+          "Prompts and completions may train future models"
+        ],
+        [
+          "OpenCode Zen",
+          "Free",
+          "Free",
+          "Contributor terms apply"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "[Meta's pricing documentation](https://ai.developer.meta.com/docs/pricing-rate-limits/) defines this arrangement clearly. Prompts and outputs from Standard users are excluded from training pipelines, whereas the Contributor tier grants Meta permission to use that data for future models. Developers receive near-free access to a high-end coding model, while Meta collects dense telemetry and completions from active software engineering."
+    },
+    {
+      "type": "text",
+      "value": "The policy acts less like a temporary discount and more like a distribution and data flywheel. OpenCode recorded 50,000 unique users and 1.15 million completed sessions for Muse Spark 1.3 Contributor, with 92% of input tokens handled through prompt caching. By removing adoption barriers, Meta secured instant market share while generating high-value training data for future model generations."
+    },
+    {
+      "type": "heading",
+      "value": "$145 Billion and Alexandr Wang: Meta's AI Spending Translates Into Product"
+    },
+    {
+      "type": "text",
+      "value": "This breakthrough was the product of deliberate structural investments. In June 2025, Meta acquired a 49% stake in Scale AI for $14.3 billion and appointed founder Alexandr Wang to lead Meta Superintelligence Labs. An acquisition initially scrutinized for its premium valuation has, just over a year later, produced a flagship model driving developer workflows."
+    },
+    {
+      "type": "text",
+      "value": "The scale of Meta's underlying infrastructure spending was even larger. The company projected 2026 capital expenditures of $130 billion to $145 billion, having deployed $31.08 billion in the second quarter alone. Backed by massive facilities like the Hyperion data center and an overhauled training stack, the original Muse Spark delivered performance comparable to Llama 4 Maverick at less than one-tenth the compute footprint."
+    },
+    {
+      "type": "text",
+      "value": "Release velocity matched the pace of capital deployment. After the initial release in April, Meta shipped version 1.1 in July, 1.2 in August, and 1.3 in September, marking four major iterations in five months. Meta reported that version 1.3 reduces tool calls by roughly 20% and token usage by 25% relative to 1.2, turning engineering efficiency into tangible productivity gains."
+    },
+    {
+      "type": "heading",
+      "value": "Developer Adoption, Not Benchmarks, Propels Meta to Number One"
+    },
+    {
+      "type": "text",
+      "value": "Low cost alone cannot account for 1.15 million completed sessions. Within hours of release, developers posted a [Lies of P mechanical-heart demo](https://x.com/filicroval/status/2095577855073616125) powered by multi-image inputs alongside a [Counter-Strike recreation built for $1.75](https://x.com/Archilinho/status/2095572254570553446). Alexandr Wang amplified both demonstrations, reflecting how rapidly practitioners embraced the model's practical output."
+    },
+    {
+      "type": "image",
+      "src": "https://pbs.twimg.com/amplify_video_thumb/2095571413688111107/img/5Da3Z6EKUpLLoLBw.jpg",
+      "caption": "Counter-Strike recreations produced with Fable 5.1 and Muse Spark 1.3, with time and cost comparisons",
+      "alt": "Side-by-side Counter-Strike recreations and generation costs"
+    },
+    {
+      "type": "text",
+      "value": "The outcome demonstrates Meta's research, infrastructure, and distribution operating in tandem. Live developer traffic and sustained token throughput validated the architecture as it overtook DeepSeek within two days. As Meta [expands into consumer coding agents](/article/general/meta-hatch-vibe-coding-agent/), Muse Spark 1.3 provides concrete usage metrics demonstrating the strength of its internal models."
+    },
+    {
+      "type": "text",
+      "value": "Meta had long faced investor skepticism that heavy AI spending produced ambitious roadmaps rather than market-leading products. That capital has now become specialized compute, new leadership has delivered an efficient architecture, and Contributor distribution has put it into active developer workflows. The 2.7 trillion daily tokens are the first clear evidence that this investment system works in the market. What now bears watching is whether Muse Spark 1.3's early surge turns Meta's long AI bet into durable returns."
+    }
+  ],
+  "sources": [
+    {
+      "name": "OpenCode",
+      "title": "AI Model Usage Rankings",
+      "url": "https://opencode.ai/data"
+    },
+    {
+      "name": "OpenCode",
+      "title": "Zen Models, Pricing, and Privacy",
+      "url": "https://opencode.ai/docs/zen/"
+    },
+    {
+      "name": "Meta AI Research",
+      "title": "Introducing Muse Spark 1.3",
+      "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+    },
+    {
+      "name": "Meta Investor Relations",
+      "title": "Meta Reports Second Quarter 2026 Results",
+      "url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx"
+    },
+    {
+      "name": "Reuters",
+      "title": "Meta finalizes investment in Scale AI, valuing startup at $29 billion",
+      "url": "https://www.reuters.com/business/finance/meta-finalizes-investment-scale-ai-valuing-startup-29-billion-2025-06-13/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/september-ai-model-war",
+    "tech:ai/meta-hatch-vibe-coding-agent",
+    "tech:ai/china-frontier-model-surge",
+    "tech:ai/coding-agent-market-share-war-anthropic-openai"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
