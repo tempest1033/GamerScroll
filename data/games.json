@@ -46540,8 +46540,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Live Tile Star 2: Love Story": {
+      "appIds": {
+        "android": "com.match.livetilestar.lovestory"
+      },
+      "aliases": [],
+      "developer": "COLORFULSTREAM TECH LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/Hb2_5w6AoSzr5nU6kc9WBzgNjQWek1NU7EtoMOqqnRVxtk_Ru-x_OnNN-xO7amPpzlJh_8DpLgghZRubWQhlfA",
+      "slug": "live-tile-star-2-love-story",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-05",
-  "totalGames": 3560
+  "totalGames": 3561
 }

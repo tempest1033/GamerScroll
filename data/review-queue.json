@@ -32675,6 +32675,30 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/e0/c2/06e0c215-ba6e-216a-3636-11ceb1d592a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-04T19:45:54.938Z"
+    },
+    {
+      "title": "Live Tile Star 2: Love Story",
+      "status": "single",
+      "appIds": {
+        "android": "com.match.livetilestar.lovestory"
+      },
+      "developer": "COLORFULSTREAM TECH LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/Hb2_5w6AoSzr5nU6kc9WBzgNjQWek1NU7EtoMOqqnRVxtk_Ru-x_OnNN-xO7amPpzlJh_8DpLgghZRubWQhlfA",
+      "searchResults": [
+        {
+          "title": "Telegram Messenger",
+          "appId": 686449807
+        },
+        {
+          "title": "로블록스(Roblox)",
+          "appId": 431946152
+        },
+        {
+          "title": "Subway Surfers",
+          "appId": 512939461
+        }
+      ],
+      "addedAt": "2026-09-04T23:51:29.118Z"
     }
   ],
   "approved": [
