@@ -46466,8 +46466,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Little LUMI Model": {
+      "appIds": {
+        "steam": "5075020"
+      },
+      "aliases": [],
+      "developer": "Studio LUMI",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5075020/760586acbfe3f95aef1805dbf50cf0125184b449/capsule_231x87.jpg?t=1788486963",
+      "slug": "little-lumi-model",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-04",
-  "totalGames": 3554
+  "totalGames": 3555
 }
