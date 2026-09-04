@@ -1,0 +1,4 @@
+# AIScroll _redirects
+# Country-based auto-routing + EN opt-out + bot pass-through is handled entirely
+# by functions/_middleware.js (Cloudflare Pages Functions) — keep this file
+# minimal so the middleware stays the single source of truth.
