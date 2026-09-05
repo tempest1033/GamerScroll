@@ -46217,14 +46217,16 @@
     },
     "아쿠아랜드: 크레이지 서바이벌": {
       "appIds": {
-        "ios": "6780387121"
+        "ios": "6780387121",
+        "android": "com.iyagames.flotshelter"
       },
       "aliases": [],
       "developer": "Hong Kong Just Game Technology Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/38/75/d13875d0-7942-54d3-e1e3-cfe3959803fb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "아쿠아랜드-크레이지-서바이벌",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "미스터 수달셰프": {
@@ -46564,8 +46566,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Top Force: 탑 포스": {
+      "appIds": {
+        "android": "com.project.idle.cd"
+      },
+      "aliases": [],
+      "developer": "Century Games Innovation Pte. Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/dIGYOhW1mwhxLLCti6-O-VQAL_5oz7yzyLkP5WJH80i6j3HWcaIOfTnJ-FaQC1tQ7DC2pR5BphwkZJ9tFQe_ag",
+      "slug": "top-force-탑-포스",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-05",
-  "totalGames": 3562
+  "totalGames": 3563
 }

@@ -32420,13 +32420,19 @@
     },
     {
       "title": "아쿠아랜드: 크레이지 서바이벌",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6780387121"
+        "ios": "6780387121",
+        "android": "com.iyagames.flotshelter"
       },
       "developer": "Hong Kong Just Game Technology Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/38/75/d13875d0-7942-54d3-e1e3-cfe3959803fb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "아쿠아랜드: 크레이지 서바이벌",
+          "appId": "6780387121"
+        }
+      ],
       "addedAt": "2026-09-01T11:53:53.190Z"
     },
     {
@@ -32715,6 +32721,30 @@
         }
       ],
       "addedAt": "2026-09-05T02:22:47.739Z"
+    },
+    {
+      "title": "Top Force: 탑 포스",
+      "status": "single",
+      "appIds": {
+        "android": "com.project.idle.cd"
+      },
+      "developer": "Century Games Innovation Pte. Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/dIGYOhW1mwhxLLCti6-O-VQAL_5oz7yzyLkP5WJH80i6j3HWcaIOfTnJ-FaQC1tQ7DC2pR5BphwkZJ9tFQe_ag",
+      "searchResults": [
+        {
+          "title": "Ace Force: Joint Combat",
+          "appId": 1193136458
+        },
+        {
+          "title": "토스",
+          "appId": 839333328
+        },
+        {
+          "title": "탑체크",
+          "appId": 1665428025
+        }
+      ],
+      "addedAt": "2026-09-05T07:02:44.454Z"
     }
   ],
   "approved": [
