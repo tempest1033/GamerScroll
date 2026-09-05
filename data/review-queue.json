@@ -21668,9 +21668,10 @@
     },
     {
       "title": "Color Block Run - 퍼즐",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6749222433
+        "ios": 6749222433,
+        "android": "com.griffin.colorblock.games.free.android"
       },
       "developer": "PLAY2EVER GAMES LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/d6/7c/02d67c94-c617-562f-984e-0397af65081e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
@@ -32459,13 +32460,19 @@
     },
     {
       "title": "삼국지: 제후의 전쟁",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6794261919
+        "ios": 6794261919,
+        "android": "com.r3.zhzz1.kr"
       },
       "developer": "REALITY SQUARED GAME CO., LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/d3/e5/23d3e52f-be4e-9bc5-9bc9-26f772d8c97f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "삼국지: 제후의 전쟁",
+          "appId": 6794261919
+        }
+      ],
       "addedAt": "2026-09-01T21:54:05.330Z"
     },
     {
@@ -32779,6 +32786,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d3/57/5a/d3575a0c-8e0f-819b-83f7-b2e436448304/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-05T16:33:38.433Z"
+    },
+    {
+      "title": "강원랜드 공식",
+      "status": "single",
+      "appIds": {
+        "android": "com.yzlnus.gooble"
+      },
+      "developer": "TOV WIKARE",
+      "icon": "https://play-lh.googleusercontent.com/0FrJV-jCNm_ZXn85DYVEywOS9xW3HGi-UteQLVI-r9cu2gdyV4gml3N4nJOqB5I289GEMM0u0045eOAkc6PWSw",
+      "searchResults": [],
+      "addedAt": "2026-09-05T22:34:10.110Z"
+    },
+    {
+      "title": "별빛 이야기",
+      "status": "single",
+      "appIds": {
+        "android": "com.pretty.gp.starlight.tales"
+      },
+      "developer": "Shahin Soft",
+      "icon": "https://play-lh.googleusercontent.com/cXLvyyEeGd5TcF_AxmdsId55fEyMy4sy4NULHIDViGqHjLKkuA7Xl2A6JYzv5_wi59GZ2swGdLc4QD_8bWHH",
+      "searchResults": [],
+      "addedAt": "2026-09-05T22:34:10.667Z"
+    },
+    {
+      "title": "잔망 티키타카",
+      "status": "single",
+      "appIds": {
+        "android": "com.megagiant.tikitaca.google"
+      },
+      "developer": "megagiant",
+      "icon": "https://play-lh.googleusercontent.com/LmOFEGjGNQ52z4Ao1QrQNtGjDhEnXDybqnoBF9eDl_gi3N22q9qrwzZwpsSg-vyGmzCa_Y2H4u2-bg7a1krD",
+      "searchResults": [],
+      "addedAt": "2026-09-05T22:34:10.916Z"
     }
   ],
   "approved": [

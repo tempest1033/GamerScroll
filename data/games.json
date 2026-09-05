@@ -32873,14 +32873,16 @@
     },
     "Color Block Run - 퍼즐": {
       "appIds": {
-        "ios": 6749222433
+        "ios": 6749222433,
+        "android": "com.griffin.colorblock.games.free.android"
       },
       "aliases": [],
       "developer": "PLAY2EVER GAMES LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/d6/7c/02d67c94-c617-562f-984e-0397af65081e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "color-block-run-퍼즐",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "내 집 그녀들": {
@@ -46267,14 +46269,16 @@
     },
     "삼국지: 제후의 전쟁": {
       "appIds": {
-        "ios": 6794261919
+        "ios": 6794261919,
+        "android": "com.r3.zhzz1.kr"
       },
       "aliases": [],
       "developer": "REALITY SQUARED GAME CO., LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/d3/e5/23d3e52f-be4e-9bc5-9bc9-26f772d8c97f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "삼국지-제후의-전쟁",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Galactic Merge Idle": {
@@ -46606,8 +46610,116 @@
       "platforms": [
         "ios"
       ]
+    },
+    "강원랜드 공식": {
+      "appIds": {
+        "android": "com.yzlnus.gooble"
+      },
+      "aliases": [],
+      "developer": "TOV WIKARE",
+      "icon": "https://play-lh.googleusercontent.com/0FrJV-jCNm_ZXn85DYVEywOS9xW3HGi-UteQLVI-r9cu2gdyV4gml3N4nJOqB5I289GEMM0u0045eOAkc6PWSw",
+      "slug": "강원랜드-공식",
+      "platforms": [
+        "android"
+      ]
+    },
+    "별빛 이야기": {
+      "appIds": {
+        "android": "com.pretty.gp.starlight.tales"
+      },
+      "aliases": [],
+      "developer": "Shahin Soft",
+      "icon": "https://play-lh.googleusercontent.com/cXLvyyEeGd5TcF_AxmdsId55fEyMy4sy4NULHIDViGqHjLKkuA7Xl2A6JYzv5_wi59GZ2swGdLc4QD_8bWHH",
+      "slug": "별빛-이야기",
+      "platforms": [
+        "android"
+      ]
+    },
+    "잔망 티키타카": {
+      "appIds": {
+        "android": "com.megagiant.tikitaca.google"
+      },
+      "aliases": [],
+      "developer": "megagiant",
+      "icon": "https://play-lh.googleusercontent.com/LmOFEGjGNQ52z4Ao1QrQNtGjDhEnXDybqnoBF9eDl_gi3N22q9qrwzZwpsSg-vyGmzCa_Y2H4u2-bg7a1krD",
+      "slug": "잔망-티키타카",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Hidden Western Top-Down 3D": {
+      "appIds": {
+        "steam": "2703200"
+      },
+      "aliases": [],
+      "developer": "Top-Down Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2703200/capsule_231x87.jpg?t=1701979264",
+      "slug": "hidden-western-top-down-3d",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Scream or Die": {
+      "appIds": {
+        "steam": "2700050"
+      },
+      "aliases": [],
+      "developer": "Hede",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2700050/capsule_231x87.jpg?t=1702154810",
+      "slug": "scream-or-die",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Hidden World 10 Top-Down 3D": {
+      "appIds": {
+        "steam": "2703190"
+      },
+      "aliases": [],
+      "developer": "Top-Down Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2703190/capsule_231x87.jpg?t=1701986855",
+      "slug": "hidden-world-10-top-down-3d",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "The Bridge Curse 2: The Extrication": {
+      "appIds": {
+        "steam": "2331330"
+      },
+      "aliases": [],
+      "developer": "SOFTSTAR ENTERTAINMENT",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2331330/capsule_231x87.jpg?t=1746430270",
+      "slug": "the-bridge-curse-2-the-extrication",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Call of Duty®: Black Ops 6": {
+      "appIds": {
+        "steam": "4384550"
+      },
+      "aliases": [],
+      "developer": "Treyarch",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4384550/f65d6195189112684daed47b0811dc68382f0132/capsule_231x87.jpg?t=1783699904",
+      "slug": "call-of-duty-black-ops-6",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Tales of the Shire: A The Lord of The Rings™ Game": {
+      "appIds": {
+        "steam": "2016460"
+      },
+      "aliases": [],
+      "developer": "Wētā Workshop",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2016460/capsule_231x87.jpg?t=1769187824",
+      "slug": "tales-of-the-shire-a-the-lord-of-the-rings-game",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-06",
-  "totalGames": 3565
+  "totalGames": 3574
 }
