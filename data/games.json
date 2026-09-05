@@ -46552,8 +46552,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Love Gallery:Triple Match": {
+      "appIds": {
+        "android": "com.lovergallery.triple.saeqo3.com"
+      },
+      "aliases": [],
+      "developer": "luisi",
+      "icon": "https://play-lh.googleusercontent.com/P8agHjKmcRjinmHkAVvg_Sgmmsi0PjGNY1W5LZo3YqY_TFEiJZmKQMfMZCvICZ6ofYJ7R6CuY70UA8uKRH-ptg",
+      "slug": "love-gallerytriple-match",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-05",
-  "totalGames": 3561
+  "totalGames": 3562
 }

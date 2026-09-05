@@ -1,31 +1,37 @@
 {
-  "updatedAt": "2026-09-04T00:16:26.987Z",
+  "updatedAt": "2026-09-05T02:22:28.979Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 32,
+      "views": 40,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-july-2026-kr",
+      "views": 21,
+      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 20,
+      "views": 19,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-july-2026-kr",
-      "views": 16,
-      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "zeus-dual-market-revenue-no1",
-      "views": 11,
+      "views": 12,
       "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
+    },
+    {
+      "type": "issue",
+      "slug": "dlss-5-leak-backlash",
+      "views": 8,
+      "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
       "type": "issue",
@@ -41,19 +47,6 @@
     },
     {
       "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 5,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 5,
-      "path": "/wiki/knowledge/pd-vs-director/"
-    },
-    {
-      "type": "hotpick",
       "slug": "agile-jira-confluence-game-dev",
       "views": 4,
       "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
@@ -65,22 +58,35 @@
       "path": "/magazine/insight/2026-game-trends/"
     },
     {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 4,
+      "path": "/wiki/knowledge/pd-vs-director/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "2d-animation-tech",
+      "views": 3,
+      "path": "/magazine/hotpick/2d-animation-tech/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 3,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
+      "views": 3,
+      "path": "/magazine/insight/lineage-like-market-revival/"
+    },
+    {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 4,
+      "views": 3,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "issue",
-      "slug": "dlss-5-leak-backlash",
-      "views": 4,
-      "path": "/magazine/issue/dlss-5-leak-backlash/"
-    },
-    {
-      "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 4,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
     },
     {
       "type": "issue",
@@ -89,29 +95,10 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 3,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "2d-animation-tech",
-      "views": 2,
-      "path": "/magazine/hotpick/2d-animation-tech/"
-    },
-    {
       "type": "hotpick",
       "slug": "gantt-chart",
       "views": 2,
       "path": "/magazine/hotpick/gantt-chart/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-market-revival",
-      "views": 2,
-      "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
       "type": "issue",
@@ -127,6 +114,12 @@
     },
     {
       "type": "issue",
+      "slug": "lineage-like-genre-decline-paradigm-shift",
+      "views": 2,
+      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
+    },
+    {
+      "type": "issue",
       "slug": "silksong-sea-of-sorrow",
       "views": 2,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
@@ -138,11 +131,16 @@
       "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "app-revenue-ranking-algorithm",
-      "category": "business",
+      "type": "ranking",
+      "slug": "mobile-july-2026-kr",
       "views": 2,
-      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+      "path": "/magazine/ranking/mobile-july-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-august-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "wiki",
@@ -171,10 +169,10 @@
       "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
     },
     {
-      "type": "hotpick",
-      "slug": "switch-2-buying-guide-2026",
+      "type": "insight",
+      "slug": "cookierun-crumble-performance",
       "views": 1,
-      "path": "/magazine/hotpick/switch-2-buying-guide-2026/"
+      "path": "/magazine/insight/cookierun-crumble-performance/"
     },
     {
       "type": "issue",
@@ -220,12 +218,6 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-gpu-launch-halt-ai-priority",
-      "views": 1,
-      "path": "/magazine/issue/nvidia-gpu-launch-halt-ai-priority/"
-    },
-    {
-      "type": "issue",
       "slug": "sol-enchant-dual-market-no1-launch",
       "views": 1,
       "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
@@ -262,34 +254,15 @@
     },
     {
       "type": "ranking",
-      "slug": "mobile-july-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-july-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-june-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-june-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "game-ip-licensing",
-      "category": "business",
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
       "views": 1,
-      "path": "/wiki/business/game-ip-licensing"
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
       "type": "wiki",
@@ -307,13 +280,6 @@
     },
     {
       "type": "wiki",
-      "slug": "black-and-white-demis-hassabis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/black-and-white-demis-hassabis/"
-    },
-    {
-      "type": "wiki",
       "slug": "pillar-of-fire-cresents",
       "category": "history",
       "views": 1,
@@ -325,6 +291,20 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "app-store-review-thursday-update",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/app-store-review-thursday-update/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "wiki",

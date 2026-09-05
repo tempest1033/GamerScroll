@@ -32699,6 +32699,22 @@
         }
       ],
       "addedAt": "2026-09-04T23:51:29.118Z"
+    },
+    {
+      "title": "Love Gallery:Triple Match",
+      "status": "single",
+      "appIds": {
+        "android": "com.lovergallery.triple.saeqo3.com"
+      },
+      "developer": "luisi",
+      "icon": "https://play-lh.googleusercontent.com/P8agHjKmcRjinmHkAVvg_Sgmmsi0PjGNY1W5LZo3YqY_TFEiJZmKQMfMZCvICZ6ofYJ7R6CuY70UA8uKRH-ptg",
+      "searchResults": [
+        {
+          "title": "Google Gemini",
+          "appId": 6477489729
+        }
+      ],
+      "addedAt": "2026-09-05T02:22:47.739Z"
     }
   ],
   "approved": [
