@@ -46341,14 +46341,16 @@
     },
     "소드 앤 프론티아": {
       "appIds": {
-        "ios": 6778414368
+        "ios": "6778414368",
+        "android": "com.vfive.gpkr"
       },
       "aliases": [],
       "developer": "ONEHOUSE LAND INVESTMENT AND SERVICES COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/5a/48/675a48e2-7ddb-6a06-f06d-fc0823115bfc/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "소드-앤-프론티아",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "BOMBANANA!": {
