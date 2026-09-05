@@ -46592,8 +46592,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Pixel Beads": {
+      "appIds": {
+        "ios": 6768570813
+      },
+      "aliases": [],
+      "developer": "Kiwi Fun HK Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d3/57/5a/d3575a0c-8e0f-819b-83f7-b2e436448304/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "pixel-beads",
+      "platforms": [
+        "ios"
+      ]
     }
   },
-  "lastUpdated": "2026-09-05",
-  "totalGames": 3564
+  "lastUpdated": "2026-09-06",
+  "totalGames": 3565
 }
