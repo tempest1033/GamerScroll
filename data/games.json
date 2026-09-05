@@ -46485,14 +46485,16 @@
     },
     "소년가행: 강호의 시작": {
       "appIds": {
-        "ios": 6768501839
+        "ios": 6768501839,
+        "android": "com.dreamplay.greatjt.google"
       },
       "aliases": [],
       "developer": "Dreamplay Games Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/c0/5a/7cc05a15-086e-f7df-e376-4e82244391c5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "소년가행-강호의-시작",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Dungeon Settlers": {
@@ -46578,8 +46580,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Billionaire's Wife: Save Fun": {
+      "appIds": {
+        "ios": 6742041282
+      },
+      "aliases": [],
+      "developer": "Son Huynh The",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/4a/0d/f14a0d14-5f78-e55b-d58f-78b1e236df77/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "billionaires-wife-save-fun",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-05",
-  "totalGames": 3563
+  "totalGames": 3564
 }
