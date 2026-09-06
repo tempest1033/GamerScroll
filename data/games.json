@@ -46766,8 +46766,32 @@
       "platforms": [
         "ios"
       ]
+    },
+    "얼음땡 온라인": {
+      "appIds": {
+        "ios": "1336426552"
+      },
+      "aliases": [],
+      "developer": "DOOGI HONG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/88/e7/5e/88e75e2e-d936-e6c3-c9d5-76204b4248b1/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "얼음땡-온라인",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Chants of Sennaar": {
+      "appIds": {
+        "steam": "1931770"
+      },
+      "aliases": [],
+      "developer": "Rundisc",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1931770/capsule_231x87.jpg?t=1774006124",
+      "slug": "chants-of-sennaar",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-06",
-  "totalGames": 3578
+  "lastUpdated": "2026-09-07",
+  "totalGames": 3580
 }
