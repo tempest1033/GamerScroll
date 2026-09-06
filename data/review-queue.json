@@ -32887,6 +32887,22 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/88/e7/5e/88e75e2e-d936-e6c3-c9d5-76204b4248b1/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-06T16:23:57.833Z"
+    },
+    {
+      "title": "Bulldozer Master: Crush & Mine",
+      "status": "single",
+      "appIds": {
+        "android": "io.supercent.bulldozermasters"
+      },
+      "developer": "Supercent, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/0_tojNkzrPXoidT8qirVIN977fLJFcACnZVxzNs0ddgJsVYBaSfupmjBv_EIt2JfYOa-RG0eNqooWnGEcaHk0A",
+      "searchResults": [
+        {
+          "title": "Bulldozer Master: 부수고 채굴하기",
+          "appId": 6747710694
+        }
+      ],
+      "addedAt": "2026-09-06T18:29:45.583Z"
     }
   ],
   "approved": [

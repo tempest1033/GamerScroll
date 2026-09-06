@@ -46790,8 +46790,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Bulldozer Master: Crush & Mine": {
+      "appIds": {
+        "android": "io.supercent.bulldozermasters"
+      },
+      "aliases": [],
+      "developer": "Supercent, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/0_tojNkzrPXoidT8qirVIN977fLJFcACnZVxzNs0ddgJsVYBaSfupmjBv_EIt2JfYOa-RG0eNqooWnGEcaHk0A",
+      "slug": "bulldozer-master-crush-mine",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-07",
-  "totalGames": 3580
+  "totalGames": 3581
 }
