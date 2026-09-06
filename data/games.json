@@ -46730,8 +46730,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Brain Trap - Tricky Puzzle": {
+      "appIds": {
+        "ios": 6757176533
+      },
+      "aliases": [],
+      "developer": "COMMANDOO JOINT STOCK COMPANY",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d6/ee/78/d6ee7884-6006-7f75-d704-27434742f27f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "brain-trap-tricky-puzzle",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-06",
-  "totalGames": 3575
+  "totalGames": 3576
 }
