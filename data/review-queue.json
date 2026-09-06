@@ -32819,6 +32819,30 @@
       "icon": "https://play-lh.googleusercontent.com/LmOFEGjGNQ52z4Ao1QrQNtGjDhEnXDybqnoBF9eDl_gi3N22q9qrwzZwpsSg-vyGmzCa_Y2H4u2-bg7a1krD",
       "searchResults": [],
       "addedAt": "2026-09-05T22:34:10.916Z"
+    },
+    {
+      "title": "Fish Sort Puzzle: 퍼즐 게임",
+      "status": "single",
+      "appIds": {
+        "android": "triple.sorting.bubble.fish.match"
+      },
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/33uObVFJ0-1md9XkQSTMHnh-E91drVuMj6cODaGcKuag07lwFVfWxCg0Ef-gKfaY9iKFrCOdaw5GJa0-6JV7FQ",
+      "searchResults": [
+        {
+          "title": "Water Sort Puzzle",
+          "appId": 1514542157
+        },
+        {
+          "title": "Ball Sort Puzzle",
+          "appId": 1494648714
+        },
+        {
+          "title": "직소 퍼즐: 퍼즐 게임",
+          "appId": 1324604053
+        }
+      ],
+      "addedAt": "2026-09-06T00:28:53.848Z"
     }
   ],
   "approved": [

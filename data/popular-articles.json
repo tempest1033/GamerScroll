@@ -1,12 +1,19 @@
 {
-  "updatedAt": "2026-09-05T02:22:28.979Z",
+  "updatedAt": "2026-09-06T00:28:38.551Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 40,
+      "views": 41,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "gukjeon-hanwoori",
+      "category": "knowledge",
+      "views": 23,
+      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
@@ -15,22 +22,9 @@
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 19,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
-    },
-    {
-      "type": "issue",
-      "slug": "zeus-dual-market-revenue-no1",
-      "views": 12,
-      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
-    },
-    {
       "type": "issue",
       "slug": "dlss-5-leak-backlash",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
@@ -40,10 +34,23 @@
       "path": "/magazine/issue/fable-astra-september-launch/"
     },
     {
+      "type": "issue",
+      "slug": "zeus-dual-market-revenue-no1",
+      "views": 6,
+      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
+    },
+    {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 6,
+      "views": 5,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
+      "type": "wiki",
+      "slug": "excel-formulas-for-game-balance",
+      "category": "knowledge",
+      "views": 5,
+      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
       "type": "hotpick",
@@ -56,6 +63,31 @@
       "slug": "2026-game-trends",
       "views": 4,
       "path": "/magazine/insight/2026-game-trends/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
+      "views": 4,
+      "path": "/magazine/insight/lineage-like-market-revival/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 4,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-august-2026-kr",
+      "views": 4,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
+    },
+    {
+      "type": "wiki",
+      "slug": "platform-fees-comparison",
+      "category": "business",
+      "views": 4,
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "wiki",
@@ -71,34 +103,35 @@
       "path": "/magazine/hotpick/2d-animation-tech/"
     },
     {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 3,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-market-revival",
-      "views": 3,
-      "path": "/magazine/insight/lineage-like-market-revival/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 3,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
       "type": "issue",
       "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 3,
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
+      "type": "wiki",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
+      "views": 3,
+      "path": "/wiki/history/heroes-of-might-and-magic/"
+    },
+    {
       "type": "hotpick",
       "slug": "gantt-chart",
       "views": 2,
       "path": "/magazine/hotpick/gantt-chart/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 2,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "nioh3-hotpick-soulslike-masterpiece",
+      "views": 2,
+      "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
     },
     {
       "type": "issue",
@@ -138,23 +171,15 @@
     },
     {
       "type": "ranking",
-      "slug": "subculture-august-2026-kr",
+      "slug": "subculture-may-2026-kr",
       "views": 2,
-      "path": "/magazine/ranking/subculture-august-2026-kr/"
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
-      "views": 2,
-      "path": "/wiki/business/platform-fees-comparison/"
-    },
-    {
-      "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
-      "views": 2,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
+      "views": 1,
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "hotpick",
@@ -164,9 +189,9 @@
     },
     {
       "type": "hotpick",
-      "slug": "nioh3-hotpick-soulslike-masterpiece",
+      "slug": "version-control-system",
       "views": 1,
-      "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
+      "path": "/magazine/hotpick/version-control-system/"
     },
     {
       "type": "insight",
@@ -188,12 +213,6 @@
     },
     {
       "type": "issue",
-      "slug": "chzzk-lck-naver-viewer-complaints",
-      "views": 1,
-      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
-    },
-    {
-      "type": "issue",
       "slug": "devil-may-cry-1-remake-rumor",
       "views": 1,
       "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
@@ -206,9 +225,21 @@
     },
     {
       "type": "issue",
+      "slug": "diablo2-resurrected-steam-launch",
+      "views": 1,
+      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
+    },
+    {
+      "type": "issue",
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
+    },
+    {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 1,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -218,21 +249,9 @@
     },
     {
       "type": "issue",
-      "slug": "sol-enchant-dual-market-no1-launch",
-      "views": 1,
-      "path": "/magazine/issue/sol-enchant-dual-market-no1-launch/"
-    },
-    {
-      "type": "issue",
       "slug": "starcraft-shooter-blizzard-nexon",
       "views": 1,
       "path": "/magazine/issue/starcraft-shooter-blizzard-nexon/"
-    },
-    {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard",
-      "views": 1,
-      "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
       "type": "issue",
@@ -259,10 +278,18 @@
       "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
+      "type": "wiki",
+      "slug": "app-revenue-ranking-algorithm",
+      "category": "business",
       "views": 1,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
+      "path": "/wiki/business/app-revenue-ranking-algorithm/"
+    },
+    {
+      "type": "wiki",
+      "slug": "game-ip-licensing",
+      "category": "business",
+      "views": 1,
+      "path": "/wiki/business/game-ip-licensing/"
     },
     {
       "type": "wiki",
@@ -280,13 +307,6 @@
     },
     {
       "type": "wiki",
-      "slug": "pillar-of-fire-cresents",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/pillar-of-fire-cresents/"
-    },
-    {
-      "type": "wiki",
       "slug": "the-war-of-genesis",
       "category": "history",
       "views": 1,
@@ -301,13 +321,6 @@
     },
     {
       "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-comparison",
       "category": "knowledge",
       "views": 1,
@@ -319,13 +332,6 @@
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-regulations/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pc-components-gaming-performance",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/pc-components-gaming-performance/"
     }
   ]
 }

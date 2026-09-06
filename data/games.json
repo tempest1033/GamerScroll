@@ -46718,8 +46718,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Fish Sort Puzzle: 퍼즐 게임": {
+      "appIds": {
+        "android": "triple.sorting.bubble.fish.match"
+      },
+      "aliases": [],
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/33uObVFJ0-1md9XkQSTMHnh-E91drVuMj6cODaGcKuag07lwFVfWxCg0Ef-gKfaY9iKFrCOdaw5GJa0-6JV7FQ",
+      "slug": "fish-sort-puzzle-퍼즐-게임",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-06",
-  "totalGames": 3574
+  "totalGames": 3575
 }
