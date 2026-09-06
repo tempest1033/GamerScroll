@@ -46742,8 +46742,32 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Sand Fill: Block Puzzle": {
+      "appIds": {
+        "ios": 6797907221
+      },
+      "aliases": [],
+      "developer": "Stormborn Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/28/92/85/289285b0-1b63-2f1a-1185-3d77b3aafe42/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "sand-fill-block-puzzle",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Fish Sort Puzzle: 물고기 정렬 거품 게임": {
+      "appIds": {
+        "ios": 6771681639
+      },
+      "aliases": [],
+      "developer": "Shycheese",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/4e/e2/074ee263-7b18-cf50-c2a6-b94e1a3b4faf/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "fish-sort-puzzle-물고기-정렬-거품-게임",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-06",
-  "totalGames": 3576
+  "totalGames": 3578
 }
