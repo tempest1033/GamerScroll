@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/issue/witcher3-songs-of-the-past-announced/thumbnail.webp">
+		  <title>더 위쳐 3 &#39;과거의 노래&#39; 발표... 게롤트의 마지막 사냥 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="CD 프로젝트 레드가 &#39;더 위쳐 3: 와일드 헌트&#39;의 신규 확장팩 &#39;과거의 노래&#39;를 발표했다. 주인공 게롤트의 마지막 여정을 담은 이번 신작은 &#39;블러드 앤 와인&#39;급 규모로 개발돼 오는 2027년 플레이스테이션 5와 엑스박스 시리즈 X|S, PC로 출시될 예정이다.">
+  <meta name="keywords" content="위쳐 3 확장팩, 과거의 노래, 풀스 시어리, 위쳐 4, CD 프로젝트 레드">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/magazine/issue/witcher3-songs-of-the-past-announced/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "더 위쳐 3 '과거의 노래' 발표... 게롤트의 마지막 사냥",
+    "description": "CD 프로젝트 레드가 '더 위쳐 3: 와일드 헌트'의 신규 확장팩 '과거의 노래'를 발표했다. 주인공 게롤트의 마지막 여정을 담은 이번 신작은 '블러드 앤 와인'급 규모로 개발돼 오는 2027년 플레이스테이션 5와 엑스박스 시리즈 X|S, PC로 출시될 예정이다.",
+    "datePublished": "2026-05-29T16:00:00+09:00",
+    "dateModified": "2026-05-29T16:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/magazine/issue/witcher3-songs-of-the-past-announced/"
+    },
+    "image": "https://gamerscroll.com/assets/images/issue/witcher3-songs-of-the-past-announced/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "브리핑",
+        "item": "https://gamerscroll.com/magazine/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "더 위쳐 3 '과거의 노래' 발표... 게롤트의 마지막 사냥",
+        "item": "https://gamerscroll.com/magazine/issue/witcher3-songs-of-the-past-announced/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="더 위쳐 3 &#39;과거의 노래&#39; 발표... 게롤트의 마지막 사냥">
+  <meta property="og:description" content="CD 프로젝트 레드가 &#39;더 위쳐 3: 와일드 헌트&#39;의 신규 확장팩 &#39;과거의 노래&#39;를 발표했다. 주인공 게롤트의 마지막 여정을 담은 이번 신작은 &#39;블러드 앤 와인&#39;급 규모로 개발돼 오는 2027년 플레이스테이션 5와 엑스박스 시리즈 X|S, PC로 출시될 예정이다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/issue/witcher3-songs-of-the-past-announced/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="더 위쳐 3 &#39;과거의 노래&#39; 발표... 게롤트의 마지막 사냥">
+  <meta property="og:url" content="https://gamerscroll.com/magazine/issue/witcher3-songs-of-the-past-announced/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-05-29T16:00:00+09:00">
+  <meta property="article:modified_time" content="2026-05-29T16:00:00+09:00">
+  <meta property="article:section" content="이슈">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="위쳐 3 확장팩">
+  <meta property="article:tag" content="과거의 노래">
+  <meta property="article:tag" content="풀스 시어리">
+  <meta property="article:tag" content="위쳐 4">
+  <meta property="article:tag" content="CD 프로젝트 레드">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="더 위쳐 3 &#39;과거의 노래&#39; 발표... 게롤트의 마지막 사냥">
+  <meta name="twitter:description" content="CD 프로젝트 레드가 &#39;더 위쳐 3: 와일드 헌트&#39;의 신규 확장팩 &#39;과거의 노래&#39;를 발표했다. 주인공 게롤트의 마지막 여정을 담은 이번 신작은 &#39;블러드 앤 와인&#39;급 규모로 개발돼 오는 2027년 플레이스테이션 5와 엑스박스 시리즈 X|S, PC로 출시될 예정이다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/issue/witcher3-songs-of-the-past-announced/thumbnail.webp">
+  <meta name="twitter:image:alt" content="더 위쳐 3 &#39;과거의 노래&#39; 발표... 게롤트의 마지막 사냥">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-report.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-report.a96f7e4c.css"></noscript>
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-magazine">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item active" href="/magazine/">매거진</a>
+      <a class="nav-item" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=0;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="issue">
+
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-1-card">
+  <style>
+    .ad-home-pc-1-card, .ad-home-pc-1 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-1-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-1 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-1"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-2-card">
+  <style>
+    .ad-home-mo-2-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-2-card > .ad-home-mo-2 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-2-card, .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-2"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">더 위쳐 3 '과거의 노래' 발표... 게롤트의 마지막 사냥</h1>
+                <div class="blog-meta">
+                  <span class="blog-editor">Editor J</span>
+                  <time class="blog-date">2026년 5월 29일</time>
+                </div>
+              </header>
+              
+                <figure class="blog-figure">
+                  <img class="blog-image" src="/assets/images/issue/witcher3-songs-of-the-past-announced/thumbnail.webp" alt="더 위쳐 3 '과거의 노래' 발표... 게롤트의 마지막 사냥 대표 이미지" loading="eager" fetchpriority="high">
+                </figure>
+              
+              <p class="blog-summary">CD 프로젝트 레드가 '더 위쳐 3: 와일드 헌트'의 신규 확장팩 '과거의 노래'를 발표했다. 주인공 게롤트의 마지막 여정을 담은 이번 신작은 '블러드 앤 와인'급 규모로 개발돼 오는 2027년 플레이스테이션 5와 엑스박스 시리즈 X|S, PC로 출시될 예정이다.</p>
+              <div class="blog-content">
+                <p class="blog-paragraph">CD 프로젝트 레드가 5월 27일 '더 위쳐 3'의 세 번째 확장팩 《The Witcher 3: Wild Hunt – Songs of the Past》를 공식 발표했다. 한국어로는 '과거의 노래'로 번역된 이번 확장팩은 오는 2027년 플레이스테이션 5(PS5)와 엑스박스 시리즈 X|S, PC 플랫폼으로 정식 출시된다.</p><p class="blog-paragraph">2015년 원작 출시 이후 10년이 훌쩍 지난 시점에서 이뤄진 깜짝 발표다. 개발은 CD 프로젝트 레드가 폴란드 개발사 풀스 시어리(Fool's Theory)와 공동으로 맡으며, 상세 게임 정보는 2026년 늦여름에 베일을 벗을 예정이다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="8021405606"></ins>
+</div><h2 class="blog-heading">10년 만에 베일 벗은 위쳐 3 확장팩, 규모는 '블러드 앤 와인'급</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/witcher3-songs-of-the-past-announced/01.webp" alt="더 위쳐 3 와일드 헌트 게롤트 키 아트 CD 프로젝트 레드" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">10년간 사랑받아 온 '더 위쳐 3: 와일드 헌트' 키 아트</figcaption>
+            </figure>
+          <p class="blog-paragraph">상세 정보 공개는 내년이지만, 발표와 동시에 드러난 윤곽만으로도 기대감은 뜨겁다. <a href="https://www.gamesradar.com/games/the-witcher/the-witcher-3-songs-of-the-past-is-similar-in-scope-to-blood-and-wine-and-will-be-a-trip-down-memory-lane-before-ciri-takes-over-in-the-witcher-4/" target="_blank" rel="noopener">게임스레이더</a>를 비롯한 주요 외신에 따르면, 이번 확장팩의 개발 규모는 지난 2016년 출시된 '블러드 앤 와인'에 달할 것으로 전망된다.</p><p class="blog-paragraph">'블러드 앤 와인'은 단독 패키지 게임 한 편에 버금가는 30시간 안팎의 플레이 타임을 자랑했던 대형 확장팩이다. 이번에 발표된 '과거의 노래' 역시 단순한 콘텐츠 추가 수준을 넘어, 하나의 완성도 높은 서사를 선보일 것으로 보인다.</p><p class="blog-paragraph">'더 위쳐 3'는 출시 이후 누적 판매량 6,000만 장을 돌파하고 통산 250개가 넘는 올해의 게임 상(GOTY)을 휩쓴 역사적인 흥행작이다. 출시 후 10년이 지난 지금까지도 대형 확장팩을 추진할 수 있는 배경에는 이 같은 탄탄한 흥행 저력이 자리 잡고 있다.</p><h2 class="blog-heading">위쳐 3 베테랑이 모인 풀스 시어리 공동 개발</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/witcher3-songs-of-the-past-announced/02.webp" alt="폴란드 스튜디오가 제작 중인 초대작 리메이크 티저 일러스트" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">풀스 시어리가 개발 중인 초대 '더 위쳐' 리메이크 티저 아트</figcaption>
+            </figure>
+          <p class="blog-paragraph">이 같은 흥행 신화를 재현하기 위해 CD 프로젝트 레드는 든든한 파트너와 손을 잡았다. 이번 프로젝트는 폴란드의 유망 개발사 풀스 시어리(Fool's Theory)와의 공동 개발 체제로 진행된다.</p><p class="blog-paragraph">풀스 시어리는 과거 '더 위쳐 3' 제작에 직접 참여했던 개발진이 주축이 된 스튜디오다. 현재 언리얼 엔진 5를 활용해 초대 '더 위쳐'의 공식 리메이크 작업을 수행하고 있을 만큼 뛰어난 기술력을 인정받고 있다.</p><p class="blog-paragraph">위쳐 IP의 결을 가장 잘 이해하는 파트너가 본가 개발진과 긴밀히 협력하는 셈이다. 차기작 개발에 전력을 다하고 있는 CD 프로젝트 레드 입장에서도 개발 역량을 분산시키지 않으면서 완성도를 확보할 수 있는 현실적인 선택이다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="9566421564"></ins>
+</div><h2 class="blog-heading">게롤트의 시대를 닫고, 시리에게 넘기는 바통</h2><p class="blog-paragraph">CD 프로젝트 레드가 준비 중인 차기작 '더 위쳐 4'는 게롤트가 아닌 그의 양녀 시리를 전면에 내세운다. 현재 언리얼 엔진 5를 기반으로 본격적인 제작이 진행 중이다.</p><p class="blog-paragraph">이에 따라 팬들은 이번 '과거의 노래'를 게롤트가 장식하는 마지막 헌사로 해석하고 있다. 정보기술(IT) 전문 매체 테크레이더 역시 이번 확장팩이 차기작으로 세대교체가 이뤄지기 전, 게롤트의 마지막 모험이 될 것이라는 관측을 내놓았다.</p><p class="blog-paragraph">명작 RPG가 다양한 플랫폼 이식과 후속 콘텐츠를 통해 생명력을 연장하는 것은 업계의 거스를 수 없는 흐름이다. 대표적으로 <a href="/magazine/hotpick/ff7-remake-switch2-release/">파이널 판타지 7 리메이크의 닌텐도 스위치 2 이식</a> 소식처럼, 전 세계 팬덤의 지지를 받은 강력한 IP는 끊임없이 새로운 모습으로 진화한다.</p><p class="blog-paragraph">게롤트의 여정이 어떤 결말로 막을 내릴지는 2026년 늦여름 공개될 상세 정보에서 가려질 전망이다. 다만 10년 전 모두가 완결되었다고 믿었던 게롤트의 사냥이 이제 단 한 번 더 유저들을 기다리고 있다는 사실만큼은 확실하다.</p>
+              </div>
+              
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        
+          <a href="/magazine/hotpick/ff7-remake-switch2-release/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/hotpick/ff7-remake-switch2-release/thumbnail.webp" alt="파판7 리메이크, 스위치2로 완벽 이식… 호평 잇달아" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">파판7 리메이크, 스위치2로 완벽 이식… 호평 잇달아</span></span>
+          </a>
+          <a href="/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/hotpick/nioh3-hotpick-soulslike-masterpiece/thumbnail.webp" alt="인왕3, 코에이 테크모 역대 최고 동접 달성…호평 잇달아" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">인왕3, 코에이 테크모 역대 최고 동접 달성…호평 잇달아</span></span>
+          </a>
+          <a href="/magazine/issue/crimson-desert-trilogy-trailer-2026/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/crimson-desert-trilogy-trailer-2026/thumbnail.webp" alt="붉은사막, 출시 두 달 앞두고 3부작 트레일러 시리즈 공개" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">붉은사막, 출시 두 달 앞두고 3부작 트레일러 시리즈 공개</span></span>
+          </a>
+          <a href="/magazine/issue/gta-6-launch-confirmed-take-two-fy26-earnings/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/gta-6-launch-confirmed-take-two-fy26-earnings/thumbnail.webp" alt="GTA 6 11월 19일 출시 확정…테이크투 연기설 일축" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">GTA 6 11월 19일 출시 확정…테이크투 연기설 일축</span></span>
+          </a>
+      </div>
+    </div>
+  
+              
+    <div class="blog-related-games">
+      <div class="blog-related-title">관련 게임</div>
+      <div class="blog-related-grid">
+        
+          <a href="/games/the-witcher-3-wild-hunt/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ad9240e088f953a84aee814034c50a6a92bf4516/header.jpg?t=1765462356" alt="The Witcher 3: Wild Hunt" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">The Witcher 3: Wild Hunt</span>
+          </a>
+        
+      </div>
+    </div>
+  
+              
+    <div class="blog-sources">
+      <div class="blog-sources-title">정보 출처</div>
+      <ul class="blog-sources-list">
+        
+          <li><a href="https://press.cdprojektred.com/en/news/1822/the-witcher-3-wild-hunt-songs-of-the-past-announced" target="_blank" rel="noopener">CD PROJEKT RED - The Witcher 3: Wild Hunt – Songs of the Past announced</a></li>
+        
+          <li><a href="https://www.cdprojekt.com/en/media/news/the-witcher-3-wild-hunt-songs-of-the-past-announced/" target="_blank" rel="noopener">CD PROJEKT - The Witcher 3: Wild Hunt – Songs of the Past announced</a></li>
+        
+          <li><a href="https://www.gamesradar.com/games/the-witcher/the-witcher-3-songs-of-the-past-is-similar-in-scope-to-blood-and-wine-and-will-be-a-trip-down-memory-lane-before-ciri-takes-over-in-the-witcher-4/" target="_blank" rel="noopener">GamesRadar+ - The Witcher 3: Songs of the Past is similar in scope to Blood and Wine</a></li>
+        
+          <li><a href="https://www.techradar.com/gaming/the-dlc-is-clearly-having-us-play-as-geralt-not-ciri-the-witcher-3-fans-speculate-about-the-new-songs-of-the-past-expansion-as-some-hope-for-a-witcher-4-tie-in" target="_blank" rel="noopener">TechRadar - The Witcher 3 fans speculate about Songs of the Past expansion</a></li>
+        
+          <li><a href="https://www.cdprojekt.com/en/media/news/the-witcher-iv-revealed-at-the-game-awards/" target="_blank" rel="noopener">CD PROJEKT - The Witcher IV revealed at The Game Awards</a></li>
+        
+      </ul>
+    </div>
+  
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/magazine/issue/steam-deck-oled-price-hike-may-2026/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      <a href="/magazine/issue/intel-arc-g3-handheld-gaming/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

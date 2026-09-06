@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding: 0 16px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+		  <title>클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="OpenAI의 국방부 계약이 촉발한 #CancelChatGPT 운동으로 클로드가 앱스토어 1위에 올랐지만, 폭증한 수요를 감당하지 못해 3월 2일 전 세계 대규모 접속 장애가 발생했다. 윤리적 선택이 가져온 성공의 역설을 분석한다.">
+  <meta name="keywords" content="클로드, 접속 장애, 엔트로픽, OpenAI, 국방부, 펜타곤, CancelChatGPT, 앱스토어 1위, 수요 폭증, 서비스 마비, 다리오 아모데이, 2026">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/tech/ai/claude-outage-demand-surge-pentagon/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비",
+    "description": "OpenAI의 국방부 계약이 촉발한 #CancelChatGPT 운동으로 클로드가 앱스토어 1위에 올랐지만, 폭증한 수요를 감당하지 못해 3월 2일 전 세계 대규모 접속 장애가 발생했다. 윤리적 선택이 가져온 성공의 역설을 분석한다.",
+    "datePublished": "2026-03-04T13:30:00+09:00",
+    
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/tech/ai/claude-outage-demand-surge-pentagon/"
+    },
+    "image": "https://gamerscroll.com/assets/images/tech/ai/claude-outage-demand-surge-pentagon/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "테크",
+        "item": "https://gamerscroll.com/tech/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI",
+        "item": "https://gamerscroll.com/tech/ai/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비",
+        "item": "https://gamerscroll.com/tech/ai/claude-outage-demand-surge-pentagon/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비">
+  <meta property="og:description" content="OpenAI의 국방부 계약이 촉발한 #CancelChatGPT 운동으로 클로드가 앱스토어 1위에 올랐지만, 폭증한 수요를 감당하지 못해 3월 2일 전 세계 대규모 접속 장애가 발생했다. 윤리적 선택이 가져온 성공의 역설을 분석한다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/tech/ai/claude-outage-demand-surge-pentagon/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비">
+  <meta property="og:url" content="https://gamerscroll.com/tech/ai/claude-outage-demand-surge-pentagon/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-03-04T13:30:00+09:00">
+  <meta property="article:section" content="AI">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="클로드">
+  <meta property="article:tag" content="접속 장애">
+  <meta property="article:tag" content="엔트로픽">
+  <meta property="article:tag" content="OpenAI">
+  <meta property="article:tag" content="국방부">
+  <meta property="article:tag" content="펜타곤">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비">
+  <meta name="twitter:description" content="OpenAI의 국방부 계약이 촉발한 #CancelChatGPT 운동으로 클로드가 앱스토어 1위에 올랐지만, 폭증한 수요를 감당하지 못해 3월 2일 전 세계 대규모 접속 장애가 발생했다. 윤리적 선택이 가져온 성공의 역설을 분석한다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/tech/ai/claude-outage-demand-surge-pentagon/thumbnail.webp">
+  <meta name="twitter:image:alt" content="클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://wsrv.nl">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
+	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-tech">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <header class="header">
+	    <div class="header-inner">
+	      <div class="header-title">
+	        <a href="/">
+	          <span class="visually-hidden">게이머스크롤</span>
+	          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	            <defs>
+	              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+	                <stop offset="0%" stop-color="#4f46e5" />
+	                <stop offset="100%" stop-color="#06b6d4" />
+	              </linearGradient>
+	            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <!-- 왼쪽 안테나 -->
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <!-- 오른쪽 안테나 -->
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        매거진
+      </a>
+      <a class="nav-item" href="/wiki/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        게임 위키
+      </a>
+      <a class="nav-item active" href="/tech/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        테크
+      </a>
+      <a class="nav-item" href="/games/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        게임 DB
+      </a>
+      <a class="nav-item" href="/rankings/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        모바일 순위
+      </a>
+      <a class="nav-item" href="/steam/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12h.01M18 12h.01"/><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12"/></svg>
+        스팀 순위
+      </a>
+      <a class="nav-item" href="/upcoming/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        출시 게임
+      </a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=2;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=1c887d57"></script>
+    
+    <section class="section active" id="tech-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-223-card">
+  <style>
+    .ad-home-pc-223-card, .ad-home-pc-223 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-223-card { display:flex !important; width:100%; max-width:100%; min-height:90px; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-223 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-223"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="false"></ins>
+  <script>(function(){var s=document.currentScript;var i=s&&s.previousElementSibling;if(!i||!i.classList||!i.classList.contains('adsbygoogle'))return;if(window.getComputedStyle&&getComputedStyle(i).display==='none')return;if(i.getAttribute('data-gs-ad-pushed')==='1')return;i.setAttribute('data-gs-ad-pushed','1');try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){i.removeAttribute('data-gs-ad-pushed');}})();</script>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-224-card">
+  <style>
+    .ad-home-mo-224-card { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-224, .ad-home-mo-224-card > .ad-home-mo-224, .ad-home-mo-224-card > .ad-home-mo-224 > div, .ad-home-mo-224-card > .ad-home-mo-224 iframe { display:block !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-224-card > .ad-home-mo-224 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-224-card, .ad-home-mo-224, .ad-home-mo-224-card > .ad-home-mo-224 > div, .ad-home-mo-224-card > .ad-home-mo-224 iframe { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-224"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+  <script>(function(){var s=document.currentScript;var i=s&&s.previousElementSibling;if(!i||!i.classList||!i.classList.contains('adsbygoogle'))return;if(window.getComputedStyle&&getComputedStyle(i).display==='none')return;if(i.getAttribute('data-gs-ad-pushed')==='1')return;i.setAttribute('data-gs-ad-pushed','1');try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){i.removeAttribute('data-gs-ad-pushed');}})();</script>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">AI</span><time class="blog-date">2026년 3월 4일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/tech/ai/claude-outage-demand-surge-pentagon/thumbnail.webp" class="blog-image" alt="클로드 접속 장애: 성공의 역설이 만든 전 세계 서비스 마비" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">OpenAI의 국방부 계약이 촉발한 #CancelChatGPT 운동으로 클로드가 앱스토어 1위에 올랐지만, 폭증한 수요를 감당하지 못해 3월 2일 전 세계 대규모 접속 장애가 발생했다. 윤리적 선택이 가져온 성공의 역설을 분석한다.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">2026년 3월 2일, 엔트로픽(Anthropic)의 AI 챗봇 클로드(Claude)에 전 세계적인 대규모 접속 장애가 발생했다. claude.ai 웹사이트, 모바일 앱, Claude Code, 개발자 콘솔까지 거의 모든 서비스가 마비되었다.</p><p class="blog-paragraph">아이러니하게도, 이 장애의 원인은 실패가 아닌 성공이었다. 불과 며칠 전 OpenAI의 국방부 무기 계약에 반발한 사용자들이 대거 클로드로 이동하며 앱스토어 1위에 올랐고, 이 폭발적인 수요가 인프라의 한계를 넘어선 것이다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="openai-국방부-계약과-cancelchatgpt-운동" class="blog-heading">OpenAI 국방부 계약과 #CancelChatGPT 운동</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/tech/ai/claude-outage-demand-surge-pentagon/01.webp" alt="미국 국방부 펜타곤 건물 항공 사진 OpenAI 군사 계약 AI 무기" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">2026년 2월 워싱턴 D.C.에서 촬영된 미국 국방부(펜타곤) 항공 사진. AP Photo</figcaption>
+          </figure>
+        <p class="blog-paragraph">사건의 발단은 2월 28일, OpenAI가 미국 국방부와 공식 계약을 체결한 것이었다. AI 기술을 군사 목적에 활용하는 이 계약은 즉각적인 반발을 불러일으켰다. 소셜 미디어에서는 #CancelChatGPT 해시태그가 확산되었고, ChatGPT 삭제율은 295% 급증했다.</p><p class="blog-paragraph">같은 시기 트럼프 행정부는 엔트로픽을 자율 무기 안전장치 요구를 이유로 정부 공급망에서 배제했다. 엔트로픽이 거부당한 바로 그 안전 조건을 OpenAI가 수용한 것이었다. 이 대비는 사용자들의 분노를 더욱 증폭시켰다. 앱스토어에서 ChatGPT에 대한 1점 리뷰는 775% 폭증했고, "윤리적 AI를 원한다"는 메시지가 소비자 행동으로 이어졌다.</p><h2 id="클로드-앱스토어-1위-달성과-수요-폭증" class="blog-heading">클로드 앱스토어 1위 달성과 수요 폭증</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/tech/ai/claude-outage-demand-surge-pentagon/02.webp" alt="클로드 Claude 앱 스마트폰 엔트로픽 Anthropic 로고 앱스토어 1위 다운로드" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">스마트폰에 표시된 클로드 앱과 엔트로픽 로고. Tom's Guide</figcaption>
+          </figure>
+        <p class="blog-paragraph">ChatGPT를 떠난 사용자들의 행선지는 압도적으로 클로드였다. 엔트로픽의 클로드 앱은 미국과 독일 등 여러 국가에서 앱 다운로드 1위를 달성했다. Axios에 따르면, 무료 사용자 수는 60% 이상 증가했으며 일일 신규 가입자 수는 매일 역대 최고 기록을 경신했다.</p><p class="blog-paragraph">유료 구독자 역시 2배 이상 늘었다. 엔트로픽 입장에서는 국방부의 '징벌'이 역사상 가장 효과적인 마케팅이 된 셈이었다. 그러나 이 급격한 성장에는 대가가 따랐다. 단기간에 몰린 막대한 트래픽은 엔트로픽의 인프라가 감당할 수 있는 수준을 빠르게 넘어서고 있었다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="전-세계-서비스-장애-발생" class="blog-heading">전 세계 서비스 장애 발생</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/tech/ai/claude-outage-demand-surge-pentagon/03.webp" alt="클로드 Claude 서비스 장애 접속 불가 오류 화면 outage 2026년 3월" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">클로드 서비스 장애를 보여주는 화면. TrendingTopics</figcaption>
+          </figure>
+        <p class="blog-paragraph">3월 2일 UTC 기준 오전 11시 30분경, 클로드 서비스 전반에 걸친 접속 장애가 시작되었다. Downdetector에는 2,000건 이상의 장애 보고가 접수되었다. claude.ai 웹사이트, iOS 및 안드로이드 앱, Claude Code, 개발자 콘솔 등 사용자 대면 서비스가 전면 마비되었다.</p><p class="blog-paragraph">다만 API 서비스는 정상 운영을 유지했다. 엔트로픽은 장애 원인을 인증 인프라 문제로 파악했으며, 약 2시간 45분 만에 서비스를 복구했다. TechCrunch에 따르면, 엔트로픽 측은 "예상을 초과하는 수요 증가에 대응하는 과정에서 발생한 문제"라고 설명했다.</p><p class="blog-paragraph">그러나 이것으로 끝이 아니었다. 3월 2일에서 3일 사이 추가적인 에러율 상승이 보고되었다. 완전한 서비스 안정화에는 하루 이상이 소요된 것으로 보인다. 폭증한 사용자를 수용하기 위한 인프라 확장이 실시간으로 진행되고 있음을 시사하는 대목이었다.</p><h2 id="윤리적-선택이-낳은-성공의-역설" class="blog-heading">윤리적 선택이 낳은 성공의 역설</h2><p class="blog-paragraph">클로드의 대규모 접속 장애는 역설적인 사건이다. 자율 무기 안전장치를 포기하지 않겠다는 윤리적 결단이 사용자들의 지지를 얻었고, 그 지지가 폭발적인 수요로 이어졌으며, 결국 그 수요가 서비스를 마비시켰다. 원칙을 지킨 대가가 성공이었고, 성공의 대가가 장애였다.</p><p class="blog-paragraph">엔트로픽에게 남은 과제는 분명하다. 윤리적 입장으로 얻은 신규 사용자들의 신뢰를 안정적인 서비스로 유지하는 것이다. 수요 폭증은 일시적일 수 있지만, 서비스 장애로 인한 실망은 영구적일 수 있다. AI 산업에서 '옳은 일을 하는 것'만으로는 충분하지 않다. 그 옳은 일이 가져올 결과까지 감당할 준비가 되어 있어야 한다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/tech/ai/claude-app-store-number-one/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/claude-app-store-number-one/thumbnail.webp" alt="클로드 앱스토어 1위: 국방부 거부가 만든 역사적 순간" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">클로드 앱스토어 1위: 국방부 거부가 만든 역사적 순간</span></span>
+              </a>
+              <a href="/tech/ai/anthropic-pentagon-ai-safety-standoff/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/anthropic-pentagon-ai-safety-standoff/thumbnail.webp" alt="앤트로픽 vs 펜타곤: AI 안전과 국가안보의 역사적 충돌" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">앤트로픽 vs 펜타곤: AI 안전과 국가안보의 역사적 충돌</span></span>
+              </a>
+              <a href="/tech/ai/anthropic-pentagon-ultimatum-rsp-v3/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/anthropic-pentagon-ultimatum-rsp-v3/thumbnail.webp" alt="미국 국방부의 최후 통첩: 아모데이는 자신의 철학을 지킬 수 있을까" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">미국 국방부의 최후 통첩: 아모데이는 자신의 철학을 지킬 수 있을까</span></span>
+              </a>
+              <a href="/tech/ai/claude-surpasses-grok-web-traffic/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/claude-surpasses-grok-web-traffic/thumbnail.webp" alt="클로드 웹 트래픽, Grok과 DeepSeek 첫 추월: AI 챗봇 시장 다극화 본격화" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">클로드 웹 트래픽, Grok과 DeepSeek 첫 추월: AI 챗봇 시장 다극화 본격화</span></span>
+              </a>
+              <a href="/tech/ai/anthropic-b2b-strategy-success/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/anthropic-b2b-strategy-success/thumbnail.webp" alt="앤트로픽의 광폭 행보: 최고의 엔터프라이즈 AI를 향해" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">앤트로픽의 광폭 행보: 최고의 엔터프라이즈 AI를 향해</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://techcrunch.com/2026/03/02/anthropics-claude-reports-widespread-outage/" target="_blank" rel="noopener">TechCrunch - Anthropic's Claude reports widespread outage</a></li><li><a href="https://www.trendingtopics.eu/claude-goes-down-as-users-flood-apps-to-protest-openais-pentagon-deal/" target="_blank" rel="noopener">TrendingTopics - Claude Goes Down as Users Flood Apps to Protest OpenAI's Pentagon Deal</a></li><li><a href="https://www.axios.com/2026/03/01/anthropic-claude-chatgpt-app-downloads-pentagon" target="_blank" rel="noopener">Axios - Anthropic got blacklisted by the Pentagon. Then Claude hit No. 1 in the app store</a></li><li><a href="https://www.tomsguide.com/ai/claude-hits-no-1-on-the-app-store-as-users-flee-chatgpt-over-openais-department-of-war-deal" target="_blank" rel="noopener">Tom's Guide - Claude hits No. 1 on the App Store as users flee ChatGPT over OpenAI's Department of War deal</a></li><li><a href="https://edition.cnn.com/2026/03/03/tech/anthropic-claude-ai-app-pentagon" target="_blank" rel="noopener">CNN - Anthropic's Claude is suddenly the most popular iPhone app</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/tech/ai/claude-surpasses-grok-web-traffic/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/tech/" class="trend-nav-btn list">목록</a>
+      <a href="/tech/ai/openai-pentagon-deal-altman-admits/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (103)</span></a>
+            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (8)</span></a>
+            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (9)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (13)</span></a>
+            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (10)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (12)</span></a>
+            <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (104)</span></a>
+            <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (12)</span></a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+      </a>
+    
+      <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+      </a>
+    
+      <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+      </a>
+    
+      <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+      </a>
+    
+      <a href="/tech/ai/antigravity-usage-rollback-gemini-partial-revert/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+      </a>
+    
+      <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+      </a>
+    
+      <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-ai-chip-monopoly-cracking/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">엔비디아 AI 칩 독점에 균열? 빅테크 탈 엔비디아 러시</span>
+      </a>
+    
+      <a href="/tech/ai/claude-sonnet-46-release/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에</span>
+      </a>
+    </div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/tech/ai/gemini-pricing-overhaul-compute-limits-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소</span>
+      </a>
+    
+      <a href="/tech/ai/google-io-2026-agentic-gemini/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱</span>
+      </a>
+    
+      <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+      </a>
+    
+      <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino</span>
+      </a>
+    
+      <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+      </a>
+    
+      <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+      </a>
+    
+      <a href="/tech/ai/altman-musk-openai-trial-mudslinging/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">알트만 vs 머스크, OpenAI 법정이 진흙탕 폭로전으로</span>
+      </a>
+    
+      <a href="/tech/ai/openai-8000-anthropic-rivalry/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">오픈AI, 연말까지 직원 8천 명으로 두 배 확대: 앤트로픽 급부상에 전면전</span>
+      </a>
+    
+      <a href="/tech/ai/supermicro-ai-chip-china-smuggling/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">슈퍼마이크로 공동창업자, 25억 달러 규모 엔비디아 AI 칩 중국 밀반출로 기소</span>
+      </a>
+    </div>
+        </div>
+      </div>
+    
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+    <div class="home-card" id="sidebar-categories">
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (103)</span></a>
+          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (8)</span></a>
+          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (9)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (13)</span></a>
+          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (10)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (12)</span></a>
+          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (104)</span></a>
+          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (12)</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-card" id="sidebar-articles">
+      <div class="home-card-header">
+        <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+          <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+          <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+        </div>
+      </div>
+      <div class="home-card-body">
+        <div class="sidebar-article-list active" id="panel-sidebar-popular">
+    <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+    </a>
+  
+    <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+    </a>
+  
+    <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+    </a>
+  
+    <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+    </a>
+  
+    <a href="/tech/ai/antigravity-usage-rollback-gemini-partial-revert/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+    </a>
+  
+    <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+    </a>
+  
+    <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-ai-chip-monopoly-cracking/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">엔비디아 AI 칩 독점에 균열? 빅테크 탈 엔비디아 러시</span>
+    </a>
+  
+    <a href="/tech/ai/claude-sonnet-46-release/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에</span>
+    </a>
+  </div>
+        <div class="sidebar-article-list" id="panel-sidebar-latest">
+    <a href="/tech/ai/gemini-pricing-overhaul-compute-limits-backlash/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소</span>
+    </a>
+  
+    <a href="/tech/ai/google-io-2026-agentic-gemini/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱</span>
+    </a>
+  
+    <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+    </a>
+  
+    <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino</span>
+    </a>
+  
+    <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+    </a>
+  
+    <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+    </a>
+  
+    <a href="/tech/ai/altman-musk-openai-trial-mudslinging/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">알트만 vs 머스크, OpenAI 법정이 진흙탕 폭로전으로</span>
+    </a>
+  
+    <a href="/tech/ai/openai-8000-anthropic-rivalry/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">오픈AI, 연말까지 직원 8천 명으로 두 배 확대: 앤트로픽 급부상에 전면전</span>
+    </a>
+  
+    <a href="/tech/ai/supermicro-ai-chip-china-smuggling/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">슈퍼마이크로 공동창업자, 25억 달러 규모 엔비디아 AI 칩 중국 밀반출로 기소</span>
+    </a>
+  </div>
+      </div>
+    </div>
+  
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=1c887d57"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/wiki/knowledge/excel-formulas-for-game-balance/thumbnail.webp">
+		  <title>게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="게임 밸런스 작업에서 자주 쓰이는 엑셀 함수와 수식 패턴을 정리했다. 참조 기초부터 VLOOKUP, INDEX+MATCH, SUMPRODUCT 곱하기 패턴, 성장 곡선 설계까지 실무 예시와 함께 상세히 다룬다.">
+  <meta name="keywords" content="엑셀 함수, 엑셀 수식, 게임 밸런스, VLOOKUP, INDEX MATCH, SUMPRODUCT, 게임 기획, 밸런스 테이블, 스프레드시트, 게임 기획자, 수치 기획">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/wiki/knowledge/excel-formulas-for-game-balance/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식",
+    "description": "게임 밸런스 작업에서 자주 쓰이는 엑셀 함수와 수식 패턴을 정리했다. 참조 기초부터 VLOOKUP, INDEX+MATCH, SUMPRODUCT 곱하기 패턴, 성장 곡선 설계까지 실무 예시와 함께 상세히 다룬다.",
+    "datePublished": "2026-01-30T15:00:00+09:00",
+    "dateModified": "2026-01-30T15:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/wiki/knowledge/excel-formulas-for-game-balance/"
+    },
+    "image": "https://gamerscroll.com/assets/images/wiki/knowledge/excel-formulas-for-game-balance/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "게임 위키",
+        "item": "https://gamerscroll.com/wiki/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "지식",
+        "item": "https://gamerscroll.com/wiki/knowledge/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식",
+        "item": "https://gamerscroll.com/wiki/knowledge/excel-formulas-for-game-balance/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식">
+  <meta property="og:description" content="게임 밸런스 작업에서 자주 쓰이는 엑셀 함수와 수식 패턴을 정리했다. 참조 기초부터 VLOOKUP, INDEX+MATCH, SUMPRODUCT 곱하기 패턴, 성장 곡선 설계까지 실무 예시와 함께 상세히 다룬다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/wiki/knowledge/excel-formulas-for-game-balance/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식">
+  <meta property="og:url" content="https://gamerscroll.com/wiki/knowledge/excel-formulas-for-game-balance/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-01-30T15:00:00+09:00">
+  <meta property="article:modified_time" content="2026-01-30T15:00:00+09:00">
+  <meta property="article:section" content="위키">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="엑셀 함수">
+  <meta property="article:tag" content="엑셀 수식">
+  <meta property="article:tag" content="게임 밸런스">
+  <meta property="article:tag" content="VLOOKUP">
+  <meta property="article:tag" content="INDEX MATCH">
+  <meta property="article:tag" content="SUMPRODUCT">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식">
+  <meta name="twitter:description" content="게임 밸런스 작업에서 자주 쓰이는 엑셀 함수와 수식 패턴을 정리했다. 참조 기초부터 VLOOKUP, INDEX+MATCH, SUMPRODUCT 곱하기 패턴, 성장 곡선 설계까지 실무 예시와 함께 상세히 다룬다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/wiki/knowledge/excel-formulas-for-game-balance/thumbnail.webp">
+  <meta name="twitter:image:alt" content="게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-wiki">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item active" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="wiki-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-103-card">
+  <style>
+    .ad-home-pc-103-card, .ad-home-pc-103 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-103-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-103 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-103"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-104-card">
+  <style>
+    .ad-home-mo-104-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-104, .ad-home-mo-104-card > .ad-home-mo-104, .ad-home-mo-104-card > .ad-home-mo-104 > div, .ad-home-mo-104-card > .ad-home-mo-104 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-104-card > .ad-home-mo-104 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-104-card, .ad-home-mo-104, .ad-home-mo-104-card > .ad-home-mo-104 > div, .ad-home-mo-104-card > .ad-home-mo-104 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-104"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">지식</span><time class="blog-date">2026년 1월 30일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/wiki/knowledge/excel-formulas-for-game-balance/thumbnail.webp" class="blog-image" alt="게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">게임 밸런스 작업에서 자주 쓰이는 엑셀 함수와 수식 패턴을 정리했다. 참조 기초부터 VLOOKUP, INDEX+MATCH, SUMPRODUCT 곱하기 패턴, 성장 곡선 설계까지 실무 예시와 함께 상세히 다룬다.</p>
+
+              <div class="blog-content">
+                
+    <nav class="blog-toc">
+      <div class="blog-toc-title">목차</div>
+      <ol><li><a href="#참조-기초-절대참조와-상대참조">참조 기초: 절대참조와 상대참조</a></li><li><a href="#이름-정의-계수와-테이블-관리">이름 정의: 계수와 테이블 관리</a></li><li><a href="#vlookup-테이블-참조의-기본">VLOOKUP: 테이블 참조의 기본</a></li><li><a href="#index-match-vlookup의-한계-극복">INDEX + MATCH: VLOOKUP의 한계 극복</a></li><li><a href="#vlookup-match-동적-열-참조">VLOOKUP + MATCH: 동적 열 참조</a></li><li><a href="#if-iferror-조건-분기와-에러-처리">IF / IFERROR: 조건 분기와 에러 처리</a></li><li><a href="#sumif-countif-조건부-집계">SUMIF / COUNTIF: 조건부 집계</a></li><li><a href="#sumproduct-다중-조건-집계-곱하기-패턴">SUMPRODUCT: 다중 조건 집계 + 곱하기 패턴</a></li><li><a href="#round-함수들-수치-정리">ROUND 함수들: 수치 정리</a></li><li><a href="#min-max-스탯-캡핑">MIN / MAX: 스탯 캡핑</a></li><li><a href="#power-log-성장-곡선-설계">POWER / LOG: 성장 곡선 설계</a></li><li><a href="#mod-레벨-구간-사이클-계산">MOD: 레벨 구간, 사이클 계산</a></li><li><a href="#수식은-기획-의도를-수치로-표현하는-수단">수식은 기획 의도를 수치로 표현하는 수단</a></li></ol>
+    </nav>
+  
+                <p class="blog-paragraph">게임 밸런스 작업에서 엑셀은 빠질 수 없는 도구다. 스탯 테이블, 경험치 곡선, 드롭 확률, 경제 시스템까지 모든 수치 설계가 엑셀에서 이뤄진다. 이 글에서는 실무에서 자주 쓰이는 엑셀 수식 패턴을 게임 밸런스 예시와 함께 상세히 정리한다. 단순히 함수 사용법이 아니라, 언제 어떤 상황에 이 함수를 선택해야 하는지, 그리고 실수하기 쉬운 함정은 무엇인지를 다룬다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="참조-기초-절대참조와-상대참조" class="blog-heading">참조 기초: 절대참조와 상대참조</h2><p class="blog-paragraph">엑셀에서 수식을 복사해 여러 셀에 적용하려면, 가장 먼저 '참조'라는 개념을 이해해야 한다. 캐릭터 100명의 공격력에 동일한 배율을 곱하는 상황을 생각해보자. 배율이 들어있는 셀 하나를 모든 수식에서 참조해야 하는데, 수식을 복사하면 참조 위치가 덩달아 이동해버린다. 이 문제를 해결하는 게 절대참조다. 반대로 '레벨 × 등급' 매트릭스처럼 행과 열이 각각 다른 기준을 참조해야 할 때는 혼합참조가 필요하다. 이 개념을 제대로 모르면 수식을 복사할 때마다 참조가 깨져서 매번 수동으로 고쳐야 하는 상황에 빠진다.</p><p class="blog-paragraph"><strong>참조 유형 정리</strong></p><p class="blog-paragraph"><code>A1</code> — 상대참조. 수식을 복사하면 행과 열이 함께 이동한다.<br><code>$A$1</code> — 절대참조. 복사해도 항상 같은 셀을 가리킨다.<br><code>$A1</code> — 혼합참조. 열(A)만 고정되고 행은 이동한다.<br><code>A$1</code> — 혼합참조. 행(1)만 고정되고 열은 이동한다.</p><p class="blog-paragraph"><strong class="subheading">팁:</strong> 수식 입력 중 셀 주소를 선택한 상태에서 <code>F4</code>를 누르면 A1 → $A$1 → A$1 → $A1 → A1 순으로 순환한다. 달러 기호를 직접 입력할 필요가 없다.</p><p class="blog-paragraph"><strong>예시 1: 전역 밸런스 배율 적용</strong></p><p class="blog-paragraph">상황을 가정해보자. CBT 피드백을 분석했더니 전체적으로 데미지가 너무 낮아서 전투가 지루하다는 의견이 많았다. 모든 캐릭터의 공격력에 1.2배를 곱해서 테스트해보고 싶다. 캐릭터가 100명이라면 100개의 수식을 일일이 고쳐야 할까?</p><p class="blog-paragraph">해법은 배율을 별도 셀에 두고 절대참조로 연결하는 것이다. G1 셀에 1.2를 넣고, B열에 기본 공격력이 있다면:</p><p class="blog-paragraph"><code>=B2 * $G$1</code></p><p class="blog-paragraph">이 수식을 B2에 쓰고 아래로 드래그하면, B3 * $G$1, B4 * $G$1... 이렇게 자동으로 채워진다. B는 상대참조라 행에 따라 이동하고, $G$1은 절대참조라 항상 고정된다. 나중에 1.3배로 바꾸고 싶으면 G1 셀 하나만 수정하면 100개 셀이 전부 자동 갱신된다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> 절대참조를 빼먹고 <code>=B2*G1</code>로 쓰면, 복사할 때 G1이 G2, G3으로 이동해버린다. 의도치 않은 셀을 참조하게 되어 완전히 틀린 결과가 나온다.</p><p class="blog-paragraph"><strong>예시 2: 레벨 × 등급 매트릭스</strong></p><p class="blog-paragraph">캐릭터 스탯 테이블을 만들 때, 레벨(1~100)과 등급(노멀~SSR)에 따른 HP 매트릭스가 필요하다고 하자. A열에 레벨별 기본HP(100, 105, 110...), 1행에 등급 배율(1, 1.2, 1.5, 2)이 있다.</p><p class="blog-paragraph"><code>=$A2 * B$1</code></p><p class="blog-paragraph">이 수식 하나로 전체 매트릭스를 채울 수 있다.</p><p class="blog-paragraph">• <code>$A2</code>: A열은 고정(레벨 기본값), 행은 이동<br>• <code>B$1</code>: 1행은 고정(등급 배율), 열은 이동</p><p class="blog-paragraph">B2에 이 수식을 쓰고 오른쪽+아래로 드래그하면, 각 셀이 자기 행의 레벨값과 자기 열의 등급 배율을 자동으로 곱한다. 100레벨 × 5등급 = 500개 셀을 수식 하나로 채울 수 있다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> 혼합참조는 달러 기호 위치가 헷갈리기 쉽다. '$A2'와 'A$2'는 완전히 다르다. '$A2'는 열 고정, 'A$2'는 행 고정이다. 매트릭스 복사 방향을 먼저 생각하고 어느 쪽을 고정할지 결정해야 한다.</p><h2 id="이름-정의-계수와-테이블-관리" class="blog-heading">이름 정의: 계수와 테이블 관리</h2><p class="blog-paragraph">밸런스 시트가 복잡해지면 수식에 '$G$1', '$Sheet2.$A$5' 같은 셀 주소가 난무하게 된다. 한 달 뒤에 이 시트를 다시 열면 'G1이 뭐였지?' 하고 헤매게 된다. 다른 사람이 이 시트를 받으면 더 심하다. 이름 정의는 이 문제를 해결한다. 셀이나 범위에 의미 있는 이름을 붙여서 '$G$1' 대신 '크리배율'로 참조하는 것이다. 수식 가독성이 올라가고, 밸런스 상수를 한곳에 모아 관리할 수 있다. 거의 모든 실무 프로젝트에서 사용하는 표준 패턴이다.</p><p class="blog-paragraph"><strong class="subheading">설정 방법:</strong> 셀이나 범위를 선택하고 수식 입력창 왼쪽의 이름 상자에 이름을 입력한 뒤 엔터를 치면 된다. 이름 관리자(<code>Ctrl+F3</code>)에서 정의된 이름을 확인하고 수정할 수 있다. 범위도 이름을 붙일 수 있어서, 테이블 전체를 '스탯테이블'로 지정해두면 VLOOKUP에서 편하게 참조할 수 있다.</p><p class="blog-paragraph"><strong>예시: 밸런스 계수 시트 구성</strong></p><p class="blog-paragraph">별도의 '계수' 시트를 만들고 모든 밸런스 상수를 모아둔다. 이 방식은 거의 모든 실무 프로젝트에서 사용하는 표준 패턴이다.</p><p class="blog-paragraph">계수 시트 구성 예시:<br>• 레벨보정 = 1.05 (레벨당 성장률)<br>• 크리배율 = 1.5 (크리티컬 데미지 배율)<br>• 방어력감소율 = 0.8 (방어력 적용 비율)<br>• 골드드롭배율 = 1.0 (이벤트 때 2.0으로 변경)<br>• 스탯테이블 = 캐릭터시트!A1:Z100 (캐릭터 스탯 전체 범위)</p><p class="blog-paragraph">다른 시트의 데미지 계산 수식에서는 이렇게 쓴다:</p><p class="blog-paragraph"><code>=기본공격력 * 레벨보정 * <strong>IF</strong>(크리티컬, 크리배율, 1)</code></p><p class="blog-paragraph">이렇게 하면 몇 가지 큰 장점이 생긴다:<br>1. 수식만 봐도 무슨 계산인지 즉시 이해된다<br>2. 밸런스 조정할 때 계수 시트만 수정하면 모든 곳에 자동 반영<br>3. 이벤트 때 '골드드롭배율'만 2.0으로 바꾸면 끝<br>4. 신입이 와도 시트 구조를 빠르게 파악할 수 있다</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> 이름에 공백이나 특수문자는 쓸 수 없다. '크리 배율'이 아니라 '크리배율' 또는 '크리_배율'로 써야 한다. 또한 이름은 워크북 전체에서 고유해야 하므로, 여러 시트에서 같은 이름을 다른 의미로 쓰면 충돌이 발생한다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="vlookup-테이블-참조의-기본" class="blog-heading">VLOOKUP: 테이블 참조의 기본</h2><p class="blog-paragraph">밸런스 작업의 핵심은 테이블 참조다. 몬스터 ID를 넣으면 HP가 나오고, 아이템 코드를 넣으면 가격이 나오고, 스킬 ID를 넣으면 쿨타임이 나와야 한다. VLOOKUP은 이런 '키 값으로 테이블에서 데이터 찾아오기'를 수행하는 가장 기본적인 함수다. 엑셀을 쓰는 기획자라면 누구나 알아야 하고, 실제로 밸런스 시트에서 가장 많이 등장하는 함수이기도 하다.</p><p class="blog-paragraph"><strong class="subheading">기본 문법:</strong><code>=<strong>VLOOKUP</strong>(찾을값, 범위, 열번호, FALSE)</code></p><p class="blog-paragraph">• 찾을값: 검색할 ID나 키 (예: 몬스터ID)<br>• 범위: 데이터가 있는 테이블. <strong>중요: 찾을값이 반드시 이 범위의 첫 번째 열에 있어야 함</strong><br>• 열번호: 가져올 데이터가 있는 열 번호 (1부터 시작, 범위 내에서의 상대 위치)<br>• FALSE: 정확히 일치하는 값만 찾음. TRUE는 근사값 매칭인데, 밸런스 작업에서는 거의 항상 FALSE를 쓴다.</p><p class="blog-paragraph"><strong>예시 1: 몬스터 스탯 테이블 참조</strong></p><p class="blog-paragraph">'몬스터테이블' 시트에 다음과 같은 데이터가 있다고 하자:<br>• A열: 몬스터ID (1001, 1002, 1003...)<br>• B열: 몬스터이름 (고블린, 오크, 트롤...)<br>• C열: HP (100, 250, 500...)<br>• D열: 공격력 (10, 25, 40...)<br>• E열: 방어력 (5, 15, 30...)</p><p class="blog-paragraph">전투 시뮬레이션 시트에서 몬스터 ID를 입력하면 해당 스탯을 가져오고 싶다:</p><p class="blog-paragraph"><code>=<strong>VLOOKUP</strong>(A2, 몬스터테이블!$A:$E, 3, FALSE)</code> → HP<br><code>=<strong>VLOOKUP</strong>(A2, 몬스터테이블!$A:$E, 4, FALSE)</code> → 공격력<br><code>=<strong>VLOOKUP</strong>(A2, 몬스터테이블!$A:$E, 5, FALSE)</code> → 방어력</p><p class="blog-paragraph">A2에 1002를 넣으면 오크의 HP 250, 공격력 25, 방어력 15가 각각 반환된다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> 열번호는 범위 내에서의 상대 위치다. 범위가 A:E면 A가 1번, B가 2번, C가 3번이다. 범위가 B:E면 B가 1번이 된다. 이 점을 혼동하면 엉뚱한 열의 값을 가져오게 된다.</p><p class="blog-paragraph"><strong>중요: 범위는 열 전체로 지정하라</strong></p><p class="blog-paragraph"><code>=<strong>VLOOKUP</strong>(A2, A:E, 3, FALSE)</code> ← 권장<br><code>=<strong>VLOOKUP</strong>(A2, A1:E100, 3, FALSE)</code> ← 비권장</p><p class="blog-paragraph">열 전체(A:E)로 지정하면 데이터가 추가되어도 범위를 수정할 필요가 없다. A1:E100처럼 고정 범위를 쓰면 101번째 데이터가 추가될 때 수식을 전부 고쳐야 한다. 프로젝트가 진행되면서 몬스터가 계속 추가되는데, 매번 범위를 늘리는 건 실수를 유발한다.</p><p class="blog-paragraph">단, 열 전체 참조는 데이터가 아주 많을 때(수만 행 이상) 약간의 성능 저하가 있을 수 있다. 하지만 게임 밸런스 테이블 규모에서는 체감하기 어려운 수준이니 신경 쓰지 않아도 된다.</p><p class="blog-paragraph"><strong>VLOOKUP의 치명적 단점</strong></p><p class="blog-paragraph">찾을 값이 반드시 범위의 <strong>첫 번째 열</strong>에 있어야 한다. 왼쪽 방향 검색이 불가능하다.</p><p class="blog-paragraph">예를 들어 아이템 테이블이 [ID, 이름, 가격] 순서인데, '장검'이라는 이름으로 ID를 찾고 싶다면? VLOOKUP으로는 불가능하다. 이름이 ID보다 오른쪽에 있기 때문이다. 테이블 열 순서를 바꾸면 되긴 하지만, 이미 다른 수식들이 그 테이블을 참조하고 있다면 전부 깨진다.</p><p class="blog-paragraph">이 한계를 극복하려면 INDEX+MATCH 조합을 써야 한다. 다음 섹션에서 다룬다.</p><h2 id="index-match-vlookup의-한계-극복" class="blog-heading">INDEX + MATCH: VLOOKUP의 한계 극복</h2><p class="blog-paragraph">VLOOKUP에는 치명적인 제약이 있다. 검색하려는 열이 반드시 테이블의 첫 번째 열이어야 한다는 점이다. 아이템 테이블이 [ID, 이름, 가격] 순서인데, '장검'이라는 이름으로 ID를 역참조하고 싶다면? VLOOKUP으로는 불가능하다. 테이블 열 순서를 바꾸자니, 이미 다른 수식들이 그 테이블을 참조하고 있다.</p><p class="blog-paragraph">INDEX+MATCH 조합은 이 한계를 완전히 극복한다. 검색 열과 반환 열을 자유롭게 지정할 수 있고, 열 삽입/삭제에도 강하다. 처음에는 수식이 길어 보이지만, 익숙해지면 VLOOKUP보다 유연해서 이쪽을 선호하는 기획자도 많다.</p><p class="blog-paragraph"><strong class="subheading">기본 문법:</strong><code>=<strong>INDEX</strong>(반환범위, <strong>MATCH</strong>(찾을값, 검색범위, 0))</code></p><p class="blog-paragraph">• <strong>MATCH</strong>(찾을값, 검색범위, 0): 찾을값이 검색범위에서 몇 번째 행인지 반환<br>• <strong>INDEX</strong>(반환범위, 행번호): 반환범위에서 해당 행 번호의 값을 반환</p><p class="blog-paragraph">두 함수를 조합하면 '검색 열'과 '반환 열'을 완전히 분리해서 자유롭게 지정할 수 있다.</p><p class="blog-paragraph"><strong>예시 1: 아이템 이름으로 ID 역참조 (왼쪽 검색)</strong></p><p class="blog-paragraph">아이템 테이블이 [A:ID, B:이름, C:가격] 순서다. 기획자가 시뮬레이션 시트에서 '장검'을 입력하면 해당 아이템의 ID를 가져오고 싶다. VLOOKUP으로는 불가능한 상황이다.</p><p class="blog-paragraph"><code>=<strong>INDEX</strong>(A:A, <strong>MATCH</strong>("장검", B:B, 0))</code></p><p class="blog-paragraph">동작 원리:<br>1. <code><strong>MATCH</strong>("장검", B:B, 0)</code> → B열에서 "장검"을 찾아서 행 번호 반환 (예: 5)<br>2. <code><strong>INDEX</strong>(A:A, 5)</code> → A열의 5번째 행 값 반환 → ID 획득</p><p class="blog-paragraph">검색은 B열(이름)에서 하고, 반환은 A열(ID)에서 한다. 열 순서에 구애받지 않는다.</p><p class="blog-paragraph"><strong>예시 2: 스킬 테이블에서 다양한 정보 조회</strong></p><p class="blog-paragraph">스킬 테이블 구조가 [A:스킬명, B:스킬ID, C:데미지, D:쿨타임, E:마나소모]라고 하자. 스킬ID로 검색해서 쿨타임을 가져오려면:</p><p class="blog-paragraph"><code>=<strong>INDEX</strong>(D:D, <strong>MATCH</strong>(스킬ID, B:B, 0))</code></p><p class="blog-paragraph">B열(스킬ID)에서 검색하고, D열(쿨타임)에서 값을 가져온다. 열 순서가 어떻든 상관없다. 나중에 C열과 D열 사이에 '스킬타입' 열이 추가되어도 수식을 고칠 필요가 없다 (D:D 참조이므로 자동으로 따라감).</p><p class="blog-paragraph">반면 VLOOKUP은 열번호(4)를 직접 지정하므로, 열이 추가되면 수식을 전부 수정해야 한다.</p><p class="blog-paragraph"><strong>INDEX+MATCH의 장점 정리</strong></p><p class="blog-paragraph">1. 검색 열이 첫 번째가 아니어도 된다 (왼쪽 검색 가능)<br>2. 열 삽입/삭제에 강하다 (열 범위를 직접 참조하므로)<br>3. 행 방향 검색도 가능하다 (MATCH의 범위를 행으로 바꾸면 됨)<br>4. 대용량 데이터에서 VLOOKUP보다 빠르다 (정확한 열만 탐색)</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> MATCH의 세 번째 인수는 반드시 0으로 써야 정확히 일치하는 값을 찾는다. 1이나 -1은 정렬된 데이터에서 근사값을 찾는 옵션인데, 밸런스 작업에서는 거의 쓸 일이 없다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="6077622756"></ins>
+  </div><h2 id="vlookup-match-동적-열-참조" class="blog-heading">VLOOKUP + MATCH: 동적 열 참조</h2><p class="blog-paragraph">캐릭터 스탯 조회 시트를 만들 때, HP 따로, 공격력 따로, 방어력 따로 VLOOKUP을 쓰면 열번호를 3, 4, 5로 일일이 지정해야 한다. 그런데 나중에 HP와 공격력 사이에 '마나' 열이 추가되면? 모든 열번호를 하나씩 밀어야 한다. 스탯이 20개면 수식 20개를 다 고쳐야 하는 것이다.</p><p class="blog-paragraph">VLOOKUP과 MATCH를 조합하면 이 문제가 해결된다. 열번호를 숫자로 직접 쓰는 대신, MATCH가 헤더 행에서 스탯명의 위치를 찾아서 넘겨준다. 헤더 이름만 바꾸면 다른 스탯이 나오는 유연한 구조가 된다.</p><p class="blog-paragraph"><strong class="subheading">기본 문법:</strong><code>=<strong>VLOOKUP</strong>(ID, 범위, <strong>MATCH</strong>(스탯명, 헤더행, 0), FALSE)</code></p><p class="blog-paragraph">MATCH가 헤더 행에서 스탯명의 위치(열 번호)를 찾아서 VLOOKUP에 넘겨준다.</p><p class="blog-paragraph"><strong>예시: 캐릭터 스탯 조회 시트 만들기</strong></p><p class="blog-paragraph">'캐릭터DB' 시트에 100명의 캐릭터 데이터가 있다:<br>• 1행(헤더): ID, 이름, HP, 공격력, 방어력, 속도, 크리율, 크리데미지...<br>• 2~101행: 각 캐릭터 데이터</p><p class="blog-paragraph">조회 시트에서 왼쪽에 캐릭터 ID를 넣고, 위쪽에 보고 싶은 스탯명을 넣으면 해당 값이 나오게 하고 싶다.</p><p class="blog-paragraph">조회 시트 구성:<br>• A열: 캐릭터 ID (1001, 1002, 1003...)<br>• 1행: HP, 공격력, 방어력, 속도 (B1, C1, D1, E1)</p><p class="blog-paragraph">B2 셀에 다음 수식을 쓴다:</p><p class="blog-paragraph"><code>=<strong>VLOOKUP</strong>($A2, 캐릭터DB!$A:$Z, <strong>MATCH</strong>(B$1, 캐릭터DB!$1:$1, 0), FALSE)</code></p><p class="blog-paragraph">• <code>$A2</code>: 캐릭터 ID. 열을 고정해서 오른쪽으로 복사해도 A열 참조 유지<br>• <code>B$1</code>: 스탯명. 행을 고정해서 아래로 복사해도 1행 참조 유지<br>• <code><strong>MATCH</strong>(B$1, 캐릭터DB!$1:$1, 0)</code>: 헤더 행에서 스탯명의 열 위치를 동적으로 찾음</p><p class="blog-paragraph">이 수식을 가로세로로 복사하면, 각 캐릭터의 각 스탯이 자동으로 채워진다.</p><p class="blog-paragraph"><strong class="subheading">장점:</strong> '치명타저항' 같은 새 스탯 열이 캐릭터DB에 추가되어도, 조회 시트의 헤더에 '치명타저항'만 추가하면 바로 조회 가능. 수식 수정이 전혀 필요 없다.</p><h2 id="if-iferror-조건-분기와-에러-처리" class="blog-heading">IF / IFERROR: 조건 분기와 에러 처리</h2><p class="blog-paragraph">밸런스 수식에서 '조건에 따라 다르게 처리'하는 상황은 매우 흔하다. SSR 등급은 2배, SR은 1.5배, R은 1.2배 배율을 적용한다거나, 레벨 50 이상이면 레이드를 해금하는 식이다. IF 함수가 이 역할을 담당한다.</p><p class="blog-paragraph">한편, VLOOKUP으로 테이블을 참조할 때 찾는 값이 없으면 #N/A 에러가 뜬다. 개발 중에는 데이터 누락이 흔한데, 에러 하나가 관련 계산을 전부 망가뜨린다. IFERROR는 이런 에러를 잡아서 '0' 또는 '미등록' 같은 의미 있는 값으로 바꿔준다.</p><p class="blog-paragraph"><strong class="subheading">기본 문법:</strong><code>=<strong>IF</strong>(조건, 참일때값, 거짓일때값)</code><br><code>=<strong>IFERROR</strong>(수식, 에러시반환값)</code></p><p class="blog-paragraph"><strong>예시 1: 등급별 스탯 배율 적용</strong></p><p class="blog-paragraph">캐릭터 등급(N, R, SR, SSR)에 따라 기본 스탯에 다른 배율을 곱하고 싶다.</p><p class="blog-paragraph"><code>=<strong>IF</strong>(등급="SSR", 2, <strong>IF</strong>(등급="SR", 1.5, <strong>IF</strong>(등급="R", 1.2, 1)))</code></p><p class="blog-paragraph">• SSR: 2배<br>• SR: 1.5배  <br>• R: 1.2배<br>• 나머지(N): 1배</p><p class="blog-paragraph">IF를 중첩해서 다중 조건을 처리한다. 단, 너무 많이 중첩하면 가독성이 떨어지니 5개 이상이면 별도 배율 테이블 + VLOOKUP 조합을 고려하자.</p><p class="blog-paragraph"><strong>예시 2: 레벨 구간별 콘텐츠 해금</strong></p><p class="blog-paragraph"><code>=<strong>IF</strong>(레벨>=50, "레이드", <strong>IF</strong>(레벨>=30, "던전", <strong>IF</strong>(레벨>=10, "PvP", "튜토리얼")))</code></p><p class="blog-paragraph">레벨에 따라 해금되는 콘텐츠가 다르다. 50 이상이면 레이드, 30 이상이면 던전, 10 이상이면 PvP, 그 이하면 튜토리얼.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> IF 중첩 시 조건 순서에 주의해야 한다. 위 수식에서 '레벨>=10'을 먼저 체크하면, 50레벨도 PvP가 반환된다. 큰 값부터 체크해야 의도대로 동작한다.</p><p class="blog-paragraph"><strong>예시 3: IFERROR로 참조 실패 처리</strong></p><p class="blog-paragraph">VLOOKUP은 찾는 값이 없으면 #N/A 에러를 반환한다. 시트에 #N/A가 하나라도 있으면 관련 계산이 전부 에러로 전파된다. IFERROR로 감싸서 깔끔하게 처리하자.</p><p class="blog-paragraph"><code>=<strong>IFERROR</strong>(<strong>VLOOKUP</strong>(A2, 몬스터테이블, 3, FALSE), 0)</code></p><p class="blog-paragraph">몬스터 ID가 테이블에 없으면 #N/A 대신 0을 반환한다. 에러 전파를 막을 수 있다.</p><p class="blog-paragraph"><code>=<strong>IFERROR</strong>(<strong>VLOOKUP</strong>(아이템ID, 아이템테이블, 2, FALSE), "미등록")</code></p><p class="blog-paragraph">아이템이 테이블에 없으면 "미등록"이라고 표시해서 누락된 데이터를 쉽게 발견할 수 있다.</p><p class="blog-paragraph"><strong class="subheading">실무 팁:</strong> 실무에서는 거의 모든 VLOOKUP/INDEX-MATCH에 IFERROR를 감싸는 게 좋다. 개발 중에는 데이터가 빠지거나 ID가 바뀌는 일이 빈번하다. IFERROR가 없으면 시트 전체가 에러 범벅이 되어 어디가 문제인지 찾기 어렵다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="1648257301"></ins>
+  </div><h2 id="sumif-countif-조건부-집계" class="blog-heading">SUMIF / COUNTIF: 조건부 집계</h2><p class="blog-paragraph">드롭 테이블을 설계했는데, '레어 등급 아이템의 총 드롭 확률이 얼마나 되지?' 하고 궁금해질 때가 있다. 또는 '현재 SSR 캐릭터가 몇 명이지?', '화속성 스킬의 총 데미지 합은?' 같은 질문도 자주 나온다. 이처럼 특정 조건을 만족하는 데이터만 골라서 합계나 개수를 구해야 할 때 SUMIF와 COUNTIF를 쓴다. 밸런스 검증 과정에서 없어서는 안 될 함수들이다.</p><p class="blog-paragraph"><strong class="subheading">기본 문법:</strong><code>=<strong>SUMIF</strong>(조건범위, 조건, 합계범위)</code> — 조건을 만족하는 행의 합계<br><code>=<strong>COUNTIF</strong>(범위, 조건)</code> — 조건을 만족하는 셀 개수</p><p class="blog-paragraph"><strong>예시 1: 등급별 총 드롭 확률</strong></p><p class="blog-paragraph">드롭 테이블에서 각 등급 아이템의 총 드롭 확률을 계산하고 싶다.</p><div class="wiki-table-wrapper"><table><thead><tr><th>아이템</th><th>등급</th><th>드롭확률</th></tr></thead><tbody><tr><td>장검</td><td>레어</td><td>1%</td></tr><tr><td>단검</td><td>일반</td><td>5%</td></tr><tr><td>활</td><td>레어</td><td>2%</td></tr><tr><td>도끼</td><td>에픽</td><td>0.5%</td></tr></tbody></table></div><p class="blog-paragraph"><code>=<strong>SUMIF</strong>(등급열, "레어", 확률열)</code> → 3% (장검 1% + 활 2%)<br><code>=<strong>SUMIF</strong>(등급열, "일반", 확률열)</code> → 5%</p><p class="blog-paragraph">드롭 테이블에 레어 아이템이 얼마나 있고, 총 드롭 확률이 어느 정도인지 빠르게 파악할 수 있다.</p><p class="blog-paragraph"><strong>예시 2: 등급별 아이템 개수 집계</strong></p><p class="blog-paragraph"><code>=<strong>COUNTIF</strong>(등급열, "SSR")</code> → SSR 아이템이 몇 개인지<br><code>=<strong>COUNTIF</strong>(등급열, "SR")</code> → SR 아이템이 몇 개인지</p><p class="blog-paragraph">등급별 콘텐츠 수량 밸런스를 검토할 때 유용하다. SSR이 너무 적거나 많으면 희소성 밸런스가 무너진다.</p><p class="blog-paragraph"><strong>다중 조건: SUMIFS / COUNTIFS</strong></p><p class="blog-paragraph">조건이 2개 이상일 때는 SUMIFS, COUNTIFS를 쓴다. 주의할 점은 인수 순서가 SUMIF와 다르다는 것.</p><p class="blog-paragraph"><code>=<strong>SUMIFS</strong>(합계범위, 조건범위1, 조건1, 조건범위2, 조건2)</code></p><p class="blog-paragraph"><strong>예시: 화속성이면서 공격타입인 스킬의 총 데미지</strong></p><p class="blog-paragraph"><code>=<strong>SUMIFS</strong>(데미지열, 속성열, "화", 타입열, "공격")</code></p><p class="blog-paragraph">속성이 '화'이고 타입이 '공격'인 스킬만 골라서 데미지를 합산한다.</p><p class="blog-paragraph"><strong>예시: 레벨 30 이상인 화속성 캐릭터 수</strong></p><p class="blog-paragraph"><code>=<strong>COUNTIFS</strong>(속성열, "화", 레벨열, ">=30")</code></p><p class="blog-paragraph">부등호 조건도 사용 가능하다. 단, 부등호와 숫자를 따옴표로 묶어야 한다.</p><h2 id="sumproduct-다중-조건-집계-곱하기-패턴" class="blog-heading">SUMPRODUCT: 다중 조건 집계 + 곱하기 패턴</h2><p class="blog-paragraph">SUMPRODUCT는 배열끼리 곱해서 합산하는 함수다. 단순히 '수량 × 단가'의 총합을 구하는 데도 쓰지만, 진짜 힘은 '곱하기 패턴'에 있다. 엑셀에서 조건식은 TRUE=1, FALSE=0으로 처리된다. 이 성질을 이용하면 조건을 곱셈으로 표현해서 복잡한 다중 조건 집계를 한 줄로 해결할 수 있다. SUMIFS로 처리하기 어려운 범위 조건(30 이상 AND 50 이하)이나 OR 조건도 SUMPRODUCT로는 깔끔하게 처리된다.</p><p class="blog-paragraph"><strong>기본 사용: 가중 합계</strong></p><p class="blog-paragraph"><code>=<strong>SUMPRODUCT</strong>(수량범위, 단가범위)</code></p><div class="wiki-table-wrapper"><table><thead><tr><th>아이템</th><th>수량</th><th>단가</th></tr></thead><tbody><tr><td>포션</td><td>10</td><td>100</td></tr><tr><td>폭탄</td><td>5</td><td>200</td></tr><tr><td>스크롤</td><td>3</td><td>500</td></tr></tbody></table></div><p class="blog-paragraph"><code>=<strong>SUMPRODUCT</strong>(B:B, C:C)</code> → 10×100 + 5×200 + 3×500 = 3,500</p><p class="blog-paragraph">인벤토리 총 가치, 상점 총 매출 등을 계산할 때 유용하다.</p><p class="blog-paragraph"><strong>곱하기 패턴: 조건을 곱셈으로 표현</strong></p><p class="blog-paragraph">이게 SUMPRODUCT의 진짜 힘이다. 엑셀에서 조건식은 TRUE=1, FALSE=0으로 처리된다. 이걸 곱하면 AND 연산이 된다.</p><p class="blog-paragraph"><code>=<strong>SUMPRODUCT</strong>((조건1)*(조건2)*값범위)</code></p><p class="blog-paragraph">원리:<br>• 조건1이 TRUE(1)이고 조건2도 TRUE(1)면: 1 × 1 × 값 = 값 (살아남음)<br>• 조건1이 FALSE(0)면: 0 × 1 × 값 = 0 (사라짐)<br>• 조건2가 FALSE(0)면: 1 × 0 × 값 = 0 (사라짐)</p><p class="blog-paragraph"><strong>예시 1: 화속성 + 공격타입 스킬의 총 데미지</strong></p><p class="blog-paragraph"><code>=<strong>SUMPRODUCT</strong>((속성열="화")*(타입열="공격")*데미지열)</code></p><p class="blog-paragraph">SUMIFS와 결과는 같지만, SUMPRODUCT는 더 복잡한 조건도 처리할 수 있다.</p><p class="blog-paragraph"><strong>예시 2: 레벨 30~50 사이 캐릭터의 총 전투력</strong></p><p class="blog-paragraph"><code>=<strong>SUMPRODUCT</strong>((레벨열>=30)*(레벨열<=50)*전투력열)</code></p><p class="blog-paragraph">범위 조건(30 이상 AND 50 이하)을 한 번에 처리한다. SUMIFS로도 가능하지만, 조건이 더 복잡해지면 SUMPRODUCT가 편하다.</p><p class="blog-paragraph"><strong>예시 3: 가중 평균 계산</strong></p><p class="blog-paragraph">단순 평균이 아니라 수량에 따른 가중 평균이 필요할 때:</p><p class="blog-paragraph"><code>=<strong>SUMPRODUCT</strong>(수량범위, 단가범위) / <strong>SUM</strong>(수량범위)</code></p><p class="blog-paragraph">아이템 A: 10개 × 100원<br>아이템 B: 5개 × 200원</p><p class="blog-paragraph">단순 평균: (100 + 200) / 2 = 150원<br>가중 평균: (10×100 + 5×200) / 15 = 133.3원</p><p class="blog-paragraph">수량이 더 많은 아이템이 평균에 더 큰 영향을 미친다. 드롭률 조정이나 경제 밸런스 분석에 자주 쓰인다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> SUMPRODUCT에 전체 열(A:A)을 넣으면 빈 셀까지 계산해서 느려지거나 에러가 날 수 있다. 데이터가 있는 범위(A2:A100)를 명시적으로 지정하는 게 안전하다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="5">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8253339898"></ins>
+  </div><h2 id="round-함수들-수치-정리" class="blog-heading">ROUND 함수들: 수치 정리</h2><p class="blog-paragraph">밸런스 공식을 세우면 계산 결과가 127.384 같은 소수점으로 나온다. 하지만 플레이어에게 '공격력 127.384'를 보여줄 수는 없다. 골드 보상이 127원이면 어색하고, 300원처럼 깔끔한 숫자가 훨씬 자연스럽다. 스탯도 5의 배수면 보기 좋고 비교도 쉽다. ROUND 계열 함수는 이렇게 계산된 수치를 사람이 보기 좋은 형태로 정리해준다. 반올림, 올림, 내림, 단위 맞춤까지 상황에 맞게 선택할 수 있다.</p><p class="blog-paragraph"><strong class="subheading">함수 종류:</strong><code><strong>ROUND</strong>(값, 자릿수)</code> — 반올림<br><code><strong>ROUNDUP</strong>(값, 자릿수)</code> — 올림 (무조건 위로)<br><code><strong>ROUNDDOWN</strong>(값, 자릿수)</code> — 내림 (무조건 아래로)<br><code><strong>CEILING</strong>(값, 단위)</code> — 지정 단위로 올림<br><code><strong>FLOOR</strong>(값, 단위)</code> — 지정 단위로 내림</p><p class="blog-paragraph"><strong class="subheading">자릿수 이해:</strong>• 0: 정수 (소수점 제거)<br>• 1: 소수점 첫째 자리까지<br>• 2: 소수점 둘째 자리까지<br>• -1: 10의 자리까지 (127 → 130)<br>• -2: 100의 자리까지 (127 → 100)</p><p class="blog-paragraph"><strong>예시 1: 골드 보상을 100 단위로 맞추기</strong></p><p class="blog-paragraph">계산된 보상이 127골드인데, 이대로 주면 어색하다. 100단위 깔끔한 숫자로 올림하자.</p><p class="blog-paragraph"><code>=<strong>CEILING</strong>(계산된골드, 100)</code></p><p class="blog-paragraph">127 → 200, 350 → 400, 901 → 1000</p><p class="blog-paragraph">플레이어가 보기 좋은 숫자가 된다. 약간 후한 방향이라 플레이어 경험에도 긍정적이다.</p><p class="blog-paragraph"><strong>예시 2: 경험치를 10 단위로 내림</strong></p><p class="blog-paragraph">반대로 약간 손해보는 방향으로 정리하고 싶다면 FLOOR.</p><p class="blog-paragraph"><code>=<strong>FLOOR</strong>(계산된경험치, 10)</code></p><p class="blog-paragraph">127 → 120, 999 → 990</p><p class="blog-paragraph">경험치 인플레이션을 억제하는 효과가 있다.</p><p class="blog-paragraph"><strong>예시 3: 확률을 소수점 2자리까지</strong></p><p class="blog-paragraph">드롭 확률 0.12345를 표기할 때:</p><p class="blog-paragraph"><code>=<strong>ROUND</strong>(확률, 2)</code> → 0.12 (12%)</p><p class="blog-paragraph">확률 표기에 적합하다. 소수점이 길면 플레이어가 읽기 어렵다.</p><p class="blog-paragraph"><strong>예시 4: 스탯을 5의 배수로 맞추기</strong></p><p class="blog-paragraph">스탯이 5의 배수면 보기 좋고 비교도 쉽다.</p><p class="blog-paragraph"><code>=<strong>ROUND</strong>(스탯/5, 0)*5</code></p><p class="blog-paragraph">127 → 125, 128 → 130, 132 → 130</p><p class="blog-paragraph">반올림해서 가장 가까운 5의 배수로 맞춘다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> ROUND와 CEILING/FLOOR의 차이를 명확히 이해해야 한다. ROUND는 '자릿수'를 지정하고, CEILING/FLOOR는 '단위'를 지정한다. 100 단위로 올림하려면 ROUND가 아니라 CEILING을 써야 한다.</p><h2 id="min-max-스탯-캡핑" class="blog-heading">MIN / MAX: 스탯 캡핑</h2><p class="blog-paragraph">데미지 공식이 '공격력 - 방어력'이라면, 방어력이 공격력보다 높을 때 음수가 나온다. 이대로 두면 힐을 받는 셈이 되어버린다. 크리티컬 확률을 무한정 쌓으면 100%를 넘어서 200%가 될 수도 있다. 쿨타임 감소 버프를 너무 많이 받으면 쿨타임이 0이나 음수가 되어 무한 시전이 가능해진다. 밸런스에서 이런 '범위 이탈'은 심각한 문제를 일으킨다. MIN과 MAX는 값에 상한선과 하한선을 걸어서 이런 문제를 방지한다.</p><p class="blog-paragraph"><strong class="subheading">기본 문법:</strong><code>=<strong>MAX</strong>(값, 하한)</code> — 하한 보장. 값이 하한보다 작으면 하한을 반환<br><code>=<strong>MIN</strong>(값, 상한)</code> — 상한 제한. 값이 상한보다 크면 상한을 반환</p><p class="blog-paragraph">직관과 반대라서 헷갈리기 쉽다. '최소 1을 보장'하려면 <strong>MAX</strong>를 쓴다.</p><p class="blog-paragraph"><strong>예시 1: 최소 1 데미지 보장</strong></p><p class="blog-paragraph">데미지 공식이 '공격력 - 방어력'이라면, 방어력이 공격력보다 높을 때 음수가 된다.</p><p class="blog-paragraph"><code>=<strong>MAX</strong>(공격력 - 방어력, 1)</code></p><p class="blog-paragraph">공격력 50, 방어력 100 → 계산상 -50이지만, MAX가 1을 반환<br>공격력 200, 방어력 100 → 100 그대로 반환</p><p class="blog-paragraph"><strong>예시 2: 크리티컬 확률 80% 캡</strong></p><p class="blog-paragraph">장비, 버프, 스킬을 다 합쳐도 크리율이 80%를 넘지 못하게 하고 싶다.</p><p class="blog-paragraph"><code>=<strong>MIN</strong>(기본크리율 + 장비보너스 + 버프, 0.8)</code></p><p class="blog-paragraph">합이 0.5면 → 0.5 그대로<br>합이 1.2면 → 0.8로 캡핑</p><p class="blog-paragraph">과도한 스탯 쌓기로 밸런스가 붕괴되는 걸 방지한다.</p><p class="blog-paragraph"><strong>예시 3: 양쪽 제한 (클램핑)</strong></p><p class="blog-paragraph">하한과 상한을 동시에 걸어야 할 때. 예를 들어 스킬 쿨타임이 최소 0.5초, 최대 10초여야 한다.</p><p class="blog-paragraph"><code>=<strong>MIN</strong>(<strong>MAX</strong>(계산된쿨타임, 0.5), 10)</code></p><p class="blog-paragraph">계산 순서:<br>1. MAX(값, 0.5) → 0.5 미만이면 0.5로 올림<br>2. MIN(결과, 10) → 10 초과면 10으로 내림</p><p class="blog-paragraph">또는 MEDIAN을 활용한 트릭:</p><p class="blog-paragraph"><code>=<strong>MEDIAN</strong>(0.5, 계산된쿨타임, 10)</code></p><p class="blog-paragraph">세 값 중 중간값을 반환한다. 계산된쿨타임이 범위 안이면 그대로, 범위 밖이면 경계값이 반환된다. MIN+MAX보다 직관적이라 선호하는 기획자도 있다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> MIN/MAX 순서를 헷갈리면 의도와 정반대 결과가 나온다. '최소 보장'에는 MAX, '최대 제한'에는 MIN. 외워두자.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="6">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="power-log-성장-곡선-설계" class="blog-heading">POWER / LOG: 성장 곡선 설계</h2><p class="blog-paragraph">레벨업 시스템을 설계할 때, 레벨 1에서 100까지 스탯이 어떤 곡선을 그리며 성장할지 결정해야 한다. 선형 성장(레벨당 +10)은 단순하지만 밋밋하다. 실제 게임에서는 초반에 완만하고 후반에 급격히 오르는 '지수 성장'이나, 초반에 빠르고 후반에 완만해지는 '로그 성장'을 많이 쓴다.</p><p class="blog-paragraph">POWER 함수는 지수 성장을, LOG 함수는 로그 성장을 만든다. 경험치 테이블, 스탯 곡선, 피로도 시스템, 과금 효율 체감 등 게임 밸런스의 핵심 곡선들이 이 두 함수로 설계된다.</p><p class="blog-paragraph"><strong class="subheading">POWER 기본 문법:</strong><code>=기본값 * <strong>POWER</strong>(성장률, 레벨-1)</code></p><p class="blog-paragraph">레벨 1에서 기본값으로 시작하고, 레벨이 오를 때마다 성장률만큼 곱해진다.</p><p class="blog-paragraph"><strong>예시 1: 레벨당 1.05배 지수 성장 (스탯)</strong></p><p class="blog-paragraph"><code>=100 * <strong>POWER</strong>(1.05, 레벨-1)</code></p><div class="wiki-table-wrapper"><table><thead><tr><th>레벨</th><th>스탯</th></tr></thead><tbody><tr><td>1</td><td>100</td></tr><tr><td>10</td><td>155</td></tr><tr><td>30</td><td>432</td></tr><tr><td>50</td><td>1,147</td></tr><tr><td>100</td><td>13,150</td></tr></tbody></table></div><p class="blog-paragraph">초반 10레벨 성장폭: 55 (100→155)<br>후반 10레벨 성장폭(90→100): 약 5,600</p><p class="blog-paragraph">후반으로 갈수록 성장 체감이 커진다. 고레벨 콘텐츠에서 뉴비와의 격차를 만들 때 사용한다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> 성장률이 너무 높으면 후반 수치가 폭발한다. 1.1배로만 해도 레벨 100에서 13,780배가 된다. 최종 스탯 범위를 먼저 정해놓고 역산해서 성장률을 결정해야 한다.</p><p class="blog-paragraph"><strong class="subheading">LOG 기본 문법:</strong><code>=<strong>LOG</strong>(값, 밑)</code></p><p class="blog-paragraph">밑이 2면 '값이 2배가 될 때마다 1 증가'. 밑이 10이면 '값이 10배가 될 때마다 1 증가'.</p><p class="blog-paragraph"><strong>예시 2: 플레이 시간에 따른 보상 체감</strong></p><p class="blog-paragraph">과도한 플레이를 억제하면서도 계속 보상은 주고 싶다.</p><p class="blog-paragraph"><code>=<strong>LOG</strong>(플레이시간+1, 2) * 100</code></p><div class="wiki-table-wrapper"><table><thead><tr><th>플레이시간</th><th>보상</th></tr></thead><tbody><tr><td>1시간</td><td>100</td></tr><tr><td>2시간</td><td>158</td></tr><tr><td>4시간</td><td>232</td></tr><tr><td>8시간</td><td>316</td></tr><tr><td>16시간</td><td>406</td></tr></tbody></table></div><p class="blog-paragraph">플레이 시간이 2배가 되어도 보상 증가폭은 점점 줄어든다. '더 하면 더 주지만, 효율은 떨어진다'는 설계.</p><p class="blog-paragraph"><strong>예시 3: 과금 효율 체감</strong></p><p class="blog-paragraph">첫 결제는 효율이 좋고, 많이 결제할수록 효율이 떨어지게 하고 싶다. 소액 과금 유저에게 좋은 경험을 주면서 고래의 무한 파워를 제한한다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> LOG에 0 이하 값을 넣으면 에러가 난다. LOG(플레이시간+1, 2)처럼 +1을 해서 최소값을 1로 만들어야 한다.</p><h2 id="mod-레벨-구간-사이클-계산" class="blog-heading">MOD: 레벨 구간, 사이클 계산</h2><p class="blog-paragraph">게임에는 주기적으로 반복되는 패턴이 많다. 10 스테이지마다 보스가 등장하고, 요일마다 다른 던전이 열리고, 10레벨 단위로 새로운 콘텐츠가 해금된다. 이런 '반복 사이클'을 수식으로 표현할 때 MOD(나머지 연산)가 필요하다. 스테이지 번호를 10으로 나눈 나머지가 0이면 보스전, 일차를 7로 나눈 나머지로 요일을 판별하는 식이다.</p><p class="blog-paragraph"><strong class="subheading">기본 문법:</strong><code>=<strong>MOD</strong>(값, 나누는수)</code></p><p class="blog-paragraph">값을 나누는수로 나눈 나머지를 반환한다. MOD(7, 3) = 1, MOD(10, 5) = 0</p><p class="blog-paragraph"><strong>예시 1: 10 스테이지마다 보스</strong></p><p class="blog-paragraph"><code>=<strong>IF</strong>(<strong>MOD</strong>(스테이지, 10)=0, "보스", "일반")</code></p><p class="blog-paragraph">10, 20, 30, 40... 스테이지는 보스전.<br>1~9, 11~19, 21~29... 스테이지는 일반전.</p><p class="blog-paragraph">스테이지를 10으로 나눈 나머지가 0이면 보스라는 간단한 로직이다.</p><p class="blog-paragraph"><strong>예시 2: 요일 던전 (7일 사이클)</strong></p><p class="blog-paragraph">게임 출시 후 일차를 기준으로 요일 던전을 열고 싶다.</p><p class="blog-paragraph"><code>=<strong>MOD</strong>(일차-1, 7)+1</code></p><div class="wiki-table-wrapper"><table><thead><tr><th>일차</th><th>계산</th><th>결과</th></tr></thead><tbody><tr><td>1일차</td><td>MOD(0,7)+1</td><td>1 (월)</td></tr><tr><td>2일차</td><td>MOD(1,7)+1</td><td>2 (화)</td></tr><tr><td>7일차</td><td>MOD(6,7)+1</td><td>7 (일)</td></tr><tr><td>8일차</td><td>MOD(7,7)+1</td><td>1 (월)</td></tr></tbody></table></div><p class="blog-paragraph">8일차부터 다시 1로 돌아가서 사이클이 반복된다.</p><p class="blog-paragraph"><strong>예시 3: 레벨 구간 판별</strong></p><p class="blog-paragraph">10레벨 단위로 구간을 나눠서 콘텐츠를 다르게 적용하고 싶다.</p><p class="blog-paragraph">방법 1: CEILING 활용<br><code>=<strong>CEILING</strong>(레벨, 10)</code></p><p class="blog-paragraph">1~10레벨 → 10, 11~20레벨 → 20, 21~30레벨 → 30...</p><p class="blog-paragraph">방법 2: INT 활용 (구간 번호로 표현)<br><code>=<strong>INT</strong>((레벨-1)/10)+1</code></p><p class="blog-paragraph">1~10레벨 → 1구간, 11~20레벨 → 2구간, 21~30레벨 → 3구간...</p><p class="blog-paragraph">용도에 따라 선택하면 된다. 구간별 보상 테이블 참조에는 구간 번호가 편하고, 표시용으로는 CEILING이 직관적이다.</p><p class="blog-paragraph"><strong class="subheading">주의:</strong> MOD(0, N)은 0을 반환한다. 1부터 시작하는 사이클을 만들 때는 위 예시처럼 -1하고 +1 처리를 해야 한다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="7">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="수식은-기획-의도를-수치로-표현하는-수단" class="blog-heading">수식은 기획 의도를 수치로 표현하는 수단</h2><p class="blog-paragraph"><strong>핵심 원칙 1: 하드코딩 금지</strong></p><p class="blog-paragraph">수식에 숫자를 직접 넣지 말고 별도 셀에서 참조하라. <code>=A1*1.5</code> 대신 <code>=A1*크리배율</code>처럼. 나중에 1.5를 1.8로 바꿀 때 수식 100개를 고칠 건가? 특히 여러 시트에서 같은 값을 쓴다면 이름 정의는 필수다.</p><p class="blog-paragraph"><strong>핵심 원칙 2: 시트 분리</strong></p><p class="blog-paragraph">원본 데이터 / 계산 시트 / 출력용 시트를 분리하면 관리가 편하다. 원본 데이터는 건드리지 않고, 계산 시트에서 가공하고, 출력용 시트에서 보기 좋게 정리한다. 원본이 바뀌면 나머지가 자동으로 갱신되는 구조가 이상적이다.</p><p class="blog-paragraph"><strong>핵심 원칙 3: 에러 처리 습관화</strong></p><p class="blog-paragraph">모든 VLOOKUP/INDEX-MATCH에 IFERROR를 감싸는 습관을 들여라. 개발 중에는 데이터 누락이 흔하다. 에러 하나가 시트 전체를 망가뜨리기 전에 방어해야 한다.</p><p class="blog-paragraph">이 수식들을 조합하면 웬만한 밸런스 시뮬레이션은 엑셀만으로 가능하다. 결국 도구는 도구일 뿐, 중요한 건 '이 숫자가 왜 이 값이어야 하는가'에 대한 기획 의도다. 수식은 의도를 수치로 표현하는 수단이다.</p>
+              </div>
+
+              
+              
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://www.gamedeveloper.com/design/my-approach-to-economy-balancing-using-spreadsheets" target="_blank" rel="noopener">Game Developer - My Approach To Economy Balancing Using Spreadsheets</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/wiki/" class="trend-nav-btn list">목록</a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item active">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item active">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

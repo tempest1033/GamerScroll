@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding: 0 16px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+		  <title>구글 I/O 2026, &#39;에이전트 제미나이&#39;로 다시 그린 검색·앱·데스크톱 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="구글은 &#39;구글 I/O 2026&#39;에서 &#39;에이전트 제미나이&#39; 생태계를 공개했다. 제미나이 3.5 플래시, 24시간 작동하는 자율 에이전트, 그리고 재설계된 검색창을 특징으로 한다.">
+  <meta name="keywords" content="구글 I/O 2026, 제미나이 3.5 플래시, 제미나이 옴니, 제미나이 스파크, 에이전트 제미나이, 안티그래비티 2.0, AI 모드">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/tech/ai/google-io-2026-agentic-gemini/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱",
+    "description": "구글은 '구글 I/O 2026'에서 '에이전트 제미나이' 생태계를 공개했다. 제미나이 3.5 플래시, 24시간 작동하는 자율 에이전트, 그리고 재설계된 검색창을 특징으로 한다.",
+    "datePublished": "2026-05-20T18:00:00+09:00",
+    
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/tech/ai/google-io-2026-agentic-gemini/"
+    },
+    "image": "https://wsrv.nl/?url=https%3A%2F%2Fstorage.googleapis.com%2Fgweb-uniblog-publish-prod%2Fimages%2FGeminiapp_Bento_hero.width-1600.format-webp.webp&w=1200&output=webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "테크",
+        "item": "https://gamerscroll.com/tech/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI",
+        "item": "https://gamerscroll.com/tech/ai/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱",
+        "item": "https://gamerscroll.com/tech/ai/google-io-2026-agentic-gemini/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="구글 I/O 2026, &#39;에이전트 제미나이&#39;로 다시 그린 검색·앱·데스크톱">
+  <meta property="og:description" content="구글은 &#39;구글 I/O 2026&#39;에서 &#39;에이전트 제미나이&#39; 생태계를 공개했다. 제미나이 3.5 플래시, 24시간 작동하는 자율 에이전트, 그리고 재설계된 검색창을 특징으로 한다.">
+  <meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fstorage.googleapis.com%2Fgweb-uniblog-publish-prod%2Fimages%2FGeminiapp_Bento_hero.width-1600.format-webp.webp&amp;w=1200&amp;output=webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="구글 I/O 2026, &#39;에이전트 제미나이&#39;로 다시 그린 검색·앱·데스크톱">
+  <meta property="og:url" content="https://gamerscroll.com/tech/ai/google-io-2026-agentic-gemini/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-05-20T18:00:00+09:00">
+  <meta property="article:section" content="AI">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="구글 I/O 2026">
+  <meta property="article:tag" content="제미나이 3.5 플래시">
+  <meta property="article:tag" content="제미나이 옴니">
+  <meta property="article:tag" content="제미나이 스파크">
+  <meta property="article:tag" content="에이전트 제미나이">
+  <meta property="article:tag" content="안티그래비티 2.0">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="구글 I/O 2026, &#39;에이전트 제미나이&#39;로 다시 그린 검색·앱·데스크톱">
+  <meta name="twitter:description" content="구글은 &#39;구글 I/O 2026&#39;에서 &#39;에이전트 제미나이&#39; 생태계를 공개했다. 제미나이 3.5 플래시, 24시간 작동하는 자율 에이전트, 그리고 재설계된 검색창을 특징으로 한다.">
+  <meta name="twitter:image" content="https://wsrv.nl/?url=https%3A%2F%2Fstorage.googleapis.com%2Fgweb-uniblog-publish-prod%2Fimages%2FGeminiapp_Bento_hero.width-1600.format-webp.webp&amp;w=1200&amp;output=webp">
+  <meta name="twitter:image:alt" content="구글 I/O 2026, &#39;에이전트 제미나이&#39;로 다시 그린 검색·앱·데스크톱">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://wsrv.nl">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
+	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-tech">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <header class="header">
+	    <div class="header-inner">
+	      <div class="header-title">
+	        <a href="/">
+	          <span class="visually-hidden">게이머스크롤</span>
+	          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	            <defs>
+	              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+	                <stop offset="0%" stop-color="#4f46e5" />
+	                <stop offset="100%" stop-color="#06b6d4" />
+	              </linearGradient>
+	            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <!-- 왼쪽 안테나 -->
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <!-- 오른쪽 안테나 -->
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        매거진
+      </a>
+      <a class="nav-item" href="/wiki/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        게임 위키
+      </a>
+      <a class="nav-item active" href="/tech/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        테크
+      </a>
+      <a class="nav-item" href="/games/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        게임 DB
+      </a>
+      <a class="nav-item" href="/rankings/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        모바일 순위
+      </a>
+      <a class="nav-item" href="/steam/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12h.01M18 12h.01"/><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12"/></svg>
+        스팀 순위
+      </a>
+      <a class="nav-item" href="/upcoming/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        출시 게임
+      </a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=2;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=1c887d57"></script>
+    
+    <section class="section active" id="tech-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-139-card">
+  <style>
+    .ad-home-pc-139-card, .ad-home-pc-139 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-139-card { display:flex !important; width:100%; max-width:100%; min-height:90px; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-139 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-139"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="false"></ins>
+  <script>(function(){var s=document.currentScript;var i=s&&s.previousElementSibling;if(!i||!i.classList||!i.classList.contains('adsbygoogle'))return;if(window.getComputedStyle&&getComputedStyle(i).display==='none')return;if(i.getAttribute('data-gs-ad-pushed')==='1')return;i.setAttribute('data-gs-ad-pushed','1');try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){i.removeAttribute('data-gs-ad-pushed');}})();</script>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-140-card">
+  <style>
+    .ad-home-mo-140-card { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-140, .ad-home-mo-140-card > .ad-home-mo-140, .ad-home-mo-140-card > .ad-home-mo-140 > div, .ad-home-mo-140-card > .ad-home-mo-140 iframe { display:block !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-140-card > .ad-home-mo-140 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-140-card, .ad-home-mo-140, .ad-home-mo-140-card > .ad-home-mo-140 > div, .ad-home-mo-140-card > .ad-home-mo-140 iframe { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-140"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+  <script>(function(){var s=document.currentScript;var i=s&&s.previousElementSibling;if(!i||!i.classList||!i.classList.contains('adsbygoogle'))return;if(window.getComputedStyle&&getComputedStyle(i).display==='none')return;if(i.getAttribute('data-gs-ad-pushed')==='1')return;i.setAttribute('data-gs-ad-pushed','1');try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){i.removeAttribute('data-gs-ad-pushed');}})();</script>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">AI</span><time class="blog-date">2026년 5월 20일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="https://wsrv.nl/?url=https%3A%2F%2Fstorage.googleapis.com%2Fgweb-uniblog-publish-prod%2Fimages%2FGeminiapp_Bento_hero.width-1600.format-webp.webp&w=1200&output=webp" class="blog-image" alt="구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">구글은 '구글 I/O 2026'에서 '에이전트 제미나이' 생태계를 공개했다. 제미나이 3.5 플래시, 24시간 작동하는 자율 에이전트, 그리고 재설계된 검색창을 특징으로 한다.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">5월 19일 마운틴뷰 쇼어라인 앰피시어터에서 개최된 구글 I/O 2026에서 순다르 피차이 최고경영자(CEO)는 이번 행사를 ‘에이전트 제미나이(agentic Gemini) 시대’의 서막으로 규정했다. 구글은 에이전트 제미나이를 앞세워 일상적인 업무와 검색 경험을 완전히 재정의하고자 한다.</p><p class="blog-paragraph">구글은 현재 서비스 전반에서 월간 3,200조 개의 토큰을 처리하고 있으며, 이는 1년 전 보고된 480조 개에서 7배 증가한 규모다.</p><p class="blog-paragraph">연간 설비투자액(Capex)은 2022년 310억 달러에서 올해 약 1,900억 달러로 급증했다.</p><p class="blog-paragraph"><a href="https://blog.google/intl/en-africa/products/explore-get-answers/sundar-pichai-io-2026/" target="_blank" rel="noopener">키노트</a>에서는 25년 만에 이루어진 구글 검색창의 첫 재설계가 공개됐다. 그리고 데스크톱과 모바일, 인텔리전트 안경을 아우르는 24시간 작동 에이전트가 도입되었다. 이와 함께 <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/">행사 전 사전에 흘러나왔던 디테일</a>도 무대 위에서 그대로 확인됐다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="월간-3200조-토큰이-입증하는-인프라-규모" class="blog-heading">월간 3,200조 토큰이 입증하는 인프라 규모</h2><p class="blog-paragraph">이러한 토큰 성장세를 추적해 보면 구글의 인프라 확장 규모를 가늠할 수 있다.</p><p class="blog-paragraph">2년 전 월간 처리량은 9조 7,000억 개 수준이었으나 지난해 480조 개로 성장했고, 이제는 3,200조 개에 이르며 매년 연간 주기마다 자릿수를 바꾸는 성장을 보였다.</p><p class="blog-paragraph">모델 API로만 분당 약 190억 개의 토큰을 처리한다.</p><p class="blog-paragraph">이러한 트래픽 규모를 뒷받침하는 것은 거대한 글로벌 사용자 기반이다.</p><p class="blog-paragraph">한 달 활성 사용자 수(MAU)가 10억 명을 넘는 구글 제품은 13개이며, 이 중 5개는 30억 명을 넘어선다.</p><p class="blog-paragraph">AI 오버뷰는 월간 25억 명의 사용자에게 제공되며, 대화형 AI 모드는 출시 1년 만에 10억 명을 넘어섰다.</p><p class="blog-paragraph">아울러 매월 850만 명의 개발자가 구글 모델을 기반으로 개발을 진행하고 있고, 구글 클라우드 고객사 중 지난 1년간 각각 1조 개 이상의 토큰을 처리한 기업 고객도 375곳에 달한다.</p><p class="blog-paragraph">인프라 측면에서 설비투자액(Capex)은 이러한 운영 규모를 가능케 한 자원이다. 2022년 310억 달러였던 연간 자본 지출은 올해 약 1,900억 달러에 이른다.</p><p class="blog-paragraph">피차이 CEO는 이 수치를 인용하며, AI 주기가 사용자들이 매일 사용하는 제품에서 구체적인 가치를 확인하고 기대하는 단계에 진입했다는 점을 강조했다.</p><h2 id="제미나이-옴니-모든-모달리티를-가로지르는-멀티모달-모델" class="blog-heading">제미나이 옴니 — 모든 모달리티를 가로지르는 멀티모달 모델</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="https://wsrv.nl/?url=https%3A%2F%2Ftechcrunch.com%2Fwp-content%2Fuploads%2F2026%2F05%2FGoogle-Omni-Flash.png&w=960&output=webp" alt="손바닥 위에 떠 있는 투명한 유리 구조물 일러스트" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">TechCrunch가 제미나이 옴니 보도에 쓴 컴셉 이미지 — 손바닥 위의 유리 조형물</figcaption>
+          </figure>
+        <p class="blog-paragraph">이 생태계를 이끄는 기초 엔진은 크게 두 가지 경로로 나뉜다. 제미나이 옴니는 임의의 입력을 받아서 다양한 형태의 모달리티 결과물을 생성할 수 있는 네이티브 멀티모달 모델이다.</p><p class="blog-paragraph">구글은 실시간 비디오 생성을 중심으로 제미나이 옴니를 출시했으나, 향후 이미지와 텍스트로 직접 출력 능력을 확장할 계획이다.</p><p class="blog-paragraph">베오(Veo) 동영상 스택과 통합된 제미나이 옴니는 텍스트, 이미지, 비디오가 혼합된 입력을 수용하여 하나의 자연어 프롬프트만으로 시네마틱 줌이나 배경 교체와 같은 복잡한 편집 작업을 수행할 수 . 이러한 통합 기능을 통해 제미나이 옴니는 고화질 콘텐츠 제작 생산성을 극대화한다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="제미나이-35-플래시-프론티어-지능에-행동을-더한-모델" class="blog-heading">제미나이 3.5 플래시 — 프론티어 지능에 행동을 더한 모델</h2><p class="blog-paragraph">고효율 영역에서는 <a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/" target="_blank" rel="noopener">제미나이 3.5 플래시</a>가 작동한다.</p><p class="blog-paragraph">'행동력을 갖춘 최첨단 지능'으로 설명된 이 모델은 차세대 모델 제품군 중 가장 먼저 출시된다.</p><p class="blog-paragraph">거의 모든 표준 벤치마크에서 제미나이 3.1 프로를 능가하는 동시에, 경쟁사 최상급 모델보다 4배 빠른 속도로 작동하며 비용은 절반 이하 수준이다.</p><p class="blog-paragraph">구글은 글로벌 대기업들이 현재 최상급 워크로드의 80%를 제미나이 3.5 플래시로 전환할 경우, 연간 약 90억 달러의 비용 절감을 달성할 수 있을 것으로 추정했다.</p><p class="blog-paragraph">이 비용과 성능에 대한 지표는 구글 내부의 실적 수치가 뒷받침한다. 지난 3월 구글 내부 AI 개발 도구가 처리한 일일 토큰량은 5,000억 개였으나, 키노트 시점에는 하루 3조 개로 늘어났다.</p><p class="blog-paragraph">두 달 만에 6배 늘어났다. 무대에 오른 모델은 구글 엔지니어링 팀이 자체 업무 전반에서 검증을 완료한 결과물이다.</p><h2 id="스파크-안티그래비티-위에-올라온-24시간-자율-에이전트" class="blog-heading">스파크 — 안티그래비티 위에 올라온 24시간 자율 에이전트</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="https://wsrv.nl/?url=https%3A%2F%2Ftechcrunch.com%2Fwp-content%2Fuploads%2F2026%2F05%2FIMG_1192.jpg&w=960&output=webp" alt="발표 슬라이드 옆 단상에 선 순다르 피차이" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">구글 I/O 2026 키노트 무대의 순다르 피차이. 스파크와 데일리 브리프는 같은 발표 자리에서 공개됐다</figcaption>
+          </figure>
+        <p class="blog-paragraph">제미나이 3.5 플래시를 기반으로 하는 <a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" target="_blank" rel="noopener">제미나이 스파크</a>는 수동적인 대화형 비서에서 24시간 작동하는 자율 에이전트로의 거대한 전환을 보여준다.</p><p class="blog-paragraph">제미나이 스파크는 구글 안티그래비티 2.0 오케스트레이션 위에서 백그라운드 워크플로우를 돌린다.</p><p class="blog-paragraph">이 과정에서 제미나이 스파크는 지메일(Gmail), 구글 문서(Docs), 프레젠테이션(Slides), 캘린더(Calendar) 등 구글 워크스페이스(Workspace) 애플리케이션과 유기적으로 연동된다.</p><p class="blog-paragraph">실제 시나리오에서 제미나이 스파크는 신용카드 명세서를 자동 분석해 새로 추가된 정기 구독 수수료를 선별한다.</p><p class="blog-paragraph">또한 제미나이 스파크는 자녀의 학교 이메일 수신함을 모니터링해 주요 기한 정보를 추출하고, 이를 부모용 데일리 요약본으로 편집한다.</p><p class="blog-paragraph">여러 이메일과 대화 채널에서 취합한 회의록을 통합해 종합적인 구글 문서 보고서와 그에 수반되는 기업 블로그 글을 작성하기도 한다.</p><p class="blog-paragraph">안전성을 확보하기 위해 금융 거래 처리나 외부 메일 발송 등 중요 조치에는 사용자의 동의 확인을 명시적으로 요구한다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="데일리-브리프와-macos-데스크톱으로-이어진-비서-라인" class="blog-heading">데일리 브리프와 macOS 데스크톱으로 이어진 비서 라인</h2><p class="blog-paragraph">데일리 브리프(Daily Brief)는 동일한 루프의 다른 축이다. 이 아침 요약본은 구글 랩스(Google Labs)의 실험 과제였던 '프로젝트 CC'를 기반으로 정식 제품화됐다.</p><p class="blog-paragraph">사용자가 동의하면 에이전트가 백그라운드에서 연동된 앱들을 모니터링하며 주요 업데이트, 캘린더 일정, 미결 업무를 하나의 화면으로 정리해 준다.</p><p class="blog-paragraph">제미나이 스파크는 이번 주 신뢰할 수 있는 테스터를 대상으로 배포되며, 다음 주 미국 지역 '구글 AI 울트라(Google AI Ultra)' 구독자용 베타 서비스로 전환된다. 데일리 브리프 역시 미국을 시작으로 단계별 배포가 예정되어 있다.</p><p class="blog-paragraph">구글은 macOS용 제미나이 앱 업데이트 버전도 공개하며, 제미나이 스파크의 데스크톱 조정 능력을 애플 생태계로 확장하겠다는 의도를 보였다.</p><p class="blog-paragraph">앤트로픽(Anthropic)의 '클로드 코워크(Claude Cowork)'가 윈도우 진영에서 선점 효과를 낸 상황에서, 데스크톱 에이전트 계층을 확보하려는 경쟁 상황이 이번 발표 전반의 맥락에 깔려 있었다.</p><h2 id="25년-만에-단행된-구글-검색창의-첫-재설계" class="blog-heading">25년 만에 단행된 구글 검색창의 첫 재설계</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="https://wsrv.nl/?url=https%3A%2F%2Ftechcrunch.com%2Fwp-content%2Fuploads%2F2026%2F05%2FG-information-agents.png&w=960&output=webp" alt="구글 AI 모드 검색창에서 정보 에이전트를 생성 중인 사용자 인터페이스" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">AI 모드 안에서 정보 에이전트를 만드는 화면. 스니커즈 콜라보·시그니처 출시 알림을 추적해달라는 요청이 입력돼 있다</figcaption>
+          </figure>
+        <p class="blog-paragraph">에이전트 중심의 패러다임 변화는 구글 검색에서 가장 명확하게 드러났다.</p><p class="blog-paragraph">무대에 선 <a href="https://blog.google/products-and-platforms/products/search/search-io-2026/" target="_blank" rel="noopener">리즈 레이드 구글 검색 부문 부사장</a>은 이번 개편을 ‘검색창 탄생 25년 만에 이루어진 첫 번째 재설계’라고 직접 설명했다.</p><p class="blog-paragraph">내부적으로는 이번에 발표된 제미나이 3.5 플래시가 대화형 AI 모드를 구동하는 글로벌 기본 모델로 적용되었다.</p><p class="blog-paragraph">새로운 검색창은 기존의 정적인 검색어 입력 칸을 동적인 작업 공간으로 변환한다. 복합적인 멀티모달 쿼리에 맞게 자동 확장되며 텍스트, 이미지, 파일, 비디오 클립뿐 아니라 현재 활성화된 크롬(Chrome) 탭까지 수용한다.</p><p class="blog-paragraph">AI 오버뷰 결과에서 이어지는 후속 질문들은 대화 흐름의 컨텍스트 기록을 유지한 채 자연스럽게 대화형 AI 모드로 전환된다. 글로벌 출시는 AI 모드가 지원되는 전 지역과 언어권을 대상으로 즉시 시작된다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="검색-에이전트와-안티그래비티-코딩으로-들어온-미니-앱" class="blog-heading">검색 에이전트와 안티그래비티 코딩으로 들어온 미니 앱</h2><p class="blog-paragraph">가장 큰 변화는 검색 에이전트의 도입이다. 사용자는 이제 검색창 내에서 특정 정보를 수집하는 맞춤형 에이전트를 직접 생성하고 관리할 수 있다.</p><p class="blog-paragraph">이 에이전트들은 백그라운드에서 24시간 자율적으로 작동하며 웹 리소스, 애플리케이션 인터페이스, 디지털 서비스를 조회한다.</p><p class="blog-paragraph">예를 들어 '금요일 밤 늦은 식사가 가능한 6인용 노래방' 같은 세부 요청을 보내면, 에이전트가 정확한 가격과 예약 현황을 확인하여 직접 예약할 수 있는 링크를 제공한다.</p><p class="blog-paragraph">주택 수리나 미용, 반려동물 케어처럼 로컬 접점이 필요한 분야에서는 구글이 사용자를 대신해 업체에 자동 전화를 걸어 상세 정보를 직접 확인하기도 한다.</p><p class="blog-paragraph">아울러 안티그래비티 2.0의 자율 코딩 능력이 검색 응답 레이어에 직접 통합됐다.</p><p class="blog-paragraph">플랫폼은 즉각적으로 맞춤형 사용자 인터페이스를 생성하여 사용자의 질의에 부합하는 시각화 자료나 시뮬레이션을 실시간으로 그려낸다.</p><p class="blog-paragraph">결혼식 계획이나 이사 준비 같은 반복적인 성격의 작업은 전용 대시보드로 생성되어 사용자가 언제든 돌아와 작업을 이어갈 수 있으며, 이는 검색 내에 미니 앱이 결합된 형태로 기능한다.</p><h2 id="안티그래비티-20과-매니지드-에이전트-api" class="blog-heading">안티그래비티 2.0과 매니지드 에이전트 API</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="https://wsrv.nl/?url=https%3A%2F%2Ftechcrunch.com%2Fwp-content%2Fuploads%2F2026%2F05%2Fgoogle-developer-antigravity.jpg&w=960&output=webp" alt="구글 I/O 2026 무대, 'Google Antigravity — Available globally today' 슬라이드 옆의 발표자" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">구글 I/O 2026 무대에서 'Google Antigravity—Available globally today' 슬라이드를 드러냄다</figcaption>
+          </figure>
+        <p class="blog-paragraph">이 정도 자율성을 가진 검색 에이전트를 가동하려면 탄탄한 개발자 도구가 바탕이 되어야 한다.</p><p class="blog-paragraph">안티그래비티 2.0은 개발자 생태계를 단순한 코딩 환경에서 자율 AI 에이전트들을 구축하고 관리할 수 있는 종합 플랫폼으로 개편했다.</p><p class="blog-paragraph">이 도구 세트, 즉 안티그래비티 2.0의 중심은 오케스트레이션 허브 역할을 하는 독립형 데스크톱 애플리케이션으로, 경쟁사 최상급 모델보다 12배 빠른 속도를 내는 제미나이 3.5 플래시 특화 버전으로 구동된다.</p><p class="blog-paragraph">제미나이 API 역시 매니지드 에이전트(Managed Agents) 기능이 추가되어 개발자의 에이전트 수명 주기 관리를 간소화한다.</p><p class="blog-paragraph">동시에 구글 AI 스튜디오(Google AI Studio)에는 네이티브 안드로이드 통합 기능이 탑재됐다.</p><p class="blog-paragraph">개발자들은 실제 기기에서 직접 ‘모바일 바이브 코딩(mobile vibe coding)’ 작업을 진행할 수 있다.</p><p class="blog-paragraph"><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/" target="_blank" rel="noopener">개발자 트랙</a> 전체를 관통하는 주제는 프롬프트 입력에서 실제 실행으로의 업계 전환을 가속화하라는 단 하나의 지침으로 요약된다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="5">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="안드로이드-xr과-인텔리전트-아이웨어" class="blog-heading">안드로이드 XR과 인텔리전트 아이웨어</h2><p class="blog-paragraph">구글 플랫폼 전략의 두 번째 축은 <a href="https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/" target="_blank" rel="noopener">안드로이드 XR</a>이며, 서로 다른 두 가지 형태의 인텔리전트 안경 공개가 핵심을 이루었다.</p><p class="blog-paragraph">하나는 특정 구역에서 소리 안내를 주는 오디오 전용 안경이고, 다른 하나는 사용자의 시야 위에 디지털 정보를 표시하는 디스플레이 안경이다.</p><p class="blog-paragraph">오디오 안경은 이번 가을에 출시될 예정이며 삼성전자, 퀄컴을 비롯해 아이웨어 브랜드인 젠틀몬스터, 와비파커 등과의 협력으로 개발됐다.</p><p class="blog-paragraph">사용자는 ‘헤이 구글(Hey Google)’ 음성 명령어나 안경 프레임을 가볍게 터치해 제미나이를 호출할 수 있으며, 도보 경로 탐색, 실시간 번역, 주변 사물 식별 등을 기기 조작 없이 지원받는다.</p><p class="blog-paragraph">에이전트 제미나이가 이번 키노트의 마케팅 주제였으나, 2시간 발표를 통해 드러난 실제 핵심은 구글 수직 풀스택의 유기적인 정렬이었다.</p><p class="blog-paragraph">구글은 제미나이 옴니부터 안드로이드 XR까지, 모델 아키텍처와 자율 에이전트, 검색 인프라, 운영체제, 물리적 하드웨어에 이르기까지 동기화된 업데이트를 연달아 내놓았다. 이를 통해 에이전트 제미나이를 기반으로 한 통합된 풀스택 AI 전략을 단 하루 만에 실행할 수 있는 역량을 보여주었다.</p><p class="blog-paragraph">구글은 모델 아키텍처, 자율 에이전트, 검색 인프라, 운영체제, 물리적 하드웨어에 이르기까지 동기화된 업데이트를 연달아 내놓았다. 이를 통해 통합된 풀스택 AI 전략을 단 하루 만에 실행할 수 있는 역량을 보여주었다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/gemini-io-2026-rumor-roundup-d2/thumbnail.webp" alt="공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino</span></span>
+              </a>
+              <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/google-gemini-3-2-3-5-imminent/thumbnail.webp" alt="구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span></span>
+              </a>
+              <a href="/tech/ai/gemini-31-pro-release/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/gemini-31-pro-release/thumbnail.webp" alt="제미나이 3.1 프로 출시, 추론과 멀티모달 모두 SOTA급 도약" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">제미나이 3.1 프로 출시, 추론과 멀티모달 모두 SOTA급 도약</span></span>
+              </a>
+              <a href="/tech/ai/nano-banana-2-gemini-flash-image/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/nano-banana-2-gemini-flash-image/thumbnail.webp" alt="나노 바나나 2 출시, 플래시 기반으로 프로급 성능을 절반 가격에" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">나노 바나나 2 출시, 플래시 기반으로 프로급 성능을 절반 가격에</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://blog.google/intl/en-africa/products/explore-get-answers/sundar-pichai-io-2026/" target="_blank" rel="noopener">Google Blog - Sundar Pichai's keynote at Google I/O 2026</a></li><li><a href="https://blog.google/products-and-platforms/products/search/search-io-2026/" target="_blank" rel="noopener">Google Blog - Search, supercharged: our biggest updates at I/O 2026 — Liz Reid</a></li><li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-developer-highlights/" target="_blank" rel="noopener">Google Blog - Google I/O 2026: Developer keynote highlights</a></li><li><a href="https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/" target="_blank" rel="noopener">Google Blog - The next evolution of the Gemini app — Spark, Daily Brief, Omni</a></li><li><a href="https://blog.google/products-and-platforms/platforms/android/android-xr-io-2026/" target="_blank" rel="noopener">Google Blog - Android XR and intelligent eyewear at I/O 2026</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/tech/" class="trend-nav-btn list">목록</a>
+      <a href="/tech/ai/gemini-pricing-overhaul-compute-limits-backlash/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (103)</span></a>
+            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (8)</span></a>
+            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (9)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (13)</span></a>
+            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (10)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (12)</span></a>
+            <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (104)</span></a>
+            <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (12)</span></a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+      </a>
+    
+      <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+      </a>
+    
+      <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+      </a>
+    
+      <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+      </a>
+    
+      <a href="/tech/ai/antigravity-usage-rollback-gemini-partial-revert/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+      </a>
+    
+      <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+      </a>
+    
+      <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-ai-chip-monopoly-cracking/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">엔비디아 AI 칩 독점에 균열? 빅테크 탈 엔비디아 러시</span>
+      </a>
+    
+      <a href="/tech/ai/claude-sonnet-46-release/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에</span>
+      </a>
+    </div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/tech/ai/gemini-pricing-overhaul-compute-limits-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소</span>
+      </a>
+    
+      <a href="/tech/ai/google-io-2026-agentic-gemini/" class="sidebar-article-item active">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱</span>
+      </a>
+    
+      <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+      </a>
+    
+      <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino</span>
+      </a>
+    
+      <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+      </a>
+    
+      <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+      </a>
+    
+      <a href="/tech/ai/altman-musk-openai-trial-mudslinging/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">알트만 vs 머스크, OpenAI 법정이 진흙탕 폭로전으로</span>
+      </a>
+    
+      <a href="/tech/ai/openai-8000-anthropic-rivalry/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">오픈AI, 연말까지 직원 8천 명으로 두 배 확대: 앤트로픽 급부상에 전면전</span>
+      </a>
+    
+      <a href="/tech/ai/supermicro-ai-chip-china-smuggling/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">슈퍼마이크로 공동창업자, 25억 달러 규모 엔비디아 AI 칩 중국 밀반출로 기소</span>
+      </a>
+    </div>
+        </div>
+      </div>
+    
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+    <div class="home-card" id="sidebar-categories">
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (103)</span></a>
+          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (8)</span></a>
+          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (9)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (13)</span></a>
+          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (10)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (12)</span></a>
+          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (104)</span></a>
+          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (12)</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-card" id="sidebar-articles">
+      <div class="home-card-header">
+        <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+          <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+          <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+        </div>
+      </div>
+      <div class="home-card-body">
+        <div class="sidebar-article-list active" id="panel-sidebar-popular">
+    <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+    </a>
+  
+    <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+    </a>
+  
+    <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+    </a>
+  
+    <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+    </a>
+  
+    <a href="/tech/ai/antigravity-usage-rollback-gemini-partial-revert/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+    </a>
+  
+    <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+    </a>
+  
+    <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-ai-chip-monopoly-cracking/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">엔비디아 AI 칩 독점에 균열? 빅테크 탈 엔비디아 러시</span>
+    </a>
+  
+    <a href="/tech/ai/claude-sonnet-46-release/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에</span>
+    </a>
+  </div>
+        <div class="sidebar-article-list" id="panel-sidebar-latest">
+    <a href="/tech/ai/gemini-pricing-overhaul-compute-limits-backlash/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소</span>
+    </a>
+  
+    <a href="/tech/ai/google-io-2026-agentic-gemini/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱</span>
+    </a>
+  
+    <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+    </a>
+  
+    <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino</span>
+    </a>
+  
+    <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+    </a>
+  
+    <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+    </a>
+  
+    <a href="/tech/ai/altman-musk-openai-trial-mudslinging/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">알트만 vs 머스크, OpenAI 법정이 진흙탕 폭로전으로</span>
+    </a>
+  
+    <a href="/tech/ai/openai-8000-anthropic-rivalry/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">오픈AI, 연말까지 직원 8천 명으로 두 배 확대: 앤트로픽 급부상에 전면전</span>
+    </a>
+  
+    <a href="/tech/ai/supermicro-ai-chip-china-smuggling/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">슈퍼마이크로 공동창업자, 25억 달러 규모 엔비디아 AI 칩 중국 밀반출로 기소</span>
+    </a>
+  </div>
+      </div>
+    </div>
+  
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=1c887d57"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

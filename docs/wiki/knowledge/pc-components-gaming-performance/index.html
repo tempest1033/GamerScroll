@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/wiki/knowledge/pc-components-gaming-performance/thumbnail.webp">
+		  <title>PC 부품별 게임 성능의 상관관계 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="게임 성능은 어떤 부품이 결정할까? GPU가 가장 중요하지만, CPU 병목, RAM 부족, 저장장치 속도까지 모두 영향을 미친다. AMD vs 인텔 비교와 함께 각 부품의 역할을 정리했다.">
+  <meta name="keywords" content="게임 성능, CPU, GPU, 그래픽카드, RAM, 메모리, SSD, 병목현상, AMD, 인텔, 라이젠, RTX, 라데온">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/wiki/knowledge/pc-components-gaming-performance/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "PC 부품별 게임 성능의 상관관계",
+    "description": "게임 성능은 어떤 부품이 결정할까? GPU가 가장 중요하지만, CPU 병목, RAM 부족, 저장장치 속도까지 모두 영향을 미친다. AMD vs 인텔 비교와 함께 각 부품의 역할을 정리했다.",
+    "datePublished": "2026-01-21T19:00:00+09:00",
+    "dateModified": "2026-01-21T19:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/wiki/knowledge/pc-components-gaming-performance/"
+    },
+    "image": "https://gamerscroll.com/assets/images/wiki/knowledge/pc-components-gaming-performance/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "게임 위키",
+        "item": "https://gamerscroll.com/wiki/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "지식",
+        "item": "https://gamerscroll.com/wiki/knowledge/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "PC 부품별 게임 성능의 상관관계",
+        "item": "https://gamerscroll.com/wiki/knowledge/pc-components-gaming-performance/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PC 부품별 게임 성능의 상관관계">
+  <meta property="og:description" content="게임 성능은 어떤 부품이 결정할까? GPU가 가장 중요하지만, CPU 병목, RAM 부족, 저장장치 속도까지 모두 영향을 미친다. AMD vs 인텔 비교와 함께 각 부품의 역할을 정리했다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/wiki/knowledge/pc-components-gaming-performance/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PC 부품별 게임 성능의 상관관계">
+  <meta property="og:url" content="https://gamerscroll.com/wiki/knowledge/pc-components-gaming-performance/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-01-21T19:00:00+09:00">
+  <meta property="article:modified_time" content="2026-01-21T19:00:00+09:00">
+  <meta property="article:section" content="위키">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="게임 성능">
+  <meta property="article:tag" content="CPU">
+  <meta property="article:tag" content="GPU">
+  <meta property="article:tag" content="그래픽카드">
+  <meta property="article:tag" content="RAM">
+  <meta property="article:tag" content="메모리">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PC 부품별 게임 성능의 상관관계">
+  <meta name="twitter:description" content="게임 성능은 어떤 부품이 결정할까? GPU가 가장 중요하지만, CPU 병목, RAM 부족, 저장장치 속도까지 모두 영향을 미친다. AMD vs 인텔 비교와 함께 각 부품의 역할을 정리했다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/wiki/knowledge/pc-components-gaming-performance/thumbnail.webp">
+  <meta name="twitter:image:alt" content="PC 부품별 게임 성능의 상관관계">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-wiki">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item active" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="wiki-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-119-card">
+  <style>
+    .ad-home-pc-119-card, .ad-home-pc-119 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-119-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-119 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-119"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-120-card">
+  <style>
+    .ad-home-mo-120-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-120, .ad-home-mo-120-card > .ad-home-mo-120, .ad-home-mo-120-card > .ad-home-mo-120 > div, .ad-home-mo-120-card > .ad-home-mo-120 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-120-card > .ad-home-mo-120 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-120-card, .ad-home-mo-120, .ad-home-mo-120-card > .ad-home-mo-120 > div, .ad-home-mo-120-card > .ad-home-mo-120 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-120"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">PC 부품별 게임 성능의 상관관계</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">지식</span><time class="blog-date">2026년 1월 21일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/wiki/knowledge/pc-components-gaming-performance/thumbnail.webp" class="blog-image" alt="PC 부품별 게임 성능의 상관관계" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">게임 성능은 어떤 부품이 결정할까? GPU가 가장 중요하지만, CPU 병목, RAM 부족, 저장장치 속도까지 모두 영향을 미친다. AMD vs 인텔 비교와 함께 각 부품의 역할을 정리했다.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">게임 프레임이 안 나올 때, 어떤 부품을 업그레이드해야 할까? 그래픽카드만 바꾸면 될까, 아니면 CPU가 문제일까? PC 게이밍 성능은 여러 부품의 조합으로 결정된다. 각 부품이 어떤 역할을 하고, 어떻게 서로 영향을 미치는지 알아야 현명한 업그레이드가 가능하다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="gpu-그래픽카드-게임-성능의-핵심" class="blog-heading">GPU(그래픽카드): 게임 성능의 핵심</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/pc-components-gaming-performance/01.webp" alt="엔비디아 RTX 4070 그래픽카드" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">엔비디아 지포스 RTX 4070 파운더스 에디션</figcaption>
+          </figure>
+        <p class="blog-paragraph">게임 성능에서 가장 중요한 부품은 GPU(그래픽카드)다. 해상도가 높아질수록, 그래픽 옵션을 올릴수록 GPU의 중요도는 더 커진다. 1080p에서는 CPU 영향이 크지만, 1440p나 4K로 가면 거의 GPU가 성능을 결정한다.</p><p class="blog-paragraph">2026년 기준 미드레인지 대결은 엔비디아 RTX 4070과 AMD RX 7800 XT다. 래스터 성능(일반 게임)은 RX 7800 XT가 약 3% 앞서고, 레이트레이싱은 RTX 4070이 14% 앞선다. 엔비디아는 DLSS 3(프레임 생성), AMD는 FSR 3로 각각 프레임을 끌어올릴 수 있다.</p><p class="blog-paragraph">GPU 사용률이 99%에 가깝다면 'GPU 병목' 상태다. 이건 정상이다. GPU가 최대로 일하고 있다는 뜻이니, 더 높은 프레임을 원하면 그래픽카드를 업그레이드하면 된다.</p><h2 id="cpu-프레임레이트의-하한선" class="blog-heading">CPU: 프레임레이트의 하한선</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/pc-components-gaming-performance/02.webp" alt="AMD 라이젠 인텔 코어 CPU 비교" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">AMD 라이젠 vs 인텔 코어 CPU 비교</figcaption>
+          </figure>
+        <p class="blog-paragraph">CPU는 게임 로직, AI, 물리 연산, 네트워크 처리를 담당한다. GPU가 아무리 좋아도 CPU가 느리면 프레임이 막힌다. 이게 'CPU 병목'이다. CPU 병목이 걸리면 프레임이 들쑥날쑥해지고, GPU 사용률이 100%에 못 미치는데도 프레임이 안 나온다.</p><p class="blog-paragraph">2026년 게이밍 CPU 왕좌는 AMD 라이젠 7 9800X3D다. 3D V-Cache 기술로 게임 성능에서 인텔을 압도한다. 가성비로는 인텔 코어 i5-14600K가 강력하다. 라이젠 9800X3D가 약 480달러, i5-14600K가 약 300달러인데, 게임 성능 차이 대비 가격 차이가 크다.</p><p class="blog-paragraph">인텔의 장점은 가성비와 생산성 작업 성능이다. 스트리밍이나 영상 편집을 병행한다면 인텔이 유리할 수 있다. AMD는 순수 게이밍 성능과 전력 효율에서 앞선다. 라이젠 9800X3D는 65W TDP로 인텔 대비 훨씬 적은 전력을 쓴다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="ram-메모리-부족하면-재앙" class="blog-heading">RAM(메모리): 부족하면 재앙</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/pc-components-gaming-performance/03.webp" alt="DDR5 게이밍 RAM 메모리" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">G.SKILL 트라이던트 Z5 RGB DDR5 메모리</figcaption>
+          </figure>
+        <p class="blog-paragraph">RAM은 '충분하면 차이 없고, 부족하면 재앙'인 부품이다. 문제는 '충분함'의 기준이 계속 올라간다는 것이다. 2020년에는 16GB면 충분했지만, 2025년 AAA 게임들은 상황이 다르다.</p><p class="blog-paragraph">사이버펑크 2077, 호그와트 레거시 같은 최신 AAA 게임은 16GB에서 스터터링(끊김)이 발생하는 경우가 있다. 32GB로 가면 확연히 부드러워진다는 보고가 많다. 특히 게임하면서 디스코드, 브라우저, OBS를 같이 띄우는 환경이라면 32GB가 안정적이다.</p><p class="blog-paragraph">2026년 신규 PC를 맞춘다면 32GB를 권장한다. 향후 3~5년을 쓸 PC라면 더더욱 그렇다. 다만 순수하게 가벼운 게임만 한다면 16GB로도 충분할 수 있다. DDR5가 대세지만, DDR4 32GB도 대부분의 게임에서 문제없다.</p><h2 id="저장장치-ssd-hdd-로딩만의-문제가-아니다" class="blog-heading">저장장치(SSD/HDD): 로딩만의 문제가 아니다</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/pc-components-gaming-performance/04.webp" alt="NVMe SSD 저장장치" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">삼성 990 PRO NVMe SSD</figcaption>
+          </figure>
+        <p class="blog-paragraph">SSD와 HDD의 차이는 단순히 '로딩 시간'이 아니다. 오픈월드 게임에서는 실시간 텍스처 스트리밍에 영향을 준다. HDD로 최신 오픈월드를 플레이하면 텍스처 팝인(갑자기 텍스처가 뜨는 현상)이 심해진다.</p><p class="blog-paragraph">HDD에서 60~90초 걸리던 로딩이 SSD에서는 15~30초로 줄어든다. NVMe SSD는 더 빠르지만, 게임 로딩에서 SATA SSD와 체감 차이는 크지 않다. 다만 다이렉트스토리지(DirectStorage) 지원 게임이 늘어나면 NVMe의 장점이 커질 전망이다.</p><p class="blog-paragraph">2026년 기준 게임용 PC에 HDD는 권장하지 않는다. 최소 SATA SSD, 가능하면 NVMe SSD를 메인 드라이브로 쓰는 게 좋다. HDD는 영상, 사진 등 용량이 큰 파일 보관용으로만 쓰는 것이 낫다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="6077622756"></ins>
+  </div><h2 id="병목-현상-이해하기" class="blog-heading">병목 현상 이해하기</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/pc-components-gaming-performance/05.webp" alt="CPU GPU 병목현상 다이어그램" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">PC 병목 현상 개념도</figcaption>
+          </figure>
+        <p class="blog-paragraph">병목(Bottleneck)은 한 부품이 다른 부품의 성능을 제한하는 현상이다. 가장 흔한 건 CPU 병목과 GPU 병목이다.</p><p class="blog-paragraph">GPU 병목은 사실 '정상 상태'다. GPU가 100%로 일하고 있다는 뜻이니, 성능을 더 원하면 GPU를 업그레이드하면 된다. 문제는 CPU 병목이다. CPU가 데이터를 GPU에 제때 못 넘기면, GPU 사용률이 70~80%인데도 프레임이 안 나온다. 이때는 CPU를 바꿔야 한다.</p><p class="blog-paragraph">CPU 병목인지 확인하는 법: 게임 중 GPU 사용률이 90% 이하인데 프레임이 낮다면 CPU 병목일 가능성이 높다. 반대로 GPU 사용률이 99%에 가깝다면 GPU 병목이다. MSI 애프터버너 같은 모니터링 툴로 확인할 수 있다.</p><h2 id="균형-잡힌-구성이-성능의-핵심" class="blog-heading">균형 잡힌 구성이 성능의 핵심</h2><p class="blog-paragraph">게임 성능은 GPU가 가장 크게 좌우하지만, CPU, RAM, SSD 모두 중요하다. 2026년 기준 권장 사양은 GPU(RTX 4060 이상), CPU(라이젠 5 7600 또는 i5-14400 이상), RAM(32GB), SSD(NVMe 1TB 이상)다. 어느 한 부품만 좋다고 성능이 나오는 게 아니다. 균형 잡힌 구성이 핵심이다. 업그레이드할 때는 현재 어떤 부품이 병목인지 먼저 파악하고, 그 부품부터 바꾸는 게 가장 효율적이다.</p><p class="blog-paragraph">참고로 PC 부품 가격은 환율, 반도체 수급, 신제품 출시 주기에 따라 크게 변동한다. 구매 시점에 따라 같은 예산으로 더 좋은 구성을 맞출 수도, 반대로 손해를 볼 수도 있다. 큰 금액을 투자하기 전에 용산이나 온라인 커뮤니티의 전문가들과 상담해보는 것을 권장한다. 최신 가격 동향과 출시 예정 제품 정보를 확인하면 더 현명한 선택이 가능하다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/magazine/issue/ddr5-price-surge-gaming-nightmare/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/issue/ddr5-price-surge-gaming-nightmare/thumbnail.webp" alt="DDR5 램가격 300% 폭등, 게이머의 악몽이 시작됐다" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">DDR5 램가격 300% 폭등, 게이머의 악몽이 시작됐다</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://www.tomshardware.com/features/amd-vs-intel-cpus" target="_blank" rel="noopener">Tom's Hardware - Intel vs AMD: Which CPUs Are Better in 2025?</a></li><li><a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html" target="_blank" rel="noopener">Tom's Hardware - CPU Benchmarks and Hierarchy 2026</a></li><li><a href="https://www.kingston.com/en/blog/gaming/pc-gaming-bottlenecks-cpu-gpu-ram-storage" target="_blank" rel="noopener">Kingston - PC Gaming Bottlenecks: How CPU, GPU, RAM, and Storage Affect Performance</a></li><li><a href="https://www.hp.com/id-en/shop/tech-takes/post/omen-pc-storage-ssd-vs-hdd-gaming" target="_blank" rel="noopener">HP - SSD vs HDD Gaming Performance Guide</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/wiki/knowledge/moba-genre-origin/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/wiki/" class="trend-nav-btn list">목록</a>
+      <a href="/wiki/knowledge/raph-koster-theory-of-fun/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

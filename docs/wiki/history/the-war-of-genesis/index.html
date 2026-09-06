@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/wiki/history/the-war-of-genesis/thumbnail.webp">
+		  <title>30년 전 추억, 왜 창세기전은 멈추지 않는가? | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="1995년 첫 등장 이후 30년. 창세기전은 왜 여전히 리메이크되고 회자되는가. 한국형 서브컬처 RPG의 선구자가 남긴 유산을 되짚어본다.">
+  <meta name="keywords" content="창세기전, 소프트맥스, 라인게임즈, 최연규, 김형태, SRPG, 한국RPG, 살라딘, 버몬트, 서풍의 광시곡, 템페스트">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/wiki/history/the-war-of-genesis/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "30년 전 추억, 왜 창세기전은 멈추지 않는가?",
+    "description": "1995년 첫 등장 이후 30년. 창세기전은 왜 여전히 리메이크되고 회자되는가. 한국형 서브컬처 RPG의 선구자가 남긴 유산을 되짚어본다.",
+    "datePublished": "2026-01-21T19:00:00+09:00",
+    "dateModified": "2026-01-21T19:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/wiki/history/the-war-of-genesis/"
+    },
+    "image": "https://gamerscroll.com/assets/images/wiki/history/the-war-of-genesis/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "게임 위키",
+        "item": "https://gamerscroll.com/wiki/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "히스토리",
+        "item": "https://gamerscroll.com/wiki/history/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "30년 전 추억, 왜 창세기전은 멈추지 않는가?",
+        "item": "https://gamerscroll.com/wiki/history/the-war-of-genesis/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="30년 전 추억, 왜 창세기전은 멈추지 않는가?">
+  <meta property="og:description" content="1995년 첫 등장 이후 30년. 창세기전은 왜 여전히 리메이크되고 회자되는가. 한국형 서브컬처 RPG의 선구자가 남긴 유산을 되짚어본다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/wiki/history/the-war-of-genesis/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="30년 전 추억, 왜 창세기전은 멈추지 않는가?">
+  <meta property="og:url" content="https://gamerscroll.com/wiki/history/the-war-of-genesis/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-01-21T19:00:00+09:00">
+  <meta property="article:modified_time" content="2026-01-21T19:00:00+09:00">
+  <meta property="article:section" content="위키">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="창세기전">
+  <meta property="article:tag" content="소프트맥스">
+  <meta property="article:tag" content="라인게임즈">
+  <meta property="article:tag" content="최연규">
+  <meta property="article:tag" content="김형태">
+  <meta property="article:tag" content="SRPG">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="30년 전 추억, 왜 창세기전은 멈추지 않는가?">
+  <meta name="twitter:description" content="1995년 첫 등장 이후 30년. 창세기전은 왜 여전히 리메이크되고 회자되는가. 한국형 서브컬처 RPG의 선구자가 남긴 유산을 되짚어본다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/wiki/history/the-war-of-genesis/thumbnail.webp">
+  <meta name="twitter:image:alt" content="30년 전 추억, 왜 창세기전은 멈추지 않는가?">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-wiki">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item active" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="wiki-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-91-card">
+  <style>
+    .ad-home-pc-91-card, .ad-home-pc-91 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-91-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-91 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-91"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-92-card">
+  <style>
+    .ad-home-mo-92-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-92, .ad-home-mo-92-card > .ad-home-mo-92, .ad-home-mo-92-card > .ad-home-mo-92 > div, .ad-home-mo-92-card > .ad-home-mo-92 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-92-card > .ad-home-mo-92 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-92-card, .ad-home-mo-92, .ad-home-mo-92-card > .ad-home-mo-92 > div, .ad-home-mo-92-card > .ad-home-mo-92 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-92"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">히스토리</span><time class="blog-date">2026년 1월 21일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/wiki/history/the-war-of-genesis/thumbnail.webp" class="blog-image" alt="30년 전 추억, 왜 창세기전은 멈추지 않는가?" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">1995년 첫 등장 이후 30년. 창세기전은 왜 여전히 리메이크되고 회자되는가. 한국형 서브컬처 RPG의 선구자가 남긴 유산을 되짚어본다.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">1995년, 소프트맥스는 '창세기전'을 세상에 내놓았다. 당시로서는 생소한 SRPG 장르였음에도, 등장과 동시에 손노리의 '어스토니시아 스토리'와 함께 국산 RPG의 양대 산맥으로 자리 잡았다. 이후 창세기전2(1996), 외전 서풍의 광시곡(1997), 템페스트(1998), 그리고 창세기전3 파트1·2(1999-2001)까지. 소프트맥스는 6년에 걸쳐 하나의 거대한 세계관을 집요하게 쌓아 올렸다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="독창적-세계관의-탄생" class="blog-heading">독창적 세계관의 탄생</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/the-war-of-genesis/01.webp" alt="창세기전 외전 템페스트 TONY 일러스트" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">일본의 유명 동인작가 TONY가 참여한 템페스트의 일러스트</figcaption>
+          </figure>
+        <p class="blog-paragraph">창세기전은 단순한 게임 그 이상이었다. '마장기', '뫼비우스의 우주', '오차율'이라는 독창적인 설정, 그리고 권력과 운명의 소용돌이에 휘말린 인물들의 서사는 일본 RPG가 지배하던 시장에서 완전히 새로운 경험을 선사했다. 최연규 대표가 이끈 소프트맥스는 이를 통해 '한국에서도 이런 깊이 있는 게임을 만들 수 있다'는 사실을 증명해 냈다.</p><h2 id="jrpg와는-달랐던-비극의-미학" class="blog-heading">JRPG와는 달랐던 비극의 미학</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/the-war-of-genesis/02.webp" alt="창세기전3 살라딘 버몬트 일러스트" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">창세기전3의 살라딘과 버몬트 - 비극적 운명의 형제</figcaption>
+          </figure>
+        <p class="blog-paragraph">30년이 지난 지금도 창세기전이 회자되는 이유는 무엇일까. '선이 악을 물리치는' 일본 RPG의 왕도적 문법과 달리, 창세기전은 비극적 서사와 입체적인 캐릭터로 승부했기 때문이다.</p><p class="blog-paragraph">그 서사의 정점에는 '창세기전 3'의 두 주인공, 살라딘과 버몬트의 엇갈린 운명이 있다. 본래 필립과 존이라는 이름의 친형제였던 두 사람은 투르 제국에 포로로 끌려가며 비극의 씨앗을 품게 된다.</p><p class="blog-paragraph">탈출 과정에서 형 필립은 동생을 살리기 위해 스스로 미끼가 되어 희생했고, 홀로 남겨진 동생 존은 형이 죽었다고 믿으며 오열했다. 하지만 운명은 잔혹했다. 살아남은 필립은 적국 투르의 용병 '살라딘'으로, 형을 잃은 존은 복수심에 불타는 냉혈한 '버몬트 대공'으로 성장해 서로의 목에 칼을 겨누게 된 것이다.</p><p class="blog-paragraph">비극은 여기서 멈추지 않고 파국으로 치달았다. 살라딘의 연인 셰라자드는 버몬트에게 포로로 잡히게 되고, 살라딘이 자신 때문에 굴복하는 것을 막고자 아이러니하게도 그의 동생인 버몬트의 검에 스스로 몸을 던져 자결한다.</p><p class="blog-paragraph">최후의 결전, 서로를 베어야 하는 순간 울려 퍼진 피리 소리. 그것은 오직 두 형제만이 공유하던 추억의 멜로디였다. 그제야 버몬트는 자신이 증오해 마지않던 원수가 죽은 줄 알았던 형 필립임을, 그리고 자신의 손으로 형의 삶과 사랑마저 파괴했음을 깨닫는다. 단순한 권선징악을 넘어선 이 처절한 운명의 비극은, 당시 수많은 게이머의 가슴에 씻을 수 없는 충격과 여운을 남겼다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="김형태와-시대를-앞서간-비주얼" class="blog-heading">김형태와 시대를 앞서간 비주얼</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/the-war-of-genesis/03.webp" alt="창세기전3 파트2 마리아 카진스키 일러스트" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">창세기전3 파트2의 마리아 카진스키 - 김형태 일러스트의 정수</figcaption>
+          </figure>
+        <p class="blog-paragraph">창세기전 시리즈에서 빼놓을 수 없는 이름, 바로 일러스트레이터 김형태다. 현재 '승리의 여신: 니케', '스텔라 블레이드'를 이끄는 시프트업의 대표인 그는 창세기전3부터 메인 디자인을 맡으며 시리즈의 정체성을 확립했다.</p><p class="blog-paragraph">그의 작화는 파격적이었다. 신체 비율을 과장하여 강조한 슈츠 디자인, 관능적이면서도 세련된 화풍은 기존 국산 작품과는 궤를 달리하는 영역을 구축했다는 평가를 받았다. 특히 창세기전3 파트2의 마리아 카진스키 일러스트에서 보여준 신비롭고 관능적인 분위기와 섬세한 의상 디테일은 당시 국산 게임의 수준을 뛰어넘는 것이었다.</p><p class="blog-paragraph">또한 '템페스트'에서 시도된 미연시 요소와 멀티 엔딩 시스템은 현재 주류가 된 서브컬처 게임의 문법을 수십 년 앞서 제시한 결과물이라 할 수 있다.</p><h2 id="끝나지-않는-리메이크" class="blog-heading">끝나지 않는 리메이크</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/the-war-of-genesis/04.webp" alt="서풍의 광시곡 리마스터" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">2026년 출시 예정인 서풍의 광시곡 리마스터</figcaption>
+          </figure>
+        <p class="blog-paragraph">창세기전 IP는 2016년 라인게임즈(구 넥스트플로어)가 인수하며 새로운 국면을 맞았다. 2023년 닌텐도 스위치로 출시된 '창세기전: 회색의 잔영'과 현재 서비스 중인 '창세기전 모바일', 그리고 2026년 발매 예정인 '서풍의 광시곡 리마스터'까지. 원작의 아버지인 최연규 디렉터까지 다시 합류하며 그 명맥을 잇고 있다.</p><p class="blog-paragraph">30년 된 IP가 이토록 끈질기게 다시 만들어지는 이유는 명확하다. 창세기전은 단순한 게임이 아닌, 한 세대의 '문화적 기억'이기 때문이다. 90년대 후반, PC방과 집에서 밤을 새우며 플레이했던 소년들은 이제 3040 세대의 구매력 있는 소비자가 되었다. 그들에게 창세기전은 단순한 추억팔이가 아닌, 한국 게임의 가능성을 목격했던 자부심의 원천이다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="6077622756"></ins>
+  </div><h2 id="30년이-지나도-현재진행형인-이유" class="blog-heading">30년이 지나도 현재진행형인 이유</h2><p class="blog-paragraph">창세기전이 멈추지 않는 힘은 결국 시대를 관통하는 캐릭터와 서사의 힘에 있다. 그리고 그 기억을 양분 삼아 자란 키즈들이 이제 게임 업계의 주역이 되어, 자신들이 느꼈던 전율을 다시금 세상에 전하려 하고 있다. 30년 된 추억이 여전히 '현재 진행형'인 이유다.</p>
+              </div>
+
+              
+              
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://www.gamemeca.com/view.php?gid=1430385" target="_blank" rel="noopener">게임메카 - 최연규 인물열전</a></li><li><a href="https://www.inven.co.kr/webzine/news/?news=311719" target="_blank" rel="noopener">인벤 - 서풍의 광시곡 리마스터 개발 공개</a></li><li><a href="https://m.ruliweb.com/news/read/218622" target="_blank" rel="noopener">루리웹 - 서풍의 광시곡 리마스터</a></li><li><a href="https://www.yna.co.kr/view/AKR20240920060500017" target="_blank" rel="noopener">연합뉴스 - 창세기전 아버지 최연규 합류</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/wiki/" class="trend-nav-btn list">목록</a>
+      <a href="/wiki/history/nier-series/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item active">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/wiki/knowledge/gacha-system-history/thumbnail.webp">
+		  <title>가챠 시스템 1부: 가챠의 기원과 역사 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="가챠는 어디서 시작됐을까. 일본 캡슐 자판기에서 모바일 게임의 핵심 수익 모델로 진화하기까지. 2012년 퍼즐앤드래곤의 대중화, 컴플리트 가챠 금지, 그랑블루 안칠라 사건까지 가챠 시스템의 역사를 정리한다.">
+  <meta name="keywords" content="가챠, 가샤폰, 확률형 아이템, 컴플리트 가챠, 퍼즐앤드래곤, 그랑블루 판타지, 천장, 스파크, 안칠라 사건">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/wiki/knowledge/gacha-system-history/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "가챠 시스템 1부: 가챠의 기원과 역사",
+    "description": "가챠는 어디서 시작됐을까. 일본 캡슐 자판기에서 모바일 게임의 핵심 수익 모델로 진화하기까지. 2012년 퍼즐앤드래곤의 대중화, 컴플리트 가챠 금지, 그랑블루 안칠라 사건까지 가챠 시스템의 역사를 정리한다.",
+    "datePublished": "2026-01-24T07:00:00+09:00",
+    "dateModified": "2026-01-24T07:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/wiki/knowledge/gacha-system-history/"
+    },
+    "image": "https://gamerscroll.com/assets/images/wiki/knowledge/gacha-system-history/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "게임 위키",
+        "item": "https://gamerscroll.com/wiki/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "지식",
+        "item": "https://gamerscroll.com/wiki/knowledge/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "가챠 시스템 1부: 가챠의 기원과 역사",
+        "item": "https://gamerscroll.com/wiki/knowledge/gacha-system-history/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="가챠 시스템 1부: 가챠의 기원과 역사">
+  <meta property="og:description" content="가챠는 어디서 시작됐을까. 일본 캡슐 자판기에서 모바일 게임의 핵심 수익 모델로 진화하기까지. 2012년 퍼즐앤드래곤의 대중화, 컴플리트 가챠 금지, 그랑블루 안칠라 사건까지 가챠 시스템의 역사를 정리한다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/wiki/knowledge/gacha-system-history/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="가챠 시스템 1부: 가챠의 기원과 역사">
+  <meta property="og:url" content="https://gamerscroll.com/wiki/knowledge/gacha-system-history/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-01-24T07:00:00+09:00">
+  <meta property="article:modified_time" content="2026-01-24T07:00:00+09:00">
+  <meta property="article:section" content="위키">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="가챠">
+  <meta property="article:tag" content="가샤폰">
+  <meta property="article:tag" content="확률형 아이템">
+  <meta property="article:tag" content="컴플리트 가챠">
+  <meta property="article:tag" content="퍼즐앤드래곤">
+  <meta property="article:tag" content="그랑블루 판타지">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="가챠 시스템 1부: 가챠의 기원과 역사">
+  <meta name="twitter:description" content="가챠는 어디서 시작됐을까. 일본 캡슐 자판기에서 모바일 게임의 핵심 수익 모델로 진화하기까지. 2012년 퍼즐앤드래곤의 대중화, 컴플리트 가챠 금지, 그랑블루 안칠라 사건까지 가챠 시스템의 역사를 정리한다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/wiki/knowledge/gacha-system-history/thumbnail.webp">
+  <meta name="twitter:image:alt" content="가챠 시스템 1부: 가챠의 기원과 역사">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-wiki">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item active" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="wiki-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-113-card">
+  <style>
+    .ad-home-pc-113-card, .ad-home-pc-113 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-113-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-113 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-113"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-114-card">
+  <style>
+    .ad-home-mo-114-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-114, .ad-home-mo-114-card > .ad-home-mo-114, .ad-home-mo-114-card > .ad-home-mo-114 > div, .ad-home-mo-114-card > .ad-home-mo-114 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-114-card > .ad-home-mo-114 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-114-card, .ad-home-mo-114, .ad-home-mo-114-card > .ad-home-mo-114 > div, .ad-home-mo-114-card > .ad-home-mo-114 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-114"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">가챠 시스템 1부: 가챠의 기원과 역사</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">지식</span><time class="blog-date">2026년 1월 24일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/wiki/knowledge/gacha-system-history/thumbnail.webp" class="blog-image" alt="가챠 시스템 1부: 가챠의 기원과 역사" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">가챠는 어디서 시작됐을까. 일본 캡슐 자판기에서 모바일 게임의 핵심 수익 모델로 진화하기까지. 2012년 퍼즐앤드래곤의 대중화, 컴플리트 가챠 금지, 그랑블루 안칠라 사건까지 가챠 시스템의 역사를 정리한다.</p>
+
+              <div class="blog-content">
+                
+                
+          <nav class="blog-series">
+            <div class="blog-related-title">가챠 시스템 완전 해부 시리즈</div>
+            <div class="blog-related-issues-list">
+            <a href="/wiki/knowledge/gacha-system-history/" class="blog-related-issue-card blog-series-card">
+              <img class="blog-related-issue-thumb" src="https://media.timeout.com/images/105170435/image.jpg" alt="가챠의 기원과 역사" loading="lazy">
+              <span class="blog-series-tag">1부</span>
+              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">가챠의 기원과 역사</span></span>
+            </a>
+          
+            <a href="/wiki/knowledge/gacha-system-regulations/" class="blog-related-issue-card blog-series-card">
+              <img class="blog-related-issue-thumb" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3224770/ss_67f95b138da201b52e9bcc43ab6f01ae820b7f12.jpg" alt="각국의 가챠 규제 현황" loading="lazy">
+              <span class="blog-series-tag">2부</span>
+              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">각국의 가챠 규제 현황</span></span>
+            </a>
+          
+            <a href="/wiki/knowledge/gacha-system-comparison/" class="blog-related-issue-card blog-series-card">
+              <img class="blog-related-issue-thumb" src="https://pbs.twimg.com/media/GPyKRbEW4AAMlaK?format=jpg&name=large" alt="대표 게임별 가챠 비교" loading="lazy">
+              <span class="blog-series-tag">3부</span>
+              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">대표 게임별 가챠 비교</span></span>
+            </a>
+          </div>
+          </nav>
+        <p class="blog-paragraph">모바일 게임 시장에서 '가챠'는 핵심 수익 모델이다. 랜덤으로 캐릭터나 아이템을 뽑는 이 시스템은 일본의 캡슐 자판기 '가샤폰'에서 이름을 따왔다. 100엔을 넣고 돌리면 무엇이 나올지 모르는 그 설렘과 조바심이, 디지털 세계에서 수조 원 규모의 시장을 만들어냈다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="가샤폰에서-디지털로" class="blog-heading">가샤폰에서 디지털로</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/gacha-system-history/01.webp" alt="일본 가샤폰 캡슐 자판기 아키하바라" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">일본 아키하바라의 가샤폰 자판기</figcaption>
+          </figure>
+        <p class="blog-paragraph">가샤폰은 1960년대 일본에서 시작됐다. 동전을 넣고 손잡이를 돌리면 플라스틱 캡슐에 담긴 장난감이 나온다. 무엇이 나올지 모른다는 점이 핵심이다. 수집 욕구를 자극하고, '다음엔 원하는 게 나올지도'라는 기대감을 만든다.</p><p class="blog-paragraph">2000년대 초반, 일본의 피처폰 게임들이 이 개념을 디지털로 옮겼다. 돈을 내고 랜덤으로 캐릭터나 아이템을 뽑는 가챠 시스템이 등장한 것이다. 하지만 이때까지 가챠는 일부 게임의 부가 수익원이었다. 메인 비즈니스 모델로 자리 잡은 건 스마트폰 시대가 열리면서다.</p><h2 id="퍼즐앤드래곤-가챠의-대중화-2012" class="blog-heading">퍼즐앤드래곤: 가챠의 대중화 (2012)</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/gacha-system-history/02.webp" alt="퍼즐앤드래곤 게임 이미지" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">퍼즐앤드래곤 - 가챠 시스템을 대중화시킨 게임</figcaption>
+          </figure>
+        <p class="blog-paragraph">2012년, 겅호(GungHo)의 퍼즐앤드래곤이 모든 것을 바꿨다. 퍼즐 게임과 캐릭터 수집을 결합한 이 게임에서 핵심은 '마법의 돌'을 사용한 가챠였다. 높은 등급의 캐릭터일수록 확률이 낮았고, 게임은 전례 없는 매출을 기록했다.</p><p class="blog-paragraph">2013년, 퍼즐앤드래곤은 일본 앱스토어 매출 1위를 장기간 유지하며 '가챠 = 수익'이라는 공식을 증명했다. 월 매출 1억 달러를 돌파한 최초의 모바일 게임이 됐다. 이후 수많은 게임사가 이 모델을 따라갔고, 가챠는 모바일 게임의 표준 수익 모델로 자리 잡았다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="컴플리트-가챠의-등장과-금지-2012" class="blog-heading">컴플리트 가챠의 등장과 금지 (2012)</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/gacha-system-history/03.webp" alt="몬스터 스트라이크 게임 이미지" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">몬스터 스트라이크 - 퍼즐앤드래곤과 함께 정상을 다투었던 가챠 게임</figcaption>
+          </figure>
+        <p class="blog-paragraph">가챠가 대중화되던 같은 해, 일본에서는 '컴플리트 가챠'가 사회적 문제로 떠올랐다. 컴플리트 가챠(콤프 가챠)란 여러 아이템을 모두 수집해야 특별 보상을 주는 방식이다.</p><p class="blog-paragraph">예를 들어, A~E 5종류의 카드를 모두 모으면 S급 레어 카드를 준다고 하자. 처음 4장은 비교적 쉽게 모이지만, 마지막 1장은 확률적으로 점점 나오기 어려워진다. 이른바 '쿠폰 수집가 문제(Coupon Collector's Problem)'로, 수학적으로 전체 수집에 필요한 기대 비용이 기하급수적으로 증가한다.</p><p class="blog-paragraph">실제로 컴플리트 가챠에 수백만 엔을 쓴 사례가 언론에 보도되면서 사회적 파장이 일었다. 2012년 5월, 일본 소비자청은 컴플리트 가챠를 경품표시법 위반으로 규정했다. 사실상 도박에 가깝다는 판단이었다.</p><p class="blog-paragraph">이 규제 이후 컴플리트 가챠는 일본 시장에서 사라졌고, 단일 아이템을 뽑는 현재의 가챠 형태가 주류가 됐다. 하지만 가챠 자체가 금지된 것은 아니었다. 업계는 규제의 빈틈을 찾아 새로운 방식으로 진화했다.</p><h2 id="안칠라-사건과-천장제의-탄생-2016" class="blog-heading">안칠라 사건과 천장제의 탄생 (2016)</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/gacha-system-history/04.webp" alt="그랑블루 판타지 게임 이미지" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">그랑블루 판타지 - 천장(스파크) 시스템의 원조</figcaption>
+          </figure>
+        <p class="blog-paragraph">2016년 초, 일본 게임 업계를 뒤흔든 사건이 발생했다. Cygames의 그랑블루 판타지에서 한 유저가 픽업 캐릭터 '안칠라'를 뽑기 위해 약 70만 엔(당시 약 700만 원)을 썼지만 결국 뽑지 못했다. 이 유저는 자신의 뽑기 과정을 생방송으로 중계했고, 실패하는 모습이 고스란히 공개됐다.</p><p class="blog-paragraph">이 사연이 SNS와 커뮤니티를 통해 퍼지면서 엄청난 논란이 일었다. 확률 조작 의혹, 사행성 논란, 심지어 정부 규제 요구까지 터져 나왔다. 그랑블루 판타지 측은 확률 조작은 없었다고 해명했지만, 여론은 가라앉지 않았다.</p><p class="blog-paragraph">결국 Cygames는 '스파크' 시스템을 도입했다. 300회 뽑기를 하면 원하는 캐릭터를 교환할 수 있는 장치였다. 뽑기를 할 때마다 포인트가 쌓이고, 300연차를 채우면 그 포인트로 원하는 캐릭터를 선택할 수 있다.</p><p class="blog-paragraph">이것이 현재 대부분의 게임이 채택하고 있는 '천장(Pity)' 시스템의 시초다. '더 이상 올라갈 수 없는 천장'에서 확정 보상이 떨어진다는 의미에서 이름 붙여졌다. 안칠라 사건 이후 천장 시스템은 업계 표준이 됐고, 이를 도입하지 않은 게임은 '악덕 가챠'로 비판받게 됐다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="6077622756"></ins>
+  </div><h2 id="천장-vs-마일리지-진화하는-안전장치" class="blog-heading">천장 vs 마일리지: 진화하는 안전장치</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/knowledge/gacha-system-history/05.webp" alt="원신 Genshin Impact 게임 이미지" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">원신 - 천장 시스템의 대표 게임</figcaption>
+          </figure>
+        <p class="blog-paragraph">천장 시스템은 이후 다양한 형태로 발전했다. 크게 '천장'과 '마일리지' 두 가지로 나뉜다.</p><p class="blog-paragraph"><strong>천장 시스템</strong>은 N연차 안에서 최고 등급이 '뽑힌다'. 운이 좋으면 10연차에 나올 수도 있다. 원신이 대표적인데, 90연차가 천장이지만 평균 75~80연차에서 5성이 나온다. 74연차부터 확률이 급상승하는 '확률 보정' 시스템 덕분이다.</p><p class="blog-paragraph"><strong>마일리지 시스템</strong>은 정확히 N연차를 채워야 '교환'할 수 있다. 그 전에 운 좋게 뽑히면 마일리지는 다음 캐릭터를 위해 저축된다. 니케가 이 방식인데, 200연차 전에 픽업을 뽑아도 마일리지는 계속 쌓여서 다음에 쓸 수 있다.</p><p class="blog-paragraph">결론적으로 운이 좋을 때는 천장이, 운이 나쁠 때는 마일리지가 유리하다. 다만 블루아카이브처럼 마일리지가 배너 종료 시 소멸하는 경우도 있어 반드시 확인이 필요하다.</p><h2 id="투명해지는-가챠-변하지-않는-본질" class="blog-heading">투명해지는 가챠, 변하지 않는 본질</h2><p class="blog-paragraph">2012년 퍼즐앤드래곤에서 대중화된 가챠 시스템은 10년 넘게 진화를 거듭해왔다. 컴플리트 가챠 금지, 천장제 도입, 확률 공개 의무화 등 규제와 유저 요구에 따라 점점 투명해지고 있다.</p><p class="blog-paragraph">하지만 본질은 변하지 않았다. 가챠는 여전히 확률 게임이고, 게임사의 핵심 수익원이다. 그리고 이 시스템을 어떻게 다뤄야 하는지, 각국 정부의 고민도 계속되고 있다. 2부에서는 일본, 한국, 중국, 유럽 등 각국의 가챠 규제 현황을 살펴본다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/wiki/knowledge/gacha-system-regulations/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/wiki/knowledge/gacha-system-regulations/thumbnail.webp" alt="가챠 시스템 2부: 각국의 가챠 규제 현황" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">가챠 시스템 2부: 각국의 가챠 규제 현황</span></span>
+              </a>
+              <a href="/wiki/knowledge/gacha-system-comparison/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/wiki/knowledge/gacha-system-comparison/thumbnail.webp" alt="가챠 시스템 3부: 대표 게임별 가챠 비교" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">가챠 시스템 3부: 대표 게임별 가챠 비교</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://en.wikipedia.org/wiki/Gacha_game" target="_blank" rel="noopener">Wikipedia - Gacha game</a></li><li><a href="https://pad.gungho.jp" target="_blank" rel="noopener">GungHo - 퍼즐앤드래곤 공식 사이트</a></li><li><a href="https://granbluefantasy.jp" target="_blank" rel="noopener">Cygames - 그랑블루 판타지 공식 사이트</a></li><li><a href="https://genshin.hoyoverse.com" target="_blank" rel="noopener">HoYoverse - 원신 공식 사이트</a></li><li><a href="https://www.joga.or.jp" target="_blank" rel="noopener">JOGA - 일본 온라인게임협회 가이드라인</a></li><li><a href="https://www.caa.go.jp" target="_blank" rel="noopener">일본 소비자청 - 경품표시법 운용 기준</a></li><li><a href="https://www.gamemeca.com" target="_blank" rel="noopener">게임메카 - 컴플리트 가챠 규제 역사</a></li><li><a href="https://game.donga.com" target="_blank" rel="noopener">게임동아 - 그랑블루 판타지 천장 도입</a></li><li><a href="https://www.gamefocus.co.kr" target="_blank" rel="noopener">게임포커스 - 안칠라 사건과 가챠 논란</a></li><li><a href="https://www.inven.co.kr" target="_blank" rel="noopener">인벤 - 천장 시스템 비교 분석</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/wiki/knowledge/pd-vs-director/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/wiki/" class="trend-nav-btn list">목록</a>
+      <a href="/wiki/knowledge/gacha-system-regulations/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding: 0 16px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1076px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+		  <title>&quot;AI 피로감에 굴복&quot; 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="마이크로소프트가 메모장, 사진, 위젯, 캡처 도구 등 윈도우 11 기본 앱에서 코파일럿 AI 진입점을 줄이겠다고 공식 발표했다. AI 피로감과 시스템 성능 저하를 호소한 사용자들의 목소리가 이번 전략적 방향 전환의 핵심 배경으로 작용했다.">
+  <meta name="keywords" content="마이크로소프트,코파일럿,윈도우 11,AI 피로감,파반 다불루리,윈도우 리콜,작업 표시줄">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/tech/ai/microsoft-copilot-windows-ai-fatigue/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "\"AI 피로감에 굴복\" 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소",
+    "description": "마이크로소프트가 메모장, 사진, 위젯, 캡처 도구 등 윈도우 11 기본 앱에서 코파일럿 AI 진입점을 줄이겠다고 공식 발표했다. AI 피로감과 시스템 성능 저하를 호소한 사용자들의 목소리가 이번 전략적 방향 전환의 핵심 배경으로 작용했다.",
+    "datePublished": "2026-03-21T14:00:00+09:00",
+    
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/tech/ai/microsoft-copilot-windows-ai-fatigue/"
+    },
+    "image": "https://gamerscroll.com/assets/images/tech/ai/microsoft-copilot-windows-ai-fatigue/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "테크",
+        "item": "https://gamerscroll.com/tech/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI",
+        "item": "https://gamerscroll.com/tech/ai/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "\"AI 피로감에 굴복\" 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소",
+        "item": "https://gamerscroll.com/tech/ai/microsoft-copilot-windows-ai-fatigue/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="&quot;AI 피로감에 굴복&quot; 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소">
+  <meta property="og:description" content="마이크로소프트가 메모장, 사진, 위젯, 캡처 도구 등 윈도우 11 기본 앱에서 코파일럿 AI 진입점을 줄이겠다고 공식 발표했다. AI 피로감과 시스템 성능 저하를 호소한 사용자들의 목소리가 이번 전략적 방향 전환의 핵심 배경으로 작용했다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/tech/ai/microsoft-copilot-windows-ai-fatigue/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="&quot;AI 피로감에 굴복&quot; 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소">
+  <meta property="og:url" content="https://gamerscroll.com/tech/ai/microsoft-copilot-windows-ai-fatigue/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-03-21T14:00:00+09:00">
+  <meta property="article:section" content="AI">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="마이크로소프트">
+  <meta property="article:tag" content="코파일럿">
+  <meta property="article:tag" content="윈도우 11">
+  <meta property="article:tag" content="AI 피로감">
+  <meta property="article:tag" content="파반 다불루리">
+  <meta property="article:tag" content="윈도우 리콜">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="&quot;AI 피로감에 굴복&quot; 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소">
+  <meta name="twitter:description" content="마이크로소프트가 메모장, 사진, 위젯, 캡처 도구 등 윈도우 11 기본 앱에서 코파일럿 AI 진입점을 줄이겠다고 공식 발표했다. AI 피로감과 시스템 성능 저하를 호소한 사용자들의 목소리가 이번 전략적 방향 전환의 핵심 배경으로 작용했다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/tech/ai/microsoft-copilot-windows-ai-fatigue/thumbnail.webp">
+  <meta name="twitter:image:alt" content="&quot;AI 피로감에 굴복&quot; 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://wsrv.nl">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
+	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-tech">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <header class="header">
+	    <div class="header-inner">
+	      <div class="header-title">
+	        <a href="/">
+	          <span class="visually-hidden">게이머스크롤</span>
+	          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	            <defs>
+	              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+	                <stop offset="0%" stop-color="#4f46e5" />
+	                <stop offset="100%" stop-color="#06b6d4" />
+	              </linearGradient>
+	            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <!-- 왼쪽 안테나 -->
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <!-- 오른쪽 안테나 -->
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        매거진
+      </a>
+      <a class="nav-item" href="/wiki/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        게임 위키
+      </a>
+      <a class="nav-item active" href="/tech/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        테크
+      </a>
+      <a class="nav-item" href="/games/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        게임 DB
+      </a>
+      <a class="nav-item" href="/rankings/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        모바일 순위
+      </a>
+      <a class="nav-item" href="/steam/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12h.01M18 12h.01"/><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12"/></svg>
+        스팀 순위
+      </a>
+      <a class="nav-item" href="/upcoming/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        출시 게임
+      </a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=2;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=1c887d57"></script>
+    
+    <section class="section active" id="tech-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-157-card">
+  <style>
+    .ad-home-pc-157-card, .ad-home-pc-157 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-157-card { display:flex !important; width:100%; max-width:100%; min-height:90px; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-157 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-157"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="false"></ins>
+  <script>(function(){var s=document.currentScript;var i=s&&s.previousElementSibling;if(!i||!i.classList||!i.classList.contains('adsbygoogle'))return;if(window.getComputedStyle&&getComputedStyle(i).display==='none')return;if(i.getAttribute('data-gs-ad-pushed')==='1')return;i.setAttribute('data-gs-ad-pushed','1');try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){i.removeAttribute('data-gs-ad-pushed');}})();</script>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-158-card">
+  <style>
+    .ad-home-mo-158-card { display:flex !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-158, .ad-home-mo-158-card > .ad-home-mo-158, .ad-home-mo-158-card > .ad-home-mo-158 > div, .ad-home-mo-158-card > .ad-home-mo-158 iframe { display:block !important; width:320px !important; min-width:320px !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-158-card > .ad-home-mo-158 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-158-card, .ad-home-mo-158, .ad-home-mo-158-card > .ad-home-mo-158 > div, .ad-home-mo-158-card > .ad-home-mo-158 iframe { display:none !important; width:0 !important; min-width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-158"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+  <script>(function(){var s=document.currentScript;var i=s&&s.previousElementSibling;if(!i||!i.classList||!i.classList.contains('adsbygoogle'))return;if(window.getComputedStyle&&getComputedStyle(i).display==='none')return;if(i.getAttribute('data-gs-ad-pushed')==='1')return;i.setAttribute('data-gs-ad-pushed','1');try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){i.removeAttribute('data-gs-ad-pushed');}})();</script>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">"AI 피로감에 굴복" 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">AI</span><time class="blog-date">2026년 3월 21일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/tech/ai/microsoft-copilot-windows-ai-fatigue/thumbnail.webp" class="blog-image" alt=""AI 피로감에 굴복" 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">마이크로소프트가 메모장, 사진, 위젯, 캡처 도구 등 윈도우 11 기본 앱에서 코파일럿 AI 진입점을 줄이겠다고 공식 발표했다. AI 피로감과 시스템 성능 저하를 호소한 사용자들의 목소리가 이번 전략적 방향 전환의 핵심 배경으로 작용했다.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">마이크로소프트가 윈도우 11의 AI 전략을 전면 재조정한다. 2026년 3월 20일, 윈도우+디바이스 부문 수장 파반 다불루리(Pavan Davuluri)는 공식 블로그를 통해 "코파일럿이 윈도우 전반에 통합되는 방식에 대해 더 의도적으로 접근하겠다"며 기본 앱에서 불필요한 AI 진입점을 축소하겠다고 선언했다. 메모장, 사진, 위젯, 캡처 도구가 첫 번째 대상이다.</p><p class="blog-paragraph">이번 발표는 단순한 기능 조정이 아니다. 지난 2년간 마이크로소프트가 밀어붙여 온 "모든 곳에 AI를" 전략이 사용자 저항에 부딪히면서 나온 공식적인 방향 전환이다. 윈도우 운영체제의 근본적인 품질, 즉 속도와 안정성을 우선시하겠다는 메시지가 핵심이다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="메모장에-ai가-왜-필요했을까" class="blog-heading">메모장에 AI가 왜 필요했을까</h2><p class="blog-paragraph">마이크로소프트는 2024년부터 코파일럿을 윈도우 11 곳곳에 심기 시작했다. 엣지 브라우저, 마이크로소프트 365 앱은 물론이고 메모장 같은 단순 텍스트 편집기에까지 AI 기능이 들어갔다. 캡처 도구에서도 코파일럿 버튼이 등장했고, 사진 앱에는 AI 편집 기능이 탑재됐다.</p><p class="blog-paragraph">문제는 대부분의 사용자가 이 기능들을 원하지 않았다는 점이다. 레딧과 기술 커뮤니티에서는 "코파일럿이 엣지, 365, 독립 앱, 메모장까지 침투했다"는 불만이 쏟아졌다. 기본 앱의 AI 통합은 체감 성능 저하와 시스템 리소스 낭비라는 실질적인 문제도 야기했다.</p><h2 id="사용자-절반이-ai에-우려를-표명하는-시대" class="blog-heading">사용자 절반이 AI에 우려를 표명하는 시대</h2><p class="blog-paragraph">이번 철수의 배경에는 광범위한 소비자 감정 변화가 있다. 퓨 리서치(Pew Research)가 2026년 3월 발표한 조사에 따르면, 미국 성인의 절반이 AI에 대해 기대보다 우려가 크다고 답했다. 2021년 37%에서 크게 상승한 수치다.</p><blockquote class="blog-quote">"진정으로 유용하고 잘 만들어진 경험에 집중하겠다. 이를 위해 캡처 도구, 사진, 위젯, 메모장을 시작으로 불필요한 코파일럿 진입점을 줄여나가겠다." - 파반 다불루리, 마이크로소프트 윈도우+디바이스 부문 총괄(President)</blockquote><p class="blog-paragraph">"AI 피로감(AI fatigue)"이라는 표현이 기술 매체에서 본격적으로 통용되기 시작한 것도 이 흐름을 보여준다. 테크크런치는 이번 조치를 "코파일럿 AI 블로트 롤백"으로 표현했고, 디지털 트렌드는 "마이크로소프트가 윈도우 11에 정말 얼마나 많은 AI가 필요한지 재고하기 시작했다"고 평가했다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="에이전틱-os-선언이-불러온-역풍" class="blog-heading">에이전틱 OS 선언이 불러온 역풍</h2><p class="blog-paragraph">이번 전환의 직접적인 도화선은 2025년 11월로 거슬러 올라간다. 다불루리가 SNS에서 윈도우가 "에이전틱 OS(agentic OS)"로 진화하고 있다고 발언하자 사용자들의 반발이 폭발했다. "아무도 그런 걸 요청하지 않았다"는 비판이 쇄도했고, 결국 다불루리는 해당 게시물의 댓글을 잠궈야 했다.</p><p class="blog-paragraph">윈도우 리콜(Windows Recall) 기능도 신뢰 위기를 심화시켰다. 사용자의 화면을 주기적으로 캡처해 AI로 검색 가능하게 만드는 이 기능은 프라이버시 우려로 1년 이상 출시가 지연됐다. 2025년 4월 출시 이후에도 보안 취약점이 계속 발견되면서 "AI를 무리하게 밀어넣는 마이크로소프트"라는 이미지를 굳혔다.</p><h2 id="작업-표시줄-이동-10년-묵은-숙원-해결" class="blog-heading">작업 표시줄 이동, 10년 묵은 숙원 해결</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/tech/ai/microsoft-copilot-windows-ai-fatigue/01.webp" alt="윈도우 11 작업 표시줄이 화면 상단, 좌측, 우측에 배치된 모습" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">마이크로소프트 공식 블로그에 공개된 작업 표시줄 위치 변경 데모 (출처: Microsoft)</figcaption>
+          </figure>
+        <p class="blog-paragraph">코파일럿 축소와 함께 발표된 개선 사항들도 주목할 만하다. 작업 표시줄을 화면 상단이나 좌우 측면으로 이동할 수 있는 기능이 드디어 도입된다. 윈도우 11 출시 이후 사용자들이 가장 많이 요청한 기능 중 하나였다.</p><p class="blog-paragraph">윈도우 업데이트 경험도 대폭 개선된다. 장치 설정 중 업데이트를 건너뛸 수 있고, 업데이트 설치 없이 재시작하거나 종료할 수 있으며, 일시 중지 기간도 연장된다. 파일 탐색기의 실행 속도와 안정성 향상, 위젯 경험 개편, 피드백 허브 전면 재설계도 함께 진행된다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="기업용-ai-소비자용-편의성으로-갈라지는-전략" class="blog-heading">기업용 AI, 소비자용 편의성으로 갈라지는 전략</h2><p class="blog-paragraph">마이크로소프트의 이번 조치는 AI 전략의 포기가 아니라 재배치에 가깝다. 핵심 키워드는 "AI가 가장 의미 있는 곳에 적용(integrating AI where it's most meaningful)"이다. 이는 B2B와 B2C 전략을 명확히 분리하겠다는 신호로 읽힌다.</p><p class="blog-paragraph">기업 시장에서는 마이크로소프트 365 코파일럿이 월 30달러 구독료를 받으며 수익을 창출하고 있다. 엑셀 데이터 분석, 파워포인트 슬라이드 생성, 아웃룩 이메일 요약 같은 기능은 기업 사용자에게 실질적인 생산성 향상을 제공한다. 반면 메모장이나 캡처 도구에 넣은 AI는 추론 비용만 발생시키고 수익화 경로가 불분명했다.</p><h2 id="모든-앱에-ai를-넣는-비용-문제" class="blog-heading">모든 앱에 AI를 넣는 비용 문제</h2><p class="blog-paragraph">간과할 수 없는 것이 추론 비용(inference cost)이다. 클라우드 기반 AI 기능은 호출될 때마다 서버 자원을 소모한다. 수억 대의 윈도우 PC에서 기본 앱마다 AI 기능을 제공하면 비용은 기하급수적으로 늘어난다. 특히 메모장이나 캡처 도구처럼 사용 빈도가 높지만 AI 부가가치가 낮은 앱의 경우, 투입 대비 효과가 떨어질 수밖에 없다.</p><p class="blog-paragraph">사진 앱의 슈퍼 해상도(Super Resolution) 업스케일링이나 배경 제거 같은 기능은 유지될 가능성이 높다. 이런 기능은 코파일럿 브랜딩 없이도 실질적 가치를 제공하기 때문이다. 마이크로소프트가 말하는 "의도적인 AI 통합"이 실제로 무엇을 남기고 무엇을 걷어내는지가 앞으로의 관전 포인트다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-7m+ex-1f-2m+ae"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="윈도우-품질-복원이라는-더-큰-그림" class="blog-heading">윈도우 품질 복원이라는 더 큰 그림</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/tech/ai/microsoft-copilot-windows-ai-fatigue/02.webp" alt="마이크로소프트 윈도우 11 품질 개선 로드맵 그래픽" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">성능, 안정성, 완성도 세 축으로 구성된 윈도우 11 품질 개선 계획 (출처: Microsoft)</figcaption>
+          </figure>
+        <p class="blog-paragraph">다불루리의 블로그 게시물은 코파일럿 축소를 넘어 윈도우 11 전반의 품질 로드맵을 담고 있다. 성능(Performance), 안정성(Reliability), 완성도(Craft) 세 축으로 구성된 이 계획은 메모리 사용량 절감, OS 수준 충돌 감소, WinUI3 프레임워크 전환, 윈도우 헬로(Windows Hello) 인증 개선 등을 포함한다.</p><p class="blog-paragraph">특히 "윈도우의 기본 메모리 점유량을 낮추고 앱이 쓸 수 있는 여유 용량을 확보하겠다"는 대목은 AI 기능이 시스템 리소스를 잠식한다는 사용자 불만에 대한 직접적인 응답이다. 윈도우 인사이더 프로그램의 채널 구조 개편과 빌드 품질 강화도 예고됐다.</p><p class="blog-paragraph">이번 발표는 마이크로소프트에게 후퇴가 아닌 전략적 재정렬이다. AI를 포기하는 것이 아니라, 사용자가 실제로 가치를 느끼는 지점에 집중하겠다는 것이다. 리눅스와 맥OS에 사용자를 빼앗기고 있다는 위기감이 이 전환을 가속화하고 있으며, "빠르고 안정적인 운영체제"라는 윈도우의 본질적 약속을 다시 지키겠다는 선언으로 볼 수 있다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/tech/ai/xbox-sunset-ai-pivot/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/xbox-sunset-ai-pivot/thumbnail.webp" alt="Xbox 단계적 폐기 논란, 공동 창업자가 말하는 마이크로소프트의 AI 집착" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">Xbox 단계적 폐기 논란, 공동 창업자가 말하는 마이크로소프트의 AI 집착</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://blogs.windows.com/windows-insider/2026/03/20/our-commitment-to-windows-quality/" target="_blank" rel="noopener">Microsoft - Our commitment to Windows quality</a></li><li><a href="https://techcrunch.com/2026/03/20/microsoft-rolls-back-some-of-its-copilot-ai-bloat-on-windows/" target="_blank" rel="noopener">TechCrunch - Microsoft rolls back some of its Copilot AI bloat on Windows</a></li><li><a href="https://www.pcworld.com/article/3094059/microsoft-says-windows-11-will-get-faster-as-it-scales-back-copilot.html" target="_blank" rel="noopener">PCWorld - Microsoft says Windows 11 will get faster as it scales back Copilot</a></li><li><a href="https://www.windowscentral.com/microsoft/windows-11/windows-11-major-improvements-announced-movable-taskbar-less-ads-reduced-copilot-better-performance-2026" target="_blank" rel="noopener">Windows Central - Microsoft announces major Windows 11 updates designed to fix biggest flaws</a></li><li><a href="https://www.digitaltrends.com/computing/microsoft-is-cutting-down-copilot-bloat-in-windows-11/" target="_blank" rel="noopener">Digital Trends - Microsoft is cutting down Copilot bloat in Windows 11</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/tech/ai/apple-blocks-vibe-coding-apps/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/tech/" class="trend-nav-btn list">목록</a>
+      <a href="/tech/ai/supermicro-ai-chip-china-smuggling/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (103)</span></a>
+            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (8)</span></a>
+            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (9)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (13)</span></a>
+            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (10)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (12)</span></a>
+            <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (104)</span></a>
+            <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (12)</span></a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+      </a>
+    
+      <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+      </a>
+    
+      <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+      </a>
+    
+      <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+      </a>
+    
+      <a href="/tech/ai/antigravity-usage-rollback-gemini-partial-revert/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+      </a>
+    
+      <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+      </a>
+    
+      <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-ai-chip-monopoly-cracking/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">엔비디아 AI 칩 독점에 균열? 빅테크 탈 엔비디아 러시</span>
+      </a>
+    
+      <a href="/tech/ai/claude-sonnet-46-release/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에</span>
+      </a>
+    </div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/tech/ai/gemini-pricing-overhaul-compute-limits-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소</span>
+      </a>
+    
+      <a href="/tech/ai/google-io-2026-agentic-gemini/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱</span>
+      </a>
+    
+      <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+      </a>
+    
+      <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino</span>
+      </a>
+    
+      <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+      </a>
+    
+      <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+      </a>
+    
+      <a href="/tech/ai/altman-musk-openai-trial-mudslinging/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">알트만 vs 머스크, OpenAI 법정이 진흙탕 폭로전으로</span>
+      </a>
+    
+      <a href="/tech/ai/openai-8000-anthropic-rivalry/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">오픈AI, 연말까지 직원 8천 명으로 두 배 확대: 앤트로픽 급부상에 전면전</span>
+      </a>
+    
+      <a href="/tech/ai/supermicro-ai-chip-china-smuggling/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">슈퍼마이크로 공동창업자, 25억 달러 규모 엔비디아 AI 칩 중국 밀반출로 기소</span>
+      </a>
+    </div>
+        </div>
+      </div>
+    
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+    <div class="home-card" id="sidebar-categories">
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (103)</span></a>
+          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (8)</span></a>
+          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (9)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (13)</span></a>
+          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (10)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (12)</span></a>
+          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (104)</span></a>
+          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (12)</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-card" id="sidebar-articles">
+      <div class="home-card-header">
+        <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+          <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+          <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+        </div>
+      </div>
+      <div class="home-card-body">
+        <div class="sidebar-article-list active" id="panel-sidebar-popular">
+    <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+    </a>
+  
+    <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+    </a>
+  
+    <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+    </a>
+  
+    <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+    </a>
+  
+    <a href="/tech/ai/antigravity-usage-rollback-gemini-partial-revert/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+    </a>
+  
+    <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+    </a>
+  
+    <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-ai-chip-monopoly-cracking/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">엔비디아 AI 칩 독점에 균열? 빅테크 탈 엔비디아 러시</span>
+    </a>
+  
+    <a href="/tech/ai/claude-sonnet-46-release/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에</span>
+    </a>
+  </div>
+        <div class="sidebar-article-list" id="panel-sidebar-latest">
+    <a href="/tech/ai/gemini-pricing-overhaul-compute-limits-backlash/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">제미나이 요금제 개편: 겉만 할인, 실제로는 사용 한도 축소</span>
+    </a>
+  
+    <a href="/tech/ai/google-io-2026-agentic-gemini/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱</span>
+    </a>
+  
+    <a href="/tech/ai/musk-openai-jury-verdict-dismissed/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">머스크 OpenAI 소송 만장일치 기각 — 공소시효 만료로 1,500억 달러 청구 무산</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-q1-fy27-ai-rally-test/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">엔비디아 20일 1분기 실적 발표…AI 랠리 분수령</span>
+    </a>
+  
+    <a href="/tech/ai/gemini-io-2026-rumor-roundup-d2/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">공개 D-2, 구글 I/O 제미나이 루머 총정리 — Spark·Omni·Cappuccino</span>
+    </a>
+  
+    <a href="/tech/ai/gpt55-opus47-degradation-admission/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인</span>
+    </a>
+  
+    <a href="/tech/ai/google-gemini-3-2-3-5-imminent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">구글 제미나이 차기 모델 임박 — 3.2일까 3.5일까, 반등의 분기점</span>
+    </a>
+  
+    <a href="/tech/ai/altman-musk-openai-trial-mudslinging/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">알트만 vs 머스크, OpenAI 법정이 진흙탕 폭로전으로</span>
+    </a>
+  
+    <a href="/tech/ai/openai-8000-anthropic-rivalry/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">오픈AI, 연말까지 직원 8천 명으로 두 배 확대: 앤트로픽 급부상에 전면전</span>
+    </a>
+  
+    <a href="/tech/ai/supermicro-ai-chip-china-smuggling/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">슈퍼마이크로 공동창업자, 25억 달러 규모 엔비디아 AI 칩 중국 밀반출로 기소</span>
+    </a>
+  </div>
+      </div>
+    </div>
+  
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=1c887d57"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

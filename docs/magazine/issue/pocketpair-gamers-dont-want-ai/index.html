@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/issue/pocketpair-gamers-dont-want-ai/thumbnail.webp">
+		  <title>팰월드 개발사 포켓페어 &quot;게이머는 생성형 AI 원치 않는다&quot; | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="팰월드 개발사 포켓페어가 생성형 AI를 도입하지 않는 이유로 &#39;게이머의 반대&#39;를 꼽았다. 아티스트의 자율성 존중과 함께, 향후 인간이 제작한 게임이 경쟁력을 갖는 &#39;진정성 시장&#39;이 열릴 것이라는 분석이다.">
+  <meta name="keywords" content="팰월드 생성형 AI,포켓페어,존 버클리,생성형 AI 게임,진정성 시장">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/magazine/issue/pocketpair-gamers-dont-want-ai/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "팰월드 개발사 포켓페어 \"게이머는 생성형 AI 원치 않는다\"",
+    "description": "팰월드 개발사 포켓페어가 생성형 AI를 도입하지 않는 이유로 '게이머의 반대'를 꼽았다. 아티스트의 자율성 존중과 함께, 향후 인간이 제작한 게임이 경쟁력을 갖는 '진정성 시장'이 열릴 것이라는 분석이다.",
+    "datePublished": "2026-06-19T10:30+09:00",
+    "dateModified": "2026-06-19T10:30+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/magazine/issue/pocketpair-gamers-dont-want-ai/"
+    },
+    "image": "https://gamerscroll.com/assets/images/issue/pocketpair-gamers-dont-want-ai/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "브리핑",
+        "item": "https://gamerscroll.com/magazine/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "팰월드 개발사 포켓페어 \"게이머는 생성형 AI 원치 않는다\"",
+        "item": "https://gamerscroll.com/magazine/issue/pocketpair-gamers-dont-want-ai/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="팰월드 개발사 포켓페어 &quot;게이머는 생성형 AI 원치 않는다&quot;">
+  <meta property="og:description" content="팰월드 개발사 포켓페어가 생성형 AI를 도입하지 않는 이유로 &#39;게이머의 반대&#39;를 꼽았다. 아티스트의 자율성 존중과 함께, 향후 인간이 제작한 게임이 경쟁력을 갖는 &#39;진정성 시장&#39;이 열릴 것이라는 분석이다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/issue/pocketpair-gamers-dont-want-ai/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="팰월드 개발사 포켓페어 &quot;게이머는 생성형 AI 원치 않는다&quot;">
+  <meta property="og:url" content="https://gamerscroll.com/magazine/issue/pocketpair-gamers-dont-want-ai/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-06-19T10:30+09:00">
+  <meta property="article:modified_time" content="2026-06-19T10:30+09:00">
+  <meta property="article:section" content="이슈">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="팰월드 생성형 AI">
+  <meta property="article:tag" content="포켓페어">
+  <meta property="article:tag" content="존 버클리">
+  <meta property="article:tag" content="생성형 AI 게임">
+  <meta property="article:tag" content="진정성 시장">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="팰월드 개발사 포켓페어 &quot;게이머는 생성형 AI 원치 않는다&quot;">
+  <meta name="twitter:description" content="팰월드 개발사 포켓페어가 생성형 AI를 도입하지 않는 이유로 &#39;게이머의 반대&#39;를 꼽았다. 아티스트의 자율성 존중과 함께, 향후 인간이 제작한 게임이 경쟁력을 갖는 &#39;진정성 시장&#39;이 열릴 것이라는 분석이다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/issue/pocketpair-gamers-dont-want-ai/thumbnail.webp">
+  <meta name="twitter:image:alt" content="팰월드 개발사 포켓페어 &quot;게이머는 생성형 AI 원치 않는다&quot;">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-report.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-report.a96f7e4c.css"></noscript>
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-magazine">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item active" href="/magazine/">매거진</a>
+      <a class="nav-item" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=0;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="issue">
+
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-1-card">
+  <style>
+    .ad-home-pc-1-card, .ad-home-pc-1 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-1-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-1 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-1"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-2-card">
+  <style>
+    .ad-home-mo-2-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-2-card > .ad-home-mo-2 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-2-card, .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-2"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">팰월드 개발사 포켓페어 "게이머는 생성형 AI 원치 않는다"</h1>
+                <div class="blog-meta">
+                  <span class="blog-editor">Editor J</span>
+                  <time class="blog-date">2026년 6월 19일</time>
+                </div>
+              </header>
+              
+                <figure class="blog-figure">
+                  <img class="blog-image" src="/assets/images/issue/pocketpair-gamers-dont-want-ai/thumbnail.webp" alt="팰월드 개발사 포켓페어 &quot;게이머는 생성형 AI 원치 않는다&quot; 대표 이미지" loading="eager" fetchpriority="high">
+                </figure>
+              
+              <p class="blog-summary">팰월드 개발사 포켓페어가 생성형 AI를 도입하지 않는 이유로 '게이머의 반대'를 꼽았다. 아티스트의 자율성 존중과 함께, 향후 인간이 제작한 게임이 경쟁력을 갖는 '진정성 시장'이 열릴 것이라는 분석이다.</p>
+              <div class="blog-content">
+                <p class="blog-paragraph">팰월드 개발사 포켓페어가 생성형 AI 도입에 대해 다시 한번 분명한 선을 그었다. 지난 6월 18일 <a href="https://www.gamesradar.com/games/survival/gamers-dont-want-it-palworld-lead-says-pocketpair-doesnt-touch-ai-because-players-hate-it-and-artists-like-doing-stuff-themselves/" target="_blank" rel="noopener">게임스레이더+</a>와의 인터뷰에서 존 버클리 커뮤니케이션 디렉터 겸 퍼블리싱 매니저는 회사가 생성형 AI를 "전혀 사용하지 않는다"고 밝혔다.</p><p class="blog-paragraph">이유는 명확했다. 버클리 디렉터는 "게이머들이 원하지 않는다"라며 "게이머가 원하지 않는다면 그것으로 끝이고, 더는 논의할 여지가 없다"고 강조했다. 이는 업계 전반에서 생성형 AI 도입 목소리가 높아지는 상황과 대조적인 행보다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="8021405606"></ins>
+</div><h2 class="blog-heading">게이머가 원치 않는다면 그것으로 끝</h2><p class="blog-paragraph">존 버클리 디렉터는 그동안 팰월드의 일부 캐릭터나 에셋에 생성형 AI를 사용했다는 의혹을 여러 차례 부인해 왔다. 그는 이번에도 기술을 전혀 쓰지 않는다는 방침을 재확인했다. 버클리 디렉터는 "일부에서 AI를 활용할 수는 있겠지만 우리와는 맞지 않는다"며 "개인적으로는 생성형 AI가 시장의 주류로 자리 잡을 것이라 생각하지 않는다"고 말했다.</p><p class="blog-paragraph">그는 거품이라는 표현을 아끼면서도 생성형 AI 기술의 지속 가능성에 회의적인 시각을 드러냈다. 버클리 디렉터는 "스팀 등 유통 플랫폼에서도 규제 움직임을 보이고 있다"고 짚았다. 실제로 최근 서머 게임 페스트에서 공개된 일부 신작들의 경우, 생성형 AI 사용 여부를 두고 팬들의 반발이 일자 개발사들이 급히 해명에 나서기도 했다.</p><p class="blog-paragraph">기술을 도입할 필요가 없는 실질적 이유도 덧붙였다. 버클리 디렉터는 "사내에 우수한 아티스트가 많고, 다들 직접 창작하는 것을 선호한다"며 "이들을 대체하면서까지 생성형 AI를 도입할 이유가 없으며, 이는 무의미한 일"이라고 설명했다. 비용 절감을 위해 인력을 생성형 AI로 대체하려는 업계의 일반적인 움직임과 차별화되는 대목이다.</p><h2 class="blog-heading">포켓페어가 고수하는 반(反)생성형 AI 기조</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/pocketpair-gamers-dont-want-ai/01.webp" alt="포켓페어 퍼블리싱 부문 소개 이미지와 게임 라인업" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">포켓페어 퍼블리싱이 공개한 라인업 키 아트</figcaption>
+            </figure>
+          <p class="blog-paragraph">이러한 포켓페어의 행보는 임기응변식 대처가 아니다. 포켓페어는 올해 1월 외부 개발사를 발굴하고 지원하는 퍼블리싱 사업부를 신설하며, 생성형 AI를 쓰는 프로젝트에는 투자하지 않는다는 핵심 조건을 내걸었다.</p><p class="blog-paragraph">버클리 디렉터는 지난해 10월 게임스컴 아시아에서도 이 방침을 분명히 했다. 그는 "거짓말처럼 들릴지 모르지만 이것이 우리의 실제 원칙"이라고 못 박았다. 이어 "생성형 AI나 Web3, NFT를 전면에 내세운 프로젝트라면 다른 파트너를 찾는 게 맞다"며 "포켓페어는 그런 곳과 협력할 계획이 없다"고 강조했다.</p><p class="blog-paragraph">역설적이게도 포켓페어 역시 생성형 AI 사용 의혹에서 완전히 자유롭지는 못하다. <a href="/magazine/issue/game-ai-controversy-award-revoked/">AI 논란이 수상 취소로 번진 사례</a>처럼 한 번 붙은 의혹은 쉽게 떨어지지 않는다. 최근 팰월드의 일부 언어 번역에 기계 번역을 썼다는 주장이 돌자, 버클리 디렉터는 번역가 이름을 개별 공개하지 않는 업계 관행이 부른 오해라고 해명했다. 그는 이런 의심을 "마녀사냥"에 가깝다고 반박했다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="9566421564"></ins>
+</div><h2 class="blog-heading">인간이 제작한 게임과 '진정성 시장'</h2><p class="blog-paragraph">존 버클리 디렉터는 팰월드에 생성형 AI를 들이지 않겠다는 원칙을 넘어, 업계 전체의 흐름으로 '진정성 시장'을 핵심에 두었다. 스팀에 저품질 AI 게임이 대거 유입되면, 소비자와 개발자 모두 인간이 제작한 게임을 가려내기 시작할 것이라는 분석이다. 실제로 이번 스팀 넥스트 페스트만 해도 출품된 데모 약 8,600개 중 1,700여 개가 생성형 AI를 활용했다.</p><p class="blog-paragraph">업계 관계자인 그조차 데모 행사에서 생성형 AI로 만든 에셋이나 이미지를 보면 아쉬움을 느낀다고 털어놨다. 특히 '인간이 제작한 게임'이라는 표기가 거꾸로 차별화 마케팅이 되는 상황을 우려했다. 그는 "기본적으로 모든 게임은 인간이 만든 것으로 전제돼야 한다"며 "'이 게임은 인간이 만들었습니다' 같은 경고성 안내를 붙여야 한다면 다소 서글픈 디스토피아일 것"이라고 말했다.</p><p class="blog-paragraph">그는 지역별로 생성형 AI를 대하는 온도차가 뚜렷하다고 봤다. 일본 개발사의 주요 인사인 그는 아시아 시장이 AI 도입에 비교적 개방적이라고 진단했다. 실제로 <a href="/magazine/issue/shiftup-self-publishing-stellar-blade/">시프트업의 김형태 대표</a>는 올해 생성형 AI가 인력에서 앞선 중국·미국과 국내 스튜디오의 격차를 좁히는 데 보탬이 될 수 있다고 언급한 바 있다. 진정성을 앞세운 포켓페어와는 결이 다른 시장 전략인 셈이다. 버클리 디렉터는 "향후 2~3년 내 이 지점에서 더 큰 충돌이 벌어질 것"이라며 서구권을 중심으로 반감이 이어질 것으로 전망했다.</p>
+              </div>
+              
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        
+          <a href="/magazine/issue/game-ai-controversy-award-revoked/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/game-ai-controversy-award-revoked/thumbnail.webp" alt="게임 AI 사용 논란 총정리 - 클레르 옵스퀴르 수상 박탈부터 한국 게임계까지" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">게임 AI 사용 논란 총정리 - 클레르 옵스퀴르 수상 박탈부터 한국 게임계까지</span></span>
+          </a>
+          <a href="/magazine/issue/shiftup-self-publishing-stellar-blade/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/shiftup-self-publishing-stellar-blade/thumbnail.webp" alt="시프트업, 소니 없이 간다: 스텔라 블레이드 스튜디오의 자체 퍼블리싱 선언" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">시프트업, 소니 없이 간다: 스텔라 블레이드 스튜디오의 자체 퍼블리싱 선언</span></span>
+          </a>
+          <a href="/magazine/issue/game-ai-paradigm-shift-2026/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/game-ai-paradigm-shift-2026/thumbnail.webp" alt="게임 개발의 패러다임 시프트: 2026년, AI 도입의 현주소" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">게임 개발의 패러다임 시프트: 2026년, AI 도입의 현주소</span></span>
+          </a>
+          <a href="/magazine/issue/ai-basic-act-game-industry-confusion/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/ai-basic-act-game-industry-confusion/thumbnail.webp" alt="AI 기본법 시행 1주, 게임 업계 '표시 의무' 혼란 지속…유연한 적용 요구" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">AI 기본법 시행 1주, 게임 업계 '표시 의무' 혼란 지속…유연한 적용 요구</span></span>
+          </a>
+      </div>
+    </div>
+  
+              
+    <div class="blog-related-games">
+      <div class="blog-related-title">관련 게임</div>
+      <div class="blog-related-grid">
+        
+          <a href="/games/palworld/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/4f823e476ad290ad4f19763e7d800723df422dfa/capsule_231x87.jpg?t=1764860671" alt="Palworld" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">Palworld</span>
+          </a>
+        
+          <a href="/games/stellar-blade/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3489700/75914656cad450124a18fef914c5a5f4866ffb67/capsule_231x87.jpg?t=1763566418" alt="Stellar Blade™" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">Stellar Blade™</span>
+          </a>
+        
+      </div>
+    </div>
+  
+              
+    <div class="blog-sources">
+      <div class="blog-sources-title">정보 출처</div>
+      <ul class="blog-sources-list">
+        
+          <li><a href="https://www.gamesradar.com/games/survival/gamers-dont-want-it-palworld-lead-says-pocketpair-doesnt-touch-ai-because-players-hate-it-and-artists-like-doing-stuff-themselves/" target="_blank" rel="noopener">GamesRadar+ - "Gamers don't want it": Palworld lead says Pocketpair doesn't touch AI because players hate it</a></li>
+        
+          <li><a href="https://www.gamedeveloper.com/business/palworld-lead-on-genai-gamers-don-t-want-it" target="_blank" rel="noopener">Game Developer - Pocketpair lead on generative AI: Gamers don't want it</a></li>
+        
+          <li><a href="https://www.gamedeveloper.com/business/-we-don-t-believe-in-it-palworld-maker-pocketpair-wont-be-publishing-games-that-use-generative-ai" target="_blank" rel="noopener">Game Developer - 'We don't believe in it:' Palworld maker Pocketpair won't publish games that use generative AI</a></li>
+        
+          <li><a href="https://news.instant-gaming.com/en/articles/20290-pocketpair-won-t-touch-generative-ai-for-palworld-because-fans-don-t-want-it" target="_blank" rel="noopener">Instant Gaming News - Pocketpair won't touch generative AI for Palworld because fans don't want it</a></li>
+        
+          <li><a href="https://www.reddit.com/r/PS5/comments/1u8tgf8/gamers_dont_want_it_palworld_lead_says_pocketpair/" target="_blank" rel="noopener">Reddit r/PS5 - 'Gamers don't want it' Palworld lead says Pocketpair doesn't touch AI</a></li>
+        
+      </ul>
+    </div>
+  
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/magazine/issue/gta6-preorder-june-25/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      <a href="/magazine/issue/sol-enchant-dual-market-no1-launch/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

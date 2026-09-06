@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1190px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1190px;
+	      margin: 0 auto;
+	      padding: 0 16px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1190px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: 최상단 로드 (광고 빠른 렌더링) -->
+	  <script>
+	    (function() {
+	      var s = document.createElement('script');
+	      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825';
+	      s.async = true;
+	      s.crossOrigin = 'anonymous';
+	      s.fetchPriority = 'high';
+	      s.onload = function() {
+	        window.__adsenseReady = true;
+	        window.dispatchEvent(new Event('adsenseReady'));
+	      };
+	      document.head.appendChild(s);
+	    })();
+	  </script>
+		  <title>AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나</title>
+  <!-- SEO -->
+  <meta name="description" content="2026년 2월 11일, 단 하루 만에 Google DeepMind의 수학 연구 에이전트 Aletheia, 중국 Zhipu AI의 745B 오픈소스 GLM-5, 그리고 Gemini 3.1 Preview가 동시에 포착됐다. AI 업계의 숨가쁜 경쟁 현장을 정리한다.">
+  <meta name="keywords" content="AI 모델 러시, Aletheia, GLM-5, Gemini 3.1, Google DeepMind, Zhipu AI, 수학 AI, 오픈소스 LLM, 2026 AI 경쟁, 프론티어 모델, MoE 모델, 화웨이 Ascend, AI 에이전트">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/tech/ai/ai-model-rush-feb-2026/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나",
+    "description": "2026년 2월 11일, 단 하루 만에 Google DeepMind의 수학 연구 에이전트 Aletheia, 중국 Zhipu AI의 745B 오픈소스 GLM-5, 그리고 Gemini 3.1 Preview가 동시에 포착됐다. AI 업계의 숨가쁜 경쟁 현장을 정리한다.",
+    "datePublished": "2026-02-12T12:00",
+    "dateModified": "2026-02-12T12:00",
+    "author": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/tech/ai/ai-model-rush-feb-2026/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "테크",
+        "item": "https://gamerscroll.com/tech/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI",
+        "item": "https://gamerscroll.com/tech/ai/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나",
+        "item": "https://gamerscroll.com/tech/ai/ai-model-rush-feb-2026/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나">
+  <meta property="og:description" content="2026년 2월 11일, 단 하루 만에 Google DeepMind의 수학 연구 에이전트 Aletheia, 중국 Zhipu AI의 745B 오픈소스 GLM-5, 그리고 Gemini 3.1 Preview가 동시에 포착됐다. AI 업계의 숨가쁜 경쟁 현장을 정리한다.">
+  <meta property="og:image" content="https://gamerscroll.com/og-image.png">
+  <meta property="og:image:alt" content="AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나">
+  <meta property="og:url" content="https://gamerscroll.com/tech/ai/ai-model-rush-feb-2026/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-02-12T12:00">
+  <meta property="article:modified_time" content="2026-02-12T12:00">
+  <meta property="article:section" content="게임">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="AI 모델 러시">
+  <meta property="article:tag" content="Aletheia">
+  <meta property="article:tag" content="GLM-5">
+  <meta property="article:tag" content="Gemini 3.1">
+  <meta property="article:tag" content="Google DeepMind">
+  <meta property="article:tag" content="Zhipu AI">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나">
+  <meta name="twitter:description" content="2026년 2월 11일, 단 하루 만에 Google DeepMind의 수학 연구 에이전트 Aletheia, 중국 Zhipu AI의 745B 오픈소스 GLM-5, 그리고 Gemini 3.1 Preview가 동시에 포착됐다. AI 업계의 숨가쁜 경쟁 현장을 정리한다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/og-image.png">
+  <meta name="twitter:image:alt" content="AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- preconnect: 핵심 도메인 4개 (LCP 우선) -->
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://wsrv.nl" crossorigin>
+  <!-- dns-prefetch: fallback + 추가 도메인 -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
+  <link rel="dns-prefetch" href="https://ep1.adtrafficquality.google">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://wsrv.nl">
+  <link rel="dns-prefetch" href="https://adservice.google.com">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.googletagservices.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+	  <link rel="dns-prefetch" href="https://i.ytimg.com">
+	  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable (단일 woff2) -->
+	  <link rel="preload" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/pretendardvariable.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-tech ads-disabled">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <header class="header">
+	    <div class="header-inner">
+	      <div class="header-title">
+	        <a href="/">
+	          <span class="visually-hidden">게이머스크롤</span>
+	          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	            <defs>
+	              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+	                <stop offset="0%" stop-color="#4f46e5" />
+	                <stop offset="100%" stop-color="#06b6d4" />
+	              </linearGradient>
+	            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <!-- 왼쪽 안테나 -->
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <!-- 오른쪽 안테나 -->
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        매거진
+      </a>
+      <a class="nav-item" href="/wiki/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        게임 위키
+      </a>
+      <a class="nav-item active" href="/tech/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        테크
+      </a>
+      <a class="nav-item" href="/games/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        게임 DB
+      </a>
+      <a class="nav-item" href="/rankings/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        모바일 순위
+      </a>
+      <a class="nav-item" href="/steam/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12h.01M18 12h.01"/><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12"/></svg>
+        스팀 순위
+      </a>
+      <a class="nav-item" href="/upcoming/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        출시 게임
+      </a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=2;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=fdeb243f"></script>
+    
+    <section class="section active" id="tech-article">
+      <article class="page-container issue-container">
+        
+
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나</h1>
+                <div class="blog-meta"><span class="blog-date">AI</span><time class="blog-date">2026년 2월 12일</time></div>
+              </header>
+
+              
+
+              <p class="blog-summary">2026년 2월 11일, 단 하루 만에 Google DeepMind의 수학 연구 에이전트 Aletheia, 중국 Zhipu AI의 745B 오픈소스 GLM-5, 그리고 Gemini 3.1 Preview가 동시에 포착됐다. AI 업계의 숨가쁜 경쟁 현장을 정리한다.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">2026년 2월 11일은 AI 역사에서 가장 바쁜 하루 중 하나로 기록될 것이다. Google DeepMind가 미해결 수학 문제를 푸는 연구 에이전트 'Aletheia'를 공식 발표했다. 중국 Zhipu AI가 화웨이 칩으로 훈련한 745B 파라미터 오픈소스 모델 GLM-5를 공개했다. 그리고 Artificial Analysis Arena에서 'Gemini 3.1 Pro Preview'라는 정체불명의 모델이 포착됐다. 세 건의 대형 이벤트가 딱 하루 만에 터졌다.</p><h2 id="1-aletheia-수학-난제를-푸는-google-deepmind의-연구-에이전트" class="blog-heading">1. Aletheia: 수학 난제를 푸는 Google DeepMind의 연구 에이전트</h2><p class="blog-paragraph">Aletheia는 단순한 대형 언어 모델이 아니다. Gemini의 Deep Think 모드 위에 구축된 다단계 연구 에이전트 시스템이다. Generator(가설 생성), Verifier(증명 검증), Reviser(반복 개선)의 파이프라인으로 구성되며, 인간 수학자가 실제로 연구하는 과정을 모방한다.</p><p class="blog-paragraph">결과는 놀랍다. 폴 에르되시(Paul Erdős)가 남긴 미해결 문제 700개 중 13개를 해결했다. 5개는 완전히 자율적으로 풀었고, 8개는 기존 문헌에 묻혀 있던 해법을 찾아냈다. IMO-ProofBench Advanced에서는 91.9%를 기록해, 수년은 더 걸릴 것으로 예상됐던 수준에 도달했다.</p><p class="blog-paragraph">더 주목할 점은 수학을 넘어선 확장 계획이다. Google DeepMind는 Aletheia를 물리학, 컴퓨터 과학 등 다른 연구 분야로 확장하겠다고 명시했다. 프로젝트 팀에는 한국인 연구자 김상현 교수가 참여하고 있어 글로벌 규모의 협업이 진행 중이다.</p><p class="blog-paragraph">참여 연구진은 "AI는 대체가 아닌 가속기"라고 강조했다. AI를 인간 연구자의 후계자가 아닌 협업 도구로 자리매김하려는 프레이밍이다.</p><h2 id="2-glm-5-중국발-오픈소스의-프론티어-모델-도전" class="blog-heading">2. GLM-5: 중국발 오픈소스의 프론티어 모델 도전</h2><p class="blog-paragraph">같은 날, 중국 AI 기업 Zhipu AI(Z.ai)가 GLM-5를 MIT 라이선스로 공개했다. 숫자부터 압도적이다. 745B 파라미터, MoE(Mixture-of-Experts) 아키텍처에 256개 전문가, 활성 파라미터 40~44B. 28.5조 토큰으로 사전학습, 200K 컨텍스트 윈도우를 지원한다.</p><p class="blog-paragraph">그런데 진짜 헤드라인은 훈련 인프라다. GLM-5는 화웨이 Ascend 칩으로 훈련됐으며, 미국 반도체 의존도가 제로다. 미국의 수출 통제가 강화되는 시점에서, NVIDIA 생태계 밖에서도 프론티어급 모델을 만들 수 있다는 증거가 된 것이다.</p><p class="blog-paragraph">성능도 뒷받침한다. BrowseComp에서 62.0%로 글로벌 1위를 기록했고, Artificial Analysis 기준 환각률은 업계 최저다. 가격은 Claude Opus 대비 입력 6배, 출력 10배 저렴하다.</p><p class="blog-paragraph">사실 GLM-5는 이미 가명으로 돌아다니고 있었다. 2월 6일 OpenRouter에 'Pony Alpha'라는 이름으로 등장해 순위를 빠르게 올렸고, 2월 11일 정체가 GLM-5로 확인됐다. Zhipu AI는 비동기 강화학습 인프라 'Slime'도 함께 오픈소스로 공개했으며, Claude Code 등 코딩 에이전트와의 호환성도 발표했다.</p><p class="blog-paragraph">Zhipu AI는 2026년 1월 홍콩 IPO를 완료하며, 서방 연구소들과 정면 승부할 자금력도 확보한 상태다.</p><h2 id="3-gemini-30-안정화-속-31-preview-포착" class="blog-heading">3. Gemini 3.0 안정화 속 3.1 Preview 포착</h2><p class="blog-paragraph">DeepMind가 Aletheia를 발표하는 동안, 형제 프로젝트 Gemini도 진화를 이어갔다. Gemini 3 Pro와 Flash가 GA(정식 출시) 상태로, AI Studio의 기본 모델로 자리 잡았다. Gemini 3 Pro는 LMArena Elo 1501(1위), HLE 37.5%, GPQA 91.9%를 기록했다.</p><p class="blog-paragraph">Gemini 3 Flash는 흥미로운 반전을 보여준다. SWE-Bench에서 78%를 기록해 Pro의 76.2%를 오히려 앞질렀으면서도, Flash급 속도와 가격(100만 토큰당 $0.50/$3, Pro는 $2/$12)을 유지한다.</p><p class="blog-paragraph">그리고 조용한 폭탄이 터졌다. 같은 날 Artificial Analysis Arena에 'Gemini 3.1 Pro Preview'가 등록된 것이다. 구글의 공식 발표는 아직 없지만, 커뮤니티는 이미 기대감으로 들끓고 있다. 이전 Gemini 업데이트 패턴을 따른다면, GA 출시 시 상당한 성능 향상이 예상된다.</p><p class="blog-paragraph">3.0이 안정화되고 3.1이 수면 위로 올라오면서, 구글은 Anthropic과 OpenAI에 지속적 압박을 가하는 빠른 반복 주기를 구축하고 있다.</p><h2 id="4-2월-11일이-중요한-이유-ai-경쟁의-가속화" class="blog-heading">4. 2월 11일이 중요한 이유: AI 경쟁의 가속화</h2><p class="blog-paragraph">2월 11일이 의미 있는 건 발표의 양만이 아니라 폭이다. 구글은 Aletheia로 'AI를 활용한 과학 연구'라는 새 영역을 개척하면서, 동시에 차세대 범용 모델을 준비하고 있다. 중국 Zhipu AI는 미국 하드웨어 없이도 프론티어급 AI 개발이 가능하다는 것을 증명했다. Gemini 3.1 포착은 주요 모델 간 출시 간격이 수개월에서 수주로 줄어들고 있음을 시사한다.</p><p class="blog-paragraph">경쟁 구도 자체가 변하고 있다. 더 이상 OpenAI 대 Anthropic 대 Google의 삼파전이 아니다. 중국 연구소들이 오픈소스와 독자 공급망을 앞세워 프론티어 급에 진입하고 있다. 연구용 AI 시스템은 벤치마크를 넘어 실제 과학적 발견으로 나아가고 있다. 그리고 이 반복 속도는 2026년 말 AI 지형이 지금과 완전히 달라질 것임을 암시한다.</p><p class="blog-paragraph">개발자와 사용자에게는 더 많은 선택지, 더 낮은 가격, 더 빠른 성능 향상을 뜻한다. 기업들에게는 실수의 여지가 극도로 좁아졌다는 뜻이다. 한 분기만 느려져도 영영 뒤처질 수 있는 레이스다.</p><h2 id="마치며-ai-경쟁의-새로운-국면" class="blog-heading">마치며: AI 경쟁의 새로운 국면</h2><p class="blog-paragraph">2026년 2월 11일은 한 달치 AI 뉴스를 24시간에 압축했다. DeepMind의 Aletheia는 AI가 미해결 수학 연구에 기여할 수 있음을 보여줬다. GLM-5는 미국 칩 없이도 프론티어 모델을 만들 수 있다는 걸 증명했다. Gemini 3.1 Preview는 구글의 다음 행보가 이미 진행 중임을 암시했다.</p><p class="blog-paragraph">AI 경쟁은 더 이상 '누가 가장 큰 모델을 가졌나'의 싸움이 아니다. 과학 연구부터 오픈소스 생태계, 차세대 아키텍처까지 가장 넓은 전선에서 가장 빠르게 움직이는 자가 승리하는 구도다. 2월 11일이 그것을 분명히 했다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/tech/ai/claude-opus-46-pricing-controversy/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/tech/ai/claude-opus-46-pricing-controversy/thumbnail.webp" alt=""$200 내고도 차별": 클로드의 끝나지 않는 가격 논란" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">"$200 내고도 차별": 클로드의 끝나지 않는 가격 논란</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://deepmind.google/discover/blog/aletheia-an-ai-system-for-mathematical-research/" target="_blank" rel="noopener">Google DeepMind - Aletheia: AI system for mathematical research</a></li><li><a href="https://arxiv.org/abs/2502.07703" target="_blank" rel="noopener">Zhipu AI - GLM-5 Technical Report</a></li><li><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener">Artificial Analysis - LLM Leaderboard</a></li><li><a href="https://techcrunch.com/2026/02/11/zhipu-ai-glm-5-open-source/" target="_blank" rel="noopener">TechCrunch - China's Zhipu AI launches GLM-5</a></li><li><a href="https://www.theverge.com/2026/2/11/google-deepmind-aletheia-math" target="_blank" rel="noopener">The Verge - Google DeepMind's Aletheia solves unsolved math problems</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+            
+    <div class="trend-detail-nav">
+      <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/tech/" class="trend-nav-btn list">목록</a>
+      <span class="trend-nav-btn disabled">다음 ›</span>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (66)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (48)</span></a>
+            <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+            <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (4)</span></a>
+            <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (4)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+            <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (12)</span></a>
+            <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (9)</span></a>
+          </div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+          <div class="sidebar-category-list">
+            <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (7)</span></a>
+            <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (24)</span></a>
+            <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (11)</span></a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/tech/ai/moltbook-ai-social-network/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">AI들이 만든 자신들만의 레딧, 몰트북(Moltbook)에서 벌어지는 일들</span>
+      </a>
+    
+      <a href="/tech/ai/claude-opus-46-pricing-controversy/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">"$200 내고도 차별": 클로드의 끝나지 않는 가격 논란</span>
+      </a>
+    
+      <a href="/tech/vibecoding/vibe-coding-guide/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">바이브 코딩 종합 가이드: 툴 비교&설치부터 실전까지</span>
+      </a>
+    
+      <a href="/tech/ai/claude-cowork-saaspocalypse/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">사무직 종말의 시작인가? 클로드 코워크가 촉발한 SW 주가 대폭락</span>
+      </a>
+    
+      <a href="/tech/ai/gpt-4o-shutdown-controversy/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">GPT-4o 종료 논란, 왜 유저들은 '친구를 잃었다'고 말하는가</span>
+      </a>
+    
+      <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+      </a>
+    
+      <a href="/tech/vibecoding/vibe-coding-basics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">바이브 코딩 기본 개념 및 설정: 사용량, 세션, 권한, 모델까지</span>
+      </a>
+    
+      <a href="/tech/vibecoding/project-md-settings-guide/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">프로젝트 설정 마크다운 가이드: CLAUDE.md와 AGENTS.md</span>
+      </a>
+    
+      <a href="/tech/ai/musk-openai-lawsuit-escalation/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">머스크의 끝나지 않는 복수전, OpenAI 소송전 점입가경</span>
+      </a>
+    
+      <a href="/tech/ai/claude-fennec-release-imminent/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">클로드 차기 모델 코드명 "페넥", 일주일 내 출시? - 추가 루머 정리</span>
+      </a>
+    </div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/tech/ai/ai-model-rush-feb-2026/" class="sidebar-article-item active">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나</span>
+      </a>
+    
+      <a href="/tech/vibecoding/mcp-guide/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">MCP 가이드: AI 코딩 에이전트와 외부 도구 연결하기</span>
+      </a>
+    
+      <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+      </a>
+    
+      <a href="/tech/ai/nvidia-gpu-launch-halt-ai-priority/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">엔비디아 그래픽카드 신제품 출시 전면 중단, AI가 게이밍을 삼켰다</span>
+      </a>
+    
+      <a href="/tech/ai/xai-talent-exodus-grok-crisis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">xAI 공동창업자 5명 이탈, 머스크 AI 제국의 인재 탈출 러시</span>
+      </a>
+    
+      <a href="/tech/ai/openai-chatgpt-growth-100b-funding/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">OpenAI 2월 12일 신규 모델 출시 유력</span>
+      </a>
+    
+      <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+      </a>
+    
+      <a href="/tech/ai/claude-opus-46-pricing-controversy/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">"$200 내고도 차별": 클로드의 끝나지 않는 가격 논란</span>
+      </a>
+    
+      <a href="/tech/ai/gpt-53-codex-community-reaction/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">완전 자율 코딩의 시작? GPT-5.3 코덱스 출시 후 커뮤니티 반응 총정리</span>
+      </a>
+    
+      <a href="/tech/vibecoding/vibe-coding-version-control-guide/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">바이브 코딩 버전관리 - 깃허브 설치&사용 가이드</span>
+      </a>
+    </div>
+        </div>
+      </div>
+    
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+    <div class="home-card" id="sidebar-categories">
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/magazine/" class="home-card-title-link"><h2 class="home-card-title">정기 매거진</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/magazine/daily/" class="sidebar-category-item"><span class="sidebar-category-name">일간 (66)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/magazine/issue/" class="sidebar-category-item"><span class="sidebar-category-name">이슈 (48)</span></a>
+          <a href="/magazine/insight/" class="sidebar-category-item"><span class="sidebar-category-name">인사이트 (2)</span></a>
+          <a href="/magazine/hotpick/" class="sidebar-category-item"><span class="sidebar-category-name">핫픽 (4)</span></a>
+          <a href="/magazine/ranking/" class="sidebar-category-item"><span class="sidebar-category-name">순위 분석 (4)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/wiki/history/" class="sidebar-category-item"><span class="sidebar-category-name">히스토리 (12)</span></a>
+          <a href="/wiki/knowledge/" class="sidebar-category-item"><span class="sidebar-category-name">지식 (12)</span></a>
+          <a href="/wiki/business/" class="sidebar-category-item"><span class="sidebar-category-name">비즈니스 (9)</span></a>
+        </div>
+      </div>
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><a href="/tech/" class="home-card-title-link"><h2 class="home-card-title">테크</h2></a></div>
+        <div class="sidebar-category-list">
+          <a href="/tech/normal/" class="sidebar-category-item"><span class="sidebar-category-name">일반 (7)</span></a>
+          <a href="/tech/ai/" class="sidebar-category-item"><span class="sidebar-category-name">AI (24)</span></a>
+          <a href="/tech/vibecoding/" class="sidebar-category-item"><span class="sidebar-category-name">바이브코딩 (11)</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="home-card" id="sidebar-articles">
+      <div class="home-card-header">
+        <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+          <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+          <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+        </div>
+      </div>
+      <div class="home-card-body">
+        <div class="sidebar-article-list active" id="panel-sidebar-popular">
+    <a href="/tech/ai/moltbook-ai-social-network/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">AI들이 만든 자신들만의 레딧, 몰트북(Moltbook)에서 벌어지는 일들</span>
+    </a>
+  
+    <a href="/tech/ai/claude-opus-46-pricing-controversy/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">&quot;$200 내고도 차별&quot;: 클로드의 끝나지 않는 가격 논란</span>
+    </a>
+  
+    <a href="/tech/vibecoding/vibe-coding-guide/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">바이브 코딩 종합 가이드: 툴 비교&amp;설치부터 실전까지</span>
+    </a>
+  
+    <a href="/tech/ai/claude-cowork-saaspocalypse/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">사무직 종말의 시작인가? 클로드 코워크가 촉발한 SW 주가 대폭락</span>
+    </a>
+  
+    <a href="/tech/ai/gpt-4o-shutdown-controversy/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">GPT-4o 종료 논란, 왜 유저들은 '친구를 잃었다'고 말하는가</span>
+    </a>
+  
+    <a href="/tech/ai/claude-code-vs-codex-coding-agent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교</span>
+    </a>
+  
+    <a href="/tech/vibecoding/vibe-coding-basics/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">바이브 코딩 기본 개념 및 설정: 사용량, 세션, 권한, 모델까지</span>
+    </a>
+  
+    <a href="/tech/vibecoding/project-md-settings-guide/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">프로젝트 설정 마크다운 가이드: CLAUDE.md와 AGENTS.md</span>
+    </a>
+  
+    <a href="/tech/ai/musk-openai-lawsuit-escalation/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">머스크의 끝나지 않는 복수전, OpenAI 소송전 점입가경</span>
+    </a>
+  
+    <a href="/tech/ai/claude-fennec-release-imminent/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">클로드 차기 모델 코드명 &quot;페넥&quot;, 일주일 내 출시? - 추가 루머 정리</span>
+    </a>
+  </div>
+        <div class="sidebar-article-list" id="panel-sidebar-latest">
+    <a href="/tech/ai/ai-model-rush-feb-2026/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">1</span>
+      <span class="sidebar-article-title">AI 모델 러시: 하루에 세 개, 2월 11일 무슨 일이 있었나</span>
+    </a>
+  
+    <a href="/tech/vibecoding/mcp-guide/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">2</span>
+      <span class="sidebar-article-title">MCP 가이드: AI 코딩 에이전트와 외부 도구 연결하기</span>
+    </a>
+  
+    <a href="/tech/ai/applovin-ai-ad-gaming-revenue/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">3</span>
+      <span class="sidebar-article-title">앱러빈 AXON 엔진, AI 광고가 모바일 게임 수익모델을 바꾸는 법</span>
+    </a>
+  
+    <a href="/tech/ai/nvidia-gpu-launch-halt-ai-priority/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">4</span>
+      <span class="sidebar-article-title">엔비디아 그래픽카드 신제품 출시 전면 중단, AI가 게이밍을 삼켰다</span>
+    </a>
+  
+    <a href="/tech/ai/xai-talent-exodus-grok-crisis/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">5</span>
+      <span class="sidebar-article-title">xAI 공동창업자 5명 이탈, 머스크 AI 제국의 인재 탈출 러시</span>
+    </a>
+  
+    <a href="/tech/ai/openai-chatgpt-growth-100b-funding/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">6</span>
+      <span class="sidebar-article-title">OpenAI 2월 12일 신규 모델 출시 유력</span>
+    </a>
+  
+    <a href="/tech/ai/china-ai-video-kling3-seedance2/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">7</span>
+      <span class="sidebar-article-title">이제는 중국 영상 모델이 최고? : 클링 3.0, 시댄스 2.0 동시 출시</span>
+    </a>
+  
+    <a href="/tech/ai/claude-opus-46-pricing-controversy/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">8</span>
+      <span class="sidebar-article-title">&quot;$200 내고도 차별&quot;: 클로드의 끝나지 않는 가격 논란</span>
+    </a>
+  
+    <a href="/tech/ai/gpt-53-codex-community-reaction/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">9</span>
+      <span class="sidebar-article-title">완전 자율 코딩의 시작? GPT-5.3 코덱스 출시 후 커뮤니티 반응 총정리</span>
+    </a>
+  
+    <a href="/tech/vibecoding/vibe-coding-version-control-guide/" class="sidebar-article-item">
+      <span class="sidebar-article-rank">10</span>
+      <span class="sidebar-article-title">바이브 코딩 버전관리 - 깃허브 설치&amp;사용 가이드</span>
+    </a>
+  </div>
+      </div>
+    </div>
+  
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=fdeb243f"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

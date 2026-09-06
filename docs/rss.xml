@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>게이머스크롤</title>
+    <link>https://gamerscroll.com</link>
+    <description>게임 업계 데이터 크롤링 및 일일 리포트</description>
+    <language>ko</language>
+    <lastBuildDate>Sun, 06 Sep 2026 20:41:51 GMT</lastBuildDate>
+    <atom:link href="https://gamerscroll.com/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title><![CDATA[2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위]]></title>
+      <link>https://gamerscroll.com/magazine/ranking/subculture-august-2026-kr/</link>
+      <description><![CDATA[니케가 8월 서브컬처 게임 매출 순위 1위를 지켰으나 명조가 151점 차까지 바짝 추격했다. 젠레스 존 제로는 3위로 올라섰고, 홀로라이브 드림즈는 7위, 리버스: 1999는 10위에 각각 진입했다.]]></description>
+      <pubDate>Fri, 04 Sep 2026 17:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/ranking/subculture-august-2026-kr/</guid>
+      <category><![CDATA[순위 분석]]></category>
+    </item>
+    <item>
+      <title><![CDATA[뮤즈 스파크 1.3, 딥시크 꺾고 OpenCode 일간 1위]]></title>
+      <link>https://gamerscroll.com/tech/ai/muse-spark-1-3-opencode/</link>
+      <description><![CDATA[메타의 뮤즈 스파크 1.3이 출시 이틀 만에 OpenCode 일간 토큰 사용량 1위에 올랐다. 데이터 학습과 연계한 Contributor 요금제와 대규모 AI 투자가 개발 현장의 실제 점유율로 이어졌다.]]></description>
+      <pubDate>Fri, 04 Sep 2026 16:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/muse-spark-1-3-opencode/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[9월 AI 프론티어 경쟁 개막, 빅테크 5곳 맞대결]]></title>
+      <link>https://gamerscroll.com/tech/ai/september-ai-model-war/</link>
+      <description><![CDATA[클로드 페이블 5.1이 지능 지수 66점으로 선두에 오른 가운데 제미나이 3.8과 뮤즈 스파크 1.3이 추격에 나섰다. 여기에 GPT 아스트라와 그록 4.7 출시가 맞물리며 9월 AI 시장은 빅테크 5곳이 맞붙는 프론티어 각축전으로 확대됐다.]]></description>
+      <pubDate>Thu, 03 Sep 2026 02:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/september-ai-model-war/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유]]></title>
+      <link>https://gamerscroll.com/magazine/issue/dlss-5-leak-backlash/</link>
+      <description><![CDATA[《NBA 2K27》에서 발견된 DLSS 5 유출본을 모더들이 여러 게임에 적용했다. 캐릭터 얼굴 왜곡과 71→35 FPS 수준의 프레임 급락이 겹치며 출시 전 대대적인 수정 요구가 커지고 있다.]]></description>
+      <pubDate>Mon, 31 Aug 2026 12:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/dlss-5-leak-backlash/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[중국 AI 모델의 궐기, 프론티어급 오픈웨이트가 쏟아진다]]></title>
+      <link>https://gamerscroll.com/tech/ai/china-frontier-model-surge/</link>
+      <description><![CDATA[GLM-5.3-Flash, Qwen3.8-Flash-Next, Kimi K3가 잇달아 출시됐다. AAII 점수는 56~57점으로 미국 최고 모델과 4~7점 차이다.]]></description>
+      <pubDate>Mon, 31 Aug 2026 02:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/china-frontier-model-surge/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위]]></title>
+      <link>https://gamerscroll.com/magazine/issue/zeus-dual-market-revenue-no1/</link>
+      <description><![CDATA[컴투스 신작 '제우스: 오만의 신'이 출시 52시간 만에 양대 마켓 매출 1위에 올랐다. 가파른 순위 상승 배경과 주요 특징, 엇갈린 이용자 반응과 컴투스 실적에 미칠 영향을 짚었다.]]></description>
+      <pubDate>Fri, 28 Aug 2026 08:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/zeus-dual-market-revenue-no1/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[제미나이 3.5 사실상 포기? 4로 선회한 구글의 최대 위기]]></title>
+      <link>https://gamerscroll.com/tech/ai/gemini-35-pro-crisis/</link>
+      <description><![CDATA[6월 출시가 무산된 제미나이 3.5 프로 대신 구글이 제미나이 4 사전훈련에 돌입했다. 가성비 중심의 3.7 플래시로 버티는 사이 핵심 설계 인력 이탈까지 겹쳤다.]]></description>
+      <pubDate>Wed, 26 Aug 2026 11:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/gemini-35-pro-crisis/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[프론티어 AI 출시 지연, 오픈AI·앤트로픽이 멈춘 이유]]></title>
+      <link>https://gamerscroll.com/tech/ai/frontier-ai-release-deadlock/</link>
+      <description><![CDATA[앤트로픽이 모델 2의 외부 배포를 막고 오픈AI가 아스트라 학습에 제동을 걸었다. 미국 선두 연구소들이 사이버 보안 검증으로 속도를 늦추는 사이, 중국 AI 기업들은 파격적인 가격과 빠른 출시 주기로 기술 격차를 좁히고 있다.]]></description>
+      <pubDate>Tue, 25 Aug 2026 03:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/frontier-ai-release-deadlock/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위]]></title>
+      <link>https://gamerscroll.com/magazine/ranking/subculture-july-2026-kr/</link>
+      <description><![CDATA[2026년 7월 서브컬쳐 게임 순위에서 니케가 11,669점으로 1위를 탈환했고 명조는 2위로 물러났다. 젠레스 존 제로는 4위로 7계단 급등한 반면 블루 아카이브는 21위로 밀려났다.]]></description>
+      <pubDate>Mon, 17 Aug 2026 12:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/ranking/subculture-july-2026-kr/</guid>
+      <category><![CDATA[순위 분석]]></category>
+    </item>
+    <item>
+      <title><![CDATA[xAI 커서 인수 후 광폭 행보, 그록 4.6·그록봇까지 잇따른 흥행]]></title>
+      <link>https://gamerscroll.com/tech/ai/xai-cursor-grok-comeback/</link>
+      <description><![CDATA[커서 인수를 마친 SpaceXAI가 그록 4.6과 그록봇을 잇달아 선보였다. 모델 성능과 유통망, 구독 결합을 앞세워 프런티어 경쟁 구도를 재편하고 있다.]]></description>
+      <pubDate>Mon, 17 Aug 2026 12:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/xai-cursor-grok-comeback/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[그록 4.6 출시 임박: xAI, 프론티어 3강 구도 조준]]></title>
+      <link>https://gamerscroll.com/tech/ai/grok-46-launch-frontier-push/</link>
+      <description><![CDATA[일론 머스크가 그록 4.6의 8월 7일 출시를 발표했다. 커서와 공동 학습한 그록 4.5가 한 달간 긍정적인 평가를 쌓은 가운데, xAI는 GPT-5.6과 오푸스 5, 파블 5가 주도하는 프론티어 AI 시장에 본격적으로 도전장을 내민다.]]></description>
+      <pubDate>Wed, 05 Aug 2026 09:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/grok-46-launch-frontier-push/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[2026년 7월 모바일 게임 매출 순위]]></title>
+      <link>https://gamerscroll.com/magazine/ranking/mobile-july-2026-kr/</link>
+      <description><![CDATA['화이트아웃 서바이벌'이 두 달 연속 1위를 수성하고 '킹샷'이 2위에 오르며 센추리게임즈가 최상위권을 독점했다. 넷마블 신작 '솔: 인챈트(SOL: enchant)'는 9위로 첫 진입했고, '승리의 여신: 니케'는 여름 업데이트에 힘입어 10위권에 복귀했다.]]></description>
+      <pubDate>Wed, 05 Aug 2026 09:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/ranking/mobile-july-2026-kr/</guid>
+      <category><![CDATA[순위 분석]]></category>
+    </item>
+    <item>
+      <title><![CDATA[오픈AI GPT-5.6 토큰 가격 최대 80% 인하…딥시크 V4 플래시 맞불]]></title>
+      <link>https://gamerscroll.com/tech/ai/openai-price-cut-deepseek-flash/</link>
+      <description><![CDATA[오픈AI가 7월 30일 GPT-5.6 루나 가격을 80% 인하했다. 하루 뒤 딥시크가 V4 플래시 정식 버전을 출시하며 가격 인하 흐름에 가세했다. 이에 따라 고가 정책을 고수해 온 앤트로픽은 양사 사이에서 어려운 처지에 놓이게 됐다.]]></description>
+      <pubDate>Sat, 01 Aug 2026 05:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/openai-price-cut-deepseek-flash/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[2026년 6월 모바일 게임 매출 순위]]></title>
+      <link>https://gamerscroll.com/magazine/ranking/mobile-june-2026-kr/</link>
+      <description><![CDATA[‘화이트아웃 서바이벌’이 ‘메이플 키우기’를 제치고 다시 1위를 차지했다. ‘씨사이드 익스케이프’와 ‘명조’가 10위권에 진입한 반면, ‘승리의 여신: 니케’와 ‘브롤스타즈’는 순위권 밖으로 밀려났다.]]></description>
+      <pubDate>Tue, 28 Jul 2026 10:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/ranking/mobile-june-2026-kr/</guid>
+      <category><![CDATA[순위 분석]]></category>
+    </item>
+    <item>
+      <title><![CDATA[클로드 오퍼스 5 초기 리뷰 총정리 — 토큰 효율로 왕좌 되찾은 앤트로픽]]></title>
+      <link>https://gamerscroll.com/tech/ai/claude-opus-5-early-reviews/</link>
+      <description><![CDATA[앤트로픽의 클로드 오퍼스 5가 출시 직후 지능 지수 1위에 올랐다. 실사용자들은 뛰어난 토큰 효율성과 비용 절감 효과를 긍정적으로 평가하고 있다. 다만 지식 판단이나 오케스트레이션 등 범용 작업에서는 여전히 페이블 5가 우위를 점하고 있다는 분석이다.]]></description>
+      <pubDate>Tue, 28 Jul 2026 07:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/claude-opus-5-early-reviews/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[2026년 6월 서브컬쳐 게임 매출 순위]]></title>
+      <link>https://gamerscroll.com/magazine/ranking/subculture-june-2026-kr/</link>
+      <description><![CDATA[명조가 11,116점으로 1위를 탈환했다. 니케는 10,868점을 얻어 2위로 내려왔다. 블루 아카이브는 9위로 복귀했다. 우마무스메는 10위에 이름을 올렸다.]]></description>
+      <pubDate>Wed, 15 Jul 2026 03:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/ranking/subculture-june-2026-kr/</guid>
+      <category><![CDATA[순위 분석]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GPT-5.6, 뛰어난 성능과 가격 경쟁력으로 초기 호평]]></title>
+      <link>https://gamerscroll.com/tech/ai/gpt-56-codex-comeback/</link>
+      <description><![CDATA[GPT-5.6이 성능과 비용 효율로 초기 호평을 받고 있다. 오픈AI의 사용량 혜택 확대와 비슷한 시기에 앤트로픽도 한도와 모델 접근 혜택을 늘리며 대응에 나섰다.]]></description>
+      <pubDate>Tue, 14 Jul 2026 10:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/gpt-56-codex-comeback/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GPT-5.6 출시, 클로드 가격 경쟁력 잃나]]></title>
+      <link>https://gamerscroll.com/tech/ai/anthropic-pricing-crisis/</link>
+      <description><![CDATA[GPT-5.6이 성능 격차를 좁히고 챗GPT의 번들 경쟁력을 강화한 가운데, 클로드 구독 요금제에서 핵심 모델인 페이블 5가 제외되면서 이용자 유인책이 약화되고 있다.]]></description>
+      <pubDate>Sun, 12 Jul 2026 15:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/anthropic-pricing-crisis/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[미토스가 촉발한 소버린 AI 확산과 파라미터 전쟁, 메모리 공급 부족 심화]]></title>
+      <link>https://gamerscroll.com/tech/ai/mythos-sovereign-ai-memory/</link>
+      <description><![CDATA[미토스는 프런티어 AI를 국가안보 자산으로 끌어올렸다. 더 큰 사전학습 경쟁과 소버린 AI·데이터센터 확산은 HBM·DRAM 수요를 밀어 올릴 전망이다.]]></description>
+      <pubDate>Sun, 12 Jul 2026 11:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/mythos-sovereign-ai-memory/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GPT-5.6 반값 공세, 흔들리는 앤트로픽 파고든다]]></title>
+      <link>https://gamerscroll.com/tech/ai/gpt-56-anthropic-tipping-point/</link>
+      <description><![CDATA[클로드 소넷 5의 성능 논란과 최상위 모델 페이블 5의 구독 요금제 제외 시점이 오픈AI의 반값 GPT-5.6 출시와 맞물린다. 중위 모델 테라는 GPT-5.5급 성능을 기존의 절반 가격으로 내세웠다.]]></description>
+      <pubDate>Mon, 06 Jul 2026 02:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/gpt-56-anthropic-tipping-point/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[앤트로픽의 출시 질주, 재귀개선의 전조인가?]]></title>
+      <link>https://gamerscroll.com/tech/ai/anthropic-cadence-rsi-winner/</link>
+      <description><![CDATA[페이블 5와 미토스 5의 동시 공개로 앤트로픽의 모델 출시 주기가 경쟁사들을 앞서고 있다. 시장에서는 이러한 속도전이 인공지능이 스스로를 학습시키는 재귀개선의 전조라는 해석이 X를 중심으로 제기된다.]]></description>
+      <pubDate>Mon, 22 Jun 2026 14:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/anthropic-cadence-rsi-winner/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[사카나 AI 'Fugu': 소버린 AI인가, 빌려온 SOTA인가]]></title>
+      <link>https://gamerscroll.com/tech/ai/sakana-fugu-sovereign-ai-benchmark-critique/</link>
+      <description><![CDATA[사카나 AI가 외부 프런티어 모델을 조율하는 Fugu를 '소버린 AI'로 내세웠다. 비판론자들은 Fable 5급 벤치마크가 Fugu 자체 성능이 아닌 빌려온 폐쇄형 모델의 능력을 측정한 것에 불과하다고 지적한다.]]></description>
+      <pubDate>Mon, 22 Jun 2026 14:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/sakana-fugu-sovereign-ai-benchmark-critique/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[데빌 메이 크라이 1 리메이크 루머, 내부 정보 유출에 진위 공방]]></title>
+      <link>https://gamerscroll.com/magazine/issue/devil-may-cry-1-remake-rumor/</link>
+      <description><![CDATA[2026년 5월 익명의 캡콤 관계자가 데빌 메이 크라이 1 리메이크 개발설을 제기했다. RE 엔진 기반이라는 주장이 나왔으나, 핵심 정보원인 더스크 골렘이 곧장 선을 그으며 신뢰도가 흔들리는 모양새다.]]></description>
+      <pubDate>Mon, 22 Jun 2026 14:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/devil-may-cry-1-remake-rumor/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[트럼프도 인정: 페이블을 정지시킨 범인은 아마존]]></title>
+      <link>https://gamerscroll.com/tech/ai/trump-confirms-amazon-anthropic-shutdown/</link>
+      <description><![CDATA[도널드 트럼프 미국 대통령이 앤트로픽을 고발한 주체로 경쟁사이자 공동 주주인 아마존을 지목했다. 80억 달러를 투자한 최대 주주가 왜 스스로의 투자처를 행정부에 신고했는지 그 배경에 관심이 쏠린다.]]></description>
+      <pubDate>Sat, 20 Jun 2026 14:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/trump-confirms-amazon-anthropic-shutdown/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[솔: 인챈트, 양대 마켓 1위 출발…초반 화력 뒤 진짜 시험대는]]></title>
+      <link>https://gamerscroll.com/magazine/issue/sol-enchant-dual-market-no1-launch/</link>
+      <description><![CDATA[넷마블의 신작 '솔: 인챈트'가 출시 22시간 만에 양대 마켓 매출 1위를 달성했다. 초반 흥행 화력은 증명했으나, 장기 안착의 관건은 프로모션 효과가 사라지는 출시 2~4주 차의 순위 방어가 될 전망이다.]]></description>
+      <pubDate>Fri, 19 Jun 2026 08:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/sol-enchant-dual-market-no1-launch/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[미소스 셧다운이 촉발한 '소버린 AI' 논쟁]]></title>
+      <link>https://gamerscroll.com/tech/ai/sovereign-ai-global-scramble/</link>
+      <description><![CDATA[미국 정부가 앤스로픽의 최신 AI모델 수출을 통제하자 유럽 등 동맹국들은 '킬 스위치'의 실재에 직면했다. 같은 날 중국이 오픈소스 모델 GLM-5.2를 무상 공개하면서, 미국의 인공지능(AI) 패권이 흔들릴 수 있다는 경고가 나온다.]]></description>
+      <pubDate>Fri, 19 Jun 2026 06:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/sovereign-ai-global-scramble/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[에이전트 믹스 부상: 고성능 모델이 지휘하고 가성비 모델이 실행]]></title>
+      <link>https://gamerscroll.com/tech/ai/agent-mix-multi-model-stack/</link>
+      <description><![CDATA[한 모델로 모든 작업을 처리하던 시대가 저물고 있다. 비용이 많이 드는 프론티어 모델에는 지휘를 맡기고, 작업은 저렴한 모델로 라우팅하여 그록·제미나이·GPT·딥시크를 하나의 팀으로 구성하는 에이전트 믹스가 부상하고 있다.]]></description>
+      <pubDate>Fri, 19 Jun 2026 06:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/agent-mix-multi-model-stack/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[팰월드 개발사 포켓페어 "게이머는 생성형 AI 원치 않는다"]]></title>
+      <link>https://gamerscroll.com/magazine/issue/pocketpair-gamers-dont-want-ai/</link>
+      <description><![CDATA[팰월드 개발사 포켓페어가 생성형 AI를 도입하지 않는 이유로 '게이머의 반대'를 꼽았다. 아티스트의 자율성 존중과 함께, 향후 인간이 제작한 게임이 경쟁력을 갖는 '진정성 시장'이 열릴 것이라는 분석이다.]]></description>
+      <pubDate>Fri, 19 Jun 2026 01:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/pocketpair-gamers-dont-want-ai/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[워시 연준 의장 "AI는 미국의 독창성"…첫 FOMC의 베팅]]></title>
+      <link>https://gamerscroll.com/tech/ai/warsh-ai-american-ingenuity/</link>
+      <description><![CDATA[케빈 워시 신임 연준 의장이 첫 FOMC에서 AI를 '미국의 독창성'으로 규정했다. 생산성 향상으로 물가를 잡아 금리 인하 여력을 확보하겠다는 구상이다.]]></description>
+      <pubDate>Fri, 19 Jun 2026 01:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/warsh-ai-american-ingenuity/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GTA 6 예약구매 6월 25일 개시…세 번째 예고편 동반설]]></title>
+      <link>https://gamerscroll.com/magazine/issue/gta6-preorder-june-25/</link>
+      <description><![CDATA[록스타 게임즈가 6월 18일 GTA 6의 공식 커버 아트를 공개하고 예약구매를 6월 25일부터 시작한다고 발표했다. 정식 출시일은 11월 19일이다. 세 번째 예고편의 동반 공개 여부는 아직 업계 관측 단계에 머물러 있다.]]></description>
+      <pubDate>Thu, 18 Jun 2026 14:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/gta6-preorder-june-25/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[앤트로픽 CEO, 이란 학교 공습 발언 파문… 해명 논란]]></title>
+      <link>https://gamerscroll.com/tech/ai/amodei-iran-school-strike-claude/</link>
+      <description><![CDATA[다리오 아모데이 앤트로픽 CEO가 아동 120여 명이 숨진 이란 학교 공습을 '레드라인 미위반 사례'로 언급해 파문이 일고 있다. 클로드가 미군 표적 시스템 '메이븐'에 탑재된 가운데, 구체적인 모델 사용처는 모른다는 해명이 논란을 키우는 모양새다.]]></description>
+      <pubDate>Thu, 18 Jun 2026 09:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/amodei-iran-school-strike-claude/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[하늘의 궤적 the 2nd 한국어판, Web CM 제2탄 공개…요리 시스템·신규 캐릭터 발표]]></title>
+      <link>https://gamerscroll.com/magazine/issue/trails-sky-2nd-kr-webcm2/</link>
+      <description><![CDATA[클라우디드 레오파드 엔터테인먼트가 '하늘의 궤적 the 2nd' 한국어판 Web CM 제2탄을 공개했다. 요리 시스템과 7슬롯 전술 오브먼트, 카시우스 브라이트 등 신규 캐릭터 정보가 함께 베일을 벗었다. 한국어판은 오는 9월 17일 전 세계 동시 발매된다.]]></description>
+      <pubDate>Thu, 18 Jun 2026 08:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/trails-sky-2nd-kr-webcm2/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[애플도 메모리 가격 급등에 백기…팀 쿡 "제품가 인상 불가피"]]></title>
+      <link>https://gamerscroll.com/tech/ai/apple-price-hike-memory-shortage/</link>
+      <description><![CDATA[애플이 메모리와 스토리지 칩 가격 급등으로 제품 가격을 인상한다. 인공지능(AI) 데이터센터 수요로 DRAM과 NAND 플래시 공급 부족이 심화하면서, 업계 최대 구매력의 애플마저 비용 압박을 버티지 못했다는 분석이다.]]></description>
+      <pubDate>Thu, 18 Jun 2026 08:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/apple-price-hike-memory-shortage/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[트랜스포머 설계자 노암 셰지어, 구글 떠나 OpenAI 이적]]></title>
+      <link>https://gamerscroll.com/tech/ai/noam-shazeer-leaves-google-openai/</link>
+      <description><![CDATA[구글 제미나이 공동총괄이자 트랜스포머 공동 저자인 노암 셰지어가 OpenAI로 자리를 옮긴다. 구글이 복귀를 위해 27억 달러를 들였던 스타 엔지니어가 2년도 채 안 돼 다시 떠나면서, 구글 내부의 안정성을 우려하는 목소리가 커지고 있다.]]></description>
+      <pubDate>Thu, 18 Jun 2026 02:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/noam-shazeer-leaves-google-openai/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GLM-5.2, 제미나이 3.5 플래시 추월…오픈웨이트가 구글 넘다]]></title>
+      <link>https://gamerscroll.com/tech/ai/glm-5-2-overtakes-gemini-flash/</link>
+      <description><![CDATA[출시 나흘 만에 GLM-5.2가 아티피셜 애널리시스 지능 지수에서 51점을 기록하며 구글 제미나이 3.5 플래시를 제쳤다. 오픈웨이트 모델이 폐쇄형 효율 모델의 성능을 넘어선 첫 사례다.]]></description>
+      <pubDate>Wed, 17 Jun 2026 20:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/glm-5-2-overtakes-gemini-flash/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[코파일럿 비용 부담 느낀 MS, 중국 딥시크 도입 저울질]]></title>
+      <link>https://gamerscroll.com/tech/ai/microsoft-copilot-deepseek-china-models/</link>
+      <description><![CDATA[마이크로소프트가 비용 부담을 줄이기 위해 코파일럿 일부 기능에 자체 호스팅 방식의 딥시크 도입을 검토하고 있다. GLM-5.2, 키미 K2.7, 딥시크 V4 등 중국 AI 모델들이 프론티어 수준의 성능을 갖추면서 한층 저렴한 대안으로 떠오른 영향이다.]]></description>
+      <pubDate>Wed, 17 Jun 2026 05:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/microsoft-copilot-deepseek-china-models/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[커서, '처음부터 훈련'한 독자 프런티어 모델 예고]]></title>
+      <link>https://gamerscroll.com/tech/ai/cursor-from-scratch-frontier-model/</link>
+      <description><![CDATA[커서가 개발자 행사 컴파일에서 신규 프런티어 모델을 예고했다. 외부 모델인 키미 베이스를 떼고 처음부터 훈련했으며, 컴포저 대비 10~20배의 컴퓨팅 자원을 투입했다. 출시 시점은 몇 주 이내다.]]></description>
+      <pubDate>Tue, 16 Jun 2026 18:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/cursor-from-scratch-frontier-model/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[스페이스X, AI 코딩 '커서' 600억 달러에 인수]]></title>
+      <link>https://gamerscroll.com/tech/ai/spacex-acquire-cursor-60b/</link>
+      <description><![CDATA[스페이스X가 AI 코딩 플랫폼 '커서'의 개발사 앤스피어를 600억 달러 상당의 전량 주식 교환 방식으로 인수한다. 사상 최대 규모의 IPO를 마친 지 나흘 만에 발표된 이번 거래를 통해 스페이스X는 AI 소프트웨어 개발 부문으로 사업 영토를 확장할 계획이다.]]></description>
+      <pubDate>Tue, 16 Jun 2026 14:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/spacex-acquire-cursor-60b/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[앤트로픽, 클로드 에이전트 SDK 크레딧 과금제 시행 당일 보류]]></title>
+      <link>https://gamerscroll.com/tech/ai/claude-agent-sdk-credit-pause/</link>
+      <description><![CDATA[앤트로픽이 6월 15일 도입 예정이던 에이전트 SDK 크레딧 과금 계획을 시행 당일 유예했다. 이번 조치는 정부 규제로 신규 모델인 '페이블 5' 서비스가 중단되며 구독 고객의 신뢰가 급격히 악화된 직후 나온 결정이다.]]></description>
+      <pubDate>Tue, 16 Jun 2026 10:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/claude-agent-sdk-credit-pause/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[2026년 상반기 코딩 에이전트 톱5...클로드 '페이블' 선두 속 변수 상존]]></title>
+      <link>https://gamerscroll.com/tech/ai/best-coding-agents-2026-ranked/</link>
+      <description><![CDATA[2026년 상반기 주요 코딩 에이전트 5종의 종합 순위를 분석했다. 품질에서 앞선 클로드 코드가 1위를 차지했으며, 확장성을 극대화한 오픈AI의 코덱스가 그 뒤를 이었다. 커서, 오픈코드, 파이 역시 독자적인 강점을 내세워 시장을 구성하고 있다.]]></description>
+      <pubDate>Tue, 16 Jun 2026 09:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/best-coding-agents-2026-ranked/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[삼성 파운드리, 뉴럴링크 4세대 칩 수주…TSMC서 첫 이탈]]></title>
+      <link>https://gamerscroll.com/tech/ai/samsung-foundry-neuralink-chip/</link>
+      <description><![CDATA[삼성 파운드리가 뉴럴링크의 4세대 뇌 임플란트 칩 제조 공정을 수주했다. 4nm 공정 기반의 코드네임 'O1' 칩으로, 2027년 상반기 첫 시제품 출하가 목표다. 기존 TSMC에서 삼성으로 제조사를 변경한 첫 수주 사례다.]]></description>
+      <pubDate>Tue, 16 Jun 2026 02:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/samsung-foundry-neuralink-chip/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[xAI 영업비밀 소송 최종 각하... 머스크 대 오픈AI 연패]]></title>
+      <link>https://gamerscroll.com/tech/ai/xai-openai-trade-secret-dismissed/</link>
+      <description><![CDATA[미국 법원이 xAI의 영업비밀침해 소송을 재소 불가 조건으로 최종 각하했다. 오픈AI가 인재를 영입하는 과정에서 그록의 소스코드를 탈취했다는 혐의는 끝내 입증되지 않았다.]]></description>
+      <pubDate>Tue, 16 Jun 2026 01:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/xai-openai-trade-secret-dismissed/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[르 샤통 파: X를 흔든 미스트랄 가짜 AI 모델]]></title>
+      <link>https://gamerscroll.com/tech/ai/le-chaton-fat-mistral-meme/</link>
+      <description><![CDATA[2026년 6월 미스트랄 AI의 가짜 신모델 '르 샤통 파'가 X를 휩쓸었다. 가짜 성능 지표와 허위 보도자료까지 유포된 이 소동에는 미스트랄 CEO까지 유쾌하게 가세했다.]]></description>
+      <pubDate>Mon, 15 Jun 2026 18:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/le-chaton-fat-mistral-meme/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[앤트로픽, 백악관과 페이블 5 중단 협상 돌입…재개는 아직]]></title>
+      <link>https://gamerscroll.com/tech/ai/anthropic-fable-5-restoration-standoff/</link>
+      <description><![CDATA[앤트로픽이 미 정부의 페이블 5·미토스 5 중단 사태를 풀기 위해 백악관과 협상에 들어갔다. '오해에서 비롯된 과도한 조치'라며 빠른 복구를 자신하지만, 6월 15일 현재까지 재개되지 않아 협상 결과가 변수다.]]></description>
+      <pubDate>Mon, 15 Jun 2026 06:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/anthropic-fable-5-restoration-standoff/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[명조, 한국 구글플레이 매출 1위 등극…사이버펑크 콜라보 효과]]></title>
+      <link>https://gamerscroll.com/magazine/issue/wuthering-waves-korea-grossing-no1/</link>
+      <description><![CDATA[쿠로게임즈 '명조: 워더링 웨이브'가 '사이버펑크: 엣지러너' 콜라보 업데이트 이후 국내 구글플레이 매출 1위를 기록했다. 출시 2주년을 기점으로 이뤄낸 성과다.]]></description>
+      <pubDate>Mon, 15 Jun 2026 03:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/wuthering-waves-korea-grossing-no1/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GLM-5.2 실사용기…모델엔 호평, Z.ai 코딩 요금제엔 불만]]></title>
+      <link>https://gamerscroll.com/tech/ai/glm-5-2-user-reviews/</link>
+      <description><![CDATA[출시 사흘을 맞은 GLM-5.2에 대한 개발자 평가가 극명히 나뉜다. 뛰어난 코딩 성능은 합격점을 받았으나, Z.ai 코딩 요금제의 과도한 제한과 서비스 불안정성에 비판이 쏟아진다.]]></description>
+      <pubDate>Mon, 15 Jun 2026 03:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/glm-5-2-user-reviews/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[〈툼 레이더: 레거시 오브 아틀란티스〉 2027년 2월 12일 출시]]></title>
+      <link>https://gamerscroll.com/magazine/issue/tomb-raider-legacy-atlantis-release-date/</link>
+      <description><![CDATA[소니 스테이트 오브 플레이에서 〈툼 레이더: 레거시 오브 아틀란티스〉의 출시일 공개 트레일러가 베일을 벗었다. 1996년 원작을 언리얼 엔진 5로 재해석한 리메이크로, 출시일은 2027년 2월 12일이다.]]></description>
+      <pubDate>Mon, 15 Jun 2026 01:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/magazine/issue/tomb-raider-legacy-atlantis-release-date/</guid>
+      <category><![CDATA[이슈]]></category>
+    </item>
+    <item>
+      <title><![CDATA[오픈라우터 '퓨전' 출시…최상위 AI 성능을 절반 비용으로]]></title>
+      <link>https://gamerscroll.com/tech/ai/openrouter-fusion-multi-model/</link>
+      <description><![CDATA[오픈라우터가 여러 인공지능 모델을 병렬로 가동해 하나의 최적화된 결과물로 합성하는 '퓨전' 모드를 출시했다. 저가 모델들을 조합해 최상위 AI 수준의 성능을 약 절반의 비용으로 구현할 수 있다는 설명이다.]]></description>
+      <pubDate>Mon, 15 Jun 2026 01:00:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/openrouter-fusion-multi-model/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA[오픈AI, 美 42개 주 합동 조사…IPO 앞두고 규제 압박]]></title>
+      <link>https://gamerscroll.com/tech/ai/openai-state-attorneys-general-probe/</link>
+      <description><![CDATA[미국 42개 주 법무장관이 오픈AI를 상대로 합동 조사에 착수했다. 뉴욕주가 광고와 개인정보 보호, 미성년자 안전 관련 자료 제출을 요구하는 소환장을 발부한 가운데, 비공개 IPO 신청 직후 규제 전선이 넓어지는 양상이다.]]></description>
+      <pubDate>Sun, 14 Jun 2026 08:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/openai-state-attorneys-general-probe/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+    <item>
+      <title><![CDATA['그냥 만화 같다'… 페이블·미토스 중단에 쏟아진 AI 업계 말말말]]></title>
+      <link>https://gamerscroll.com/tech/ai/fable-mythos-shutdown-industry-reactions/</link>
+      <description><![CDATA[미 상무부가 외국인 접근 차단을 지시하면서 앤트로픽이 페이블 5와 미토스 5 출시 사흘 만에 서비스를 전면 중단했다. 테크 업계에서는 이번 사태를 두고 '만화 같은 조치'라는 비판부터 '자초한 결과'라는 냉소까지 다양한 반응이 X에 올라왔다.]]></description>
+      <pubDate>Sat, 13 Jun 2026 17:30:00 GMT</pubDate>
+      <guid isPermaLink="true">https://gamerscroll.com/tech/ai/fable-mythos-shutdown-industry-reactions/</guid>
+      <category><![CDATA[테크]]></category>
+    </item>
+  </channel>
+</rss>

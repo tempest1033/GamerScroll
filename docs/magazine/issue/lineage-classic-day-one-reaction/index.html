@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/issue/lineage-classic-day-one-reaction/thumbnail.webp">
+		  <title>리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="2월 7일 오후 8시 프리오픈한 리니지 클래식의 첫날 반응을 총정리한다. 25개 서버가 유저로 가득 찬 가운데, 닉네임 2천만 원 거래와 &#39;착한 BM&#39; 호평이 공존하고, 증권가는 매출 2조 회복을 전망하며 주가가 37% 급등했다.">
+  <meta name="keywords" content="리니지 클래식, 리니지 클래식 첫날, 엔씨소프트, 리니지 클래식 서버, 리니지 클래식 반응, 월정액, 프리오픈, 닉네임 거래, 리니지 클래식 BM, 엔씨소프트 주가, 아이온2, P2W">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/magazine/issue/lineage-classic-day-one-reaction/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등",
+    "description": "2월 7일 오후 8시 프리오픈한 리니지 클래식의 첫날 반응을 총정리한다. 25개 서버가 유저로 가득 찬 가운데, 닉네임 2천만 원 거래와 '착한 BM' 호평이 공존하고, 증권가는 매출 2조 회복을 전망하며 주가가 37% 급등했다.",
+    "datePublished": "2026-02-08T01:00:00+09:00",
+    "dateModified": "2026-02-08T01:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/magazine/issue/lineage-classic-day-one-reaction/"
+    },
+    "image": "https://gamerscroll.com/assets/images/issue/lineage-classic-day-one-reaction/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "브리핑",
+        "item": "https://gamerscroll.com/magazine/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등",
+        "item": "https://gamerscroll.com/magazine/issue/lineage-classic-day-one-reaction/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등">
+  <meta property="og:description" content="2월 7일 오후 8시 프리오픈한 리니지 클래식의 첫날 반응을 총정리한다. 25개 서버가 유저로 가득 찬 가운데, 닉네임 2천만 원 거래와 &#39;착한 BM&#39; 호평이 공존하고, 증권가는 매출 2조 회복을 전망하며 주가가 37% 급등했다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/issue/lineage-classic-day-one-reaction/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등">
+  <meta property="og:url" content="https://gamerscroll.com/magazine/issue/lineage-classic-day-one-reaction/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-02-08T01:00:00+09:00">
+  <meta property="article:modified_time" content="2026-02-08T01:00:00+09:00">
+  <meta property="article:section" content="이슈">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="리니지 클래식">
+  <meta property="article:tag" content="리니지 클래식 첫날">
+  <meta property="article:tag" content="엔씨소프트">
+  <meta property="article:tag" content="리니지 클래식 서버">
+  <meta property="article:tag" content="리니지 클래식 반응">
+  <meta property="article:tag" content="월정액">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등">
+  <meta name="twitter:description" content="2월 7일 오후 8시 프리오픈한 리니지 클래식의 첫날 반응을 총정리한다. 25개 서버가 유저로 가득 찬 가운데, 닉네임 2천만 원 거래와 &#39;착한 BM&#39; 호평이 공존하고, 증권가는 매출 2조 회복을 전망하며 주가가 37% 급등했다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/issue/lineage-classic-day-one-reaction/thumbnail.webp">
+  <meta name="twitter:image:alt" content="리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-report.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-report.a96f7e4c.css"></noscript>
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-magazine">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item active" href="/magazine/">매거진</a>
+      <a class="nav-item" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=0;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="issue">
+
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-1-card">
+  <style>
+    .ad-home-pc-1-card, .ad-home-pc-1 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-1-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-1 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-1"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-2-card">
+  <style>
+    .ad-home-mo-2-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-2-card > .ad-home-mo-2 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-2-card, .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-2"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등</h1>
+                <div class="blog-meta">
+                  <span class="blog-editor">Editor J</span>
+                  <time class="blog-date">2026년 2월 8일</time>
+                </div>
+              </header>
+              
+                <figure class="blog-figure">
+                  <img class="blog-image" src="/assets/images/issue/lineage-classic-day-one-reaction/thumbnail.webp" alt="리니지 클래식 첫날 반응 총정리 - 25개 서버 폭발, 닉네임 2천만원, 주가 37% 급등 대표 이미지" loading="eager" fetchpriority="high">
+                </figure>
+              
+              <p class="blog-summary">2월 7일 오후 8시 프리오픈한 리니지 클래식의 첫날 반응을 총정리한다. 25개 서버가 유저로 가득 찬 가운데, 닉네임 2천만 원 거래와 '착한 BM' 호평이 공존하고, 증권가는 매출 2조 회복을 전망하며 주가가 37% 급등했다.</p>
+              <div class="blog-content">
+                <p class="blog-paragraph">2월 7일 오후 8시, 리니지 클래식이 드디어 프리오픈의 막을 올렸다. 25개 서버가 동시에 가동되며 한국과 대만의 유저들이 일제히 아덴 대륙에 발을 딛었다. 2000년대 초반 그 시절의 리니지를 되살린 이 게임은 첫날부터 기대와 논란을 동시에 불러일으키며 게임 업계의 이목을 집중시키고 있다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="8021405606"></ins>
+</div><h2 class="blog-heading">서버 상황: 25개 서버 전부 유저로 가득</h2><p class="blog-paragraph">리니지 클래식의 열기는 이미 사전 캐릭터 생성 단계에서 예고된 바 있었다. 오픈 7분 만에 1차 서버 10개가 전부 마감됐고, 이후 총 25개 서버까지 증설됐다. 프리오픈 당일에는 카카오톡 단톡방에 5,200명이 대기하며 오픈 시간을 기다릴 정도였다.</p><p class="blog-paragraph">실제로 접속이 시작되자 25개 서버 전부가 유저로 가득 찼다. 한국과 대만에서 동시에 서비스를 개시한 만큼, 양국의 유저들이 동시에 몰려들며 체감 동접은 적지 않은 수준이었다. 대기열이 발생하는 서버도 있었지만, 전반적으로 서버 안정성은 무난했다는 평가다.</p><h2 class="blog-heading">추억 소환: "초중딩때 어깨너머로 보던 그 리니지"</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/lineage-classic-day-one-reaction/01.webp" alt="리니지 클래식 게임 플레이 스크린샷 - 도트 그래픽 2000년대 감성" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">리니지 클래식 게임 내 스크린샷</figcaption>
+            </figure>
+          <p class="blog-paragraph">첫날 커뮤니티를 뜨겁게 달군 것은 역시 '추억'이었다. "초중딩때 돈이 없어서 맨날 천원 이천원으로 PC방에서 어깨 너머로 리니지를 했는데, 첫날에 로그인하면 감동 그 자체"라는 반응이 대표적이다. 4:3 해상도의 도트 그래픽과 군주·기사·요정·마법사 4종 클래스가 그 시절 그대로 재현되면서 3040 세대의 감성을 건드린 것으로 보인다.</p><p class="blog-paragraph">닉네임 선점 열풍도 화제였다. 가장 눈길을 끈 것은 닉네임 '빛'이 아이템 중개사이트에서 2천만 원에 거래됐다는 소식이다. 리니지 클래식 소개 영상은 유튜브에서 2주 만에 1,800만 회 조회를 돌파하며 관심의 크기를 짐작케 한다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="9566421564"></ins>
+</div><h2 class="blog-heading">착한 BM 약속 이행: 클래식샵에 월정액만</h2><p class="blog-paragraph">프리오픈 후 유저들이 가장 먼저 확인한 것은 클래식샵이었다. 결과는 '약속 이행'. 이용권 구매 외에 과금 요소가 전무했다. 확률형 아이템은 물론, 어떤 형태의 유료 강화 수단도 존재하지 않았다.</p><p class="blog-paragraph">이는 1월 20일 유료 시즌패스 도입을 예고했다가, 유저 반발에 16시간 만에 전면 철회한 사건의 연장선이다. 엔씨 관계자는 "2월 11일 월정액 전환 시점에도 추가 BM 없이 동일 형태로 서비스하겠다"고 밝혔다. "엔씨스럽지 않다", "약속을 지켰다"는 호평이 쏟아졌고, PC방 전용 던전과 버프 혜택도 호응을 얻었다.</p><h2 class="blog-heading">"클래식 맞나?" 논란: 추억은 미화되는 법</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/lineage-classic-day-one-reaction/02.webp" alt="리니지 클래식 캐릭터 생성 UI - 4:3 비율 도트 그래픽 2000년대 감성" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">리니지 클래식 캐릭터 생성 화면 - 2000년대 초반 UI 그대로</figcaption>
+            </figure>
+          <p class="blog-paragraph">긍정적 반응만 있는 것은 아니었다. "이름은 클래식이지만 실제로는 PC 기반 리니지 리마스터"라는 근본적인 의문부터, "눈과 머리가 너무 힘들다. WASD 이동이라도 시켜주면"이라는 조작감 불만까지 다양한 비판이 나왔다.</p><p class="blog-paragraph">비공개 테스트 때부터 "글쎄"라는 반응이 있었고, "리니지 클래식 버전도 너무 옛날 버전이야... 못해 진짜"라는 직설적인 평도 적지 않다. 2026년 기준으로 4:3 비율의 도트 그래픽은 추억을 넘어 불편함으로 다가온다는 것이다. 엔씨소프트에 대한 뿌리 깊은 불신도 여전히 남아 있어, "또 속는 사람 있을까?"라는 냉소적 시선도 공존한다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="6077622756"></ins>
+</div><h2 class="blog-heading">커뮤니티 반응: 플랫폼마다 다른 온도</h2><p class="blog-paragraph">커뮤니티별 반응은 확연히 갈렸다. 인벤은 리니지 클래식 전용 게시판을 개설하고 서버별·클래스별 게시판까지 마련하면서 가장 활발한 정보 교류의 장이 됐다. 오픈 시간과 대기열 관련 글이 폭주했고, 공략과 팁 공유도 빠르게 이루어졌다.</p><p class="blog-paragraph">디시인사이드에서는 감동의 추억 소환 글과 "추억은 추억일 뿐"이라는 회의론이 격렬하게 공존했다. 루리웹은 상대적으로 부정적 시각이 더 강했고, PlayNC 공식 커뮤니티에서는 서버 라인 구도와 혈맹 현황 공유가 활발한 가운데 과금 모델에 대한 진지한 토론이 이어졌다.</p><h2 class="blog-heading">업계·증권가 반응: 매출 2조 전망에 주가 37% 급등</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/lineage-classic-day-one-reaction/03.webp" alt="리니지 클래식 프로모션 이미지 - 엔씨소프트 매출 2조 전망" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">리니지 클래식 월드 프로모션 이미지</figcaption>
+            </figure>
+          <p class="blog-paragraph">업계와 증권가의 반응도 주목할 만하다. 조선일보는 아이온2와 리니지 클래식 쌍끌이 시 2026년 매출 2조 1,036억 원, 영업이익 4,031억 원을 전망했다. 아이온2가 이미 출시 46일 만에 누적 매출 1,000억 원을 돌파한 상황에서, 리니지 클래식까지 가세하면 엔씨소프트의 실적 회복이 본격화될 것이라는 분석이다.</p><p class="blog-paragraph">대신증권과 유진투자증권은 잇달아 목표주가를 상향 조정했다. 엔씨소프트 주가는 1년 전 대비 37.05% 급등하며 시장의 기대감을 반영했다. 한편 리니지M도 리니지 클래식 출시로 IP 전체에 대한 관심이 환기되면서 구글플레이 매출 1위를 탈환하는 반사이익을 누렸다. 업계에서는 "P2W은 질렸다"는 유저 정서가 2026년 K-게임 트렌드를 가벼운 과금 모델로 전환시키고 있다고 분석했다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="4">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="1648257301"></ins>
+</div><h2 class="blog-heading">2월 11일이 진짜 승부처</h2><p class="blog-paragraph">리니지 클래식의 첫날은 예상 이상의 열기 속에 막을 올린 것으로 보인다. 25개 서버가 가득 차고, 닉네임 하나에 2천만 원이 오가고, '착한 BM'에 대한 호평이 쏟아지는 풍경은 분명 인상적이었다.</p><p class="blog-paragraph">하지만 진짜 승부는 2월 11일부터다. 3일간의 무료 프리오픈이 끝나고 월정액 29,700원이 부과되는 순간, 추억의 가치에 실제로 지갑을 여는 유저가 얼마나 될지가 관건이다. 첫날의 뜨거운 향수가 추억으로만 머물지, 실제 성과로 이어질지는 아직 알 수 없다.</p><p class="blog-paragraph">아이온2에 이어 리니지 클래식까지, 엔씨소프트가 체질 변화를 시도하고 있는 것만은 분명해 보인다. 과거의 화려한 시작과 그 뒤의 실망을 반복하지 않으려면, 월정액 전환 이후의 운영이 결정적이다. 과금 유혹을 끝까지 이겨내고 약속을 지킬 수 있을지, 게이머들의 시선은 2월 11일을 향하고 있다.</p>
+              </div>
+              
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        
+          <a href="/magazine/issue/lineage-classic-pc-launch-feb7/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/lineage-classic-pc-launch-feb7/thumbnail.webp" alt="리니지 클래식 2월 7일 오픈, 모바일 없이 PC 단독 출시" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">리니지 클래식 2월 7일 오픈, 모바일 없이 PC 단독 출시</span></span>
+          </a>
+          <a href="/magazine/issue/lineage-classic-subscription-return/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/lineage-classic-subscription-return/thumbnail.webp" alt="리니지 클래식 월정액 29,700원 복귀 - 엔씨소프트의 마지막 승부수" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">리니지 클래식 월정액 29,700원 복귀 - 엔씨소프트의 마지막 승부수</span></span>
+          </a>
+      </div>
+    </div>
+  
+              
+    <div class="blog-related-games">
+      <div class="blog-related-title">관련 게임</div>
+      <div class="blog-related-grid">
+        
+          <a href="/games/리니지m/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/69/82/f8/6982f887-3fb8-1199-ae18-4ca9e4715bbf/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.png" alt="리니지M" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">리니지M</span>
+          </a>
+        
+          <a href="/games/aion2/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/97/a9/bb/97a9bba1-4b15-ed20-90ae-376fc94c800f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png" alt="AION2" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">AION2</span>
+          </a>
+        
+      </div>
+    </div>
+  
+              
+    <div class="blog-sources">
+      <div class="blog-sources-title">정보 출처</div>
+      <ul class="blog-sources-list">
+        
+          <li><a href="https://www.etnews.com/20260206000127" target="_blank" rel="noopener">전자신문 - 엔씨소프트 '리니지 클래식', 7일 한국·대만 출시</a></li>
+        
+          <li><a href="https://www.techm.kr/news/articleView.html?idxno=149227" target="_blank" rel="noopener">테크M - 2000년대 초반 감성 그대로...고전의 맛, '리니지 클래식'</a></li>
+        
+          <li><a href="https://www.techm.kr/news/articleView.html?idxno=149225" target="_blank" rel="noopener">테크M - '리니지 클래식' 과금은 월정액뿐...착한 BM 약속 지킨 엔씨소프트</a></li>
+        
+          <li><a href="https://www.inven.co.kr/webzine/news/?news=313421" target="_blank" rel="noopener">인벤 - '리니지 클래식' 시즌패스도 없앴다, 월정액제만 존재 확인</a></li>
+        
+          <li><a href="https://www.inven.co.kr/webzine/news/?news=312796" target="_blank" rel="noopener">인벤 - 리니지 클래식, 사전 생성 7분 만에 1차 서버 마감</a></li>
+        
+          <li><a href="https://game.donga.com/121157/" target="_blank" rel="noopener">게임동아 - '아이온2'와 '리니지 클래식' 호평.. 확률형아이템 없이도 잘나가는 엔씨소프트</a></li>
+        
+          <li><a href="https://www.ilovepc.co.kr/news/articleView.html?idxno=57701" target="_blank" rel="noopener">아이러브PC - 리니지 클래식 '클래식' 아니다 … 비공개 테스트 반응 '글쎄'</a></li>
+        
+          <li><a href="https://www.chosun.com/economy/tech_it/2026/02/03/ULUS7OR4RBDWLNW22W4OC72W2Q/" target="_blank" rel="noopener">조선일보 - 엔씨소프트, 아이온2·리니지 흥행 기대… 매출 2조 회복 청신호</a></li>
+        
+          <li><a href="https://www.industrynews.co.kr/news/articleView.html?idxno=76686" target="_blank" rel="noopener">인더스트리뉴스 - "페이투윈(P2W)은 질렸다" 2026년 K-게임 모델 전환</a></li>
+        
+      </ul>
+    </div>
+  
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/magazine/issue/opus-4-6-vs-gpt-5-3-codex-same-day-launch/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      <a href="/magazine/issue/subculture-newyear-china-wins/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

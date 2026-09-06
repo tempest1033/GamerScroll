@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/wiki/history/nier-series/thumbnail.webp">
+		  <title>니어 시리즈, 실패작에서 900만 판매 명작으로 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="2010년 상업적으로 실패한 컬트 게임에서 시작해, 2017년 NieR: Automata로 900만 장 이상 판매되며 게임 역사에 길이 남을 명작이 된 니어 시리즈의 극적인 부활 이야기.">
+  <meta name="keywords" content="니어, NieR, 니어 오토마타, NieR Automata, 요코 타로, Yoko Taro, 드라켄가드, Drakengard, 플래티넘 게임즈, 2B, 9S, 케이이치 오카베, 스퀘어 에닉스">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/wiki/history/nier-series/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "니어 시리즈, 실패작에서 900만 판매 명작으로",
+    "description": "2010년 상업적으로 실패한 컬트 게임에서 시작해, 2017년 NieR: Automata로 900만 장 이상 판매되며 게임 역사에 길이 남을 명작이 된 니어 시리즈의 극적인 부활 이야기.",
+    "datePublished": "2026-01-23T12:00:00+09:00",
+    "dateModified": "2026-01-23T12:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/wiki/history/nier-series/"
+    },
+    "image": "https://gamerscroll.com/assets/images/wiki/history/nier-series/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "게임 위키",
+        "item": "https://gamerscroll.com/wiki/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "히스토리",
+        "item": "https://gamerscroll.com/wiki/history/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "니어 시리즈, 실패작에서 900만 판매 명작으로",
+        "item": "https://gamerscroll.com/wiki/history/nier-series/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="니어 시리즈, 실패작에서 900만 판매 명작으로">
+  <meta property="og:description" content="2010년 상업적으로 실패한 컬트 게임에서 시작해, 2017년 NieR: Automata로 900만 장 이상 판매되며 게임 역사에 길이 남을 명작이 된 니어 시리즈의 극적인 부활 이야기.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/wiki/history/nier-series/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="니어 시리즈, 실패작에서 900만 판매 명작으로">
+  <meta property="og:url" content="https://gamerscroll.com/wiki/history/nier-series/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-01-23T12:00:00+09:00">
+  <meta property="article:modified_time" content="2026-01-23T12:00:00+09:00">
+  <meta property="article:section" content="위키">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="니어">
+  <meta property="article:tag" content="NieR">
+  <meta property="article:tag" content="니어 오토마타">
+  <meta property="article:tag" content="NieR Automata">
+  <meta property="article:tag" content="요코 타로">
+  <meta property="article:tag" content="Yoko Taro">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="니어 시리즈, 실패작에서 900만 판매 명작으로">
+  <meta name="twitter:description" content="2010년 상업적으로 실패한 컬트 게임에서 시작해, 2017년 NieR: Automata로 900만 장 이상 판매되며 게임 역사에 길이 남을 명작이 된 니어 시리즈의 극적인 부활 이야기.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/wiki/history/nier-series/thumbnail.webp">
+  <meta name="twitter:image:alt" content="니어 시리즈, 실패작에서 900만 판매 명작으로">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-wiki">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item active" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="wiki-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-89-card">
+  <style>
+    .ad-home-pc-89-card, .ad-home-pc-89 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-89-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-89 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-89"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-90-card">
+  <style>
+    .ad-home-mo-90-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-90, .ad-home-mo-90-card > .ad-home-mo-90, .ad-home-mo-90-card > .ad-home-mo-90 > div, .ad-home-mo-90-card > .ad-home-mo-90 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-90-card > .ad-home-mo-90 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-90-card, .ad-home-mo-90, .ad-home-mo-90-card > .ad-home-mo-90 > div, .ad-home-mo-90-card > .ad-home-mo-90 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-90"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">니어 시리즈, 실패작에서 900만 판매 명작으로</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">히스토리</span><time class="blog-date">2026년 1월 23일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/wiki/history/nier-series/thumbnail.webp" class="blog-image" alt="니어 시리즈, 실패작에서 900만 판매 명작으로" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">2010년 상업적으로 실패한 컬트 게임에서 시작해, 2017년 NieR: Automata로 900만 장 이상 판매되며 게임 역사에 길이 남을 명작이 된 니어 시리즈의 극적인 부활 이야기.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">게임 역사에서 이렇게 극적인 부활을 경험한 시리즈는 드물다. 2010년 출시된 NieR는 독특한 세계관과 감성적인 음악에도 불구하고 상업적으로 실패했다. 하지만 7년 후, 속편 NieR: Automata는 비평과 상업 양면에서 대성공을 거두며 900만 장 이상 판매되는 기염을 토했다. 이것은 기이한 천재 요코 타로와 그의 팀이 만들어낸 기적 같은 이야기다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="드라켄가드의-농담-같은-엔딩에서-태어나다" class="blog-heading">드라켄가드의 농담 같은 엔딩에서 태어나다</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/01.webp" alt="드라켄가드 게임플레이 스크린샷" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">드라켄가드(2003) 게임플레이 - 드래곤을 타고 전투하는 장면</figcaption>
+          </figure>
+        <p class="blog-paragraph">니어 시리즈의 기원은 요코 타로의 전작 드라켄가드(Drakengard, 2003)로 거슬러 올라간다. 드라켄가드는 드래곤과 계약한 주인공이 제국과 싸우는 다크 판타지 액션 게임이었다. 다섯 개의 엔딩 중 'Ending E'에서 주인공과 드래곤이 현대 도쿄 신주쿠에 나타나 최종 보스와 싸우다 격추당한다. 당시 플레이어들은 이 엔딩을 개발팀의 장난 정도로 여겼다.</p><p class="blog-paragraph">드래곤의 시체에서 퍼진 마법적 병원체가 '백염병'이라는 치명적인 전염병을 일으킨다. 인류는 멸종 위기에 몰리고, 이를 극복하기 위해 영혼과 육체를 분리하는 '게슈탈트 프로젝트'가 시작된다. 영혼(게슈탈트)은 안전한 곳에 보관하고, 육체(레플리칸트)는 백염병이 사라질 때까지 대기한다는 계획이었다.</p><p class="blog-paragraph">니어는 이 프로젝트가 실패로 돌아간 수천 년 후의 세계를 배경으로 한다. '농담 엔딩'처럼 보였던 설정이 거대한 세계관의 시작점이 된 것이다. 요코 타로 특유의 예측 불가능한 스토리텔링이 여기서부터 시작됐다.</p><h2 id="요코-타로-마스크를-쓴-이단아" class="blog-heading">요코 타로, 마스크를 쓴 이단아</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/02.webp" alt="마스크를 쓴 요코 타로 인터뷰 장면" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">에밀 가면을 쓰고 인터뷰하는 요코 타로 감독</figcaption>
+          </figure>
+        <p class="blog-paragraph">1970년 나고야에서 태어난 요코 타로는 게임 업계에서 가장 독특한 크리에이터 중 하나다. 고베예술공과대학에서 3DCG를 전공한 후 1994년 남코에 입사했지만, 얼마 지나지 않아 카비아로 이직했다. 그는 자신의 외모가 작품에 영향을 주는 것을 싫어해, 공식 석상에서는 항상 에밀(니어의 캐릭터) 가면을 쓰고 등장한다.</p><p class="blog-paragraph">그의 창작 방식도 독특하다. '역방향 각본 집필법'이라 불리는 방식으로, 결말을 먼저 정한 뒤 거꾸로 이야기를 만들어간다. 플레이어가 느껴야 할 감정을 먼저 설계하고, 그 감정을 이끌어내기 위한 서사를 역으로 구축한다. 이 방식 덕분에 그의 게임들은 엔딩의 감정적 임팩트가 유독 강하다.</p><p class="blog-paragraph">요코 타로의 작품은 인간의 어두운 면을 탐구한다. 특히 '왜 사람들은 서로를 죽이는가'라는 질문이 그의 작품 전체를 관통한다. 9/11 테러와 이어진 테러와의 전쟁에서 영감을 받아, NieR의 '양측 모두 자신이 옳다고 믿는 비극'이라는 테마가 탄생했다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="nier-2010-실패한-걸작" class="blog-heading">NieR (2010), 실패한 걸작</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/03.webp" alt="니어 오리지널 게임플레이 스크린샷" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">NieR (2010) 전투 장면</figcaption>
+          </figure>
+        <p class="blog-paragraph">2010년 발매된 NieR는 두 가지 버전으로 출시됐다. 일본에서는 젊은 남동생이 여동생 요나를 구하는 'NieR Replicant'(PS3)와 중년 아버지가 딸을 구하는 'NieR Gestalt'(Xbox 360)가 별도로 나왔다. 서양에서는 Gestalt 버전만 출시됐는데, 서양 시장에서는 중년 남성 주인공이 더 어필할 것이라는 판단 때문이었다.</p><p class="blog-paragraph">게임플레이는 파격 그 자체였다. 기본적으로 3D 액션 RPG지만, 갑자기 2D 탑다운 슈팅으로 바뀌거나, 텍스트 어드벤처로 전환되기도 했다. 말하는 책 '그리모어 바이스', 욕설을 퍼붓는 여전사 카이네 등 기억에 남는 캐릭터들이 있었다. 케이이치 오카베(MONACA)가 작곡한 OST는 게임 음악 역사에 길이 남을 명작으로 평가받았다.</p><p class="blog-paragraph">하지만 투박한 그래픽과 반복적인 퀘스트 구조로 인해 평점은 낮았고, 판매량은 저조했다. 결국 개발사 카비아는 AQ 인터랙티브에 흡수된 뒤 사실상 해체됐다. 니어는 잊혀가는 컬트 게임이 될 운명처럼 보였다.</p><h2 id="플래티넘-게임즈와의-만남" class="blog-heading">플래티넘 게임즈와의 만남</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/04.webp" alt="니어 오토마타 전투 스크린샷" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">NieR: Automata - 폐허가 된 도시에서 전투하는 2B</figcaption>
+          </figure>
+        <p class="blog-paragraph">NieR 이후 요코 타로는 힘든 시간을 보냈다. 카비아가 해체되면서 정규직 자리를 잃었고, 프리랜서 디렉터로 모바일 게임이나 소규모 프로젝트를 전전했다. 드라켄가드 3의 디렉터를 맡았지만, 저예산으로 제작되어 프레임 드롭이 심각한 게임이 되고 말았다.</p><p class="blog-paragraph">하지만 2015년, 예상치 못한 전환점이 찾아왔다. 스퀘어 에닉스의 프로듀서 사이토 요스케가 니어 속편 제작을 제안한 것이다. 이번에는 베요네타, 메탈기어 라이징으로 유명한 액션 전문 스튜디오 플래티넘 게임즈가 개발을 맡기로 했다. 원작의 가장 큰 약점이었던 전투 시스템이 업계 최고 수준으로 업그레이드될 것이었다.</p><p class="blog-paragraph">플래티넘의 탄탄한 액션 시스템과 요코 타로의 독특한 세계관이 결합됐다. 기계 생명체에게 지구를 빼앗긴 인류가 달로 도망치고, 안드로이드 부대 '요르하'를 만들어 지구 탈환 작전을 펼친다는 설정이 완성됐다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="6077622756"></ins>
+  </div><h2 id="nier-automata-기적의-부활" class="blog-heading">NieR: Automata, 기적의 부활</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/05.webp" alt="니어 오토마타 전투 게임플레이 스크린샷" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">NieR: Automata - 기계 생명체와의 전투</figcaption>
+          </figure>
+        <p class="blog-paragraph">2017년 2월 일본, 3월 전 세계 출시된 NieR: Automata는 폭발적인 반응을 얻었다. 첫 주 일본에서만 20만 장이 팔렸고, 스팀에서도 동시 접속자 수가 치솟았다. 플래티넘 게임즈의 쾌적한 액션, 요코 타로의 독특한 스토리, MONACA의 아름다운 음악이 완벽한 조화를 이뤘다.</p><p class="blog-paragraph">게임은 여러 번의 플레이스루를 통해 이야기가 깊어지는 구조를 갖고 있다. 첫 번째 플레이(루트 A)는 2B의 시점, 두 번째(루트 B)는 9S의 시점, 세 번째(루트 C/D)는 완전히 새로운 전개로 진행된다. 26개의 엔딩(A~Z) 중 진엔딩인 E는 플레이어들이 서로 돕는 메타적 연출로 많은 이들에게 눈물을 흘리게 했다.</p><p class="blog-paragraph">게임은 The Game Awards에서 최우수 내러티브상, 최우수 음악상을 수상했다. 2024년 기준 전 세계 900만 장 이상 판매되며, 상업적 실패작의 속편이 천만 장에 육박하는 대작이 된 것은 게임 역사상 유례가 드문 일이었다.</p><h2 id="2b-아이콘이-된-안드로이드" class="blog-heading">2B, 아이콘이 된 안드로이드</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/06.webp" alt="NieR Automata 2B와 9S 스크린샷" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">2B와 9S - 요르하 부대 소속 안드로이드들</figcaption>
+          </figure>
+        <p class="blog-paragraph">니어 오토마타의 성공에는 캐릭터의 힘이 컸다. 특히 주인공 2B(요르하 2호 B형)는 발매 전부터 폭발적인 관심을 받았다. 고딕풍 블랙 드레스에 하이힐 부츠, 눈을 가린 검은 바이저 - 파이널 판타지 택틱스, FF12의 아트 디렉터 요시다 아키히코가 디자인한 그녀의 비주얼은 단숨에 게임 역사상 가장 상징적인 캐릭터 중 하나가 됐다.</p><p class="blog-paragraph">하지만 2B의 매력은 외모에만 있지 않았다. 감정을 억제하도록 프로그래밍된 안드로이드가 동료 9S와의 관계 속에서 보여주는 미묘한 감정선이 플레이어들을 사로잡았다. 9S를 대하는 태도, 기계 생명체를 마주했을 때의 망설임, 사소한 대사 속 뉘앙스들이 쌓여 입체적인 캐릭터를 완성했다.</p><p class="blog-paragraph">여러 플레이스루를 거치며 밝혀지는 그녀의 진짜 정체와 비극적 운명은 충격적이었다. 2B의 'B'가 무엇을 의미하는지 밝혀지는 순간, 플레이어들은 처음부터 게임을 다시 보게 된다. 2B는 단순한 '예쁜 캐릭터'를 넘어 깊이 있는 서사의 중심이 됐다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="1648257301"></ins>
+  </div><h2 id="음악의-힘-monaca와-케이이치-오카베" class="blog-heading">음악의 힘, MONACA와 케이이치 오카베</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/07.webp" alt="케이이치 오카베 작곡가 인터뷰 장면" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">케이이치 오카베 - NieR 시리즈 작곡가 인터뷰</figcaption>
+          </figure>
+        <p class="blog-paragraph">니어 시리즈를 논할 때 음악을 빼놓을 수 없다. 작곡가 케이이치 오카베와 그의 스튜디오 MONACA가 만든 OST는 게임 음악 역사상 가장 아름다운 작품 중 하나로 평가받는다. 오카베는 원래 남코의 테일즈 시리즈, 철권 시리즈 음악을 담당했던 작곡가였다.</p><p class="blog-paragraph">니어 음악의 가장 큰 특징은 '카오스 언어'라 불리는 가상의 언어로 된 보컬이다. 일본어, 영어, 프랑스어 등 다양한 언어를 섞어 만든 이 가상 언어는 어떤 특정 문화권에도 속하지 않으면서 보편적인 감정을 전달한다. 가사의 의미를 몰라도 멜로디와 보컬의 감정이 직접적으로 전해진다.</p><p class="blog-paragraph">'Weight of the World', 'Kainé - Salvation', 'City Ruins' 같은 곡들은 게임을 플레이하지 않은 사람들에게도 사랑받는다. 유튜브에서 니어 OST 영상들은 수천만 회 조회수를 기록했고, 세계 각지에서 니어 오케스트라 콘서트가 열리고 있다.</p><h2 id="레플리칸트-리마스터와-확장되는-세계관" class="blog-heading">레플리칸트 리마스터와 확장되는 세계관</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/history/nier-series/08.webp" alt="니어 레플리칸트 리마스터 스크린샷" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">NieR Replicant ver.1.22474487139... (2021) 리마스터 게임플레이</figcaption>
+          </figure>
+        <p class="blog-paragraph">2021년, 'NieR Replicant ver.1.22474487139...'라는 기묘한 제목의 리마스터가 출시됐다. 제목의 숫자는 루트 2의 근삿값으로, '1에 가깝지만 1이 아니다'라는 의미를 담고 있다. 서양 플레이어들이 처음으로 남동생 버전의 이야기를 경험할 수 있게 됐고, 그래픽과 전투 시스템이 현대화됐다.</p><p class="blog-paragraph">새로운 엔딩 E도 추가됐다. 원작에서 가장 충격적이었던 엔딩 D 이후의 이야기를 다루며, 오토마타와의 연결고리를 강화했다. 리마스터는 상업적으로도 성공해 200만 장 이상 판매됐다.</p><p class="blog-paragraph">니어의 세계는 게임을 넘어 확장되고 있다. 2023년에는 NieR: Automata Ver1.1a 애니메이션이 방영됐고, 파이널 판타지 XIV에는 요코 타로가 직접 시나리오를 쓴 '요르하: 다크 아포칼립스' 레이드가 추가됐다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="5">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8253339898"></ins>
+  </div><h2 id="실패를-딛고-전설이-된-시리즈" class="blog-heading">실패를 딛고 전설이 된 시리즈</h2><p class="blog-paragraph">니어 시리즈의 역사는 '실패해도 끝이 아니다'라는 것을 보여준다. 2010년 상업적으로 실패한 게임이 7년 뒤 900만 장짜리 히트작의 원작이 될 줄 누가 알았겠는가. 작품의 고유한 가치를 믿고 이어간 요코 타로, 그를 다시 불러준 스퀘어 에닉스, 액션의 품질을 보장한 플래티넘 게임즈의 만남이 명작을 탄생시켰다.</p><p class="blog-paragraph">요코 타로는 여전히 마스크 뒤에서 새로운 이야기를 준비하고 있다. 니어의 다음 장이 어떤 모습일지는 아무도 모른다. 예측 불가능함 속에서 깊은 감동을 선사하는 그의 다음 작품을 팬들은 기다리고 있다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/wiki/business/publisher-developer-relationship/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/wiki/business/publisher-developer-relationship/thumbnail.webp" alt="퍼블리셔와 개발사, 게임 산업의 두 축" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">퍼블리셔와 개발사, 게임 산업의 두 축</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://www.square-enix-games.com/en_US/news/nier-retrospective" target="_blank" rel="noopener">Square Enix Blog</a></li><li><a href="https://en.wikipedia.org/wiki/Yoko_Taro" target="_blank" rel="noopener">Wikipedia - Yoko Taro</a></li><li><a href="https://en.wikipedia.org/wiki/Nier:_Automata" target="_blank" rel="noopener">Wikipedia - Nier: Automata</a></li><li><a href="https://en.wikipedia.org/wiki/2B_(Nier:_Automata)" target="_blank" rel="noopener">Wikipedia - 2B (Nier: Automata)</a></li><li><a href="https://www.kitguru.net/gaming/joao-silva/nier-automata-has-sold-over-9-million-copies/" target="_blank" rel="noopener">KitGuru - Nier: Automata 9 million sales</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/wiki/history/the-war-of-genesis/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/wiki/" class="trend-nav-btn list">목록</a>
+      <a href="/wiki/history/black-and-white-demis-hassabis/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

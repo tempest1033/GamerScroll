@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="noindex, follow">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+		  <title>Apex Legends 매출, 게임 순위, 뉴스 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="Apex Legends 매출, 스팀 게임 순위와 뉴스, 히스토리를 한눈에.">
+  <meta name="keywords" content="Apex Legends, Apex Legends 매출, Apex Legends 순위, Apex Legends 스팀, 게임 순위, 스팀 게임 순위, 스팀 매출 순위, 스팀 인기 순위, 게임 뉴스">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "게임 DB",
+        "item": "https://gamerscroll.com/games/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Apex Legends",
+        "item": "https://gamerscroll.com/games/apex-legends/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Apex Legends 매출, 게임 순위, 뉴스">
+  <meta property="og:description" content="Apex Legends 매출, 스팀 게임 순위와 뉴스, 히스토리를 한눈에.">
+  <meta property="og:image" content="https://gamerscroll.com/og-image.png">
+  <meta property="og:image:alt" content="Apex Legends 매출, 게임 순위, 뉴스">
+  <meta property="og:url" content="https://gamerscroll.com/games/apex-legends/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apex Legends 매출, 게임 순위, 뉴스">
+  <meta name="twitter:description" content="Apex Legends 매출, 스팀 게임 순위와 뉴스, 히스토리를 한눈에.">
+  <meta name="twitter:image" content="https://gamerscroll.com/og-image.png">
+  <meta name="twitter:image:alt" content="Apex Legends 매출, 게임 순위, 뉴스">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+	  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-game.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-game.a96f7e4c.css"></noscript>
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-game">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=-1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=v1"></script>
+    
+    <section class="section active" id="game">
+      <div class="ad-card ad-card-responsive-home ad-home-pc-717-card">
+  <style>
+    .ad-home-pc-717-card, .ad-home-pc-717 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-717-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-717 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-717"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-718-card">
+  <style>
+    .ad-home-mo-718-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-718, .ad-home-mo-718-card > .ad-home-mo-718, .ad-home-mo-718-card > .ad-home-mo-718 > div, .ad-home-mo-718-card > .ad-home-mo-718 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-718-card > .ad-home-mo-718 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-718-card, .ad-home-mo-718, .ad-home-mo-718-card > .ad-home-mo-718 > div, .ad-home-mo-718-card > .ad-home-mo-718 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-718"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+      <div class="page-container game-page-grid">
+        <h1 class="visually-hidden">Apex Legends 매출, 게임 순위, 뉴스</h1>
+        <!-- 게임 히어로 -->
+        <div class="home-card game-hero grid-full">
+          <div class="game-hero-content">
+            <img class="game-hero-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/33d4b71b2b9c8eb837b7ea5f6c5d12ca3501ea27/capsule_231x87.jpg?t=1762457261" alt="Apex Legends" loading="lazy" data-img-fallback="hide">
+            <div class="game-hero-info">
+              <div class="game-hero-title">Apex Legends</div>
+              <div class="game-hero-developer">Respawn</div>
+              <div class="game-hero-platforms"><span class="game-platform-badge">steam</span></div>
+            </div>
+            <a href="/games/" class="game-back-btn" title="게임 DB로 돌아가기">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+            
+            <div class="game-hero-stats">
+              <div class="game-hero-stat stat-ccu">
+                <span class="game-hero-stat-label">동접 순위</span>
+                <span class="game-hero-stat-value">11</span>
+              </div>
+              <div class="game-hero-stat stat-sales">
+                <span class="game-hero-stat-label">판매 순위</span>
+                <span class="game-hero-stat-value">10</span>
+              </div>
+              <div class="game-hero-stat stat-players">
+                <span class="game-hero-stat-label">현재 접속자</span>
+                <span class="game-hero-stat-value">96,783</span>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        
+        <!-- 스팀 게임 순위 -->
+        <div class="home-card">
+          <div class="home-card-header">
+            <h2 class="home-card-title">Apex Legends 스팀 게임 순위</h2>
+          </div>
+          <div class="home-card-body"><div class="rank-trend-section steam-ccu-section"><div class="trend-tab-row"><div class="tab-group trend-tabs-right"><button class="tab-btn active" data-trend-period="daily">일</button><button class="tab-btn" data-trend-period="weekly">주</button><button class="tab-btn" data-trend-period="monthly">월</button></div></div><div class="trend-charts"><div class="trend-content active" data-period="daily"><svg viewBox="0 0 400 200" class="game-chart-svg"><line x1="18" y1="6" x2="396" y2="6" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="10" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">1</text><line x1="18" y1="52.93333333333333" x2="396" y2="52.93333333333333" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="56.93333333333333" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">5</text><line x1="18" y1="99.86666666666666" x2="396" y2="99.86666666666666" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="103.86666666666666" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">9</text><line x1="18" y1="146.8" x2="396" y2="146.8" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="150.8" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">13</text><line x1="18" y1="193.73333333333332" x2="396" y2="193.73333333333332" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="197.73333333333332" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">17</text><text class="chart-xlabel" x="34" y="198" text-anchor="middle">01</text><text class="chart-xlabel" x="91.66666666666666" y="198" text-anchor="middle">02</text><text class="chart-xlabel" x="149.33333333333331" y="198" text-anchor="middle">03</text><text class="chart-xlabel" x="207" y="198" text-anchor="middle">04</text><text class="chart-xlabel" x="264.66666666666663" y="198" text-anchor="middle">05</text><text class="chart-xlabel" x="322.33333333333337" y="198" text-anchor="middle">06</text><text class="chart-xlabel" x="380" y="198" text-anchor="middle">07</text><path d="M34,52.93333333333333 L91.66666666666666,52.93333333333333 L149.33333333333331,41.2 L207,41.2 L264.66666666666663,41.2 L322.33333333333337,41.2 L380,123.33333333333333" fill="none" stroke="#FF4757" stroke-width="2"/><circle cx="34" cy="52.93333333333333" r="4" fill="#FF4757"/><circle cx="91.66666666666666" cy="52.93333333333333" r="4" fill="#FF4757"/><circle cx="149.33333333333331" cy="41.2" r="4" fill="#FF4757"/><circle cx="207" cy="41.2" r="4" fill="#FF4757"/><circle cx="264.66666666666663" cy="41.2" r="4" fill="#FF4757"/><circle cx="322.33333333333337" cy="41.2" r="4" fill="#FF4757"/><circle cx="380" cy="123.33333333333333" r="4" fill="#FF4757"/><text x="34" y="44.93333333333333" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="91.66666666666666" y="44.93333333333333" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="149.33333333333331" y="33.2" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="207" y="33.2" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="264.66666666666663" y="33.2" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="322.33333333333337" y="33.2" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="380" y="115.33333333333333" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">11</text></svg></div><div class="trend-content" data-period="weekly"><svg viewBox="0 0 400 200" class="game-chart-svg"><line x1="18" y1="6" x2="396" y2="6" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="10" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">1</text><line x1="18" y1="58.8" x2="396" y2="58.8" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="62.8" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">4</text><line x1="18" y1="111.6" x2="396" y2="111.6" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="115.6" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">7</text><line x1="18" y1="164.4" x2="396" y2="164.4" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="168.4" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">10</text><line x1="18" y1="217.2" x2="396" y2="217.2" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="221.2" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">13</text><text class="chart-xlabel" x="34" y="198" text-anchor="middle">27</text><text class="chart-xlabel" x="91.66666666666666" y="198" text-anchor="middle">03</text><text class="chart-xlabel" x="149.33333333333331" y="198" text-anchor="middle">10</text><text class="chart-xlabel" x="207" y="198" text-anchor="middle">17</text><text class="chart-xlabel" x="264.66666666666663" y="198" text-anchor="middle">24</text><text class="chart-xlabel" x="322.33333333333337" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="380" y="198" text-anchor="middle">07</text><path d="M34,94 L91.66666666666666,94 L149.33333333333331,76.4 L207,58.8 L264.66666666666663,58.8 L322.33333333333337,58.8 L380,58.8" fill="none" stroke="#FF4757" stroke-width="2"/><circle cx="34" cy="94" r="4" fill="#FF4757"/><circle cx="91.66666666666666" cy="94" r="4" fill="#FF4757"/><circle cx="149.33333333333331" cy="76.4" r="4" fill="#FF4757"/><circle cx="207" cy="58.8" r="4" fill="#FF4757"/><circle cx="264.66666666666663" cy="58.8" r="4" fill="#FF4757"/><circle cx="322.33333333333337" cy="58.8" r="4" fill="#FF4757"/><circle cx="380" cy="58.8" r="4" fill="#FF4757"/><text x="34" y="86" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">6</text><text x="91.66666666666666" y="86" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">6</text><text x="149.33333333333331" y="68.4" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="207" y="50.8" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="264.66666666666663" y="50.8" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="322.33333333333337" y="50.8" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="380" y="50.8" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text></svg></div><div class="trend-content" data-period="monthly"><svg viewBox="0 0 400 200" class="game-chart-svg"><line x1="18" y1="6" x2="396" y2="6" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="10" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">1</text><line x1="18" y1="64.66666666666666" x2="396" y2="64.66666666666666" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="68.66666666666666" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">4</text><line x1="18" y1="123.33333333333333" x2="396" y2="123.33333333333333" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="127.33333333333333" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">7</text><line x1="18" y1="182" x2="396" y2="182" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="186" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">10</text><line x1="18" y1="240.66666666666666" x2="396" y2="240.66666666666666" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="244.66666666666666" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">13</text><text class="chart-xlabel" x="34" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="91.66666666666666" y="198" text-anchor="middle">30</text><text class="chart-xlabel" x="149.33333333333331" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="207" y="198" text-anchor="middle">30</text><text class="chart-xlabel" x="264.66666666666663" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="322.33333333333337" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="380" y="198" text-anchor="middle">30</text><path d="M34,64.66666666666666 L91.66666666666666,64.66666666666666 L149.33333333333331,64.66666666666666 L207,84.22222222222221 L264.66666666666663,84.22222222222221 L322.33333333333337,64.66666666666666 L380,64.66666666666666" fill="none" stroke="#FF4757" stroke-width="2"/><circle cx="34" cy="64.66666666666666" r="4" fill="#FF4757"/><circle cx="91.66666666666666" cy="64.66666666666666" r="4" fill="#FF4757"/><circle cx="149.33333333333331" cy="64.66666666666666" r="4" fill="#FF4757"/><circle cx="207" cy="84.22222222222221" r="4" fill="#FF4757"/><circle cx="264.66666666666663" cy="84.22222222222221" r="4" fill="#FF4757"/><circle cx="322.33333333333337" cy="64.66666666666666" r="4" fill="#FF4757"/><circle cx="380" cy="64.66666666666666" r="4" fill="#FF4757"/><text x="34" y="56.66666666666666" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="91.66666666666666" y="56.66666666666666" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="149.33333333333331" y="56.66666666666666" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="207" y="76.22222222222221" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="264.66666666666663" y="76.22222222222221" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="322.33333333333337" y="56.66666666666666" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text><text x="380" y="56.66666666666666" fill="#FF4757" font-size="12" text-anchor="middle" font-weight="600">4</text></svg></div></div></div><script>(function(){var s=document.querySelector(".steam-ccu-section");if(!s)return;var ap="daily";s.querySelectorAll("[data-trend-period]").forEach(function(b){b.addEventListener("click",function(){s.querySelectorAll("[data-trend-period]").forEach(function(x){x.classList.remove("active")});b.classList.add("active");ap=b.dataset.trendPeriod;s.querySelectorAll(".trend-content").forEach(function(c){c.classList.toggle("active",c.dataset.period===ap)});});});})();</script></div>
+        </div>
+        <!-- 스팀 게임 순위 히스토리 -->
+        <div class="home-card">
+          <div class="home-card-header">
+            <h2 class="home-card-title">스팀 순위 히스토리</h2>
+          </div>
+          <div class="home-card-body"><div class="rank-trend-section steam-sales-section"><div class="trend-tab-row"><div class="tab-group trend-tabs-right"><button class="tab-btn active" data-trend-period="daily">일</button><button class="tab-btn" data-trend-period="weekly">주</button><button class="tab-btn" data-trend-period="monthly">월</button></div></div><div class="trend-charts"><div class="trend-content active" data-period="daily"><svg viewBox="0 0 400 200" class="game-chart-svg"><line x1="18" y1="6" x2="396" y2="6" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="10" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">1</text><line x1="18" y1="50" x2="396" y2="50" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="54" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">6</text><line x1="18" y1="94" x2="396" y2="94" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="98" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">11</text><line x1="18" y1="138" x2="396" y2="138" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="142" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">16</text><line x1="18" y1="182" x2="396" y2="182" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="186" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">21</text><text class="chart-xlabel" x="34" y="198" text-anchor="middle">01</text><text class="chart-xlabel" x="91.66666666666666" y="198" text-anchor="middle">02</text><text class="chart-xlabel" x="149.33333333333331" y="198" text-anchor="middle">03</text><text class="chart-xlabel" x="207" y="198" text-anchor="middle">04</text><text class="chart-xlabel" x="264.66666666666663" y="198" text-anchor="middle">05</text><text class="chart-xlabel" x="322.33333333333337" y="198" text-anchor="middle">06</text><text class="chart-xlabel" x="380" y="198" text-anchor="middle">07</text><path d="M34,94 L91.66666666666666,41.2 L149.33333333333331,138 L207,138 L264.66666666666663,102.80000000000001 L322.33333333333337,94 L380,85.2" fill="none" stroke="#3B82F6" stroke-width="2"/><circle cx="34" cy="94" r="4" fill="#3B82F6"/><circle cx="91.66666666666666" cy="41.2" r="4" fill="#3B82F6"/><circle cx="149.33333333333331" cy="138" r="4" fill="#3B82F6"/><circle cx="207" cy="138" r="4" fill="#3B82F6"/><circle cx="264.66666666666663" cy="102.80000000000001" r="4" fill="#3B82F6"/><circle cx="322.33333333333337" cy="94" r="4" fill="#3B82F6"/><circle cx="380" cy="85.2" r="4" fill="#3B82F6"/><text x="34" y="86" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">11</text><text x="91.66666666666666" y="33.2" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="149.33333333333331" y="130" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">16</text><text x="207" y="130" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">16</text><text x="264.66666666666663" y="94.80000000000001" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">12</text><text x="322.33333333333337" y="86" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">11</text><text x="380" y="77.2" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">10</text></svg></div><div class="trend-content" data-period="weekly"><svg viewBox="0 0 400 200" class="game-chart-svg"><line x1="18" y1="6" x2="396" y2="6" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="10" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">1</text><line x1="18" y1="50" x2="396" y2="50" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="54" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">6</text><line x1="18" y1="94" x2="396" y2="94" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="98" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">11</text><line x1="18" y1="138" x2="396" y2="138" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="142" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">16</text><line x1="18" y1="182" x2="396" y2="182" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="186" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">21</text><text class="chart-xlabel" x="34" y="198" text-anchor="middle">27</text><text class="chart-xlabel" x="91.66666666666666" y="198" text-anchor="middle">03</text><text class="chart-xlabel" x="149.33333333333331" y="198" text-anchor="middle">10</text><text class="chart-xlabel" x="207" y="198" text-anchor="middle">17</text><text class="chart-xlabel" x="264.66666666666663" y="198" text-anchor="middle">24</text><text class="chart-xlabel" x="322.33333333333337" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="380" y="198" text-anchor="middle">07</text><path d="M34,94 L91.66666666666666,138 L149.33333333333331,14.8 L207,23.6 L264.66666666666663,50 L322.33333333333337,67.6 L380,41.2" fill="none" stroke="#3B82F6" stroke-width="2"/><circle cx="34" cy="94" r="4" fill="#3B82F6"/><circle cx="91.66666666666666" cy="138" r="4" fill="#3B82F6"/><circle cx="149.33333333333331" cy="14.8" r="4" fill="#3B82F6"/><circle cx="207" cy="23.6" r="4" fill="#3B82F6"/><circle cx="264.66666666666663" cy="50" r="4" fill="#3B82F6"/><circle cx="322.33333333333337" cy="67.6" r="4" fill="#3B82F6"/><circle cx="380" cy="41.2" r="4" fill="#3B82F6"/><text x="34" y="86" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">11</text><text x="91.66666666666666" y="130" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">16</text><text x="149.33333333333331" y="30.8" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">2</text><text x="207" y="15.600000000000001" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">3</text><text x="264.66666666666663" y="42" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">6</text><text x="322.33333333333337" y="59.599999999999994" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">8</text><text x="380" y="33.2" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">5</text></svg></div><div class="trend-content" data-period="monthly"><svg viewBox="0 0 400 200" class="game-chart-svg"><line x1="18" y1="6" x2="396" y2="6" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="10" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">1</text><line x1="18" y1="64.66666666666666" x2="396" y2="64.66666666666666" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="68.66666666666666" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">4</text><line x1="18" y1="123.33333333333333" x2="396" y2="123.33333333333333" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="127.33333333333333" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">7</text><line x1="18" y1="182" x2="396" y2="182" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="186" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">10</text><line x1="18" y1="240.66666666666666" x2="396" y2="240.66666666666666" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/><text x="14" y="244.66666666666666" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">13</text><text class="chart-xlabel" x="34" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="91.66666666666666" y="198" text-anchor="middle">30</text><text class="chart-xlabel" x="149.33333333333331" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="207" y="198" text-anchor="middle">30</text><text class="chart-xlabel" x="264.66666666666663" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="322.33333333333337" y="198" text-anchor="middle">31</text><text class="chart-xlabel" x="380" y="198" text-anchor="middle">30</text><path d="M34,25.555555555555554 L91.66666666666666,84.22222222222221 L149.33333333333331,25.555555555555554 L207,84.22222222222221 L264.66666666666663,25.555555555555554 L322.33333333333337,25.555555555555554 L380,84.22222222222221" fill="none" stroke="#3B82F6" stroke-width="2"/><circle cx="34" cy="25.555555555555554" r="4" fill="#3B82F6"/><circle cx="91.66666666666666" cy="84.22222222222221" r="4" fill="#3B82F6"/><circle cx="149.33333333333331" cy="25.555555555555554" r="4" fill="#3B82F6"/><circle cx="207" cy="84.22222222222221" r="4" fill="#3B82F6"/><circle cx="264.66666666666663" cy="25.555555555555554" r="4" fill="#3B82F6"/><circle cx="322.33333333333337" cy="25.555555555555554" r="4" fill="#3B82F6"/><circle cx="380" cy="84.22222222222221" r="4" fill="#3B82F6"/><text x="34" y="17.555555555555554" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">2</text><text x="91.66666666666666" y="76.22222222222221" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="149.33333333333331" y="17.555555555555554" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">2</text><text x="207" y="76.22222222222221" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">5</text><text x="264.66666666666663" y="17.555555555555554" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">2</text><text x="322.33333333333337" y="17.555555555555554" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">2</text><text x="380" y="76.22222222222221" fill="#3B82F6" font-size="12" text-anchor="middle" font-weight="600">5</text></svg></div></div></div><script>(function(){var s=document.querySelector(".steam-sales-section");if(!s)return;var ap="daily";s.querySelectorAll("[data-trend-period]").forEach(function(b){b.addEventListener("click",function(){s.querySelectorAll("[data-trend-period]").forEach(function(x){x.classList.remove("active")});b.classList.add("active");ap=b.dataset.trendPeriod;s.querySelectorAll(".trend-content").forEach(function(c){c.classList.toggle("active",c.dataset.period===ap)});});});})();</script></div>
+        </div>
+        
+
+        
+        <!-- 뉴스 (관련 콘텐츠: 이슈/위키/핫픽/인사이트) -->
+        <div class="home-card grid-full">
+          <div class="home-card-header">
+            <h2 class="home-card-title">뉴스</h2>
+          </div>
+          <div class="home-card-body">
+      <div class="game-related-container" data-total="1" data-per-page="3">
+        <div class="home-popular-list game-related-grid">
+      <a href="/magazine/issue/pubg-battlegrounds-birth-history/" class="home-popular-card game-related-item" data-index="0">
+        <div class="home-popular-thumb">
+          <img src="https://wsrv.nl/?url=https%3A%2F%2Fwstatic-prod-boc.krafton.com%2Fcommon%2Fcontent%2Fnews%2F20260106%2FBMjJf93G.webp&w=960&output=webp" alt="배틀그라운드의 탄생: H1Z1에서 PUBG까지" loading="lazy" fetchpriority="auto">
+        </div>
+        <div class="home-popular-info">
+          <h3 class="home-popular-title">배틀그라운드의 탄생: H1Z1에서 PUBG까지</h3>
+          <p class="home-popular-summary">출시 9년차를 맞은 배틀그라운드는 여전히 세계 최고의 게임 중 하나다. 김창한 대표가 브랜든 그린을 영입해 1년 만에 만든 이 게임이 어떻게 배틀로얄 장르를 정립했는지, 그 역사를 되짚어본다.</p>
+        </div>
+      </a>
+    </div>
+        <div class="home-pagination">
+          <button class="home-page-btn home-page-prev" disabled>‹</button>
+          <span class="home-page-info">1 / 1</span>
+          <button class="home-page-btn home-page-next" disabled>›</button>
+        </div>
+      </div>
+    </div>
+        </div>
+        
+
+      </div>
+    </section>
+  
+    <script>
+    // 최근 본 게임 저장
+    (function() {
+      const RECENT_KEY = 'gamerscroll_recent_searches';
+      const MAX_RECENT = 8;
+      const gameInfo = { name: 'Apex Legends', slug: 'apex-legends', icon: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/33d4b71b2b9c8eb837b7ea5f6c5d12ca3501ea27/capsule_231x87.jpg?t=1762457261' };
+      try {
+        let recent = JSON.parse(localStorage.getItem(RECENT_KEY)) || [];
+        recent = recent.filter(g => g.slug !== gameInfo.slug);
+        recent.unshift(gameInfo);
+        recent = recent.slice(0, MAX_RECENT);
+        localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
+      } catch (e) {}
+    })();
+
+    // 실시간 모바일 순위 탭 전환
+    (function() {
+      const section = document.querySelector('.realtime-rank-section');
+      if (!section) return;
+
+      let activeCat = 'grossing';
+      let activeView = 'summary';
+      let activeMarket = 'ios';
+      const activeRegions = new Set(['kr', 'jp', 'us', 'cn', 'tw']);
+
+      const legendRow = section.querySelector('.realtime-legend-row');
+
+	      function updateContent() {
+	        section.querySelectorAll('.realtime-content').forEach(c => {
+	          const isCat = c.dataset.realtimeCat === activeCat;
+	          const isView = c.dataset.realtimeView === activeView;
+	          c.classList.toggle('active', isCat && isView);
+	        });
+	        // 실시간 뷰일 때만 범례 표시
+	        if (legendRow) {
+	          legendRow.classList.toggle('is-hidden', activeView !== 'realtime');
+	        }
+	      }
+
+      function updateMarket() {
+        section.querySelectorAll('.chart-market-svg').forEach(el => {
+          el.classList.toggle('active', el.dataset.market === activeMarket);
+        });
+      }
+
+      function updateRegions() {
+        section.querySelectorAll('[data-region]').forEach(el => {
+          const visible = activeRegions.has(el.dataset.region);
+          el.style.opacity = visible ? '1' : '0';
+          el.style.pointerEvents = visible ? 'auto' : 'none';
+        });
+      }
+
+      // 카테고리 탭 (매출/인기)
+      section.querySelectorAll('[data-realtime-cat]').forEach(tab => {
+        if (tab.tagName === 'BUTTON') {
+          tab.addEventListener('click', () => {
+            activeCat = tab.dataset.realtimeCat;
+            section.querySelectorAll('[data-realtime-cat]').forEach(t => {
+              if (t.tagName === 'BUTTON') t.classList.toggle('active', t.dataset.realtimeCat === activeCat);
+            });
+            updateContent();
+          });
+        }
+      });
+
+      // 뷰 탭 (요약/실시간)
+      section.querySelectorAll('[data-realtime-view]').forEach(tab => {
+        if (tab.tagName === 'BUTTON' && !tab.disabled) {
+          tab.addEventListener('click', () => {
+            activeView = tab.dataset.realtimeView;
+            section.querySelectorAll('[data-realtime-view]').forEach(t => {
+              if (t.tagName === 'BUTTON') t.classList.toggle('active', t.dataset.realtimeView === activeView);
+            });
+            updateContent();
+          });
+        }
+      });
+
+      // 마켓 토글 (iOS/Android)
+      section.querySelectorAll('[data-market-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeMarket = btn.dataset.marketToggle;
+          section.querySelectorAll('[data-market-toggle]').forEach(b => {
+            b.classList.toggle('active', b.dataset.marketToggle === activeMarket);
+          });
+          updateMarket();
+        });
+      });
+
+      // 범례 클릭 (국가 토글)
+      section.querySelectorAll('.trend-legend-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const region = item.dataset.legend;
+          if (activeRegions.has(region)) {
+            if (activeRegions.size > 1) {
+              activeRegions.delete(region);
+              item.classList.remove('active');
+            }
+          } else {
+            activeRegions.add(region);
+            item.classList.add('active');
+          }
+          updateRegions();
+        });
+      });
+
+      updateContent();
+      updateMarket();
+      updateRegions();
+    })();
+
+    // 관련 콘텐츠 페이지네이션
+    (function() {
+      const container = document.querySelector('.game-related-container');
+      if (!container) return;
+
+      const items = container.querySelectorAll('.game-related-item');
+      const perPage = parseInt(container.dataset.perPage) || 3;
+      const total = parseInt(container.dataset.total) || items.length;
+      const totalPages = Math.ceil(total / perPage);
+      let currentPage = 0;
+
+      const prevBtn = container.querySelector('.home-page-prev');
+      const nextBtn = container.querySelector('.home-page-next');
+      const pageInfo = container.querySelector('.home-page-info');
+
+      function updateDisplay() {
+        const start = currentPage * perPage;
+        const end = start + perPage;
+        items.forEach((item, i) => {
+          item.style.display = (i >= start && i < end) ? '' : 'none';
+        });
+        if (pageInfo) pageInfo.textContent = (currentPage + 1) + ' / ' + totalPages;
+        if (prevBtn) prevBtn.disabled = currentPage === 0;
+        if (nextBtn) nextBtn.disabled = currentPage >= totalPages - 1;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          if (currentPage > 0) { currentPage--; updateDisplay(); }
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          if (currentPage < totalPages - 1) { currentPage++; updateDisplay(); }
+        });
+      }
+
+      updateDisplay();
+    })();
+  </script>
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular"></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=v1"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

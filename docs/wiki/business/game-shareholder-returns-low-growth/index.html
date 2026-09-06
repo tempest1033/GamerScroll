@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/wiki/business/game-shareholder-returns-low-growth/thumbnail.webp">
+		  <title>게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="크래프톤 1조, 넥슨 9,500억, 넷마블 718억. 게임사들이 앞다투어 주주환원을 강화하고 있다. &#39;성숙한 기업의 책임 있는 경영&#39;이라는 해석이 있지만, 그 이면에는 고성장 시대의 종말이라는 구조적 현실이 놓여 있다.">
+  <meta name="keywords" content="주주환원, 자사주 소각, 배당, 크래프톤, 넷마블, 엔씨소프트, 넥슨, 게임주, 밸류업, 저성장, 성장주, 가치주, 게임 시장 성장률, 주가, 2026">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/wiki/business/game-shareholder-returns-low-growth/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가",
+    "description": "크래프톤 1조, 넥슨 9,500억, 넷마블 718억. 게임사들이 앞다투어 주주환원을 강화하고 있다. '성숙한 기업의 책임 있는 경영'이라는 해석이 있지만, 그 이면에는 고성장 시대의 종말이라는 구조적 현실이 놓여 있다.",
+    "datePublished": "2026-02-17T03:30:00+09:00",
+    "dateModified": "2026-02-17T03:30:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/wiki/business/game-shareholder-returns-low-growth/"
+    },
+    "image": "https://gamerscroll.com/assets/images/wiki/business/game-shareholder-returns-low-growth/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "게임 위키",
+        "item": "https://gamerscroll.com/wiki/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "비즈니스",
+        "item": "https://gamerscroll.com/wiki/business/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가",
+        "item": "https://gamerscroll.com/wiki/business/game-shareholder-returns-low-growth/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가">
+  <meta property="og:description" content="크래프톤 1조, 넥슨 9,500억, 넷마블 718억. 게임사들이 앞다투어 주주환원을 강화하고 있다. &#39;성숙한 기업의 책임 있는 경영&#39;이라는 해석이 있지만, 그 이면에는 고성장 시대의 종말이라는 구조적 현실이 놓여 있다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/wiki/business/game-shareholder-returns-low-growth/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가">
+  <meta property="og:url" content="https://gamerscroll.com/wiki/business/game-shareholder-returns-low-growth/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-02-17T03:30:00+09:00">
+  <meta property="article:modified_time" content="2026-02-17T03:30:00+09:00">
+  <meta property="article:section" content="위키">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="주주환원">
+  <meta property="article:tag" content="자사주 소각">
+  <meta property="article:tag" content="배당">
+  <meta property="article:tag" content="크래프톤">
+  <meta property="article:tag" content="넷마블">
+  <meta property="article:tag" content="엔씨소프트">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가">
+  <meta name="twitter:description" content="크래프톤 1조, 넥슨 9,500억, 넷마블 718억. 게임사들이 앞다투어 주주환원을 강화하고 있다. &#39;성숙한 기업의 책임 있는 경영&#39;이라는 해석이 있지만, 그 이면에는 고성장 시대의 종말이라는 구조적 현실이 놓여 있다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/wiki/business/game-shareholder-returns-low-growth/thumbnail.webp">
+  <meta name="twitter:image:alt" content="게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-wiki">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item active" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="wiki-article">
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-57-card">
+  <style>
+    .ad-home-pc-57-card, .ad-home-pc-57 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-57-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-57 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-57"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-58-card">
+  <style>
+    .ad-home-mo-58-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-58, .ad-home-mo-58-card > .ad-home-mo-58, .ad-home-mo-58-card > .ad-home-mo-58 > div, .ad-home-mo-58-card > .ad-home-mo-58 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-58-card > .ad-home-mo-58 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-58-card, .ad-home-mo-58, .ad-home-mo-58-card > .ad-home-mo-58 > div, .ad-home-mo-58-card > .ad-home-mo-58 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-58"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</h1>
+                <div class="blog-meta"><span class="blog-editor">Editor J</span><span class="blog-date">비즈니스</span><time class="blog-date">2026년 2월 17일</time></div>
+              </header>
+
+              
+              <figure class="blog-figure">
+                <img src="/assets/images/wiki/business/game-shareholder-returns-low-growth/thumbnail.webp" class="blog-image" alt="게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가" loading="eager" fetchpriority="high">
+              </figure>
+              
+
+              <p class="blog-summary">크래프톤 1조, 넥슨 9,500억, 넷마블 718억. 게임사들이 앞다투어 주주환원을 강화하고 있다. '성숙한 기업의 책임 있는 경영'이라는 해석이 있지만, 그 이면에는 고성장 시대의 종말이라는 구조적 현실이 놓여 있다.</p>
+
+              <div class="blog-content">
+                
+                <p class="blog-paragraph">2026년 초, 한국 게임사들 사이에서 이례적인 경쟁이 벌어지고 있다. 누가 더 많이 주주에게 돌려주느냐를 놓고 경쟁하는 것이다. 크래프톤은 3년간 1조 원 이상의 주주환원을 선언했고, 넥슨은 1년 만에 약 9,500억 원을 자사주 매입에 쏟아부었다. 넷마블, 엔씨소프트, 컴투스, 더블유게임즈까지 — 규모의 차이만 있을 뿐 방향은 같다.</p><p class="blog-paragraph">시장은 환영하고 있다. '밸류업'이라는 이름 아래 주주 친화 경영이 확산되는 것은 분명 긍정적이다. 하지만 한 발 뒤로 물러서면 질문이 생긴다. 왜 지금인가? 과거에는 번 돈을 신작 개발에 재투자하는 것이 당연했던 업계가, 왜 갑자기 주주에게 돈을 나눠주기 시작했을까.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="8021405606"></ins>
+  </div><h2 id="숫자로-보는-주주환원-경쟁" class="blog-heading">숫자로 보는 주주환원 경쟁</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/business/game-shareholder-returns-low-growth/01.webp" alt="크래프톤 2025년 4분기 실적 발표 자료" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">크래프톤 2025년 실적 발표. 역대 최대 매출과 함께 대규모 주주환원을 선언했다.</figcaption>
+          </figure>
+        <p class="blog-paragraph">2025~2026년 한국 게임사들의 주주환원 규모는 전례가 없다. 단순히 배당만 늘린 것이 아니라, 자사주 매입과 소각, 특별배당, 중장기 환원 정책 명문화까지 총동원됐다.</p>
+          <figure class="blog-figure blog-table">
+            <div class="table-title">한국 게임사 주주환원 현황 (2025~2026년)</div>
+            <div class="table-scroll">
+              <table class="wiki-table">
+                <thead><tr><th>회사</th><th>기간</th><th>총 규모</th><th>주요 방식</th></tr></thead>
+                <tbody><tr><td>넥슨</td><td>1년</td><td>~9,500억원</td><td>자사주 매입 집중</td></tr><tr><td>크래프톤</td><td>3년</td><td>1조원+</td><td>배당 3,000억 + 자사주 7,000억+</td></tr><tr><td>넷마블</td><td>1년</td><td>718억원+</td><td>배당 + 자사주 4.7% 소각</td></tr><tr><td>엔씨소프트</td><td>3년</td><td>1,270억+(소각) + 순익 30%</td><td>적자에도 환원 정책 고수</td></tr><tr><td>더블유게임즈</td><td>1년</td><td>763억원</td><td>배당+매입+소각 병행</td></tr><tr><td>컴투스</td><td>1년</td><td>582억원</td><td>배당 + 자사주 5.1% 소각</td></tr><tr><td>웹젠</td><td>1년</td><td>368억원</td><td>배당 203억 + 특별배당 165억</td></tr><tr><td>위메이드</td><td>1년</td><td>100억원</td><td>2년 만에 배당 재개</td></tr></tbody>
+              </table>
+            </div>
+          </figure>
+        <p class="blog-paragraph">주목할 점은 이것이 일회성 이벤트가 아니라는 것이다. 크래프톤과 엔씨소프트는 3개년 주주환원 정책을 명문화했고, 넷마블은 역대 최대 실적과 동시에 환원을 발표했다. 업계 관계자는 "과거에는 성장을 위해 이익을 재투자하는 전략이 우선이었지만, 이제는 성과를 주주와 공유하지 않으면 시장 신뢰를 얻기 어려운 환경"이라고 말했다.</p><h2 id="긍정적-해석-성숙한-기업의-책임-있는-경영" class="blog-heading">긍정적 해석: 성숙한 기업의 책임 있는 경영</h2><p class="blog-paragraph">공정하게 말하면, 주주환원 강화에는 분명 긍정적인 면이 있다. 크래프톤은 2025년 역대 최대 실적(매출 3.45조, 영업이익 1.45조)을 달성한 상태에서 환원을 선언했다. 넷마블도 연간 매출 2.8조로 역대 최고를 경신했다. 돈이 없어서가 아니라, 벌 수 있는 기업이 주주와 나누겠다는 의지의 표현이다.</p><p class="blog-paragraph">글로벌 확장도 가속화되고 있다. 크래프톤은 인도 시장에서 배틀그라운드 모바일을 기반으로 입지를 넓히고 있고, 넷마블은 해외 매출 비중이 80%에 달한다. 단순한 내수 정체가 아니라 글로벌 포트폴리오를 갖춘 기업들의 주주 친화 정책이라는 해석도 가능하다.</p><p class="blog-paragraph">한국 증시 전체의 '밸류업' 바람도 맥락이다. 코스피 5,000 시대에 접어들면서, 저평가된 한국 기업들에 대한 주주가치 제고 요구가 게임 업종에까지 확산된 것이다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="9566421564"></ins>
+  </div><h2 id="핵심-질문-왜-지금-주주에게-돈을-돌려주는가" class="blog-heading">핵심 질문: 왜 지금 주주에게 돈을 돌려주는가</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/business/game-shareholder-returns-low-growth/02.webp" alt="센서타워 한국 게임 시장 분석 차트 2025" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">센서타워 2025 한국 게임 시장 인사이트 보고서</figcaption>
+          </figure>
+        <p class="blog-paragraph">그러나 핵심 질문을 회피할 수 없다. 성장에 자신이 있는 기업은 배당을 늘리기보다 투자를 늘린다. 아마존은 수십 년간 배당을 하지 않았고, 테슬라도 마찬가지다. 주주환원을 대폭 강화한다는 것은 역설적으로, 재투자할 곳이 줄어들고 있다는 신호일 수 있다.</p><p class="blog-paragraph">한국 게임 시장의 성장률 추이가 이를 뒷받침한다.</p>
+          <figure class="blog-figure blog-table">
+            <div class="table-title">한국 게임 시장 연간 성장률 추이</div>
+            <div class="table-scroll">
+              <table class="wiki-table">
+                <thead><tr><th>연도</th><th>성장률</th></tr></thead>
+                <tbody><tr><td>2020</td><td>21.3%</td></tr><tr><td>2021</td><td>11.2%</td></tr><tr><td>2022</td><td>5.8%</td></tr><tr><td>2023</td><td>3.4%</td></tr><tr><td>2024</td><td>1~2% (추정)</td></tr></tbody>
+              </table>
+            </div>
+          </figure>
+        <p class="blog-paragraph">5년 만에 성장률이 21%에서 1~2%로 급락했다. 메리츠증권은 2026년 게임 산업 전망에서 "낮아진 성장. 플러스 알파가 필요하다"고 진단했다. "국내 플랫폼과 게임 부진이 이어진 지 3년차"라는 분석도 덧붙였다.</p><p class="blog-paragraph">유진투자증권은 한국 게임 산업의 '3탈 현상'을 지적했다. 탈모바일(모바일 MMORPG 매출 감소), 탈RPG(장르 다각화), 탈국내(해외 시장 의존도 증가). 이 세 가지 트렌드가 동시에 진행되면서, 과거의 성공 공식이 더 이상 작동하지 않는다.</p><p class="blog-paragraph">38커뮤니케이션은 더 직접적으로 지적했다. "자사주 소각과 배당이 실질적 성장 정체를 보완하는 방편." 성장으로 주가를 올릴 수 없으니, 주주환원으로 주가를 방어하는 구조라는 분석이다.</p><h2 id="게임주의-침묵-ai-시대에-잊힌-섹터" class="blog-heading">게임주의 침묵: AI 시대에 잊힌 섹터</h2>
+          <figure class="blog-figure">
+            <img class="blog-image" src="/assets/images/wiki/business/game-shareholder-returns-low-growth/03.webp" alt="넷마블 2025년 4분기 실적 발표 자료" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+            <figcaption class="blog-caption">넷마블 2025년 역대 최대 매출 실적 발표</figcaption>
+          </figure>
+        <p class="blog-paragraph">주주환원이 절실해진 배경에는 게임주의 처참한 주가 성적이 있다. 2025년 코스피는 76% 급등하며 5,000선을 돌파했지만, 게임주는 테마 지수 중 유일하게 마이너스를 기록했다. AI 기술주로 자금이 몰리면서 게임은 '관심 밖 섹터'가 됐다.</p><p class="blog-paragraph">엔씨소프트의 주가 궤적이 상징적이다. 2021년 100만 원대에서 2025년 14만 원대로 추락했다. 시가총액이 5분의 1로 줄어드는 동안, 리니지 라이크 장르의 쇠퇴와 신작 부진이 겹쳤다. 엔씨소프트가 적자에도 불구하고 3개년 주주환원 정책(자사주 소각 1,270억 + 순이익 30% 배당)을 고수하는 것은, 주가 방어를 위한 절박한 선택이기도 하다.</p><p class="blog-paragraph">IT조선은 "게임주 밸류에이션 정상화를 요구하는 주주들의 목소리가 커지고 있다"고 보도했다. 성장으로 기업가치가 오르지 않으니, 주주들이 직접 환원을 요구하는 구도가 형성된 것이다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="6077622756"></ins>
+  </div><h2 id="글로벌-비교-게임-산업-전체의-성숙-신호" class="blog-heading">글로벌 비교: 게임 산업 전체의 성숙 신호</h2><p class="blog-paragraph">이 현상은 한국만의 문제가 아니다. 글로벌 게임 산업 전체가 성숙 국면에 진입하면서, 대규모 주주환원이 트렌드가 되고 있다.</p><p class="blog-paragraph">텐센트는 2024년 19.4조 원 규모의 자사주 매입을 실행했다. 홍콩 증시 역사상 최대 규모다. EA는 25억 달러의 주주환원 프로그램을 진행한 뒤, 550억 달러에 비공개 인수(going private)되었다. 성장성보다 안정적 현금흐름을 중시하는 가치 투자자들의 관심이 게임 산업으로 향하고 있다.</p><p class="blog-paragraph">BCG(보스턴컨설팅그룹)는 글로벌 게임 시장의 최근 수익 증가가 "주로 가격 인상에 의한 것"이라고 분석했다. 이용자 수(볼륨)의 성장이 아니라 객단가 상승이 매출을 끌어올리고 있다는 의미다. 이는 전형적인 성숙 산업의 특징이다.</p><h2 id="성장주에서-가치주로-패러다임의-전환인가" class="blog-heading">성장주에서 가치주로: 패러다임의 전환인가</h2><p class="blog-paragraph">종합하면, 게임사들의 주주환원 강화는 두 가지 해석이 공존한다.</p><p class="blog-paragraph">긍정론은 이렇다. 역대 최대 실적을 기록한 기업들이 주주와 성과를 나누는 것은 성숙한 기업 경영의 자연스러운 단계다. 3개년 정책을 명문화한 것은 일시적 방편이 아니라 장기 전략이다. 글로벌 확장과 함께 진행되는 만큼, 단순한 쇠퇴 신호로 보기 어렵다.</p><p class="blog-paragraph">핵심 과제는 명확하다. 주주환원은 주가를 방어할 수 있지만, 성장을 대체할 수 없다. 핵심 과금층의 고령화, MZ세대 유입 실패, 중국 게임의 한국 시장 잠식이라는 구조적 문제는 배당으로 해결되지 않는다. 증권사의 진단처럼 "단기 주가 부양에는 효과적이나 근본적 성장동력 확보가 필수"인 것이다.</p><p class="blog-paragraph">결국 이 경쟁이 성장주에서 가치주로의 전환을 의미하는지, 아니면 글로벌 확장을 동반한 새로운 성장 모델의 시작인지는 향후 2~3년간의 신작 성과와 해외 매출 추이가 결정할 것이다.</p>
+  <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="4">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout="in-article"
+         data-ad-client="ca-pub-9477874183990825"
+         data-ad-slot="1648257301"></ins>
+  </div><h2 id="성장-없는-환원은-지속될-수-없다" class="blog-heading">성장 없는 환원은 지속될 수 없다</h2><p class="blog-paragraph">한국 게임 산업은 분기점에 서 있다. 주주환원 경쟁은 그 자체로 나쁜 것이 아니다. 문제는 그것이 성장의 결과인지, 성장 부재의 보완인지다.</p><p class="blog-paragraph">크래프톤과 넷마블이 역대 최대 실적을 달성하면서 동시에 환원을 강화한 것은 사실이다. 하지만 한국 게임 시장 성장률이 21%에서 1%대로 추락한 것도 사실이고, 코스피가 76% 오르는 동안 게임주만 빠진 것도 사실이다.</p><p class="blog-paragraph">메리츠증권의 한 마디가 현재 상황을 정확히 요약한다. "낮아진 성장. 플러스 알파가 필요." 주주환원은 '알파'를 만드는 수단이 될 수 있지만, 결국 '성장'이라는 본질을 대체할 수는 없다.</p>
+              </div>
+
+              
+              
+      <div class="blog-related-issues">
+        <div class="blog-related-title">관련 문서</div>
+        <div class="blog-related-issues-list">
+          
+              <a href="/wiki/business/korean-game-stocks-2025/" class="blog-related-issue-card">
+                <img class="blog-related-issue-thumb" src="/assets/images/wiki/business/korean-game-stocks-2025/thumbnail.webp" alt="코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span></span>
+              </a>
+        </div>
+      </div>
+    
+              
+      <div class="blog-sources">
+        <div class="blog-sources-title">참고 자료</div>
+        <ul class="blog-sources-list">
+          <li><a href="https://it.chosun.com/news/articleView.html?idxno=2023092157002" target="_blank" rel="noopener">IT조선 - 배당·소각 카드 꺼냈다… 게임사들이 주주환원 전면 내세운 이유는</a></li><li><a href="https://www.techm.kr/news/articleView.html?idxno=148764" target="_blank" rel="noopener">테크M - 찬바람 불던 게임주…코스피 5000 시대에 주주가치 제고 나섰다</a></li><li><a href="https://www.meritz.co.kr" target="_blank" rel="noopener">메리츠증권 - 게임 산업 2026 전망: 낮아진 성장, 플러스 알파가 필요</a></li><li><a href="https://www.38.co.kr" target="_blank" rel="noopener">38커뮤니케이션 - 게임사 주주환원 정책 분석</a></li><li><a href="https://sensortower.com/ko/blog/state-of-gaming-in-korea-2025-report-KR" target="_blank" rel="noopener">Sensor Tower - 2025 State of Gaming in Korea Report</a></li>
+        </ul>
+      </div>
+    
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/wiki/business/korean-game-stocks-2025/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/wiki/" class="trend-nav-btn list">목록</a>
+      <span class="trend-nav-btn disabled">다음 ›</span>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item active">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/business/platform-fees-comparison/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">게임 플랫폼별 수수료 비교: 스팀, 앱스토어, 구글플레이</span>
+      </a>
+      <a href="/wiki/knowledge/pd-vs-director/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">PD와 디렉터의 차이는 무엇인가요?</span>
+      </a>
+      <a href="/wiki/history/heroes-of-might-and-magic/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">히어로즈 오브 마이트 앤 매직: 모바일 SLG의 원형</span>
+      </a>
+      <a href="/wiki/business/app-revenue-ranking-algorithm/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">앱 매출 순위 산정 방식: iOS와 Android의 차이</span>
+      </a>
+      <a href="/wiki/business/game-ip-licensing/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">게임 IP 라이선스, 비용과 수익 구조</span>
+      </a>
+      <a href="/wiki/business/publisher-developer-relationship/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">퍼블리셔와 개발사, 게임 산업의 두 축</span>
+      </a>
+      <a href="/wiki/business/top-gaming-companies-by-market-cap/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">세계에서 가장 큰 게임 회사 Top 10, 2026년 시가총액 순위</span>
+      </a>
+      <a href="/wiki/history/the-war-of-genesis/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">30년 전 추억, 왜 창세기전은 멈추지 않는가?</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/wiki/business/game-shareholder-returns-low-growth/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">게임사 주주환원 경쟁의 이면: 고성장 시대의 종말을 반증하는가</span>
+      </a>
+      <a href="/wiki/knowledge/gaming-seasonality-spending/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">게임의 시즌성: 언제 게임을 가장 많이 하고, 언제 가장 많이 결제할까</span>
+      </a>
+      <a href="/wiki/knowledge/chzzk-soop-p2p-grid/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">치지직 숲 그리드란? 트위치 철수 후 스트리밍의 생존법</span>
+      </a>
+      <a href="/wiki/knowledge/excel-formulas-for-game-balance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">게임 밸런스를 위한 엑셀 활용 실무 가이드 : 함수·수식</span>
+      </a>
+      <a href="/wiki/knowledge/app-store-review-thursday-update/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">앱스토어 검수 시간 총정리: 업데이트는 왜 목요일에 몰릴까?</span>
+      </a>
+      <a href="/wiki/history/korean-esports-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">한국 e스포츠의 역사: PC방에서 세계 무대까지</span>
+      </a>
+      <a href="/wiki/business/korean-game-stocks-2025/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">코스피 5000 시대? 2025년 '게임주만 하락'한 이유와 반등 조건</span>
+      </a>
+      <a href="/wiki/history/ragnarok-online-history/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">라그나로크, 2026년에도 1위입니다</span>
+      </a>
+      <a href="/wiki/business/game-business-metrics/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">게임 사업 지표 가이드: ARPU부터 LTV까지 (KPI/벤치마크/계산식)</span>
+      </a>
+      <a href="/wiki/knowledge/gukjeon-hanwoori/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">국전 한우리: 전국에서 가장 유명한 게임샵</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

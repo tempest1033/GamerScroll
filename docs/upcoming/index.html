@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+		  <title>출시 게임 - 신작 게임, 출시 예정 게임 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="출시 게임 - 신작 게임, 출시 예정 게임 정보를 한눈에.">
+  <meta name="keywords" content="출시 게임, 신작 게임, 출시 예정 게임, 스팀 출시, 닌텐도 출시, PS5 출시, 모바일 신작">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/upcoming/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "출시 게임",
+        "item": "https://gamerscroll.com/upcoming/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="출시 게임 - 신작 게임, 출시 예정 게임">
+  <meta property="og:description" content="출시 게임 - 신작 게임, 출시 예정 게임 정보를 한눈에.">
+  <meta property="og:image" content="https://gamerscroll.com/og-image.png">
+  <meta property="og:image:alt" content="출시 게임 - 신작 게임, 출시 예정 게임">
+  <meta property="og:url" content="https://gamerscroll.com/upcoming/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="출시 게임 - 신작 게임, 출시 예정 게임">
+  <meta name="twitter:description" content="출시 게임 - 신작 게임, 출시 예정 게임 정보를 한눈에.">
+  <meta name="twitter:image" content="https://gamerscroll.com/og-image.png">
+  <meta name="twitter:image:alt" content="출시 게임 - 신작 게임, 출시 예정 게임">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-game.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-game.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-upcoming">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/magazine/">매거진</a>
+      <a class="nav-item" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item active" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=5;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="upcoming">
+      <div class="ad-card ad-card-responsive-home ad-home-pc-53-card">
+  <style>
+    .ad-home-pc-53-card, .ad-home-pc-53 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-53-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-53 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-53"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-54-card">
+  <style>
+    .ad-home-mo-54-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-54, .ad-home-mo-54-card > .ad-home-mo-54, .ad-home-mo-54-card > .ad-home-mo-54 > div, .ad-home-mo-54-card > .ad-home-mo-54 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-54-card > .ad-home-mo-54 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-54-card, .ad-home-mo-54, .ad-home-mo-54-card > .ad-home-mo-54 > div, .ad-home-mo-54-card > .ad-home-mo-54 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-54"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+      <div class="page-container">
+        <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
+        <div class="upcoming-card home-card">
+          <div class="home-card-header">
+            <h2 class="home-card-title">출시 게임</h2>
+          </div>
+          <div class="rankings-tabs-row">
+            <div class="tab-group" id="upcomingTab">
+              <button class="tab-btn active" data-upcoming="steam">
+                <img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=32" alt="" class="news-favicon">스팀
+              </button>
+              <button class="tab-btn" data-upcoming="ps5">
+                <img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=32" alt="" class="news-favicon">PS5
+	              </button>
+	              <button class="tab-btn" data-upcoming="nintendo">
+	                <svg viewBox="0 0 24 24" fill="#e60012" class="news-favicon"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>닌텐도
+	              </button>
+	              <button class="tab-btn" data-upcoming="mobile">
+	                <img src="https://www.google.com/s2/favicons?domain=apple.com&sz=32" alt="" class="news-favicon">모바일
+	              </button>
+            </div>
+          </div>
+          <div class="home-card-body">
+            <div class="upcoming-section active" id="upcoming-steam">
+              
+	      <div class="upcoming-table-header">
+	        <div>순위</div>
+	        <div>게임</div>
+	      </div>
+	    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/1422450" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank top1">1</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1422450/header.jpg" alt="Deadlock" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1422450/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Deadlock</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2719590" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank top2">2</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2719590/header.jpg" alt="Light No Fire" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2719590/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Light No Fire</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/4534960" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank top3">3</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4534960/header.jpg" alt="Dear Passengers" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4534960/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Dear Passengers</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2769570" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">4</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2769570/header.jpg" alt="Fable" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2769570/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Fable</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/1774880" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">5</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1774880/header.jpg" alt="Blight: Survival" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1774880/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Blight: Survival</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/4115450" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">6</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4115450/header.jpg" alt="Phantom Blade Zero" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4115450/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Phantom Blade Zero</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/4199910" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">7</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4199910/header.jpg" alt="Total War: WARHAMMER 40,000" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4199910/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Total War: WARHAMMER 40,000</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2109770" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">8</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2109770/header.jpg" alt="Dragon's Dogma 2: Dark Arisen" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2109770/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Dragon's Dogma 2: Dark Arisen</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/4824610" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">9</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4824610/header.jpg" alt="Kingmakers" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4824610/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Kingmakers</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/1846700" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">10</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1846700/header.jpg" alt="Resident Evil Veronica" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1846700/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Resident Evil Veronica</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/1757350" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">11</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1757350/header.jpg" alt="Witchbrook" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1757350/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Witchbrook</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2050420" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">12</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050420/header.jpg" alt="ILL" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2050420/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">ILL</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/4165890" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">13</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4165890/header.jpg" alt="ARK 2" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4165890/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">ARK 2</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/1867240" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">14</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1867240/header.jpg" alt="Steam Frame" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1867240/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Steam Frame</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/4095380" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">15</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4095380/header.jpg" alt="WARDOGS" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4095380/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">WARDOGS</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2381520" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">16</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2381520/header.jpg" alt="Soulframe" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2381520/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Soulframe</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2590240" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">17</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2590240/header.jpg" alt="Unrecord" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2590240/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Unrecord</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2963950" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">18</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2963950/header.jpg" alt="METRO 2039" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2963950/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">METRO 2039</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/2272360" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">19</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2272360/header.jpg" alt="Persona 4 Revival" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2272360/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Persona 4 Revival</div>
+	          </div>
+	        </div>
+      </a>
+    
+	      <a class="upcoming-item" href="https://store.steampowered.com/app/3292470" target="_blank" rel="noopener">
+	        <div class="upcoming-col-rank">
+	          <span class="upcoming-rank ">20</span>
+	        </div>
+	        <div class="upcoming-col-game">
+	          <img class="upcoming-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3292470/header.jpg" alt="Warhammer 40,000: Dawn of War IV" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1" data-img-fallback-retry-src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3292470/capsule_231x87.jpg"><div class="upcoming-icon-placeholder hidden"><svg viewBox="0 0 24 24" fill="#1b2838"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0z"/></svg></div>
+	          <div class="upcoming-info">
+	            <div class="upcoming-name">Warhammer 40,000: Dawn of War IV</div>
+	          </div>
+	        </div>
+      </a>
+    
+            </div>
+            <div class="upcoming-section" id="upcoming-ps5"></div>
+            <div class="upcoming-section" id="upcoming-nintendo"></div>
+            <div class="upcoming-section" id="upcoming-mobile"></div>
+          </div>
+          <script>window.__UPCOMING_DATA__={"ps5":[],"nintendo":[{"name":"Moonlighter 2: The Endless Vault","link":"https://store.nintendo.co.kr/70010000118045","img":""},{"name":"초등학생 때 외워두고 싶은 영단어","link":"https://store.nintendo.co.kr/70010000131652","img":""},{"name":"오비탈스 Orbitals","link":"https://store.nintendo.co.kr/70010000098976","img":""},{"name":"베일드엣지(Veiled Edge)","link":"https://store.nintendo.co.kr/70010000127990","img":""},{"name":"Wo Long: Fallen Dynasty Complete Edition","link":"https://store.nintendo.co.kr/70010000129267","img":""},{"name":"어지간히 야꾸 Re: Return of KUSOGAKI","link":"https://store.nintendo.co.kr/70010000134310","img":""},{"name":"스타 레이서 (Star Racer)","link":"https://store.nintendo.co.kr/70010000120803","img":""},{"name":"전설 속 생물 16유형 성격 테스트","link":"https://store.nintendo.co.kr/70010000131482","img":""},{"name":"IQ 로직 코드: 숫자와 문자의 추리 퍼즐","link":"https://store.nintendo.co.kr/70010000130153","img":""},{"name":"숨겨진 사진 미스터리: 진실을 알면 무섭다","link":"https://store.nintendo.co.kr/70010000132207","img":""},{"name":"나의 히어로 아카데미아 올즈 저스티스","link":"https://store.nintendo.co.kr/70010000103759","img":""},{"name":"귀무자 Way of the Sword (Onimusha: Way of the Sword)","link":"https://store.nintendo.co.kr/70010000112824","img":""},{"name":"동방홍마향: New Classic　～ the Embodiment of Scarlet Devil.","link":"https://www.nintendo.com/kr/schedule","img":""},{"name":"One-inch Tactics","link":"https://store.nintendo.co.kr/70010000126134","img":""},{"name":"Woodo","link":"https://store.nintendo.co.kr/70010000121599","img":""},{"name":"Granblue Fantasy Versus: Rising Legendary Edition","link":"https://store.nintendo.co.kr/70010000110993","img":""},{"name":"Maestro 마에스트로","link":"https://store.nintendo.co.kr/70010000110146","img":""},{"name":"스나이퍼댄","link":"https://store.nintendo.co.kr/70010000122903","img":""},{"name":"파이어 엠블렘 만자천홍","link":"https://www.nintendo.com/kr/games/switch2/aacsa/index.html","img":""},{"name":"하늘의 궤적 the 2nd","link":"https://store.nintendo.co.kr/70010000128496","img":""}],"mobile":[{"name":"소년가행: 강호의 시작","link":"https://apps.apple.com/kr/app/%EC%86%8C%EB%85%84%EA%B0%80%ED%96%89-%EA%B0%95%ED%98%B8%EC%9D%98-%EC%8B%9C%EC%9E%91/id6768501839?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7c/c0/5a/7cc05a15-086e-f7df-e376-4e82244391c5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"픽셀 테이머즈","link":"https://apps.apple.com/kr/app/%ED%94%BD%EC%85%80-%ED%85%8C%EC%9D%B4%EB%A8%B8%EC%A6%88/id6670596973?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/00/0a/d5000a2f-77bf-abce-bf6a-13da26170a1c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"아쿠아랜드: 크레이지 서바이벌","link":"https://apps.apple.com/kr/app/%EC%95%84%EC%BF%A0%EC%95%84%EB%9E%9C%EB%93%9C-%ED%81%AC%EB%A0%88%EC%9D%B4%EC%A7%80-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%8C/id6780387121?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/20/ab/79/20ab7903-4b88-3568-0f39-bcc7a3c71631/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"아처캐슬 키우기 : 방치형 RPG","link":"https://apps.apple.com/kr/app/%EC%95%84%EC%B2%98%EC%BA%90%EC%8A%AC-%ED%82%A4%EC%9A%B0%EA%B8%B0-%EB%B0%A9%EC%B9%98%ED%98%95-rpg/id6788215554?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f9/16/77/f91677c7-a5b1-7e6c-b3fb-95ca84e89e82/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"뚜까펫: 서바이벌","link":"https://apps.apple.com/kr/app/%EB%9A%9C%EA%B9%8C%ED%8E%AB-%EC%84%9C%EB%B0%94%EC%9D%B4%EB%B2%8C/id6741567125?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/1b/77/fa1b779a-3e8d-6b76-7c40-c9e598e87f75/AppIcon-Global-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg"},{"name":"랜덤 다이스 2","link":"https://apps.apple.com/kr/app/%EB%9E%9C%EB%8D%A4-%EB%8B%A4%EC%9D%B4%EC%8A%A4-2/id6748432502?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d8/66/b9/d866b9ac-a856-0de1-2c6e-2aceb907c91f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"로그W: 리메인즈 오브 갓","link":"https://apps.apple.com/kr/app/%EB%A1%9C%EA%B7%B8w-%EB%A6%AC%EB%A9%94%EC%9D%B8%EC%A6%88-%EC%98%A4%EB%B8%8C-%EA%B0%93/id6764247964?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/79/c6/1b/79c61bd0-f79c-2e7b-744a-72963068aba6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"},{"name":"우주떡집 : 떡볶이 타이쿤","link":"https://apps.apple.com/kr/app/%EC%9A%B0%EC%A3%BC%EB%96%A1%EC%A7%91-%EB%96%A1%EB%B3%B6%EC%9D%B4-%ED%83%80%EC%9D%B4%EC%BF%A4/id6780835418?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/4e/de/824edef9-b646-caab-0866-4c29efcc1954/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"Last Shelter: War Z","link":"https://apps.apple.com/kr/app/last-shelter-war-z/id6760406772?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/7b/7d/bc7b7d5b-d8b2-09ff-54e0-03f9e7dd3ef9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"Top Force: Commander","link":"https://apps.apple.com/kr/app/top-force-commander/id6761893238?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7b/25/5a/7b255a84-e0e4-9ceb-4e5b-acb701920048/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"제우스: 오만의 신","link":"https://apps.apple.com/kr/app/%EC%A0%9C%EC%9A%B0%EC%8A%A4-%EC%98%A4%EB%A7%8C%EC%9D%98-%EC%8B%A0/id6504389641?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/43/58/a3435840-0ba7-03b0-1ea4-324263fd2946/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"구해줄거냥? : 고양이 마을 퍼즐","link":"https://apps.apple.com/kr/app/%EA%B5%AC%ED%95%B4%EC%A4%84%EA%B1%B0%EB%83%A5-%EA%B3%A0%EC%96%91%EC%9D%B4-%EB%A7%88%EC%9D%84-%ED%8D%BC%EC%A6%90/id6761253603?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/26/2d/69/262d69e2-5ee2-53aa-f82e-577231d26263/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"플랜츠 온 파이어","link":"https://apps.apple.com/kr/app/%ED%94%8C%EB%9E%9C%EC%B8%A0-%EC%98%A8-%ED%8C%8C%EC%9D%B4%EC%96%B4/id6757785541?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/8b/4c/078b4c1f-c3de-38c0-8a05-50923205a4ee/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"소드 앤 프론티아","link":"https://apps.apple.com/kr/app/%EC%86%8C%EB%93%9C-%EC%95%A4-%ED%94%84%EB%A1%A0%ED%8B%B0%EC%95%84/id6778414368?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/67/5a/48/675a48e2-7ddb-6a06-f06d-fc0823115bfc/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg"},{"name":"삼국지: 제후의 전쟁","link":"https://apps.apple.com/kr/app/%EC%82%BC%EA%B5%AD%EC%A7%80-%EC%A0%9C%ED%9B%84%EC%9D%98-%EC%A0%84%EC%9F%81/id6794261919?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/d3/e5/23d3e52f-be4e-9bc5-9bc9-26f772d8c97f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg"},{"name":"오늘두호두-날마다 두뇌 트레이닝","link":"https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EB%91%90%ED%98%B8%EB%91%90-%EB%82%A0%EB%A7%88%EB%8B%A4-%EB%91%90%EB%87%8C-%ED%8A%B8%EB%A0%88%EC%9D%B4%EB%8B%9D/id6760736230?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/b0/2e/cfb02e08-f9b1-f55e-5ed2-cf0d98eb60a0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"},{"name":"Sand Fill: Block Puzzle","link":"https://apps.apple.com/kr/app/sand-fill-block-puzzle/id6797907221?uo=4","img":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/28/92/85/289285b0-1b63-2f1a-1185-3d77b3aafe42/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg"}]};</script>
+        </div>
+      </div>
+    </section>
+  
+    
+  <script>
+    // 출시 게임 섹션 렌더링 (lazy load용)
+    function renderUpcomingSection(items, platform) {
+      if (!items || items.length === 0) return '<div class="upcoming-empty">출시 예정 정보를 불러올 수 없습니다</div>';
+      var logos = {
+        ps5: '<svg viewBox="0 0 24 24" fill="#003791"><path d="M8.984 2.596v17.547l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.181.76.814.76 1.505v5.875c2.441 1.193 4.362-.002 4.362-3.153 0-3.247-1.199-4.872-3.545-5.596-1.017-.317-2.962-.709-4.269-1.086-1.311-.379-2.017-.683-2.017-.683z"/><path d="M16.997 14.963c-1.387.471-1.81.832-1.81 1.457 0 .571.312.934.991.934.596 0 1.224-.279 1.78-.607v1.623c-.559.328-1.401.583-2.253.583-1.596 0-2.649-.857-2.649-2.181 0-1.45 1.105-2.135 2.812-2.713l1.129-.399V12.1c0-.857-.262-1.262-.936-1.262-.596 0-1.225.314-1.812.643v-1.652c.558-.328 1.401-.553 2.253-.553 1.656 0 2.526.827 2.526 2.426v4.261c0 .857.107 1.284.304 1.602h-2.04c-.165-.285-.262-.596-.262-.931v-.002z"/><path d="M1 18.156v-1.623c.952.5 2.116.91 3.109.91.905 0 1.262-.28 1.262-.704 0-.424-.357-.643-1.453-.991l-.952-.314c-1.355-.44-2.116-1.284-2.116-2.569 0-1.596 1.087-2.569 3.202-2.569.905 0 2.253.286 3.078.643v1.623c-.905-.471-2.166-.881-3.078-.881-.875 0-1.233.286-1.233.674 0 .387.387.613 1.325.931l.952.314c1.566.5 2.253 1.315 2.253 2.629 0 1.596-1.147 2.569-3.23 2.569-.905 0-2.253-.286-3.119-.643z"/></svg>',
+        nintendo: '<svg viewBox="0 0 24 24" fill="#e60012"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="7" cy="12" r="3" fill="#fff"/><circle cx="7" cy="12" r="1.5" fill="#e60012"/><rect x="15" y="9" width="4" height="6" rx="1" fill="#fff"/></svg>',
+        mobile: '<svg viewBox="0 0 24 24" fill="#34a853"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#34a853" stroke-width="2" fill="none"/><circle cx="12" cy="18" r="1.5" fill="#34a853"/></svg>'
+      };
+      var logo = logos[platform] || logos.mobile;
+      function resizeIconUrl(url) {
+        if (!url) return '';
+        if (url.indexOf('mzstatic.com/') !== -1) return url.replace(//d+xd+bb./, '/100x100bb.');
+        if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+        return url;
+      }
+      var header = '<div class="upcoming-table-header"><div>순위</div><div>게임</div></div>';
+      var rows = items.map(function(game, i) {
+        var iconSrc = resizeIconUrl(game.img);
+        return '<a class="upcoming-item" href="' + (game.link || '#') + '" target="_blank" rel="noopener"><div class="upcoming-col-rank"><span class="upcoming-rank ' + (i < 3 ? 'top' + (i + 1) : '') + '">' + (i + 1) + '</span></div><div class="upcoming-col-game">' + (game.img ? '<img class="upcoming-icon" src="' + iconSrc + '" alt="" loading="lazy" decoding="async" data-img-fallback="hide-show-next" data-img-fallback-show-next="1">' : '') + '<div class="upcoming-icon-placeholder' + (game.img ? ' hidden' : '') + '">' + logo + '</div><div class="upcoming-info"><div class="upcoming-name">' + game.name + '</div></div></div></a>';
+      }).join('');
+      return header + rows;
+    }
+
+    // 출시 게임 탭 전환 (lazy load 지원)
+    document.querySelectorAll('#upcomingTab .tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#upcomingTab .tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.upcoming;
+        document.querySelectorAll('.upcoming-section').forEach(s => s.classList.remove('active'));
+        const section = document.getElementById('upcoming-' + target);
+        if (section) {
+          section.classList.add('active');
+          // Lazy load: 비어있으면 렌더링
+          if (target !== 'steam' && !section.innerHTML.trim() && window.__UPCOMING_DATA__) {
+            section.innerHTML = renderUpcomingSection(window.__UPCOMING_DATA__[target], target);
+          }
+        }
+      });
+    });
+  </script>
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular"></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/issue/deepseek-v4-launch-march-2026/thumbnail.webp">
+		  <title>딥시크 V4 출격 대기: 3월 4일 출시 유력 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="딥시크가 3월 4일 중국 양회 개막에 맞춰 차세대 모델 V4를 공개할 것으로 관측된다. 1조 파라미터 MoE 아키텍처, 100만 토큰 컨텍스트, Engram 메모리 기술 등 파격적 스펙과 함께 GPT-5.2 대비 1/6 수준인 가격 경쟁력이 AI 업계 판도를 흔들 전망이다.">
+  <meta name="keywords" content="딥시크, DeepSeek V4, 양회, MoE, Engram, 멀티모달, 화웨이, 블랙웰, AI 패권, 대형언어모델">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/magazine/issue/deepseek-v4-launch-march-2026/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "딥시크 V4 출격 대기: 3월 4일 출시 유력",
+    "description": "딥시크가 3월 4일 중국 양회 개막에 맞춰 차세대 모델 V4를 공개할 것으로 관측된다. 1조 파라미터 MoE 아키텍처, 100만 토큰 컨텍스트, Engram 메모리 기술 등 파격적 스펙과 함께 GPT-5.2 대비 1/6 수준인 가격 경쟁력이 AI 업계 판도를 흔들 전망이다.",
+    "datePublished": "2026-03-02T22:00:00+09:00",
+    "dateModified": "2026-03-02T22:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/magazine/issue/deepseek-v4-launch-march-2026/"
+    },
+    "image": "https://gamerscroll.com/assets/images/issue/deepseek-v4-launch-march-2026/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "브리핑",
+        "item": "https://gamerscroll.com/magazine/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "딥시크 V4 출격 대기: 3월 4일 출시 유력",
+        "item": "https://gamerscroll.com/magazine/issue/deepseek-v4-launch-march-2026/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="딥시크 V4 출격 대기: 3월 4일 출시 유력">
+  <meta property="og:description" content="딥시크가 3월 4일 중국 양회 개막에 맞춰 차세대 모델 V4를 공개할 것으로 관측된다. 1조 파라미터 MoE 아키텍처, 100만 토큰 컨텍스트, Engram 메모리 기술 등 파격적 스펙과 함께 GPT-5.2 대비 1/6 수준인 가격 경쟁력이 AI 업계 판도를 흔들 전망이다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/issue/deepseek-v4-launch-march-2026/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="딥시크 V4 출격 대기: 3월 4일 출시 유력">
+  <meta property="og:url" content="https://gamerscroll.com/magazine/issue/deepseek-v4-launch-march-2026/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-03-02T22:00:00+09:00">
+  <meta property="article:modified_time" content="2026-03-02T22:00:00+09:00">
+  <meta property="article:section" content="이슈">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="딥시크">
+  <meta property="article:tag" content="DeepSeek V4">
+  <meta property="article:tag" content="양회">
+  <meta property="article:tag" content="MoE">
+  <meta property="article:tag" content="Engram">
+  <meta property="article:tag" content="멀티모달">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="딥시크 V4 출격 대기: 3월 4일 출시 유력">
+  <meta name="twitter:description" content="딥시크가 3월 4일 중국 양회 개막에 맞춰 차세대 모델 V4를 공개할 것으로 관측된다. 1조 파라미터 MoE 아키텍처, 100만 토큰 컨텍스트, Engram 메모리 기술 등 파격적 스펙과 함께 GPT-5.2 대비 1/6 수준인 가격 경쟁력이 AI 업계 판도를 흔들 전망이다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/issue/deepseek-v4-launch-march-2026/thumbnail.webp">
+  <meta name="twitter:image:alt" content="딥시크 V4 출격 대기: 3월 4일 출시 유력">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-report.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-report.a96f7e4c.css"></noscript>
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-magazine">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item active" href="/magazine/">매거진</a>
+      <a class="nav-item" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=0;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="issue">
+
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-1-card">
+  <style>
+    .ad-home-pc-1-card, .ad-home-pc-1 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-1-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-1 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-1"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-2-card">
+  <style>
+    .ad-home-mo-2-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-2-card > .ad-home-mo-2 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-2-card, .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-2"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">딥시크 V4 출격 대기: 3월 4일 출시 유력</h1>
+                <div class="blog-meta">
+                  <span class="blog-editor">Editor J</span>
+                  <time class="blog-date">2026년 3월 2일</time>
+                </div>
+              </header>
+              
+                <figure class="blog-figure">
+                  <img class="blog-image" src="/assets/images/issue/deepseek-v4-launch-march-2026/thumbnail.webp" alt="딥시크 V4 출격 대기: 3월 4일 출시 유력 대표 이미지" loading="eager" fetchpriority="high">
+                </figure>
+              
+              <p class="blog-summary">딥시크가 3월 4일 중국 양회 개막에 맞춰 차세대 모델 V4를 공개할 것으로 관측된다. 1조 파라미터 MoE 아키텍처, 100만 토큰 컨텍스트, Engram 메모리 기술 등 파격적 스펙과 함께 GPT-5.2 대비 1/6 수준인 가격 경쟁력이 AI 업계 판도를 흔들 전망이다.</p>
+              <div class="blog-content">
+                <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="8021405606"></ins>
+</div><h2 class="blog-heading">3월 4일 양회 개막, V4 출시 카운트다운</h2><p class="blog-paragraph">중국 AI 스타트업 딥시크(DeepSeek)가 3월 4일 차세대 대형언어모델 V4를 공개할 것으로 관측된다. 이 날짜는 중국 최대 정치 행사인 전국인민대표대회(양회) 개막일과 정확히 맞물린다. 딥시크는 올해 초 V3 후속 모델 출시를 여러 차례 예고했으나 수차례 연기를 거듭했고, 이번에야 비로소 확정적인 출시 시그널이 포착되고 있다.</p><p class="blog-paragraph">복수의 업계 관계자와 외신에 따르면, 딥시크는 이번 주 내로 V4 모델을 발표할 예정이며, 양회 기간 중 발표라는 점에서 중국 정부의 AI 기술 자립 의지를 대외적으로 과시하려는 전략적 타이밍으로 해석된다. TechNode는 딥시크 내부 소식통을 인용해 "이번 주 출시가 확실하다"고 보도했고, PYMNTS 역시 "발표 임박" 기조를 전했다.</p><p class="blog-paragraph">딥시크는 2024년 12월 V3를 출시하며 오픈소스 AI 시장에 돌풍을 일으켰고, 2025년 1월 추론 특화 모델 R1으로 글로벌 AI 업계에 충격을 안겼다. V4는 그 후속작으로서, 텍스트를 넘어 이미지와 영상까지 아우르는 네이티브 멀티모달 모델로의 도약이 예고되어 있다.</p><h2 class="blog-heading">파격 스펙: 1T MoE와 100만 토큰 컨텍스트</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/deepseek-v4-launch-march-2026/01.webp" alt="딥시크 Engram 메모리 아키텍처 구조도" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">딥시크의 Engram Conditional Memory 시스템 구조 (출처: Tom's Hardware)</figcaption>
+            </figure>
+          <p class="blog-paragraph">V4의 가장 눈에 띄는 변화는 아키텍처의 대폭 확장이다. 총 파라미터 수는 약 1조(1T)에 달하는 Mixture-of-Experts(MoE) 구조를 채택하면서도, 실제 추론 시 활성화되는 파라미터는 약 320억(32B)으로 유지해 효율성과 성능을 동시에 잡는다는 전략이다. 이는 V3의 6,710억 파라미터(활성 370억)에서 총 규모는 크게 키우면서 활성 파라미터는 오히려 줄인 설계로, 연산 효율을 극대화하려는 의도가 읽힌다.</p><p class="blog-paragraph">컨텍스트 윈도우는 100만 토큰으로 확대되었다. GPT-4o의 12.8만 토큰, Claude 3.5 Sonnet의 20만 토큰과 비교하면 압도적인 수치다. 이를 가능하게 하는 핵심 기술이 바로 <strong>Engram Conditional Memory</strong>다. 기존 트랜스포머가 긴 문맥을 처리할 때 O(n) 이상의 연산 복잡도를 보이는 것과 달리, Engram은 O(1) 조회 시간으로 과거 맥락에 접근할 수 있는 인간 뇌의 장기 기억 메커니즘에서 영감을 받은 기술이다.</p><p class="blog-paragraph">Tom's Hardware에 따르면, Engram은 학습과 추론 단계 모두에 내장되며 "가중치 기반 영구 기억"을 형성한다. 이는 단순히 긴 텍스트를 읽는 것을 넘어, 과거 세션의 맥락까지 효율적으로 활용할 수 있음을 의미한다. 또한 <strong>Manifold-Constrained Hyper-Connections</strong> 기술로 레이어 간 정보 흐름을 최적화해 기존 잔차 연결(residual connection)의 한계를 넘어섰다.</p><p class="blog-paragraph">멀티모달 역시 V4의 핵심 차별점이다. V3가 텍스트 전용이었던 것과 달리, V4는 텍스트, 이미지, 영상을 네이티브로 처리하는 통합 멀티모달 모델로 설계되었다. 이는 GPT-4o, Gemini 2.0과 직접 경쟁하겠다는 의지의 표현이다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="9566421564"></ins>
+</div><h2 class="blog-heading">가격 파괴: 경쟁사의 1/4 수준</h2><p class="blog-paragraph">딥시크의 가장 강력한 무기는 단연 가격이다. V4의 예상 인풋 토큰 가격은 100만 토큰당 약 $0.28 수준으로, 이는 경쟁 모델 대비 파격적인 수치다.</p>
+            <figure class="blog-figure blog-table">
+              <div class="table-title">주요 AI 모델 인풋 토큰 가격 비교 (100만 토큰 기준)</div>
+              <div class="table-scroll">
+                <table class="wiki-table">
+                  <thead><tr><th>모델</th><th>인풋 가격</th><th>비고</th></tr></thead>
+                  <tbody><tr><td>DeepSeek V4 (예상)</td><td>~$0.28</td><td>MoE 1T / 활성 32B</td></tr><tr><td>GPT-5.2 (OpenAI)</td><td>$1.75</td><td>최신 프론티어</td></tr><tr><td>Claude Opus 4.6 (Anthropic)</td><td>$5.00</td><td>표준 200K 컨텍스트 기준</td></tr><tr><td>Gemini 3.1 Pro (Google)</td><td>$2.00</td><td>200K 이하 컨텍스트 기준</td></tr><tr><td>DeepSeek V3 (현행)</td><td>~$0.27</td><td>MoE 671B / 활성 37B</td></tr></tbody>
+                </table>
+              </div>
+            </figure>
+          <p class="blog-paragraph">V4의 가격은 V3와 거의 동일한 수준을 유지하면서 성능은 대폭 향상시킨 것으로 보인다. GPT-5.2 대비 약 1/6, Claude Opus 4.6 대비 약 1/18, Gemini 3.1 Pro 대비 약 1/7 수준이다. 이러한 가격 경쟁력은 딥시크가 중국 내 저렴한 인건비와 효율적인 MoE 아키텍처를 통해 달성한 것으로 분석된다. 특히 오픈소스 정책을 유지할 경우, API뿐 아니라 자체 배포를 원하는 기업들에게도 매력적인 선택지가 된다.</p><h2 class="blog-heading">블랙웰 칩 논란: 기술 자립인가, 수출통제 위반인가</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/deepseek-v4-launch-march-2026/02.webp" alt="딥시크 로고" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">딥시크를 둘러싼 블랙웰 칩 사용 의혹이 미-중 기술 갈등의 새로운 뇌관으로 부상했다 (출처: Tom's Hardware)</figcaption>
+            </figure>
+          <p class="blog-paragraph">V4 출시를 앞두고 가장 논쟁적인 이슈는 학습에 사용된 칩이다. 딥시크 측은 화웨이의 Ascend 910B와 캠브리콘 칩을 중심으로 학습을 진행했다고 주장하며, 이를 중국 AI의 기술 자립 사례로 내세우고 있다. 그러나 미국 측에서는 전혀 다른 시각이 나온다.</p><p class="blog-paragraph">다수의 외신과 업계 분석가들은 딥시크가 엔비디아의 최신 블랙웰(Blackwell) B200 칩을 대량 확보해 학습에 활용했을 가능성을 제기하고 있다. 미국 정부의 대중국 첨단 반도체 수출통제에도 불구하고 우회 경로를 통해 입수했다는 의혹이다. 관련 보도에 따르면, 딥시크가 보유한 GPU 수량이 공식적으로 확인된 것보다 상당히 많다는 정황이 포착되고 있다.</p><p class="blog-paragraph">이 논란은 단순한 기업 차원을 넘어 미-중 기술 패권 경쟁의 핵심 쟁점으로 부상했다. 만약 수출통제 위반이 확인될 경우, 딥시크에 대한 제재는 물론 중국 AI 생태계 전체에 파급 효과가 미칠 수 있다. 반대로 화웨이 칩만으로 V4급 모델을 학습시킨 것이 사실이라면, 중국의 반도체 자립이 예상보다 빠르게 진행되고 있음을 의미한다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="6077622756"></ins>
+</div><h2 class="blog-heading">AI 패권 경쟁의 새로운 국면</h2><p class="blog-paragraph">딥시크 V4의 등장은 AI 업계의 경쟁 구도를 근본적으로 뒤흔들 잠재력을 지닌다. 1조 파라미터 규모에 100만 토큰 컨텍스트, 그리고 경쟁사 대비 파격적인 가격까지, V4가 공개된 벤치마크에서 예고된 성능을 실제로 입증한다면, OpenAI와 Google, Anthropic에게는 상당한 압박이 될 수밖에 없다.</p><p class="blog-paragraph">특히 양회 기간 발표라는 점은 이 모델이 단순한 기술 제품을 넘어 중국의 AI 역량을 상징하는 정치적 메시지이기도 하다는 것을 시사한다. 블랙웰 칩 논란의 결말에 따라 미국의 수출통제 정책이 더욱 강화될 수도, 혹은 중국의 기술 자립 내러티브가 힘을 얻을 수도 있다.</p><p class="blog-paragraph">3월 4일, 딥시크의 발표가 AI 패권 경쟁의 다음 장을 어떻게 쓸지 전 세계가 주목하고 있다.</p>
+              </div>
+              
+              
+    <div class="blog-related-games">
+      <div class="blog-related-title">관련 게임</div>
+      <div class="blog-related-grid">
+        
+          <a href="/games/v4/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://play-lh.googleusercontent.com/0eqve3vuw_DqpLWW6u-1DPklxV-Z6Avy75hnxNxTb36w5LmT4fdYWGpC292SpFvfzHww" alt="V4" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">V4</span>
+          </a>
+        
+      </div>
+    </div>
+  
+              
+    <div class="blog-sources">
+      <div class="blog-sources-title">정보 출처</div>
+      <ul class="blog-sources-list">
+        
+          <li><a href="https://technode.com/2026/03/02/deepseek-plans-v4-multimodal-model-release-this-week-sources-say/" target="_blank" rel="noopener">TechNode - DeepSeek plans V4 multimodal model release this week, sources say</a></li>
+        
+          <li><a href="https://www.pymnts.com/artificial-intelligence-2/2026/deepseek-poised-to-unveil-latest-ai-model/" target="_blank" rel="noopener">PYMNTS - DeepSeek Poised to Unveil Latest AI Model</a></li>
+        
+          <li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/deepseek-touts-memory-breakthrough-engram" target="_blank" rel="noopener">Tom's Hardware - DeepSeek touts memory breakthrough: Engram</a></li>
+        
+      </ul>
+    </div>
+  
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/magazine/issue/gacha-item-relief-center/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      <a href="/magazine/issue/pokemon-pokopia-review-roundup/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>

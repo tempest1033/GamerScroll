@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://wsrv.nl">
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+	  <link rel="preload" as="image" fetchpriority="high" href="https://gamerscroll.com/assets/images/issue/azur-promilia-comicworld-cbt-korea/thumbnail.webp">
+		  <title>킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다 | 게이머스크롤</title>
+  <!-- SEO -->
+  <meta name="description" content="벽람항로의 만쥬게임즈가 차기작 &#39;아주르 프로밀리아&#39;로 코믹월드 330 메인 스폰서에 나섰다. 6m 초대형 키보 조형물과 RTX 5080 경품으로 현장을 뒤흔든 가운데, 안드로이드+PC CBT 모집이 4월 24일까지 진행 중이다.">
+  <meta name="keywords" content="아주르 프로밀리아, 만쥬게임즈, 넥슨, CBT, 코믹월드, 오픈월드 RPG, 키보">
+  <meta name="application-name" content="게이머스크롤">
+  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <link rel="canonical" href="https://gamerscroll.com/magazine/issue/azur-promilia-comicworld-cbt-korea/">
+  
+  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다",
+    "description": "벽람항로의 만쥬게임즈가 차기작 '아주르 프로밀리아'로 코믹월드 330 메인 스폰서에 나섰다. 6m 초대형 키보 조형물과 RTX 5080 경품으로 현장을 뒤흔든 가운데, 안드로이드+PC CBT 모집이 4월 24일까지 진행 중이다.",
+    "datePublished": "2026-03-15T00:00:00+09:00",
+    "dateModified": "2026-03-15T00:00:00+09:00",
+    "author": {
+      "@type": "Person",
+      "name": "Editor J"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "게이머스크롤",
+      "url": "https://gamerscroll.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gamerscroll.com/icon-192.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://gamerscroll.com/magazine/issue/azur-promilia-comicworld-cbt-korea/"
+    },
+    "image": "https://gamerscroll.com/assets/images/issue/azur-promilia-comicworld-cbt-korea/thumbnail.webp"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "브리핑",
+        "item": "https://gamerscroll.com/magazine/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다",
+        "item": "https://gamerscroll.com/magazine/issue/azur-promilia-comicworld-cbt-korea/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다">
+  <meta property="og:description" content="벽람항로의 만쥬게임즈가 차기작 &#39;아주르 프로밀리아&#39;로 코믹월드 330 메인 스폰서에 나섰다. 6m 초대형 키보 조형물과 RTX 5080 경품으로 현장을 뒤흔든 가운데, 안드로이드+PC CBT 모집이 4월 24일까지 진행 중이다.">
+  <meta property="og:image" content="https://gamerscroll.com/assets/images/issue/azur-promilia-comicworld-cbt-korea/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다">
+  <meta property="og:url" content="https://gamerscroll.com/magazine/issue/azur-promilia-comicworld-cbt-korea/">
+  <meta property="og:site_name" content="게이머스크롤">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="article:published_time" content="2026-03-15T00:00:00+09:00">
+  <meta property="article:modified_time" content="2026-03-15T00:00:00+09:00">
+  <meta property="article:section" content="이슈">
+  <meta property="article:author" content="게이머스크롤">
+  <meta property="article:tag" content="아주르 프로밀리아">
+  <meta property="article:tag" content="만쥬게임즈">
+  <meta property="article:tag" content="넥슨">
+  <meta property="article:tag" content="CBT">
+  <meta property="article:tag" content="코믹월드">
+  <meta property="article:tag" content="오픈월드 RPG">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다">
+  <meta name="twitter:description" content="벽람항로의 만쥬게임즈가 차기작 &#39;아주르 프로밀리아&#39;로 코믹월드 330 메인 스폰서에 나섰다. 6m 초대형 키보 조형물과 RTX 5080 경품으로 현장을 뒤흔든 가운데, 안드로이드+PC CBT 모집이 4월 24일까지 진행 중이다.">
+  <meta name="twitter:image" content="https://gamerscroll.com/assets/images/issue/azur-promilia-comicworld-cbt-korea/thumbnail.webp">
+  <meta name="twitter:image:alt" content="킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
+	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
+	  <!-- 메인 CSS -->
+  <link rel="stylesheet" href="/styles-core.a96f7e4c.css">
+  <link rel="preload" href="/styles-report.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-report.a96f7e4c.css"></noscript>
+  <link rel="preload" href="/styles-article.a96f7e4c.css" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="/styles-article.a96f7e4c.css"></noscript>
+<script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
+      var links = document.querySelectorAll('link[data-deferred-css="1"]');
+      var pending = links.length;
+      if (!pending) {
+        root.classList.remove('deferred-css-pending');
+        return;
+      }
+      var done = false;
+      function completeOne() {
+        if (done) return;
+        pending -= 1;
+        if (pending <= 0) {
+          done = true;
+          root.classList.remove('deferred-css-pending');
+        }
+      }
+      links.forEach(function(link) {
+        link.addEventListener('load', completeOne, { once: true });
+        link.addEventListener('error', completeOne, { once: true });
+      });
+      setTimeout(function() {
+        if (done) return;
+        done = true;
+        links.forEach(function(link) {
+          if (link.rel === 'preload') link.rel = 'stylesheet';
+        });
+        root.classList.remove('deferred-css-pending');
+      }, 3200);
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 완료 후 실행
+	      if (document.readyState === 'complete') {
+	        setTimeout(initFirebase, 0);
+	      } else {
+	        window.addEventListener('load', initFirebase);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-magazine">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 22px 0 !important; position: relative; z-index: 100000; }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between !important;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 32px !important;
+      gap: 24px;
+    }
+    .gs-logo { flex-shrink: 0; }
+    .gs-logo .logo-svg { height: 40px; width: auto; }
+    .gs-search { position: relative; flex-shrink: 0; width: 300px; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); }
+    .gs-search .search-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/">
+          <span class="visually-hidden">게이머스크롤</span>
+          <svg class="logo-svg" viewBox="0 0 660 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#2563EB" />
+                <stop offset="100%" stop-color="#60A5FA" />
+              </linearGradient>
+            </defs>
+            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="62" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">GAMER SCROLL</text>
+            <rect x="8" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+            <rect x="26" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="44" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="606" y="6" width="10" height="60" rx="5" fill="url(#techGrad)"/>
+            <rect x="624" y="15" width="10" height="42" rx="5" fill="url(#techGrad)" opacity="0.7"/>
+            <rect x="642" y="24" width="10" height="24" rx="5" fill="url(#techGrad)" opacity="0.4"/>
+          </svg>
+        </a>
+      </div>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <button class="search-btn" type="button" aria-label="검색">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
+        <img src="/favicon.svg" alt="" width="20" height="20">
+      </a>
+      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <button class="search-btn" type="button" aria-label="검색">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item active" href="/magazine/">매거진</a>
+      <a class="nav-item" href="/wiki/">게임 위키</a>
+      <a class="nav-item" href="/games/">게임 DB</a>
+      <a class="nav-item" href="/rankings/">모바일 순위</a>
+      <a class="nav-item" href="/steam/">스팀 순위</a>
+      <a class="nav-item" href="/upcoming/">출시 게임</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=0;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/layout-core.js?v=46e73dec"></script>
+    
+    <section class="section active" id="issue">
+
+      <article class="page-container issue-container">
+        <div class="article-layout">
+          <div class="article-main">
+            <div class="ad-card ad-card-responsive-home ad-home-pc-1-card">
+  <style>
+    .ad-home-pc-1-card, .ad-home-pc-1 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-1-card { display:flex !important; width:100%; max-width:970px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-1 { display:block !important; width:100%; min-height:90px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-pc-1"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"
+       data-ad-format="horizontal"
+       data-full-width-responsive="true"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-2-card">
+  <style>
+    .ad-home-mo-2-card { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .ad-home-mo-2-card > .ad-home-mo-2 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-2-card, .ad-home-mo-2, .ad-home-mo-2-card > .ad-home-mo-2 > div, .ad-home-mo-2-card > .ad-home-mo-2 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-2"
+       style="display:block;width:100%;max-width:320px;height:100px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+            <div class="blog-card">
+              <header class="blog-header">
+                <h1 class="blog-title">킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다</h1>
+                <div class="blog-meta">
+                  <span class="blog-editor">Editor J</span>
+                  <time class="blog-date">2026년 3월 15일</time>
+                </div>
+              </header>
+              
+                <figure class="blog-figure">
+                  <img class="blog-image" src="/assets/images/issue/azur-promilia-comicworld-cbt-korea/thumbnail.webp" alt="킨텍스에 6미터 배추닭이 떴다: 아주르 프로밀리아 CBT 닻을 올리다 대표 이미지" loading="eager" fetchpriority="high">
+                </figure>
+              
+              <p class="blog-summary">벽람항로의 만쥬게임즈가 차기작 '아주르 프로밀리아'로 코믹월드 330 메인 스폰서에 나섰다. 6m 초대형 키보 조형물과 RTX 5080 경품으로 현장을 뒤흔든 가운데, 안드로이드+PC CBT 모집이 4월 24일까지 진행 중이다.</p>
+              <div class="blog-content">
+                <p class="blog-paragraph">벽람항로로 글로벌 서브컬처 시장을 장악한 만쥬게임즈가 차기작 '아주르 프로밀리아'를 들고 한국에 본격 상륙했다. 코믹월드 330 최초 메인 스폰서라는 파격적인 행보와 함께, 안드로이드+PC CBT 모집까지 동시에 시작하며 국내 서브컬처 팬들의 시선을 집중시키고 있다.</p><p class="blog-paragraph">넥슨이 한국 퍼블리싱을 맡은 이 게임은 판타지 오픈월드 액션 RPG로, '원신+팰월드'라는 별명이 붙을 만큼 독특한 조합을 선보인다. 한국 시장 공략의 첫 신호탄이 된 코믹월드 현장과 CBT 정보를 정리했다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="8021405606"></ins>
+</div><h2 class="blog-heading">'푸른 바다 너머로' 첫 항해의 시작</h2>
+              <figure class="blog-figure blog-video">
+                <div class="blog-video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/c3VdbqfTz7k"
+                    title="아주르 프로밀리아 공식 트레일러 'Set Sail Towards the Blue Beyond'"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    loading="lazy">
+                  </iframe>
+                </div>
+                <figcaption class="blog-caption">아주르 프로밀리아 공식 트레일러 'Set Sail Towards the Blue Beyond'</figcaption>
+              </figure>
+            <p class="blog-paragraph">2025년 4월 공개된 공식 트레일러 'Set Sail Towards the Blue Beyond'는 아주르 프로밀리아의 방향성을 한눈에 보여준다. 광활한 판타지 대륙 '프로밀리아'를 배경으로, 다양한 종족과 신비 생물이 공존하는 세계가 펼쳐진다.</p><p class="blog-paragraph">영상 속에서는 3인 파티 태그 전투, 키보를 타고 이동하는 장면, 농사와 채광 등 샌드박스 요소가 자연스럽게 녹아들어 있다. 공개 당시부터 '벽람항로 만쥬의 오픈월드'라는 점에서 큰 기대를 모았다.</p><h2 class="blog-heading">키보를 부화시켜 타고 싸우고 농사짓는 오픈월드</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/azur-promilia-comicworld-cbt-korea/01.webp" alt="아주르 프로밀리아 CBT 모집 공식 이미지" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">아주르 프로밀리아 CBT 모집이 3월 14일부터 시작됐다</figcaption>
+            </figure>
+          <p class="blog-paragraph">아주르 프로밀리아는 판타지 월드 오픈월드 액션 RPG이자 캐릭터 수집형 샌드박스 게임이다. PC, PS5, iOS, 안드로이드 크로스플랫폼을 지원하며, 판타지 대륙 '프로밀리아'에서 다양한 종족이 공존하는 세계관을 그린다.</p><p class="blog-paragraph">전투는 3인 파티 태그 액션 방식이다. 저스트 회피, 패링, 브레이크, 키보 협공 등 다양한 메카닉이 결합되어 있으며, 인벤 리뷰에서는 "당장 나와도 합격점"이라는 평가를 받았다. 조작감에 대한 호평이 특히 인상적이다.</p><p class="blog-paragraph">가장 주목받는 건 '키보' 시스템이다. 신비 생물 키보를 부화시키고, 성장과 진화를 거쳐 전투 파트너로 활용할 수 있다. 키보는 전투뿐 아니라 탈것, 채광, 농사 등 생활 콘텐츠에도 투입된다. 원신의 오픈월드 탐험과 팰월드의 생물 수집 육성을 합친 형태라는 비유가 나오는 이유다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="9566421564"></ins>
+</div><h2 class="blog-heading">킨텍스 4홀을 삼킨 6미터 배추닭</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/azur-promilia-comicworld-cbt-korea/02.webp" alt="아주르 프로밀리아 코믹월드 330 부스 이미지" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">일산 킨텍스 제1전시장 4홀 전체를 사용한 코믹월드 330 부스</figcaption>
+            </figure>
+          <p class="blog-paragraph">3월 14~15일 일산 킨텍스 제1전시장에서 열린 코믹월드 330에서, 아주르 프로밀리아는 메인 스폰서로 나서며 4홀 전체를 사용했다. 코믹월드 역사상 게임이 메인 스폰서를 맡은 것은 이번이 처음이다.</p><p class="blog-paragraph">현장에는 6m 높이의 초대형 '배추닭(키보)' 조형물이 설치됐고, 300석 규모의 휴게 공간이 마련됐다. 5인 코스플레이어 퍼포먼스와 일러스트 작가 '레바'의 라이브 드로잉쇼도 진행됐다.</p><p class="blog-paragraph">참가자들을 위한 스탬프 랠리와 1대1 탑로더 꾸미기 체험 이벤트도 열렸다. 경품으로는 RTX 5080 그래픽카드와 Wacom 콜라보 독점 굿즈가 걸렸다. 출시도 안 된 게임이 이 정도 규모의 오프라인 행사를 여는 건 국내에서도 이례적이다.</p><h2 class="blog-heading">넥슨퍼스트 깔고 설문까지, CBT 신청법 총정리</h2><p class="blog-paragraph">코믹월드와 동시에 CBT 모집도 시작됐다. 모집 기간은 2026년 3월 14일부터 4월 24일 오전 11시 59분(KST)까지다. 대상 플랫폼은 안드로이드와 PC로, iOS는 이번 CBT에 포함되지 않았다.</p><p class="blog-paragraph">신청 방법은 넥슨퍼스트 앱을 통해 넥슨 ID로 로그인한 뒤, 휴대폰 인증과 설문을 완료하면 된다. 중국에서는 이미 2월에 선행 CBT가 진행된 바 있어, 이번 한국 CBT에서는 중국 피드백이 반영된 개선 버전을 만나볼 수 있을 것으로 기대된다.</p><p class="blog-paragraph">정식 출시는 2026년 하반기에서 2027년 상반기 사이로 예상되고 있다.</p><div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout="in-article"
+     data-ad-client="ca-pub-9477874183990825"
+     data-ad-slot="6077622756"></ins>
+</div><h2 class="blog-heading">블루아카 다음 타자, 넥슨이 만쥬를 택한 이유</h2>
+            <figure class="blog-figure">
+              <img class="blog-image" src="/assets/images/issue/azur-promilia-comicworld-cbt-korea/03.webp" alt="아주르 프로밀리아 넥슨 퍼블리싱 계약 대표 이미지" width="1200" height="675" loading="lazy" data-img-fallback="parent-hide">
+              <figcaption class="blog-caption">2025년 12월 넥슨이 아주르 프로밀리아 한국 퍼블리싱 계약을 공식 발표했다</figcaption>
+            </figure>
+          <p class="blog-paragraph">만쥬게임즈는 벽람항로로 글로벌 $1.7억 매출을 기록한 서브컬처 강자다. 2025년 12월 15일 넥슨이 한국 퍼블리싱을 공식 발표하면서, 넥슨의 서브컬처 라인업에 중요한 한 축이 추가됐다.</p><p class="blog-paragraph">넥슨은 이미 블루 아카이브(학원물)로 서브컬처 시장에서 입지를 다진 상태다. 여기에 아주르 프로밀리아(판타지 오픈월드)를 더해 투트랙 전략을 펼치는 셈이다. 지역별로는 일본은 요스타, 중국은 만쥬 자체 퍼블리싱, 한국은 넥슨이 담당하는 구조다.</p><p class="blog-paragraph">코믹월드 메인 스폰서라는 이례적인 마케팅과 대규모 CBT 모집은, 넥슨이 아주르 프로밀리아에 얼마나 공을 들이고 있는지를 보여주는 신호다. 블루 아카이브 이후 넥슨의 두 번째 서브컬처 히트작이 될 수 있을지 주목된다.</p>
+              </div>
+              
+    <div class="blog-related-issues">
+      <div class="blog-related-title">관련 문서</div>
+      <div class="blog-related-issues-list">
+        
+          <a href="/magazine/issue/2026-subculture-openworld-games/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/2026-subculture-openworld-games/thumbnail.webp" alt="2026년 서브컬처 오픈월드 신작 총정리 - 엔드필드부터 무한대까지" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">2026년 서브컬처 오픈월드 신작 총정리 - 엔드필드부터 무한대까지</span></span>
+          </a>
+          <a href="/magazine/issue/blue-archive-5th-anniversary-japan/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/blue-archive-5th-anniversary-japan/thumbnail.webp" alt="블루 아카이브 일본 5주년, 매출 1위·코믹마켓 5연패 '더블 크라운'" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">블루 아카이브 일본 5주년, 매출 1위·코믹마켓 5연패 '더블 크라운'</span></span>
+          </a>
+          <a href="/magazine/issue/neverness-to-everness-launch-date/" class="blog-related-issue-card">
+            <img class="blog-related-issue-thumb" src="/assets/images/issue/neverness-to-everness-launch-date/thumbnail.webp" alt="이환(NTE) 글로벌 출시일 확정, 4월 29일 풀 크로스 플랫폼 출격" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">이환(NTE) 글로벌 출시일 확정, 4월 29일 풀 크로스 플랫폼 출격</span></span>
+          </a>
+      </div>
+    </div>
+  
+              
+    <div class="blog-related-games">
+      <div class="blog-related-title">관련 게임</div>
+      <div class="blog-related-grid">
+        
+          <a href="/games/원신공월의-노래/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/47/b4/c847b425-8ff7-c482-5d95-2f37850184ba/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.png" alt="원신·공월의 노래" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">원신·공월의 노래</span>
+          </a>
+        
+          <a href="/games/벽람항로/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://play-lh.googleusercontent.com/WRmzhGeKBb5nFJHK380nqNrlqw4gl1WnL6Ij7mWT7eDKRCnAsmPVUfIRPcWefeLzGA" alt="벽람항로" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">벽람항로</span>
+          </a>
+        
+          <a href="/games/rust/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252490/21aac0b6e20e1ba12f635e7deb730e32a51afbd5/capsule_231x87.jpg?t=1761667247" alt="Rust" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">Rust</span>
+          </a>
+        
+          <a href="/games/palworld/" class="blog-related-card">
+            <img class="blog-related-icon" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1623730/4f823e476ad290ad4f19763e7d800723df422dfa/capsule_231x87.jpg?t=1764860671" alt="Palworld" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <span class="blog-related-name">Palworld</span>
+          </a>
+        
+      </div>
+    </div>
+  
+              
+    <div class="blog-sources">
+      <div class="blog-sources-title">정보 출처</div>
+      <ul class="blog-sources-list">
+        
+          <li><a href="https://www.inven.co.kr/webzine/news/?news=314383" target="_blank" rel="noopener">인벤 - 아주르 프로밀리아 CBT 참가자 모집 시작</a></li>
+        
+          <li><a href="https://zdnet.co.kr/view/?no=20260314161002" target="_blank" rel="noopener">ZDNet Korea - 아주르 프로밀리아, 코믹월드 330 참가</a></li>
+        
+          <li><a href="https://www.inven.co.kr/webzine/news/?news=313236" target="_blank" rel="noopener">인벤 - 아주르 프로밀리아 전투 리뷰</a></li>
+        
+          <li><a href="https://www.inven.co.kr/webzine/news/?news=312006" target="_blank" rel="noopener">인벤 - 아주르 프로밀리아 게임 소개</a></li>
+        
+          <li><a href="https://www.inven.co.kr/webzine/news/?news=314101" target="_blank" rel="noopener">인벤 - 아주르 프로밀리아 코믹월드 프로그램 공개</a></li>
+        
+      </ul>
+    </div>
+  
+            </div>
+
+            
+    <div class="trend-detail-nav">
+      <a href="/magazine/issue/nvidia-rtx-3060-samsung-8nm-revival/" class="trend-nav-btn prev">‹ 이전</a>
+      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      <a href="/magazine/issue/rewinding-cadence-technical-test/" class="trend-nav-btn next">다음 ›</a>
+    </div>
+  
+          </div>
+
+          
+          <aside class="article-sidebar">
+            <div class="article-sidebar-sticky">
+              
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+            </div>
+          </aside>
+          
+        </div>
+      </article>
+    </section>
+    
+    <script>
+      (function() {
+        var init = function() {
+          if (!window.GSUtils || typeof window.GSUtils.toggleSidebarArticleTab !== 'function') return;
+          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
+        };
+        if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
+          init();
+        } else if (typeof window.__gsOnReady === 'function') {
+          window.__gsOnReady(init);
+        } else if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', init, { once: true });
+        } else {
+          init();
+        }
+      })();
+    </script>
+  
+  
+    
+  </main>
+  
+    <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
+    <div class="mobile-side-panel" id="mobileSidePanel">
+      <div class="mobile-side-panel-header">
+        <span class="mobile-side-panel-title">메뉴</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-side-panel-body">
+        
+      <div class="home-card" id="sidebar-categories">
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/magazine/issue/" class="home-card-title-link"><h2 class="home-card-title">리포트</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/magazine/issue/" class="sidebar-category-item">
+        <span class="sidebar-category-name">이슈</span><span class="sidebar-category-count">143</span>
+      </a>
+      <a href="/magazine/insight/" class="sidebar-category-item">
+        <span class="sidebar-category-name">인사이트</span><span class="sidebar-category-count">7</span>
+      </a>
+      <a href="/magazine/hotpick/" class="sidebar-category-item">
+        <span class="sidebar-category-name">핫픽</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/ranking/" class="sidebar-category-item">
+        <span class="sidebar-category-name">순위 분석</span><span class="sidebar-category-count">16</span>
+      </a>
+      <a href="/magazine/weekly/" class="sidebar-category-item">
+        <span class="sidebar-category-name">주간</span>
+      </a></div>
+        </div>
+        <div class="sidebar-category-group">
+          <div class="home-card-header"><a href="/wiki/" class="home-card-title-link"><h2 class="home-card-title">위키</h2></a></div>
+          <div class="sidebar-category-list">
+      <a href="/wiki/history/" class="sidebar-category-item">
+        <span class="sidebar-category-name">히스토리</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/knowledge/" class="sidebar-category-item">
+        <span class="sidebar-category-name">지식</span><span class="sidebar-category-count">12</span>
+      </a>
+      <a href="/wiki/business/" class="sidebar-category-item">
+        <span class="sidebar-category-name">비즈니스</span><span class="sidebar-category-count">9</span>
+      </a></div>
+        </div>
+      </div>
+      <div class="home-card" id="sidebar-articles">
+        <div class="home-card-header">
+          <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
+            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+          </div>
+        </div>
+        <div class="home-card-body">
+          <div class="sidebar-article-list active" id="panel-sidebar-popular">
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/hotpick/agile-jira-confluence-game-dev/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">애자일과 지라·컨플루언스, 게임 개발 현장의 필수 도구</span>
+      </a>
+      <a href="/magazine/insight/2026-game-trends/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 게임 트렌드: MMO 지고 방치형이 뜬다</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-revenue-decline-2026/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">리니지라이크 매출 평균순위 6개월째 하락… 정상엔 리니지M·오딘뿐</span>
+      </a>
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a></div>
+          <div class="sidebar-article-list" id="panel-sidebar-latest">
+      <a href="/magazine/ranking/subculture-august-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">1</span>
+        <span class="sidebar-article-title">2026년 8월 서브컬처 게임 매출 순위, 니케 1위·홀로라이브 7위</span>
+      </a>
+      <a href="/magazine/insight/lineage-like-market-revival/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">2</span>
+        <span class="sidebar-article-title">제우스·SOL 인챈트·리니지M 매출 톱3…리니지라이크 부활하나</span>
+      </a>
+      <a href="/magazine/issue/dlss-5-leak-backlash/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">3</span>
+        <span class="sidebar-article-title">DLSS 5 유출본 반응, 게이머 혹평이 쏟아진 이유</span>
+      </a>
+      <a href="/magazine/issue/zeus-dual-market-revenue-no1/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">4</span>
+        <span class="sidebar-article-title">제우스: 오만의 신, 출시 52시간 만에 양대 마켓 매출 1위</span>
+      </a>
+      <a href="/magazine/insight/sol-enchant-ranking-streak/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">5</span>
+        <span class="sidebar-article-title">솔: 인챈트 매출 순위, 출시 두 달째 전체 앱 3위</span>
+      </a>
+      <a href="/magazine/insight/cookierun-crumble-performance/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">6</span>
+        <span class="sidebar-article-title">쿠키런 키우기 출시 2주 성적: 매출·인기 순위 분석</span>
+      </a>
+      <a href="/magazine/ranking/subculture-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">7</span>
+        <span class="sidebar-article-title">2026년 7월 서브컬쳐 게임 순위, 니케 1위·젠레스 4위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-july-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">8</span>
+        <span class="sidebar-article-title">2026년 7월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/mobile-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">9</span>
+        <span class="sidebar-article-title">2026년 6월 모바일 게임 매출 순위</span>
+      </a>
+      <a href="/magazine/ranking/subculture-june-2026-kr/" class="sidebar-article-item">
+        <span class="sidebar-article-rank">10</span>
+        <span class="sidebar-article-title">2026년 6월 서브컬쳐 게임 매출 순위</span>
+      </a></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 게이머스크롤</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
+	  </footer>
+
+	  <!-- Privacy Modal (content loaded dynamically) -->
+	  <div id="privacy-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+	    <div class="modal-content">
+	      <button class="modal-close" type="button" data-modal-close="privacy-modal" aria-label="닫기">&times;</button>
+	      <div class="privacy-modal-body"></div>
+	    </div>
+	  </div>
+
+  <script defer src="/assets/layout-runtime.js?v=46e73dec"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>
