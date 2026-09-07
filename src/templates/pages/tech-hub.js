@@ -9,6 +9,7 @@ const path = require('path');
 const fs = require('fs');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot, buildCardFeedPagerScript } = require('../layout');
 const { generateSidebar: generateSharedSidebar } = require('../components/sidebar');
+const { renderFeedCardBody } = require('../components/utils');
 
 // 통합 반응형 빌드 - 단일 도메인/경로
 const docsDir = path.join(__dirname, '../../../docs');
@@ -16,14 +17,6 @@ const siteBaseUrl = 'https://gamerscroll.com';
 
 // 광고 슬롯
 const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
-
-// 날짜 포맷 헬퍼
-const formatDateKr = (dateStr) => {
-  if (!dateStr) return '';
-  const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
-  if (!match) return dateStr;
-  return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
-};
 
 // 카테고리 정보
 const categoryNames = { normal: '일반', ai: 'AI', vibecoding: '바이브코딩' };
@@ -280,7 +273,6 @@ function generateTechHubPage({
         ? `src="${escapeHtmlAttr(thumbData.src)}" srcset="${escapeHtmlAttr(thumbData.srcset)}" sizes="${escapeHtmlAttr(thumbData.sizes)}"`
         : (thumbData.src ? `src="${escapeHtmlAttr(thumbData.src)}"` : '');
       const catName = categoryNames[article.category] || '';
-      const badgeText = article.date ? formatDateKr(article.date) : catName;
       const imgHtml = (i < INITIAL_FEED_RENDER_COUNT && thumbData.src)
         ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">`
         : '';
@@ -295,9 +287,8 @@ function generateTechHubPage({
         <a href="/tech/${article.category}/${article.slug}/" class="home-trend-card"${lazyAttrs}>
           <div class="home-trend-card-image">
             ${imgHtml}
-            <span class="home-trend-card-tag tech">${badgeText}</span>
           </div>
-          <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${article.title}</span></h3>
+          ${renderFeedCardBody({ category: catName, date: article.date, title: article.title, summary: article.summary })}
         </a>
       `
       };
@@ -414,17 +405,14 @@ function generateTechCategoryPage({
       const lazyAttrs = (i >= INITIAL_FEED_RENDER_COUNT && thumbData.src)
         ? ` data-lazy-img-src="${escapeHtmlAttr(thumbData.src)}"${lazySrcsetAttr} data-lazy-img-alt="${escapeHtmlAttr(article.title)}"`
         : '';
-      const badgeText = article.date ? formatDateKr(article.date) : catName;
-
       cardEntries.push({
         itemIndex: i,
         html: `
         <a href="/tech/${category}/${article.slug}/" class="home-trend-card home-latest-item" data-index="${i}"${lazyAttrs}>
           <div class="home-trend-card-image">
             ${(i < INITIAL_FEED_RENDER_COUNT && thumbData.src) ? `<img ${imgAttrs} alt="${escapeHtmlAttr(article.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag tech">${badgeText}</span>
           </div>
-          <h3 class="home-trend-card-title">${article.title}</h3>
+          ${renderFeedCardBody({ category: catName, date: article.date, title: article.title, summary: article.summary })}
         </a>`
       });
     });

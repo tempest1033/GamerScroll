@@ -473,7 +473,6 @@ const lazyCardHydrationScript = `
       var sizes = card.getAttribute('data-lazy-img-sizes');
       var imageWrap = card.querySelector('.home-trend-card-image');
       if (!imageWrap) return;
-      var tag = imageWrap.querySelector('.home-trend-card-tag');
       var img = document.createElement('img');
       img.src = src;
       if (srcset) img.srcset = srcset;
@@ -492,8 +491,7 @@ const lazyCardHydrationScript = `
           img.classList.add('loaded');
         }, { once: true });
       }
-      if (tag) imageWrap.insertBefore(img, tag);
-      else imageWrap.appendChild(img);
+      imageWrap.appendChild(img);
       card.removeAttribute('data-lazy-img-src');
       card.removeAttribute('data-lazy-img-srcset');
       card.removeAttribute('data-lazy-img-sizes');

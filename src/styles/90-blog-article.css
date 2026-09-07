@@ -161,10 +161,10 @@ a.blog-editor:hover {
   color: var(--text-tertiary);
 }
 
-/* 리드(요약문) - 본문보다 한 단계 큰 회색 톤 */
+/* 리드(요약문) - 강조 박스 안이라 본문과 같은 크기, 회색 톤 */
 .blog-summary {
-  font-size: var(--font-article-lead-size);
-  line-height: 1.6;
+  font-size: var(--font-article-body-size);
+  line-height: 1.7;
   color: var(--text-secondary);
   font-weight: 400;
   padding: 16px 20px;

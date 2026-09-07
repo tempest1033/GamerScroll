@@ -95,10 +95,10 @@ function aboutHref(lang = 'en') { return pathForLang(PERSON_AUTHOR.path, lang); 
 const AI_CATEGORY_IDS = CATEGORY_IDS;
 const SIDEBAR_CATEGORY_IDS = CATEGORY_IDS;
 
-// 사이드바 주제 목록 (글이 있는 주제 + 내비 대표 주제). counts는 { topicId: n }
+// 사이드바 주제 목록 (글이 있는 주제만 — 0건 주제는 상단 내비에만 남긴다). counts는 { topicId: n }
 function renderTopicList(counts = {}, lang = 'en') {
   const _t = I18N[lang] || I18N.en;
-  const ids = Object.keys(counts).filter(id => counts[id] > 0 || NAV_TOPIC_IDS.includes(id));
+  const ids = Object.keys(counts).filter(id => counts[id] > 0);
   if (ids.length === 0) return '';
   ids.sort((a, b) => (counts[b] || 0) - (counts[a] || 0) || a.localeCompare(b));
   return `
@@ -246,7 +246,10 @@ function generateDefaultSidebarContent(counts = {}, lang = 'en') {
   const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
   const cNum = (key) => counts[key] !== undefined ? `<span class="sidebar-category-count">${counts[key]}</span>` : '';
   const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({ id, label: _cat[id] }));
+  // 글이 없는 카테고리(0건)는 사이드바에서 숨긴다 (상단 내비에는 남는다)
+  const categories = SIDEBAR_CATEGORY_IDS
+    .filter(id => counts[id] === undefined || counts[id] > 0)
+    .map(id => ({ id, label: _cat[id] }));
 
   const renderArticleList = (items) => items.slice(0, 10).map((item, i) => `
     <a href="${articleHref(item.category, item.slug, lang)}" class="sidebar-article-item">
@@ -685,7 +688,7 @@ function generateAIBlogIndex(data) {
             <h3 class="home-card-title">${(I18N[_lang] || I18N.en).categories}</h3>
           </div>
           <div class="sidebar-category-list">
-            ${categories.map(cat => `
+            ${categories.filter(cat => (countByCategory[cat.id] || 0) > 0).map(cat => `
               <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
                 <span class="sidebar-category-name">${cat.label}</span><span class="sidebar-category-count">${countByCategory[cat.id] || 0}</span>
               </a>
@@ -2629,7 +2632,10 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   });
 
   const _catT = I18N[_lang] || I18N.en;
-  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({ id, label: _catT.categoryLabels[id] }));
+  // 0건 카테고리는 사이드바에서 숨긴다 (상단 내비에는 남는다)
+  const categories = SIDEBAR_CATEGORY_IDS
+    .filter(id => (countByCategory[id] || 0) > 0)
+    .map(id => ({ id, label: _catT.categoryLabels[id] }));
   const topicListHtml = renderTopicList(countTopics(articles), _lang);
 
   // 사이드바 렌더링

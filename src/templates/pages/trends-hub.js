@@ -12,6 +12,10 @@ const {
   generateSidebarCategories: sharedSidebarCategories,
   generateSidebarArticles: sharedSidebarArticles
 } = require('../components/sidebar');
+const { renderFeedCardBody } = require('../components/utils');
+
+// 카드 메타에 쓰는 유형 라벨
+const TYPE_LABELS = { issue: '이슈', insight: '인사이트', hotpick: '핫픽', ranking: '순위 분석' };
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -34,14 +38,6 @@ const fixUrl = (url, width = 480) => {
     return proxyUrl;
   }
   return url;
-};
-
-// 날짜 포맷 헬퍼
-const formatDateKr = (dateStr) => {
-  if (!dateStr) return '';
-  const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
-  if (!match) return dateStr;
-  return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
 };
 
 // HTML 이스케이프
@@ -259,9 +255,8 @@ function generateTrendsHubPage({
       <a href="${item.link}" class="home-trend-card"${lazyAttrs}>
         <div class="home-trend-card-image">
           ${imgHtml}
-          <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : (item.type === 'issue' ? '이슈' : item.type === 'insight' ? '인사이트' : item.type === 'hotpick' ? '핫픽' : '순위 분석')}</span>
         </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
+        ${renderFeedCardBody({ category: TYPE_LABELS[item.type] || '', date: item.date, title: item.title, summary: item.summary })}
       </a>
     `
       };
@@ -376,9 +371,8 @@ function generateIssueListPage({
       <a href="/magazine/issue/${issue.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
           ${issue.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(issue.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag issue">${issue.date ? formatDateKr(issue.date) : '이슈'}</span>
         </div>
-        <h3 class="home-trend-card-title">${issue.title}</h3>
+        ${renderFeedCardBody({ category: TYPE_LABELS.issue, date: issue.date, title: issue.title, summary: issue.summary })}
       </a>`
       });
     });
@@ -477,9 +471,8 @@ function generateInsightListPage({
       <a href="/magazine/insight/${insight.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
           ${insight.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(insight.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag insight">${insight.date ? formatDateKr(insight.date) : '인사이트'}</span>
         </div>
-        <h3 class="home-trend-card-title">${insight.title}</h3>
+        ${renderFeedCardBody({ category: TYPE_LABELS.insight, date: insight.date, title: insight.title, summary: insight.summary })}
       </a>`
       });
     });
@@ -575,9 +568,8 @@ function generateHotpickListPage({
       <a href="/magazine/hotpick/${hotpick.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
           ${hotpick.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(hotpick.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag hotpick">${hotpick.date ? formatDateKr(hotpick.date) : '핫픽'}</span>
         </div>
-        <h3 class="home-trend-card-title">${hotpick.title}</h3>
+        ${renderFeedCardBody({ category: TYPE_LABELS.hotpick, date: hotpick.date, title: hotpick.title, summary: hotpick.summary })}
       </a>`
       });
     });
@@ -676,9 +668,8 @@ function generateRankingListPage({
       <a href="/magazine/ranking/${ranking.slug}/" class="home-trend-card home-latest-item" data-index="${i}">
         <div class="home-trend-card-image">
           ${ranking.thumbnail ? `<img ${imgAttrs} alt="${escapeHtmlAttr(ranking.title)}" ${getFeedImagePerfAttrs(pickLcpImageAttrs)} data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag ranking">${ranking.date ? formatDateKr(ranking.date) : '순위 분석'}</span>
         </div>
-        <h3 class="home-trend-card-title">${ranking.title}</h3>
+        ${renderFeedCardBody({ category: TYPE_LABELS.ranking, date: ranking.date, title: ranking.title, summary: ranking.summary })}
       </a>`
       });
     });

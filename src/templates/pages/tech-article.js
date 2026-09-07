@@ -557,7 +557,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
               </header>
 
               ${article.thumbnail ? `
-              <figure class="blog-figure">
+              <figure class="blog-figure blog-lead-figure">
                 <img src="${getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" width="1200" height="675" alt="${article.title}" loading="eager" fetchpriority="high">
               </figure>
               ` : ''}

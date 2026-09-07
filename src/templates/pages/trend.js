@@ -907,7 +907,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
                 </div>
               </header>
               ${thumbnail ? `
-                <figure class="blog-figure">
+                <figure class="blog-figure blog-lead-figure">
                   <img class="blog-image" width="1200" height="675" src="${cfg.imagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
@@ -1679,7 +1679,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                 </div>
               </header>
               ${thumbnail ? `
-                <figure class="blog-figure">
+                <figure class="blog-figure blog-lead-figure">
                   <img class="blog-image" width="1200" height="675" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}

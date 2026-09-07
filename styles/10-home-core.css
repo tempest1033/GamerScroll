@@ -15,7 +15,7 @@
     /* 홈 레이아웃 컨테이너 */
 	    .home-container {
 	      display: grid;
-	      grid-template-columns: 1fr 320px;
+	      grid-template-columns: 1fr 300px;
 	      gap: 28px;
 	      padding: 0 0 var(--space-block-y) 0;
 	      align-items: start; /* 두 컬럼 상단 정렬 보장 */
@@ -221,7 +221,8 @@
     #sidebar-categories .home-card-title-link {
       display: block;
       width: 100%;
-      padding: 14px 20px;
+      /* 아래 카테고리 항목(padding 좌우 0)과 왼쪽 정렬을 맞춘다 */
+      padding: 14px 0;
       text-decoration: none;
       color: inherit;
       transition: background var(--transition-fast);
@@ -510,23 +511,6 @@
     .home-trend-card-image img[src=""],
     .home-trend-card-image img:not([src]) {
       display: none;
-    }
-
-    .home-trend-card-tag {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 4px 8px;
-      font-size: var(--font-small-size);
-      font-weight: var(--font-tab-weight);
-      color: rgba(255, 255, 255, 0.9);
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 4px;
-      backdrop-filter: blur(8px);
-    }
-
-    .home-trend-card-tag.issue {
-      background: rgba(0, 0, 0, 0.5);
     }
 
     .home-trend-card-title {
@@ -1932,7 +1916,7 @@
     /* 모바일 반응형 - 홈 */
     @media (max-width: 1024px) {
       .home-container {
-        grid-template-columns: 1fr 320px;
+        grid-template-columns: 1fr 300px;
         gap: var(--space-block-gap);
         padding: 0 0 var(--space-block-y) 0;
       }

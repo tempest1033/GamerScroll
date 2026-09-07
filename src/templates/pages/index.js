@@ -15,6 +15,7 @@ const {
   generateSidebarCategories: sharedSidebarCategories,
   generateSidebarArticles: sharedSidebarArticles
 } = require('../components/sidebar');
+const { formatDateShortKr, renderFeedCardBody } = require('../components/utils');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -201,14 +202,6 @@ function generateIndexPage(data) {
     return JSON.stringify(cards).replace(/</g, '\\u003c');
   };
 
-  // 날짜 포맷 헬퍼 (2026-01-01 → 2026년 1월 1일) - 모바일/PC 공용
-  const formatDateKr = (dateStr) => {
-    if (!dateStr) return '';
-    const match = dateStr.match(/(\d{4})-(\d{2})-(\d{2})/);
-    if (!match) return dateStr;
-    return `${match[1]}년 ${parseInt(match[2])}월 ${parseInt(match[3])}일`;
-  };
-
   // 홈 인기 기사 (가로형 3개 - eyesmag 스타일)
   function generateHomePopular() {
     const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
@@ -227,7 +220,8 @@ function generateIndexPage(data) {
             srcset: thumbData.srcset,
             sizes: thumbData.sizes,
             link: `/magazine/issue/${issue.slug}/`,
-            badge: issue.date ? formatDateKr(issue.date) : '이슈'
+            badge: '이슈',
+            date: issue.date || ''
           };
         }
       } else if (article.type === 'insight') {
@@ -242,7 +236,8 @@ function generateIndexPage(data) {
             srcset: thumbData.srcset,
             sizes: thumbData.sizes,
             link: `/magazine/insight/${insight.slug}/`,
-            badge: insight.date ? formatDateKr(insight.date) : '인사이트'
+            badge: '인사이트',
+            date: insight.date || ''
           };
         }
       } else if (article.type === 'hotpick') {
@@ -257,7 +252,8 @@ function generateIndexPage(data) {
             srcset: thumbData.srcset,
             sizes: thumbData.sizes,
             link: `/magazine/hotpick/${hotpick.slug}/`,
-            badge: hotpick.date ? formatDateKr(hotpick.date) : '핫픽'
+            badge: '핫픽',
+            date: hotpick.date || ''
           };
         }
       } else if (article.type === 'wiki' && article.category) {
@@ -273,7 +269,8 @@ function generateIndexPage(data) {
             srcset: thumbData.srcset,
             sizes: thumbData.sizes,
             link: `/wiki/${article.category}/${article.slug}/`,
-            badge: categoryNames[article.category] || article.category
+            badge: categoryNames[article.category] || article.category,
+            date: wiki.date || ''
           };
         }
       } else if (article.type === 'ranking') {
@@ -288,7 +285,8 @@ function generateIndexPage(data) {
             srcset: thumbData.srcset,
             sizes: thumbData.sizes,
             link: `/magazine/ranking/${ranking.slug}/`,
-            badge: ranking.date ? formatDateKr(ranking.date) : '순위 분석'
+            badge: '순위 분석',
+            date: ranking.date || ''
           };
         }
       } else if (article.type === 'tech' && article.category) {
@@ -305,7 +303,8 @@ function generateIndexPage(data) {
             srcset: thumbData.srcset,
             sizes: thumbData.sizes,
             link: `/tech/${article.category}/${article.slug}/`,
-            badge: techCategoryNames[article.category] || article.category
+            badge: techCategoryNames[article.category] || article.category,
+            date: tech.date || ''
           };
         }
       }
@@ -314,40 +313,31 @@ function generateIndexPage(data) {
 
     if (popularItems.length === 0) return '';
 
-    // 매거진 히어로: 대형 피처 1개 + 옆의 컴팩트 랭크 리스트
+    // 홈 리드: 인기 1위 한 건만 가로형 피처(이미지 7 : 텍스트 5)로 보여준다.
+    // 2~6위 리스트는 바로 옆 사이드바 '인기' 1~10위와 같은 제목이 반복돼 두지 않는다 (AIScroll 홈과 동일 구조).
     const feature = popularItems[0];
-    const restItems = popularItems.slice(1);
 
     const featureImgAttrs = feature.srcset
       ? `src="${feature.thumbnail}" srcset="${feature.srcset}" sizes="${feature.sizes}"`
       : `src="${feature.thumbnail}"`;
-    const featureHtml = `
-      <a href="${feature.link}" class="hero-feature">
-        <div class="hero-feature-media">
-          ${feature.thumbnail ? `<img ${featureImgAttrs} alt="${escapeHtmlAttr(feature.title)}" ${getPopularImagePerfAttrs(pickLcpImageAttrs)}>` : ''}
-          ${feature.badge ? `<span class="hero-feature-badge">${feature.badge}</span>` : ''}
-        </div>
-        <div class="hero-feature-body">
-          <h3 class="hero-feature-title">${feature.title}</h3>
-          ${feature.summary ? `<p class="hero-feature-summary">${feature.summary}</p>` : ''}
-        </div>
-      </a>
-    `;
-
-    const listHtml = restItems.map((item, i) => `
-      <a href="${item.link}" class="hero-list-item">
-        <span class="hero-list-rank">${i + 2}</span>
-        <h3 class="hero-list-title">${item.title}</h3>
-      </a>
-    `).join('');
 
     return `
       <section class="home-hero" id="home-popular">
         <h2 class="home-section-title">인기</h2>
-        <div class="home-hero-grid">
-          ${featureHtml}
-          <div class="hero-list" id="homePopularList">${listHtml}</div>
-        </div>
+        <a href="${feature.link}" class="hero-feature">
+          <div class="hero-feature-media">
+            ${feature.thumbnail ? `<img ${featureImgAttrs} alt="${escapeHtmlAttr(feature.title)}" ${getPopularImagePerfAttrs(pickLcpImageAttrs)}>` : ''}
+          </div>
+          <div class="hero-feature-body">
+            <div class="hero-feature-meta">
+              <span class="hero-feature-kicker">인기</span>
+              ${feature.badge ? `<span class="hero-feature-category">${feature.badge}</span>` : ''}
+              ${feature.date ? `<time class="hero-feature-date" datetime="${String(feature.date).slice(0, 10)}">${formatDateShortKr(feature.date)}</time>` : ''}
+            </div>
+            <h3 class="hero-feature-title">${feature.title}</h3>
+            ${feature.summary ? `<p class="hero-feature-summary">${feature.summary}</p>` : ''}
+          </div>
+        </a>
       </section>
     `;
   }
@@ -369,7 +359,8 @@ function generateIndexPage(data) {
         title: issue.title,
         link: `/magazine/issue/${issue.slug}/`,
         badge: '이슈',
-        date: issue.date || ''
+        date: issue.date || '',
+        summary: issue.summary || ''
       });
     });
 
@@ -383,7 +374,8 @@ function generateIndexPage(data) {
         title: insight.title,
         link: `/magazine/insight/${insight.slug}/`,
         badge: '인사이트',
-        date: insight.date || ''
+        date: insight.date || '',
+        summary: insight.summary || ''
       });
     });
 
@@ -397,7 +389,8 @@ function generateIndexPage(data) {
         title: hotpick.title,
         link: `/magazine/hotpick/${hotpick.slug}/`,
         badge: '핫픽',
-        date: hotpick.date || ''
+        date: hotpick.date || '',
+        summary: hotpick.summary || ''
       });
     });
 
@@ -411,7 +404,8 @@ function generateIndexPage(data) {
         title: ranking.title,
         link: `/magazine/ranking/${ranking.slug}/`,
         badge: '순위 분석',
-        date: ranking.date || ''
+        date: ranking.date || '',
+        summary: ranking.summary || ''
       });
     });
 
@@ -427,7 +421,8 @@ function generateIndexPage(data) {
           title: wiki.title,
           link: `/wiki/${category}/${wiki.slug}/`,
           badge: categoryNames[category],
-          date: wiki.date || ''
+          date: wiki.date || '',
+          summary: wiki.summary || ''
         });
       });
     });
@@ -445,7 +440,8 @@ function generateIndexPage(data) {
           title: tech.title,
           link: `/tech/${category}/${tech.slug}/`,
           badge: techCategoryNames[category],
-          date: tech.date || ''
+          date: tech.date || '',
+          summary: tech.summary || ''
         });
       });
     });
@@ -508,9 +504,8 @@ function generateIndexPage(data) {
       <a href="${item.link}" class="home-trend-card home-latest-item" data-index="${i}"${lazyAttrs}>
         <div class="home-trend-card-image">
           ${imgHtml}
-          <span class="home-trend-card-tag ${item.type}">${item.date ? formatDateKr(item.date) : item.badge}</span>
         </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${item.title}</span></h3>
+        ${renderFeedCardBody({ category: item.badge, date: item.date, title: item.title, summary: item.summary })}
       </a>
     `
       };
@@ -584,9 +579,8 @@ function generateIndexPage(data) {
         <a href="/wiki/${category}/${wiki.slug}/" class="home-trend-card">
           <div class="home-trend-card-image">
             ${thumbData.src ? `<img ${imgAttrs} alt="${escapeHtmlAttr(wiki.title || '')}" loading="lazy" data-img-fallback="hide">` : ''}
-            <span class="home-trend-card-tag wiki">${categoryNames[category]}</span>
           </div>
-          <h3 class="home-trend-card-title">${wiki.title}</h3>
+          ${renderFeedCardBody({ category: categoryNames[category], date: wiki.date, title: wiki.title, summary: wiki.summary })}
         </a>
       `;
     };

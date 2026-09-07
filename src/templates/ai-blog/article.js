@@ -488,7 +488,7 @@ function generateAIBlogArticle(article, data = {}) {
             <h3 class="home-card-title">${_t.categories}</h3>
           </div>
           <div class="sidebar-category-list">
-            ${categories.map(cat => `
+            ${categories.filter(cat => (countByCategory[cat.id] || 0) > 0).map(cat => `
               <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
                 <span class="sidebar-category-name">${cat.label}</span><span class="sidebar-category-count">${countByCategory[cat.id] || 0}</span>
               </a>
