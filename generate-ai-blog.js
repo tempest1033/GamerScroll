@@ -535,6 +535,23 @@ async function copyAssets(faviconChanged = false) {
     console.log('기사 폴더 이미지 복사 완료');
   }
 
+  // Pretendard Variable dynamic subset 셀프호스팅 (GamerScroll docs/assets/fonts 와 같은 버전 경로).
+  // 버전 경로라 존재하면 스킵 — 참조 경로는 ai-blog/index.js(wrapWithLayout)의 폰트 <link>와 일치해야 한다.
+  const fontSrcDir = path.join(__dirname, 'node_modules', 'pretendard', 'dist', 'web', 'variable');
+  const fontDestDir = path.join(DOCS_DIR, 'assets', 'fonts', 'pretendard-1.3.9');
+  if (!fs.existsSync(fontDestDir) && fs.existsSync(fontSrcDir)) {
+    fs.mkdirSync(path.join(fontDestDir, 'woff2-dynamic-subset'), { recursive: true });
+    fs.copyFileSync(
+      path.join(fontSrcDir, 'pretendardvariable-dynamic-subset.css'),
+      path.join(fontDestDir, 'pretendardvariable-dynamic-subset.css')
+    );
+    const subsetSrc = path.join(fontSrcDir, 'woff2-dynamic-subset');
+    for (const f of fs.readdirSync(subsetSrc)) {
+      fs.copyFileSync(path.join(subsetSrc, f), path.join(fontDestDir, 'woff2-dynamic-subset', f));
+    }
+    console.log('Pretendard 폰트 셀프호스팅 동기화 완료 (assets/fonts/pretendard-1.3.9)');
+  }
+
   console.log('에셋 복사 완료');
 }
 
@@ -1367,6 +1384,8 @@ self.addEventListener('fetch', (event) => {
   // feed JSON은 파일명에 해시가 박혀 있어 immutable 안전. layout-core.js는 SW precache가
   // 쿼리 없는 경로를 쓰므로 여기서는 immutable을 걸지 않는다 (stale 고정 방지).
   headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
+    // 폰트는 버전 디렉터리(pretendard-1.3.9)라 immutable 안전.
+    headerLines.push('/assets/fonts/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     fs.writeFileSync(path.join(DOCS_DIR, '_headers'), headerLines.join('\n') + '\n', 'utf8');
     console.log('_headers 생성 완료');
   } catch (err) {

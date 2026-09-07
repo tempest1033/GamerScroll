@@ -12,6 +12,7 @@ const {
 } = require('../components/sidebar');
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
+const { createArticleToc } = require('../helpers/article-toc');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -587,6 +588,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const toc = createArticleToc(content);
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
@@ -700,11 +702,12 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
           break;
 
         case 'heading':
+          if (!String(block.value ?? '').trim()) break;
           sectionCount++;
           if (sectionCount % 2 === 0) {
             result.push(getInArticleAdHTML(adCount++));
           }
-          result.push(`<h2 class="blog-heading">${block.value}</h2>`);
+          result.push(`<h2 id="${toc.headingId(block)}" class="blog-heading">${block.value}</h2>`);
           break;
 
         case 'table':
@@ -860,7 +863,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
     sidebarPopularArticles, sidebarLatestArticles,
     { activeLink: `/magazine/${currentType}/${currentSlug}/` }
   );
-  const sidebarHTML = generateSidebarCategories() + generateSidebarArticles(slug, type);
+  const sidebarHTML = toc.sidebarHTML + generateSidebarCategories() + generateSidebarArticles(slug, type);
 
   const sidebarScript = sidebarHTML ? `
     <script>
@@ -906,6 +909,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
+              ${toc.mobileHTML}
               <div class="blog-content">
                 ${renderContent()}
               </div>
@@ -928,6 +932,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
       </article>
     </section>
     ${sidebarScript}
+    ${toc.scriptHTML}
   `;
 
   // JSON-LD용 이미지 URL (로컬 경로를 전체 URL로 변환)
@@ -993,6 +998,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   }
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
+  const toc = createArticleToc(content);
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
@@ -1078,6 +1084,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           break;
         }
         case 'heading':
+          if (!String(block.value ?? '').trim()) break;
           sectionCount++;
           if (sectionCount % 2 === 0) {
             result.push(getInArticleAdHTML(adCount++));
@@ -1088,7 +1095,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
             .replace(/\(▲(\d+)\)/g, '<span class="heading-rank-badge heading-rank-up">▲$1</span>')
             .replace(/\(▼(\d+)\)/g, '<span class="heading-rank-badge heading-rank-down">▼$1</span>')
             .replace(/\(-\)/g, '<span class="heading-rank-badge heading-rank-same">-</span>');
-          result.push(`<h2 class="blog-heading">${headingHtml}</h2>`);
+          result.push(`<h2 id="${toc.headingId(block)}" class="blog-heading">${headingHtml}</h2>`);
           break;
         case 'image':
           const imgUrl = block.src?.startsWith('http')
@@ -1606,7 +1613,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     sidebarPopularArticles, sidebarLatestArticles,
     { activeLink: `/magazine/${currentType}/${currentSlug}/` }
   );
-  const sidebarHTML = generateSidebarCategories() + generateSidebarArticles(slug, 'ranking');
+  const sidebarHTML = toc.sidebarHTML + generateSidebarCategories() + generateSidebarArticles(slug, 'ranking');
 
   const sidebarScript = sidebarHTML ? `
     <script>
@@ -1671,6 +1678,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
+              ${toc.mobileHTML}
               <div class="blog-content">
                 ${renderContent()}
               </div>
@@ -1693,6 +1701,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
       </article>
     </section>
     ${sidebarScript}
+    ${toc.scriptHTML}
   `;
 
   // JSON-LD용 이미지 URL

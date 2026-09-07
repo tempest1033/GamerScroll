@@ -13,6 +13,7 @@ const {
 } = require('../components/sidebar');
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
+const { createArticleToc } = require('../helpers/article-toc');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -72,34 +73,6 @@ function parseTableCell(str) {
 // 마크다운 표 변환은 공통 helper(content-text)로 위임
 const parseMarkdownTable = (text) => parseMarkdownTableShared(text, { tableClass: 'wiki-table-wrapper' });
 
-// 한글/영문 텍스트를 URL-friendly slug로 변환
-const toSlug = (text) => {
-  return String(text || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9가-힣\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-};
-
-// 목차 생성
-const renderToc = (content = []) => {
-  const headings = content.filter(b => b.type === 'heading' && b.value);
-  if (headings.length < 3) return ''; // 3개 미만이면 목차 생략
-
-  const items = headings.map(h => {
-    const id = toSlug(h.value);
-    return `<li><a href="#${id}">${h.value}</a></li>`;
-  }).join('');
-
-  return `
-    <nav class="blog-toc">
-      <div class="blog-toc-title">목차</div>
-      <ol>${items}</ol>
-    </nav>
-  `;
-};
-
 // docs 폴더 경로 (통합 빌드)
 const docsDir = path.join(__dirname, '../../../docs');
 
@@ -158,7 +131,7 @@ function getInArticleAdHTML(adIndex) {
   </div>`;
 }
 
-const renderContentBlocks = (content = [], category = '', slug = '') => {
+const renderContentBlocks = (content = [], category = '', slug = '', toc) => {
   if (!Array.isArray(content) || content.length === 0) return '';
   const result = [];
   let imageIndex = 0;
@@ -305,12 +278,12 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         break;
 
       case 'heading':
-        if (!block.value) break;
+        if (!String(block.value ?? '').trim()) break;
         sectionCount++;
         if (sectionCount % 2 === 0) {
           result.push(getInArticleAdHTML(adCount++));
         }
-        const headingId = toSlug(block.value);
+        const headingId = toc.headingId(block);
         result.push(`<h2 id="${headingId}" class="blog-heading">${block.value}</h2>`);
         break;
 
@@ -366,6 +339,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
  */
 function generateTechArticlePage({ article, category, relatedDocs = [], prevNext = {}, issueReports = [], allTechData = {}, allWikiData = {}, reportCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   const catInfo = categoryInfo[category] || { name: category, desc: '' };
+  const toc = createArticleToc(article.content);
 
   const keywordText = typeof article.keywords === 'string' ? article.keywords : '';
 
@@ -547,7 +521,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
 
   const sidebarCategoriesHTML = generateSidebarCategories();
   const sidebarArticlesHTML = generateSidebarArticles();
-  const sidebarHTML = sidebarCategoriesHTML + sidebarArticlesHTML;
+  const sidebarHTML = toc.sidebarHTML + sidebarCategoriesHTML + sidebarArticlesHTML;
 
   const sidebarScript = sidebarHTML ? `
     <script>
@@ -589,9 +563,9 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
 
               ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
 
+              ${toc.mobileHTML}
               <div class="blog-content">
-                ${article.toc ? renderToc(article.content) : ''}
-                ${renderContentBlocks(article.content, category, article.slug)}
+                ${renderContentBlocks(article.content, category, article.slug, toc)}
               </div>
 
               ${relatedGamesHtml}
@@ -613,6 +587,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
       </article>
     </section>
     ${sidebarScript}
+    ${toc.scriptHTML}
   `;
 
   const metaKeywords = keywordText || '테크, 기술, AI, 개발 도구';

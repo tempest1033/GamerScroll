@@ -307,6 +307,16 @@
   max-height: 440px;
 }
 
+/* AIScroll 대표 이미지: 본문 figure 의 테두리·배경·contain 여백(레터박스 프레임)을 걷어내고 폭을 채운다 */
+.blog-lead-figure {
+  border: none;
+  background: transparent;
+}
+.blog-lead-figure .blog-image {
+  object-fit: cover;
+  background: transparent;
+}
+
 /* 표 figure */
 .blog-figure.blog-table {
   display: block;
@@ -592,40 +602,126 @@
   }
 }
 
-/* 목차 (TOC) */
-.blog-toc {
-  padding: 0 0 16px 0;
-  margin-bottom: 24px;
-  border-bottom: 1px solid var(--border);
+/* 공통 기사 목차 — 카테고리·인기 카드와 같은 라벨·행·번호 규격
+   (라벨 13px 대문자 / 행 14px / 번호 13px·20px 폭·gap 12px — 인기 리스트의 순위 열과 동일).
+   AIScroll 사이드바 공통 블록(ai-blog/index.js)이 같은 값을 세 카드에 한 번에 적용한다.
+   현재 읽는 절(.is-current)은 번호·본문이 함께 브랜드 블루 — 인기 카드의 순위 강조(번호만)와 구분. */
+#sidebar-toc .home-card-header {
+  display: block;
+  border-bottom: none;
+  padding: 0 0 8px;
+  min-height: 0;
+  height: auto;
 }
-
-.blog-toc-title {
-  font-weight: var(--font-title-weight);
-  font-size: 1.1em;
-  color: var(--text);
-  margin-bottom: 12px;
+#sidebar-toc .home-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
-
-.blog-toc ol {
-  margin: 0;
-  padding-left: 0;
+.article-toc-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
-
-.blog-toc li {
-  font-size: var(--font-desc-size);
-  line-height: 1.6;
-  padding: 3px 0;
-}
-
-.blog-toc a {
-  color: var(--text-secondary);
+.article-toc-item {
+  display: flex;
+  min-height: 44px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 0;
+  margin: 1px 0;
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: color 0.2s;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
-
-.blog-toc a:hover {
+.article-toc-item:hover {
+  background: var(--hover-bg);
   color: var(--primary);
+}
+.article-toc-item:focus-visible,
+.article-toc-mobile > summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.article-toc-num {
+  flex-shrink: 0;
+  width: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.article-toc-text {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.article-toc-item.is-current {
+  color: var(--primary);
+  font-weight: 600;
+}
+.article-toc-item.is-current .article-toc-num {
+  color: var(--primary);
+}
+.article-toc-mobile {
+  display: none;
+}
+.article-toc-mobile > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.article-toc-mobile > summary::-webkit-details-marker {
+  display: none;
+}
+.article-toc-chevron {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.article-toc-mobile[open] .article-toc-chevron {
+  transform: rotate(180deg);
+}
+@media (max-width: 768px) {
+  .article-toc-mobile {
+    display: block;
+    padding: 8px 16px;
+    margin: 16px 0 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--hover-bg);
+  }
+  .article-toc-mobile .article-toc {
+    padding: 4px 0 8px;
+  }
+  .article-toc-mobile .article-toc-text {
+    display: block;
+    overflow: visible;
+    overflow-wrap: anywhere;
+  }
+}
+/* 목차 앵커 이동 시 소제목이 상단에 바짝 붙지 않게 */
+.blog-content .blog-heading {
+  scroll-margin-top: 84px;
 }
 
 /* 서브헤딩 (콜론으로 끝나는 굵은 텍스트) */
@@ -1527,6 +1623,15 @@
 .article-sidebar-sticky {
   position: sticky;
   top: 70px;
+}
+
+.article-sidebar-sticky:has(> #sidebar-toc) {
+  /* 긴 목차·카테고리가 기사 끝에서 목차 전체를 위로 밀지 않도록 한 곳에서 스크롤한다. */
+  max-height: calc(100vh - 86px);
+  max-height: calc(100dvh - 86px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
 .article-sidebar-sticky > * {

@@ -8,7 +8,7 @@ const path = require('path');
 const {
   wrapWithLayout,
   SITE_CONFIG,
-  formatDateEn,
+  formatDateLong,
   escapeHtml,
   getThumbUrl,
   I18N,
@@ -20,6 +20,7 @@ const {
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
 const { renderTextBlock } = require('../helpers/content-text');
+const { createArticleToc } = require('../helpers/article-toc');
 
 // games.json 로드 (ranking 블록 아이콘용)
 let gamesMap = {};
@@ -46,38 +47,6 @@ function getImageSrc(originalSrc) {
   // 상대경로는 그대로 사용 (빌드 시 이미지 파일 복사됨)
   return originalSrc;
 }
-
-/**
- * 슬러그 생성 (heading용 ID)
- */
-const toSlug = (text) => {
-  return String(text || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9가-힣\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-};
-
-/**
- * 목차 생성
- */
-const renderToc = (content = [], isEnglish = false) => {
-  const headings = content.filter(b => b.type === 'heading' && b.value);
-  if (headings.length < 3) return ''; // 3개 미만이면 목차 생략
-
-  const items = headings.map(h => {
-    const id = toSlug(h.value);
-    return `<li><a href="#${id}">${escapeHtml(h.value)}</a></li>`;
-  }).join('');
-
-  return `
-    <nav class="blog-toc">
-      <div class="blog-toc-title">${isEnglish ? 'Table of Contents' : '목차'}</div>
-      <ol>${items}</ol>
-    </nav>
-  `;
-};
 
 /**
  * 경량 언어별 신택스 하이라이터 (의존성 없음)
@@ -261,6 +230,7 @@ function generateAIBlogArticle(article, data = {}) {
   const _lang = data.lang === 'ko' ? 'ko' : 'en';
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const _t = I18N[_lang] || I18N.en;
+  const toc = createArticleToc(article.content, { title: _t.toc });
   const socialThumbnail = article.thumbnail
     ? String(article.thumbnail).replace(/\/thumbnail-sm\.webp($|\?)/, '/thumbnail.webp$1')
     : '';
@@ -334,11 +304,12 @@ function generateAIBlogArticle(article, data = {}) {
           break;
         }
         case 'heading': {
+          if (!String(block.value ?? '').trim()) break;
           sectionCount++;
           if (sectionCount % 2 === 0) {
             result.push(getInArticleAdHTML(adCount++));
           }
-          const headingId = toSlug(block.value);
+          const headingId = toc.headingId(block);
           result.push(`<h2 id="${headingId}" class="blog-heading">${escapeHtml(block.value)}</h2>`);
           break;
         }
@@ -620,8 +591,11 @@ function generateAIBlogArticle(article, data = {}) {
     </div>
   `;
 
-  // 사이드바 HTML
-  const sidebarHTML = generateSidebarArticles();
+  // PC는 고정 사이드바, 모바일은 본문 시작의 접이식 목차를 사용한다.
+  const sidebarHTML = `
+    ${toc.sidebarHTML}
+    ${generateSidebarArticles()}
+  `;
 
   // 상단 광고
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
@@ -642,23 +616,23 @@ function generateAIBlogArticle(article, data = {}) {
                     const dispModified = article.modifiedAt ? String(article.modifiedAt).slice(0, 10) : null;
                     const pubDate = (article.date || '').slice(0, 10);
                     if (dispModified && dispModified !== pubDate) {
-                      return `<time class="blog-date">Published: ${formatDateEn(article.date)}</time><time class="blog-date">Updated: ${formatDateEn(dispModified)}</time>`;
+                      return `<time class="blog-date">${_t.published}: ${formatDateLong(article.date, _lang)}</time><time class="blog-date">${_t.updated}: ${formatDateLong(dispModified, _lang)}</time>`;
                     }
-                    return `<time class="blog-date">${formatDateEn(article.date)}</time>`;
+                    return `<time class="blog-date">${formatDateLong(article.date, _lang)}</time>`;
                   })()}
                 </div>
               </header>
 
               ${article.thumbnail ? `
-              <figure class="blog-figure">
+              <figure class="blog-figure blog-lead-figure">
                 <img src="${getThumbUrl(socialThumbnail || article.thumbnail, 1200)}" class="blog-image" width="1200" height="675" alt="${escapeHtml(article.title)}" loading="eager" fetchpriority="high">
               </figure>
               ` : ''}
 
               ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
 
+              ${toc.mobileHTML}
               <div class="blog-content">
-                ${article.toc ? renderToc(article.content, _lang === 'en') : ''}
                 ${renderContent(article.content)}
               </div>
 
@@ -706,7 +680,7 @@ function generateAIBlogArticle(article, data = {}) {
         init();
       }
     })();
-  </script>`;
+  </script>${toc.scriptHTML}`;
 
   // 카테고리 라벨 매핑
   const categoryLabels = _t.categoryLabels;

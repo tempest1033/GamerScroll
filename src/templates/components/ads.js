@@ -68,21 +68,31 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
   const styleId = `ad-home-pc-${++adStyleCounter}`;
   const cardClass = `${styleId}-card`;
   if (narrow) {
-    // 좁은 컬럼(사이드바 레이아웃): 부모 폭 안에서 최대 728 리더보드까지만 사용
-    return `<div class="ad-card ad-card-responsive-home ${cardClass}">
+    // 좁은 컬럼(사이드바 레이아웃): 반응형 대신 표준 고정 규격을 브레이크포인트별로 지정한다.
+    // 컬럼 폭이 723px라 반응형(horizontal)은 723×100 같은 비표준 크기를 요청했고,
+    // 그 크기는 맞는 재고가 적어 unfilled가 잦았다.
+    // 카드는 732px = 728 + 테두리 2px + 여유 2px. 애드센스는 고정 규격이라도 부모 콘텐츠 폭보다
+    // 넓으면 그 폭으로 줄여 요청하므로(725×90 등), 확대/축소로 테두리가 소수점이 돼도 728이 남게 둔다.
+    // ≥1200: 728×90 / 900~1199: 468×60 / 769~899: 320×100 — 모두 표준 규격.
+    // .gs-ad-fixed: 05-ads.css의 반응형용 width:100% 강제 규칙에서 제외하는 표식.
+    return `<div class="ad-card ad-card-responsive-home gs-ad-fixed ${cardClass}">
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; width:100%; max-width:728px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
-      .${styleId} { display:block !important; width:100%; max-width:100%; min-height:90px; margin:0 auto; }
+      .${cardClass} { display:flex !important; width:100%; max-width:732px; min-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:block !important; width:320px; height:100px; margin:0 auto; }
+    }
+    @media (min-width: 900px) {
+      .${styleId} { width:468px; height:60px; }
+    }
+    @media (min-width: 1200px) {
+      .${styleId} { width:728px; height:90px; }
     }
   </style>
-  <ins class="adsbygoogle ${styleId}"
-       style="display:block;width:100%;min-height:90px"
+  <ins class="adsbygoogle gs-ad-fixed ${styleId}"
+       style="display:inline-block"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="horizontal"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
 </div>`;
   }
   // 풀폭 페이지(사이드바 없음): 최대 970 반응형

@@ -29,6 +29,7 @@ const I18N = {
     searchPlaceholder: 'Search articles...',
     privacy: 'Privacy Policy', categories: 'Categories',
     readMore: 'Read more', publishedAt: 'Published',
+    published: 'Published', updated: 'Updated', toc: 'Table of Contents',
     noResults: 'No results', sources: 'Sources', related: 'Related Articles',
     previous: 'Previous', next: 'Next', list: 'List',
     copyright: '© 2026 AIScroll. All rights reserved.',
@@ -40,6 +41,7 @@ const I18N = {
     searchPlaceholder: '기사 검색...',
     privacy: '개인정보처리방침', categories: '카테고리',
     readMore: '더 보기', publishedAt: '게시일',
+    published: '발행', updated: '수정', toc: '목차',
     noResults: '검색 결과 없음', sources: '출처', related: '관련 기사',
     previous: '이전', next: '다음', list: '목록',
     copyright: '© 2026 AIScroll. 모든 권리 보유.',
@@ -117,12 +119,27 @@ function generateHeader(lang = 'en') {
 function generateSearchContainer(lang = 'en') {
   const _t = I18N[lang] || I18N.en;
   const _homeHref = homeHref(lang);
+  // 모바일 상단바: 워드마크 로고(홈 링크) + 검색창. 파비콘 아이콘만 남기던 이전 형태는 브랜드명이 사라져 교체.
   return `
   <div class="search-container">
+    <a href="${_homeHref}" class="search-home-logo" aria-label="AIScroll">
+      <svg class="search-home-logo-svg" viewBox="0 0 400 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="techGradMobile" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#2563EB" />
+            <stop offset="100%" stop-color="#60A5FA" />
+          </linearGradient>
+        </defs>
+        <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard Variable', 'Pretendard', -apple-system, sans-serif" font-size="52" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">AI SCROLL</text>
+        <rect x="6" y="18" width="8" height="20" rx="4" fill="url(#techGradMobile)" opacity="0.4"/>
+        <rect x="20" y="12" width="8" height="32" rx="4" fill="url(#techGradMobile)" opacity="0.7"/>
+        <rect x="34" y="6" width="8" height="44" rx="4" fill="url(#techGradMobile)"/>
+        <rect x="358" y="6" width="8" height="44" rx="4" fill="url(#techGradMobile)"/>
+        <rect x="372" y="12" width="8" height="32" rx="4" fill="url(#techGradMobile)" opacity="0.7"/>
+        <rect x="386" y="18" width="8" height="20" rx="4" fill="url(#techGradMobile)" opacity="0.4"/>
+      </svg>
+    </a>
     <div class="search-box">
-      <a href="${_homeHref}" class="search-home-icon" aria-label="Home">
-        <img src="/favicon.svg" alt="" width="20" height="20">
-      </a>
       <input type="text" class="search-input" placeholder="${_t.searchPlaceholder}" autocomplete="off">
       <button class="search-btn" type="button" aria-label="${_t.search}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -342,6 +359,22 @@ function formatDateKo(dateStr) {
   return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
 }
 
+// 카드 메타용 짧은 날짜 — ko: 2026.09.04 / en: Sep 4, 2026
+function formatDateShort(dateStr, lang = 'en') {
+  if (!dateStr) return '';
+  if (lang !== 'ko') return formatDateEn(dateStr);
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return '';
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${d.getFullYear()}.${mm}.${dd}`;
+}
+
+// 기사 메타용 긴 날짜 — ko: 2026년 9월 4일 / en: Sep 4, 2026
+function formatDateLong(dateStr, lang = 'en') {
+  return lang === 'ko' ? formatDateKo(dateStr) : formatDateEn(dateStr);
+}
+
 // HTML 이스케이프
 function escapeHtml(str) {
   return String(str || '')
@@ -366,7 +399,7 @@ function getThumbUrl(url, width = 480) {
   return url;
 }
 
-function getThumbSrcset(url, xsWidth = 240, smWidth = 480, sizes = '(max-width: 768px) 133px, 253px') {
+function getThumbSrcset(url, xsWidth = 240, smWidth = 480, sizes = '(max-width: 768px) 144px, 253px') {
   const xsUrl = getThumbUrl(url, xsWidth);
   const smUrl = getThumbUrl(url, smWidth);
   if (!smUrl) return { src: '', srcset: '' };
@@ -379,7 +412,9 @@ function getThumbSrcset(url, xsWidth = 240, smWidth = 480, sizes = '(max-width: 
 }
 
 const FEED_PAGE_SIZE = 15;
-const INITIAL_FEED_RENDER_COUNT = 9;
+// 첫 페이지는 전부 서버 렌더한다. 일부만 렌더하고 JS로 채우면 로드 후 그리드가 자라며
+// 아래 요소(숨김 SEO 링크·페이지네이션)가 밀려 CLS가 생긴다 (라이브 측정 0.239).
+const INITIAL_FEED_RENDER_COUNT = FEED_PAGE_SIZE;
 const AI_LAYOUT_ASSET_VERSION = (() => {
   try {
     const coreBundle = buildLayoutCoreBundle();
@@ -463,6 +498,51 @@ function buildDeferredCardPayload(cardHtmlList, pageSize = FEED_PAGE_SIZE, initi
   };
 }
 
+// 피드 카드 이미지 로딩 정책: 첫 화면 근처 카드만 eager, 나머지는 lazy
+const FEED_EAGER_CARD_COUNT = 3;
+// 모바일은 썸네일 144px 가로 리스트, 데스크톱은 3열(≈253px) 그리드
+const FEED_CARD_SIZES = '(max-width: 768px) 144px, 253px';
+
+/**
+ * 홈 '최신' / 카테고리 피드 공용 카드
+ * 이미지 + 메타(카테고리 · 날짜) + 제목 + 요약(데스크톱 2줄, 모바일 숨김)
+ * options.highPriorityIndex: 해당 인덱스 카드를 LCP 후보로 fetchpriority=high 처리
+ */
+function renderFeedCard(item, index, lang = 'en', options = {}) {
+  const _lang = normalizeLang(lang);
+  const _t = I18N[_lang] || I18N.en;
+  const eagerCount = Number.isFinite(options.eagerCount) ? options.eagerCount : FEED_EAGER_CARD_COUNT;
+  const isHighPriority = Number.isFinite(options.highPriorityIndex) && index === options.highPriorityIndex;
+  const thumbData = getThumbSrcset(item.thumbnail, 240, 480, FEED_CARD_SIZES);
+  const imgAttrs = thumbData.srcset
+    ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+    : `src="${thumbData.src}"`;
+  const perfAttrs = isHighPriority
+    ? 'loading="eager" fetchpriority="high" decoding="async"'
+    : (index < eagerCount
+      ? 'loading="eager" fetchpriority="auto" decoding="async"'
+      : 'loading="lazy" fetchpriority="auto" decoding="async"');
+  const category = item.category || 'general';
+  const categoryLabel = _t.categoryLabels[category] || String(category);
+  const dateLabel = formatDateShort(item.date, _lang);
+  const dateAttr = escapeHtml(String(item.date || '').slice(0, 10));
+  return `
+      <a href="${articleHref(category, item.slug, _lang)}" class="home-trend-card home-latest-item" data-index="${index}">
+        <div class="home-trend-card-image">
+          ${thumbData.src ? `<img ${imgAttrs} width="480" height="270" alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
+        </div>
+        <div class="home-trend-card-body">
+          <div class="home-trend-card-meta">
+            <span class="home-trend-card-category">${escapeHtml(categoryLabel)}</span>
+            ${dateLabel ? `<time class="home-trend-card-date" datetime="${dateAttr}">${dateLabel}</time>` : ''}
+          </div>
+          <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
+          ${item.summary ? `<p class="home-trend-card-summary">${escapeHtml(item.summary)}</p>` : ''}
+        </div>
+      </a>
+    `;
+}
+
 /**
  * AIScroll 홈페이지 생성
  */
@@ -471,80 +551,53 @@ function generateAIBlogIndex(data) {
   const _lang = data.lang === 'ko' ? 'ko' : 'en';
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
-  const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
 
-  // 인기 히어로 (대표 1건 피처 + 컴팩트 랭크 리스트)
+  // 인기 리드: 1위 한 건만 가로형 피처로 보여준다.
+  // 2~5위 리스트는 바로 옆 사이드바 '인기' 1~10위와 같은 제목이 나란히 반복돼 제거했다.
   function generatePopularCards() {
-    const items = popularArticles.slice(0, 5);
-    if (items.length === 0) return '';
+    const featureItem = popularArticles[0];
+    if (!featureItem) return '';
 
-    // 대표 기사 (1등): 큰 피처 카드
-    const featureItem = items[0];
-    // 배지는 원문 카테고리 id가 아니라 언어별 라벨로 노출한다 (ko: '일반', en: 'General')
-    const _badgeT = I18N[_lang] || I18N.en;
-    const featureBadge = featureItem.category
-      ? escapeHtml(_badgeT.categoryLabels[featureItem.category] || String(featureItem.category))
-      : '';
-    const feature = `
-      <a href="${articleHref(featureItem.category || 'general', featureItem.slug, _lang)}" class="hero-feature">
-        <div class="hero-feature-media">
-          ${featureItem.thumbnail ? (() => {
-            const thumbData = getThumbSrcset(featureItem.thumbnail, 320, 640, '(max-width: 768px) 92vw, 640px');
-            const imgAttrs = thumbData.srcset
-              ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
-              : `src="${thumbData.src}"`;
-            return `<img ${imgAttrs} width="640" height="360" alt="${escapeHtml(featureItem.title)}" ${lcpImageAttrs} data-img-fallback="hide">`;
-          })() : ''}
-          ${featureBadge ? `<span class="hero-feature-badge">${featureBadge}</span>` : ''}
-        </div>
-        <div class="hero-feature-body">
-          <h3 class="hero-feature-title">${escapeHtml(featureItem.title)}</h3>
-          ${featureItem.summary ? `<p class="hero-feature-summary">${escapeHtml(featureItem.summary)}</p>` : ''}
-        </div>
-      </a>
-    `;
-
-    // 2등 이하: 컴팩트 랭크 리스트
-    const restItems = items.slice(1, 5);
-    const heroList = restItems.map((item, idx) => `
-      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="hero-list-item">
-        <span class="hero-list-rank">${idx + 2}</span>
-        <span class="hero-list-title">${escapeHtml(item.title)}</span>
-      </a>
-    `).join('');
+    const _t = I18N[_lang] || I18N.en;
+    const featureCategory = featureItem.category || 'general';
+    // 카테고리는 원문 id가 아니라 언어별 라벨로 노출한다 (ko: '일반', en: 'General')
+    const featureCategoryLabel = escapeHtml(_t.categoryLabels[featureCategory] || String(featureCategory));
+    const featureDate = formatDateShort(featureItem.date, _lang);
+    const featureDateAttr = escapeHtml(String(featureItem.date || '').slice(0, 10));
+    const featureImage = featureItem.thumbnail ? (() => {
+      // 데스크톱 리드 이미지 폭 ≈ 460px, 모바일은 거터(16px×2)를 뺀 전체 폭
+      const thumbData = getThumbSrcset(featureItem.thumbnail, 480, 960, '(max-width: 768px) calc(100vw - 32px), 460px');
+      const imgAttrs = thumbData.srcset
+        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
+        : `src="${thumbData.src}"`;
+      return `<img ${imgAttrs} width="960" height="540" alt="${escapeHtml(featureItem.title)}" ${lcpImageAttrs} data-img-fallback="hide">`;
+    })() : '';
 
     return `
       <section class="home-hero" id="home-popular">
-        <h2 class="home-section-title">${(I18N[_lang] || I18N.en).popular}</h2>
-        <div class="home-hero-grid">
-          ${feature}
-          <div class="hero-list">${heroList}</div>
-        </div>
+        <h2 class="visually-hidden">${_t.popular}</h2>
+        <a href="${articleHref(featureCategory, featureItem.slug, _lang)}" class="hero-feature">
+          <div class="hero-feature-media">${featureImage}</div>
+          <div class="hero-feature-body">
+            <div class="hero-feature-meta">
+              <span class="hero-feature-kicker">${_t.popular}</span>
+              <span class="hero-feature-category">${featureCategoryLabel}</span>
+              ${featureDate ? `<time class="hero-feature-date" datetime="${featureDateAttr}">${featureDate}</time>` : ''}
+            </div>
+            <h3 class="hero-feature-title">${escapeHtml(featureItem.title)}</h3>
+            ${featureItem.summary ? `<p class="hero-feature-summary">${escapeHtml(featureItem.summary)}</p>` : ''}
+          </div>
+        </a>
       </section>
     `;
   }
 
-  // 최신 카드 (3컬럼 그리드)
+  // 최신 카드 (데스크톱 3컬럼 그리드 / 모바일 가로 리스트) — 카테고리 페이지와 같은 카드
   function generateLatestGrid() {
     const items = articles;
     if (items.length === 0) return '';
 
-    const cardEntries = items.map((item, i) => {
-      const thumbData = getThumbSrcset(item.thumbnail, 240, 480, '(max-width: 768px) 133px, 253px');
-      const imgAttrs = thumbData.srcset
-        ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
-        : `src="${thumbData.src}"`;
-      const perfAttrs = lazyImageAttrs;
-      return `
-      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="home-trend-card home-latest-item" data-index="${i}">
-        <div class="home-trend-card-image">
-          ${thumbData.src ? `<img ${imgAttrs} width="480" height="270" alt="${escapeHtml(item.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
-          <span class="home-trend-card-tag">${formatDateEn(item.date)}</span>
-        </div>
-        <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(item.title)}</span></h3>
-      </a>
-    `;
-    });
+    const cardEntries = items.map((item, i) => renderFeedCard(item, i, _lang));
     const cardPayload = buildDeferredCardPayload(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
     const totalPages = Math.ceil(items.length / FEED_PAGE_SIZE);
@@ -943,9 +996,9 @@ function wrapWithLayout(content, options = {}) {
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
-  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${_adsActive ? `
-  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
-  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
+  <!-- AdSense: static async. preload + fetchpriority=high 는 광고 스크립트를 CSS·LCP 이미지보다 앞에 세워
+       첫 화면을 늦추므로(라이브 모바일 FCP 7.5s) 걷어냈다. -->${_adsActive ? `
+  <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(safeDescription)}">
   <meta name="keywords" content="${escapeHtml(keywords)}">
@@ -1001,6 +1054,8 @@ function wrapWithLayout(content, options = {}) {
   <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
   <link rel="dns-prefetch" href="https://wsrv.nl">${jsonLdScript}
 
+  <!-- 폰트: Pretendard Variable dynamic subset 셀프호스팅 (generate-ai-blog.js copyAssets 가 복사). font-display: swap -->
+  <link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css">
   ${cssLinksHtml}
   ${deferredCssGuardScript}
   <style>
@@ -1144,27 +1199,36 @@ function wrapWithLayout(content, options = {}) {
         background: var(--bg) !important;
         transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       }
+      .search-container {
+        display: flex !important;
+        align-items: center;
+        gap: 10px;
+      }
       .search-container .search-box {
         display: flex;
         align-items: center;
         background: var(--glass-bg);
         border: 1px solid var(--border);
         border-radius: 24px;
-        padding: 0 12px;
-        height: 48px;
+        padding: 0 4px 0 14px;
+        height: 48px; /* 8px 패딩 ×2 와 합쳐 64px — 아래 .nav 의 top:64px 와 맞물림 */
         flex: 1;
+        min-width: 0;
+        max-width: none;
+        margin: 0;
       }
-      .search-container .search-home-icon {
-        display: flex !important;
+      /* 워드마크 로고 (홈 링크) — 검색창 왼쪽 */
+      .search-container .search-home-logo {
+        display: flex;
         align-items: center;
-        justify-content: center;
         flex-shrink: 0;
-        width: 40px;
-        height: 100%;
+        height: 48px;
+        color: var(--text);
+        text-decoration: none;
       }
-      .search-container .search-home-icon img {
-        width: 32px;
-        height: 32px;
+      .search-container .search-home-logo-svg {
+        height: 20px;
+        width: auto;
       }
       .search-container .search-input {
         flex: 1;
@@ -1245,9 +1309,11 @@ function wrapWithLayout(content, options = {}) {
         padding: 8px 4px 10px;
         margin: 0;
       }
-      /* 네비 밑줄 위치 조정 */
+      /* 네비 밑줄 위치 조정 + 색상: 공용 70-search.css 가 모바일 밑줄을 GamerScroll 오렌지(#f97316)로
+         강제하므로 AIScroll 은 브랜드 블루로 되돌린다 */
       .nav-item.active::after {
         bottom: 0 !important;
+        background: var(--primary) !important;
       }
       /* 모바일 페이지네이션 숨김 */
       .home-pagination {
@@ -1296,16 +1362,46 @@ function wrapWithLayout(content, options = {}) {
     .home-sidebar-sticky {
       top: 70px !important;
     }
-    /* Categories 카드 */
+    /* 사이드바 카드 공통 규격 — 목차·카테고리·인기/최신이 같은 라벨(13px 대문자)·행(14px)·번호(13px) 크기를 쓴다.
+       기본 .home-card-header 의 min-height 44px 는 라벨 아래 빈 공간을 만들므로 해제. */
+    #sidebar-toc,
     #sidebar-categories {
       margin-bottom: 16px;
     }
+    #sidebar-toc .home-card-header,
     #sidebar-categories .home-card-header {
-      padding: 12px 0 8px;
+      display: block;
+      padding: 0 0 8px;
+      min-height: 0;
+      height: auto;
       border-bottom: none;
     }
+    #sidebar-toc .home-card-title,
     #sidebar-categories .home-card-title {
-      font-size: 15px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .article-toc-item,
+    .sidebar-category-item,
+    .sidebar-article-item {
+      padding: 9px 0;
+    }
+    .article-toc-text,
+    .sidebar-category-name,
+    .sidebar-article-title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+    .article-toc-num,
+    .sidebar-article-rank {
+      width: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
     }
     /* 검색 결과 페이지 */
     .search-loading, .search-empty {
@@ -2391,24 +2487,8 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   const _lang = lang === 'ko' ? 'ko' : 'en';
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const categoryArticles = articles.filter(a => a.category === categoryId);
-  const lcpImageAttrs = 'loading="eager" fetchpriority="high" decoding="async"';
-  const lazyImageAttrs = 'loading="lazy" fetchpriority="auto" decoding="async"';
-  const categoryCardEntries = categoryArticles.map((a, i) => {
-    const thumbData = getThumbSrcset(a.thumbnail, 240, 480, '(max-width: 768px) 133px, 253px');
-    const imgAttrs = thumbData.srcset
-      ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
-      : `src="${thumbData.src}"`;
-    const perfAttrs = i === 0 ? lcpImageAttrs : lazyImageAttrs;
-    return `
-    <a href="${articleHref(a.category || 'general', a.slug, _lang)}" class="home-trend-card home-latest-item" data-index="${i}">
-      <div class="home-trend-card-image">
-        ${thumbData.src ? `<img ${imgAttrs} width="480" height="270" alt="${escapeHtml(a.title)}" ${perfAttrs} data-img-fallback="hide">` : ''}
-        <span class="home-trend-card-tag">${formatDateEn(a.date)}</span>
-      </div>
-      <h3 class="home-trend-card-title"><span class="home-trend-card-title-text">${escapeHtml(a.title)}</span></h3>
-    </a>
-  `;
-  });
+  // 홈 '최신'과 같은 카드. 첫 카드가 이 페이지의 LCP 후보라 fetchpriority=high
+  const categoryCardEntries = categoryArticles.map((a, i) => renderFeedCard(a, i, _lang, { highPriorityIndex: 0 }));
   const categoryCardPayload = buildDeferredCardPayload(categoryCardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
   const categoryTotalPages = Math.ceil(categoryArticles.length / FEED_PAGE_SIZE) || 1;
 
@@ -2617,6 +2697,8 @@ module.exports = {
   SITE_CONFIG,
   formatDateEn,
   formatDateKo,
+  formatDateShort,
+  formatDateLong,
   I18N,
   langPrefixOf,
   pathForLang,

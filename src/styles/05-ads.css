@@ -159,6 +159,15 @@
   border-color: transparent;
 }
 
+/* PC 상단 광고: 애드센스 응답 전(status 미확정)에는 빈 테두리 카드를 보이지 않는다.
+   자리(min-height)는 CLS 방지를 위해 유지하고, 채워지면 카드 배경·테두리가 돌아온다.
+   unfilled는 아래 규칙이 카드 자체를 숨긴다. */
+.ad-card-responsive-home:not(:has(ins.adsbygoogle[data-ad-status="filled"])),
+.ad-card-responsive-top:not(:has(ins.adsbygoogle[data-ad-status="filled"])) {
+  background: transparent;
+  border-color: transparent;
+}
+
 /* AdSense iframe child: vertical-align middle for shorter creatives */
 .ad-card-responsive-home > ins.adsbygoogle > iframe,
 .ad-card-responsive-top > ins.adsbygoogle > iframe {
@@ -192,14 +201,16 @@
   margin-right: auto !important;
 }
 
-/* 좁은 컬럼(사이드바 레이아웃: 홈/아티클)은 부모 폭 안에서 최대 728 리더보드까지만 허용 */
+/* 좁은 컬럼(사이드바 레이아웃: 홈/아티클)은 부모 폭 안에서 최대 728 리더보드까지만 허용.
+   카드는 732px = 728 + 테두리 2px + 여유 2px — 728×90 고정 규격 <ins>가 부모 콘텐츠 폭에 눌려
+   줄어들지 않게 (애드센스는 부모보다 넓은 고정 규격을 부모 폭으로 축소 요청함; ads.js narrow 변형 참고). */
 @media (min-width: 769px) {
   .home-main > .ad-card-responsive-home,
   .article-main > .ad-card-responsive-home,
   .home-main > .ad-card-responsive-top,
   .article-main > .ad-card-responsive-top {
     width: 100% !important;
-    max-width: 728px !important;
+    max-width: 732px !important;
     margin-left: auto;
     margin-right: auto;
     min-height: 90px;
@@ -208,10 +219,11 @@
     justify-content: center;
   }
 
-  .home-main > .ad-card-responsive-home > ins.adsbygoogle,
-  .article-main > .ad-card-responsive-home > ins.adsbygoogle,
-  .home-main > .ad-card-responsive-top > ins.adsbygoogle,
-  .article-main > .ad-card-responsive-top > ins.adsbygoogle,
+  /* 고정 규격(.gs-ad-fixed) <ins>는 자기 폭을 유지해야 하므로 width:100% 강제에서 제외 */
+  .home-main > .ad-card-responsive-home > ins.adsbygoogle:not(.gs-ad-fixed),
+  .article-main > .ad-card-responsive-home > ins.adsbygoogle:not(.gs-ad-fixed),
+  .home-main > .ad-card-responsive-top > ins.adsbygoogle:not(.gs-ad-fixed),
+  .article-main > .ad-card-responsive-top > ins.adsbygoogle:not(.gs-ad-fixed),
   .home-main > .ad-card-responsive-home > ins.adsbygoogle > iframe,
   .article-main > .ad-card-responsive-home > ins.adsbygoogle > iframe,
   .home-main > .ad-card-responsive-top > ins.adsbygoogle > iframe,

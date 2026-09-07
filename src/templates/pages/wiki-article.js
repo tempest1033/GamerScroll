@@ -13,6 +13,7 @@ const {
 } = require('../components/sidebar');
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
+const { createArticleToc } = require('../helpers/article-toc');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -134,24 +135,6 @@ const toSlug = (text) => {
     .replace(/^-|-$/g, '');
 };
 
-// 목차 생성
-const renderToc = (content = []) => {
-  const headings = content.filter(b => b.type === 'heading' && b.value);
-  if (headings.length < 3) return ''; // 3개 미만이면 목차 생략
-
-  const items = headings.map(h => {
-    const id = toSlug(h.value);
-    return `<li><a href="#${id}">${h.value}</a></li>`;
-  }).join('');
-
-  return `
-    <nav class="blog-toc">
-      <div class="blog-toc-title">목차</div>
-      <ol>${items}</ol>
-    </nav>
-  `;
-};
-
 // Article body ads keep the dedicated in-article slots; handling matches feed scroll ads.
 const IN_ARTICLE_SLOTS = [
   AD_SLOTS.InArticle001, AD_SLOTS.InArticle002, AD_SLOTS.InArticle003, AD_SLOTS.InArticle004, AD_SLOTS.InArticle005
@@ -169,7 +152,7 @@ function getInArticleAdHTML(adIndex) {
   </div>`;
 }
 
-const renderContentBlocks = (content = [], category = '', slug = '') => {
+const renderContentBlocks = (content = [], category = '', slug = '', toc) => {
   if (!Array.isArray(content) || content.length === 0) return '';
   const result = [];
   let imageIndex = 0;
@@ -239,12 +222,12 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
         break;
 
       case 'heading':
-        if (!block.value) break;
+        if (!String(block.value ?? '').trim()) break;
         sectionCount++;
         if (sectionCount % 2 === 0) {
           result.push(getInArticleAdHTML(adCount++));
         }
-        const headingId = toSlug(block.value);
+        const headingId = toc.headingId(block);
         result.push(`<h2 id="${headingId}" class="blog-heading">${block.value}</h2>`);
         break;
 
@@ -330,6 +313,7 @@ const renderContentBlocks = (content = [], category = '', slug = '') => {
  */
 function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext = {}, issueReports = [], allWikiData = {}, allTechData = {}, reportCounts = {}, magazineCounts = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] }) {
   const catInfo = categoryInfo[category] || { name: category, desc: '' };
+  const toc = createArticleToc(article.content, { slugify: toSlug });
 
   const keywordText = typeof article.keywords === 'string' ? article.keywords : '';
 
@@ -511,7 +495,7 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
 
   const sidebarCategoriesHTML = generateSidebarCategories();
   const sidebarArticlesHTML = generateSidebarArticles();
-  const sidebarHTML = sidebarCategoriesHTML + sidebarArticlesHTML;
+  const sidebarHTML = toc.sidebarHTML + sidebarCategoriesHTML + sidebarArticlesHTML;
 
   // 사이드바 탭 토글 스크립트
   const sidebarScript = sidebarHTML ? `
@@ -554,9 +538,9 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
 
               ${article.summary ? `<p class="blog-summary">${article.summary}</p>` : ''}
 
+              ${toc.mobileHTML}
               <div class="blog-content">
-                ${article.toc ? renderToc(article.content) : ''}
-                ${renderContentBlocks(article.content, category, article.slug)}
+                ${renderContentBlocks(article.content, category, article.slug, toc)}
               </div>
 
               ${relatedGamesHtml}
@@ -578,6 +562,7 @@ function generateWikiArticlePage({ article, category, relatedDocs = [], prevNext
       </article>
     </section>
     ${sidebarScript}
+    ${toc.scriptHTML}
   `;
 
   const metaKeywords = keywordText || '게임 위키, 게임 용어';
