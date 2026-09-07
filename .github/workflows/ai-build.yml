@@ -5,11 +5,14 @@ on:
     branches: [main]
     paths:
       - 'data/tech/**'
+      - 'data/article-assets/aiscroll/**'
+      - 'data/brand-icons/**'
       - 'reports/issue/**'
       - 'data/wiki/**'
       - 'reports/hotpick/**'
       - 'generate-ai-blog.js'
       - 'src/templates/ai-blog/**'
+      - 'src/templates/helpers/article-action.js'
       - 'src/templates/layout/**'
       - 'src/ai-blog/**'
       - 'src/styles/**'

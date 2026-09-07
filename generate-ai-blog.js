@@ -37,6 +37,7 @@ const {
   countCategories
 } = require('./src/templates/ai-blog/taxonomy');
 const { buildLayoutCoreBundle, LAYOUT_CORE_ASSET } = require('./src/templates/layout');
+const { copyArticleAssets } = require('./src/build/article-assets');
 
 // GA4 Analytics
 const {
@@ -1132,6 +1133,7 @@ async function main() {
   // 4. 에셋 복사
   console.log('\n4. 에셋 복사 중...');
   await copyAssets(faviconChanged);
+  console.log(`기사 보관 이미지 ${copyArticleAssets(__dirname, DOCS_DIR, articles)}개 복사 완료`);
 
   // 5. SEO 파일 생성
   console.log('\n5. SEO 파일 생성 중...');

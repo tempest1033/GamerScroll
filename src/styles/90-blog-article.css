@@ -217,7 +217,7 @@ a.blog-editor:hover {
 }
 
 /* 본문 내 링크 - 블로그 스타일: 업더라인 제공 */
-.blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
+.blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):not(.article-action) {
   color: var(--primary);
   text-decoration: underline;
   text-decoration-color: rgba(9, 105, 218, 0.4);
@@ -233,16 +233,16 @@ a.blog-editor:hover {
   text-decoration: none;
 }
 
-.blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
+.blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):not(.article-action):hover {
   color: var(--primary-dark);
   text-decoration-color: var(--primary-dark);
 }
 
 @media (prefers-color-scheme: dark) {
-  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card) {
+  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):not(.article-action) {
     color: #60a5fa;
   }
-  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):hover {
+  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):not(.article-action):hover {
     color: var(--link-hover-accent);
   }
 }

@@ -1,0 +1,307 @@
+{
+  "slug": "coding-agent-picks-2026-09",
+  "site": "aiscroll",
+  "category": "hot",
+  "topics": [
+    "coding-agents",
+    "vibecoding"
+  ],
+  "author": "Editor J",
+  "status": "approved",
+  "date": "2026-09-07T17:00Z",
+  "title": "2026년 9월 코딩 에이전트 도구 3종 추천: 파세오·오르카·딥시크 하네스",
+  "titleEn": "3 Coding Agent Picks for September 2026",
+  "summary": "파세오는 원격 접속과 패널, 오르카는 동시 작업의 격리와 원격 환경, 딥시크 하네스는 유연한 플러그인 확장이 강점이다. 9월 눈여겨볼 세 도구가 어떤 사용자에게 맞는지 정리했다.",
+  "summaryEn": "Paseo for remote panels, Orca for isolated parallel work, and DeepSeek Harness for flexible plugins: three September 2026 picks and who each suits.",
+  "keywords": "코딩 에이전트 도구, 파세오, 오르카, 딥시크 하네스, 에이전트 관리",
+  "keywordsEn": "coding agent tools, Paseo, Orca, DeepSeek Harness, agent runtime",
+  "needTranslate": false,
+  "thumbnail": "/assets/images/tech/ai/coding-agent-picks-2026-09/thumbnail.webp",
+  "content": [
+    {
+      "type": "text",
+      "value": "코덱스와 클로드 코드를 여러 개 띄워 쓰다 보면 모델 성능 외에도 신경 쓸 일이 생긴다. 에이전트마다 진행 상황을 확인하고, 동시에 수정하는 파일이 충돌하지 않도록 작업을 나누고, 필요한 기능을 추가해야 한다. 기본 앱이나 CLI에 관리 도구를 더하는 이유다.\n\n여러 에이전트의 작업을 조율하는 오케스트레이션, 서로 다른 모델·에이전트를 섞어 쓰는 방식도 이런 관리 환경이 필요하다. 계획과 구현, 검토를 각각 맡기려면 작업을 분배하는 데서 끝나지 않고 진행 상황과 결과까지 함께 관리해야 한다.\n\n2026년 9월 코딩 에이전트 도구 세 가지를 이런 기준으로 골랐다. 원격 접속과 멀티패널이 강점인 파세오, 동시 작업의 격리와 원격 환경이 돋보이는 오르카, 플러그인 확장이 유연한 딥시크 하네스다. 공식 문서와 릴리스 기록을 바탕으로 에이전트 관리 방식과 추천 대상을 비교했다."
+    },
+    {
+      "type": "heading",
+      "value": "에이전트를 관리하는 환경부터 실행 기반까지"
+    },
+    {
+      "type": "text",
+      "value": "세 도구는 에이전트를 활용하는 과정에서 서로 다른 부분을 맡는다. 파세오와 오르카는 클로드 코드·코덱스·오픈코드 같은 기존 CLI 에이전트를 실행하고 관리한다. 익숙한 에이전트는 그대로 두고, 여러 세션을 다루는 화면과 원격 접속, 작업 관리 기능을 더하는 방식이다.\n\n딥시크 하네스는 한 단계 안쪽을 다룬다. 모델 호출과 도구 사용을 처리하는 실행 기반을 플러그인으로 구성해, 필요한 기능을 붙이거나 동작을 바꿀 수 있다. [모델 성능과 구독 조건](/ko/article/news/gpt6-astra-fable-comparison/)을 고른 뒤에도 관리 환경을 개선할지, 실행 구조까지 손볼지에 따라 선택지가 나뉘는 셈이다."
+    },
+    {
+      "type": "heading",
+      "value": "파세오: 원격 접속과 멀티패널로 작업을 한눈에"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/coding-agent-picks-2026-09/body-paseo-demo.webp",
+      "alt": "파세오 공식 데모의 세션 목록, 에이전트 작업 화면과 변경사항 패널",
+      "caption": "여러 세션과 파일 변경사항을 함께 보여주는 파세오 공식 홈페이지 데모."
+    },
+    {
+      "type": "text",
+      "value": "이미지 출처: [파세오 공식 홈페이지](https://paseo.sh/)"
+    },
+    {
+      "type": "text",
+      "value": "파세오는 여러 에이전트의 진행 상황을 한곳에서 확인하고, 원격에서도 작업을 이어가기 좋은 도구다. 멀티패널로 세션을 나란히 펼칠 수 있어 터미널 창을 하나씩 오가는 수고를 줄인다. 기존 에이전트를 바꾸기보다 이를 다루는 환경을 편하게 만드는 데 강점이 있다.\n\n8월 말 업데이트는 이런 방향을 보여준다. 8월 31일 공개된 [0.7.0 릴리스](https://github.com/getpaseo/paseo/releases)에는 데스크톱과 CLI에서 기존 원격 데몬에 SSH로 연결하는 기능이 추가됐다. Git 저장소를 통한 플러그인 설치도 지원하며, 라이선스는 Apache-2.0으로 변경됐다.\n\n여러 에이전트를 함께 쓰는 오케스트레이션 기능도 갖췄다. [공식 문서](https://paseo.sh/docs/orchestration)는 클로드 코드가 코덱스에 하위 작업을 맡기는 예를 든다. 작업 성격에 따라 다른 에이전트를 선택하고, 나뉜 작업의 진행 상황은 같은 앱에서 확인하는 구성이다.\n\n여러 세션을 패널로 펼쳐 놓고 쓰거나, 집과 사무실을 오가며 실행 중인 작업을 확인하는 사용자에게 잘 맞는다. Windows에서는 9월 2일의 0.7.2가 데몬 종료·재시작 후 에이전트 프로세스가 남던 문제를 수정했으므로, 원격 환경을 구성할 때 사용 버전도 확인하는 편이 좋다."
+    },
+    {
+      "type": "link",
+      "variant": "button",
+      "brand": "paseo",
+      "text": "파세오 설치하기",
+      "url": "https://paseo.sh/"
+    },
+    {
+      "type": "heading",
+      "value": "오르카: 작업은 분리하고, 로컬과 원격은 함께 관리"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/coding-agent-picks-2026-09/body-orca-demo.webp",
+      "alt": "오르카 공식 데모의 작업별 에이전트 목록과 분할 터미널",
+      "caption": "작업별 에이전트와 분할 터미널을 보여주는 오르카 공식 홈페이지 데모."
+    },
+    {
+      "type": "text",
+      "value": "이미지 출처: [오르카 공식 홈페이지](https://www.onorca.dev/)"
+    },
+    {
+      "type": "text",
+      "value": "여러 에이전트가 동시에 코드를 수정한다면 각자의 변경 사항을 분리해 관리하는 일이 중요하다. 스태블리의 오르카는 이 작업 격리에 강점이 있다. [공식 저장소](https://github.com/stablyai/orca)는 하나의 프롬프트를 다섯 에이전트에 보내고, 별도의 Git worktree에서 나온 결과를 비교하는 사용법을 소개한다. worktree는 같은 저장소를 서로 다른 작업 폴더와 브랜치로 나눠 쓰는 기능이다.\n\n이 구성을 원격 환경으로도 확장할 수 있다. SSH worktree는 원격 머신의 파일 편집과 Git, 터미널 작업을 지원하며 재연결과 포트 포워딩도 제공한다. 로컬과 원격의 작업을 같은 앱에서 다룰 수 있다는 점이 병렬 실행 못지않은 장점이다.\n\n여러 기능이나 수정안을 동시에 진행하는 개발자, 같은 요청을 서로 다른 에이전트에 맡겨 결과를 비교하는 사람에게 추천한다. 터미널 분할과 클로드·코덱스 사용량 추적도 여러 작업을 관리할 때 도움이 된다.\n\n도입 전에는 지침과 세션 복구 방식을 확인할 필요가 있다. 오르카의 [오케스트레이션 가이드](https://github.com/stablyai/orca/blob/main/skill-guides/orchestration.md)는 위임받은 에이전트가 추가된 조정 지침을 따르도록 정한다. 세션 복원 실패 후 탭 상태가 빈 값으로 저장되는 문제가 [이슈 #1158](https://github.com/stablyai/orca/issues/1158)에 보고된 만큼, 기존 하네스 설정과의 관계뿐 아니라 사용 버전의 수정 여부와 백업 방법도 살펴보는 편이 좋다."
+    },
+    {
+      "type": "link",
+      "variant": "button",
+      "brand": "orca",
+      "text": "오르카 설치하기",
+      "url": "https://www.onorca.dev/"
+    },
+    {
+      "type": "heading",
+      "value": "딥시크 하네스: Pi 대안으로 살펴볼 플러그인 확장성"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/coding-agent-picks-2026-09/body-deepseek-banner.webp",
+      "alt": "Everything is a Plugin 문구와 고래가 담긴 딥시크 하네스 공식 배너",
+      "caption": "플러그인 중심 구조를 소개하는 딥시크 하네스 공식 배너."
+    },
+    {
+      "type": "text",
+      "value": "이미지 출처: [딥시크 하네스 공식 저장소](https://github.com/deepseek-ai/deepseek-harness)"
+    },
+    {
+      "type": "text",
+      "value": "파세오와 오르카가 기존 에이전트의 작업을 관리한다면, 딥시크 하네스는 에이전트 자체를 구성하는 쪽에 가깝다. 플러그인과 익스텐션을 유연하게 조합할 수 있어, Pi를 기반으로 자신만의 환경을 만들어 온 개발자가 대안으로 살펴볼 만하다.\n\n핵심은 확장할 수 있는 범위다. [공식 아키텍처 문서](https://deepseek-harness.github.io/deepseek-harness/en/reference/)에 따르면 모델 어댑터, 도구 등록부, 세션 로그, 에이전트 실행 루프까지 Cordis 플러그인으로 구성된다. 도구를 몇 개 추가하는 수준을 넘어, 에이전트가 실행되는 핵심 구조도 설정에서 교체할 수 있다.\n\n실행 형태는 웹 앱, 서버 없는 일회성 실행, SDK, ACP 연결 등의 프로필로 나뉜다. 용도에 맞는 구성을 선택하고 필요한 요소를 조합하는 방식이다. 세션 로그에서 모델에 전달된 내용을 재구성하도록 설계해, 동작을 추적할 수 있게 한 점도 확장 기능을 개발할 때 참고할 만하다.\n\n새로운 도구나 모델 연결을 직접 구현하거나, 에이전트의 동작을 세밀하게 바꾸고 싶은 개발자에게 추천한다. 프로필과 플러그인 구성을 익히는 과정은 필요하지만, 완성된 앱의 설정만으로는 하기 어려운 변경까지 시도할 수 있다는 것이 매력이다."
+    },
+    {
+      "type": "link",
+      "variant": "button",
+      "brand": "deepseek-harness",
+      "text": "딥시크 하네스 설치하기",
+      "url": "https://github.com/deepseek-ai/deepseek-harness"
+    },
+    {
+      "type": "heading",
+      "value": "원격 관리, 병렬 작업, 확장성 중 필요한 것부터"
+    },
+    {
+      "type": "table",
+      "mobileLayout": "wrap",
+      "caption": "2026년 9월 코딩 에이전트 도구 3종 추천: 강점과 잘 맞는 사용자",
+      "headers": [
+        "도구",
+        "주목할 강점",
+        "잘 맞는 사용자"
+      ],
+      "rows": [
+        [
+          "파세오",
+          "원격 접속과 멀티패널",
+          "여러 세션을 한눈에 보거나 다른 기기에서 진행 상황을 확인하는 사용자"
+        ],
+        [
+          "오르카",
+          "병렬 작업의 격리와 원격 개발 환경",
+          "여러 수정안을 동시에 진행하거나 에이전트별 결과를 비교하는 개발자"
+        ],
+        [
+          "딥시크 하네스",
+          "플러그인·익스텐션의 유연한 구성",
+          "Pi 대안을 찾거나 모델·도구·실행 방식을 직접 확장하는 개발자"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "여러 에이전트를 섞어 쓰더라도 모두 같은 환경을 필요로 하지는 않는다. 진행 상황을 편하게 확인하는 일이 우선이라면 파세오, 동시에 진행하는 작업의 변경 사항을 나누는 일이 중요하다면 오르카가 먼저 눈에 들어온다. 에이전트에 필요한 기능을 직접 구현하려면 딥시크 하네스의 확장 구조를 살펴볼 만하다.\n\n세 도구의 기능은 일부 겹치지만 지향하는 사용 방식에는 차이가 있다. 원격 관리와 병렬 작업, 플러그인 확장 중 현재 작업에서 가장 필요한 부분을 정하면 새로운 코딩 에이전트 도구를 고르는 기준도 분명해진다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Running several Codex or Claude Code sessions creates work beyond choosing a model. Someone has to track each agent's progress, keep concurrent file changes from colliding, and add missing capabilities. Management tools build on the default apps and CLIs to address those needs.\n\nOrchestration coordinates work across agents; mixing models and agents adds another management choice. Assigning planning, implementation, and review to different agents requires more than dispatching tasks. Their progress and results need to stay manageable too.\n\nThose needs shape these three coding agent tools for September 2026: Paseo for remote access and multiple panels, Orca for isolated parallel work and remote development, and DeepSeek Harness for flexible plugins. The comparison draws on official documentation and release notes to identify how each manages agents and whom it suits."
+    },
+    {
+      "type": "heading",
+      "value": "From agent management to the runtime itself"
+    },
+    {
+      "type": "text",
+      "value": "The three projects address different parts of working with agents. Paseo and Orca run and manage existing CLI agents such as Claude Code, Codex, and OpenCode. Familiar agents stay in place while the surrounding app adds an interface for multiple sessions, remote access, and task management.\n\nDeepSeek Harness works further inside the stack. It assembles the agent runtime that calls models and uses tools from plugins, allowing developers to add capabilities or change behavior. After choosing [model capabilities and subscription limits](/article/news/gpt6-astra-fable-comparison/), there is still a choice between improving the management environment and changing execution itself."
+    },
+    {
+      "type": "heading",
+      "value": "Paseo: remote access and panels in one place"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/coding-agent-picks-2026-09/body-paseo-demo.webp",
+      "alt": "Official Paseo demo showing sessions, agent work and the changes panel",
+      "caption": "Paseo's official homepage demo shows multiple sessions and file changes together."
+    },
+    {
+      "type": "text",
+      "value": "Image source: [Paseo official website](https://paseo.sh/)"
+    },
+    {
+      "type": "text",
+      "value": "Paseo brings several agents' progress into one place and makes that work accessible remotely. Its multi-panel layout puts sessions side by side, reducing the need to switch between terminal windows. The strength is a more convenient environment around existing agents.\n\nThe late-August update illustrates that direction. [Version 0.7.0](https://github.com/getpaseo/paseo/releases), released on August 31, added SSH connections to existing remote daemons from desktop and CLI. It also introduced plugin installation from Git repositories and changed the license to Apache-2.0.\n\nOrchestration connects the agents as well as displaying them. The [official documentation](https://paseo.sh/docs/orchestration) gives the example of Claude Code delegating a task to Codex. Different agents can handle different tasks while their progress remains visible in the same app.\n\nPaseo suits users who keep several sessions open in panels or check running tasks as they move between home and the office. On Windows, version 0.7.2, released on September 2, fixed agent processes being left behind during daemon shutdown and restart. That makes the installed version worth checking when setting up remote work."
+    },
+    {
+      "type": "link",
+      "variant": "button",
+      "brand": "paseo",
+      "text": "Install Paseo",
+      "url": "https://paseo.sh/"
+    },
+    {
+      "type": "heading",
+      "value": "Orca: separate tasks across local and remote work"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/coding-agent-picks-2026-09/body-orca-demo.webp",
+      "alt": "Official Orca demo showing agents grouped by task and split terminals",
+      "caption": "Orca's official homepage demo shows task-specific agents and split terminals."
+    },
+    {
+      "type": "text",
+      "value": "Image source: [Orca official website](https://www.onorca.dev/)"
+    },
+    {
+      "type": "text",
+      "value": "When several agents edit code at once, keeping their changes apart becomes important. Stably's Orca is strong at that separation. The [official repository](https://github.com/stablyai/orca) describes sending one prompt to five agents in separate Git worktrees and comparing the results. Worktrees provide different working directories and branches within the same repository.\n\nThat setup extends to remote development. SSH worktrees support file editing, Git, and terminals on a remote machine, along with reconnection and port forwarding. Managing local and remote tasks in the same app is a strength alongside parallel execution.\n\nOrca suits developers handling several features or fixes concurrently, or asking different agents to solve the same task and comparing their results. Terminal splits and Claude and Codex usage tracking help keep that work manageable.\n\nCheck instruction handling and session recovery before adopting it. Orca's [orchestration guide](https://github.com/stablyai/orca/blob/main/skill-guides/orchestration.md) directs dispatched agents to follow added coordination instructions. [Issue #1158](https://github.com/stablyai/orca/issues/1158) reports empty tab state being saved after a failed session restoration. Alongside compatibility with existing harness instructions, check the fix status of your version and its backup procedure."
+    },
+    {
+      "type": "link",
+      "variant": "button",
+      "brand": "orca",
+      "text": "Install Orca",
+      "url": "https://www.onorca.dev/"
+    },
+    {
+      "type": "heading",
+      "value": "DeepSeek Harness: an extensible option beyond Pi"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/coding-agent-picks-2026-09/body-deepseek-banner.webp",
+      "alt": "Official DeepSeek Harness banner showing a whale and the words Everything is a Plugin",
+      "caption": "The official DeepSeek Harness banner introduces its plugin-based architecture."
+    },
+    {
+      "type": "text",
+      "value": "Image source: [DeepSeek Harness official repository](https://github.com/deepseek-ai/deepseek-harness)"
+    },
+    {
+      "type": "text",
+      "value": "While Paseo and Orca manage work around existing agents, DeepSeek Harness is closer to a way of assembling the agent itself. Flexible plugin and extension composition makes it worth investigating as an alternative for developers who have built their own environment around Pi.\n\nThe important distinction is how much can be replaced. According to the [architecture documentation](https://deepseek-harness.github.io/deepseek-harness/en/reference/), model adapters, the tool registry, session logs, and the agent loop are all Cordis plugins. Configuration can change core execution components as well as add tools.\n\nProfiles cover the web app, one-shot execution without a server, SDK use, and ACP connections. Developers choose an execution form and compose what it needs. Session logs are designed to reconstruct what reached the model, providing a way to trace behavior while developing extensions.\n\nDeepSeek Harness suits developers implementing tools or model integrations, or changing an agent's behavior in detail. Learning the profiles and plugin composition takes effort, but it opens up changes that a finished app's settings may not allow."
+    },
+    {
+      "type": "link",
+      "variant": "button",
+      "brand": "deepseek-harness",
+      "text": "Install DeepSeek Harness",
+      "url": "https://github.com/deepseek-ai/deepseek-harness"
+    },
+    {
+      "type": "heading",
+      "value": "Start with remote management, parallel work, or extension"
+    },
+    {
+      "type": "table",
+      "mobileLayout": "wrap",
+      "caption": "Three coding agent picks for September 2026: strengths and suitable users",
+      "headers": [
+        "Tool",
+        "Main strengths",
+        "Best fit"
+      ],
+      "rows": [
+        [
+          "Paseo",
+          "Remote access and multiple panels",
+          "Users monitoring several sessions or checking progress from another device"
+        ],
+        [
+          "Orca",
+          "Isolated parallel work and remote development",
+          "Developers working on several changes at once or comparing agents' results"
+        ],
+        [
+          "DeepSeek Harness",
+          "Flexible plugin and extension composition",
+          "Developers exploring a Pi alternative or extending models, tools, and execution"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Mixing agents does not mean everyone needs the same environment. Paseo is worth looking at when monitoring progress comfortably is the priority. Orca is a stronger fit when keeping concurrent file changes apart matters most. DeepSeek Harness offers a different starting point for developers implementing the capabilities they need inside the agent.\n\nSome features overlap, but the intended ways of working differ. Identifying whether the current need is remote management, parallel work, or plugin-based extension gives a clearer basis for choosing coding agent tools."
+    }
+  ],
+  "sources": [
+    {
+      "name": "Paseo",
+      "title": "Releases — v0.7.0 (Apache-2.0, SSH remote daemons), v0.7.2 (Windows daemon fixes)",
+      "url": "https://github.com/getpaseo/paseo/releases"
+    },
+    {
+      "name": "Paseo Docs",
+      "title": "Orchestration — cross-provider subagents",
+      "url": "https://paseo.sh/docs/orchestration"
+    },
+    {
+      "name": "Stably",
+      "title": "Orca — the ADE for working with a fleet of parallel agents (README)",
+      "url": "https://github.com/stablyai/orca"
+    },
+    {
+      "name": "Stably",
+      "title": "Orca skill-guides/orchestration.md — injected preamble is authoritative",
+      "url": "https://github.com/stablyai/orca/blob/main/skill-guides/orchestration.md"
+    },
+    {
+      "name": "Stably",
+      "title": "Orca issue #1158 — silent data loss when workspace session hydration fails",
+      "url": "https://github.com/stablyai/orca/issues/1158"
+    },
+    {
+      "name": "DeepSeek Harness",
+      "title": "Architecture reference — Cordis plugins, profiles, bundles",
+      "url": "https://deepseek-harness.github.io/deepseek-harness/en/reference/"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/muse-spark-1-3-opencode",
+    "tech:ai/gpt6-astra-fable-comparison",
+    "tech:ai/claude-opus-5-early-reviews"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}

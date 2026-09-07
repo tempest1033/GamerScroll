@@ -18,14 +18,14 @@ const {
   topicHref,
   aboutHref,
   pathForLang,
-  renderTopicList,
   homeHref
 } = require('./index');
-const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, countTopics, authorOf } = require('./taxonomy');
+const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, authorOf } = require('./taxonomy');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
 const { renderTextBlock, tableStackClass, tableCellLabelAttr } = require('../helpers/content-text');
 const { createArticleToc } = require('../helpers/article-toc');
+const { renderArticleAction } = require('../helpers/article-action');
 const { buildMetaDescription } = require('../../build/meta-description');
 
 // games.json 로드 (ranking 블록 아이콘용)
@@ -314,6 +314,9 @@ function generateAIBlogArticle(article, data = {}) {
 
     for (const block of content) {
       switch (block.type) {
+        case 'link':
+          result.push(renderArticleAction(block));
+          break;
         case 'text': {
           result.push(renderTextBlock(block.value, { tableClass: 'blog-table-wrapper', linkRenderer }));
           break;
@@ -496,7 +499,6 @@ function generateAIBlogArticle(article, data = {}) {
           </div>
         </div>
       </div>
-      ${renderTopicList(countTopics(allArticles), _lang)}
     `;
   }
 

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "retrievedAt": "2026-09-07",
+  "images": [
+    {
+      "file": "body-paseo-demo.webp",
+      "original": "body-paseo-demo-original.png",
+      "source": "https://paseo.sh/",
+      "kind": "official-website-demo-capture",
+      "description": "Official homepage desktop demonstration showing the session list, agent view, and changes panel. Not a screenshot of an editorial test run."
+    },
+    {
+      "file": "body-orca-demo.webp",
+      "original": "body-orca-demo-original.png",
+      "source": "https://www.onorca.dev/",
+      "kind": "official-website-demo-capture",
+      "description": "Official homepage Run a fleet of agents demonstration showing worktrees, multiple agents, and split terminals. Not a screenshot of an editorial test run."
+    },
+    {
+      "file": "body-deepseek-banner.webp",
+      "original": "body-deepseek-banner-original.png",
+      "source": "https://github.com/deepseek-ai/deepseek-harness",
+      "originalUrl": "https://repository-images.githubusercontent.com/1333065091/05ca062c-0277-415c-90b5-f43277f73436",
+      "kind": "official-project-banner",
+      "description": "Official Everything is a Plugin promotional banner, not an application screenshot."
+    }
+  ],
+  "processing": "One WebP per image, at most 1200 pixels wide, original aspect ratio preserved, no enlargement.",
+  "rights": "Official sources credited beside the images. Project software licences are not represented as a blanket licence for all website artwork."
+}

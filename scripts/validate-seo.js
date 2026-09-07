@@ -9,7 +9,7 @@
  * Usage:
  *   node scripts/validate-seo.js <url> [<url> ...]
  *
- * Exit code: 0 if every check passes, 1 if any FAIL.
+ * Exit code: 0 if no blocking check fails; editorial WARN results remain visible.
  *
  * Note: image hotlink (wsrv proxy) and caption<->image semantic match are
  * intentionally NOT covered here; they live in scripts/validate-thumbnails.js
@@ -30,6 +30,7 @@ const os = require('node:os');
 const fs = require('node:fs');
 const axios = require('axios');
 const cheerio = require('cheerio');
+const { checkStatus, imageHotlinkCheck } = require('./lib/seo-delivery');
 
 // --- Headless-Chrome lifecycle (parallel-safe) ---------------------------
 // Lighthouse launches headless Chrome via chrome-launcher. If this process is
@@ -625,43 +626,6 @@ function shortHost(u) {
   } catch { return u.slice(0, 50); }
 }
 
-async function imageHotlinkCheck($) {
-  const urls = new Set();
-  const og = $('meta[property="og:image"]').attr('content');
-  if (og && /^https?:\/\//i.test(og)) urls.add(og);
-  $('img.blog-image').each((_i, el) => {
-    const src = $(el).attr('src');
-    if (src && /^https?:\/\//i.test(src)) urls.add(src);
-  });
-  if (urls.size === 0) return { name: 'body/image-hotlink', pass: true, detail: '0 images to check' };
-  const fails = [];
-  // Limit concurrency to avoid hammering wsrv from one validator run.
-  const arr = Array.from(urls);
-  const concurrency = 5;
-  let idx = 0;
-  async function worker() {
-    while (idx < arr.length) {
-      const my = idx++;
-      const url = arr[my];
-      try {
-        const r = await axios.get(url, { timeout: 12000, responseType: 'arraybuffer', validateStatus: () => true, maxRedirects: 5 });
-        const size = r.data?.byteLength ?? 0;
-        if (r.status !== 200) fails.push(`${shortHost(url)} -> ${r.status}`);
-        else if (size <= 79) fails.push(`${shortHost(url)} -> empty (${size}B, wsrv silent 404)`);
-      } catch (e) {
-        fails.push(`${shortHost(url)} -> ERR`);
-      }
-    }
-  }
-  await Promise.all(Array.from({ length: Math.min(concurrency, arr.length) }, () => worker()));
-  return {
-    name: 'body/image-hotlink',
-    pass: fails.length === 0,
-    detail: fails.length
-      ? fails.slice(0, 3).join('; ') + (fails.length > 3 ? ` (+${fails.length - 3})` : '')
-      : `${urls.size} images all 200`,
-  };
-}
 
 // Yoast TextCompetingLinks: zero INTERNAL link anchors should match a
 // declared keyphrase. An internal anchor that uses your own keyphrase routes
@@ -1033,15 +997,15 @@ function contentSurfaceChecks($, keyphrases, profile, md) {
 
 function printReport(url, checks) {
   console.log(`\n=== ${url}`);
-  let pass = 0, fail = 0;
+  let pass = 0, fail = 0, warn = 0;
   for (const c of checks) {
-    const tag = c.pass ? 'PASS' : 'FAIL';
-    if (c.pass) pass++; else fail++;
+    const tag = checkStatus(c);
+    if (tag === 'PASS') pass++; else if (tag === 'WARN') warn++; else fail++;
     const detail = c.detail ? `  -- ${c.detail}` : '';
     console.log(`  [${tag}] ${c.name}${detail}`);
   }
   console.log(`  ----`);
-  console.log(`  ${pass} PASS / ${fail} FAIL`);
+  console.log(`  ${pass} PASS / ${fail} FAIL / ${warn} WARN`);
   return fail;
 }
 
@@ -1053,7 +1017,7 @@ async function validate(url) {
     const { checks: structChecks, $ } = structuralChecks(html, url);
     const [linkCheck, hotlinkCheck] = await Promise.all([
       internalLinkCheck($, url),
-      imageHotlinkCheck($),
+      imageHotlinkCheck($, url),
     ]);
     const internalQualityCheck = internalLinkScoring($, url);
     const outboundCheck = outboundLinkCheck($, url);

@@ -25,7 +25,6 @@ const {
   categoryDescription,
   topicLabel,
   topicsOf,
-  countTopics
 } = taxonomy;
 
 // 사이트 설정
@@ -95,22 +94,6 @@ function aboutHref(lang = 'en') { return pathForLang(PERSON_AUTHOR.path, lang); 
 const AI_CATEGORY_IDS = CATEGORY_IDS;
 const SIDEBAR_CATEGORY_IDS = CATEGORY_IDS;
 
-// 사이드바 주제 목록 (글이 있는 주제만 — 0건 주제는 상단 내비에만 남긴다). counts는 { topicId: n }
-function renderTopicList(counts = {}, lang = 'en') {
-  const _t = I18N[lang] || I18N.en;
-  const ids = Object.keys(counts).filter(id => counts[id] > 0);
-  if (ids.length === 0) return '';
-  ids.sort((a, b) => (counts[b] || 0) - (counts[a] || 0) || a.localeCompare(b));
-  return `
-    <div class="home-card" id="sidebar-topics">
-      <div class="sidebar-category-group">
-        <div class="home-card-header"><h3 class="home-card-title">${_t.topics}</h3></div>
-        <div class="sidebar-category-list">
-          ${ids.map(id => `<a href="${topicHref(id, lang)}" class="sidebar-category-item"><span class="sidebar-category-name">${escapeHtml(topicLabel(id, lang))}</span><span class="sidebar-category-count">${counts[id] || 0}</span></a>`).join('')}
-        </div>
-      </div>
-    </div>`;
-}
 
 // AIScroll 헤더 (로고 + 검색창 - PC용)
 function generateHeader(lang = 'en') {
@@ -267,7 +250,6 @@ function generateDefaultSidebarContent(counts = {}, lang = 'en') {
         </div>
       </div>
     </div>
-    ${renderTopicList(counts.topics || {}, lang)}
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
         <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
@@ -2636,7 +2618,6 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   const categories = SIDEBAR_CATEGORY_IDS
     .filter(id => (countByCategory[id] || 0) > 0)
     .map(id => ({ id, label: _catT.categoryLabels[id] }));
-  const topicListHtml = renderTopicList(countTopics(articles), _lang);
 
   // 사이드바 렌더링
   const renderSidebarList = (items) => items.slice(0, 10).map((item, i) => `
@@ -2664,7 +2645,6 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
             </div>
           </div>
         </div>
-        ${topicListHtml}
         <div class="home-card" id="sidebar-articles">
           <div class="home-card-header">
             <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
@@ -2829,7 +2809,6 @@ module.exports = {
   generateSearchPage,
   generateCategoryPage,
   generateTopicPage,
-  renderTopicList,
   taxonomy,
   topicHref,
   aboutHref,

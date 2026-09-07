@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "source": "thumbnail-generated-v1.png",
+  "generated": true,
+  "provider": "grok-oauth",
+  "model": "grok-imagine-image",
+  "prompt": "Use: illustration\nAsset: small editorial thumbnail for an article comparing three coding agent tools\nScene: three separate luminous software workstations connected to a shared central routing hub on a dark navy surface\nSubject: exactly three compact workstation forms, one suggesting remote access with layered windows, one suggesting parallel tasks with separated branches, and one suggesting extensibility with interlocking modules\nStyle: restrained three-dimensional editorial illustration, matte surfaces, soft blue and teal light, clean silhouettes readable at small size\nComposition: wide landscape, three evenly balanced forms in one uncluttered composition, all important elements inside the central area\nAvoid: no text, no letters, no logos, no watermarks, no faces, no fabricated application screenshots",
+  "createdAt": "2026-09-08",
+  "controls": { "aspectRatio": "16:9", "resolution": "1k" },
+  "assetId": "3610316f-8a6a-4924-a8b8-d1b91f4bf946",
+  "delivery": {
+    "url": "/assets/images/tech/ai/coding-agent-picks-2026-09/thumbnail.webp",
+    "size": [640, 360],
+    "format": "webp",
+    "quality": 80,
+    "processing": "Resize the preserved original with sharp to one 640x360 thumbnail.webp beside this record. The AIScroll build copies referenced delivery WebP files from this durable source directory to ai-docs/assets/images/tech/ai/coding-agent-picks-2026-09/. Originals and internal records are not published; no size variants."
+  }
+}
