@@ -3,7 +3,7 @@
     "cssHash": "927600dc23eb",
     "templateJsHash": "ea5612f79b38",
     "faviconSvgHash": "5a7e73e93309",
-    "lastBuild": "2026-09-04T15:45:27.761Z"
+    "lastBuild": "2026-09-07T01:23:34.564Z"
   },
   "articles": {
     "grok-46-launch-frontier-push": "3b6e6e824e55",
@@ -230,6 +230,7 @@
     "gemini-35-pro-crisis": "478ced7b5055",
     "china-frontier-model-surge": "8729d56ee952",
     "september-ai-model-war": "d3879fa07891",
-    "muse-spark-1-3-opencode": "d0ae80d159a8"
+    "muse-spark-1-3-opencode": "d0ae80d159a8",
+    "gpt6-astra-fable-comparison": "44f79c0fc657"
   }
 }
