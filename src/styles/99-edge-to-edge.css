@@ -158,14 +158,6 @@
     background: transparent !important;
   }
 
-  body:has(#homeLatestGrid) {
-    background: #000 !important;
-  }
-
-  #home-latest:has(> #homeLatestGrid) > .home-section-title {
-    display: none !important;
-  }
-
   #homeLatestGrid {
     gap: 16px !important;
   }
