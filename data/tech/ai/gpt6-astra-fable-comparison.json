@@ -1,0 +1,261 @@
+{
+  "slug": "gpt6-astra-fable-comparison",
+  "site": "aiscroll",
+  "category": "openai",
+  "status": "approved",
+  "date": "",
+  "title": "GPT-6 아스트라 출시 반응, 페이블 5.1과 성능·구독 혜택 비교",
+  "titleEn": "GPT-6 Astra vs Fable: Reviews and Plan Limits",
+  "summary": "GPT-6 아스트라가 최고 수준의 벤치마크 성적과 함께 페이블 5.1의 경쟁자로 등장했다. 초기 사용자 후기와 AAII 개편, 작업당 비용과 구독 혜택을 비교한다.",
+  "summaryEn": "GPT-6 Astra rivals Fable 5.1, but early reviews split by task. Benchmarks, subscription limits and usage resets help explain the choice.",
+  "keywords": "아스트라 성능, 페이블 비교, 코딩 에이전트, 구독",
+  "keywordsEn": "GPT-6 Astra, Fable 5.1, OpenAI access, Astra work",
+  "needTranslate": false,
+  "thumbnail": "https://the-decoder.com/wp-content/uploads/2026/09/openai_dark_gpt6_stars.png",
+  "content": [
+    {
+      "type": "text",
+      "value": "오픈AI가 9월 3일 GPT-6 아스트라를 공개했다. 코딩과 컴퓨터 조작, 과학 연구에서 성능을 끌어올린 하이엔드 모델로, 앤트로픽의 클로드 페이블 5.1과 정면 승부에 나섰다."
+    },
+    {
+      "type": "text",
+      "value": "출시 초기 관심은 어느 모델의 점수가 더 높은지에만 머물지 않는다. 아스트라를 주력으로 바꿨다는 사용기와 페이블을 계속 쓰겠다는 평가가 함께 나오는 가운데, 구독 한도와 실제 작업 비용도 중요한 선택 기준으로 떠올랐다."
+    },
+    {
+      "type": "heading",
+      "value": "페이블급 경쟁자로 등장한 아스트라"
+    },
+    {
+      "type": "text",
+      "value": "이용 조건을 비교할 만한 경쟁자가 됐는지는 성능에서 먼저 드러난다. [오픈AI가 발표한](https://openai.com/index/gpt-6-astra/) Terminal-Bench 4.0 성적은 아스트라 57.9%, 페이블 5.1 55.8%다. 과학 연구 작업을 평가하는 Terminal-Bench Science에서도 아스트라는 64.6%로, 페이블 5.1의 52.6%를 앞섰다."
+    },
+    {
+      "type": "text",
+      "value": "독립 평가에서도 최고 기록이 나왔다. 출시 초기 [Epoch AI](https://epoch.ai/models/gpt-6-astra/) 종합 지수에서 아스트라는 169점으로 1위에 올랐고, ARC-AGI-3에서도 표준 실행 환경 62.7%, 오픈AI의 문맥 관리 기능을 활용한 환경 99.9%를 기록했다. [ARC Prize](https://arcprize.org/blog/astra)는 두 조건 모두에서 최고 성적이라고 설명했다."
+    },
+    {
+      "type": "text",
+      "value": "다만 서로 다른 실행 환경의 점수를 그대로 섞어 비교해서는 안 된다. 모든 코딩 평가에서 아스트라가 앞선 것도 아니다. 아티피셜 애널리시스의 코딩 에이전트 지수에서는 아스트라가 67점으로 페이블 5와 동급이었고, 페이블 5.1은 70점으로 선두를 지켰다."
+    },
+    {
+      "type": "heading",
+      "value": "AAII 성적 논란, 평가 개편 뒤 달라진 결과"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/4692314442fdbe71d56ad89081f4a3769892448a-2320x2040.png?w=1200&auto=format",
+      "caption": "AAII v4.2 지능 지수 순위와 작업당 비용 비교",
+      "alt": "AAII v4.2 모델별 지능 지수 순위와 비용 분포를 함께 보여주는 그래프"
+    },
+    {
+      "type": "text",
+      "value": "이처럼 평가마다 다른 결과가 나오면서 종합 지수의 해석도 논란이 됐다. 아티피셜 애널리시스 지능 지수인 AAII에서 아스트라의 초기 성적은 61점으로, 전작 GPT-5.6 솔과 같았다. 다른 평가에서 확인된 큰 폭의 발전을 지수가 충분히 반영하지 못한다는 지적이 나왔다."
+    },
+    {
+      "type": "text",
+      "value": "이후 AA는 지수를 v4.2로 개편했다. 실제 업무를 수행하는 AA-Briefcase와 PDF 문서 분석 평가인 GDP.pdf를 추가하고, 성능이 포화된 GPQA Diamond는 제외했다. 정답의 오류와 모호함을 바로잡고, 느리지만 올바른 코드가 실패로 처리되지 않도록 채점 환경도 손봤다."
+    },
+    {
+      "type": "text",
+      "value": "개편된 지수에서 아스트라는 전작보다 4점 높은 성적을 거두며 페이블 5.1 다음에 자리했다. 아스트라 자체를 수정해 점수가 오른 것이 아니라, 평가 항목과 채점 체계가 바뀐 결과다. AA는 준비 중이던 차기 지수의 일부 변경을 앞당겨 적용했다고 밝혔다."
+    },
+    {
+      "type": "heading",
+      "value": "유저평은 작업 성향에 따라 갈렸다"
+    },
+    {
+      "type": "text",
+      "value": "종합 지수의 순위가 달라졌다고 실사용 평가까지 하나로 모인 것은 아니다. 사전 사용기를 공개한 [맷 슈머](https://somethingbig.ai/astra-review)는 아스트라를 주력 모델로 바꿨다며, 자신의 업무에서는 페이블 5보다 똑똑하고 믿을 만하다고 평가했다. 특히 백엔드 개발과 문제 해결, 컴퓨터 조작을 강점으로 꼽았다."
+    },
+    {
+      "type": "text",
+      "value": "그렇다고 모든 작업을 아스트라에 맡기지는 않았다. 슈머는 디자인과 시각 자산 제작에서는 여전히 클로드를 선호한다고 밝혔다. 아스트라의 장시간 자율 작업도 완전히 해결된 단계는 아니며, 작업 분담과 진행 관리가 중요하다고 덧붙였다."
+    },
+    {
+      "type": "text",
+      "value": "페이블 5.1을 직접 비교한 [조너선 풀턴](https://medium.com/jonathans-musings/a-short-review-of-openais-gpt-6-astra-091fa5beccf9)의 평가는 더 냉정했다. 아스트라를 `xhigh` 설정으로 실행해 Linear·Notion 형태의 앱과 RPG를 제작했지만, UI 완성도와 결과물의 충실함은 페이블 5.1이 앞섰다는 것이다. 반면 웹 탐색과 컴퓨터 조작에서는 아스트라의 유용성을 인정했다."
+    },
+    {
+      "type": "text",
+      "value": "두 리뷰는 비교 버전과 작업 종류, 에이전트 실행 방식이 달라 일대일 성능표처럼 볼 수는 없다. 다만 강한 백엔드 개발과 자율 수행을 원하는 사용자, 디자인 감각과 제품 완성도를 중시하는 사용자가 서로 다른 모델을 고르는 이유는 보여준다."
+    },
+    {
+      "type": "heading",
+      "value": "성능이 비슷해지면 구독 혜택이 중요해진다"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/5030dcb45684d0ac4ce33e799be92d7481aac40b-4653x4089.png?w=1200&auto=format",
+      "caption": "코딩 에이전트 지수와 작업당 API 비용 비교",
+      "alt": "아스트라와 페이블의 코딩 에이전트 성적 및 작업당 API 비용 비교 그래프"
+    },
+    {
+      "type": "text",
+      "value": "작업에 따라 선호가 갈린다면 다음 질문은 비용이다. AA 평가에서 아스트라는 페이블 5와 같은 코딩 에이전트 점수를 내면서 작업당 비용은 절반 미만이었다. 두 모델의 기본 API 단가가 아니라, 작업을 끝내는 데 소비한 토큰의 차이가 만든 결과다."
+    },
+    {
+      "type": "text",
+      "value": "구독 이용자에게는 한도를 얼마나 자유롭게 쓸 수 있느냐가 더 직접적이다. 아스트라는 기존 ChatGPT 유료 구독의 이용 한도 안에서 사용할 수 있다. 구독 한도를 아스트라 이용에 활용한다는 뜻이지, 사용량 제한이 없는 무제한 서비스라는 뜻은 아니다."
+    },
+    {
+      "type": "text",
+      "value": "페이블 5.1은 [이용 조건](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)이 다르다. Pro에서는 처음부터 별도 사용 크레딧이 필요하며, Max에서도 주간 구독 한도의 최대 50%까지만 페이블에 쓸 수 있다. 구독료를 이미 내고 있어도 주력 모델을 계속 사용하려면 추가 지출이나 모델 변경을 고민해야 한다."
+    },
+    {
+      "type": "text",
+      "value": "오픈AI의 [반복적인 한도 초기화와 적립형 리셋](/ko/article/openai/codex-referral-reset-growth/)도 체감 차이를 만든다. 아스트라 출시 때는 접근이 늦어지는 유료 이용자에게 [하루당 리셋 한 개를 제공하겠다고 밝혔다](https://x.com/thsottiaux/status/2095651088502591861). 지급 조건이 있는 한시 혜택이지만, 필요할 때 작업을 이어갈 여지를 준다는 면에서 사용자 친화적으로 받아들일 만하다."
+    },
+    {
+      "type": "heading",
+      "value": "기술 격차보다 실제 작업 경험을 겨룰 차례"
+    },
+    {
+      "type": "text",
+      "value": "다리오 아모데이가 오픈AI를 떠나 앤트로픽을 세운 뒤, 코딩 에이전트는 두 회사가 치열하게 경쟁하는 핵심 분야가 됐다. 아스트라의 의미는 페이블을 모든 지표에서 꺾었다는 데 있지 않다. 공개된 성적과 초기 사용기를 종합하면, 적어도 이 분야에서 앤트로픽의 일방적인 기술 우위를 전제하기는 어려워졌다."
+    },
+    {
+      "type": "text",
+      "value": "이제 관전 포인트는 벤치마크 몇 점의 차이를 넘어선다. 긴 작업에서 요구사항을 얼마나 잘 지키는지, 오류를 발견하고 끝까지 해결하는지, 같은 구독료로 얼마나 많은 일을 마칠 수 있는지가 중요해졌다. 페이블급 성능에 구독 활용도와 리셋 혜택을 더한 아스트라는, 오픈AI를 다시 주력으로 선택할 충분한 이유를 제시하고 있다."
+    }
+  ],
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "OpenAI released GPT-6 Astra on September 3. The high-end model brings stronger coding, computer use and scientific research capabilities into direct competition with Anthropic's Claude Fable 5.1."
+    },
+    {
+      "type": "text",
+      "value": "Early interest goes beyond which model tops the leaderboard. Some reviewers have made Astra their default, while others still prefer Fable. Subscription limits and the cost of completing real work are becoming part of that decision, especially for demanding agent workflows."
+    },
+    {
+      "type": "heading",
+      "value": "Coding benchmarks put Astra alongside Fable"
+    },
+    {
+      "type": "text",
+      "value": "The case for comparing their access terms starts with performance. In [OpenAI's published results](https://openai.com/index/gpt-6-astra/), GPT-6 Astra scored 57.9% on Terminal-Bench 4.0, ahead of Fable 5.1 at 55.8%. On Terminal-Bench Science, which evaluates scientific research tasks, Astra reached 64.6% against Fable 5.1's 52.6%."
+    },
+    {
+      "type": "text",
+      "value": "Independent evaluations also produced records. At launch, Astra ranked first on the [Epoch AI](https://epoch.ai/models/gpt-6-astra/) capabilities index with 169 points. It scored 62.7% on ARC-AGI-3 under the standard harness and 99.9% with OpenAI's context-management features; [ARC Prize](https://arcprize.org/blog/astra) described both as state-of-the-art results under their respective conditions."
+    },
+    {
+      "type": "text",
+      "value": "Scores from those different execution environments should not be mixed in a direct comparison. Nor did Astra lead all coding benchmarks. Artificial Analysis gave it 67 on its Coding Agent Index, approximately matching Fable 5, while Fable 5.1 remained ahead at 70."
+    },
+    {
+      "type": "heading",
+      "value": "AAII results change after an index overhaul"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/4692314442fdbe71d56ad89081f4a3769892448a-2320x2040.png?w=1200&auto=format",
+      "caption": "Artificial Analysis Intelligence Index v4.2 rankings and cost per task",
+      "alt": "Intelligence Index v4.2 rankings and cost per intelligence task"
+    },
+    {
+      "type": "text",
+      "value": "Those differences between evaluations also raised questions about aggregate rankings. GPT-6 Astra initially scored 61 on the Artificial Analysis Intelligence Index, or AAII, tying its predecessor GPT-5.6 Sol. Critics questioned whether the index adequately captured the advances visible elsewhere."
+    },
+    {
+      "type": "text",
+      "value": "Artificial Analysis subsequently released version 4.2 of the index. It added AA-Briefcase for realistic knowledge work and GDP.pdf for document analysis, while removing the saturated GPQA Diamond benchmark. It also corrected errors and ambiguities in answer keys and improved grading infrastructure so that slow but correct code would not count as a failure."
+    },
+    {
+      "type": "text",
+      "value": "In the revised index, Astra scored four points above its predecessor and ranked behind Fable 5.1. That change came from revised evaluations and scoring, not a patch to Astra itself. Artificial Analysis said it had accelerated parts of an update already planned for the next version of the index."
+    },
+    {
+      "type": "heading",
+      "value": "Early reviews split by the work involved"
+    },
+    {
+      "type": "text",
+      "value": "The change in aggregate rankings did not produce a single verdict from users. In his early-access review, [Matt Shumer](https://somethingbig.ai/astra-review) said GPT-6 Astra had become his daily driver and was smarter and more reliable than Fable 5 for his work. He highlighted backend engineering, troubleshooting and computer use."
+    },
+    {
+      "type": "text",
+      "value": "He did not move every task to Astra. Shumer still preferred Claude for design and visual asset creation. He also cautioned that long-running autonomy was not solved: ambitious agent workflows still depended on effective coordination and progress management."
+    },
+    {
+      "type": "text",
+      "value": "[Jonathan Fulton](https://medium.com/jonathans-musings/a-short-review-of-openais-gpt-6-astra-091fa5beccf9), who compared Astra directly with Fable 5.1, was less impressed. Running Astra at xhigh reasoning effort on Linear- and Notion-style apps and an RPG, he found Fable 5.1 ahead on UI polish and the completeness of the results. He nevertheless recognized Astra's usefulness for browsing and computer use."
+    },
+    {
+      "type": "text",
+      "value": "The reviews used different model versions, tasks and agent setups, so they are not a controlled head-to-head scorecard. They do, however, show why someone prioritizing backend engineering and autonomous execution might choose differently from someone focused on visual judgment and a polished product."
+    },
+    {
+      "type": "heading",
+      "value": "Subscription limits matter in a close contest"
+    },
+    {
+      "type": "image",
+      "src": "https://cdn.sanity.io/images/6vfeftx9/articles/5030dcb45684d0ac4ce33e799be92d7481aac40b-4653x4089.png?w=1200&auto=format",
+      "caption": "Artificial Analysis Coding Agent Index and API cost per task",
+      "alt": "GPT-6 Astra and Fable coding scores plotted against average API cost per task"
+    },
+    {
+      "type": "text",
+      "value": "When preferences depend on the task, cost becomes the next question. In Artificial Analysis's coding benchmarks, Astra matched Fable 5's Coding Agent Index score at less than half the cost per task. The difference came from the tokens needed to finish the work, not a lower base API token price."
+    },
+    {
+      "type": "text",
+      "value": "For subscribers, the freedom to use their allowance is more immediate. Astra is included within the existing usage allowances of paid ChatGPT plans. Using that allowance for Astra is not the same as unlimited access; subscription limits still apply."
+    },
+    {
+      "type": "text",
+      "value": "Fable 5.1 has different [access terms](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan). Pro users need separate usage credits from the first request, while Max users can spend at most 50% of their weekly subscription allowance on Fable. Even after paying for a subscription, continuing with their preferred model can mean buying more usage or switching models."
+    },
+    {
+      "type": "text",
+      "value": "OpenAI's [repeated usage refreshes and banked resets](/article/openai/codex-referral-reset-growth/) also affect the experience. During Astra's rollout, the company [promised one banked reset per day](https://x.com/thsottiaux/status/2095651088502591861) to paid users still waiting for access. These are conditional, temporary benefits, but the ability to resume work when needed gives users a concrete reason to see the policy as friendly."
+    },
+    {
+      "type": "heading",
+      "value": "The next contest is over real agent workflows"
+    },
+    {
+      "type": "text",
+      "value": "Since Dario Amodei left OpenAI and founded Anthropic, coding agents have become a central area of competition between the companies. GPT-6 Astra's significance is not that it defeats Fable on every metric. Taken together, the published results and early reviews make it harder to assume a one-sided Anthropic technology lead in this field."
+    },
+    {
+      "type": "text",
+      "value": "The next questions extend beyond a few benchmark points. Following requirements throughout long jobs, finding and resolving errors, and completing more work for the same subscription fee all matter. By pairing Fable-class performance with access through existing plans and reset benefits, Astra gives users a credible reason to make OpenAI their default again."
+    }
+  ],
+  "sources": [
+    {
+      "name": "OpenAI",
+      "title": "GPT-6 Astra: A new generation of intelligence",
+      "url": "https://openai.com/index/gpt-6-astra/"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "Benchmarking GPT-6 Astra",
+      "url": "https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra"
+    },
+    {
+      "name": "Artificial Analysis",
+      "title": "Announcing Artificial Analysis Intelligence Index v4.2",
+      "url": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2"
+    },
+    {
+      "name": "Matt Shumer",
+      "title": "My GPT-6 Astra Review",
+      "url": "https://somethingbig.ai/astra-review"
+    },
+    {
+      "name": "Jonathan Fulton",
+      "title": "A Short Review of OpenAI’s GPT 6 Astra",
+      "url": "https://medium.com/jonathans-musings/a-short-review-of-openais-gpt-6-astra-091fa5beccf9"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/claude-fable-5-early-reviews-praise",
+    "tech:ai/claude-fable-5-sota-benchmarks",
+    "tech:ai/codex-referral-reset-growth"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}
