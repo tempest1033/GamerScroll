@@ -21,7 +21,7 @@ const {
   renderTopicList,
   homeHref
 } = require('./index');
-const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, countTopics, authorOf, methodNote } = require('./taxonomy');
+const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, countTopics, authorOf } = require('./taxonomy');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
 const { renderTextBlock, tableStackClass, tableCellLabelAttr } = require('../helpers/content-text');
@@ -610,7 +610,7 @@ function generateAIBlogArticle(article, data = {}) {
     ${generateSidebarArticles()}
   `;
 
-  // 저자(사람/사이트)·주제 태그·제작 방식 — 구글이 보는 "누가·어떻게" 신호
+  // 저자(사람/사이트)·주제 태그 — 구글이 보는 "누가" 신호 (제작 방식 문구는 노출하지 않는다)
   const author = authorOf(article, SITE_CONFIG.name, SITE_CONFIG.baseUrl);
   const bylineHTML = author.type === 'Person'
     ? `<a class="blog-editor" href="${aboutHref(_lang)}" rel="author">${escapeHtml(author.name)}</a>`
@@ -619,7 +619,6 @@ function generateAIBlogArticle(article, data = {}) {
   const topicsHTML = articleTopics.length > 0
     ? `<div class="blog-topics" aria-label="${_t.topics}">${articleTopics.map(id => `<a class="blog-topic-chip" href="${topicHref(id, _lang)}">${escapeHtml(topicLabel(id, _lang))}</a>`).join('')}</div>`
     : '';
-  const methodNoteHTML = `<p class="blog-method-note">${escapeHtml(methodNote(article, _lang))}</p>`;
 
   // 상단 광고
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
@@ -661,7 +660,6 @@ function generateAIBlogArticle(article, data = {}) {
                 ${renderContent(article.content)}
               </div>
 
-              ${methodNoteHTML}
               ${generateRelatedArticles()}
               ${sourcesHTML}
             </div>

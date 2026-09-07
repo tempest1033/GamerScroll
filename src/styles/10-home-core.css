@@ -932,52 +932,48 @@
         min-height: auto;
       }
 
-      /* AIScroll 모바일 홈: 리드 1건은 대형으로 보이고(공용 99-edge-to-edge 의 #home-popular 숨김을 되돌림),
-         최신 피드는 썸네일 144px + 텍스트 가로 리스트로 내려간다. */
-      #home-popular.home-hero {
-        display: block !important;
-        margin-bottom: 12px;
-      }
+      /* AIScroll 모바일 홈: 인기 피처는 공용 99-edge-to-edge 규칙대로 숨기고(인기는 메뉴 '인기' 탭에 남는다),
+         최신 피드 전체를 피처와 같은 세로 카드로 최신순 나열한다. */
       #home-latest #homeLatestGrid,
       #categoryGrid {
-        gap: 0 !important;
+        gap: 28px !important;
         padding: 0 !important;
       }
+      /* 피드 카드: 피처와 같은 세로형 — 큰 썸네일 → 메타 → 제목 → 요약(2줄) */
       #home-latest #homeLatestGrid > .home-trend-card,
       #categoryGrid > .home-trend-card {
-        display: grid;
-        grid-template-columns: 144px minmax(0, 1fr);
-        gap: 14px;
-        align-items: center;
-        padding: 14px 0 !important;
+        display: block;
+        padding: 0 !important;
         margin: 0 !important;
-        border-bottom: 1px solid var(--border-subtle) !important;
-      }
-      #home-latest #homeLatestGrid > .home-trend-card:last-child,
-      #categoryGrid > .home-trend-card:last-child {
-        border-bottom: none !important;
       }
       #homeLatestGrid > .home-trend-card .home-trend-card-image,
       #categoryGrid > .home-trend-card .home-trend-card-image {
-        border-radius: var(--radius-sm);
+        border-radius: var(--radius-lg);
       }
       #homeLatestGrid > .home-trend-card .home-trend-card-body,
       #categoryGrid > .home-trend-card .home-trend-card-body {
-        padding: 0;
+        padding: 12px 2px 0;
       }
       #homeLatestGrid > .home-trend-card .home-trend-card-meta,
       #categoryGrid > .home-trend-card .home-trend-card-meta {
-        margin-bottom: 4px;
+        margin-bottom: 8px;
       }
       #homeLatestGrid > .home-trend-card .home-trend-card-title,
       #categoryGrid > .home-trend-card .home-trend-card-title {
-        font-size: var(--font-card-title-size);
-        line-height: 1.4;
+        font-size: var(--font-feature-title-size);
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
         padding: 0;
+        min-height: 0;
       }
       #homeLatestGrid > .home-trend-card .home-trend-card-summary,
       #categoryGrid > .home-trend-card .home-trend-card-summary {
-        display: none;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 8px 0 0;
       }
     }
 

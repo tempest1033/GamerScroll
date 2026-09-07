@@ -150,18 +150,6 @@ a.blog-editor:hover {
   color: var(--primary);
 }
 
-/* 제작 방식 문구 (본문 끝, 출처 위) — "누가·어떻게" 공개 */
-.blog-method-note {
-  max-width: 720px;
-  margin: 24px auto 0;
-  padding: 12px 16px;
-  border-left: 3px solid var(--border);
-  font-size: var(--font-meta-size);
-  line-height: 1.6;
-  color: var(--text-muted);
-  text-align: left;
-}
-
 .blog-date {
   font-size: var(--font-meta-size);
   color: var(--text-muted);

@@ -78,21 +78,6 @@ const SITE_X_URL = 'https://x.com/aiscroll_io';
 const PERSON_AUTHOR = { name: 'Editor J', path: '/about/' };
 const ORG_AUTHOR_CATEGORIES = new Set(['benchmarks', 'hot']);
 
-// 제작 방식 문구 (글 하단). JSON의 method 필드(문자열 또는 {ko,en})로 글 단위 재지정.
-const METHOD_NOTES = {
-  en: {
-    sources: 'How this was made: Editor J checked the primary sources linked below and wrote the piece; AI tools assisted with drafting and editing.',
-    handsOn: 'How this was made: Editor J used the tools on paid personal subscriptions and recorded the dates, costs, and failures described here; AI tools assisted with drafting and editing.',
-    data: 'How this was made: figures were compiled by AIScroll from its own snapshots and measurements; the collection method is stated in the article.'
-  },
-  ko: {
-    sources: '제작 방식: 아래 출처의 1차 자료를 Editor J가 확인해 작성했고, 초안 정리와 교정에 AI 도구를 사용했습니다.',
-    handsOn: '제작 방식: Editor J가 직접 결제한 구독으로 도구를 사용하며 날짜·비용·실패 사례를 기록했고, 초안 정리와 교정에 AI 도구를 사용했습니다.',
-    data: '제작 방식: 수치는 AIScroll이 자체 스냅샷과 실측으로 집계했으며, 집계 기준은 본문에 밝혔습니다.'
-  }
-};
-const METHOD_KEY_BY_CATEGORY = { news: 'sources', reviews: 'handsOn', guides: 'handsOn', benchmarks: 'data', hot: 'data' };
-
 function normalizeLang(lang) { return lang === 'ko' ? 'ko' : 'en'; }
 
 function normalizeCategory(category) {
@@ -158,18 +143,6 @@ function authorOf(article, siteName = 'AIScroll', baseUrl = 'https://aiscroll.io
   return { type: 'Person', name, url: `${baseUrl}${PERSON_AUTHOR.path}`, path: PERSON_AUTHOR.path, sameAs: [SITE_X_URL] };
 }
 
-function methodNote(article, lang = 'en') {
-  const _lang = normalizeLang(lang);
-  const override = article && article.method;
-  if (typeof override === 'string' && override.trim()) return override.trim();
-  if (override && typeof override === 'object') {
-    const picked = override[_lang] || override.en || override.ko;
-    if (typeof picked === 'string' && picked.trim()) return picked.trim();
-  }
-  const key = METHOD_KEY_BY_CATEGORY[normalizeCategory(article && article.category)] || 'sources';
-  return METHOD_NOTES[_lang][key];
-}
-
 module.exports = {
   CATEGORY_IDS,
   DEFAULT_CATEGORY,
@@ -187,6 +160,5 @@ module.exports = {
   topicsOf,
   countTopics,
   countCategories,
-  authorOf,
-  methodNote
+  authorOf
 };

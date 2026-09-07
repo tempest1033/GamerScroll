@@ -52,7 +52,7 @@ const I18N = {
     copyright: '© 2026 AIScroll. All rights reserved.',
     categoryLabels: CATEGORY_LABELS.en,
     topicLabels: TOPIC_LABELS.en,
-    topics: 'Topics', about: 'About', method: 'How this was made',
+    topics: 'Topics', about: 'About',
     menu: 'Menu'
   },
   ko: {
@@ -66,7 +66,7 @@ const I18N = {
     copyright: '© 2026 AIScroll. 모든 권리 보유.',
     categoryLabels: CATEGORY_LABELS.ko,
     topicLabels: TOPIC_LABELS.ko,
-    topics: '주제', about: '소개', method: '제작 방식',
+    topics: '주제', about: '소개',
     menu: '메뉴'
   }
 };
@@ -550,8 +550,8 @@ function buildDeferredCardPayload(cardHtmlList, pageSize = FEED_PAGE_SIZE, initi
 
 // 피드 카드 이미지 로딩 정책: 첫 화면 근처 카드만 eager, 나머지는 lazy
 const FEED_EAGER_CARD_COUNT = 3;
-// 모바일은 썸네일 144px 가로 리스트, 데스크톱은 3열(≈253px) 그리드
-const FEED_CARD_SIZES = '(max-width: 768px) 144px, 253px';
+// 모바일은 거터(16px×2)를 뺀 전체 폭 세로 카드, 데스크톱은 3열(≈253px) 그리드
+const FEED_CARD_SIZES = '(max-width: 768px) calc(100vw - 32px), 253px';
 
 /**
  * 홈 '최신' / 카테고리 피드 공용 카드
@@ -563,7 +563,8 @@ function renderFeedCard(item, index, lang = 'en', options = {}) {
   const _t = I18N[_lang] || I18N.en;
   const eagerCount = Number.isFinite(options.eagerCount) ? options.eagerCount : FEED_EAGER_CARD_COUNT;
   const isHighPriority = Number.isFinite(options.highPriorityIndex) && index === options.highPriorityIndex;
-  const thumbData = getThumbSrcset(item.thumbnail, 240, 480, FEED_CARD_SIZES);
+  // 모바일 전체 폭(≈358px × DPR 2~3)까지 선명하도록 480/960 두 단계
+  const thumbData = getThumbSrcset(item.thumbnail, 480, 960, FEED_CARD_SIZES);
   const imgAttrs = thumbData.srcset
     ? `src="${thumbData.src}" srcset="${thumbData.srcset}" sizes="${thumbData.sizes}"`
     : `src="${thumbData.src}"`;
@@ -642,12 +643,13 @@ function generateAIBlogIndex(data) {
     `;
   }
 
-  // 최신 카드 (데스크톱 3컬럼 그리드 / 모바일 가로 리스트) — 카테고리 페이지와 같은 카드
+  // 최신 카드 (데스크톱 3컬럼 그리드 / 모바일 세로 피처 카드) — 카테고리 페이지와 같은 카드
+  // 모바일은 인기 피처를 숨기므로 첫 카드가 LCP 후보다.
   function generateLatestGrid() {
     const items = articles;
     if (items.length === 0) return '';
 
-    const cardEntries = items.map((item, i) => renderFeedCard(item, i, _lang));
+    const cardEntries = items.map((item, i) => renderFeedCard(item, i, _lang, { highPriorityIndex: 0 }));
     const cardPayload = buildDeferredCardPayload(cardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
 
     const totalPages = Math.ceil(items.length / FEED_PAGE_SIZE);
