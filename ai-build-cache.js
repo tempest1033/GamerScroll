@@ -109,6 +109,16 @@ function computeTemplateJsHash() {
   }
 
   scanDir(templatesDir);
+  // 생성기 자체와 빌드 헬퍼가 바뀌어도 전체 재빌드한다.
+  // 이전에는 템플릿·CSS·기사만 보고 있어, 생성기만 고친 배포가 CI에서 "변경 없음"으로 스킵됐다.
+  for (const extra of ['./generate-ai-blog.js', './ai-build-cache.js']) {
+    if (fs.existsSync(extra)) {
+      hashes.push(`${extra}:${computeHash(fs.readFileSync(extra, 'utf8'))}`);
+    }
+  }
+  for (const extraDir of ['./src/build', './src/ai-blog']) {
+    if (fs.existsSync(extraDir)) scanDir(extraDir);
+  }
   return computeHash(hashes.sort().join('|'));
 }
 

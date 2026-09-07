@@ -1040,6 +1040,9 @@ async function main() {
 
   if (!needFullRebuild && !hasArticleChanges && !faviconChanged) {
     console.log(`\n⚡ 변경 없음 - 빌드 스킵 (${articleChanges.unchanged.length}개 기사 캐시됨)`);
+    // 스킵해도 CSS 해시 링크와 _headers 는 산출물과 맞춰 둔다 (CI가 시드한 이전 배포본이 옛 형식일 수 있음).
+    // 이미 같은 해시면 아무 파일도 다시 쓰지 않는다.
+    writeCloudflareHeaders(applyCssAssetVersion(DOCS_DIR));
     buildCache.saveCache(cache);
     return;
   }
