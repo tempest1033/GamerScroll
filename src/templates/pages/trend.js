@@ -290,8 +290,8 @@ const findGameIcon = (text) => {
   return null;
 };
 
-// PC + 모바일 광고 슬롯
-const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+// PC + 모바일 광고 슬롯 (사이드바 레이아웃 → 표준 고정 규격, ads.js narrow 변형)
+const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
 
 // URL 수정 헬퍼 (이미지 프록시, width: 용도별 크기)
 const fixUrl = (url, width = 480) => {
@@ -1652,8 +1652,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
 
   const heroImg = thumbnail ? getLocalRankingImagePath(slug, thumbnail, 'thumbnail') : '';
 
-  // 상단 광고
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+  // 상단 광고 (사이드바 레이아웃 → 표준 고정 규격)
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
 
   const pageContent = `
     <section class="section active" id="ranking">
