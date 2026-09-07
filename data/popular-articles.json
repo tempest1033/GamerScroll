@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-09-06T00:28:38.551Z",
+  "updatedAt": "2026-09-07T00:35:35.768Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 41,
+      "views": 36,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 23,
+      "views": 24,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 21,
+      "views": 19,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "dlss-5-leak-backlash",
-      "views": 9,
+      "views": 10,
       "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
@@ -34,16 +34,22 @@
       "path": "/magazine/issue/fable-astra-september-launch/"
     },
     {
-      "type": "issue",
-      "slug": "zeus-dual-market-revenue-no1",
-      "views": 6,
-      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
-    },
-    {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
       "views": 5,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
+      "type": "issue",
+      "slug": "zeus-dual-market-revenue-no1",
+      "views": 5,
+      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-august-2026-kr",
+      "views": 5,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "wiki",
@@ -71,16 +77,10 @@
       "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
       "views": 4,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-august-2026-kr",
-      "views": 4,
-      "path": "/magazine/ranking/subculture-august-2026-kr/"
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "wiki",
@@ -97,16 +97,10 @@
       "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
-      "type": "hotpick",
-      "slug": "2d-animation-tech",
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
       "views": 3,
-      "path": "/magazine/hotpick/2d-animation-tech/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "wiki",
@@ -117,9 +111,9 @@
     },
     {
       "type": "hotpick",
-      "slug": "gantt-chart",
+      "slug": "2d-animation-tech",
       "views": 2,
-      "path": "/magazine/hotpick/gantt-chart/"
+      "path": "/magazine/hotpick/2d-animation-tech/"
     },
     {
       "type": "hotpick",
@@ -153,6 +147,12 @@
     },
     {
       "type": "issue",
+      "slug": "overwatch-shion-hero-52-skillset",
+      "views": 2,
+      "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
+    },
+    {
+      "type": "issue",
       "slug": "silksong-sea-of-sorrow",
       "views": 2,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
@@ -176,6 +176,13 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
+      "type": "wiki",
+      "slug": "gacha-system-comparison",
+      "category": "knowledge",
+      "views": 2,
+      "path": "/wiki/knowledge/gacha-system-comparison/"
+    },
+    {
       "type": "hotpick",
       "slug": "ff7-remake-switch2-release",
       "views": 1,
@@ -186,6 +193,12 @@
       "slug": "game-engine",
       "views": 1,
       "path": "/magazine/hotpick/game-engine/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "mac-mini-m4-best-value-2026",
+      "views": 1,
+      "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
       "type": "hotpick",
@@ -219,12 +232,6 @@
     },
     {
       "type": "issue",
-      "slug": "devsisters-devnow-2026",
-      "views": 1,
-      "path": "/magazine/issue/devsisters-devnow-2026/"
-    },
-    {
-      "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
       "views": 1,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
@@ -237,15 +244,15 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
+      "slug": "game-ai-controversy-award-revoked",
       "views": 1,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "path": "/magazine/issue/game-ai-controversy-award-revoked/"
     },
     {
       "type": "issue",
-      "slug": "nikke-doro-meme-success",
+      "slug": "lol-league-next-2027-overhaul",
       "views": 1,
-      "path": "/magazine/issue/nikke-doro-meme-success/"
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "issue",
@@ -314,24 +321,17 @@
     },
     {
       "type": "wiki",
-      "slug": "app-store-review-thursday-update",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/app-store-review-thursday-update/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gacha-system-comparison",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gacha-system-comparison/"
-    },
-    {
-      "type": "wiki",
       "slug": "gacha-system-regulations",
       "category": "knowledge",
       "views": 1,
       "path": "/wiki/knowledge/gacha-system-regulations/"
+    },
+    {
+      "type": "wiki",
+      "slug": "raph-koster-theory-of-fun",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/raph-koster-theory-of-fun/"
     }
   ]
 }
