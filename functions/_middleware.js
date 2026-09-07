@@ -2,34 +2,61 @@
 
 let aiscrollArticleIndexPromise = null;
 
-async function resolveAiscrollCategory(slug, fallback = "general") {
-  if (!slug) return fallback;
+// AIScroll 검색 인덱스(현재 빌드된 기사 slug→category). 성공 응답만 isolate에 캐시하고
+// 실패는 다음 요청에서 다시 시도한다 (실패를 빈 목록으로 캐시하면 모든 슬러그가 "없음"이 됨).
+async function loadAiscrollArticleIndex() {
   if (!aiscrollArticleIndexPromise) {
     aiscrollArticleIndexPromise = fetch("https://aiscroll.io/ko/articles-search.json", {
       cf: { cacheTtl: 300, cacheEverything: true }
     })
-      .then((res) => (res && res.ok ? res.json() : []))
-      .catch(() => []);
+      .then((res) => (res && res.ok ? res.json() : null))
+      .catch(() => null);
   }
-  const list = await aiscrollArticleIndexPromise.catch(() => []);
-  const found = Array.isArray(list) ? list.find((item) => item && item.slug === slug) : null;
-  return (found && found.category) || fallback;
+  const list = await aiscrollArticleIndexPromise;
+  if (!Array.isArray(list)) {
+    aiscrollArticleIndexPromise = null;
+    return null;
+  }
+  return list;
+}
+
+// slug → category. null = AIScroll에 없는 기사, undefined = 인덱스 조회 실패(판단 불가).
+async function resolveAiscrollCategory(slug) {
+  if (!slug) return null;
+  const list = await loadAiscrollArticleIndex();
+  if (!list) return undefined;
+  const found = list.find((item) => item && item.slug === slug);
+  return found ? (found.category || "general") : null;
+}
+
+// 삭제·미발행 기사: 존재하지 않는 페이지로 301 보내 soft-404 체인을 만들지 않고 410으로 닫는다.
+function goneResponse() {
+  return new Response("Gone", {
+    status: 410,
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=3600",
+      "X-Robots-Tag": "noindex"
+    }
+  });
 }
 
 async function handleGamerScrollLegacyRedirect(url, path) {
+  // 구 /tech/ai|vibecoding/<slug> → AIScroll 기사 (인덱스로 현재 카테고리 확인).
   const match = path.match(/^\/tech\/(ai|vibecoding)\/([^/]+)(\/.*)?$/);
   if (match) {
     const section = match[1];
     const slug = decodeURIComponent(match[2] || "");
     const suffix = match[3] && match[3] !== "/" ? match[3] : "/";
-    const category = section === "vibecoding"
-      ? "vibecoding"
-      : await resolveAiscrollCategory(slug, "general");
-    const target = `https://aiscroll.io/ko/article/${category}/${encodeURIComponent(slug)}${suffix}`;
+    const category = await resolveAiscrollCategory(slug);
+    if (category === null) return goneResponse();
+    const resolved = category || (section === "vibecoding" ? "vibecoding" : "general");
+    const target = `https://aiscroll.io/ko/article/${resolved}/${encodeURIComponent(slug)}${suffix}`;
     return Response.redirect(target + url.search, 301);
   }
 
-  // tech/normal → 게이머스크롤 매거진 재배치 (2026-08-02): 소스 JSON은 reports/issue·hotpick으로 이동됨.
+  // 구 /tech/normal/<slug> → 게이머스크롤 매거진 재배치 (2026-08-02): 소스 JSON은 reports/issue·hotpick으로 이동됨.
+  // 맵에 없는 슬러그는 삭제된 기사 → 410.
   const normalMatch = path.match(/^\/tech\/normal\/([^/]+)\/?$/);
   if (normalMatch) {
     const slug = decodeURIComponent(normalMatch[1] || "");
@@ -37,9 +64,10 @@ async function handleGamerScrollLegacyRedirect(url, path) {
     if (type) {
       return Response.redirect(`${url.origin}/magazine/${type}/${encodeURIComponent(slug)}/` + url.search, 301);
     }
+    return goneResponse();
   }
 
-  // 잔여 /tech/* (허브·미이관 슬러그) → AIScroll 홈.
+  // 잔여 /tech/* (허브 페이지) → AIScroll 홈.
   // 과거 docs/_redirects의 /tech/* 캐치올은 동적 룰 상한으로 항상 죽어 있었음 — 여기서 의도 복원.
   if (path === "/tech" || path.startsWith("/tech/")) {
     return Response.redirect("https://aiscroll.io/ko/", 301);
@@ -50,6 +78,7 @@ async function handleGamerScrollLegacyRedirect(url, path) {
 
 // 2026-08-02 매거진 재배치 슬러그 맵 (구 /tech/normal/<slug> → /magazine/<type>/<slug>/)
 const TECH_NORMAL_MOVED = {
+  "intel-arc-g3-handheld-gaming": "issue",
   "intel-core-ultra-200s-plus": "issue",
   "macbook-neo-reviews": "issue",
   "nakwon-last-paradise-cbt": "issue",

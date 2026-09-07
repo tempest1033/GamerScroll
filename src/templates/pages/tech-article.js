@@ -14,6 +14,7 @@ const {
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
 const { createArticleToc } = require('../helpers/article-toc');
+const { buildMetaDescription } = require('../../build/meta-description');
 
 // games.json 로드 (게임 아이콘용)
 let gamesMap = {};
@@ -591,7 +592,8 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
   `;
 
   const metaKeywords = keywordText || '테크, 기술, AI, 개발 도구';
-  const descriptionText = article.summary || `${article.title}에 대한 심층 분석`;
+  // 메타 설명: summary가 없거나 짧으면 본문 첫 문단으로 보충 (155자 cap)
+  const descriptionText = buildMetaDescription(article.summary, article.content) || `${article.title}에 대한 심층 분석`;
 
   const thumbnailPath = article.thumbnail
     ? getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')

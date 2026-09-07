@@ -2,7 +2,7 @@
 // Search Console report for gamerscroll.com / aiscroll.io.
 //
 // Usage:
-//   node scripts/search-console-report.mjs [--site gamerscroll|aiscroll] [--months 16] [--top 25] [--inspect] [--out <dir>]
+//   node scripts/search-console-report.mjs [--site gamerscroll|aiscroll] [--months 16] [--top 25] [--inspect] [--pages] [--out <dir>]
 //
 // Auth reuses the GA4 service accounts (credentials/*.json locally, or the
 // GA4_SERVICE_ACCOUNT / AISCROLL_GA4_SERVICE_ACCOUNT JSON env vars in CI).
@@ -13,6 +13,10 @@
 // (docs/sitemap.xml or ai-docs/sitemap.xml). Quota is 2,000 URLs/day per
 // property, so a full pass fits in one run; raw results are written as JSON
 // under --out (default cache/search-console/).
+//
+// --pages dumps every page-level row (clicks/impressions/position) for the
+// --months window and for the last 90 days to --out; this is the input for
+// scripts/noindex-candidates.mjs.
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
@@ -39,13 +43,14 @@ const SITES = {
 }
 
 function parseArgs(argv) {
-  const opts = { site: null, months: 16, top: 25, inspect: false, out: path.join(ROOT, 'cache', 'search-console') }
+  const opts = { site: null, months: 16, top: 25, inspect: false, pages: false, out: path.join(ROOT, 'cache', 'search-console') }
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]
     if (a === '--site') opts.site = argv[++i]
     else if (a === '--months') opts.months = Number(argv[++i]) || 16
     else if (a === '--top') opts.top = Number(argv[++i]) || 25
     else if (a === '--inspect') opts.inspect = true
+    else if (a === '--pages') opts.pages = true
     else if (a === '--out') opts.out = path.resolve(argv[++i])
   }
   return opts
@@ -177,6 +182,28 @@ async function inspectAll(sc, site, outDir, concurrency = 4) {
   console.log(`   saved ${path.relative(ROOT, file)}`)
 }
 
+async function dumpPages(sc, site, outDir, months) {
+  const end = daysAgo(LAG_DAYS)
+  const start = new Date(end)
+  start.setUTCMonth(start.getUTCMonth() - months)
+  const windows = {
+    full: { startDate: isoDate(start), endDate: isoDate(end) },
+    recent90: { startDate: isoDate(daysAgo(90 + LAG_DAYS)), endDate: isoDate(end) },
+  }
+  const out = { site: site.siteUrl, fetchedAt: new Date().toISOString(), windows: {} }
+  for (const [name, range] of Object.entries(windows)) {
+    const rows = await query(sc, site.siteUrl, { ...range, dimensions: ['page'] })
+    out.windows[name] = {
+      ...range,
+      rows: rows.map(r => ({ page: r.keys[0], clicks: r.clicks, impressions: r.impressions, position: Number(r.position.toFixed(1)) })),
+    }
+  }
+  mkdirSync(outDir, { recursive: true })
+  const file = path.join(outDir, `${site.name}-pages-${isoDate(new Date())}.json`)
+  writeFileSync(file, JSON.stringify(out, null, 2))
+  console.log(`\n-- pages dump: full ${out.windows.full.rows.length} rows, recent90 ${out.windows.recent90.rows.length} rows → ${path.relative(ROOT, file)}`)
+}
+
 async function main() {
   const opts = parseArgs(process.argv.slice(2))
   const names = opts.site ? [opts.site] : Object.keys(SITES)
@@ -195,6 +222,7 @@ async function main() {
       await reportDimension(sc, site.siteUrl, 'page', 90, opts.top)
       await reportDimension(sc, site.siteUrl, 'query', 90, opts.top)
       await reportDimension(sc, site.siteUrl, 'country', 90, 10)
+      if (opts.pages) await dumpPages(sc, site, opts.out, opts.months)
       if (opts.inspect) await inspectAll(sc, site, opts.out)
     } catch (err) {
       console.error(`ERROR ${name}: ${err.message}`)

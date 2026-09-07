@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "openai",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-14T08:30Z",
   "needTranslate": false,
   "title": "오픈AI, 美 42개 주 합동 조사…IPO 앞두고 규제 압박",

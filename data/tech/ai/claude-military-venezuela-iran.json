@@ -1,6 +1,7 @@
 {
   "slug": "claude-military-venezuela-iran",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "anthropic",
   "title": "클로드 AI, 베네수엘라 마두로 체포부터 이란 공습까지: 전쟁터의 AI",

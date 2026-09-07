@@ -1,6 +1,7 @@
 {
   "slug": "claude-code-agent-teams-paradigm",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "title": "AI 에이전트 팀: 코딩 AI가 팀을 짜서 협업하는 시대",
   "titleEn": "AI Agent Teams: When Coding AIs Form Teams and Collaborate",

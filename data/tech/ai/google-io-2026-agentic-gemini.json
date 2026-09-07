@@ -1,6 +1,7 @@
 {
   "slug": "google-io-2026-agentic-gemini",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "google",
   "title": "구글 I/O 2026, '에이전트 제미나이'로 다시 그린 검색·앱·데스크톱",

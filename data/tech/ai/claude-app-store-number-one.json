@@ -1,6 +1,7 @@
 {
   "slug": "claude-app-store-number-one",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "anthropic",
   "title": "클로드 앱스토어 1위: 국방부 거부가 만든 역사적 순간",

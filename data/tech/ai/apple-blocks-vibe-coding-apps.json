@@ -1,6 +1,7 @@
 {
   "slug": "apple-blocks-vibe-coding-apps",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "vibecoding",
   "title": "애플, 레플릿과 바이브코드 등 바이브 코딩 앱 업데이트 차단하며 앱스토어 규칙 강화",

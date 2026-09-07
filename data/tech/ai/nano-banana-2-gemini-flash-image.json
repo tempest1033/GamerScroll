@@ -1,6 +1,7 @@
 {
   "slug": "nano-banana-2-gemini-flash-image",
   "status": "approved",
+  "noindex": true,
   "category": "google",
   "title": "나노 바나나 2 출시, 플래시 기반으로 프로급 성능을 절반 가격에",
   "titleEn": "Nano Banana 2 Launches: Pro-Level Image Generation at Flash Speed and Price",

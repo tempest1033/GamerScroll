@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-09T06:00Z",
   "needTranslate": false,
   "title": "시리는 제미나이가 아니다…애플 20B 온디바이스 자체 모델의 실체",

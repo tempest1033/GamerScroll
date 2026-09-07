@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "date": "2026-06-19T01:30Z",
   "title": "워시 연준 의장 \"AI는 미국의 독창성\"…첫 FOMC의 베팅",

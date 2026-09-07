@@ -1,6 +1,7 @@
 {
   "slug": "google-ai-voluntary-exit",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "google",
   "title": "구글 자발적 퇴사 패키지: 사상 최고 매출 뒤의 AI 구조조정",

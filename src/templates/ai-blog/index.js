@@ -2727,9 +2727,14 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   `;
 
   const _catInLanguage = _lang === 'ko' ? 'ko-KR' : 'en-US';
+  // 언어별로 구분되는 제목·설명 (KO 카테고리가 EN과 같은 "OpenAI - AIScroll"로 나가지 않도록)
+  const categoryTitleLabel = categoryId === 'vibecoding' ? (_catT.vibeCoding || categoryLabel) : categoryLabel;
+  const categoryTitle = _lang === 'ko'
+    ? `${categoryTitleLabel} 최신 뉴스·분석 - ${SITE_CONFIG.name}`
+    : `${categoryTitleLabel} News & Analysis - ${SITE_CONFIG.name}`;
   const categoryDescription = _lang === 'ko'
-    ? `${categoryLabel} 관련 AIScroll 기사 모음입니다.`
-    : `${categoryLabel} articles on AIScroll`;
+    ? `${categoryTitleLabel} 관련 최신 AI 뉴스와 모델 출시 소식, 코딩 에이전트 동향을 AIScroll이 정리한 기사 모음입니다.`
+    : `Latest ${categoryTitleLabel} news, model launches, and coding-agent coverage, curated by AIScroll.`;
   const categoryKeywords = _lang === 'ko'
     ? `${categoryLabel}, AI 뉴스, 인공지능, ${SITE_CONFIG.name}`
     : `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`;
@@ -2769,7 +2774,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   ];
 
   return wrapWithLayout(content, {
-    title: `${categoryLabel} - ${SITE_CONFIG.name}`,
+    title: categoryTitle,
     description: categoryDescription,
     keywords: categoryKeywords,
     canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,

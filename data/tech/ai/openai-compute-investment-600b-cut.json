@@ -1,6 +1,7 @@
 {
   "slug": "openai-compute-investment-600b-cut",
   "status": "approved",
+  "noindex": true,
   "category": "openai",
   "title": "OpenAI 데이터센터 투자 목표 57% 축소, AI 과열 투자 조정의 신호탄",
   "titleEn": "OpenAI Cuts Data Center Target by 57%: A Signal That AI's Investment Fever Is Breaking",

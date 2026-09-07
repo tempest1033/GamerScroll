@@ -1,6 +1,7 @@
 {
   "slug": "meta-ai-subscription-meta-one-launch",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "general",
   "site": "aiscroll",

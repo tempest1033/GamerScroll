@@ -1,6 +1,7 @@
 {
   "slug": "gpt-5-5-pro-codex-sighting",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "site": "aiscroll",
   "category": "openai",

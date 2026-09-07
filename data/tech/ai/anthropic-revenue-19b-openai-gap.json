@@ -1,6 +1,7 @@
 {
   "slug": "anthropic-revenue-19b-openai-gap",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "anthropic",
   "title": "엔트로픽 ARR $19B 돌파: OpenAI와의 격차가 $1B로 좁혀졌다",

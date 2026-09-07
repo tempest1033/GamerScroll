@@ -1,6 +1,7 @@
 {
   "slug": "openai-astral-acquisition",
   "status": "approved",
+  "noindex": true,
   "category": "openai",
   "title": "오픈AI, 파이썬 도구 스타트업 아스트랄 인수로 코딩 전쟁 가속",
   "titleEn": "OpenAI Acquires Python Tooling Startup Astral, Escalating the Coding Agent War",

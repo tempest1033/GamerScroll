@@ -1,6 +1,7 @@
 {
   "slug": "deepseek-tops-us-spending-tracker",
   "status": "approved",
+  "noindex": true,
   "site": "aiscroll",
   "needTranslate": false,
   "category": "general",

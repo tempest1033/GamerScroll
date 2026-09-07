@@ -1,6 +1,7 @@
 {
   "slug": "lecun-ami-labs-llm-debate",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "title": "10억 달러를 들고 LLM에 반기를 든 남자, 얀 르쿤의 AMI 랩스",
   "titleEn": "The Man Who Raised $1 Billion to Prove LLMs Are a Dead End: Yann LeCun's AMI Labs",

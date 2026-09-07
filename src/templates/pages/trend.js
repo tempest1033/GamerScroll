@@ -13,6 +13,7 @@ const {
 const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
 const { createArticleToc } = require('../helpers/article-toc');
+const { buildMetaDescription } = require('../../build/meta-description');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -589,6 +590,8 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
   const toc = createArticleToc(content);
+  // 메타 설명: summary가 없거나 짧으면 본문 첫 문단으로 보충 (155자 cap)
+  const metaDescription = buildMetaDescription(summary, content) || title;
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
@@ -945,7 +948,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
 
   const articleSchema = {
     headline: title,
-    description: summary || title,
+    description: metaDescription,
     datePublished: date,
     dateModified: resolveModifiedKST(post.modifiedAt),
     image: schemaImage,
@@ -955,7 +958,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
   return wrapWithLayout(pageContent, {
     currentPage: 'magazine',
     title: title,
-    description: summary || title,
+    description: metaDescription,
     keywords: post.keywords || cfg.defaultKeywords,
     canonical: `${siteBaseUrl}/magazine/${type}/${slug}/`,
     articleSchema,
@@ -1000,6 +1003,8 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
 
   const { slug, title, date, thumbnail, summary, content = [] } = post;
   const toc = createArticleToc(content);
+  // 메타 설명: summary가 없거나 짧으면 본문 첫 문단으로 보충 (155자 cap)
+  const metaDescription = buildMetaDescription(summary, content) || title;
   const editorName = post.editor || 'Editor J';
   // 화면 표시용 dateModified (YYYY-MM-DD)
   const _displayDateModified = post && post.modifiedAt ? String(post.modifiedAt).slice(0, 10) : null;
@@ -1715,7 +1720,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
 
   const articleSchema = {
     headline: title,
-    description: summary || title,
+    description: metaDescription,
     datePublished: date,
     dateModified: resolveModifiedKST(post.modifiedAt),
     image: schemaImage,
@@ -1725,7 +1730,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   return wrapWithLayout(pageContent, {
     currentPage: 'magazine',
     title: title,
-    description: summary || title,
+    description: metaDescription,
     keywords: post.keywords || '게임 순위, 순위 분석, 차트 분석, 게임 비교',
     canonical: `${siteBaseUrl}/magazine/ranking/${slug}/`,
     articleSchema,

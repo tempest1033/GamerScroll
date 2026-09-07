@@ -1,6 +1,7 @@
 {
   "slug": "openai-omni-model-rumor-march-2026",
   "status": "approved",
+  "noindex": true,
   "category": "openai",
   "title": "GPT-5o?: OpenAI, 차세대 멀티모달 옴니 모델 개발 루머",
   "titleEn": "GPT-5o?: OpenAI Rumored to Be Developing Next-Gen Multimodal Omni Model",

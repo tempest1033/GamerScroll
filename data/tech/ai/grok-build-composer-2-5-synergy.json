@@ -1,6 +1,7 @@
 {
   "slug": "grok-build-composer-2-5-synergy",
   "status": "approved",
+  "noindex": true,
   "category": "ai-tools",
   "title": "그록 빌드에 컴포저 2.5 탑재…xAI·커서 연합 전선 구축",
   "titleEn": "Composer 2.5 Lands on Grok Build: xAI-Cursor Tie",

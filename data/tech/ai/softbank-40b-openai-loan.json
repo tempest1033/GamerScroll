@@ -1,6 +1,7 @@
 {
   "slug": "softbank-40b-openai-loan",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "openai",
   "title": "소프트뱅크, 오픈AI 지분 확대 위해 역대 최대 400억 달러 대출 추진",

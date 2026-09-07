@@ -1,20 +1,29 @@
 #!/usr/bin/env node
-// Set or clear the `noindex` flag on magazine article JSONs (reports/<type>/<slug>.json).
+// Set or clear the `noindex` flag on article JSONs.
+//   GamerScroll magazine: reports/<type>/<slug>.json   (issue|insight|hotpick|ranking)
+//   AIScroll:             data/tech/<type>/<slug>.json (ai|vibecoding)
 //
 // Usage:
 //   node scripts/set-noindex.mjs --type issue --from <slugs.json>      # JSON array of slugs
-//   node scripts/set-noindex.mjs --type issue slug-a slug-b [--unset]
+//   node scripts/set-noindex.mjs --type ai slug-a slug-b [--unset]
 //
-// The GamerScroll builder emits <meta name="robots" content="noindex, follow">
-// for flagged articles and drops them from sitemap.xml and rss.xml. Pages stay
-// built and linked, so the flag is reversible with --unset.
+// Both builders emit <meta name="robots" content="noindex, follow"> for flagged
+// articles (AIScroll: EN and KO pages) and drop them from sitemap.xml and
+// rss.xml. Pages stay built and linked, so the flag is reversible with --unset.
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const TYPES = ['issue', 'insight', 'hotpick', 'ranking']
+const TYPE_DIRS = {
+  issue: 'reports/issue',
+  insight: 'reports/insight',
+  hotpick: 'reports/hotpick',
+  ranking: 'reports/ranking',
+  ai: 'data/tech/ai',
+  vibecoding: 'data/tech/vibecoding',
+}
 
 function parseArgs(argv) {
   const opts = { type: null, from: null, unset: false, slugs: [] }
@@ -52,8 +61,8 @@ function rewrite(file, set) {
 
 function main() {
   const opts = parseArgs(process.argv.slice(2))
-  if (!TYPES.includes(opts.type)) {
-    console.error(`--type must be one of ${TYPES.join('|')}`)
+  if (!TYPE_DIRS[opts.type]) {
+    console.error(`--type must be one of ${Object.keys(TYPE_DIRS).join('|')}`)
     process.exit(1)
   }
   const slugs = [...opts.slugs]
@@ -63,7 +72,7 @@ function main() {
     process.exit(1)
   }
 
-  const dir = path.join(ROOT, 'reports', opts.type)
+  const dir = path.join(ROOT, TYPE_DIRS[opts.type])
   let changed = 0
   let missing = 0
   for (const slug of slugs) {

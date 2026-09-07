@@ -1,6 +1,7 @@
 {
   "slug": "claude-interactive-visuals-1m-context-ga",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "title": "클로드, 대화 속 인터랙티브 시각화 자동 생성 기능 출시: 100만 토큰 컨텍스트도 기본 제공",
   "date": "2026-03-14T12:00",

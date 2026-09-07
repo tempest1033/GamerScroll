@@ -1,6 +1,7 @@
 {
   "slug": "mythos-2-checkpoint-rumor-buzz",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "anthropic",
   "site": "aiscroll",

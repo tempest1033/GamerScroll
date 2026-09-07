@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-12T19:00Z",
   "needTranslate": false,
   "title": "스페이스X, 750억달러 규모 IPO 완료…첫날 주가 급등",

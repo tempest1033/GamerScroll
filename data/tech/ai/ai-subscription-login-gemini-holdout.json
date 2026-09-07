@@ -1,6 +1,7 @@
 {
   "slug": "ai-subscription-login-gemini-holdout",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "site": "aiscroll",
   "needTranslate": false,

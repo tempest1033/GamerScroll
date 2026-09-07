@@ -1,6 +1,7 @@
 {
   "slug": "nvidia-feynman-architecture-2028",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "title": "무어의 법칙을 넘어선 황의 법칙 — 파인만 아키텍처가 여는 빛의 시대",
   "titleEn": "Huang's Law Beyond Moore's Law — The Feynman Architecture Ushers in the Age of Light",

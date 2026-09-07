@@ -1,6 +1,7 @@
 {
   "slug": "gemini-3-5-live-translate-launch",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "site": "aiscroll",
   "category": "google",

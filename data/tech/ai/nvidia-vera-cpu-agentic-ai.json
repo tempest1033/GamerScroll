@@ -1,6 +1,7 @@
 {
   "slug": "nvidia-vera-cpu-agentic-ai",
   "status": "approved",
+  "noindex": true,
   "site": "aiscroll",
   "category": "general",
   "needTranslate": false,

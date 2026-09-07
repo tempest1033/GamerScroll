@@ -1,6 +1,7 @@
 {
   "slug": "gemma-4-12b-encoder-free-launch",
   "status": "approved",
+  "noindex": true,
   "category": "google",
   "title": "구글, 인코더 없앤 통합 멀티모달 모델 '젬마 4 12B' 공개",
   "titleEn": "Gemma 4 12B: An Encoder-Free Multimodal Model",

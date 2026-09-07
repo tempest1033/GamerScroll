@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-05-28T19:00Z",
   "needTranslate": false,
   "title": "앤트로픽, 9,000억 달러로 오픈AI 제치고 AI 스타트업 1위",

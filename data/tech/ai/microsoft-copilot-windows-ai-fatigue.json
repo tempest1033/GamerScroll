@@ -1,6 +1,7 @@
 {
   "slug": "microsoft-copilot-windows-ai-fatigue",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "title": "\"AI 피로감에 굴복\" 마이크로소프트, 윈도우 11 코파일럿 통합 대폭 축소",
   "titleEn": "Microsoft Scales Back Copilot AI in Windows 11 Amid User Fatigue",

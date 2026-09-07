@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-12T06:00Z",
   "needTranslate": false,
   "title": "윈도우 로컬 AI, 엔비디아 RTX에 개방…마이크로소프트, 코파일럿+ 독점 해제",

@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "date": "2026-06-22T14:30Z",
   "title": "앤트로픽의 출시 질주, 재귀개선의 전조인가?",

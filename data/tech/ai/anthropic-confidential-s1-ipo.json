@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-01T16:30Z",
   "needTranslate": false,
   "title": "앤트로픽, IPO 비공개 신청…1조 달러 상장레이스 시동",

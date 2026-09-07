@@ -1,6 +1,7 @@
 {
   "slug": "nvidia-q1-fy27-ai-rally-test",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "general",
   "title": "엔비디아 20일 1분기 실적 발표…AI 랠리 분수령",

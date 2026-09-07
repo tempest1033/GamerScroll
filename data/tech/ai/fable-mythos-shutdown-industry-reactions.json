@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-13T17:30Z",
   "needTranslate": false,
   "title": "'그냥 만화 같다'… 페이블·미토스 중단에 쏟아진 AI 업계 말말말",

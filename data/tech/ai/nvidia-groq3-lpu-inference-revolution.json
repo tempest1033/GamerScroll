@@ -1,6 +1,7 @@
 {
   "slug": "nvidia-groq3-lpu-inference-revolution",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "title": "엔비디아, 200억 달러짜리 추론 칩 Groq 3 LPU 공개하다",
   "titleEn": "NVIDIA Unveils Groq 3 LPU: The $20 Billion Inference Chip That Redefines AI Computing",

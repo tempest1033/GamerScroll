@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-20T14:00Z",
   "needTranslate": false,
   "title": "트럼프도 인정: 페이블을 정지시킨 범인은 아마존",

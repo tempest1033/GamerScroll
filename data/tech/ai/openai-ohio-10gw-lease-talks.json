@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "openai",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-10T06:30Z",
   "title": "오픈AI, 오하이오 10GW AI 캠퍼스 임차…엔비디아 보증 검토",
   "titleEn": "OpenAI in Talks to Lease 10GW Ohio AI Campus",

@@ -1,6 +1,7 @@
 {
   "slug": "anthropic-pentagon-ai-safety-standoff",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "titleEn": "Anthropic vs the Pentagon: The Historic Collision of AI Safety and National Security",
   "category": "anthropic",

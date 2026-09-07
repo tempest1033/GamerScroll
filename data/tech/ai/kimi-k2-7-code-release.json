@@ -1,6 +1,7 @@
 {
   "slug": "kimi-k2-7-code-release",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "date": "2026-06-12T12:30Z",
   "title": "문샷 AI, '키미 K2.7 코드' 공개…추론 토큰 30% 감축",

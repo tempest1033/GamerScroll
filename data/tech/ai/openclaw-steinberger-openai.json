@@ -1,6 +1,7 @@
 {
   "slug": "openclaw-steinberger-openai",
   "status": "approved",
+  "noindex": true,
   "category": "openai",
   "title": "오픈클로 창시자 피터 스테인버거, OpenAI 합류 — 멀티 에이전트 AI의 미래를 이끈다",
   "date": "2026-02-16T12:00",

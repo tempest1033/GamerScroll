@@ -1,6 +1,7 @@
 {
   "slug": "gpt-53-codex-community-reaction",
   "status": "approved",
+  "noindex": true,
   "category": "openai",
   "title": "완전 자율 코딩의 시작? GPT-5.3 코덱스 출시 후 커뮤니티 반응 총정리",
   "date": "2026-02-07T18:00",

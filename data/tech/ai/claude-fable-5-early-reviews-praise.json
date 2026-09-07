@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-10T06:30Z",
   "needTranslate": false,
   "title": "클로드 페이블 5, '설계 파트너'로 진화하며 초기 호평",

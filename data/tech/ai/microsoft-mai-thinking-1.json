@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-02T20:30Z",
   "needTranslate": false,
   "title": "MS, 첫 자체 추론 AI 모델 'MAI-Thinking-1' 공개",

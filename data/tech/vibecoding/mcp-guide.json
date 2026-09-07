@@ -1,6 +1,7 @@
 {
   "slug": "mcp-guide",
   "status": "approved",
+  "noindex": true,
   "category": "vibecoding",
   "toc": true,
   "title": "MCP 가이드: AI 코딩 에이전트와 외부 도구 연결하기",

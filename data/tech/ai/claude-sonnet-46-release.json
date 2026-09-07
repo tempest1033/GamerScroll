@@ -1,6 +1,7 @@
 {
   "slug": "claude-sonnet-46-release",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "title": "클로드 소넷 4.6 출시, 오퍼스급 성능을 소넷 가격에",
   "titleEn": "Claude Sonnet 4.6 Launches with Opus-Level Performance at Sonnet Pricing",

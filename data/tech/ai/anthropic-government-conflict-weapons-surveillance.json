@@ -1,6 +1,7 @@
 {
   "slug": "anthropic-government-conflict-weapons-surveillance",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "title": "엔트로픽 vs 트럼프 행정부, 자율 무기와 감시 거부가 부른 전면전",
   "titleEn": "Anthropic vs Trump Administration: How Refusing Autonomous Weapons Led to a Full Ban",

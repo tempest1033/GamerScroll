@@ -1,6 +1,7 @@
 {
   "slug": "gpt-56-anthropic-tipping-point",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "site": "aiscroll",
   "category": "general",

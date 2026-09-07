@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "date": "2026-06-06T10:30Z",
   "title": "메타, 소비자용 코딩 에이전트 '해치' 개발…월 200달러 요금제 검토",

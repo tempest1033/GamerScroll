@@ -1,6 +1,7 @@
 {
   "slug": "amodei-apology-claude-app-store-surge",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "anthropic",
   "title": "아모데이, 유출 메모 사과하며 법적 대응 선언: Claude는 20개국 앱스토어 1위",

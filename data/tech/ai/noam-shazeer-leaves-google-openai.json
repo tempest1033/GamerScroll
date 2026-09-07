@@ -2,6 +2,7 @@
   "slug": "noam-shazeer-leaves-google-openai",
   "site": "aiscroll",
   "status": "approved",
+  "noindex": true,
   "category": "openai",
   "date": "2026-06-18T02:00Z",
   "needTranslate": false,

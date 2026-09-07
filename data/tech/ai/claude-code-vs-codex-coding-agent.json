@@ -1,6 +1,7 @@
 {
   "slug": "claude-code-vs-codex-coding-agent",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "title": "코딩 에이전트 양대산맥: 클로드 코드와 코덱스의 장단점 비교",
   "date": "2026-01-29T18:00",

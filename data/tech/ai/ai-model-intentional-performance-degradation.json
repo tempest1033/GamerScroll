@@ -2,6 +2,7 @@
   "slug": "ai-model-intentional-performance-degradation",
   "category": "ai",
   "status": "approved",
+  "noindex": true,
   "title": "\"출시 때만 똑똑하다?\" AI 모델 의도적 성능 저하 의혹",
   "titleEn": "\"Smart Only at Launch?\" Suspicions of Intentional AI Model Performance Degradation",
   "date": "2026-03-10T12:00",

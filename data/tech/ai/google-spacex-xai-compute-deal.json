@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "google",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-06T10:30Z",
   "needTranslate": false,
   "title": "구글, 스페이스X서 xAI 서버 빌린다…월 9.2억 달러",

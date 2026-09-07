@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "date": "2026-06-16T09:00Z",
   "title": "2026년 상반기 코딩 에이전트 톱5...클로드 '페이블' 선두 속 변수 상존",

@@ -1,6 +1,7 @@
 {
   "slug": "gpt55-opus47-degradation-admission",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "general",
   "title": "GPT-5.5·오퍼스 4.7 성능 저하, OpenAI·앤트로픽 양사 결국 시인",

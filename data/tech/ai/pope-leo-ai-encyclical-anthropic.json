@@ -1,6 +1,7 @@
 {
   "slug": "pope-leo-ai-encyclical-anthropic",
   "status": "approved",
+  "noindex": true,
   "site": "aiscroll",
   "category": "anthropic",
   "needTranslate": false,

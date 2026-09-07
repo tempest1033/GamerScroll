@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "date": "2026-06-16T02:30Z",
   "title": "삼성 파운드리, 뉴럴링크 4세대 칩 수주…TSMC서 첫 이탈",

@@ -1,6 +1,7 @@
 {
   "slug": "nvidia-gpu-launch-halt-ai-priority",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "general",
   "title": "엔비디아 그래픽카드 신제품 출시 전면 중단, AI가 게이밍을 삼켰다",

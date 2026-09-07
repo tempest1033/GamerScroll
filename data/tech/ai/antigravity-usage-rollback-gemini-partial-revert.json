@@ -1,6 +1,7 @@
 {
   "slug": "antigravity-usage-rollback-gemini-partial-revert",
   "status": "approved",
+  "noindex": true,
   "category": "google",
   "title": "안티그래비티, 유저 반발에 사용량 제한 정책 일부 롤백: 제미나이만 복원, 클로드는 제외",
   "date": "2026-03-14T13:00",

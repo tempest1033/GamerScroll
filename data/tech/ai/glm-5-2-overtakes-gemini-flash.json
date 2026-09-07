@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-17T20:00Z",
   "needTranslate": false,
   "title": "GLM-5.2, 제미나이 3.5 플래시 추월…오픈웨이트가 구글 넘다",

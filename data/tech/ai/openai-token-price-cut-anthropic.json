@@ -1,6 +1,7 @@
 {
   "slug": "openai-token-price-cut-anthropic",
   "status": "approved",
+  "noindex": true,
   "category": "openai",
   "title": "오픈AI, 토큰 가격 대폭 인하 검토…앤트로픽과 '사용자 전쟁' 대비",
   "titleEn": "OpenAI Weighs Drastic Token Price Cuts",

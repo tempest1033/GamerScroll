@@ -1,6 +1,7 @@
 {
   "slug": "claude-mythos-fable-5-rumor",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "anthropic",
   "site": "aiscroll",

@@ -1,6 +1,7 @@
 {
   "slug": "mistral-small4-unified-moe",
   "status": "approved",
+  "noindex": true,
   "category": "general",
   "title": "추론, 시각, 코드를 한 몸에 담다: 미스트랄 Small 4의 119B 통합 실험",
   "titleEn": "Reasoning, Vision, and Code in One Body: Mistral Small 4's 119B Unified Experiment",

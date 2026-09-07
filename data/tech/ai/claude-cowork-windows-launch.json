@@ -1,6 +1,7 @@
 {
   "slug": "claude-cowork-windows-launch",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "title": "클로드 코워크 윈도우 상륙, AI 데스크톱 에이전트가 70% 시장을 노린다",
   "titleEn": "Claude Cowork Lands on Windows: AI Desktop Agents Target 70% of the Market",

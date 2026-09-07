@@ -1,6 +1,7 @@
 {
   "slug": "anthropic-nsa-mythos-offensive-cyber",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "anthropic",
   "title": "앤트로픽, 미토스로 NSA 공격 지원…펜타곤과 소송",

@@ -1,6 +1,7 @@
 {
   "slug": "vibe-coding-agent-guide",
   "status": "approved",
+  "noindex": true,
   "category": "vibecoding",
   "title": "바이브 코딩 에이전트 가이드: 서브에이전트, 팀, 커스텀 에이전트까지",
   "titleEn": "Vibe Coding Agent Guide: Sub-Agents, Teams, and Custom Agents",

@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-15T01:00Z",
   "needTranslate": false,
   "title": "오픈라우터 '퓨전' 출시…최상위 AI 성능을 절반 비용으로",

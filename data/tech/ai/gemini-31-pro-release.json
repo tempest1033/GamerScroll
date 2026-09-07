@@ -1,6 +1,7 @@
 {
   "slug": "gemini-31-pro-release",
   "status": "approved",
+  "noindex": true,
   "category": "google",
   "title": "제미나이 3.1 프로 출시, 추론과 멀티모달 모두 SOTA급 도약",
   "titleEn": "Gemini 3.1 Pro Launch: A SOTA-Level Leap in Reasoning and Multimodal AI",

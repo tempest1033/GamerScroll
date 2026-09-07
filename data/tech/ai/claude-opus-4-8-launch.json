@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-05-28T18:00Z",
   "needTranslate": false,
   "title": "클로드 오푸스 4.8 출시, 가격 동결에 초기 실사용 호평 이어져",

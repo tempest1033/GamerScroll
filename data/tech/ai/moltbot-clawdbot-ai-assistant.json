@@ -1,6 +1,7 @@
 {
   "slug": "moltbot-clawdbot-ai-assistant",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "title": "Clawdbot, 자율성을 가진 AI 비서의 등장과 72시간의 혼란",
   "date": "2026-01-28T12:00",

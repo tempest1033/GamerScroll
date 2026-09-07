@@ -2,6 +2,7 @@
   "slug": "gpt-5-4-leak-silent-update",
   "category": "openai",
   "status": "approved",
+  "noindex": true,
   "title": "OpenAI 차기 모델 GPT 5.4 출시 임박, 이미 몰래 적용 중?",
   "date": "2026-03-03T12:00",
   "thumbnail": "https://awesomeagents.ai/images/news/gpt-5-4-codex-repo-leak_hu_a0a45cc180a2a523.jpg",

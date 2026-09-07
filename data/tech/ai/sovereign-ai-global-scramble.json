@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "date": "2026-06-19T06:30Z",
   "title": "미소스 셧다운이 촉발한 '소버린 AI' 논쟁",

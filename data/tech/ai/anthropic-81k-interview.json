@@ -1,6 +1,7 @@
 {
   "slug": "anthropic-81k-interview",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "title": "앤트로픽이 81,000명에게 물었다, AI에게 뭘 바라나요?",
   "titleEn": "What 81,000 People Want from AI: Anthropic's Largest Qualitative Survey",

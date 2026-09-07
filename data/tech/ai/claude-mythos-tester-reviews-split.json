@@ -2,6 +2,7 @@
   "slug": "claude-mythos-tester-reviews-split",
   "site": "aiscroll",
   "status": "approved",
+  "noindex": true,
   "category": "anthropic",
   "date": "2026-06-05T15:00",
   "needTranslate": false,

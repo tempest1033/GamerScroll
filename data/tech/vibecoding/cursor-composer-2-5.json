@@ -1,6 +1,7 @@
 {
   "slug": "cursor-composer-2-5",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "vibecoding",
   "site": "aiscroll",

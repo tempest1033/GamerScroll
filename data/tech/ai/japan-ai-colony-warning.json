@@ -2,6 +2,7 @@
   "slug": "japan-ai-colony-warning",
   "site": "aiscroll",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "general",
   "date": "2026-06-06T10:30Z",

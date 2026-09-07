@@ -21,6 +21,7 @@ const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
 const { renderTextBlock } = require('../helpers/content-text');
 const { createArticleToc } = require('../helpers/article-toc');
+const { buildMetaDescription } = require('../../build/meta-description');
 
 // games.json 로드 (ranking 블록 아이콘용)
 let gamesMap = {};
@@ -722,6 +723,9 @@ function generateAIBlogArticle(article, data = {}) {
       : `${SITE_CONFIG.baseUrl}${socialThumbnail}`)
     : null;
 
+  // Meta description: summary가 없거나 짧으면 본문 첫 문단으로 보충 (155자 cap)
+  const metaDescription = buildMetaDescription(article.summary, article.content) || SITE_CONFIG.description;
+
   // JSON-LD 구조화 데이터 (Article + BreadcrumbList)
   const _jsonLdLang = data.lang === 'ko' ? 'ko' : 'en';
   const _jsonLdPrefix = _jsonLdLang === 'ko' ? '/ko' : '';
@@ -733,7 +737,7 @@ function generateAIBlogArticle(article, data = {}) {
       "@type": "Article",
       "inLanguage": _jsonLdLocale,
       "headline": article.title,
-      "description": article.summary || '',
+      "description": metaDescription,
       "image": absoluteThumbnail || `${SITE_CONFIG.baseUrl}${SITE_CONFIG.ogImage}`,
       "datePublished": dateISO,
       ...(dateModifiedISO ? { "dateModified": dateModifiedISO } : {}),
@@ -803,18 +807,12 @@ function generateAIBlogArticle(article, data = {}) {
     ? `${article.title.slice(0, 60 - suffix.length - 3)}...${suffix}`
     : fullTitle;
 
-  // Description 트리밍: 155자 이내로
-  const rawDescription = article.summary || SITE_CONFIG.description;
-  const trimmedDescription = rawDescription.length > 155
-    ? rawDescription.slice(0, 152).replace(/\s+\S*$/, '') + '...'
-    : rawDescription;
-
   const lang = data.lang === 'ko' ? 'ko' : 'en';
   const langPrefix = lang === 'ko' ? '/ko' : '';
   return wrapWithLayout(content, {
     title: trimmedTitle,
     ogTitle: fullTitle,
-    description: trimmedDescription,
+    description: metaDescription,
     keywords: article.keywords || SITE_CONFIG.keywords,
     canonical: `${SITE_CONFIG.baseUrl}${langPrefix}/article/${article.category || 'general'}/${article.slug}/`,
     pageScripts: pageScripts,
@@ -823,6 +821,7 @@ function generateAIBlogArticle(article, data = {}) {
     ogImageWidth: 1200,
     ogImageHeight: 630,
     ogType: 'article',
+    noindex: article.noindex === true,  // 검색 성과 없는 기사 정리용 (JSON 플래그, 사이트맵·RSS도 제외)
     articleMeta: articleMeta,
     currentPage: article.category || 'general',
     lang,

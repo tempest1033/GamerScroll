@@ -586,6 +586,7 @@ function mapArticles(articles, lang) {
     relatedArticles: a.relatedArticles,
     relatedDocs: a.relatedDocs,
     toc: a.toc,
+    noindex: a.noindex === true,  // 검색 성과 없는 기사 정리용 (scripts/set-noindex.mjs --type ai|vibecoding)
     _jsonFilePath: a._jsonFilePath
   }));
 }
@@ -1108,10 +1109,12 @@ function generateSEOFiles(articles) {
   const today = new Date().toISOString().split('T')[0];
 
   // === Stage 2e: dual-lang sitemap + ko rss ===
-  const enArticles = mapArticles(articles, 'en').map(a => ({
+  // noindex 플래그 기사는 페이지는 남기되(EN·KO 모두 robots noindex) 사이트맵·RSS에서 뺀다.
+  const indexable = (a) => !a.noindex;
+  const enArticles = mapArticles(articles, 'en').filter(indexable).map(a => ({
     slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, modifiedAt: a.modifiedAt, thumbnail: a.thumbnail
   }));
-  const koArticles = mapArticles(articles, 'ko').map(a => ({
+  const koArticles = mapArticles(articles, 'ko').filter(indexable).map(a => ({
     slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, modifiedAt: a.modifiedAt, thumbnail: a.thumbnail
   }));
 

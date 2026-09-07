@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-15T06:00Z",
   "needTranslate": false,
   "title": "앤트로픽, 백악관과 페이블 5 중단 협상 돌입…재개는 아직",

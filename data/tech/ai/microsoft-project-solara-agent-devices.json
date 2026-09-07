@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "general",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-04T13:30Z",
   "needTranslate": false,
   "title": "앱 대신 에이전트…MS, 새 AI 기기 플랫폼 '프로젝트 솔라라' 공개",

@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "anthropic",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-09T18:30Z",
   "needTranslate": false,
   "title": "클로드 페이블 5, 거의 모든 벤치마크 1위… SWE-bench 95% 신기록",

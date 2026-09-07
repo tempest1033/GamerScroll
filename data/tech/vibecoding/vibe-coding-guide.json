@@ -1,6 +1,7 @@
 {
   "slug": "vibe-coding-guide",
   "status": "approved",
+  "noindex": true,
   "category": "vibecoding",
   "toc": true,
   "title": "바이브 코딩 종합 가이드: 툴 비교&설치부터 실전까지",

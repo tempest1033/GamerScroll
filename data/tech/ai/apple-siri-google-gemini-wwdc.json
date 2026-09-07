@@ -3,6 +3,7 @@
   "site": "aiscroll",
   "category": "google",
   "status": "approved",
+  "noindex": true,
   "date": "2026-06-07T23:00Z",
   "needTranslate": false,
   "title": "애플 새 Siri, 구글 제미나이 탑재…WWDC서 공개",

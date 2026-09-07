@@ -2,6 +2,7 @@
   "slug": "us-government-ai-equity-stakes",
   "site": "aiscroll",
   "status": "approved",
+  "noindex": true,
   "needTranslate": false,
   "category": "general",
   "date": "2026-06-05T04:00Z",
