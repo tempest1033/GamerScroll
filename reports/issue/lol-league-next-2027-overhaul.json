@@ -8,9 +8,9 @@
   "summary": "라이엇 게임즈가 2027년을 목표로 '리그 오브 레전드' 사상 최대 규모의 개편안인 '리그 넥스트'를 예고했다. 통합 클라이언트와 소환사의 협곡 리메이크를 통해 게임 외형을 통째로 바꾼다는 계획이다.",
   "site": "gamerscroll",
   "relatedDocs": [
-    "lol-aram-mayhem-comeback",
-    "lol-first-stand-2026",
-    "geng-lck-cup-championship"
+    "issue:chzzk-lck-naver-viewer-complaints",
+    "issue:lol-aram-mayhem-comeback",
+    "wiki:knowledge/moba-genre-origin"
   ],
   "sources": [
     {
@@ -95,5 +95,6 @@
       "type": "text",
       "value": "핵심은 기존 숙련 이용자를 만족시키면서 동시에 신규 이용자의 진입 장벽을 낮추는 정교한 균형 감각이다. 마크 메릴 라이엇 게임즈 공동 창업자는 이번 작업을 향후 15년 이상 LOL의 글로벌 위상을 유지하기 위한 필수 과정이라고 평가했다. 지난 16년간 정상을 지켜온 장수 IP가 다음 세대를 맞이하기 위해 던진 승부수, 그것이 리그 넥스트라는 코드네임에 담긴 진짜 무게다."
     }
-  ]
+  ],
+  "relatedArticles": []
 }

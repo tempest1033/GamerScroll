@@ -122,7 +122,9 @@
   ],
   "relatedDocs": [
     "wiki:business/publisher-developer-relationship",
-    "wiki:business/game-revenue-structure"
+    "wiki:business/game-revenue-structure",
+    "hotpick:game-engine"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

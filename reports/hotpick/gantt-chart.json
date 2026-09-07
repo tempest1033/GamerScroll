@@ -136,9 +136,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:normal/agile-jira-confluence-game-dev",
-    "tech:normal/version-control-system",
-    "wiki:knowledge/pd-vs-director"
+    "wiki:knowledge/pd-vs-director",
+    "hotpick:agile-jira-confluence-game-dev",
+    "hotpick:version-control-system"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

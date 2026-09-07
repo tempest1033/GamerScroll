@@ -121,6 +121,49 @@
   font-size: var(--font-meta-size);
   color: var(--text-muted);
   font-weight: 600;
+  text-decoration: none;
+}
+
+a.blog-editor:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* 주제 태그 (요약 아래) — /topic/<id>/ 링크 */
+.blog-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 720px;
+  margin: 0 auto 20px;
+}
+
+.blog-topic-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: var(--font-meta-size);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: var(--card);
+}
+
+.blog-topic-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* 제작 방식 문구 (본문 끝, 출처 위) — "누가·어떻게" 공개 */
+.blog-method-note {
+  max-width: 720px;
+  margin: 24px auto 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--border);
+  font-size: var(--font-meta-size);
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: left;
 }
 
 .blog-date {

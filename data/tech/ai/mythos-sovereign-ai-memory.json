@@ -3,7 +3,14 @@
   "site": "aiscroll",
   "status": "approved",
   "date": "2026-07-12T11:30Z",
-  "category": "general",
+  "category": "news",
+  "topics": [
+    "anthropic",
+    "industry"
+  ],
+  "legacyPaths": [
+    "/article/general/mythos-sovereign-ai-memory/"
+  ],
   "title": "미토스가 촉발한 소버린 AI 확산과 파라미터 전쟁, 메모리 공급 부족 심화",
   "titleEn": "Mythos: Sovereign AI Scale Race, Memory Crunch",
   "summary": "미토스는 프런티어 AI를 국가안보 자산으로 끌어올렸다. 더 큰 사전학습 경쟁과 소버린 AI·데이터센터 확산은 HBM·DRAM 수요를 밀어 올릴 전망이다.",
@@ -40,10 +47,9 @@
     }
   ],
   "relatedDocs": [
-    "tech:ai/deepseek-mimo-price-war",
-    "tech:ai/sovereign-ai-global-scramble",
-    "tech:ai/korea-chipmakers-mythos-glasswing-access",
-    "tech:ai/claude-mythos-launch-imminent-signals"
+    "tech:ai/september-ai-model-war",
+    "tech:ai/grok-46-launch-frontier-push",
+    "tech:ai/gpt-56-codex-comeback"
   ],
   "relatedGames": [],
   "relatedArticles": [],

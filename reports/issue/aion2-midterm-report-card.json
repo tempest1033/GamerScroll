@@ -14,12 +14,7 @@
     "idle-game-era-maple-grow",
     "lineage-classic-subscription-return"
   ],
-  "relatedArticles": [
-    {
-      "category": "insight",
-      "slug": "2026-game-trends"
-    }
-  ],
+  "relatedArticles": [],
   "sources": [
     {
       "name": "연합뉴스",
@@ -164,5 +159,10 @@
       "type": "text",
       "value": "아이온2의 2개월 성적표는 '합격점'에 가깝다. 46일 1000억 매출, PC방 RPG 1위, 확률형 없는 멤버십 BM으로 새로운 유저층 확보까지. 리니지에 의존하던 엔씨소프트가 새로운 캐시카우를 만들어낸 것처럼 보인다.\n\n다만 MMORPG의 진짜 시험은 출시 6개월 이후다. 콘텐츠 소비 속도를 따라갈 업데이트가 지속되는지, 신규 유저 유입이 꾸준한지가 장기 흥행의 관건이다. 시즌2 업데이트 효과가 얼마나 지속될지도 지켜봐야 한다.\n\n엔씨소프트의 변화가 진심인지, 아이온2가 일시적 반짝이 아닌 꾸준한 성과를 낼 수 있을지. 상반기가 지나면 더 명확한 답이 나올 것이다."
     }
+  ],
+  "relatedDocs": [
+    "issue:lineage-like-genre-decline-paradigm-shift",
+    "issue:lineage-classic-day-one-reaction",
+    "issue:lineage-classic-90day-benefit-controversy"
   ]
 }

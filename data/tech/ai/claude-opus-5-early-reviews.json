@@ -1,7 +1,14 @@
 {
   "slug": "claude-opus-5-early-reviews",
   "site": "aiscroll",
-  "category": "anthropic",
+  "category": "news",
+  "topics": [
+    "anthropic",
+    "coding-agents"
+  ],
+  "legacyPaths": [
+    "/article/anthropic/claude-opus-5-early-reviews/"
+  ],
   "status": "approved",
   "date": "2026-07-28T07:00Z",
   "needTranslate": false,
@@ -180,10 +187,9 @@
     }
   ],
   "relatedDocs": [
-    "tech:ai/claude-fable-5-early-reviews-praise",
-    "tech:ai/claude-opus-4-8-launch",
     "tech:ai/anthropic-pricing-crisis",
-    "tech:ai/gpt-56-codex-comeback"
+    "tech:ai/gpt-56-codex-comeback",
+    "tech:ai/gpt6-astra-fable-comparison"
   ],
   "relatedGames": [],
   "relatedArticles": []

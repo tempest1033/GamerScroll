@@ -43,9 +43,10 @@ const SITE_BY_PREFIX = [
     `https://aiscroll.io/article/${category}/${slug}/`,
     `https://aiscroll.io/ko/article/${category}/${slug}/`,
   ]},
-  { prefix: 'data/tech/vibecoding/', build: ({ slug })          => [
-    `https://aiscroll.io/article/vibecoding/${slug}/`,
-    `https://aiscroll.io/ko/article/vibecoding/${slug}/`,
+  // 2026-09 재출발: 폴더가 카테고리를 강제하지 않는다 — URL은 JSON category(news/reviews/guides/benchmarks/hot)로 결정
+  { prefix: 'data/tech/vibecoding/', build: ({ slug, category }) => [
+    `https://aiscroll.io/article/${category}/${slug}/`,
+    `https://aiscroll.io/ko/article/${category}/${slug}/`,
   ]},
   { prefix: 'data/tech/normal/',     build: ({ slug })          => [`https://gamerscroll.com/tech/normal/${slug}/`] },
   { prefix: 'data/wiki/business/',   build: ({ slug })          => [`https://gamerscroll.com/wiki/business/${slug}/`] },
@@ -70,7 +71,7 @@ function extractUrlsFromCommit() {
     if (json.status !== 'approved') continue
     const slug = json.slug
     if (!slug) continue
-    const built = route.build({ slug, category: json.category || 'general' })
+    const built = route.build({ slug, category: json.category || 'news' })
     for (const u of built) urls.add(u)
   }
   return [...urls]

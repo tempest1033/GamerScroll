@@ -127,9 +127,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:normal/gantt-chart",
     "wiki:knowledge/pd-vs-director",
-    "wiki:business/game-business-metrics"
+    "wiki:business/game-business-metrics",
+    "hotpick:gantt-chart"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

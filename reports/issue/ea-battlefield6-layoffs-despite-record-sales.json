@@ -7,6 +7,9 @@
   "summary": "배틀필드6가 700만 장 역대 최대 흥행을 기록했지만, EA는 다이스 등 4개 스튜디오에서 대규모 해고를 단행했다. $550억 LBO 인수를 앞두고 성공작 개발팀마저 칼바람을 피하지 못했다.",
   "thumbnail": "https://cdn.mos.cms.futurecdn.net/BiScZQorsZP7J7ABmauSfn-1920-80.jpg",
   "relatedDocs": [
+    "issue:heavenhells-clover-games-restructuring",
+    "issue:lucky-defense-long-run-success",
+    "issue:arc-raiders-ddos-attack-jan-2026"
   ],
   "relatedGames": [
     "배틀필드6"
@@ -150,5 +153,6 @@
       "type": "ad"
     }
   ],
-  "needTranslate": true
+  "needTranslate": true,
+  "relatedArticles": []
 }

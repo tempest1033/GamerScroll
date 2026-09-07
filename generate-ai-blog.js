@@ -20,8 +20,21 @@ const includeDrafts = !process.env.CI || process.argv.includes('--draft') || pro
 const buildCache = require('./ai-build-cache');
 
 // 템플릿
-const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, setGlobalSidebarCounts, setGlobalSidebarArticles, I18N, langPrefixOf } = require('./src/templates/ai-blog/index');
+const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, generateTopicPage, setGlobalSidebarCounts, setGlobalSidebarArticles, I18N, langPrefixOf } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
+const { generateAboutPage } = require('./src/templates/ai-blog/about');
+// 분류 체계: 카테고리 5개(news/reviews/guides/benchmarks/hot) + 주제 태그. 옛 회사 기준 카테고리는 301.
+const {
+  CATEGORY_IDS,
+  CATEGORY_LABELS,
+  NAV_TOPIC_IDS,
+  LEGACY_CATEGORY_REDIRECTS,
+  PERSON_AUTHOR,
+  normalizeCategory,
+  topicsOf,
+  countTopics,
+  countCategories
+} = require('./src/templates/ai-blog/taxonomy');
 const { buildLayoutCoreBundle, LAYOUT_CORE_ASSET } = require('./src/templates/layout');
 
 // GA4 Analytics
@@ -214,8 +227,8 @@ function minifyCss(css) {
     .trim();
 }
 
-// 카테고리 목록 (폴더 분리용)
-const CATEGORIES = ['general', 'openai', 'google', 'anthropic', 'vibecoding'];
+// 카테고리 목록 (출력 폴더 분리용) — taxonomy.js가 단일 출처
+const CATEGORIES = CATEGORY_IDS;
 
 const SOURCE_IMAGES_ROOT = path.join(__dirname, 'docs', 'assets', 'images');
 
@@ -271,7 +284,8 @@ function loadArticles() {
 
   const sources = [
     { dir: path.join(DATA_DIR, 'tech', 'ai'), tag: 'tech/ai' },
-    { dir: path.join(DATA_DIR, 'tech', 'vibecoding'), tag: 'tech/vibecoding', categoryOverride: 'vibecoding' },
+    // 폴더는 정리용일 뿐 카테고리를 강제하지 않는다 — JSON의 category(글 종류)와 topics(주제)가 결정
+    { dir: path.join(DATA_DIR, 'tech', 'vibecoding'), tag: 'tech/vibecoding' },
     { dir: path.join(REPORTS_DIR, 'issue'), tag: 'issue' },
     { dir: path.join(REPORTS_DIR, 'hotpick'), tag: 'hotpick' }
   ];
@@ -575,7 +589,12 @@ function mapArticles(articles, lang) {
   const isKo = lang === 'ko';
   return articles.map(a => ({
     slug: a.slug,
-    category: a.category || 'general',
+    category: normalizeCategory(a.category),
+    topics: topicsOf(a),
+    author: a.author,          // 'site' → Organization, 이름 → Person, 없음 → 카테고리 기본값 (taxonomy.authorOf)
+    editor: a.editor,
+    method: a.method,          // 제작 방식 문구 재지정 (문자열 또는 {ko,en})
+    legacyPaths: Array.isArray(a.legacyPaths) ? a.legacyPaths : [],  // 옛 URL → 301 (_redirects)
     title: isKo ? (a.title || a.titleEn) : (a.titleEn || a.title),
     summary: isKo ? (a.summary || a.summaryEn) : (a.summaryEn || a.summary),
     content: isKo ? (a.content || a.contentEn) : (a.contentEn || a.content),
@@ -616,7 +635,8 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     if (popularArticlesData.articles && popularArticlesData.articles.length > 0) {
       popularArticles = popularArticlesData.articles
         .map(pa => {
-          const article = langArticles.find(a => a.slug === pa.slug && a.category === pa.category);
+          // GA4 인기 데이터의 category는 수집 시점 값(옛 카테고리일 수 있음) → slug만으로 맞춘다
+          const article = langArticles.find(a => a.slug === pa.slug);
           if (article) return { ...article, views: pa.views };
           return null;
         })
@@ -678,10 +698,46 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     console.log(`검색용 JSON 생성 완료 (${lang})`);
 
     generatePrivacyPage(lang);
+    generateAboutPageFile(lang);
     generateSearchPageFile(lang);
     generate404Page(lang);
     generateCategoryPages(langArticles, popularArticles, latestArticles, lang);
+    generateTopicPages(langArticles, popularArticles, latestArticles, lang);
   }
+}
+
+// 소개·저자 페이지 (/about/) — 바이라인 rel="author"와 푸터가 여기로 온다
+function generateAboutPageFile(lang = 'en') {
+  const aboutDir = path.join(langDir(lang), PERSON_AUTHOR.path.replace(/^\/|\/$/g, ''));
+  fs.mkdirSync(aboutDir, { recursive: true });
+  fs.writeFileSync(path.join(aboutDir, 'index.html'), generateAboutPage(lang), 'utf8');
+  console.log(`소개 페이지 생성 완료 (${lang})`);
+}
+
+// 주제(태그) 페이지 — 글이 있는 주제 + 내비 대표 주제(0건이어도 생성해 링크가 404가 되지 않게)
+function activeTopicIds(articles) {
+  const counts = countTopics(articles);
+  return Object.keys(counts).filter(id => counts[id] > 0 || NAV_TOPIC_IDS.includes(id)).sort();
+}
+
+function generateTopicPages(articles, popularArticles, latestArticles, lang = 'en') {
+  const topicRoot = path.join(langDir(lang), 'topic');
+  const ids = activeTopicIds(articles);
+  for (const topicId of ids) {
+    const topicDir = path.join(topicRoot, topicId);
+    fs.mkdirSync(topicDir, { recursive: true });
+    fs.writeFileSync(path.join(topicDir, 'index.html'), generateTopicPage(topicId, articles, popularArticles, latestArticles, lang), 'utf8');
+  }
+  // 사라진 주제의 페이지 제거 (화석 방지)
+  if (fs.existsSync(topicRoot)) {
+    for (const entry of fs.readdirSync(topicRoot, { withFileTypes: true })) {
+      if (entry.isDirectory() && !ids.includes(entry.name)) {
+        fs.rmSync(path.join(topicRoot, entry.name), { recursive: true, force: true });
+        console.log(`고아 주제 페이지 제거: ${lang}/topic/${entry.name}`);
+      }
+    }
+  }
+  console.log(`주제 페이지 ${ids.length}개 생성 완료 (${lang})`);
 }
 
 // Privacy Policy 페이지 생성
@@ -823,8 +879,9 @@ function generateSearchPageFile(lang = 'en') {
 // 카테고리 페이지 생성
 function generateCategoryPages(articles, popularArticles, latestArticles, lang = 'en') {
   const baseDir = langDir(lang);
-  const labels = (I18N[lang] && I18N[lang].categoryLabels) ? I18N[lang].categoryLabels : I18N.en.categoryLabels;
-  for (const [catId, catLabel] of Object.entries(labels)) {
+  const labels = CATEGORY_LABELS[lang] || CATEGORY_LABELS.en;
+  for (const catId of CATEGORY_IDS) {
+    const catLabel = labels[catId];
     const catHtml = generateCategoryPage(catId, catLabel, articles, popularArticles, latestArticles, lang);
     const catDir = path.join(baseDir, 'article', catId);
     if (!fs.existsSync(catDir)) {
@@ -832,7 +889,7 @@ function generateCategoryPages(articles, popularArticles, latestArticles, lang =
     }
     fs.writeFileSync(path.join(catDir, 'index.html'), catHtml, 'utf8');
   }
-  console.log(`카테고리 페이지 ${Object.keys(labels).length}개 생성 완료 (${lang})`);
+  console.log(`카테고리 페이지 ${CATEGORY_IDS.length}개 생성 완료 (${lang})`);
 }
 
 // 이미지 검증 (누락 경고)
@@ -1020,20 +1077,16 @@ async function main() {
   console.log(`   ${articles.length}개 글 로드됨`);
 
   if (articles.length === 0) {
-    console.log('빌드할 글이 없습니다.');
-    return;
+    // 글이 0건이어도 빈 홈·카테고리·사이트맵을 만들고 옛 페이지를 걷어내야 한다 (스킵하면 화석 페이지가 남는다)
+    console.warn('   ⚠ 빌드할 글이 없습니다 — 빈 사이트 골격만 생성합니다.');
   }
 
-  // 카테고리별 카운트 계산 및 글로벌 설정 (category 없는 기사는 general로 분류)
-  const countByCategory = {
-    general: articles.filter(a => a.category === 'general' || !a.category).length,
-    openai: articles.filter(a => a.category === 'openai').length,
-    google: articles.filter(a => a.category === 'google').length,
-    anthropic: articles.filter(a => a.category === 'anthropic').length,
-    vibecoding: articles.filter(a => a.category === 'vibecoding').length
-  };
-  setGlobalSidebarCounts(countByCategory);
-  console.log(`   카테고리별: General(${countByCategory.general}), OpenAI(${countByCategory.openai}), Google(${countByCategory.google}), Anthropic(${countByCategory.anthropic}), VibeCoding(${countByCategory.vibecoding})`);
+  // 카테고리·주제별 카운트 (사이드바·모바일 메뉴용). 미등록 category는 news로 정규화
+  const countByCategory = countCategories(articles);
+  const countByTopic = countTopics(articles);
+  setGlobalSidebarCounts({ ...countByCategory, topics: countByTopic });
+  console.log(`   카테고리별: ${CATEGORY_IDS.map(id => `${CATEGORY_LABELS.en[id]}(${countByCategory[id]})`).join(', ')}`);
+  console.log(`   주제별: ${Object.keys(countByTopic).map(id => `${id}(${countByTopic[id]})`).join(', ') || '없음'}`);
 
   // 기사 변경 확인
   const articleChanges = buildCache.checkArticlesChanged(cache, articles);
@@ -1138,14 +1191,17 @@ function generateSEOFiles(articles) {
   // 1. sitemap.xml — en/ko URL + hreflang alternates
   // 카테고리 인덱스는 실제 article category set에서 동적으로 생성 (ai-tools 같은 신규 카테고리 누락 방지).
   // 빈 articles 시에도 최소 인덱스(/, /privacy/)는 보장 — sitemap 미생성 방지.
-  const activeCategories = new Set(enArticles.map(a => a.category || 'general'));
+  // 글이 있는 카테고리 + 주제 페이지(글 있음 또는 내비 대표) + 소개 페이지. 빈 카테고리는 얇은 페이지라 제외.
+  const activeCategories = new Set(enArticles.map(a => a.category));
   if (activeCategories.size === 0) {
-    console.warn('  ⚠ no articles found — sitemap will contain only home + privacy entries');
+    console.warn('  ⚠ no articles found — sitemap will contain only home + about + privacy entries');
   }
   const baseSitemapPaths = [
     { path: '/', priority: '1.0' },
+    { path: PERSON_AUTHOR.path, priority: '0.5' },
     { path: '/privacy/', priority: '0.3' },
-    ...[...activeCategories].sort().map(cat => ({ path: `/article/${cat}/`, priority: '0.8' }))
+    ...CATEGORY_IDS.filter(cat => activeCategories.has(cat)).map(cat => ({ path: `/article/${cat}/`, priority: '0.8' })),
+    ...activeTopicIds(articles).map(id => ({ path: `/topic/${id}/`, priority: '0.7' }))
   ];
 
   function makeAlternates(p) {
@@ -1209,12 +1265,18 @@ Sitemap: ${SITE_URL}/sitemap.xml
 
   // 2d. 고아 기사 페이지 정리 — 소스 JSON이 사라졌거나(삭제) 발행 목록에서
   // 빠진 기사의 정적 페이지 디렉토리를 en/ko 트리에서 제거한다 (화석 페이지 방지).
-  const validPageKeys = new Set(articles.map(a => `${a.category || 'general'}/${a.slug}`));
+  // 옛 카테고리 폴더(general/openai/…)는 통째로 제거 — 그 URL은 아래 _redirects가 301로 받는다.
+  const validPageKeys = new Set(articles.map(a => `${normalizeCategory(a.category)}/${a.slug}`));
   for (const articleRoot of [path.join(DOCS_DIR, 'article'), path.join(DOCS_DIR, 'ko', 'article')]) {
     if (!fs.existsSync(articleRoot)) continue;
     for (const catEntry of fs.readdirSync(articleRoot, { withFileTypes: true })) {
       if (!catEntry.isDirectory()) continue;
       const catDir = path.join(articleRoot, catEntry.name);
+      if (!CATEGORY_IDS.includes(catEntry.name)) {
+        fs.rmSync(catDir, { recursive: true, force: true });
+        console.log(`옛 카테고리 폴더 제거: ${path.relative(DOCS_DIR, catDir)}`);
+        continue;
+      }
       for (const slugEntry of fs.readdirSync(catDir, { withFileTypes: true })) {
         if (!slugEntry.isDirectory()) continue;
         if (validPageKeys.has(`${catEntry.name}/${slugEntry.name}`)) continue;
@@ -1223,6 +1285,36 @@ Sitemap: ${SITE_URL}/sitemap.xml
       }
     }
   }
+  // 아카이브된 기사의 이미지 폴더도 정리 (deploy seed로 매번 복원되므로 빌드마다 멱등 적용)
+  const validSlugs = new Set(articles.map(a => a.slug));
+  for (const imageRoot of [path.join(DOCS_DIR, 'assets', 'images', 'tech', 'ai'), path.join(DOCS_DIR, 'assets', 'images', 'tech', 'vibecoding')]) {
+    if (!fs.existsSync(imageRoot)) continue;
+    for (const entry of fs.readdirSync(imageRoot, { withFileTypes: true })) {
+      if (!entry.isDirectory() || validSlugs.has(entry.name)) continue;
+      fs.rmSync(path.join(imageRoot, entry.name), { recursive: true, force: true });
+    }
+  }
+
+  // 2e. _redirects (Cloudflare Pages) — 옛 카테고리 URL과 기사 JSON의 legacyPaths를 새 주소로 301.
+  // 아카이브된 기사 URL은 여기 없으므로 404로 닫힌다 (soft-404 체인 방지). 정적 룰 한도 2,000 안.
+  const redirectLines = [];
+  const pushRedirect = (from, to) => {
+    if (!from || !to || from === to) return;
+    redirectLines.push(`${from} ${to} 301`);
+    redirectLines.push(`/ko${from} /ko${to} 301`);
+  };
+  for (const [oldCat, target] of Object.entries(LEGACY_CATEGORY_REDIRECTS)) {
+    pushRedirect(`/article/${oldCat}/`, target);
+  }
+  for (const a of articles) {
+    const target = `/article/${normalizeCategory(a.category)}/${a.slug}/`;
+    for (const legacy of (Array.isArray(a.legacyPaths) ? a.legacyPaths : [])) {
+      const from = String(legacy || '').trim().replace(/^\/ko(?=\/)/, '');
+      if (from.startsWith('/')) pushRedirect(from.endsWith('/') ? from : `${from}/`, target);
+    }
+  }
+  fs.writeFileSync(path.join(DOCS_DIR, '_redirects'), redirectLines.join('\n') + '\n', 'utf8');
+  console.log(`_redirects 생성 완료 (${redirectLines.length}개 규칙)`);
 
   // 3a. RSS (en) — cap 200으로 상향 (현 131개, 성장 여지)
   const enRssItems = enArticles

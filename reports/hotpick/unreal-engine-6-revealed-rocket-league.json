@@ -7,10 +7,9 @@
   "summary": "에픽게임즈가 차세대 게임 엔진 '언리얼 엔진 6'를 공개했다. 첫 시연작은 로켓리그로, 정식 출시 목표는 2028년이다. 화려한 그래픽보다 UEFN(포트나이트용 언리얼 에디터) 통합과 메타버스 플랫폼 구축이 핵심 승부처가 될 전망이다.",
   "thumbnail": "https://www.gematsu.com/wp-content/uploads/2026/05/Unreal-Engine-6-Announced_05-24-26.jpg",
   "relatedDocs": [
-    "tech:normal/game-engine",
-    "issue:google-play-fee-cut-epic-settlement",
     "hotpick:nioh3-hotpick-soulslike-masterpiece",
-    "tech:normal/nvidia-dlss5-controversy"
+    "wiki:business/game-revenue-structure",
+    "hotpick:game-engine"
   ],
   "relatedGames": [],
   "relatedArticles": [],

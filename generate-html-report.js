@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const { PurgeCSS } = require('purgecss');
 const { generateRSS } = require('./src/rss/generate-rss');
-const { noindexLegacyWeeklyPages } = require('./src/build/legacy-weekly-noindex');
+const { removeLegacyWeeklyPages } = require('./src/build/legacy-weekly-remove');
 const buildCache = require('./build-cache');
 
 // 커맨드라인 인자 파싱
@@ -2676,30 +2676,10 @@ async function main() {
       magazinePages.push(...rankingFolders.map(slug => magazineSitemapEntry(RANKING_REPORTS_DIR, 'ranking', slug)).filter(Boolean));
     }
 
-    // 구 주간 페이지는 생성기가 없어 deploy seed로만 남는다 → 매 빌드 noindex 주입 후 아래 스캔에서 제외
-    const weeklyNoindexed = noindexLegacyWeeklyPages(`${destBriefingDir}/weekly`);
-    if (weeklyNoindexed > 0) console.log(`🚫 구 주간 페이지 noindex 주입: ${weeklyNoindexed}개`);
-
-    // 주간 트렌드 페이지 (빌드된 디렉터리 스캔 — 별도 JSON 소스 없음 → 빌드일 lastmod)
-    const weeklyBriefingDir = `${destBriefingDir}/weekly`;
-    if (fs.existsSync(weeklyBriefingDir)) {
-      const weeklyFolders = fs.readdirSync(weeklyBriefingDir).filter(f =>
-        fs.statSync(`${weeklyBriefingDir}/${f}`).isDirectory()
-      );
-      // noindex 페이지는 sitemap 제외 (head 상단 robots 메타 검사)
-      const indexableWeeklyFolders = weeklyFolders.filter(slug => {
-        try {
-          const indexPath = `${weeklyBriefingDir}/${slug}/index.html`;
-          if (!fs.existsSync(indexPath)) return false;
-          return !fs.readFileSync(indexPath, 'utf8').slice(0, 2000).includes('noindex');
-        } catch (e) { return false; }
-      });
-      magazinePages.push(...indexableWeeklyFolders.map(slug => ({
-        loc: `${siteBaseUrl}/magazine/weekly/${slug}/`,
-        lastmod: sitemapDate,
-        priority: '0.6'
-      })));
-    }
+    // 구 주간 페이지(2025년 자동 생성물, 생성기 없음)는 deploy seed로만 남는 얇은 콘텐츠 → 매 빌드 제거 (2026-09-07 아카이브 결정).
+    // 사이드바 '주간' 링크도 함께 뺐으므로 옛 URL은 404로 닫힌다.
+    const weeklyRemoved = removeLegacyWeeklyPages(`${destBriefingDir}/weekly`);
+    if (weeklyRemoved > 0) console.log(`🧹 구 주간 페이지 제거: ${weeklyRemoved}개`);
   }
 
   // 게임 개별 페이지는 sitemap에서 제외 (thin content)

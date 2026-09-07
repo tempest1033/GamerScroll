@@ -12,7 +12,8 @@
   "needTranslate": false,
   "relatedDocs": [
     "issue:heartopia-cozy-game-revenue-record",
-    "issue:heartopia-mobile-animal-crossing-success"
+    "issue:heartopia-mobile-animal-crossing-success",
+    "issue:resident-evil-requiem-metacritic-scores"
   ],
   "relatedGames": [],
   "sources": [
@@ -296,5 +297,6 @@
       "type": "text",
       "value": "Pokopia's success carries significant weight for the Nintendo Switch 2 launch lineup. As a title that showcases the new hardware's capabilities while appealing to a broad age range, it is positioned to be the killer app driving early Switch 2 sales.\n\nThat said, some reviews noted minor shortcomings. Eurogamer pointed to repetitiveness in mid-game content, and Nintendo Life mentioned occasional UI inconveniences. A few reviewers also flagged longer-than-expected loading times in the open world. However, none of these drawbacks were enough to dampen the overwhelmingly positive reception.\n\nPokemon Pokopia launches exclusively on Nintendo Switch 2 on March 5, 2026. That a Pokemon game achieved its all-time highest score not through battles but through a world of coexistence and creation is a clear milestone, pointing to where this 30-year-old franchise can go next."
     }
-  ]
+  ],
+  "relatedArticles": []
 }

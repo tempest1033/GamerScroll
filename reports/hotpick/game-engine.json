@@ -144,10 +144,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:normal/2d-animation-tech",
-    "tech:normal/version-control-system",
-    "tech:vibecoding/vibe-coding",
-    "wiki:business/game-revenue-structure"
+    "wiki:business/game-revenue-structure",
+    "hotpick:slay-the-spire-2-early-access",
+    "hotpick:unreal-engine-6-revealed-rocket-league"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

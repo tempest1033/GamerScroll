@@ -168,8 +168,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:normal/game-engine",
-    "tech:vibecoding/vibe-coding"
+    "hotpick:agile-jira-confluence-game-dev",
+    "hotpick:gantt-chart",
+    "insight:2026-game-trends"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

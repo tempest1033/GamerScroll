@@ -7,9 +7,9 @@
   "keywords": "LOL 증바람, 무작위 총력전 아수라장, LOL PC방 점유율, 리그 오브 레전드 반등, ARAM Mayhem, LOL 2026 시즌, 데마시아를 위하여, LOL 복귀 유저",
   "summary": "PC방 점유율 35%대까지 떨어졌던 리그 오브 레전드가 증바람(무작위 총력전: 아수라장) 하나로 41%대까지 반등했다. 캐주얼 모드 하나가 어떻게 LOL의 흐름을 바꿨는지 들여다봤다.",
   "relatedDocs": [
-    "pc-bang-decline-arcade-fate",
-    "chzzk-lck-naver-viewer-complaints",
-    "moba-genre-origin"
+    "issue:lol-league-next-2027-overhaul",
+    "wiki:knowledge/moba-genre-origin",
+    "wiki:history/korean-esports-history"
   ],
   "sources": [
     {
@@ -119,5 +119,6 @@
       "type": "text",
       "value": "LOL의 반등은 하드코어 경쟁 게임이 캐주얼 모드를 통해 어떻게 유저 기반을 확장할 수 있는지 보여주는 교과서적 사례다. 15년 동안 소환사의 협곡이라는 하나의 전장에 집중해온 LOL이, 칼바람에 증강이라는 양념 하나를 더했을 뿐인데 판이 바뀌었다.\n\nPC방 점유율 41%는 단순한 숫자가 아니다. 떠났던 유저들이 돌아왔다는 뜻이고, LOL이 여전히 한국 게임 시장의 중심에 서 있다는 증거다. 증바람이 일시적 반짝이 될지, 아니면 LOL의 새로운 표준이 될지는 라이엇의 다음 수에 달려 있다."
     }
-  ]
+  ],
+  "relatedArticles": []
 }

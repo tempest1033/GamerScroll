@@ -3,7 +3,13 @@
   "site": "aiscroll",
   "status": "approved",
   "date": "2026-08-26T11:00Z",
-  "category": "google",
+  "category": "news",
+  "topics": [
+    "google"
+  ],
+  "legacyPaths": [
+    "/article/google/gemini-35-pro-crisis/"
+  ],
   "needTranslate": false,
   "title": "제미나이 3.5 사실상 포기? 4로 선회한 구글의 최대 위기",
   "titleEn": "Gemini 3.5 Pro Shelved for Gemini 4?",
@@ -40,10 +46,9 @@
     }
   ],
   "relatedDocs": [
-    "tech:ai/gemini-3-5-pro-leak-frontier-gap",
-    "tech:ai/glm-5-2-overtakes-gemini-flash",
-    "tech:ai/gemini-reliability-crisis-trust",
-    "tech:ai/google-io-2026-agentic-gemini"
+    "tech:ai/september-ai-model-war",
+    "tech:ai/openai-price-cut-deepseek-flash",
+    "tech:ai/grok-46-launch-frontier-push"
   ],
   "relatedGames": [],
   "relatedArticles": [],

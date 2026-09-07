@@ -76,7 +76,10 @@
   ],
   "relatedGames": [],
   "relatedDocs": [
-    "wiki:knowledge/raph-koster-theory-of-fun"
+    "wiki:knowledge/raph-koster-theory-of-fun",
+    "hotpick:gantt-chart",
+    "hotpick:2d-animation-tech"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

@@ -1,7 +1,15 @@
 {
   "slug": "gpt6-astra-fable-comparison",
   "site": "aiscroll",
-  "category": "openai",
+  "category": "news",
+  "topics": [
+    "openai",
+    "anthropic",
+    "pricing"
+  ],
+  "legacyPaths": [
+    "/article/openai/gpt6-astra-fable-comparison/"
+  ],
   "status": "approved",
   "date": "2026-09-07T01:30Z",
   "title": "GPT-6 아스트라 출시 반응, 페이블 5.1과 성능·구독 혜택 비교",
@@ -252,9 +260,9 @@
     }
   ],
   "relatedDocs": [
-    "tech:ai/claude-fable-5-early-reviews-praise",
-    "tech:ai/claude-fable-5-sota-benchmarks",
-    "tech:ai/codex-referral-reset-growth"
+    "tech:ai/anthropic-pricing-crisis",
+    "tech:ai/september-ai-model-war",
+    "tech:ai/claude-opus-5-early-reviews"
   ],
   "relatedGames": [],
   "relatedArticles": []

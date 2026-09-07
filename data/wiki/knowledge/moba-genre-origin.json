@@ -107,5 +107,10 @@
     "dota-2",
     "리그-오브-레전드-와일드-리프트"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedDocs": [
+    "wiki:history/rts-genre-rise-and-fall",
+    "issue:lol-league-next-2027-overhaul",
+    "issue:lol-aram-mayhem-comeback"
+  ]
 }

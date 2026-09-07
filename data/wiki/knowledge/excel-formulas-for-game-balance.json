@@ -222,7 +222,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:normal/python-pandas-data-analysis"
+    "hotpick:python-pandas-data-analysis",
+    "wiki:business/game-business-metrics",
+    "hotpick:2d-animation-tech"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

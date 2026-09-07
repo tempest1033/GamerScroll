@@ -7,8 +7,9 @@
   "keywords": "헤븐헬즈 구조조정, 클로버게임즈, 헤븐헬즈 매출, 서브컬처 게임, H2 스튜디오, 헤븐헬즈 서비스 종료, 클로버게임즈 권고사직",
   "summary": "서브컬처 RPG 헤븐헬즈가 출시 열흘 만에 개발사 클로버게임즈의 대규모 구조조정 소식과 함께 존폐 위기에 놓였다. 처음부터 매출 성적이 저조했던 게임의 결말이 빠르게 다가오고 있다.",
   "relatedDocs": [
-    "heavenhells-launch-initial-reaction",
-    "heavenhells-sales-decline-launch"
+    "issue:heavenhells-sales-decline-launch",
+    "issue:heavenhells-launch-initial-reaction",
+    "issue:arknights-endfield-launch-success"
   ],
   "sources": [
     {
@@ -108,5 +109,6 @@
       "type": "text",
       "value": "클로버게임즈는 \"서비스를 지속하겠다\"고 했다. 하지만 대다수 인력을 내보낸 상태에서 그 약속이 얼마나 유효한지는 지켜봐야 한다. 극소수 인력으로 시스템 리밸런싱과 글로벌 출시를 동시에 추진한다는 건 현실적으로 쉽지 않은 과제다.\n\n헤븐헬즈에 시간과 돈을 투자한 유저들에게는 불안한 시간이 이어질 수밖에 없다. 개발팀의 편지가 진정한 반전의 시작이 될지, 아니면 마지막 인사가 될지는 앞으로 몇 주 안에 드러날 것이다."
     }
-  ]
+  ],
+  "relatedArticles": []
 }

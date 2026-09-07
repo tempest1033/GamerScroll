@@ -133,10 +133,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:vibecoding/vibe-coding",
-    "tech:normal/game-engine",
     "issue:game-ai-paradigm-shift-2026",
-    "issue:game-ai-controversy-award-revoked"
+    "issue:ai-basic-act-game-industry-confusion",
+    "wiki:business/korean-game-stocks-2025"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

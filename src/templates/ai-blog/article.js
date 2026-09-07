@@ -15,8 +15,13 @@ const {
   AI_CATEGORY_IDS,
   articleHref,
   categoryHref,
+  topicHref,
+  aboutHref,
+  pathForLang,
+  renderTopicList,
   homeHref
 } = require('./index');
+const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, countTopics, authorOf, methodNote } = require('./taxonomy');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
 const { renderTextBlock } = require('../helpers/content-text');
@@ -236,8 +241,9 @@ function generateAIBlogArticle(article, data = {}) {
     ? String(article.thumbnail).replace(/\/thumbnail-sm\.webp($|\?)/, '/thumbnail.webp$1')
     : '';
 
-  // AIScroll에 포함된 기사 slug 목록
+  // AIScroll에 포함된 기사 slug 목록 (본문 내부 링크는 링크에 적힌 옛 카테고리가 아니라 현재 카테고리로 다시 쓴다)
   const validSlugs = new Set(allArticles.map(a => a.slug));
+  const categoryBySlug = new Map(allArticles.map(a => [a.slug, normalizeCategory(a.category)]));
 
   function normalizeInternalHref(rawHref = '') {
     let href = String(rawHref || '').trim();
@@ -249,10 +255,18 @@ function generateAIBlogArticle(article, data = {}) {
     const pathOnly = suffixIndex >= 0 ? href.slice(0, suffixIndex) : href;
     const suffix = suffixIndex >= 0 ? href.slice(suffixIndex) : '';
     const segments = pathOnly.split('/').filter(Boolean);
-    const category = segments.length >= 2 ? segments[1] : 'general';
     const slug = segments.length >= 3 ? segments[2] : '';
     if (!slug) return href;
-    return validSlugs.has(slug) ? `${articleHref(category, slug, _lang)}${suffix}` : '';
+    if (!validSlugs.has(slug)) {
+      // 아카이브된 기사 링크: 본문 링크를 통째로 지우면 글이 사이트 그래프에서 고아가 된다.
+      // 링크에 적힌 옛 카테고리(anthropic/openai/…)의 주제 허브, 현재 카테고리면 그 카테고리 페이지로 내린다.
+      const linkCategory = segments.length >= 2 ? segments[1] : '';
+      const fallback = LEGACY_CATEGORY_REDIRECTS[linkCategory]
+        || (CATEGORY_IDS.includes(linkCategory) ? `/article/${linkCategory}/` : '');
+      return fallback ? `${pathForLang(fallback, _lang)}${suffix}` : '';
+    }
+    const category = categoryBySlug.get(slug) || DEFAULT_CATEGORY;
+    return `${articleHref(category, slug, _lang)}${suffix}`;
   }
 
   // AIScroll 전용 링크 렌더러—레이블 escape + closure로 묶인 slug validator 적용.
@@ -399,7 +413,7 @@ function generateAIBlogArticle(article, data = {}) {
             // 실제 기사 데이터에서 category 조회 (AI Blog 카테고리 매핑)
             const actualArticle = allArticles.find(a => a.slug === item.slug);
             if (!actualArticle) return '';
-            const itemCategory = actualArticle.category || article.category || 'general';
+            const itemCategory = actualArticle.category || article.category || 'news';
             const href = articleHref(itemCategory, item.slug, _lang);
             const seriesThumb = actualArticle.thumbnail || item.thumbnail || '';
             const thumbUrl = seriesThumb ? getThumbUrl(seriesThumb, 200) : '';
@@ -460,14 +474,11 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 카테고리 메뉴
   function generateCategoryMenu() {
-    const categories = AI_CATEGORY_IDS.filter(id => !['ai', 'ai-tools'].includes(id)).map(id => ({
-      id,
-      label: id === 'vibecoding' ? (_t.vibeCoding || _t.categoryLabels[id]) : _t.categoryLabels[id]
-    }));
+    const categories = AI_CATEGORY_IDS.map(id => ({ id, label: _t.categoryLabels[id] }));
     // 카테고리별 기사 개수 계산
     const countByCategory = {};
     allArticles.forEach(a => {
-      const cat = a.category || 'general';
+      const cat = normalizeCategory(a.category);
       countByCategory[cat] = (countByCategory[cat] || 0) + 1;
     });
     return `
@@ -485,13 +496,14 @@ function generateAIBlogArticle(article, data = {}) {
           </div>
         </div>
       </div>
+      ${renderTopicList(countTopics(allArticles), _lang)}
     `;
   }
 
   // 사이드바: 인기/최신 토글
   function generateSidebarArticles() {
     const renderList = (items) => items.slice(0, 10).map((item, i) => `
-      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="sidebar-article-item">
+      <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="sidebar-article-item">
         <span class="sidebar-article-rank">${i + 1}</span>
         <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
       </a>
@@ -553,7 +565,7 @@ function generateAIBlogArticle(article, data = {}) {
         <div class="blog-related-title">${_t.related}</div>
         <div class="blog-related-issues-list">
           ${filteredRelated.map(item => `
-            <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="blog-related-issue-card">
+            <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="blog-related-issue-card">
               ${item.thumbnail ? `<img class="blog-related-issue-thumb" src="${getThumbUrl(item.thumbnail, 480)}" width="480" height="270" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
               <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
             </a>
@@ -580,15 +592,15 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 네비게이션 (이전/목록/다음)
   const sortedArticles = [...allArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
-  const currentCategory = article.category || 'general';
-  const currentIndex = sortedArticles.findIndex(a => a.slug === article.slug && (a.category || 'general') === currentCategory);
+  const currentCategory = article.category || 'news';
+  const currentIndex = sortedArticles.findIndex(a => a.slug === article.slug && (a.category || 'news') === currentCategory);
   const prevArticle = currentIndex >= 0 ? sortedArticles[currentIndex + 1] : null;
   const nextArticle = currentIndex > 0 ? sortedArticles[currentIndex - 1] : null;
   const navHTML = `
     <div class="trend-detail-nav">
-      ${prevArticle ? `<a href="${articleHref(prevArticle.category || 'general', prevArticle.slug, _lang)}" class="trend-nav-btn prev">‹ ${_t.previous}</a>` : `<span class="trend-nav-btn disabled">‹ ${_t.previous}</span>`}
+      ${prevArticle ? `<a href="${articleHref(prevArticle.category || 'news', prevArticle.slug, _lang)}" class="trend-nav-btn prev">‹ ${_t.previous}</a>` : `<span class="trend-nav-btn disabled">‹ ${_t.previous}</span>`}
       <a href="${homeHref(_lang)}" class="trend-nav-btn list">${_t.list}</a>
-      ${nextArticle ? `<a href="${articleHref(nextArticle.category || 'general', nextArticle.slug, _lang)}" class="trend-nav-btn next">${_t.next} ›</a>` : `<span class="trend-nav-btn disabled">${_t.next} ›</span>`}
+      ${nextArticle ? `<a href="${articleHref(nextArticle.category || 'news', nextArticle.slug, _lang)}" class="trend-nav-btn next">${_t.next} ›</a>` : `<span class="trend-nav-btn disabled">${_t.next} ›</span>`}
     </div>
   `;
 
@@ -597,6 +609,17 @@ function generateAIBlogArticle(article, data = {}) {
     ${toc.sidebarHTML}
     ${generateSidebarArticles()}
   `;
+
+  // 저자(사람/사이트)·주제 태그·제작 방식 — 구글이 보는 "누가·어떻게" 신호
+  const author = authorOf(article, SITE_CONFIG.name, SITE_CONFIG.baseUrl);
+  const bylineHTML = author.type === 'Person'
+    ? `<a class="blog-editor" href="${aboutHref(_lang)}" rel="author">${escapeHtml(author.name)}</a>`
+    : `<span class="blog-editor">${escapeHtml(author.name)}</span>`;
+  const articleTopics = topicsOf(article);
+  const topicsHTML = articleTopics.length > 0
+    ? `<div class="blog-topics" aria-label="${_t.topics}">${articleTopics.map(id => `<a class="blog-topic-chip" href="${topicHref(id, _lang)}">${escapeHtml(topicLabel(id, _lang))}</a>`).join('')}</div>`
+    : '';
+  const methodNoteHTML = `<p class="blog-method-note">${escapeHtml(methodNote(article, _lang))}</p>`;
 
   // 상단 광고
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
@@ -612,7 +635,7 @@ function generateAIBlogArticle(article, data = {}) {
               <header class="blog-header">
                 <h1 class="blog-title">${escapeHtml(article.title)}</h1>
                 <div class="blog-meta">
-                  <span class="blog-editor">${article.editor || 'Editor J'}</span>
+                  ${bylineHTML}
                   ${(() => {
                     const dispModified = article.modifiedAt ? String(article.modifiedAt).slice(0, 10) : null;
                     const pubDate = (article.date || '').slice(0, 10);
@@ -631,12 +654,14 @@ function generateAIBlogArticle(article, data = {}) {
               ` : ''}
 
               ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
+              ${topicsHTML}
 
               ${toc.mobileHTML}
               <div class="blog-content">
                 ${renderContent(article.content)}
               </div>
 
+              ${methodNoteHTML}
               ${generateRelatedArticles()}
               ${sourcesHTML}
             </div>
@@ -685,7 +710,7 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 카테고리 라벨 매핑
   const categoryLabels = _t.categoryLabels;
-  const categoryLabel = categoryLabels[article.category] || categoryLabels.general;
+  const categoryLabel = categoryLabels[article.category] || categoryLabels[DEFAULT_CATEGORY];
 
   // 날짜 ISO 형식 변환 (KST +09:00)
   const dateISO = (() => {
@@ -730,7 +755,7 @@ function generateAIBlogArticle(article, data = {}) {
   const _jsonLdLang = data.lang === 'ko' ? 'ko' : 'en';
   const _jsonLdPrefix = _jsonLdLang === 'ko' ? '/ko' : '';
   const _jsonLdLocale = _jsonLdLang === 'ko' ? 'ko-KR' : 'en-US';
-  const _jsonLdSelfUrl = `${SITE_CONFIG.baseUrl}${_jsonLdPrefix}/article/${article.category || 'general'}/${article.slug}/`;
+  const _jsonLdSelfUrl = `${SITE_CONFIG.baseUrl}${_jsonLdPrefix}/article/${article.category || 'news'}/${article.slug}/`;
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -742,13 +767,16 @@ function generateAIBlogArticle(article, data = {}) {
       "datePublished": dateISO,
       ...(dateModifiedISO ? { "dateModified": dateModifiedISO } : {}),
       "author": {
-        "@type": "Person",
-        "name": article.editor || 'Editor J'
+        "@type": author.type,
+        "name": author.name,
+        "url": author.url,
+        "sameAs": author.sameAs
       },
       "publisher": {
         "@type": "Organization",
         "name": SITE_CONFIG.name,
         "url": SITE_CONFIG.baseUrl,
+        "sameAs": [SITE_X_URL],
         "logo": {
           "@type": "ImageObject",
           "url": `${SITE_CONFIG.baseUrl}/icon-192.png`,
@@ -776,7 +804,7 @@ function generateAIBlogArticle(article, data = {}) {
           "@type": "ListItem",
           "position": 2,
           "name": categoryLabel,
-          "item": `${SITE_CONFIG.baseUrl}${_jsonLdPrefix}/article/${article.category || 'general'}/`
+          "item": `${SITE_CONFIG.baseUrl}${_jsonLdPrefix}/article/${article.category || 'news'}/`
         },
         {
           "@type": "ListItem",
@@ -796,6 +824,7 @@ function generateAIBlogArticle(article, data = {}) {
     publishedTime: dateISO,
     modifiedTime: dateModifiedISO,
     section: categoryLabel,
+    author: author.name,
     tags: keywordTags
   };
 
@@ -814,7 +843,7 @@ function generateAIBlogArticle(article, data = {}) {
     ogTitle: fullTitle,
     description: metaDescription,
     keywords: article.keywords || SITE_CONFIG.keywords,
-    canonical: `${SITE_CONFIG.baseUrl}${langPrefix}/article/${article.category || 'general'}/${article.slug}/`,
+    canonical: `${SITE_CONFIG.baseUrl}${langPrefix}/article/${article.category || 'news'}/${article.slug}/`,
     pageScripts: pageScripts,
     jsonLd: jsonLd,
     ogImage: absoluteThumbnail,
@@ -823,7 +852,7 @@ function generateAIBlogArticle(article, data = {}) {
     ogType: 'article',
     noindex: article.noindex === true,  // 검색 성과 없는 기사 정리용 (JSON 플래그, 사이트맵·RSS도 제외)
     articleMeta: articleMeta,
-    currentPage: article.category || 'general',
+    currentPage: article.category || 'news',
     lang,
     alternates: data.alternates || null
   });

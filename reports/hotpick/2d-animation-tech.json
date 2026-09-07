@@ -145,8 +145,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:normal/game-engine",
-    "issue:2026-subculture-openworld-games"
+    "issue:2026-subculture-openworld-games",
+    "insight:2026-game-trends",
+    "ranking:endfield-vs-dragonsword-new-year-2026"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

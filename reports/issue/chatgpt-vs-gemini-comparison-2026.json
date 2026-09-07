@@ -373,9 +373,7 @@
     "ai-basic-act-game-industry-confusion",
     "game-ai-controversy-award-revoked"
   ],
-  "relatedArticles": [
-    "claude-code-vs-codex-coding-agent"
-  ],
+  "relatedArticles": [],
   "titleEn": "ChatGPT vs Gemini Detailed Performance Comparison: Complete Guide as of January 2026",
   "summaryEn": "As of January 29, 2026, we analyzed the real-world performance of ChatGPT (GPT-5.2) and Gemini (Gemini 3) by pricing tier and feature set. This covers everything from free, paid, and power user plans to search, image, video, and multimodal capabilities.",
   "contentEn": [
@@ -700,5 +698,10 @@
       "value": "AI models are changing rapidly. The era of saying one model is unconditionally better is over. Both services have distinct strengths, and it's wise to strategically utilize them based on task type.\n\nEspecially since continuous updates are promised, today's comparison may change tomorrow. For important outputs, cross-verifying with both models is also a good approach.\n\nThis article was written as of January 29, 2026. It will be updated if changes occur in the future."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "relatedDocs": [
+    "issue:game-ai-paradigm-shift-2026",
+    "ranking:endfield-vs-dragonsword-new-year-2026",
+    "hotpick:gpt-pro-kakao-hot-deal"
+  ]
 }

@@ -127,8 +127,10 @@
     }
   ],
   "relatedDocs": [
-    "tech:normal/agile-jira-confluence-game-dev",
-    "wiki:business/game-business-metrics"
+    "wiki:business/game-business-metrics",
+    "ranking:lunar-new-year-2026-kr",
+    "wiki:knowledge/excel-formulas-for-game-balance"
   ],
-  "site": "gamerscroll"
+  "site": "gamerscroll",
+  "relatedArticles": []
 }

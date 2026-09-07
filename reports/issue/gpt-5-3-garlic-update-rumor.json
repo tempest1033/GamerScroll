@@ -13,9 +13,7 @@
     "game-ai-paradigm-shift-2026",
     "ai-basic-act-game-industry-confusion"
   ],
-  "relatedArticles": [
-    "pc-components-gaming-performance"
-  ],
+  "relatedArticles": [],
   "relatedGames": [],
   "sources": [
     {
@@ -335,5 +333,10 @@
       "value": "OpenAI isn't the only one making moves. Google is preparing the official version of Gemini 3.0, and Elon Musk's xAI is also developing Grok 4. With rumors about Sonnet 4.7 also emerging from Anthropic, the 2026 AI market is expected to see more diverse options than ever before.\n\nIt remains to be seen what position GPT 5.3 \"Garlic\" will take in this competitive landscape, and how each camp's strengths will be highlighted going forward."
     }
   ],
-  "needTranslate": false
+  "needTranslate": false,
+  "relatedDocs": [
+    "issue:game-ai-paradigm-shift-2026",
+    "issue:chatgpt-vs-gemini-comparison-2026",
+    "hotpick:gpt-pro-kakao-hot-deal"
+  ]
 }

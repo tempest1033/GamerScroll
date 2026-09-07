@@ -11,6 +11,23 @@ const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle, AD_S
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
+// 분류 체계 (카테고리 5개 + 주제 태그) — 라벨·URL·저자 규칙은 taxonomy.js가 단일 출처
+const taxonomy = require('./taxonomy');
+const {
+  CATEGORY_IDS,
+  DEFAULT_CATEGORY,
+  CATEGORY_LABELS,
+  TOPIC_LABELS,
+  NAV_TOPIC_IDS,
+  SITE_X_URL,
+  PERSON_AUTHOR,
+  normalizeCategory,
+  categoryDescription,
+  topicLabel,
+  topicsOf,
+  countTopics
+} = taxonomy;
+
 // 사이트 설정
 const SITE_CONFIG = {
   name: 'AIScroll',
@@ -33,8 +50,10 @@ const I18N = {
     noResults: 'No results', sources: 'Sources', related: 'Related Articles',
     previous: 'Previous', next: 'Next', list: 'List',
     copyright: '© 2026 AIScroll. All rights reserved.',
-    categoryLabels: { general: 'General', ai: 'AI', 'ai-tools': 'AI Tools', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: 'Coding' },
-    menu: 'Menu', vibeCoding: 'Vibe Coding'
+    categoryLabels: CATEGORY_LABELS.en,
+    topicLabels: TOPIC_LABELS.en,
+    topics: 'Topics', about: 'About', method: 'How this was made',
+    menu: 'Menu'
   },
   ko: {
     popular: '인기', latest: '최신', search: '검색', closeSearch: '검색 닫기',
@@ -45,8 +64,10 @@ const I18N = {
     noResults: '검색 결과 없음', sources: '출처', related: '관련 기사',
     previous: '이전', next: '다음', list: '목록',
     copyright: '© 2026 AIScroll. 모든 권리 보유.',
-    categoryLabels: { general: '일반', ai: 'AI', 'ai-tools': 'AI 도구', openai: 'OpenAI', google: 'Google', anthropic: 'Anthropic', vibecoding: '바이브코딩' },
-    menu: '메뉴', vibeCoding: '바이브코딩'
+    categoryLabels: CATEGORY_LABELS.ko,
+    topicLabels: TOPIC_LABELS.ko,
+    topics: '주제', about: '소개', method: '제작 방식',
+    menu: '메뉴'
   }
 };
 
@@ -58,18 +79,38 @@ function pathForLang(pathname = '/', lang = 'en') {
   if (!prefix) return normalizedPath;
   return normalizedPath === '/' ? `${prefix}/` : `${prefix}${normalizedPath}`;
 }
-function articleHref(category = 'general', slug = '', lang = 'en') {
-  return pathForLang(`/article/${category || 'general'}/${slug}/`, lang);
+function articleHref(category = DEFAULT_CATEGORY, slug = '', lang = 'en') {
+  return pathForLang(`/article/${normalizeCategory(category)}/${slug}/`, lang);
 }
-function categoryHref(category = 'general', lang = 'en') {
-  return pathForLang(`/article/${category || 'general'}/`, lang);
+function categoryHref(category = DEFAULT_CATEGORY, lang = 'en') {
+  return pathForLang(`/article/${normalizeCategory(category)}/`, lang);
+}
+function topicHref(topicId, lang = 'en') {
+  return pathForLang(`/topic/${topicId}/`, lang);
 }
 function homeHref(lang = 'en') { return pathForLang('/', lang); }
 function searchHref(lang = 'en') { return pathForLang('/search/', lang); }
+function aboutHref(lang = 'en') { return pathForLang(PERSON_AUTHOR.path, lang); }
 
-const AI_CATEGORY_IDS = ['general', 'ai', 'ai-tools', 'openai', 'google', 'anthropic', 'vibecoding'];
-// Sidebar shows only the nav-aligned categories (excludes low-volume ai / ai-tools)
-const SIDEBAR_CATEGORY_IDS = ['general', 'openai', 'google', 'anthropic', 'vibecoding'];
+const AI_CATEGORY_IDS = CATEGORY_IDS;
+const SIDEBAR_CATEGORY_IDS = CATEGORY_IDS;
+
+// 사이드바 주제 목록 (글이 있는 주제 + 내비 대표 주제). counts는 { topicId: n }
+function renderTopicList(counts = {}, lang = 'en') {
+  const _t = I18N[lang] || I18N.en;
+  const ids = Object.keys(counts).filter(id => counts[id] > 0 || NAV_TOPIC_IDS.includes(id));
+  if (ids.length === 0) return '';
+  ids.sort((a, b) => (counts[b] || 0) - (counts[a] || 0) || a.localeCompare(b));
+  return `
+    <div class="home-card" id="sidebar-topics">
+      <div class="sidebar-category-group">
+        <div class="home-card-header"><h3 class="home-card-title">${_t.topics}</h3></div>
+        <div class="sidebar-category-list">
+          ${ids.map(id => `<a href="${topicHref(id, lang)}" class="sidebar-category-item"><span class="sidebar-category-name">${escapeHtml(topicLabel(id, lang))}</span><span class="sidebar-category-count">${counts[id] || 0}</span></a>`).join('')}
+        </div>
+      </div>
+    </div>`;
+}
 
 // AIScroll 헤더 (로고 + 검색창 - PC용)
 function generateHeader(lang = 'en') {
@@ -170,20 +211,21 @@ function generateFooter(lang = 'en') {
   <footer class="site-footer">
     <span>© ${year} AIScroll</span>
     <span class="footer-divider">|</span>
+    <a href="${_p}${PERSON_AUTHOR.path}" class="footer-about-link">${_t.about}</a>
+    <span class="footer-divider">|</span>
+    <a href="${SITE_X_URL}" class="footer-x-link" rel="me noopener" target="_blank">X</a>
+    <span class="footer-divider">|</span>
     <a href="${_p}/privacy/" class="footer-privacy-link">${_t.privacy}</a>
   </footer>`;
 }
 
-// AIScroll 네비게이션 (카테고리 5개)
+// AIScroll 네비게이션: 카테고리 5개 + 대표 주제(바이브코딩). kind로 URL·라벨 출처를 가른다.
 const AI_NAV_ITEMS = [
-  { id: 'general', label: 'General', href: '/article/general/' },
-  { id: 'openai', label: 'OpenAI', href: '/article/openai/' },
-  { id: 'google', label: 'Google', href: '/article/google/' },
-  { id: 'anthropic', label: 'Anthropic', href: '/article/anthropic/' },
-  { id: 'vibecoding', label: 'Coding', href: '/article/vibecoding/' }
+  ...CATEGORY_IDS.map(id => ({ id, kind: 'category' })),
+  ...NAV_TOPIC_IDS.map(id => ({ id, kind: 'topic' }))
 ];
 
-// 글로벌 사이드바 카운트 (모바일 메뉴용)
+// 글로벌 사이드바 카운트 (모바일 메뉴용). { news: n, ..., topics: { vibecoding: n } }
 let globalSidebarCounts = {};
 let globalPopularArticles = [];
 let globalLatestArticles = [];
@@ -204,13 +246,10 @@ function generateDefaultSidebarContent(counts = {}, lang = 'en') {
   const c = (key) => counts[key] !== undefined ? ` (${counts[key]})` : '';
   const cNum = (key) => counts[key] !== undefined ? `<span class="sidebar-category-count">${counts[key]}</span>` : '';
   const escapeHtml = (str) => String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({
-    id,
-    label: id === 'vibecoding' ? (_t.vibeCoding || _cat[id]) : _cat[id]
-  }));
+  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({ id, label: _cat[id] }));
 
   const renderArticleList = (items) => items.slice(0, 10).map((item, i) => `
-    <a href="${articleHref(item.category || 'general', item.slug, lang)}" class="sidebar-article-item">
+    <a href="${articleHref(item.category, item.slug, lang)}" class="sidebar-article-item">
       <span class="sidebar-article-rank">${i + 1}</span>
       <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
     </a>
@@ -225,6 +264,7 @@ function generateDefaultSidebarContent(counts = {}, lang = 'en') {
         </div>
       </div>
     </div>
+    ${renderTopicList(counts.topics || {}, lang)}
     <div class="home-card" id="sidebar-articles">
       <div class="home-card-header">
         <div class="home-chart-toggle sidebar-full-toggle" id="panelSidebarTab">
@@ -317,8 +357,8 @@ function generateNav(currentPage = 'home', lang = 'en') {
   const _t = I18N[lang] || I18N.en;
   const _navItems = AI_NAV_ITEMS.map(it => ({
     ...it,
-    label: _t.categoryLabels[it.id] || (it.id === 'vibecoding' ? (_t.vibeCoding || it.label) : it.label),
-    href: categoryHref(it.id, lang)
+    label: it.kind === 'topic' ? topicLabel(it.id, lang) : _t.categoryLabels[it.id],
+    href: it.kind === 'topic' ? topicHref(it.id, lang) : categoryHref(it.id, lang)
   }));
   const currentIdx = AI_NAV_ITEMS.findIndex(item => item.id === currentPage);
   return `
@@ -532,7 +572,7 @@ function renderFeedCard(item, index, lang = 'en', options = {}) {
     : (index < eagerCount
       ? 'loading="eager" fetchpriority="auto" decoding="async"'
       : 'loading="lazy" fetchpriority="auto" decoding="async"');
-  const category = item.category || 'general';
+  const category = item.category || 'news';
   const categoryLabel = _t.categoryLabels[category] || String(category);
   const dateLabel = formatDateShort(item.date, _lang);
   const dateAttr = escapeHtml(String(item.date || '').slice(0, 10));
@@ -569,7 +609,7 @@ function generateAIBlogIndex(data) {
     if (!featureItem) return '';
 
     const _t = I18N[_lang] || I18N.en;
-    const featureCategory = featureItem.category || 'general';
+    const featureCategory = featureItem.category || 'news';
     // 카테고리는 원문 id가 아니라 언어별 라벨로 노출한다 (ko: '일반', en: 'General')
     const featureCategoryLabel = escapeHtml(_t.categoryLabels[featureCategory] || String(featureCategory));
     const featureDate = formatDateShort(featureItem.date, _lang);
@@ -629,14 +669,11 @@ function generateAIBlogIndex(data) {
   // 카테고리 메뉴
   function generateCategoryMenu() {
     const _menuT = I18N[_lang] || I18N.en;
-    const categories = SIDEBAR_CATEGORY_IDS.map(id => ({
-      id,
-      label: id === 'vibecoding' ? (_menuT.vibeCoding || _menuT.categoryLabels[id]) : _menuT.categoryLabels[id]
-    }));
+    const categories = SIDEBAR_CATEGORY_IDS.map(id => ({ id, label: _menuT.categoryLabels[id] }));
     // 카테고리별 기사 개수 계산
     const countByCategory = {};
     articles.forEach(a => {
-      const cat = a.category || 'general';
+      const cat = a.category || 'news';
       countByCategory[cat] = (countByCategory[cat] || 0) + 1;
     });
     return `
@@ -660,7 +697,7 @@ function generateAIBlogIndex(data) {
   // 사이드바: 인기/최신 토글
   function generateSidebarArticles() {
     const renderList = (items) => items.slice(0, 10).map((item, i) => `
-      <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="sidebar-article-item">
+      <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="sidebar-article-item">
         <span class="sidebar-article-rank">${i + 1}</span>
         <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
       </a>
@@ -777,6 +814,7 @@ function generateAIBlogIndex(data) {
       "@type": "Organization",
       "name": SITE_CONFIG.name,
       "url": SITE_CONFIG.baseUrl,
+      "sameAs": [SITE_X_URL],
       "logo": {
         "@type": "ImageObject",
         "url": `${SITE_CONFIG.baseUrl}/icon-192.png`
@@ -993,7 +1031,7 @@ function wrapWithLayout(content, options = {}) {
     `<meta property="article:published_time" content="${articleMeta.publishedTime}">`,
     articleMeta.modifiedTime ? `<meta property="article:modified_time" content="${articleMeta.modifiedTime}">` : '',
     `<meta property="article:section" content="${escapeHtml(articleMeta.section)}">`,
-    `<meta property="article:author" content="AIScroll Team">`,
+    `<meta property="article:author" content="${escapeHtml(articleMeta.author || SITE_CONFIG.name)}">`,
     articleTagsMeta
   ].filter(Boolean).join('\n  ') : '';
 
@@ -1669,7 +1707,7 @@ function wrapWithLayout(content, options = {}) {
     const AS_ARTICLES_JSON_PATH = ${JSON.stringify(runtimeArticlesJsonPath)};
     const AS_SEARCH_JSON_PATH = ${JSON.stringify(runtimeSearchJsonPath)};
     function asArticleHref(category, slug) {
-      return AS_LANG_PREFIX + '/article/' + (category || 'general') + '/' + slug + '/';
+      return AS_LANG_PREFIX + '/article/' + (category || 'news') + '/' + slug + '/';
     }
 
     const loadArticlesShared = (function() {
@@ -1778,7 +1816,7 @@ function wrapWithLayout(content, options = {}) {
           return;
         }
         searchDropdown.innerHTML = results.map(function(item) {
-          const href = asArticleHref(item.category || 'general', item.slug);
+          const href = asArticleHref(item.category || 'news', item.slug);
           const title = escapeSearchHtml(item.title);
           if (mobileMode) {
             return '<a href="' + href + '" style="display:block;padding:12px 16px;color:var(--text-primary);text-decoration:none;border-bottom:1px solid var(--border);">' + title + '</a>';
@@ -1957,7 +1995,7 @@ function wrapWithLayout(content, options = {}) {
       (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
     if (!isTouchDevice) return;
 
-    const navSections = ['home', 'general', 'openai', 'google', 'anthropic', 'vibecoding'];
+    const navSections = ${JSON.stringify(['home', ...AI_NAV_ITEMS.map(it => it.id)])};
     const currentPage = '${currentPage}';
 
     const SWIPE_THRESHOLD = 0.10;
@@ -2503,7 +2541,7 @@ function generateSearchPage(lang = 'en') {
 
         resultsContainer.innerHTML = '<div class="category-list">' +
           pageResults.map(a =>
-            '<a href="' + asArticleHref(a.category || 'general', a.slug) + '" class="category-list-card">' +
+            '<a href="' + asArticleHref(a.category || 'news', a.slug) + '" class="category-list-card">' +
               '<div class="category-list-thumb">' +
                 (a.thumbnail ? '<img src="' + resolveSearchThumbUrl(a.thumbnail) + '" alt="" width="480" height="270" loading="lazy" decoding="async" data-img-fallback="hide">' : '') +
                 (a.date ? '<span class="category-list-badge">' + a.date + '</span>' : '') +
@@ -2575,12 +2613,16 @@ function generateSearchPage(lang = 'en') {
 }
 
 /**
- * 카테고리 페이지 생성
+ * 카테고리 페이지 생성. options.kind === 'topic'이면 같은 레이아웃으로 주제(/topic/<id>/) 페이지를 만든다.
  */
-function generateCategoryPage(categoryId, categoryLabel, articles, popularArticles = [], latestArticles = [], lang = 'en') {
+function generateCategoryPage(categoryId, categoryLabel, articles, popularArticles = [], latestArticles = [], lang = 'en', options = {}) {
   const _lang = lang === 'ko' ? 'ko' : 'en';
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
-  const categoryArticles = articles.filter(a => a.category === categoryId);
+  const isTopicPage = options.kind === 'topic';
+  const collectionPath = isTopicPage ? `/topic/${categoryId}/` : `/article/${categoryId}/`;
+  const categoryArticles = isTopicPage
+    ? articles.filter(a => topicsOf(a).includes(categoryId))
+    : articles.filter(a => a.category === categoryId);
   // 홈 '최신'과 같은 카드. 첫 카드가 이 페이지의 LCP 후보라 fetchpriority=high
   const categoryCardEntries = categoryArticles.map((a, i) => renderFeedCard(a, i, _lang, { highPriorityIndex: 0 }));
   const categoryCardPayload = buildDeferredCardPayload(categoryCardEntries, FEED_PAGE_SIZE, INITIAL_FEED_RENDER_COUNT);
@@ -2596,24 +2638,22 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
         <span class="home-page-index">1 / ${categoryTotalPages}</span>
         <button class="home-page-btn home-next" aria-label="Next">›</button>
       </div>`
-    : '<p class="search-empty">No articles in this category yet.</p>';
+    : `<p class="search-empty">${_lang === 'ko' ? '아직 이 분류에 글이 없습니다. 곧 채워집니다.' : 'No articles here yet — coming soon.'}</p>`;
 
   // 카테고리별 기사 개수 계산
   const countByCategory = {};
   articles.forEach(a => {
-    const cat = a.category || 'general';
+    const cat = normalizeCategory(a.category);
     countByCategory[cat] = (countByCategory[cat] || 0) + 1;
   });
 
   const _catT = I18N[_lang] || I18N.en;
-  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({
-    id,
-    label: id === 'vibecoding' ? (_catT.vibeCoding || _catT.categoryLabels[id]) : _catT.categoryLabels[id]
-  }));
+  const categories = SIDEBAR_CATEGORY_IDS.map(id => ({ id, label: _catT.categoryLabels[id] }));
+  const topicListHtml = renderTopicList(countTopics(articles), _lang);
 
   // 사이드바 렌더링
   const renderSidebarList = (items) => items.slice(0, 10).map((item, i) => `
-    <a href="${articleHref(item.category || 'general', item.slug, _lang)}" class="sidebar-article-item">
+    <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="sidebar-article-item">
       <span class="sidebar-article-rank">${i + 1}</span>
       <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
     </a>
@@ -2637,6 +2677,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
             </div>
           </div>
         </div>
+        ${topicListHtml}
         <div class="home-card" id="sidebar-articles">
           <div class="home-card-header">
             <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
@@ -2727,14 +2768,17 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   `;
 
   const _catInLanguage = _lang === 'ko' ? 'ko-KR' : 'en-US';
-  // 언어별로 구분되는 제목·설명 (KO 카테고리가 EN과 같은 "OpenAI - AIScroll"로 나가지 않도록)
-  const categoryTitleLabel = categoryId === 'vibecoding' ? (_catT.vibeCoding || categoryLabel) : categoryLabel;
-  const categoryTitle = _lang === 'ko'
-    ? `${categoryTitleLabel} 최신 뉴스·분석 - ${SITE_CONFIG.name}`
-    : `${categoryTitleLabel} News & Analysis - ${SITE_CONFIG.name}`;
-  const categoryDescription = _lang === 'ko'
-    ? `${categoryTitleLabel} 관련 최신 AI 뉴스와 모델 출시 소식, 코딩 에이전트 동향을 AIScroll이 정리한 기사 모음입니다.`
-    : `Latest ${categoryTitleLabel} news, model launches, and coding-agent coverage, curated by AIScroll.`;
+  // 언어별로 구분되는 제목·설명. 카테고리는 taxonomy 설명문, 주제는 "주제별 모아보기" 문구.
+  const categoryTitle = isTopicPage
+    ? (_lang === 'ko'
+      ? `${categoryLabel} 뉴스·후기·가이드·벤치마크 - ${SITE_CONFIG.name}`
+      : `${categoryLabel}: News, Reviews, Guides & Benchmarks - ${SITE_CONFIG.name}`)
+    : `${categoryLabel} - ${SITE_CONFIG.name}`;
+  const categoryDescriptionText = isTopicPage
+    ? (_lang === 'ko'
+      ? `${categoryLabel} 주제의 뉴스, 실사용 후기, 설치 가이드, 자체 벤치마크를 한곳에 모았습니다.`
+      : `Everything AIScroll has published on ${categoryLabel}: news, hands-on reviews, setup guides, and our own benchmarks.`)
+    : categoryDescription(categoryId, _lang);
   const categoryKeywords = _lang === 'ko'
     ? `${categoryLabel}, AI 뉴스, 인공지능, ${SITE_CONFIG.name}`
     : `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`;
@@ -2744,9 +2788,9 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       "name": categoryLabel,
-      "description": categoryDescription,
+      "description": categoryDescriptionText,
       "inLanguage": _catInLanguage,
-      "url": `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
+      "url": `${SITE_CONFIG.baseUrl}${_langPrefix}${collectionPath}`,
       "isPartOf": {
         "@type": "WebSite",
         "name": SITE_CONFIG.name,
@@ -2767,7 +2811,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
           "@type": "ListItem",
           "position": 2,
           "name": categoryLabel,
-          "item": `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`
+          "item": `${SITE_CONFIG.baseUrl}${_langPrefix}${collectionPath}`
         }
       ]
     }
@@ -2775,21 +2819,33 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
 
   return wrapWithLayout(content, {
     title: categoryTitle,
-    description: categoryDescription,
+    description: categoryDescriptionText,
     keywords: categoryKeywords,
-    canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${categoryId}/`,
+    canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}${collectionPath}`,
     pageScripts,
     currentPage: categoryId,
     jsonLd: categoryJsonLd,
     lang,
-    alternates: { en: `${SITE_CONFIG.baseUrl}/article/${categoryId}/`, ko: `${SITE_CONFIG.baseUrl}/ko/article/${categoryId}/` }
+    alternates: { en: `${SITE_CONFIG.baseUrl}${collectionPath}`, ko: `${SITE_CONFIG.baseUrl}/ko${collectionPath}` }
   });
+}
+
+/**
+ * 주제(태그) 페이지 생성 — /topic/<id>/. 카테고리 페이지와 같은 레이아웃.
+ */
+function generateTopicPage(topicId, articles, popularArticles = [], latestArticles = [], lang = 'en') {
+  return generateCategoryPage(topicId, topicLabel(topicId, lang), articles, popularArticles, latestArticles, lang, { kind: 'topic' });
 }
 
 module.exports = {
   generateAIBlogIndex,
   generateSearchPage,
   generateCategoryPage,
+  generateTopicPage,
+  renderTopicList,
+  taxonomy,
+  topicHref,
+  aboutHref,
   wrapWithLayout,
   setGlobalSidebarCounts,
   setGlobalSidebarArticles,

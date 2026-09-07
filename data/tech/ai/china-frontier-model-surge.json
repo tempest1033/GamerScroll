@@ -3,7 +3,13 @@
   "site": "aiscroll",
   "status": "approved",
   "date": "2026-08-31T02:00Z",
-  "category": "general",
+  "category": "news",
+  "topics": [
+    "china-ai"
+  ],
+  "legacyPaths": [
+    "/article/general/china-frontier-model-surge/"
+  ],
   "needTranslate": false,
   "title": "중국 AI 모델의 궐기, 프론티어급 오픈웨이트가 쏟아진다",
   "titleEn": "Chinese AI Models Reach the Frontier",
@@ -212,10 +218,9 @@
     }
   ],
   "relatedDocs": [
-    "tech:ai/frontier-ai-release-deadlock",
-    "tech:ai/glm-5-2-overtakes-gemini-flash",
-    "tech:ai/minimax-m3-open-weight-launch",
-    "tech:ai/china-ai-video-kling3-seedance2"
+    "tech:ai/september-ai-model-war",
+    "tech:ai/grok-46-launch-frontier-push",
+    "tech:ai/muse-spark-1-3-opencode"
   ],
   "relatedGames": [],
   "relatedArticles": []

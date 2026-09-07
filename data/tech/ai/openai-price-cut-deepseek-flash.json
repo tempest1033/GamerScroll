@@ -3,7 +3,15 @@
   "status": "approved",
   "site": "aiscroll",
   "needTranslate": false,
-  "category": "openai",
+  "category": "news",
+  "topics": [
+    "openai",
+    "china-ai",
+    "pricing"
+  ],
+  "legacyPaths": [
+    "/article/openai/openai-price-cut-deepseek-flash/"
+  ],
   "title": "오픈AI GPT-5.6 토큰 가격 최대 80% 인하…딥시크 V4 플래시 맞불",
   "titleEn": "OpenAI Cuts GPT-5.6 Prices; DeepSeek Fires Back",
   "date": "2026-08-01T05:00Z",
@@ -40,10 +48,9 @@
     }
   ],
   "relatedDocs": [
-    "tech:ai/openai-token-price-cut-anthropic",
-    "tech:ai/deepseek-tops-us-spending-tracker",
-    "tech:ai/deepseek-mimo-price-war",
-    "tech:ai/ai-token-cost-exceeds-salary"
+    "tech:ai/september-ai-model-war",
+    "tech:ai/gpt-56-codex-comeback",
+    "tech:ai/anthropic-pricing-crisis"
   ],
   "relatedGames": [],
   "relatedArticles": [],

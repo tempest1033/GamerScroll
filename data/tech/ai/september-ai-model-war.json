@@ -3,7 +3,17 @@
   "site": "aiscroll",
   "status": "approved",
   "date": "2026-09-03T02:00Z",
-  "category": "general",
+  "category": "news",
+  "topics": [
+    "openai",
+    "anthropic",
+    "google",
+    "xai",
+    "industry"
+  ],
+  "legacyPaths": [
+    "/article/general/september-ai-model-war/"
+  ],
   "needTranslate": false,
   "title": "9월 AI 프론티어 경쟁 개막, 빅테크 5곳 맞대결",
   "titleEn": "September AI Race: Five Labs Enter the Field",
@@ -41,9 +51,8 @@
   ],
   "relatedDocs": [
     "tech:ai/grok-46-launch-frontier-push",
-    "tech:ai/agent-mix-multi-model-stack",
-    "tech:ai/gemini-omni-antigravity-trail-sota",
-    "tech:ai/xai-cursor-grok-comeback"
+    "tech:ai/muse-spark-1-3-opencode",
+    "tech:ai/gpt-56-codex-comeback"
   ],
   "relatedGames": [],
   "relatedArticles": [],

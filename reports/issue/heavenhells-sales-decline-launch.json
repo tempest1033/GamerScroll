@@ -131,5 +131,11 @@
       "type": "text",
       "value": "헤븐헬즈는 3월 중 글로벌 출시를 앞두고 있다. 국내 시장에서의 초기 성적은 분명 실망스럽지만, 일본을 비롯한 해외 서브컬쳐 시장에서 다른 결과가 나올 가능성은 열려 있다.\n\n다만 현재의 완성도 이슈가 해결되지 않는다면, 글로벌에서도 같은 상황이 반복될 수 있다. 출시 직후의 골든타임은 빠르게 지나가고 있다. 클로버게임즈가 최적화 개선과 콘텐츠 보강으로 유저 신뢰를 회복할 수 있을지, 앞으로의 대응이 헤븐헬즈의 운명을 결정짓게 될 것이다."
     }
-  ]
+  ],
+  "relatedDocs": [
+    "issue:heavenhells-launch-initial-reaction",
+    "issue:heavenhells-clover-games-restructuring",
+    "issue:lucky-defense-long-run-success"
+  ],
+  "relatedArticles": []
 }

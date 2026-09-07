@@ -3,7 +3,15 @@
   "site": "aiscroll",
   "status": "approved",
   "date": "2026-07-12T15:00Z",
-  "category": "anthropic",
+  "category": "news",
+  "topics": [
+    "anthropic",
+    "openai",
+    "pricing"
+  ],
+  "legacyPaths": [
+    "/article/anthropic/anthropic-pricing-crisis/"
+  ],
   "title": "GPT-5.6 출시, 클로드 가격 경쟁력 잃나",
   "titleEn": "GPT-5.6 Leaves Claude Without Its Edge",
   "summary": "GPT-5.6이 성능 격차를 좁히고 챗GPT의 번들 경쟁력을 강화한 가운데, 클로드 구독 요금제에서 핵심 모델인 페이블 5가 제외되면서 이용자 유인책이 약화되고 있다.",
@@ -40,10 +48,9 @@
     }
   ],
   "relatedDocs": [
-    "tech:ai/gpt-56-anthropic-tipping-point",
-    "tech:ai/claude-opus-4-8-launch",
-    "tech:ai/ai-token-cost-exceeds-salary",
-    "tech:ai/anthropic-fable-5-restoration-standoff"
+    "tech:ai/gpt-56-codex-comeback",
+    "tech:ai/september-ai-model-war",
+    "tech:ai/claude-opus-5-early-reviews"
   ],
   "relatedGames": [],
   "relatedArticles": [],

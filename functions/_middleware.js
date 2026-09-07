@@ -26,7 +26,7 @@ async function resolveAiscrollCategory(slug) {
   const list = await loadAiscrollArticleIndex();
   if (!list) return undefined;
   const found = list.find((item) => item && item.slug === slug);
-  return found ? (found.category || "general") : null;
+  return found ? (found.category || "news") : null;
 }
 
 // 삭제·미발행 기사: 존재하지 않는 페이지로 301 보내 soft-404 체인을 만들지 않고 410으로 닫는다.
@@ -50,7 +50,8 @@ async function handleGamerScrollLegacyRedirect(url, path) {
     const suffix = match[3] && match[3] !== "/" ? match[3] : "/";
     const category = await resolveAiscrollCategory(slug);
     if (category === null) return goneResponse();
-    const resolved = category || (section === "vibecoding" ? "vibecoding" : "general");
+    // 인덱스 조회 실패 시 기본값: 2026-09 재출발 후 카테고리는 글 종류(news/guides/…)라 섹션과 무관
+    const resolved = category || "news";
     const target = `https://aiscroll.io/ko/article/${resolved}/${encodeURIComponent(slug)}${suffix}`;
     return Response.redirect(target + url.search, 301);
   }

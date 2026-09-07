@@ -260,5 +260,11 @@
       "type": "text",
       "value": "한편 GPT 5.3 코덱스가 GPT-5.2 기반 모델이라고 명시된 점은 의아하다. '5.3'이라는 넘버링에 비해 아키텍처 변화보다는 코딩 에이전트 특화 튜닝에 가까운 것 아니냐는 해석이 나온다."
     }
-  ]
+  ],
+  "relatedDocs": [
+    "issue:game-ai-paradigm-shift-2026",
+    "issue:chatgpt-vs-gemini-comparison-2026",
+    "hotpick:gpt-pro-kakao-hot-deal"
+  ],
+  "relatedArticles": []
 }

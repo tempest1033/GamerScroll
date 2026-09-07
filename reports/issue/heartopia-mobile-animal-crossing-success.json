@@ -15,9 +15,7 @@
     "china-gaming-superpower-rise",
     "game-ai-controversy-award-revoked"
   ],
-  "relatedArticles": [
-    "business/app-revenue-ranking-algorithm"
-  ],
+  "relatedArticles": [],
   "sources": [
     {
       "name": "인벤",
@@ -135,5 +133,10 @@
       "type": "text",
       "value": "화려한 출발이 장기적 성공을 보장하지는 않는다. F2P 게임의 숙명인 '과금 압박'을 얼마나 절제할 수 있을지, 콘텐츠 업데이트를 꾸준히 제공할 수 있을지가 관건이다. 동물의 숲처럼 시즌 이벤트와 꾸준한 업데이트로 유저들을 붙잡아 둘 수 있다면, '모바일 동물의 숲'이라는 타이틀은 더 이상 비유가 아닌 현실이 될 수 있다.\n\n중국 게임이 글로벌 힐링 게임 시장까지 진출하는 모습은 흥미롭다. 원신, 명조에 이어 이제는 힐링 게임까지. 장르를 가리지 않는 중국 게임의 글로벌 공세가 계속되고 있다."
     }
+  ],
+  "relatedDocs": [
+    "issue:heartopia-cozy-game-revenue-record",
+    "issue:arknights-endfield-launch-success",
+    "ranking:lunar-new-year-2026-kr"
   ]
 }

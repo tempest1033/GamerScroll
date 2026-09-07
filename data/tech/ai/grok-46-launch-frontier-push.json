@@ -1,7 +1,13 @@
 {
   "slug": "grok-46-launch-frontier-push",
   "site": "aiscroll",
-  "category": "general",
+  "category": "news",
+  "topics": [
+    "xai"
+  ],
+  "legacyPaths": [
+    "/article/general/grok-46-launch-frontier-push/"
+  ],
   "status": "approved",
   "date": "2026-08-05T09:30Z",
   "needTranslate": false,
@@ -114,8 +120,7 @@
   "relatedDocs": [
     "tech:ai/claude-opus-5-early-reviews",
     "tech:ai/gpt-56-codex-comeback",
-    "tech:ai/spacex-acquire-cursor-60b",
-    "tech:ai/grok-build-composer-2-5-synergy"
+    "tech:ai/september-ai-model-war"
   ],
   "relatedGames": [],
   "relatedArticles": []

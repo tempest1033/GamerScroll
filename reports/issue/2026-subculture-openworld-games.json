@@ -12,9 +12,7 @@
     "젠레스-존-제로",
     "명일방주-엔드필드"
   ],
-  "relatedArticles": [
-    "tech/2d-animation-tech"
-  ],
+  "relatedArticles": [],
   "relatedIssues": [
     "game-ai-controversy-award-revoked",
     "ddr5-price-surge-gaming-nightmare"
@@ -124,5 +122,10 @@
       "type": "text",
       "value": "원신 이후 서브컬처 오픈월드 시장은 중국 대형 자본이 장악했습니다. 호요버스, 하이퍼그리프, 쿠로게임즈, 넷이즈—이들이 정립한 표준 앞에서 국산 게임들은 후발주자가 되었습니다.\n\n이미 기울어진 운동장입니다. 그래도 누군가는 뛰어야 합니다. 2026년, 후발주자들의 약진을 지켜봅니다."
     }
+  ],
+  "relatedDocs": [
+    "ranking:endfield-vs-dragonsword-new-year-2026",
+    "issue:arknights-endfield-launch-success",
+    "issue:subculture-newyear-china-wins"
   ]
 }

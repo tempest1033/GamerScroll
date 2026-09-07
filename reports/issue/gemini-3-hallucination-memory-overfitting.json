@@ -271,5 +271,11 @@
       "type": "text",
       "value": "What users want isn't higher scores. It's an AI that's honest, stable, and actually usable. That's the homework Google still needs to finish."
     }
-  ]
+  ],
+  "relatedDocs": [
+    "issue:chatgpt-vs-gemini-comparison-2026",
+    "issue:gpt-5-3-garlic-update-rumor",
+    "issue:game-ai-paradigm-shift-2026"
+  ],
+  "relatedArticles": []
 }
