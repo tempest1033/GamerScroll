@@ -39,6 +39,8 @@ const DOCS_DIR = path.join(__dirname, 'ai-docs');
 const STYLES_SRC = path.join(__dirname, 'src', 'styles');
 const FEED_ASSETS_DIR = path.join(DOCS_DIR, 'assets', 'feed');
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
+// CSS 해시 파일명 (GamerScroll 생성기와 같은 알고리즘·정책 공유)
+const { computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
 
 /**
  * 발행시간 자동 기록: date가 비어있고 status === 'approved'인 기사에 현재 시각 기록
@@ -936,6 +938,42 @@ async function purgeCssInDocs(docsDir) {
   }
 }
 
+// CSS 해시 파일명 적용 (purge 완료본 기준).
+// styles-*.<hash>.css 사본을 만들고 ai-docs 안 모든 HTML의 CSS 링크를 해시 파일명으로 바꾼다.
+// 증분 빌드라 이번에 다시 만들지 않은 페이지(이전 배포본 시드)도 함께 재작성해야 모든 페이지가
+// 같은 파일 하나를 가리킨다. 고정 파일명(/styles-core.css)은 서비스워커 프리캐시용으로 남긴다.
+// 배경: 고정 파일명은 Cloudflare 기본 브라우저 캐시(4시간)에 잡혀, 배포 직후 새 HTML + 옛 CSS 조합으로
+// 화면이 깨졌다. 해시 파일명은 내용이 바뀌면 URL이 바뀌어 즉시 새 CSS를 받는다.
+const AI_CSS_LINK_RE = /(<link\b[^>]*\bhref=")\/(styles-core|styles-article)(?:\.[a-f0-9]{8})?\.css(?:\?[^"]*)?(")/gi;
+
+function applyCssAssetVersion(docsDir) {
+  const version = computeCssAssetVersion(docsDir);
+  if (!version) {
+    console.warn('  ⚠️ CSS 해시 산출 실패: 번들이 없어 고정 파일명을 유지합니다');
+    return '';
+  }
+  ensureDocsCssAssetCopies(docsDir, version);
+
+  const htmlFiles = [];
+  collectHtmlFilesUnderDir(docsDir, htmlFiles);
+  let rewritten = 0;
+  for (const filePath of htmlFiles) {
+    let html;
+    try {
+      html = fs.readFileSync(filePath, 'utf8');
+    } catch (_) {
+      continue;
+    }
+    const next = html.replace(AI_CSS_LINK_RE, (m, before, name, after) => `${before}/${name}.${version}.css${after}`);
+    if (next !== html) {
+      fs.writeFileSync(filePath, next, 'utf8');
+      rewritten++;
+    }
+  }
+  console.log(`CSS 해시 적용 완료: ${version} (HTML ${rewritten}/${htmlFiles.length}개 링크 재작성)`);
+  return version;
+}
+
 // 빌드 완료 메시지
 function showBuildSummary() {
   console.log('\n빌드 완료! ai-docs/ 폴더에 생성됨');
@@ -1040,6 +1078,11 @@ async function main() {
 
   // 6. PurgeCSS: 미사용 CSS 제거
   await purgeCssInDocs(DOCS_DIR);
+
+  // 6-1. CSS 해시 파일명 적용 + Cloudflare _headers (purge 완료본 기준이어야 해시가 배포본과 일치)
+  console.log('\n6-1. CSS 해시 적용 중...');
+  const cssVersion = applyCssAssetVersion(DOCS_DIR);
+  writeCloudflareHeaders(cssVersion);
 
   // 캐시 저장
   buildCache.saveCache(cache);
@@ -1370,20 +1413,27 @@ self.addEventListener('fetch', (event) => {
 `;
   fs.writeFileSync(path.join(DOCS_DIR, 'service-worker.js'), swContent, 'utf8');
   console.log('Service Worker 생성 완료');
+}
 
-  // Cloudflare Pages _headers: long-cache immutable hashed CSS + images/icons.
+// Cloudflare Pages _headers. PurgeCSS·CSS 해시 적용이 끝난 뒤(main 6단계) 호출해야 해시 파일명이 확정돼 있다.
+function writeCloudflareHeaders(cssVersion) {
   try {
     const headerLines = [];
     for (const bundle of AI_CSS_BUNDLES) {
-      if (!/\.[a-f0-9]{8}\.css$/.test(bundle.output)) continue;
-      headerLines.push(`/${bundle.output}`, '  Cache-Control: public, max-age=31536000, immutable', '');
+      // 해시 CSS는 내용이 바뀌면 파일명이 바뀌므로 1년 immutable.
+      if (cssVersion) {
+        headerLines.push(`/${bundle.output.replace(/\.css$/, `.${cssVersion}.css`)}`, '  Cache-Control: public, max-age=31536000, immutable', '');
+      }
+      // 고정 파일명은 SW 프리캐시용으로 남기되, Cloudflare 기본 4시간 브라우저 캐시에 잡혀
+      // 배포 직후 옛 CSS가 새 HTML과 섞이지 않도록 매번 재검증(ETag 304)한다.
+      headerLines.push(`/${bundle.output}`, '  Cache-Control: public, max-age=0, must-revalidate', '');
     }
     headerLines.push('/assets/images/*', '  Cache-Control: public, max-age=604800', '');
     headerLines.push('/icon-*.png', '  Cache-Control: public, max-age=2592000', '');
     headerLines.push('/favicon*', '  Cache-Control: public, max-age=2592000', '');
-  // feed JSON은 파일명에 해시가 박혀 있어 immutable 안전. layout-core.js는 SW precache가
-  // 쿼리 없는 경로를 쓰므로 여기서는 immutable을 걸지 않는다 (stale 고정 방지).
-  headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
+    // feed JSON은 파일명에 해시가 박혀 있어 immutable 안전. layout-core.js는 SW precache가
+    // 쿼리 없는 경로를 쓰므로 여기서는 immutable을 걸지 않는다 (stale 고정 방지).
+    headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     // 폰트는 버전 디렉터리(pretendard-1.3.9)라 immutable 안전.
     headerLines.push('/assets/fonts/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     fs.writeFileSync(path.join(DOCS_DIR, '_headers'), headerLines.join('\n') + '\n', 'utf8');
