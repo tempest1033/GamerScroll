@@ -75,9 +75,9 @@
       height: auto;
     }
     #sidebar-categories .home-card-title {
-      font-size: 12px;
+      font-size: var(--font-sidebar-label-size);
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
     }
@@ -113,11 +113,12 @@
       background: var(--hover-bg);
     }
     .sidebar-category-name {
-      font-size: 14px;
+      font-size: var(--font-sidebar-item-size);
       font-weight: 500;
+      line-height: 1.45;
     }
     .sidebar-category-count {
-      font-size: 13px;
+      font-size: var(--font-caption-size);
       font-weight: 500;
       color: var(--text-muted);
     }
@@ -147,19 +148,21 @@
     .sidebar-article-rank {
       flex-shrink: 0;
       width: 20px;
-      font-size: 15px;
-      font-weight: var(--font-title-weight);
+      font-size: var(--font-caption-size);
+      font-weight: 700;
       color: var(--text-muted);
       text-align: center;
+      font-variant-numeric: tabular-nums;
     }
     .sidebar-article-item:nth-child(-n+3) .sidebar-article-rank {
       color: var(--accent);
     }
     .sidebar-article-title {
       flex: 1;
-      font-size: 15px;
+      font-size: var(--font-sidebar-item-size);
+      font-weight: 500;
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.45;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -206,7 +209,7 @@
     }
 
     .home-card-title {
-      font-size: 24px;
+      font-size: var(--font-section-title-size);
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text);
@@ -514,7 +517,7 @@
       top: 10px;
       left: 10px;
       padding: 4px 8px;
-      font-size: var(--font-xs-size);
+      font-size: var(--font-small-size);
       font-weight: var(--font-tab-weight);
       color: rgba(255, 255, 255, 0.9);
       background: rgba(0, 0, 0, 0.5);
@@ -527,7 +530,7 @@
     }
 
     .home-trend-card-title {
-      font-size: var(--font-body-size);
+      font-size: var(--font-card-title-size);
       font-weight: 700;
       color: var(--text);
       margin: 0;
@@ -540,6 +543,53 @@
     .home-trend-card-title-text {
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* AIScroll 피드 카드 본문: 메타(카테고리 · 날짜) → 제목 → 요약 */
+    .home-trend-card-body {
+      min-width: 0;
+      padding: 10px 2px 0;
+    }
+    .home-trend-card-meta,
+    .hero-feature-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0 8px;
+      font-size: var(--font-card-meta-size);
+      line-height: 1.4;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .home-trend-card-meta {
+      margin-bottom: 6px;
+    }
+    .home-trend-card-meta > * + *::before,
+    .hero-feature-meta > * + *::before {
+      content: '·';
+      margin-right: 8px;
+      color: var(--text-tertiary);
+    }
+    .home-trend-card-category,
+    .hero-feature-kicker {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .home-trend-card-body .home-trend-card-title {
+      font-size: var(--font-card-title-size);
+      line-height: 1.4;
+      padding: 0;
+      min-height: 0;
+    }
+    .home-trend-card-summary {
+      font-size: var(--font-card-summary-size);
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 6px 0 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -720,7 +770,7 @@
 
     /* ========== 플랫 섹션 타이틀 (박스 크롬 제거, 타이포 위계) ========== */
     .home-section-title {
-      font-size: 22px;
+      font-size: var(--font-section-title-size);
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text);
@@ -729,20 +779,16 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* ========== 홈 히어로 (대형 피처 + 컴팩트 랭크 리스트) ========== */
+    /* ========== 홈 리드 (인기 1위 단일 피처, 가로형) ==========
+       이미지(7) : 텍스트(5). 2~5위 리스트는 사이드바 '인기'와 중복이라 두지 않는다. */
     .home-hero {
       display: block;
     }
-    .home-hero-grid {
-      display: grid;
-      grid-template-columns: 60% 1fr;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    /* 피처 기사 */
     .hero-feature {
-      display: block;
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 24px;
+      align-items: center;
       text-decoration: none;
       color: inherit;
     }
@@ -763,23 +809,15 @@
     .hero-feature:hover .hero-feature-media img {
       transform: scale(1.03);
     }
-    .hero-feature-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      padding: 5px 10px;
-      font-size: var(--font-xs-size);
-      font-weight: var(--font-tab-weight);
-      color: rgba(255, 255, 255, 0.9);
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 4px;
-      backdrop-filter: blur(8px);
-    }
     .hero-feature-body {
-      padding: 16px 2px 0;
+      min-width: 0;
+      padding: 0 4px;
+    }
+    .hero-feature-meta {
+      margin-bottom: 10px;
     }
     .hero-feature-title {
-      font-size: 26px;
+      font-size: var(--font-feature-title-size);
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.3;
@@ -798,71 +836,23 @@
       font-size: var(--font-desc-size);
       color: var(--text-secondary);
       line-height: 1.6;
-      margin: 10px 0 0;
+      margin: 12px 0 0;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    /* 컴팩트 랭크 리스트 */
-    .hero-list {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-    }
-    .hero-list-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex: 1 1 0;
-      padding: 12px 0;
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    .hero-list-item:last-child {
-      border-bottom: none;
-    }
-    .hero-list-rank {
-      flex-shrink: 0;
-      min-width: 20px;
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.35;
-      color: var(--text-tertiary);
-      font-variant-numeric: tabular-nums;
-    }
-    .hero-list-item:nth-child(-n+3) .hero-list-rank {
-      color: var(--primary);
-    }
-    .hero-list-title {
-      flex: 1;
-      font-size: var(--font-body-size);
-      font-weight: 600;
-      line-height: 1.4;
-      color: var(--text);
-      margin: 0;
-      transition: color 0.15s ease;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .hero-list-item:hover .hero-list-title {
-      color: var(--primary);
-    }
-
     @media (max-width: 768px) {
-      .home-hero-grid {
+      .hero-feature {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 12px;
       }
-      .hero-feature-title {
-        font-size: 22px;
+      .hero-feature-body {
+        padding: 0 2px;
       }
-      .home-section-title {
-        font-size: 20px;
+      .hero-feature-summary {
+        -webkit-line-clamp: 2;
       }
     }
 
@@ -940,6 +930,54 @@
         grid-template-columns: 1fr;
         padding: 12px;
         min-height: auto;
+      }
+
+      /* AIScroll 모바일 홈: 리드 1건은 대형으로 보이고(공용 99-edge-to-edge 의 #home-popular 숨김을 되돌림),
+         최신 피드는 썸네일 144px + 텍스트 가로 리스트로 내려간다. */
+      #home-popular.home-hero {
+        display: block !important;
+        margin-bottom: 12px;
+      }
+      #home-latest #homeLatestGrid,
+      #categoryGrid {
+        gap: 0 !important;
+        padding: 0 !important;
+      }
+      #home-latest #homeLatestGrid > .home-trend-card,
+      #categoryGrid > .home-trend-card {
+        display: grid;
+        grid-template-columns: 144px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        padding: 14px 0 !important;
+        margin: 0 !important;
+        border-bottom: 1px solid var(--border-subtle) !important;
+      }
+      #home-latest #homeLatestGrid > .home-trend-card:last-child,
+      #categoryGrid > .home-trend-card:last-child {
+        border-bottom: none !important;
+      }
+      #homeLatestGrid > .home-trend-card .home-trend-card-image,
+      #categoryGrid > .home-trend-card .home-trend-card-image {
+        border-radius: var(--radius-sm);
+      }
+      #homeLatestGrid > .home-trend-card .home-trend-card-body,
+      #categoryGrid > .home-trend-card .home-trend-card-body {
+        padding: 0;
+      }
+      #homeLatestGrid > .home-trend-card .home-trend-card-meta,
+      #categoryGrid > .home-trend-card .home-trend-card-meta {
+        margin-bottom: 4px;
+      }
+      #homeLatestGrid > .home-trend-card .home-trend-card-title,
+      #categoryGrid > .home-trend-card .home-trend-card-title {
+        font-size: var(--font-card-title-size);
+        line-height: 1.4;
+        padding: 0;
+      }
+      #homeLatestGrid > .home-trend-card .home-trend-card-summary,
+      #categoryGrid > .home-trend-card .home-trend-card-summary {
+        display: none;
       }
     }
 
@@ -2068,8 +2106,9 @@
         align-items: center;
         justify-content: center;
         position: fixed;
-        bottom: 20px;
-        left: 16px;
+        /* 홈 인디케이터(세이프 에어리어) 위로 띄운다 */
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+        left: calc(16px + env(safe-area-inset-left, 0px));
         width: 47px;
         height: 47px;
         min-width: 47px;

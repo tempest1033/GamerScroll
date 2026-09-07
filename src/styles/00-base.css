@@ -36,6 +36,9 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
       font-feature-settings: "ss06", "ss07";
+      /* 모바일 가로 회전 시 브라우저의 임의 글자 확대 방지 */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     /* H1 폰트 크기 명시 (브라우저 지원 중단 API 경고 해결) */
@@ -154,12 +157,12 @@
       --font-rank-dev-color: var(--text-muted);
 
       /* === Typography - 확장 크기 (전체 통합 관리) === */
-      /* 초소형 - 최소 10px 유지 (가독성) */
-      --font-micro-size: 10px;
-      --font-tiny-size: 10px;
+      /* 초소형 - 모바일 최소 가독 크기 12px 유지 */
+      --font-micro-size: 12px;
+      --font-tiny-size: 12px;
 
-      /* 소형 (10-11px) - 배지 내부, 순위 숫자, 보조 정보 */
-      --font-xs-size: 10px;
+      /* 소형 (12px) - 배지 내부, 순위 숫자, 보조 정보 */
+      --font-xs-size: 12px;
       --font-sm-size: 13px; /* 소형 텍스트 */
       --font-meta-size: 13px;
       --font-caption-size: 13px;
@@ -181,6 +184,27 @@
       --font-xl-size: 22px;
       --font-2xl-size: 26px;
       --font-stat-size: 28px;
+
+      /* === Typography - 아티클/홈 역할 스케일 (본문 18px 기준, 단계 비율 ≈1.25) ===
+         두 사이트(GamerScroll·AIScroll)의 기사·홈·사이드바가 같은 사다리를 쓴다.
+         PC 값은 여기, 모바일 값은 아래 768px 미디어쿼리에서만 바꾼다. */
+      --font-article-title-size: 40px;   /* h1 기사 제목 (800) */
+      --font-article-lead-size: 20px;    /* 리드/요약문 (400, 회색) */
+      --font-article-h2-size: 28px;      /* 본문 소제목 (700) */
+      --font-article-h3-size: 22px;      /* 소소제목·콜론 굵은 글 (600) */
+      --font-article-body-size: 18px;    /* 본문 (400, 행간 1.8) */
+      --font-article-quote-size: 20px;   /* 인용 (500) */
+      --font-article-small-size: 15px;   /* 표·보조 박스 */
+      --font-article-table-size: 15px;   /* 표 셀 (모바일 14px — 4열까지 폭 안에 수납) */
+      --font-article-code-size: 14px;    /* 코드(모노) */
+      --font-feature-title-size: 28px;   /* 홈 리드 피처 제목 (h2급) */
+      --font-section-title-size: 22px;   /* 홈 섹션 제목 */
+      --font-card-title-size: 18px;      /* 목록 카드 제목 */
+      --font-card-summary-size: 15px;    /* 목록 카드 요약 */
+      --font-card-meta-size: 13px;       /* 카드 메타(카테고리·날짜) */
+      --font-sidebar-label-size: 13px;   /* 사이드바 라벨 (대문자) */
+      --font-sidebar-item-size: 14px;    /* 사이드바 항목·목차 */
+      --font-overline-size: 12px;        /* 카테고리 라벨 (대문자·자간) */
 
       /* === Insight/Accent Colors (통합 관리) === */
       --insight-icon: #0969DA;
@@ -341,6 +365,19 @@
         --font-meta-size: 13px;
         --font-rank-name-size: 15px;
         --font-rank-dev-size: 13px;
+
+        /* 아티클/홈 역할 스케일 - 모바일 */
+        --font-article-title-size: 30px;
+        --font-article-lead-size: 18px;
+        --font-article-h2-size: 24px;
+        --font-article-h3-size: 20px;
+        --font-article-body-size: 17px;
+        --font-article-quote-size: 18px;
+        --font-article-table-size: 14px;
+        --font-feature-title-size: 24px;
+        --font-section-title-size: 20px;
+        --font-card-title-size: 16px;
+        --font-card-meta-size: 12px;
       }
     }
 

@@ -11,9 +11,12 @@
 // after the call.
 //
 // Usage:
-//   node scripts/polish-article.mjs <article.json> [--model <id>] [--skill <SKILL.md>] [--dry-run]
+//   node scripts/polish-article.mjs <article.json> [--mode kr|dual] [--model <id>]
+//                                   [--skill <SKILL.md>] [--dry-run] [--reuse-out]
 //
-// Default model: gemini-3.1-pro-preview (verified available on the local OAuth CLI tier).
+// Default model: gemini-3.7-flash-high (verified against `agy models`, 2026-08-25).
+// --reuse-out re-applies the previous reply in .tmp-polish/out.json without calling
+// the model again — use it when the model call succeeded but a later step failed.
 
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -23,8 +26,13 @@ import { homedir } from 'node:os';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
-const DEFAULT_MODEL = 'gemini-3.1-pro-preview';
-const DEFAULT_SKILL = join(homedir(), '.claude', 'skills', 'gamerscroll-article', 'SKILL.md');
+const DEFAULT_MODEL = 'gemini-3.7-flash-high';
+// The skill moved from ~/.claude to ~/.mixdog; probe both so no --skill flag is needed.
+const SKILL_CANDIDATES = [
+  join(homedir(), '.mixdog', 'data', 'skills', 'gamerscroll-article', 'SKILL.md'),
+  join(homedir(), '.claude', 'skills', 'gamerscroll-article', 'SKILL.md'),
+];
+const DEFAULT_SKILL = SKILL_CANDIDATES.find((p) => existsSync(p)) || SKILL_CANDIDATES[0];
 
 function die(msg) {
   console.error(`[polish] ERROR: ${msg}`);
@@ -47,7 +55,7 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--dry-run') dryRun = true;
   else if (a === '--reuse-out') reuseOut = true;
   else if (a === '-h' || a === '--help') {
-    console.log('usage: node scripts/polish-article.mjs <article.json> [--mode kr|dual] [--model id] [--skill SKILL.md] [--dry-run]');
+    console.log('usage: node scripts/polish-article.mjs <article.json> [--mode kr|dual] [--model id] [--skill SKILL.md] [--dry-run] [--reuse-out]');
     process.exit(0);
   } else if (a.startsWith('--')) die(`unknown flag: ${a}`);
   else target = a;

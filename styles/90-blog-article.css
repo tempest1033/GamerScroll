@@ -87,22 +87,14 @@
 
 /* 제목 - 큰 에디토리얼 타이틀 */
 .blog-title {
-  font-size: 40px;
+  font-size: var(--font-article-title-size);
   font-weight: 800;
-  line-height: 1.18;
+  line-height: 1.2;
   color: var(--text);
   margin-top: 0;
   margin-bottom: 16px;
   letter-spacing: -0.025em;
   text-align: left;
-}
-
-@media (max-width: 768px) {
-  .blog-title {
-    font-size: 28px;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-  }
 }
 
 /* 메타 정보 - 깔끔한 한 줄 (작성자 · 날짜) */
@@ -121,6 +113,53 @@
   font-size: var(--font-meta-size);
   color: var(--text-muted);
   font-weight: 600;
+  text-decoration: none;
+  /* 저자 링크 터치 영역 24px 이상 (WCAG 2.5.8) — 글자 크기는 그대로 */
+  display: inline-block;
+  padding: 2px 0;
+  line-height: 1.55;
+}
+
+a.blog-editor:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* 주제 태그 (요약 아래) — /topic/<id>/ 링크 */
+.blog-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 720px;
+  margin: 0 auto 20px;
+}
+
+.blog-topic-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: var(--font-meta-size);
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: var(--card);
+}
+
+.blog-topic-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* 제작 방식 문구 (본문 끝, 출처 위) — "누가·어떻게" 공개 */
+.blog-method-note {
+  max-width: 720px;
+  margin: 24px auto 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--border);
+  font-size: var(--font-meta-size);
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: left;
 }
 
 .blog-date {
@@ -134,12 +173,12 @@
   color: var(--text-tertiary);
 }
 
-/* 요약 박스 (가장 강조) */
+/* 리드(요약문) - 본문보다 한 단계 큰 회색 톤 */
 .blog-summary {
-  font-size: var(--font-desc-size);
-  line-height: 1.7;
-  color: var(--text);
-  font-weight: 500;
+  font-size: var(--font-article-lead-size);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-weight: 400;
   padding: 16px 20px;
   background: color-mix(in srgb, var(--primary) 6%, var(--card));
   border-radius: var(--radius-sm);
@@ -222,8 +261,8 @@
 
 /* 본문 단락 */
 .blog-paragraph {
-  font-size: 17px;
-  line-height: 1.85;
+  font-size: var(--font-article-body-size);
+  line-height: 1.8;
   color: var(--text-secondary);
   margin-bottom: 22px;
   letter-spacing: -0.003em;
@@ -238,8 +277,9 @@
 
 /* 섹션 제목 */
 .blog-heading {
-  font-size: 24px;
+  font-size: var(--font-article-h2-size);
   font-weight: 700;
+  line-height: 1.3;
   color: var(--text);
   margin: 44px 0 18px;
   padding-bottom: 12px;
@@ -307,6 +347,16 @@
   max-height: 440px;
 }
 
+/* AIScroll 대표 이미지: 본문 figure 의 테두리·배경·contain 여백(레터박스 프레임)을 걷어내고 폭을 채운다 */
+.blog-lead-figure {
+  border: none;
+  background: transparent;
+}
+.blog-lead-figure .blog-image {
+  object-fit: cover;
+  background: transparent;
+}
+
 /* 표 figure */
 .blog-figure.blog-table {
   display: block;
@@ -337,19 +387,17 @@
   .blog-figure.blog-table {
     width: 100%;
   }
-  /* 좁은 화면: 표를 자연 너비로 키우고 figure가 가로 스크롤을 담당.
-     CJK 텍스트가 글자 단위로 줄바꿈되며 열이 짜부라지는 문제를 막기 위해
-     셀 줄바꿈을 금지한다(반응형 표 표준 패턴). */
+  /* 좁은 화면 표준: 가로 스크롤 대신 본문 폭 안에서 줄바꿈한다.
+     4열 이하는 표 형태를 유지하고, 5열 이상은 템플릿이 붙이는 .blog-table--stack으로
+     행 단위 카드형으로 세로 전개한다(아래 "표 모바일 규칙" 참고). */
+  .table-scroll {
+    overflow-x: visible;
+    touch-action: auto;
+  }
   .blog-figure.blog-table .wiki-table {
-    width: auto;
-    min-width: 100%;
+    width: 100%;
+    min-width: 0;
   }
-  .blog-figure.blog-table .wiki-table th,
-  .blog-figure.blog-table .wiki-table td {
-    white-space: nowrap;
-  }
-  /* (첫 열 sticky 제거 — 표의 overflow:hidden(모서리용)과 충돌해 제대로 고정되지 않았고,
-     긴 제목 열을 고정하면 화면을 과하게 가려, 단순 가로 스크롤로 처리한다.) */
 }
 
 .blog-image {
@@ -407,6 +455,13 @@
   margin: 0 !important;
 }
 
+/* 임베드는 본문 폭을 넘지 않는다 (좁은 화면 가로 스크롤 방지) */
+.blog-tweet .twitter-tweet,
+.blog-tweet iframe,
+.blog-video iframe {
+  max-width: 100% !important;
+}
+
 .blog-tweet .blog-caption {
   width: 100%;
   text-align: center;
@@ -420,10 +475,10 @@
   background: transparent;
   border-left: 3px solid var(--border-subtle, var(--border));
   border-radius: 0 8px 8px 0;
-  font-size: var(--font-desc-size);
+  font-size: var(--font-article-quote-size);
   line-height: 1.6;
   color: var(--text-secondary);
-  font-style: italic;
+  font-weight: 500;
 }
 
 .blog-quote::before {
@@ -463,7 +518,7 @@
 
 .blog-code code {
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-  font-size: 14px;
+  font-size: var(--font-article-code-size);
   line-height: 1.8;
   color: var(--text);
   background: transparent;
@@ -474,7 +529,7 @@
   margin-top: 8px;
   text-align: left;
   color: var(--text-tertiary);
-  font-size: 13px;
+  font-size: var(--font-caption-size);
 }
 
 /* 구문 강조 토큰 - GitHub Light 팔레트 */
@@ -513,7 +568,7 @@
   padding: 10px 14px;
   background: transparent;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: var(--font-caption-size);
   line-height: 1.5;
   color: var(--text-muted);
   text-align: center;
@@ -526,7 +581,7 @@
   background: color-mix(in srgb, var(--accent) 5%, var(--card));
   border-left: 3px solid var(--accent);
   border-radius: 0 6px 6px 0;
-  font-size: 14px;
+  font-size: var(--font-article-small-size);
   line-height: 1.6;
   color: var(--text-secondary);
 }
@@ -535,7 +590,7 @@
   display: block;
   margin-bottom: 8px;
   color: var(--text);
-  font-size: 15px;
+  font-size: var(--font-article-small-size);
   font-weight: 700;
 }
 
@@ -552,7 +607,7 @@
   background: rgba(0, 0, 0, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
-  font-size: 13px;
+  font-size: var(--font-caption-size);
 }
 
 /* aside 다음 코드블록 간격 */
@@ -592,50 +647,137 @@
   }
 }
 
-/* 목차 (TOC) */
-.blog-toc {
-  padding: 0 0 16px 0;
-  margin-bottom: 24px;
-  border-bottom: 1px solid var(--border);
+/* 공통 기사 목차 — 카테고리·인기 카드와 같은 라벨·행·번호 규격
+   (라벨 13px 대문자 / 행 14px / 번호 13px·20px 폭·gap 12px — 인기 리스트의 순위 열과 동일).
+   AIScroll 사이드바 공통 블록(ai-blog/index.js)이 같은 값을 세 카드에 한 번에 적용한다.
+   현재 읽는 절(.is-current)은 번호·본문이 함께 브랜드 블루 — 인기 카드의 순위 강조(번호만)와 구분. */
+#sidebar-toc .home-card-header {
+  display: block;
+  border-bottom: none;
+  padding: 0 0 8px;
+  min-height: 0;
+  height: auto;
 }
-
-.blog-toc-title {
-  font-weight: var(--font-title-weight);
-  font-size: 1.1em;
-  color: var(--text);
-  margin-bottom: 12px;
+#sidebar-toc .home-card-title {
+  font-size: var(--font-sidebar-label-size);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
-
-.blog-toc ol {
-  margin: 0;
-  padding-left: 0;
+.article-toc-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
-
-.blog-toc li {
-  font-size: var(--font-desc-size);
-  line-height: 1.6;
-  padding: 3px 0;
-}
-
-.blog-toc a {
-  color: var(--text-secondary);
+.article-toc-item {
+  display: flex;
+  min-height: 44px;
+  box-sizing: border-box;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 0;
+  margin: 1px 0;
+  border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: color 0.2s;
+  color: var(--text);
+  font-size: var(--font-sidebar-item-size);
+  font-weight: 500;
+  line-height: 1.45;
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
-
-.blog-toc a:hover {
+.article-toc-item:hover {
+  background: var(--hover-bg);
   color: var(--primary);
+}
+.article-toc-item:focus-visible,
+.article-toc-mobile > summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.article-toc-num {
+  flex-shrink: 0;
+  width: 20px;
+  font-size: var(--font-caption-size);
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.article-toc-text {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.article-toc-item.is-current {
+  color: var(--primary);
+  font-weight: 600;
+}
+.article-toc-item.is-current .article-toc-num {
+  color: var(--primary);
+}
+.article-toc-mobile {
+  display: none;
+}
+.article-toc-mobile > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--font-sidebar-item-size);
+  font-weight: 700;
+  color: var(--text);
+}
+.article-toc-mobile > summary::-webkit-details-marker {
+  display: none;
+}
+.article-toc-chevron {
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+.article-toc-mobile[open] .article-toc-chevron {
+  transform: rotate(180deg);
+}
+@media (max-width: 768px) {
+  .article-toc-mobile {
+    display: block;
+    padding: 8px 16px;
+    margin: 16px 0 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--hover-bg);
+  }
+  .article-toc-mobile .article-toc {
+    padding: 4px 0 8px;
+  }
+  .article-toc-mobile .article-toc-text {
+    display: block;
+    overflow: visible;
+    overflow-wrap: anywhere;
+  }
+}
+/* 목차 앵커 이동 시 소제목이 상단에 바짝 붙지 않게 */
+.blog-content .blog-heading {
+  scroll-margin-top: 84px;
 }
 
 /* 서브헤딩 (콜론으로 끝나는 굵은 텍스트) */
 .blog-content .subheading {
   display: block;
   color: var(--text);
-  font-weight: var(--font-title-weight);
-  font-size: 1.1em;
+  font-weight: 600;
+  font-size: var(--font-article-h3-size);
+  line-height: 1.4;
   margin-top: 1.5em;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.3em;
 }
 
 /* 첫 번째 문단의 서브헤딩은 상단 마진 제거 */
@@ -741,7 +883,7 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
-  font-size: var(--font-desc-size);
+  font-size: var(--font-article-small-size);
   table-layout: auto;
   background: var(--card-bg);
   margin-bottom: 1.5em;
@@ -752,7 +894,6 @@
   .blog-content table,
   .wiki-table {
     width: 100%;
-    font-size: var(--font-body-size);
   }
 }
 
@@ -766,7 +907,7 @@
 .blog-table-wrapper caption {
   caption-side: bottom;
   margin-top: 10px;
-  font-size: var(--font-desc-size);
+  font-size: var(--font-caption-size);
   color: var(--text-secondary);
   text-align: center;
 }
@@ -792,7 +933,7 @@
 /* 표 제목 */
 .table-title {
   padding: 10px 14px;
-  font-size: var(--font-desc-size);
+  font-size: var(--font-article-body-size);
   font-weight: var(--font-card-title-weight);
   color: var(--text);
   background: var(--hover-bg);
@@ -843,18 +984,127 @@
   background: var(--hover-bg);
 }
 
+/* ===== 표 모바일 규칙 (가로 스크롤 없음) ===== */
 @media (max-width: 768px) {
+  .blog-table-wrapper {
+    overflow-x: visible;
+    touch-action: auto;
+  }
+  .blog-table-wrapper table,
+  .blog-content table,
+  .wiki-table {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    table-layout: auto;
+    font-size: var(--font-article-table-size);
+  }
+  /* 4열 이하: 셀 줄바꿈 허용. 한글은 단어 단위(keep-all), 긴 영문·숫자는 anywhere로 끊는다 */
   .blog-table-wrapper th,
   .blog-table-wrapper td,
   .blog-content th,
   .blog-content td,
   .wiki-table th,
   .wiki-table td {
-    padding: 10px 12px;
+    padding: 8px 8px;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    vertical-align: top;
+    line-height: 1.45;
   }
   .table-title {
-    font-size: var(--font-body-size);
     padding: 8px 12px;
+  }
+  .blog-code pre {
+    overflow-x: visible;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding: 14px 16px;
+  }
+
+  /* 5열 이상(.blog-table--stack): 행마다 카드, 각 칸 앞에 열 제목(data-label) */
+  .blog-table--stack table,
+  .blog-table--stack .wiki-table,
+  .blog-table--stack tbody,
+  .blog-table--stack tr {
+    display: block;
+    width: 100%;
+  }
+  .blog-table--stack thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .blog-table--stack table,
+  .blog-table--stack .wiki-table {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    overflow: visible;
+    margin-bottom: 0;
+  }
+  .blog-table--stack .table-title {
+    border-bottom: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .blog-table--stack tbody tr {
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-bg);
+  }
+  .blog-table--stack tbody tr:last-child {
+    margin-bottom: 0;
+  }
+  .blog-table--stack td {
+    display: grid;
+    grid-template-columns: minmax(5.5em, 36%) minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 7px 12px;
+    text-align: left;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-subtle, var(--border));
+  }
+  .blog-table--stack tbody tr:last-child td {
+    border-bottom: 1px solid var(--border-subtle, var(--border));
+  }
+  .blog-table--stack td:last-child,
+  .blog-table--stack tbody tr:last-child td:last-child {
+    border-bottom: none;
+  }
+  .blog-table--stack td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: var(--font-caption-size);
+    line-height: 1.45;
+  }
+  /* 첫 열은 카드 제목 역할 */
+  .blog-table--stack td:first-child {
+    display: block;
+    font-weight: 700;
+    color: var(--text);
+    background: var(--hover-bg);
+  }
+  .blog-table--stack td:first-child::before {
+    display: none;
+  }
+  .blog-table--stack td:empty {
+    display: none;
+  }
+  .blog-table--stack tbody tr:hover td {
+    background: var(--card-bg);
+  }
+  .blog-table--stack tbody tr:hover td:first-child {
+    background: var(--hover-bg);
   }
 }
 
@@ -1132,19 +1382,13 @@
   }
 
   .blog-title {
-    font-size: 30px;
-    font-weight: 800;
-    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   .blog-hero {
     margin: 0 0 16px;
     max-height: 280px;
     border-radius: var(--radius-lg);
-  }
-
-  .blog-paragraph {
-    font-size: var(--font-body-size);
   }
 
   .blog-heading {
@@ -1529,6 +1773,15 @@
   top: 70px;
 }
 
+.article-sidebar-sticky:has(> #sidebar-toc) {
+  /* 긴 목차·카테고리가 기사 끝에서 목차 전체를 위로 밀지 않도록 한 곳에서 스크롤한다. */
+  max-height: calc(100vh - 86px);
+  max-height: calc(100dvh - 86px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
 .article-sidebar-sticky > * {
   margin-bottom: var(--space-block-gap);
 }
@@ -1545,6 +1798,19 @@
 
   .article-sidebar {
     display: none !important;
+  }
+}
+
+/* 태블릿(769~1024px): 본문 1열, 사이드바는 본문 아래로 (본문 폭 720px 확보) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .article-layout .article-sidebar-sticky {
+    position: static;
+    max-height: none;
+    overflow: visible;
   }
 }
 

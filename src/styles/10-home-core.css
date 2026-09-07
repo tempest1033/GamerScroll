@@ -75,9 +75,9 @@
       height: auto;
     }
     #sidebar-categories .home-card-title {
-      font-size: 12px;
+      font-size: var(--font-sidebar-label-size);
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
     }
@@ -113,11 +113,12 @@
       background: var(--hover-bg);
     }
     .sidebar-category-name {
-      font-size: 14px;
+      font-size: var(--font-sidebar-item-size);
       font-weight: 500;
+      line-height: 1.45;
     }
     .sidebar-category-count {
-      font-size: 13px;
+      font-size: var(--font-caption-size);
       font-weight: 500;
       color: var(--text-muted);
     }
@@ -147,19 +148,21 @@
     .sidebar-article-rank {
       flex-shrink: 0;
       width: 20px;
-      font-size: 15px;
-      font-weight: var(--font-title-weight);
+      font-size: var(--font-caption-size);
+      font-weight: 700;
       color: var(--text-muted);
       text-align: center;
+      font-variant-numeric: tabular-nums;
     }
     .sidebar-article-item:nth-child(-n+3) .sidebar-article-rank {
       color: var(--accent);
     }
     .sidebar-article-title {
       flex: 1;
-      font-size: 15px;
+      font-size: var(--font-sidebar-item-size);
+      font-weight: 500;
       color: var(--text);
-      line-height: 1.4;
+      line-height: 1.45;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -206,7 +209,7 @@
     }
 
     .home-card-title {
-      font-size: 24px;
+      font-size: var(--font-section-title-size);
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text);
@@ -514,7 +517,7 @@
       top: 10px;
       left: 10px;
       padding: 4px 8px;
-      font-size: var(--font-xs-size);
+      font-size: var(--font-small-size);
       font-weight: var(--font-tab-weight);
       color: rgba(255, 255, 255, 0.9);
       background: rgba(0, 0, 0, 0.5);
@@ -527,7 +530,7 @@
     }
 
     .home-trend-card-title {
-      font-size: var(--font-body-size);
+      font-size: var(--font-card-title-size);
       font-weight: 700;
       color: var(--text);
       margin: 0;
@@ -555,7 +558,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 0 8px;
-      font-size: var(--font-xs-size);
+      font-size: var(--font-card-meta-size);
       line-height: 1.4;
       color: var(--text-muted);
       font-variant-numeric: tabular-nums;
@@ -575,13 +578,13 @@
       font-weight: 700;
     }
     .home-trend-card-body .home-trend-card-title {
-      font-size: 16px;
-      line-height: 1.45;
+      font-size: var(--font-card-title-size);
+      line-height: 1.4;
       padding: 0;
       min-height: 0;
     }
     .home-trend-card-summary {
-      font-size: var(--font-sm-size);
+      font-size: var(--font-card-summary-size);
       line-height: 1.55;
       color: var(--text-secondary);
       margin: 6px 0 0;
@@ -767,7 +770,7 @@
 
     /* ========== 플랫 섹션 타이틀 (박스 크롬 제거, 타이포 위계) ========== */
     .home-section-title {
-      font-size: 22px;
+      font-size: var(--font-section-title-size);
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--text);
@@ -814,7 +817,7 @@
       margin-bottom: 10px;
     }
     .hero-feature-title {
-      font-size: 26px;
+      font-size: var(--font-feature-title-size);
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.3;
@@ -848,14 +851,8 @@
       .hero-feature-body {
         padding: 0 2px;
       }
-      .hero-feature-title {
-        font-size: 22px;
-      }
       .hero-feature-summary {
         -webkit-line-clamp: 2;
-      }
-      .home-section-title {
-        font-size: 20px;
       }
     }
 
@@ -974,7 +971,7 @@
       }
       #homeLatestGrid > .home-trend-card .home-trend-card-title,
       #categoryGrid > .home-trend-card .home-trend-card-title {
-        font-size: 15px;
+        font-size: var(--font-card-title-size);
         line-height: 1.4;
         padding: 0;
       }
@@ -2109,8 +2106,9 @@
         align-items: center;
         justify-content: center;
         position: fixed;
-        bottom: 20px;
-        left: 16px;
+        /* 홈 인디케이터(세이프 에어리어) 위로 띄운다 */
+        bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+        left: calc(16px + env(safe-area-inset-left, 0px));
         width: 47px;
         height: 47px;
         min-width: 47px;

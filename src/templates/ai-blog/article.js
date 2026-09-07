@@ -24,7 +24,7 @@ const {
 const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, countTopics, authorOf, methodNote } = require('./taxonomy');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderRankingBlock } = require('../helpers/ranking-blocks');
-const { renderTextBlock } = require('../helpers/content-text');
+const { renderTextBlock, tableStackClass, tableCellLabelAttr } = require('../helpers/content-text');
 const { createArticleToc } = require('../helpers/article-toc');
 const { buildMetaDescription } = require('../../build/meta-description');
 
@@ -367,12 +367,12 @@ function generateAIBlogArticle(article, data = {}) {
             .replace(/`([^`]+)`/g, '<code>$1</code>')
             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'));
           result.push(`
-            <figure class="blog-figure blog-table">
+            <figure class="blog-figure blog-table${tableStackClass(block.headers)}">
               ${block.caption ? `<div class="table-title">${escapeHtml(block.caption)}</div>` : ''}
               <div class="table-scroll">
                 <table class="wiki-table">
                   <thead><tr>${block.headers.map(h => `<th>${fmtCell(h)}</th>`).join('')}</tr></thead>
-                  <tbody>${block.rows.map(row => `<tr>${row.map(cell => `<td>${fmtCell(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
+                  <tbody>${block.rows.map(row => `<tr>${row.map((cell, i) => `<td${tableCellLabelAttr(block.headers, i)}>${fmtCell(cell)}</td>`).join('')}</tr>`).join('')}</tbody>
                 </table>
               </div>
             </figure>`);

@@ -11,7 +11,7 @@ const {
   generateSidebarCategories: sharedSidebarCategories,
   generateSidebarArticles: sharedSidebarArticles
 } = require('../components/sidebar');
-const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
+const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared, tableStackClass, tableCellLabelAttr } = require('../helpers/content-text');
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
 const { createArticleToc } = require('../helpers/article-toc');
 const { buildMetaDescription } = require('../../build/meta-description');
@@ -220,7 +220,7 @@ const renderContentBlocks = (content = [], category = '', slug = '', toc) => {
           const thumbUrl = article.thumbnail || '';
           return `
             <a href="${href}" class="blog-related-issue-card blog-series-card">
-              <img class="blog-related-issue-thumb" src="${thumbUrl}" alt="${article.title}" loading="lazy">
+              <img class="blog-related-issue-thumb" width="480" height="270" src="${thumbUrl}" alt="${article.title}" loading="lazy">
               <span class="blog-series-tag">${partLabel}</span>
               <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${article.title}</span></span>
             </a>
@@ -292,10 +292,10 @@ const renderContentBlocks = (content = [], category = '', slug = '', toc) => {
         if (!block.headers || !block.rows) break;
         const tableHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
         const tableRows = block.rows.map(row =>
-          `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
+          `<tr>${row.map((cell, i) => `<td${tableCellLabelAttr(block.headers, i)}>${parseTableCell(cell)}</td>`).join('')}</tr>`
         ).join('');
         result.push(`
-          <figure class="blog-figure blog-table">
+          <figure class="blog-figure blog-table${tableStackClass(block.headers)}">
             ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
             <div class="table-scroll">
               <table class="wiki-table">
@@ -317,7 +317,7 @@ const renderContentBlocks = (content = [], category = '', slug = '', toc) => {
             const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
             for (const [name, game] of Object.entries(gamesMap)) {
               if (game.slug === gameSlug && game.icon) {
-                iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${name}" loading="lazy">`;
+                iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${name}" loading="lazy">`;
                 break;
               }
             }
@@ -398,7 +398,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" width="40" height="40" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
@@ -419,7 +419,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
                 : '/favicon.svg';
               return `
               <a href="/wiki/${item.category}/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" width="480" height="270" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'tech') {
@@ -428,25 +428,25 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
                 : '/favicon.svg';
               return `
               <a href="/tech/${item.category}/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" width="480" height="270" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'issue') {
               return `
               <a href="/magazine/issue/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="/assets/images/issue/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" width="480" height="270" src="/assets/images/issue/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'insight') {
               return `
               <a href="/magazine/insight/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="/assets/images/insight/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" width="480" height="270" src="/assets/images/insight/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'hotpick') {
               return `
               <a href="/magazine/hotpick/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="/assets/images/hotpick/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" width="480" height="270" src="/assets/images/hotpick/${item.slug}/thumbnail.webp" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             } else if (item.type === 'ranking') {
@@ -455,7 +455,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
                 : '/favicon.svg';
               return `
               <a href="/magazine/ranking/${item.slug}/" class="blog-related-issue-card">
-                <img class="blog-related-issue-thumb" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+                <img class="blog-related-issue-thumb" width="480" height="270" src="${thumb}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
                 <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
               </a>`;
             }
@@ -558,7 +558,7 @@ function generateTechArticlePage({ article, category, relatedDocs = [], prevNext
 
               ${article.thumbnail ? `
               <figure class="blog-figure">
-                <img src="${getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" alt="${article.title}" loading="eager" fetchpriority="high">
+                <img src="${getLocalTechImagePath(category, article.slug, article.thumbnail, 'thumbnail')}" class="blog-image" width="1200" height="675" alt="${article.title}" loading="eager" fetchpriority="high">
               </figure>
               ` : ''}
 

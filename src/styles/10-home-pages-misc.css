@@ -298,7 +298,7 @@
     @media (max-width: 768px) {
       :root { --space-page-x: 8px; }
       /* 좌우 여백 8px 통일 */
-	      :is(.site-container, .container) { padding: 0 var(--space-page-x) 40px; }
+	      :is(.site-container, .container) { padding: 0 var(--space-page-x) calc(40px + env(safe-area-inset-bottom, 0px)); }
       .nav-inner { padding: 0; }
 
       /* 메인 메뉴 */

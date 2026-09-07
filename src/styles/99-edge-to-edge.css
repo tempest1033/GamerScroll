@@ -289,14 +289,13 @@
     object-fit: cover !important;
   }
 
-  /* 단락 제목 - 폰트 크기 (변수로 통일) */
+  /* 단락 제목 - 크기는 공통 아티클 스케일(--font-article-h2-size)을 그대로 쓰고 여백만 조정 */
   #issue .blog-heading,
   #insight .blog-heading,
   #hotpick .blog-heading,
   #wiki-article .blog-heading,
   #ranking .blog-heading,
   #tech-article .blog-heading {
-    font-size: var(--font-title-size) !important;
     margin: 24px 0 12px !important;
     padding-bottom: 8px !important;
   }
@@ -334,75 +333,18 @@
     overflow: visible !important;
   }
 
-  /* 표 제목 - 폰트 크기 */
+  /* 표 제목 - 크기는 공통 아티클 스케일, 여백만 조정 */
   #issue .table-title,
   #insight .table-title,
   #hotpick .table-title,
   #wiki-article .table-title,
   #ranking .table-title,
   #tech-article .table-title {
-    font-size: 16px !important;
     padding: 10px 12px !important;
   }
 
-  /* 표 - 컬럼 정렬 개선 */
-  #issue .wiki-table,
-  #insight .wiki-table,
-  #hotpick .wiki-table,
-  #wiki-article .wiki-table,
-  #ranking .wiki-table,
-  #tech-article .wiki-table {
-    table-layout: auto !important;
-    /* 표가 컨테이너 폭에 고정되면 nowrap 셀이 표 안에서 넘쳐 잘린다.
-       콘텐츠 너비로 커지게 해 figure(overflow-x:auto)가 가로 스크롤하도록. */
-    width: auto !important;
-    min-width: 100% !important;
-    max-width: none !important;
-  }
-
-  /* 표 컬럼 너비 자동 */
-  #issue .wiki-table th,
-  #issue .wiki-table td,
-  #insight .wiki-table th,
-  #insight .wiki-table td,
-  #hotpick .wiki-table th,
-  #hotpick .wiki-table td,
-  #wiki-article .wiki-table th,
-  #wiki-article .wiki-table td,
-  #ranking .wiki-table th,
-  #ranking .wiki-table td,
-  #tech-article .wiki-table th,
-  #tech-article .wiki-table td {
-    width: auto !important;
-    font-size: 14px !important;
-    padding: 8px 10px !important;
-    white-space: nowrap !important;
-  }
-
-  /* 첫 열(라벨/제목)만 줄바꿈 허용 — 긴 텍스트가 표를 과도하게 넓혀 숫자 열을
-     밀어내지 않도록. word-break:keep-all 로 한글은 단어 단위로만 줄바꿈해
-     글자 단위 쪼개짐을 막는다. 숫자 열은 위 규칙대로 nowrap 유지. */
-  #issue .wiki-table td:first-child,
-  #issue .wiki-table th:first-child,
-  #insight .wiki-table td:first-child,
-  #insight .wiki-table th:first-child,
-  #hotpick .wiki-table td:first-child,
-  #hotpick .wiki-table th:first-child,
-  #wiki-article .wiki-table td:first-child,
-  #wiki-article .wiki-table th:first-child,
-  #ranking .wiki-table td:first-child,
-  #ranking .wiki-table th:first-child,
-  #tech-article .wiki-table td:first-child,
-  #tech-article .wiki-table th:first-child {
-    white-space: normal !important;
-    word-break: keep-all;
-    min-width: 6em;
-    /* 라벨 열이 화면 절반을 넘지 않게 상한 — 숫자 열 공간을 항상 확보(레퍼런스 정석) */
-    max-width: 50vw;
-  }
-
-  /* (3번째 컬럼 줄바꿈 허용 규칙 제거 — 가로 스크롤 도입 후에는 모든 열을 nowrap 으로
-     유지하는 편이 셀이 세로로 쪼개지지 않아 정렬상 더 깔끔하다.) */
+  /* (표 폭·nowrap 강제 규칙 제거 — 표는 90-blog-article.css의 공통 모바일 규칙으로
+     줄바꿈/카드형 처리하며, 사이트별 !important 덮어쓰기를 두지 않는다.) */
 
   /* 관련 게임/글 - 둥근 모서리 유지 */
   #issue .blog-related-card,

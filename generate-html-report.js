@@ -4,6 +4,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const { PurgeCSS } = require('purgecss');
+const { guardHoverRules } = require('./src/build/css-hover-guard');
 const { generateRSS } = require('./src/rss/generate-rss');
 const { removeLegacyWeeklyPages } = require('./src/build/legacy-weekly-remove');
 const buildCache = require('./build-cache');
@@ -808,6 +809,9 @@ const PURGECSS_SAFELIST = {
   deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/],
   // gs-ad-*는 외부 번들(layout-core.js)의 classList.add로만 붙어 purge 스캔에 안 잡힘
   greedy: [/^gs-ad-/],
+  // 타이포 토큰(--font-*)은 core 번들(00-base)에 정의되고 article/report 번들에서 참조된다.
+  // PurgeCSS variables 정리는 파일 단위라 core 쪽에서 미사용으로 오인해 지우므로 보호한다.
+  variables: [/^--font-/],
 };
 
 // PurgeCSS: docs/ 내 CSS 번들에서 미사용 CSS 제거
@@ -1203,7 +1207,7 @@ async function main() {
   ];
 
   const buildCssBundle = (bundle) => {
-    const bundledCss = bundleCssFile(bundle.entry);
+    const bundledCss = guardHoverRules(bundleCssFile(bundle.entry));
     const minifiedCss = minifyCss(bundledCss);
     fs.writeFileSync(bundle.output, minifiedCss, 'utf8');
     const originalSize = Buffer.byteLength(bundledCss, 'utf8');

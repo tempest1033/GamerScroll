@@ -227,7 +227,7 @@ function generateHead(options = {}) {
 
   return `
 	  <meta charset="UTF-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">${noindex ? `
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">${noindex ? `
 	  <meta name="robots" content="noindex, follow">` : `
 	  <meta name="robots" content="max-image-preview:large">`}
 	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->${ADS_ENABLED ? `

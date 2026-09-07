@@ -77,6 +77,32 @@ function formatInlineMarkdown(text, options = {}) {
     .replace(RE_SUBHEADING_BR_FIX, 'class="subheading">$1</strong>');
 }
 
+const RE_HTML_TAG = /<[^>]*>/g;
+const RE_MD_MARKS = /[*`_]/g;
+const RE_ATTR_ESCAPE = /[&"<>]/g;
+const ATTR_ESCAPE_MAP = { '&': '&amp;', '"': '&quot;', '<': '&lt;', '>': '&gt;' };
+// 모바일 카드형 전환 기준 열 수 — 4열까지는 폰 폭(약 358px)에서 줄바꿈으로 수납되고, 5열부터 셀이 너무 좁아진다.
+const TABLE_STACK_MIN_COLUMNS = 5;
+
+function tableHeaderLabel(header) {
+  return String(header || '')
+    .replace(RE_HTML_TAG, '')
+    .replace(RE_MD_MARKS, '')
+    .replace(RE_ATTR_ESCAPE, (ch) => ATTR_ESCAPE_MAP[ch])
+    .trim();
+}
+
+/** 5열 이상 표에 붙는 모바일 카드형 클래스 (앞 공백 포함 — class 속성 값 뒤에 이어 붙인다) */
+function tableStackClass(headers) {
+  return Array.isArray(headers) && headers.length >= TABLE_STACK_MIN_COLUMNS ? ' blog-table--stack' : '';
+}
+
+/** 셀에 열 제목을 data-label로 심는다 — 카드형 레이아웃에서 CSS ::before가 표시한다 */
+function tableCellLabelAttr(headers, index) {
+  const label = tableHeaderLabel(Array.isArray(headers) ? headers[index] : '');
+  return label ? ` data-label="${label}"` : '';
+}
+
 function parseMarkdownTable(text, options = {}) {
   const { tableClass = 'blog-table-wrapper' } = options;
   const lines = String(text || '').trim().split('\n');
@@ -97,13 +123,13 @@ function parseMarkdownTable(text, options = {}) {
   const rows = dataLines.map(parseCells);
 
   const fmtCell = (s) => formatInlineMarkdown(s, options);
-  let html = `<div class="${tableClass}"><table>`;
+  let html = `<div class="${tableClass}${tableStackClass(headers)}"><table>`;
   html += '<thead><tr>';
   headers.forEach((h) => { html += `<th>${fmtCell(h)}</th>`; });
   html += '</tr></thead><tbody>';
   rows.forEach((row) => {
     html += '<tr>';
-    row.forEach((cell) => { html += `<td>${fmtCell(cell)}</td>`; });
+    row.forEach((cell, i) => { html += `<td${tableCellLabelAttr(headers, i)}>${fmtCell(cell)}</td>`; });
     html += '</tr>';
   });
   html += '</tbody></table></div>';
@@ -156,4 +182,6 @@ module.exports = {
   renderTextBlock,
   parseMarkdownTable,
   formatInlineMarkdown,
+  tableStackClass,
+  tableCellLabelAttr,
 };

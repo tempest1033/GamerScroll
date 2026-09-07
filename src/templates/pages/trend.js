@@ -10,7 +10,7 @@ const {
   generateSidebarCategories: sharedSidebarCategories,
   generateSidebarArticles: sharedSidebarArticles
 } = require('../components/sidebar');
-const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared } = require('../helpers/content-text');
+const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared, tableStackClass, tableCellLabelAttr } = require('../helpers/content-text');
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
 const { createArticleToc } = require('../helpers/article-toc');
 const { buildMetaDescription } = require('../../build/meta-description');
@@ -499,7 +499,7 @@ function renderParsedRelatedDocsHtml(parsedRelatedDocs) {
 
     return `
           <a href="${href}" class="blog-related-issue-card">
-            <img class="blog-related-issue-thumb" src="${thumbSrc || '/favicon.svg'}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-issue-thumb" width="480" height="270" src="${thumbSrc || '/favicon.svg'}" alt="${item.title}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${item.title}</span></span>
           </a>`;
   }).join('');
@@ -717,10 +717,10 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
           if (!block.headers || !block.rows) break;
           const tblHeaders = block.headers.map(h => `<th>${parseTableCell(h)}</th>`).join('');
           const tblRows = block.rows.map(row =>
-            `<tr>${row.map(cell => `<td>${parseTableCell(cell)}</td>`).join('')}</tr>`
+            `<tr>${row.map((cell, i) => `<td${tableCellLabelAttr(block.headers, i)}>${parseTableCell(cell)}</td>`).join('')}</tr>`
           ).join('');
           result.push(`
-            <figure class="blog-figure blog-table">
+            <figure class="blog-figure blog-table${tableStackClass(block.headers)}">
               ${block.caption ? `<div class="table-title">${escapeHtmlAttr(block.caption)}</div>` : ''}
               <div class="table-scroll">
                 <table class="wiki-table">
@@ -762,7 +762,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -783,7 +783,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -815,7 +815,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" width="40" height="40" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
@@ -908,7 +908,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${cfg.imagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
+                  <img class="blog-image" width="1200" height="675" src="${cfg.imagePath(slug, thumbnail, 'thumbnail')}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}
@@ -1130,7 +1130,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
           break;
         case 'table':
           if (block.headers && block.rows) {
-            let tableHtml = '<div class="blog-table-wrapper"><table>';
+            let tableHtml = `<div class="blog-table-wrapper${tableStackClass(block.headers)}"><table>`;
             if (block.caption) {
               tableHtml += `<caption>${escapeHtmlAttr(block.caption)}</caption>`;
             }
@@ -1139,12 +1139,12 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
             tableHtml += '</tr></thead><tbody>';
             block.rows.forEach(row => {
               tableHtml += '<tr>';
-              row.forEach(cell => {
+              row.forEach((cell, i) => {
                 let cellHtml = parseTableCell(cell).replace(/\n/g, '<br>');
                 cellHtml = cellHtml
                   .replace(/▲\s*(\d+)/g, '<span class="rank-up">▲$1</span>')
                   .replace(/▼\s*(\d+)/g, '<span class="rank-down">▼$1</span>');
-                tableHtml += `<td>${cellHtml}</td>`;
+                tableHtml += `<td${tableCellLabelAttr(block.headers, i)}>${cellHtml}</td>`;
               });
               tableHtml += '</tr>';
             });
@@ -1168,7 +1168,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -1187,7 +1187,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -1586,7 +1586,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
       <div class="blog-related-grid">
         ${relatedGames.map(game => `
           <a href="/games/${game.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" src="${game.icon || '/favicon.svg'}" alt="${game.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" width="40" height="40" src="${game.icon || '/favicon.svg'}" alt="${game.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${game.name}</span>
           </a>
         `).join('')}
@@ -1680,7 +1680,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               </header>
               ${thumbnail ? `
                 <figure class="blog-figure">
-                  <img class="blog-image" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
+                  <img class="blog-image" width="1200" height="675" src="${heroImg}" alt="${heroAlt}" loading="eager" fetchpriority="high">
                 </figure>
               ` : ''}
               ${summary ? `<p class="blog-summary">${summary}</p>` : ''}

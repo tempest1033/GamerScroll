@@ -12,6 +12,7 @@ const path = require('path');
 const crypto = require('crypto');
 const sharp = require('sharp');
 const { PurgeCSS } = require('purgecss');
+const { guardHoverRules } = require('./src/build/css-hover-guard');
 
 // 로컬 빌드 시 draft 포함 (CI 환경이 아니거나 --draft/-d 플래그)
 const includeDrafts = !process.env.CI || process.argv.includes('--draft') || process.argv.includes('-d');
@@ -351,7 +352,7 @@ function copyStyles() {
   let builtCount = 0;
   for (const bundle of AI_CSS_BUNDLES) {
     try {
-      const bundledCss = bundleCssFile(bundle.entry);
+      const bundledCss = guardHoverRules(bundleCssFile(bundle.entry));
       const minifiedCss = minifyCss(bundledCss);
       fs.writeFileSync(path.join(DOCS_DIR, bundle.output), minifiedCss, 'utf8');
       builtCount++;
@@ -945,6 +946,9 @@ const PURGECSS_SAFELIST = {
   ],
   deep: [/^search-/, /^is-/, /^has-/, /^ad-/],
   greedy: [],
+  // 타이포 토큰(--font-*)은 core 번들(00-base)에 정의되고 article 번들에서 참조된다.
+  // PurgeCSS variables 정리는 파일 단위라 core 쪽에서 미사용으로 오인해 지우므로 보호한다.
+  variables: [/^--font-/],
 };
 
 // PurgeCSS: ai-docs/ 내 CSS 번들에서 미사용 CSS 제거

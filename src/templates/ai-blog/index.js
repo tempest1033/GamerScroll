@@ -1039,7 +1039,7 @@ function wrapWithLayout(content, options = {}) {
 <html lang="${lang}" class="${htmlClassAttr}">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <!-- preconnect: 핵심 도메인 (PageSpeed 권고) -->${_adsActive ? `
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
@@ -1450,7 +1450,8 @@ function wrapWithLayout(content, options = {}) {
     .home-sidebar-sticky {
       top: 70px !important;
     }
-    /* 사이드바 카드 공통 규격 — 목차·카테고리·인기/최신이 같은 라벨(13px 대문자)·행(14px)·번호(13px) 크기를 쓴다.
+    /* 사이드바 카드 공통 규격 — 글자 크기·굵기는 공통 CSS의 --font-sidebar-* 토큰
+       (10-home-core.css, 90-blog-article.css)이 담당하고, 여기서는 여백만 맞춘다.
        기본 .home-card-header 의 min-height 44px 는 라벨 아래 빈 공간을 만들므로 해제. */
     #sidebar-toc,
     #sidebar-categories {
@@ -1464,32 +1465,10 @@ function wrapWithLayout(content, options = {}) {
       height: auto;
       border-bottom: none;
     }
-    #sidebar-toc .home-card-title,
-    #sidebar-categories .home-card-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
     .article-toc-item,
     .sidebar-category-item,
     .sidebar-article-item {
       padding: 9px 0;
-    }
-    .article-toc-text,
-    .sidebar-category-name,
-    .sidebar-article-title {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.45;
-    }
-    .article-toc-num,
-    .sidebar-article-rank {
-      width: 20px;
-      font-size: 13px;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
     }
     /* 검색 결과 페이지 */
     .search-loading, .search-empty {

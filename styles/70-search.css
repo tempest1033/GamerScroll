@@ -48,6 +48,7 @@
   padding: 0 8px;
   min-width: 0;
   height: 100%;
+  min-height: 24px; /* WCAG 2.5.8 최소 포인터 대상 */
   text-align: center;
 }
 
@@ -401,7 +402,8 @@
   }
 
   .search-input {
-    font-size: 14px;
+    /* iOS는 16px 미만 입력창에 포커스하면 화면을 자동 확대한다 */
+    font-size: 16px;
   }
 
   .search-btn {

@@ -16,10 +16,6 @@
     padding: 8px !important;
   }
 
-  .home-card-title {
-    font-size: var(--font-section-size);
-  }
-
   /* 카드 바디 */
   .home-card-body {
     padding: 6px 0 !important;
