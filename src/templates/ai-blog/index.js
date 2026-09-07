@@ -25,7 +25,7 @@ const SITE_CONFIG = {
 // i18n labels
 const I18N = {
   en: {
-    popular: 'Popular', latest: 'Latest', search: 'Search',
+    popular: 'Popular', latest: 'Latest', search: 'Search', closeSearch: 'Close search',
     searchPlaceholder: 'Search articles...',
     privacy: 'Privacy Policy', categories: 'Categories',
     readMore: 'Read more', publishedAt: 'Published',
@@ -37,7 +37,7 @@ const I18N = {
     menu: 'Menu', vibeCoding: 'Vibe Coding'
   },
   ko: {
-    popular: '인기', latest: '최신', search: '검색',
+    popular: '인기', latest: '최신', search: '검색', closeSearch: '검색 닫기',
     searchPlaceholder: '기사 검색...',
     privacy: '개인정보처리방침', categories: '카테고리',
     readMore: '더 보기', publishedAt: '게시일',
@@ -119,7 +119,9 @@ function generateHeader(lang = 'en') {
 function generateSearchContainer(lang = 'en') {
   const _t = I18N[lang] || I18N.en;
   const _homeHref = homeHref(lang);
-  // 모바일 상단바: 워드마크 로고(홈 링크) + 검색창. 파비콘 아이콘만 남기던 이전 형태는 브랜드명이 사라져 교체.
+  const _searchHref = searchHref(lang);
+  // 모바일 상단바: 워드마크 로고(홈 링크) + 돋보기 토글. 검색창은 접혀 있다가 토글을 누르면 로고 자리에 펼쳐진다.
+  // 토글은 검색 페이지 링크라 JS 없이도 동작하고, JS가 있으면 클릭을 가로채 펼침으로 바꾼다.
   return `
   <div class="search-container">
     <a href="${_homeHref}" class="search-home-logo" aria-label="AIScroll">
@@ -139,11 +141,19 @@ function generateSearchContainer(lang = 'en') {
         <rect x="386" y="18" width="8" height="20" rx="4" fill="url(#techGradMobile)" opacity="0.4"/>
       </svg>
     </a>
-    <div class="search-box">
+    <a href="${_searchHref}" class="search-toggle" aria-label="${_t.search}" aria-expanded="false" aria-controls="as-mobile-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    </a>
+    <div class="search-box" id="as-mobile-search">
+      <svg class="search-box-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
       <input type="text" class="search-input" placeholder="${_t.searchPlaceholder}" autocomplete="off">
-      <button class="search-btn" type="button" aria-label="${_t.search}">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      <button class="search-btn search-close" type="button" aria-label="${_t.closeSearch}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12"/>
         </svg>
       </button>
     </div>
@@ -1204,8 +1214,9 @@ function wrapWithLayout(content, options = {}) {
         align-items: center;
         gap: 10px;
       }
+      /* 검색창: 기본은 접힘(돋보기 토글만 보임), .search-open 이면 로고·토글 자리에 펼침 */
       .search-container .search-box {
-        display: flex;
+        display: none;
         align-items: center;
         background: var(--glass-bg);
         border: 1px solid var(--border);
@@ -1217,18 +1228,52 @@ function wrapWithLayout(content, options = {}) {
         max-width: none;
         margin: 0;
       }
-      /* 워드마크 로고 (홈 링크) — 검색창 왼쪽 */
+      .search-container.search-open .search-box {
+        display: flex;
+      }
+      .search-container .search-box-icon {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        margin-right: 8px;
+        color: var(--text-muted);
+      }
+      /* 워드마크 로고 (홈 링크) — 상단바 왼쪽, 남는 폭을 차지 */
       .search-container .search-home-logo {
         display: flex;
         align-items: center;
-        flex-shrink: 0;
+        flex: 1 1 auto;
+        min-width: 0;
         height: 48px;
         color: var(--text);
         text-decoration: none;
       }
       .search-container .search-home-logo-svg {
-        height: 20px;
+        height: 28px;
         width: auto;
+        max-width: 100%;
+      }
+      /* 돋보기 토글 — 누르면 검색창 펼침 (JS 없으면 검색 페이지 링크) */
+      .search-container .search-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--glass-bg);
+        border: 1px solid var(--border);
+        color: var(--text);
+        text-decoration: none;
+      }
+      .search-container .search-toggle svg {
+        width: 22px;
+        height: 22px;
+      }
+      .search-container.search-open .search-home-logo,
+      .search-container.search-open .search-toggle {
+        display: none;
       }
       .search-container .search-input {
         flex: 1;
@@ -1809,6 +1854,43 @@ function wrapWithLayout(content, options = {}) {
     bindSearchBox({ containerSelector: '.aiscroll-search', mobileMode: false });
     bindSearchBox({ containerSelector: '.search-container', mobileMode: true });
 
+    // 모바일 상단바 검색 토글: 돋보기를 누르면 검색창을 펼치고 입력창에 포커스, 닫기/Esc/바깥 탭이면 접는다.
+    (function() {
+      const container = document.querySelector('.search-container');
+      if (!container) return;
+      const toggle = container.querySelector('.search-toggle');
+      const input = container.querySelector('.search-input');
+      const closeBtn = container.querySelector('.search-close');
+      const dropdown = container.querySelector('.search-dropdown');
+      if (!toggle || !input) return;
+
+      function openSearch(e) {
+        if (e) e.preventDefault();
+        container.classList.add('search-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(function() { input.focus(); });
+      }
+      function closeSearch() {
+        if (!container.classList.contains('search-open')) return;
+        container.classList.remove('search-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        input.value = '';
+        if (dropdown) {
+          dropdown.classList.remove('active');
+          dropdown.innerHTML = '';
+        }
+      }
+
+      toggle.addEventListener('click', openSearch);
+      if (closeBtn) closeBtn.addEventListener('click', closeSearch);
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeSearch();
+      });
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container')) closeSearch();
+      });
+    })();
+
     document.addEventListener('click', function(e) {
       if (!e.target.closest('.aiscroll-search') && !e.target.closest('.search-container')) {
         document.querySelectorAll('.search-dropdown.active').forEach(function(dropdown) {
@@ -2377,9 +2459,14 @@ function generateSearchPage(lang = 'en') {
       const query = params.get('q') || '';
       const resultsContainer = document.getElementById('search-results');
       const pagination = document.getElementById('search-pagination');
-      const searchInput = document.querySelector('.search-input');
-
-      if (searchInput) searchInput.value = query;
+      document.querySelectorAll('.search-input').forEach(function(el) { el.value = query; });
+      // 모바일 상단바: 검색어가 있으면 접힌 검색창을 펼쳐 검색어가 보이게 한다.
+      const mobileSearch = document.querySelector('.search-container');
+      if (mobileSearch && query) {
+        mobileSearch.classList.add('search-open');
+        const mobileToggle = mobileSearch.querySelector('.search-toggle');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+      }
 
       if (!query || query.length < 2) {
         resultsContainer.innerHTML = '<p class="search-empty">Please enter a search term (at least 2 characters).</p>';
@@ -2395,7 +2482,9 @@ function generateSearchPage(lang = 'en') {
         if (!raw) return '';
         if (raw.startsWith('/assets/') || raw.startsWith('/favicon')) return raw;
         if (raw.startsWith('https://wsrv.nl/')) return raw;
-        if (/^https?:\/\//i.test(raw)) {
+        // 템플릿 리터럴 안이라 정규식 \/\/ 는 출력에서 // 주석이 돼 스크립트 전체가 깨진다 — 문자열 비교로 처리
+        const lower = raw.toLowerCase();
+        if (lower.startsWith('http://') || lower.startsWith('https://')) {
           return 'https://wsrv.nl/?url=' + encodeURIComponent(raw) + '&w=480&output=webp';
         }
         return raw;
