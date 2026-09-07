@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const { PurgeCSS } = require('purgecss');
 const { generateRSS } = require('./src/rss/generate-rss');
+const { noindexLegacyWeeklyPages } = require('./src/build/legacy-weekly-noindex');
 const buildCache = require('./build-cache');
 
 // 커맨드라인 인자 파싱
@@ -2582,7 +2583,7 @@ async function main() {
     { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/magazine/ranking/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/magazine/weekly/`, lastmod: sitemapDate, priority: '0.8' },
+    // /magazine/weekly/ 허브는 구 주간 페이지와 함께 noindex (legacy-weekly-noindex) → sitemap 제외
     // 순위/데이터
     { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate, priority: '0.8' },
@@ -2622,6 +2623,20 @@ async function main() {
     })));
   }
 
+  // 매거진 sitemap 항목: JSON date → lastmod. noindex 플래그 기사와
+  // 소스 JSON이 사라진 유령 폴더(deploy seed 잔존물)는 제외한다.
+  const magazineSitemapEntry = (reportsDir, type, slug) => {
+    const jsonPath = `${reportsDir}/${slug}.json`;
+    if (!fs.existsSync(jsonPath)) return null;
+    let lastmod = sitemapDate;
+    try {
+      const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
+      if (json.noindex === true) return null;
+      if (json.date) lastmod = normalizeLastmodDate(json.date);
+    } catch (e) {}
+    return { loc: `${siteBaseUrl}/magazine/${type}/${slug}/`, lastmod, priority: '0.6' };
+  };
+
   // 브리핑 페이지 자동 스캔
   let magazinePages = [];
   if (fs.existsSync(destBriefingDir)) {
@@ -2631,22 +2646,7 @@ async function main() {
       const issueFolders = fs.readdirSync(issueBriefingDir).filter(f =>
         fs.statSync(`${issueBriefingDir}/${f}`).isDirectory()
       );
-      magazinePages.push(...issueFolders.map(slug => {
-        // JSON에서 date 읽기
-        let issueDate = sitemapDate;
-        try {
-          const jsonPath = `${ISSUE_REPORTS_DIR}/${slug}.json`;
-          if (fs.existsSync(jsonPath)) {
-            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
-            if (json.date) issueDate = normalizeLastmodDate(json.date);
-          }
-        } catch (e) {}
-        return {
-          loc: `${siteBaseUrl}/magazine/issue/${slug}/`,
-          lastmod: issueDate,
-          priority: '0.6'
-        };
-      }));
+      magazinePages.push(...issueFolders.map(slug => magazineSitemapEntry(ISSUE_REPORTS_DIR, 'issue', slug)).filter(Boolean));
     }
 
     // 인사이트 페이지
@@ -2655,21 +2655,7 @@ async function main() {
       const insightFolders = fs.readdirSync(insightBriefingDir).filter(f =>
         fs.statSync(`${insightBriefingDir}/${f}`).isDirectory()
       );
-      magazinePages.push(...insightFolders.map(slug => {
-        let insightDate = sitemapDate;
-        try {
-          const jsonPath = `${INSIGHT_REPORTS_DIR}/${slug}.json`;
-          if (fs.existsSync(jsonPath)) {
-            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
-            if (json.date) insightDate = normalizeLastmodDate(json.date);
-          }
-        } catch (e) {}
-        return {
-          loc: `${siteBaseUrl}/magazine/insight/${slug}/`,
-          lastmod: insightDate,
-          priority: '0.6'
-        };
-      }));
+      magazinePages.push(...insightFolders.map(slug => magazineSitemapEntry(INSIGHT_REPORTS_DIR, 'insight', slug)).filter(Boolean));
     }
 
     // 핫픽 페이지
@@ -2678,21 +2664,7 @@ async function main() {
       const hotpickFolders = fs.readdirSync(hotpickBriefingDir).filter(f =>
         fs.statSync(`${hotpickBriefingDir}/${f}`).isDirectory()
       );
-      magazinePages.push(...hotpickFolders.map(slug => {
-        let hotpickDate = sitemapDate;
-        try {
-          const jsonPath = `${HOTPICK_REPORTS_DIR}/${slug}.json`;
-          if (fs.existsSync(jsonPath)) {
-            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
-            if (json.date) hotpickDate = normalizeLastmodDate(json.date);
-          }
-        } catch (e) {}
-        return {
-          loc: `${siteBaseUrl}/magazine/hotpick/${slug}/`,
-          lastmod: hotpickDate,
-          priority: '0.6'
-        };
-      }));
+      magazinePages.push(...hotpickFolders.map(slug => magazineSitemapEntry(HOTPICK_REPORTS_DIR, 'hotpick', slug)).filter(Boolean));
     }
 
     // 순위 분석 페이지
@@ -2701,22 +2673,12 @@ async function main() {
       const rankingFolders = fs.readdirSync(rankingBriefingDir).filter(f =>
         fs.statSync(`${rankingBriefingDir}/${f}`).isDirectory()
       );
-      magazinePages.push(...rankingFolders.map(slug => {
-        let rankingDate = sitemapDate;
-        try {
-          const jsonPath = `${RANKING_REPORTS_DIR}/${slug}.json`;
-          if (fs.existsSync(jsonPath)) {
-            const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
-            if (json.date) rankingDate = normalizeLastmodDate(json.date);
-          }
-        } catch (e) {}
-        return {
-          loc: `${siteBaseUrl}/magazine/ranking/${slug}/`,
-          lastmod: rankingDate,
-          priority: '0.6'
-        };
-      }));
+      magazinePages.push(...rankingFolders.map(slug => magazineSitemapEntry(RANKING_REPORTS_DIR, 'ranking', slug)).filter(Boolean));
     }
+
+    // 구 주간 페이지는 생성기가 없어 deploy seed로만 남는다 → 매 빌드 noindex 주입 후 아래 스캔에서 제외
+    const weeklyNoindexed = noindexLegacyWeeklyPages(`${destBriefingDir}/weekly`);
+    if (weeklyNoindexed > 0) console.log(`🚫 구 주간 페이지 noindex 주입: ${weeklyNoindexed}개`);
 
     // 주간 트렌드 페이지 (빌드된 디렉터리 스캔 — 별도 JSON 소스 없음 → 빌드일 lastmod)
     const weeklyBriefingDir = `${destBriefingDir}/weekly`;

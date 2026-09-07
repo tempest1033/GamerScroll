@@ -1,6 +1,7 @@
 {
   "slug": "pubg-battlegrounds-birth-history",
   "status": "approved",
+  "noindex": true,
   "title": "배틀그라운드의 탄생: H1Z1에서 PUBG까지",
   "date": "2026-01-24T12:00",
   "thumbnail": "https://wstatic-prod-boc.krafton.com/common/content/news/20260106/BMjJf93G.webp",

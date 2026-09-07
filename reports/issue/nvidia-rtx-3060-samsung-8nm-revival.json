@@ -1,6 +1,7 @@
 {
   "slug": "nvidia-rtx-3060-samsung-8nm-revival",
   "status": "approved",
+  "noindex": true,
   "title": "엔비디아 RTX 3060 부활설: 삼성 8nm 공정으로 재생산, GPU 수급난 해소 노린다",
   "date": "2026-03-14T14:30",
   "thumbnail": "https://img.trendforce.com/blog/wp-content/uploads/2026/03/11110803/NVIDIA-rtx-3060-20260311.jpg",

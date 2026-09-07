@@ -42,7 +42,7 @@ function getIssueReports(reportsDir) {
 
   for (const file of files) {
     const data = readJsonFile(path.join(issueDir, file));
-    if (!data || data.status !== 'approved') continue;
+    if (!data || data.status !== 'approved' || data.noindex === true) continue;
 
     items.push({
       type: 'issue',
@@ -67,7 +67,7 @@ function getHotpickReports(reportsDir) {
 
   for (const file of files) {
     const data = readJsonFile(path.join(hotpickDir, file));
-    if (!data || data.status !== 'approved') continue;
+    if (!data || data.status !== 'approved' || data.noindex === true) continue;
 
     items.push({
       type: 'hotpick',
@@ -92,7 +92,7 @@ function getRankingReports(reportsDir) {
 
   for (const file of files) {
     const data = readJsonFile(path.join(rankingDir, file));
-    if (!data || data.status !== 'approved') continue;
+    if (!data || data.status !== 'approved' || data.noindex === true) continue;
 
     items.push({
       type: 'ranking',
@@ -122,7 +122,7 @@ function getWikiArticles(wikiDir) {
 
     for (const file of files) {
       const data = readJsonFile(path.join(categoryDir, file));
-      if (!data || data.status !== 'approved') continue;
+      if (!data || data.status !== 'approved' || data.noindex === true) continue;
 
       items.push({
         type: 'wiki',
@@ -153,7 +153,7 @@ function getTechArticles(techDir) {
 
     for (const file of files) {
       const data = readJsonFile(path.join(subcategoryDir, file));
-      if (!data || data.status !== 'approved') continue;
+      if (!data || data.status !== 'approved' || data.noindex === true) continue;
 
       items.push({
         type: 'tech',

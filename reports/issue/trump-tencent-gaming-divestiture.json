@@ -1,19 +1,45 @@
 {
   "slug": "trump-tencent-gaming-divestiture",
   "status": "approved",
+  "noindex": true,
   "title": "텐센트 게임 지분 강제매각 검토: 트럼프 행정부의 게임업계 지각변동",
   "summary": "트럼프 행정부가 텐센트의 에픽게임즈, 라이엇게임즈, 슈퍼셀 등 주요 게임사 지분에 대한 강제매각을 공식 검토 중이다. CFIUS 심사가 진행되는 가운데, 틱톡 선례를 따른 부분매각 시나리오부터 완전 매각까지 다양한 가능성이 제기되고 있으며, 한국 게임사에 대한 파장도 주목받고 있다.",
   "keywords": "텐센트, 트럼프, 강제매각, 에픽게임즈, 라이엇게임즈, 슈퍼셀, CFIUS, 게임 지분, 미중 갈등, 국가안보, 시프트업, 크래프톤, 넷마블, 2026",
   "date": "2026-03-05",
   "thumbnail": "https://www.videogameschronicle.com/files/2020/01/tencent-building-768x470.jpg",
-  "relatedDocs": ["issue:china-gaming-superpower-rise", "issue:gaming-device-price-surge-ai-tariff", "issue:shiftup-self-publishing-stellar-blade", "issue:china-game-license-normalization"],
+  "relatedDocs": [
+    "issue:china-gaming-superpower-rise",
+    "issue:gaming-device-price-surge-ai-tariff",
+    "issue:shiftup-self-publishing-stellar-blade",
+    "issue:china-game-license-normalization"
+  ],
   "relatedGames": [],
   "sources": [
-    { "name": "Kotaku", "title": "Trump May Force Tencent To Sell Its Stakes In Epic, Riot, And Supercell", "url": "https://kotaku.com/tencent-trump-divest-china-epic-riot-supercell-2000675567" },
-    { "name": "Tom's Hardware", "title": "Trump administration weighs forcing Tencent to sell its stakes in Epic Games", "url": "https://www.tomshardware.com/video-games/pc-gaming/trump-administration-weighs-forcing-tencent-to-sell-its-stakes-in-epic-games" },
-    { "name": "VGC", "title": "Trump administration debating whether to allow Tencent to keep its game company investments", "url": "https://www.videogameschronicle.com/news/trump-administration-debating-whether-to-allow-tencent-to-keep-its-game-company-investments/" },
-    { "name": "Game Developer", "title": "Report: Trump administration may pressure Tencent to divest from US studios", "url": "https://www.gamedeveloper.com/business/report-trump-administration-may-pressure-tencent-to-divest-from-us-studios" },
-    { "name": "Financial Times", "title": "Trump weighs forcing Tencent to divest gaming stakes", "url": "https://www.ft.com/content/tencent-gaming-divestiture" }
+    {
+      "name": "Kotaku",
+      "title": "Trump May Force Tencent To Sell Its Stakes In Epic, Riot, And Supercell",
+      "url": "https://kotaku.com/tencent-trump-divest-china-epic-riot-supercell-2000675567"
+    },
+    {
+      "name": "Tom's Hardware",
+      "title": "Trump administration weighs forcing Tencent to sell its stakes in Epic Games",
+      "url": "https://www.tomshardware.com/video-games/pc-gaming/trump-administration-weighs-forcing-tencent-to-sell-its-stakes-in-epic-games"
+    },
+    {
+      "name": "VGC",
+      "title": "Trump administration debating whether to allow Tencent to keep its game company investments",
+      "url": "https://www.videogameschronicle.com/news/trump-administration-debating-whether-to-allow-tencent-to-keep-its-game-company-investments/"
+    },
+    {
+      "name": "Game Developer",
+      "title": "Report: Trump administration may pressure Tencent to divest from US studios",
+      "url": "https://www.gamedeveloper.com/business/report-trump-administration-may-pressure-tencent-to-divest-from-us-studios"
+    },
+    {
+      "name": "Financial Times",
+      "title": "Trump weighs forcing Tencent to divest gaming stakes",
+      "url": "https://www.ft.com/content/tencent-gaming-divestiture"
+    }
   ],
   "content": [
     {

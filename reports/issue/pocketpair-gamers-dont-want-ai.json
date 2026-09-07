@@ -2,6 +2,7 @@
   "slug": "pocketpair-gamers-dont-want-ai",
   "site": "gamerscroll",
   "status": "approved",
+  "noindex": true,
   "type": "issue",
   "date": "2026-06-19T10:30+09:00",
   "title": "팰월드 개발사 포켓페어 \"게이머는 생성형 AI 원치 않는다\"",

@@ -1,6 +1,7 @@
 {
   "slug": "nakwon-last-paradise-cbt",
   "status": "approved",
+  "noindex": true,
   "title": "서울 종로에 좀비가 들끓는다, 낙원 CBT가 증명한 K-좀비 익스트랙션의 가능성",
   "titleEn": "Zombies Overrun Seoul Jongno: What NAKWON's CBT Proved About K-Zombie Extraction",
   "summary": "넥슨의 3인칭 PvPvE 좀비 익스트랙션 '낙원: 라스트 파라다이스'가 2차 글로벌 클로즈드 알파 테스트를 마쳤다. 동시접속 16,000명을 돌파하며 전작 대비 3배 성장했지만, 최적화와 UI 문제로 호불호가 갈리고 있다.",

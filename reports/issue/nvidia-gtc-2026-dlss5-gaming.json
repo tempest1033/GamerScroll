@@ -1,6 +1,7 @@
 {
   "slug": "nvidia-gtc-2026-dlss5-gaming",
   "status": "approved",
+  "noindex": true,
   "title": "DLSS 5부터 ARM 노트북까지, 엔비디아 GTC 2026이 바꿀 게이밍의 미래",
   "date": "2026-03-17T09:00",
   "keywords": "엔비디아 GTC 2026, DLSS 5, 뉴럴 렌더링, 아이온2 DLSS, 베라 루빈, N1X ARM 게이밍 노트북, 지포스 나우 90fps, RTX 메가 지오메트리, 젠슨 황, SK하이닉스 HBM4",

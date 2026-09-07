@@ -959,6 +959,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
     keywords: post.keywords || cfg.defaultKeywords,
     canonical: `${siteBaseUrl}/magazine/${type}/${slug}/`,
     articleSchema,
+    noindex: post.noindex === true,  // 검색 성과 없는 기사 정리용 (JSON 플래그, 사이트맵·RSS도 제외)
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '브리핑', url: `${siteBaseUrl}/magazine/` },
@@ -1728,6 +1729,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     keywords: post.keywords || '게임 순위, 순위 분석, 차트 분석, 게임 비교',
     canonical: `${siteBaseUrl}/magazine/ranking/${slug}/`,
     articleSchema,
+    noindex: post.noindex === true,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
       { name: '매거진', url: `${siteBaseUrl}/magazine/` },
