@@ -1306,6 +1306,11 @@ function wrapWithLayout(content, options = {}) {
         top: calc(100% + 4px);
         left: 16px;
         right: 16px;
+        /* 공용 70-search.css 의 left:50% + translateX(-50%) + width 규칙을 무효화 — 상단바 폭에 맞춰 고정 */
+        transform: none;
+        width: auto;
+        max-width: none;
+        margin-top: 0;
         background: var(--bg-secondary);
         border: 1px solid var(--border);
         border-radius: 12px;
