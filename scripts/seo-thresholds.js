@@ -13,5 +13,6 @@ module.exports = {
   READ_SENTENCE_WORDS_MAX: 45,
   READ_PARAGRAPH_SENTENCES_MAX: 7,
   SUMMARY_CHARS_MAX: 160,
-  SOURCES_REQUIRED: 5,
+  /** Minimum sources per article; no upper cap — identical counts across articles read as templated */
+  SOURCES_MIN: 3,
 };

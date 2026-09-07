@@ -12,13 +12,13 @@
  *
  * Checks per article:
  *   meta/site            - `site` field present (HARD rule; missing => excluded from both builds)
- *   meta/sources         - exactly 5 sources (HARD rule)
+ *   meta/sources         - >= 3 sources (HARD rule; no upper cap)
  *   meta/related-docs    - 3-4 relatedDocs, each target JSON exists on disk
  *   meta/related-games   - every explicit relatedGames slug exists in games.json
  *   meta/thumbnail       - non-empty thumbnail
  *   meta/summary-len     - summary (and summaryEn) <= 160 chars
  *   meta/dual-language   - AIScroll: titleEn/summaryEn/keywordsEn/contentEn present, keywordsEn != keywords, needTranslate false
- *   body/sections        - 4-8 sections (intro + headings)
+ *   body/sections        - 2-12 sections (intro + headings; advisory — shape follows the story type)
  *   body/section-length  - each KO section <= 800 chars
  *   body/anchors         - >= 1 internal link AND >= 1 outbound link in prose
  *   content/paragraph    - no paragraph > 7 sentences (decimal-safe count)
@@ -54,7 +54,7 @@ const {
   READ_SENTENCE_WORDS_MAX: SENTENCE_WORDS_MAX,
   READ_PARAGRAPH_SENTENCES_MAX: PARAGRAPH_SENTENCES_MAX,
   SUMMARY_CHARS_MAX,
-  SOURCES_REQUIRED,
+  SOURCES_MIN,
 } = require('./seo-thresholds');
 
 const SECTION_CHARS_MAX = 800;
@@ -269,7 +269,7 @@ function evalArticle(file, json, morph, morphIdx) {
   checks.push({ name: 'meta/site', pass: !!json.site, detail: json.site || 'MISSING (excluded from both builds)' });
 
   const srcN = Array.isArray(json.sources) ? json.sources.length : 0;
-  checks.push({ name: 'meta/sources', pass: srcN === SOURCES_REQUIRED, detail: `${srcN} (need exactly ${SOURCES_REQUIRED})` });
+  checks.push({ name: 'meta/sources', pass: srcN >= SOURCES_MIN, detail: `${srcN} (need >= ${SOURCES_MIN})` });
 
   const rd = Array.isArray(json.relatedDocs) ? json.relatedDocs : [];
   const rdMissing = rd.map(resolveRelatedDoc).map((p, i) => (p && fs.existsSync(p) ? null : rd[i])).filter(Boolean);
@@ -313,7 +313,7 @@ function evalArticle(file, json, morph, morphIdx) {
   // --- structure (no morph) ---
   const headings = headingTexts(koBlocks);
   const sectionCount = headings.length + 1; // + intro
-  checks.push({ name: 'body/sections', pass: sectionCount >= 4 && sectionCount <= 8, detail: `${sectionCount} sections (4-8)` });
+  checks.push({ name: 'body/sections', pass: sectionCount >= 2 && sectionCount <= 12, detail: `${sectionCount} sections (2-12)` });
 
   const secLens = sectionCharLengths(koBlocks);
   const longSecs = secLens.filter((l) => l > SECTION_CHARS_MAX).length;
