@@ -32949,6 +32949,17 @@
         }
       ],
       "addedAt": "2026-09-08T10:24:19.192Z"
+    },
+    {
+      "title": "안녕 Popcorn",
+      "status": "single",
+      "appIds": {
+        "ios": 1583108224
+      },
+      "developer": "junhyuk lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/8a/42/81/8a4281da-5673-8fb0-4e6a-56e21165218f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-08T14:41:52.178Z"
     }
   ],
   "approved": [

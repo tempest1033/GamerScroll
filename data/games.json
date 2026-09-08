@@ -46850,8 +46850,44 @@
       "platforms": [
         "android"
       ]
+    },
+    "안녕 Popcorn": {
+      "appIds": {
+        "ios": 1583108224
+      },
+      "aliases": [],
+      "developer": "junhyuk lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/8a/42/81/8a4281da-5673-8fb0-4e6a-56e21165218f/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "안녕-popcorn",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Wanderburg": {
+      "appIds": {
+        "steam": "3624140"
+      },
+      "aliases": [],
+      "developer": "Randwerk",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3624140/300527c75c0b5eb18e08bb8674b5fbad7c120ddf/capsule_231x87_alt_assets_2.jpg?t=1788872977",
+      "slug": "wanderburg",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "shapez 2 - Factory": {
+      "appIds": {
+        "steam": "2162800"
+      },
+      "aliases": [],
+      "developer": "tobspr Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2162800/5cdaa9e8359c7c39de9b96aeba814616c59641cb/capsule_231x87.jpg?t=1788787557",
+      "slug": "shapez-2-factory",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-08",
-  "totalGames": 3585
+  "totalGames": 3588
 }
