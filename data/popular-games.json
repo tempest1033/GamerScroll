@@ -1,17 +1,57 @@
 {
-  "updatedAt": "2026-09-07T22:56:34.542Z",
+  "updatedAt": "2026-09-08T23:30:13.872Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 7
+    },
     {
       "slug": "where-winds-meet",
       "views": 6
     },
     {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "slug": "단어-찾기-단어-게임",
       "views": 6
     },
     {
+      "slug": "에픽세븐",
+      "views": 6
+    },
+    {
+      "slug": "1-하트-윌-우들-스크류-온",
+      "views": 5
+    },
+    {
       "slug": "arrow-pro-3d",
+      "views": 5
+    },
+    {
+      "slug": "barotrauma",
+      "views": 5
+    },
+    {
+      "slug": "geometry-dash-lite",
+      "views": 5
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 5
+    },
+    {
+      "slug": "hero-siege",
+      "views": 5
+    },
+    {
+      "slug": "mistfall-hunter",
+      "views": 5
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 5
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
       "views": 5
     },
     {
@@ -19,64 +59,24 @@
       "views": 5
     },
     {
+      "slug": "pixel-flow",
+      "views": 5
+    },
+    {
+      "slug": "sakura-school-simulator",
+      "views": 5
+    },
+    {
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 5
+    },
+    {
       "slug": "vpet",
       "views": 5
     },
     {
-      "slug": "단어-찾기-단어-게임",
+      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
       "views": 5
-    },
-    {
-      "slug": "로드러쉬",
-      "views": 5
-    },
-    {
-      "slug": "에이지-오브-엠파이어-모바일",
-      "views": 5
-    },
-    {
-      "slug": "에픽세븐",
-      "views": 5
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
-      "views": 5
-    },
-    {
-      "slug": "탑-히어로즈-영웅의-시대",
-      "views": 5
-    },
-    {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 4
-    },
-    {
-      "slug": "barotrauma",
-      "views": 4
-    },
-    {
-      "slug": "geometry-dash-lite",
-      "views": 4
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 4
-    },
-    {
-      "slug": "hero-siege",
-      "views": 4
-    },
-    {
-      "slug": "mistfall-hunter",
-      "views": 4
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 4
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 4
     }
   ]
 }
