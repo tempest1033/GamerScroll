@@ -1,0 +1,181 @@
+/* 홈에서 확정한 화이트 테마를 순위·게임·리포트·본문에 확장한다. */
+body:not(.page-home) .rk { --rk-accent-bg: #f0f6ff; --rk-line: #e5e5e9; --rk-up: #d43e42; --rk-down: #0071e3; }
+body:not(.page-home) .rk h1 { font-size: 36px; line-height: 1.25; font-weight: 650; letter-spacing: -.045em; }
+body:not(.page-home) .rk .rk-head { margin: 12px 0 28px; }
+body:not(.page-home) .rk .rk-subnav { gap: 26px; margin-top: 24px; }
+body:not(.page-home) .rk .rk-subnav a { font-size: 14px; font-weight: 500; color: #6e6e73; }
+body:not(.page-home) .rk .rk-subnav a.active { color: #1d1d1f; border-color: #1d1d1f; }
+body:not(.page-home) .rk .rk-tabs a { border: 0; border-radius: 999px; font-size: 12px; }
+body:not(.page-home) .rk .rk-tabs a.active { background: #f0f0f2; color: #1d1d1f; }
+body:not(.page-home) .rk .rk-ticker { border: 0; border-radius: 16px; background: #f5f5f7; padding: 16px 20px; margin: 24px 0; font-size: 12px; }
+body:not(.page-home) .rk .rk-ticker .tl { font-size: 11px; font-weight: 400; }
+body:not(.page-home) .rk .rk-cols { gap: 40px; margin-top: 30px; }
+body:not(.page-home) .rk .rk-col { border: 0; border-radius: 0; background: transparent; padding: 0; }
+body:not(.page-home) .rk .rk-colh { padding-bottom: 18px; }
+body:not(.page-home) .rk .rk-colh h2 { font-size: 20px; font-weight: 600; }
+body:not(.page-home) .rk .rk-colh h2::before { display: none; }
+body:not(.page-home) .rk .rk-list li { border-bottom-color: #eeeef0; border-radius: 8px; padding: 0 6px; }
+body:not(.page-home) .rk .rk-list .nm > a { font-size: 14px; font-weight: 550; }
+body:not(.page-home) .rk .rk-list .nm .dv { font-size: 10px; font-weight: 400; }
+body:not(.page-home) .rk .rk-list .rk-rk { color: #6e6e73; font-size: 13px; font-weight: 500; }
+body:not(.page-home) .rk .rk-list img { box-shadow: none; }
+body:not(.page-home) .rk .rk-chg { font-size: 12px; font-weight: 500; }
+body:not(.page-home) .rk .rk-more { background: none; font-weight: 400; color: #0066cc; padding: 20px 0; }
+body:not(.page-home) .rk .rk-card { border: 0; border-radius: 0; background: transparent; padding: 0; margin-top: 40px; }
+body:not(.page-home) .rk .rk-card h2,
+body:not(.page-home) .rk .rk-section > h2 { font-size: 24px; font-weight: 600; letter-spacing: -.035em; border: 0; padding-bottom: 18px; }
+body:not(.page-home) .rk .rk-card h2 small { font-size: 12px; font-weight: 400; }
+body:not(.page-home) .rk .rk-grid2,
+body:not(.page-home) .rk .rk-grid3 { gap: 36px; }
+body:not(.page-home) .rk .rk-stats { gap: 16px; }
+body:not(.page-home) .rk .rk-stat { border: 0; border-radius: 18px; background: #f5f5f7; padding: 22px; }
+body:not(.page-home) .rk .rk-stat .v { font-size: clamp(24px,2.5vw,32px); font-weight: 550; color: #1d1d1f; }
+body:not(.page-home) .rk .rk-stat .l,
+body:not(.page-home) .rk .rk-stat .s { font-size: 11px; color: #6e6e73; font-weight: 400; }
+body:not(.page-home) .rk .rk-stat .rk-spark { opacity: .65; }
+body:not(.page-home) .rk .rk-table { font-size: 13px; }
+body:not(.page-home) .rk .rk-table thead th { background: #f5f5f7; color: #6e6e73; font-weight: 400; }
+body:not(.page-home) .rk .rk-table .rk-app .t { font-weight: 550; }
+body:not(.page-home) .rk .rk-table td.rk-rank { color: #6e6e73; font-weight: 500; }
+body:not(.page-home) .rk .rk-table tbody tr:hover { background: #fafafa; }
+body:not(.page-home) .rk .rk-badge { font-size: 10px; border-radius: 5px; font-weight: 400; }
+body:not(.page-home) .rk .rk-hero { border: 0; padding: 12px 0 28px; border-radius: 0; background: transparent; }
+body:not(.page-home) .rk .rk-hero h1 { font-size: 32px; }
+body:not(.page-home) .rk .rk-hero .meta { font-size: 12px; }
+body:not(.page-home) .rk .rk-hero .meta b { font-weight: 500; }
+body:not(.page-home) .rk .rk-btn { border-radius: 999px; font-weight: 500; }
+body:not(.page-home) .rk .rk-btn.primary { background: #0071e3; }
+body:not(.page-home) .rk .rk-chart { background: #f5f5f7; padding: 24px; border-radius: 20px; }
+body:not(.page-home) .rk .rk-foot { font-size: 11px; margin-top: 52px; color: #86868b; }
+body:not(.page-home) .rk .rk-links-row a { border: 0; background: #f5f5f7; border-radius: 999px; font-weight: 400; }
+/* 게임 DB */
+body .site-container #steam .rk-steam-summary .rk-stat { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 24px; }
+body .site-container #steam .rk-steam-summary .l { font-size: 14px; font-weight: 500; line-height: 1.5; color: #515154; }
+body .site-container #steam .rk-steam-summary .v { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; margin: 0; font-size: clamp(24px, 2.5vw, 36px); font-weight: 600; line-height: 1.2; color: #1d1d1f; font-variant-numeric: tabular-nums; }
+body .site-container #steam .rk-steam-summary .v small { font-size: 16px; font-weight: 400; margin: 0; }
+body .site-container #steam .rk-steam-summary .s { margin: auto 0 0; font-size: 13px; line-height: 1.7; color: #6e6e73; overflow-wrap: anywhere; }
+body .site-container #steam .rk-steam-card-game { display: flex; align-items: center; gap: 12px; min-width: 0; color: #1d1d1f !important; text-decoration: none; margin: 4px 0 10px; }
+body .site-container #steam .rk-steam-card-game img { width: 68px; height: 44px; object-fit: cover; border-radius: 8px; flex: none; }
+body .site-container #steam .rk-steam-card-game span { font-size: 20px; font-weight: 600; line-height: 1.4; min-width: 0; overflow-wrap: anywhere; }
+body .site-container #steam .rk-steam-card-game:hover span { text-decoration: underline; text-underline-offset: 3px; }
+body .site-container #steam .rk-steam-game-card .s strong { font-size: 15px; font-weight: 500; color: #515154; }
+body .site-container #steam .rk-list .nm > a { font-size: 15px; font-weight: 600; color: #1d1d1f !important; }
+body .site-container #steam .rk-list .num b { font-size: 13px; font-weight: 500; color: #515154; }
+@media (max-width: 768px) {
+  body .site-container #steam .rk-steam-summary .rk-stat { padding: 18px 14px; gap: 8px; }
+  body .site-container #steam .rk-steam-summary .l { font-size: 13px; }
+  body .site-container #steam .rk-steam-summary .v { font-size: clamp(20px, 6vw, 24px); }
+  body .site-container #steam .rk-steam-summary .v small { font-size: 14px; }
+  body .site-container #steam .rk-steam-summary .s { font-size: 12px; }
+  body .site-container #steam .rk-steam-card-game { flex-direction: column; align-items: flex-start; gap: 10px; }
+  body .site-container #steam .rk-steam-card-game span { font-size: 17px; }
+  body .site-container #steam .rk-steam-game-card .s strong { font-size: 14px; }
+}
+.page-games .games-hub-intro { margin: 12px 0 36px; gap: 28px; }
+.page-games .games-hub-intro h1 { font-size: 36px; font-weight: 650; line-height: 1.25; }
+.page-games .games-hub-intro p { font-size: 13px; }
+.page-games .games-hub-section-title { font-size: 24px; font-weight: 600; letter-spacing: -.035em; margin-top: 36px; }
+.page-games .games-hub-popular-card,
+.page-games .games-hub-recent-card { border: 0; background: #f5f5f7; border-radius: 16px; box-shadow: none; padding: 16px; }
+.page-games .popular-rank { background: transparent; color: #6e6e73; font-size: 13px; font-weight: 500; }
+.page-games .popular-name,
+.page-games .recent-name { font-weight: 550; }
+.page-games .games-hub-group { border: 0; border-top: 1px solid #eeeef0; border-radius: 0; background: transparent; padding: 24px 0; }
+.page-games .games-hub-index { border: 0; background: #f5f5f7; border-radius: 12px; padding: 10px; }
+.page-games .index-link { font-size: 13px; font-weight: 500; }
+.page-games .group-title { font-weight: 600; }
+/* 초성 탐색과 목록: PC의 열을 너무 잘게 쪼개지 않는다. */
+.page-games .group-title { border-bottom: 1px solid #e5e5e9; font-size: 18px; padding-bottom: 14px; }
+.page-games .index-link { border: 0; background: transparent; }
+.page-games .index-link.active { background: #1d1d1f; color: #fff; }
+.page-games .index-link-back { border: 0; color: #6e6e73; background: transparent; }
+.page-games .index-link:hover { background: #e8e8ed; color: #1d1d1f; }
+.page-games .game-item { border: 0; background: transparent; box-shadow: none; }
+.page-games .game-item:hover { background: #f5f5f7; box-shadow: none; }
+.page-games .game-name { font-weight: 500; }
+.page-games .game-item::before { display: none; }
+.page-games .game-item-icon { width: 36px; height: 36px; flex: 0 0 36px; aspect-ratio: 1; border-radius: 10px; object-fit: cover; background: #f5f5f7; }
+.page-games #recent-games-grid { display: flex; flex-wrap: nowrap; gap: 16px; min-height: 128px; overflow-x: auto; padding-bottom: 0; }
+.page-games #recent-games-grid .games-hub-recent-card { flex: 0 0 128px; width: 128px; height: 128px; box-sizing: border-box; }
+.page-games #recent-games-grid .recent-link { min-width: 0; width: 100%; }
+.page-games #recent-games-grid .recent-icon { width: 64px; height: 64px; flex: 0 0 64px; }
+.page-games #recent-games-grid .recent-name { display: block; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* 모바일 게임 상세 */
+.page-game #game .game-page-grid > .home-card { border: 0; border-radius: 0; padding: 0; background: transparent; }
+.page-game #game .game-page-grid > .game-hero { padding: 0 0 24px; }
+.page-game #game .game-hero-title { font-size: 32px; font-weight: 650; }
+.page-game #game .game-hero-icon { width: 80px; height: 80px; border-radius: 20px; }
+.page-game #game .home-card-title { font-size: 24px; font-weight: 600; letter-spacing: -.035em; }
+.page-game #game .rk .rk-card { margin-top: 36px; }
+.page-game #game .rk .rk-card h2 { font-size: 22px; }
+.page-game #game .game-back-btn { background: #f5f5f7; color: #6e6e73; border: 0; border-radius: 999px; }
+/* 리포트 목록 */
+.page-reports .rk .rk-cardl { border: 0; border-radius: 0; background: transparent; }
+.page-reports .rk .rk-cardl img { border-radius: 18px; }
+.page-reports .rk .rk-cardl .b { padding: 18px 2px; }
+.page-reports .rk .rk-cardl .k { color: #6e6e73; font-size: 11px; font-weight: 500; }
+.page-reports .rk .rk-cardl .t { font-weight: 600; line-height: 1.5; }
+.page-reports .rk .rk-feat { gap: 36px; }
+.page-reports .rk .rk-feat .side { border: 0; border-radius: 0; padding: 0; background: transparent; }
+.page-reports .rk .rk-feat .side a { padding: 20px 0; border-color: #eeeef0; }
+.page-reports .rk .rk-replist { border: 0; border-radius: 0; padding: 0; background: transparent; }
+.page-reports .rk .rk-rep { padding: 26px 0; }
+.page-reports .rk .rk-rep .t { font-weight: 600; }
+/* 리포트·위키 본문 */
+body:not(.page-home) .blog-header { padding-top: 24px; padding-bottom: 28px; }
+body:not(.page-home) .blog-title { font-size: 40px; line-height: 1.3; font-weight: 650; letter-spacing: -.04em; }
+body:not(.page-home) .blog-hero { border-radius: 20px; }
+body:not(.page-home) .blog-content .blog-heading { font-size: 26px; font-weight: 600; letter-spacing: -.03em; }
+body:not(.page-home) .blog-summary { background: #f5f5f7; border: 0; border-radius: 16px; padding: 24px; }
+body:not(.page-home) .blog-table-wrapper { border-color: #e5e5e9; border-radius: 12px; }
+/* 출시 예정 */
+.page-upcoming .page-container { background: transparent; border: 0; }
+.page-upcoming .upcoming-card.home-card { border: 0; border-radius: 0; background: transparent; padding: 0; }
+.page-upcoming .upcoming-card .home-card-header { border: 0; padding: 12px 0 28px; }
+.page-upcoming #upcomingTab { background: transparent; gap: 8px; }
+.page-upcoming #upcomingTab .tab-btn { border: 0; border-radius: 999px; background: transparent; color: #6e6e73; font-size: 13px; font-weight: 500; }
+.page-upcoming #upcomingTab .tab-btn.active { background: #f0f0f2; color: #1d1d1f; }
+.page-upcoming h1 { font-size: 36px; font-weight: 650; letter-spacing: -.04em; }
+.page-upcoming .upcoming-table-header { background: #f5f5f7; color: #6e6e73; border: 0; border-radius: 10px; }
+.page-upcoming .upcoming-item { background: transparent; border-bottom: 1px solid #eeeef0; }
+.page-upcoming .upcoming-item:hover { background: #f5f5f7; }
+.page-upcoming .upcoming-rank { color: #6e6e73; font-weight: 500; }
+.page-upcoming .upcoming-icon { border-radius: 12px; box-shadow: none; }
+@media (min-width: 769px) {
+  /* 헤더·본문·푸터의 외곽선은 같게, 기사 읽기 폭만 720px로 제한한다. */
+  .article-layout .article-main { max-width: 720px; justify-self: start; width: 100%; }
+  .article-layout { column-gap: 40px; }
+  .article-layout .blog-title { word-break: keep-all; overflow-wrap: anywhere; }
+  .page-games .group-games { grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 8px 16px; }
+  .page-games .game-item { min-width: 0; padding: 10px 8px; }
+  .page-games .game-item::before { width: 36px; height: 36px; }
+  .page-games .games-hub-index { top: 80px; }
+  .page-games .games-hub-group { scroll-margin-top: 180px; }
+  .page-games .games-hub-intro { margin-bottom: 28px; }
+  .page-games .games-hub-popular, .page-games .games-hub-recent { margin-bottom: 32px; }
+  .rk .rk-table td, .rk .rk-table th { font-variant-numeric: tabular-nums; }
+}
+@media (max-width: 768px) {
+  body:not(.page-home) .rk h1, .page-games .games-hub-intro h1, .page-upcoming h1 { font-size: 26px; }
+  body:not(.page-home) .rk .rk-head { margin: 8px 0 20px; }
+  body:not(.page-home) .rk .rk-cols { gap: 28px; margin-top: 22px; }
+  body:not(.page-home) .rk .rk-card { margin-top: 32px; }
+  body:not(.page-home) .rk .rk-card h2, body:not(.page-home) .rk .rk-section > h2 { font-size: 22px; }
+  body:not(.page-home) .rk .rk-stat { padding: 18px 16px; border-radius: 16px; }
+  body:not(.page-home) .rk .rk-stat .v { font-size: 24px; }
+  body:not(.page-home) .rk .rk-grid2, body:not(.page-home) .rk .rk-grid3 { gap: 24px; }
+  body:not(.page-home) .rk .rk-ticker { padding: 12px; }
+  body:not(.page-home) .rk .rk-chart { padding: 12px; border-radius: 16px; }
+  body:not(.page-home) .rk .rk-hero h1 { font-size: 24px; }
+  .page-games .games-hub-intro { gap: 18px; margin: 8px 0 24px; }
+  .page-games .games-hub-section-title { font-size: 22px; }
+  .page-game #game .game-page-grid > .home-card { border: 0 !important; border-radius: 0 !important; padding: 0; }
+  .page-game #game .game-hero-title { font-size: 26px; }
+  .page-game #game .game-hero-icon { width: 64px; height: 64px; border-radius: 16px; }
+  .page-game #game .home-card-title { font-size: 22px; }
+  .page-game #game .rk .rk-card h2 { font-size: 20px; }
+  body:not(.page-home) .blog-title { font-size: 30px; }
+  body:not(.page-home) .blog-content .blog-heading { font-size: 23px; }
+  body:not(.page-home) .blog-summary { padding: 20px; }
+  .page-reports .rk .rk-feat { gap: 24px; }
+}

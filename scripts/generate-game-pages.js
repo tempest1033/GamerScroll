@@ -414,7 +414,7 @@ function extractGameHourlyRanks(gameName, gameInfo, hourlySnapshots, hourlyIndex
     }
 
     // 2. 폴백: title로 O(1) 조회
-    if (!gameRanks) {
+    if (!gameRanks && !gameInfo.disableTitleFallback) {
       for (const normalizedName of normalizedNames) {
         const titleMap = hourlyIndex.byTitle.get(normalizedName);
         if (titleMap && titleMap.has(snapshotKey)) {
@@ -1030,7 +1030,7 @@ function collectGameData(gameName, gameInfo, historyData, reports, rankIndex, hi
           if (expectedAppId) {
             matched = latestRankingsIndex.byAppId.get(`${keyBase}-${expectedAppId}`);
           }
-          if (!matched) {
+          if (!matched && !gameInfo.disableTitleFallback) {
             for (const normalizedName of normalizedNames) {
               matched = latestRankingsIndex.byTitle.get(`${keyBase}-${normalizedName}`);
               if (matched) break;
@@ -1283,6 +1283,9 @@ const incrementalCache = buildCache.loadCache();
 // styles-core만 보면 styles-game/report/article 변경 시 해시는 바뀌는데 skip되어 옛 해시(삭제됨)를 가리킬 수 있음.
 const cssFilePaths = CSS_ASSET_FILES.map((f) => path.join(__dirname, '..', docsDir, f));
 const inputSignature = buildCache.getInputFilesSignature([
+  __filename,
+  path.join(__dirname, '../src/templates'),
+  path.join(__dirname, '../src/rank'),
   gamesPath,
   historyDir,
   reportsDir,
@@ -1295,7 +1298,7 @@ const inputSignature = buildCache.getInputFilesSignature([
 ].filter(Boolean));
 
 const searchIndexPath = path.join(outputDir, 'search-index.json');
-if (!buildCache.checkInputFilesChanged(incrementalCache, 'gamePages', inputSignature)) {
+if (!buildCache.checkInputFilesChanged(incrementalCache, 'gamePages', inputSignature) && !process.argv.includes('--force')) {
   // 입력 파일 변경 없음 → 전체 스킵 (파일 로드 없이 즉시 종료)
   console.log(`  ⚡ 입력 파일 변경 없음 → 게임 페이지 전체 스킵`);
   buildCache.saveCache(incrementalCache);
@@ -1354,13 +1357,13 @@ const issueArticles = loadIssueReports();
 const hotpickArticles = loadHotpickReports();
 const insightArticles = loadInsightReports();
 const wikiArticles = loadWikiArticles();
-const allRelatedContent = [...issueArticles, ...hotpickArticles, ...insightArticles, ...wikiArticles];
+const allRelatedContent = [...insightArticles, ...wikiArticles];
 console.log(`📰 관련 콘텐츠 로드: 이슈 ${issueArticles.length}개, 핫픽 ${hotpickArticles.length}개, 인사이트 ${insightArticles.length}개, 위키 ${wikiArticles.length}개`);
 
 // 검색 인덱스 생성
 const searchIndex = [];
 
-let forceFullRebuild = false;
+let forceFullRebuild = process.argv.includes('--force');
 
 // CSS/템플릿 변경 시 전체 재빌드
 if (buildCache.checkTemplateChanged(incrementalCache)) {

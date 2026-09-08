@@ -485,8 +485,7 @@ function renderParsedRelatedDocsHtml(parsedRelatedDocs) {
       thumbSrc = getLocalHotpickImagePath(item.slug, item.thumbnail, 'thumbnail');
     } else if (item.type === 'ranking') {
       href = `/magazine/ranking/${item.slug}/`;
-      // ranking은 별도 이미지 디렉토리가 없을 수 있으므로 fixUrl 사용
-      thumbSrc = item.thumbnail ? fixUrl(item.thumbnail) : '/favicon.svg';
+      thumbSrc = require('../helpers/thumbnail').getLocalReportThumbnail('ranking', item.slug, item.thumbnail);
     } else if (item.type === 'wiki') {
       href = `/wiki/${item.category}/${item.slug}/`;
       thumbSrc = getLocalWikiThumbPath(item.category, item.slug, item.thumbnail);
@@ -845,7 +844,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
   const navHtml = `
     <div class="trend-detail-nav">
       ${nav.prev ? `<a href="/magazine/${type}/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      <a href="/reports/" class="trend-nav-btn list">리포트 목록</a>
       ${nav.next ? `<a href="/magazine/${type}/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;
@@ -897,6 +896,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
             ${topAds}
             <div class="blog-card">
               <header class="blog-header">
+                ${type === 'issue' || type === 'hotpick' ? '<p class="report-legacy-notice">보관된 리포트 · 신규 리포트는 <a href="/reports/">순위 분석·인사이트</a>에서 확인할 수 있습니다.</p>' : ''}
                 <h1 class="blog-title">${title}</h1>
                 <div class="blog-meta">
                   <span class="blog-editor">${editorName}</span>
@@ -1598,7 +1598,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
   const navHtml = `
     <div class="trend-detail-nav">
       ${nav.prev ? `<a href="/magazine/ranking/${nav.prev.slug}/" class="trend-nav-btn prev">‹ 이전</a>` : '<span class="trend-nav-btn disabled">‹ 이전</span>'}
-      <a href="/magazine/" class="trend-nav-btn list">목록</a>
+      <a href="/reports/" class="trend-nav-btn list">리포트 목록</a>
       ${nav.next ? `<a href="/magazine/ranking/${nav.next.slug}/" class="trend-nav-btn next">다음 ›</a>` : '<span class="trend-nav-btn disabled">다음 ›</span>'}
     </div>
   `;

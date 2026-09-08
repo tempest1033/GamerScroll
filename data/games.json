@@ -2474,21 +2474,17 @@
     },
     "킹 오브 파이터 AFK": {
       "appIds": {
-        "android": "com.farlightgames.igame.gp",
-        "ios": "6499177365",
-        "android:kr": "com.netmarble.kofafk"
+        "android": "com.netmarble.kofafk",
+        "ios": "6499177365"
       },
       "aliases": [
         "킹 오브 파이터 AFK - 3000뽑기 증정",
-        "천만여신: 가장 치명적인 AFK",
-        "천만여신 : 가장 치명적인 AFK",
-        "AFK: 새로운 여정",
-        "AFK: 새로운 여정 - 모든 영웅 증정",
-        "AFK: 새로운 여정 - 힐링 농장"
+        "The King of Fighters AFK"
       ],
       "developer": "Netmarble",
-      "icon": "https://play-lh.googleusercontent.com/OKACW0ZX4g1xZrXXnTL4SKOZEFLpBorvf4sB2LN-8fKeakXgN9Oht62twabIgQxIBc4",
+      "icon": "https://play-lh.googleusercontent.com/SDyA9zWQ7gRe7zh-rOWiOuw9Dy7Rfale9gvGN9LUN0pQNcPfTMg9CKSgfiRtwKFOgjHMijTngRXBooZmxPOb",
       "slug": "킹-오브-파이터-afk",
+      "disableTitleFallback": true,
       "platforms": [
         "ios",
         "android"
@@ -18992,7 +18988,10 @@
         "ios": "1628970855",
         "android": "com.farlightgames.igame.gp"
       },
-      "aliases": [],
+      "aliases": [
+        "AFK: 새로운 여정",
+        "AFK: 새로운 여정 - 모든 영웅 증정"
+      ],
       "developer": "FARLIGHT",
       "icon": "",
       "slug": "afk-새로운-여정-힐링-농장",
@@ -32025,15 +32024,27 @@
     },
     "Alter Ego": {
       "appIds": {
-        "ios": 1549657152,
-        "android": "com.caracolu.alterego"
+        "ios": 1549657152
       },
-      "aliases": [
-        "ALTER EGO"
-      ],
+      "aliases": [],
       "developer": "yejin lee",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d4/2a/37/d42a3700-9951-9bdf-f3a1-7b19720c423e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "alter-ego",
+      "disableTitleFallback": true,
+      "platforms": [
+        "ios"
+      ]
+    },
+    "ALTER EGO - 얼터 에고": {
+      "appIds": {
+        "ios": "1447605099",
+        "android": "com.caracolu.alterego"
+      },
+      "aliases": ["ALTER EGO", "얼터 에고", "ALTER EGO (Caramel Column)"],
+      "developer": "Caramel Column Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/1a/c1/aa1ac176-5c4f-d261-2598-1b6ecde8c73a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "alter-ego-caramel-column",
+      "disableTitleFallback": true,
       "platforms": [
         "ios",
         "android"

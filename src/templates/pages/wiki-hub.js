@@ -246,7 +246,7 @@ function generateWikiHubPage({
     return `
       <div class="home-card" id="wiki-popular">
         <div class="home-card-header">
-          <h2 class="home-card-title">인기</h2>
+          <h2 class="home-card-title">인기 문서</h2>
         </div>
         <div class="home-popular-list" id="${popularListId}">${popularCards}</div>
       </div>
@@ -290,7 +290,7 @@ function generateWikiHubPage({
     return `
       <div class="home-card" id="wiki-all">
         <div class="home-card-header">
-          <h2 class="home-card-title">최신</h2>
+          <h2 class="home-card-title">최신 문서</h2>
         </div>
         <div class="home-latest-grid" id="wikiGrid">${wikiCards.initialHtml}</div>
         ${wikiCards.deferredJson ? `<script type="application/json" id="wikiGridDeferredData">${wikiCards.deferredJson}</script>${wikiCards.deferredSeoLinksHtml}` : ''}

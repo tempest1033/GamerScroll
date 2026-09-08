@@ -12,7 +12,7 @@ const path = require('path');
 const crypto = require('crypto');
 const sharp = require('sharp');
 const { PurgeCSS } = require('purgecss');
-const { guardHoverRules } = require('./src/build/css-hover-guard');
+const { guardHoverRules } = require('./src/aiscroll-build/css-hover-guard');
 
 // 로컬 빌드 시 draft 포함 (CI 환경이 아니거나 --draft/-d 플래그)
 const includeDrafts = !process.env.CI || process.argv.includes('--draft') || process.argv.includes('-d');
@@ -36,8 +36,8 @@ const {
   countTopics,
   countCategories
 } = require('./src/templates/ai-blog/taxonomy');
-const { buildLayoutCoreBundle, LAYOUT_CORE_ASSET } = require('./src/templates/layout');
-const { copyArticleAssets } = require('./src/build/article-assets');
+const { buildLayoutCoreBundle, LAYOUT_CORE_ASSET } = require('./src/aiscroll-ui/layout');
+const { copyArticleAssets } = require('./src/aiscroll-build/article-assets');
 
 // GA4 Analytics
 const {
@@ -51,11 +51,11 @@ const DATA_DIR = path.join(__dirname, 'data');
 const REPORTS_DIR = path.join(__dirname, 'reports');
 // GamerScroll 내 ai-docs/ 폴더에 빌드
 const DOCS_DIR = path.join(__dirname, 'ai-docs');
-const STYLES_SRC = path.join(__dirname, 'src', 'styles');
+const STYLES_SRC = path.join(__dirname, 'src', 'aiscroll-styles');
 const FEED_ASSETS_DIR = path.join(DOCS_DIR, 'assets', 'feed');
-const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
+const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/aiscroll-build/utils');
 // CSS 해시 파일명 (GamerScroll 생성기와 같은 알고리즘·정책 공유)
-const { computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
+const { computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/aiscroll-build/css-version');
 
 /**
  * 발행시간 자동 기록: date가 비어있고 status === 'approved'인 기사에 현재 시각 기록

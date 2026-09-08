@@ -8,45 +8,47 @@ const { navItems, navIdOf } = require('./nav');
 let headerStatus = '';
 function setHeaderStatus(text) { headerStatus = String(text || ''); }
 
-// 로고: 막대 4개 + GAMER SCROLL 워드마크 (단색, 18px 높이)
-const LOGO_SVG = `<svg class="logo-svg" viewBox="0 0 560 62" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="currentColor"><rect x="0" y="22" width="6" height="18" rx="2"/><rect x="10" y="12" width="6" height="38" rx="2"/><rect x="20" y="4" width="6" height="54" rx="2"/><rect x="30" y="14" width="6" height="34" rx="2"/></g><text x="50" y="49" font-family="'Pretendard Variable', Pretendard, -apple-system, sans-serif" font-weight="900" font-size="58" letter-spacing="-2" fill="currentColor">GAMER SCROLL</text></svg>`;
+// 로고 글자를 도형으로 고정해 웹폰트 로딩 전후에도 모양이 바뀌지 않는다.
+const LOGO_SVG = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../../assets/logo-wordmark-outlined.svg'), 'utf8');
 
 function generateHeader(currentPage = 'home') {
   const activeId = navIdOf(currentPage);
   return `
   <style>
-    .gs-header { padding: 0 !important; position: sticky; top: 0; z-index: 100000; background: rgba(255, 255, 255, .94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid #e6e6e6; }
+    .gs-header { padding: 0 !important; position: sticky; top: 0; z-index: 100000; background: var(--gs-header-bg); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
     .gs-header-inner {
       display: flex !important;
       align-items: center;
       justify-content: flex-start !important;
-      max-width: 1120px;
-      height: 60px;
+      max-width: var(--site-max-width, 1240px);
+      height: 68px;
       margin: 0 auto;
-      padding: 0 24px !important;
+      padding: 0 var(--site-gutter, 40px) !important;
       gap: 32px;
     }
-    .gs-logo { flex-shrink: 0; color: #111; }
+    .gs-logo { flex-shrink: 0; color: var(--text); }
     .gs-logo .logo-svg { height: 18px; width: 165px; display: block; }
     .gs-nav { display: flex; gap: 26px; }
-    .gs-nav a { font-size: 15px; font-weight: 600; color: #6b6b6b; text-decoration: none; white-space: nowrap; padding: 4px 0; position: relative; }
-    .gs-nav a:hover, .gs-nav a.active { color: #111; }
-    .gs-nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -19px; height: 2px; background: #111; }
-    .gs-status { margin-left: 12px; font-size: 12px; color: #9a9a9a; white-space: nowrap; }
+    .gs-nav a { font-size: 15px; font-weight: 600; color: var(--text-muted); text-decoration: none; white-space: nowrap; padding: 4px 0; position: relative; }
+    .gs-nav a:hover, .gs-nav a.active { color: var(--primary); }
+    .gs-nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -23px; height: 3px; border-radius: 3px 3px 0 0; background: var(--primary); }
+    .gs-status { margin-left: 0; font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+    @media (max-width: 1120px) { .gs-status { display: none; } .gs-header-inner { gap: 22px; } .gs-nav { gap: 18px; } }
     .gs-search { position: relative; flex-shrink: 0; width: 240px; margin-left: auto; }
     .gs-search .search-box {
       display: flex;
       align-items: center;
       height: 36px;
-      background: #f5f5f7;
+      background: var(--bg);
       border: 1px solid transparent;
       border-radius: 10px;
       padding: 0 12px;
       transition: border-color 0.15s;
     }
-    .gs-search .search-box:focus-within { border-color: var(--primary); background: #fff; }
+    .gs-search .search-box:focus-within { border-color: var(--primary); background: var(--card); }
     .gs-search .search-input {
       flex: 1;
+      min-width: 0;
       background: transparent;
       border: none;
       outline: none;
@@ -102,7 +104,7 @@ function generateHeader(currentPage = 'home') {
       <nav class="gs-nav" aria-label="주 메뉴">${navItems.map((it) => `<a class="${it.id === activeId ? 'active' : ''}" href="${it.href}">${it.label}</a>`).join('')}</nav>
       <div class="gs-search">
         <div class="search-box">
-          <input type="text" class="search-input" placeholder="게임 검색..." autocomplete="off">
+          <input type="text" class="search-input" aria-label="게임 검색" placeholder="게임 검색" autocomplete="off">
           <button class="search-btn" type="button" aria-label="검색">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>

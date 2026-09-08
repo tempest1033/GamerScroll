@@ -9,10 +9,8 @@ const escapeHtml = (str) => String(str || '')
   .replace(/"/g, '&quot;');
 
 const REPORT_ITEMS = [
-  { id: 'issue', name: '이슈', link: '/magazine/issue/' },
-  { id: 'insight', name: '인사이트', link: '/magazine/insight/' },
-  { id: 'hotpick', name: '핫픽', link: '/magazine/hotpick/' },
-  { id: 'ranking', name: '순위 분석', link: '/magazine/ranking/' }
+  { id: 'ranking', name: '순위 분석', link: '/reports/#ranking' },
+  { id: 'insight', name: '인사이트', link: '/reports/#insight' }
 ];
 
 const WIKI_ITEMS = [
@@ -30,7 +28,7 @@ const TECH_ITEMS = [
 // 테크 그룹은 테크 페이지 전용 (generate-html-report.js의
 // stripTechSidebarFromNonTechDocs 규칙과 동일한 노출 정책)
 const DEFAULT_GROUPS = [
-  { title: '리포트', link: '/magazine/issue/', items: REPORT_ITEMS },
+  { title: '리포트', link: '/reports/', items: REPORT_ITEMS },
   { title: '위키', link: '/wiki/', items: WIKI_ITEMS }
 ];
 
@@ -72,7 +70,7 @@ function generateSidebarArticles(popular = [], latest = [], options = {}) {
   const latestId = options.latestId || 'sidebar-latest';
   const activeLink = options.activeLink || null;
 
-  const renderList = (items) => (items || []).slice(0, cap).map((item, i) => {
+  const renderList = (items) => (items || []).filter(item => !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(item.link || item.url || item.path || '')).slice(0, cap).map((item, i) => {
     const link = item.link || item.url || item.path || '#';
     return `
       <a href="${link}" class="sidebar-article-item${activeLink && link === activeLink ? ' active' : ''}">

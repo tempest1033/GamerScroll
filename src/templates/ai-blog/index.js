@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle, AD_SLOTS, generateHomeAdPairSlot } = require('../../aiscroll-ui/layout');
 
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';

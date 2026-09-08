@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..', '..');
 const CATS = { ranking: '순위 분석', insight: '인사이트' };
+const { getLocalReportThumbnail } = require('../templates/helpers/thumbnail');
 
 let cached = null;
 function loadReports(options = {}) {
@@ -18,9 +19,9 @@ function loadReports(options = {}) {
       if (!f.endsWith('.json')) continue;
       try {
         const a = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8').replace(/^\uFEFF/, ''));
-        if (!a || a.status !== 'approved' || !a.slug || !a.title) continue;
+        if (!a || a.status !== 'approved' || a.noindex === true || !a.slug || !a.title) continue;
         const date = String(a.date || '').slice(0, 10);
-        out.push({ cat, catName: CATS[cat], slug: a.slug, title: a.title, summary: a.summary || '', thumbnail: a.thumbnail || '', date, href: `/magazine/${cat}/${a.slug}/`, relatedGames: a.relatedGames || [], keywords: a.keywords || [] });
+        out.push({ cat, catName: CATS[cat], slug: a.slug, title: a.title, summary: a.summary || '', thumbnail: getLocalReportThumbnail(cat, a.slug, a.thumbnail), date, href: `/magazine/${cat}/${a.slug}/`, relatedGames: a.relatedGames || [], keywords: a.keywords || [] });
       } catch {}
     }
   }

@@ -350,7 +350,7 @@ function parseRelatedDocs(article, currentCategory, wikiData, techData, issueRep
         if (found) result.push({ type: 'ranking', ...found });
       }
     }
-    return result;
+    return result.filter(item => item.type !== 'issue' && item.type !== 'hotpick');
   }
 
   // 2. 레거시 폴백: relatedArticles (위키/테크)
@@ -422,7 +422,7 @@ function parseRelatedDocs(article, currentCategory, wikiData, techData, issueRep
     }
   }
 
-  return result;
+  return result.filter(item => item.type !== 'issue' && item.type !== 'hotpick');
 }
 
 // CSV 스냅샷에서 일 최고순위 계산
@@ -737,7 +737,9 @@ function writeRankHubSubpages(docsDir) {
     const dir = path.join(docsDir, 'rankings', rel);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
-    entries.push({ loc: `https://gamerscroll.com/rankings/${rel}/`, priority: '0.7' });
+    if (rel !== 'subculture' && !/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html)) {
+      entries.push({ loc: `https://gamerscroll.com/rankings/${rel}/`, priority: '0.7' });
+    }
   };
   let n = 0;
   try {
@@ -747,6 +749,10 @@ function writeRankHubSubpages(docsDir) {
       write(c === 'kr' ? 'free' : `free/${c}`, rankHub.renderRankingsHub(c, 'free')); n++;
     }
     write('subculture', rankHub.renderSubculture('kr')); n++;
+    write('genres', rankHub.renderGenre('all')); n++;
+    for (const category of require('./src/rank/genres').loadGenres().categories) {
+      write(`genres/${category.id}`, rankHub.renderGenre(category.id)); n++;
+    }
     write('global', rankHub.renderGlobal()); n++;
     write('about', rankHub.renderAbout()); n++;
     // 개발사: 목록 + TOP 200 에 게임이 2개 이상인 개발사 (최대 80개)
@@ -935,6 +941,8 @@ async function purgeCssInDocs(docsDir) {
       content: [
         `${docsDir}/index.html`,
         `${docsDir}/games/**/*.html`,
+        // 게임 상세는 CSS 정리 이후 생성되므로 새 클래스도 원본에서 보존한다.
+        './src/templates/pages/game.js',
         `${docsDir}/rankings/**/*.html`,
         `${docsDir}/steam/**/*.html`,
         `${docsDir}/upcoming/**/*.html`,
@@ -2796,7 +2804,8 @@ async function main() {
   // 게임 개별 페이지는 sitemap에서 제외 (thin content)
 
   // Sitemap XML 생성 (PC URL만 - 중복 신호 최소화로 색인 효율 향상)
-  const allPages = [...mainPages, ...wikiPages, ...techPages, ...magazinePages];
+  require('./src/build/archive-legacy-reports').archiveLegacyReports(DOCS_DIR);
+  const allPages = [...mainPages, ...wikiPages, ...techPages, ...magazinePages].filter(page => !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(page.loc));
   const sitemapEntries = allPages.map(page => {
     return `  <url>
     <loc>${page.loc}</loc>
@@ -2846,6 +2855,8 @@ Sitemap: https://gamerscroll.com/sitemap.xml
       headerLines.push(hashedPath, '  Cache-Control: public, max-age=31536000, immutable', '');
     }
     headerLines.push('/assets/images/*', '  Cache-Control: public, max-age=604800', '');
+    headerLines.push('/magazine/issue/*', '  X-Robots-Tag: noindex, follow', '');
+    headerLines.push('/magazine/hotpick/*', '  X-Robots-Tag: noindex, follow', '');
     headerLines.push('/icon-*.png', '  Cache-Control: public, max-age=2592000', '');
     headerLines.push('/favicon*', '  Cache-Control: public, max-age=2592000', '');
     // 런타임 JS는 ?v=<content-hash>로 버전되고, feed JSON은 파일명에 해시가 박혀 있어 immutable 안전.

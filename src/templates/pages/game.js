@@ -107,7 +107,7 @@ function generateGamePage(gameData) {
     const entries = Object.entries(rankings);
     const hasMobileData = entries.length > 0;
     if (!hasMobileData) {
-      return '<div class="game-empty">현재 순위 데이터가 없습니다</div>';
+      return '<div class="game-empty">현재 순위 기록이 없습니다.</div>';
     }
 
     // 5개국 고정
@@ -418,7 +418,7 @@ function generateGamePage(gameData) {
 
   // 스팀 전용 순위 섹션 (심플)
   function generateSteamRankingsSection() {
-    if (!steam) return '<div class="game-empty">스팀 순위 데이터가 없습니다</div>';
+    if (!steam) return '<div class="game-empty">스팀 순위 기록이 없습니다.</div>';
 
     return `<div class="game-rank-mobile">
       <div class="game-rank-grid">
@@ -447,7 +447,7 @@ function generateGamePage(gameData) {
 
     const width = 400;
     const height = 200;
-    const padding = { top: 6, right: 4, bottom: 18, left: 18 };
+    const padding = { top: 18, right: 12, bottom: 28, left: 36 };
     const chartWidth = width - padding.left - padding.right;
     const chartHeight = height - padding.top - padding.bottom;
     const rankKey = type === 'ccu' ? 'ccuRank' : 'salesRank';
@@ -542,34 +542,34 @@ function generateGamePage(gameData) {
       let svg = '<svg viewBox="0 0 ' + width + ' ' + height + '" class="game-chart-svg">';
       // 그리드
       const gridCount = 4;
-      const gridStep = Math.ceil(yRange / gridCount);
+      const gridStep = yRange / gridCount;
       for (let i = 0; i <= gridCount; i++) {
         const val = Math.round(yMin + i * gridStep);
         const y = padding.top + ((val - yMin) / yRange) * chartHeight;
-        svg += '<line x1="' + padding.left + '" y1="' + y + '" x2="' + (width - padding.right) + '" y2="' + y + '" stroke="rgba(255,255,255,0.1)" stroke-dasharray="2,2"/>';
-        svg += '<text x="' + (padding.left - 4) + '" y="' + (y + 4) + '" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="end">' + val + '</text>';
+        svg += '<line class="chart-grid" x1="' + padding.left + '" y1="' + y + '" x2="' + (width - padding.right) + '" y2="' + y + '" stroke-dasharray="2,2"/>';
+        svg += '<text class="chart-ylabel" x="' + (padding.left - 6) + '" y="' + (y + 4) + '" font-size="10" text-anchor="end">' + val + '</text>';
       }
       // X축 라벨
       data.forEach((d, i) => {
         const x = padding.left + xLabelPadding + (i / Math.max(1, data.length - 1)) * xLabelWidth;
-        svg += '<text class="chart-xlabel" x="' + x + '" y="' + (height - 2) + '" text-anchor="middle">' + d.date.slice(8) + '</text>';
+        svg += '<text class="chart-xlabel" x="' + x + '" y="' + (height - 6) + '" text-anchor="middle">' + d.date.slice(5).replace('-', '/') + '</text>';
       });
       // 라인
       if (points.length > 1) {
         const pathD = points.map((p, i) => (i === 0 ? 'M' : 'L') + p.x + ',' + p.y).join(' ');
-        svg += '<path d="' + pathD + '" fill="none" stroke="' + color + '" stroke-width="2"/>';
+        svg += '<path data-rank-series="0" d="' + pathD + '" fill="none" stroke="' + color + '" stroke-width="2"/>';
       }
       // 점 먼저 그리기
       points.forEach(p => {
-        svg += '<circle cx="' + p.x + '" cy="' + p.y + '" r="4" fill="' + color + '"/>';
+        svg += '<circle data-rank-series="0" cx="' + p.x + '" cy="' + p.y + '" r="4" fill="' + color + '"/>';
       });
       // 라벨은 나중에 그려서 항상 앞에 표시
       points.forEach(p => {
         const labelY = p.y < 20 ? p.y + 16 : p.y - 8;
-        svg += '<text x="' + p.x + '" y="' + labelY + '" fill="' + color + '" font-size="12" text-anchor="middle" font-weight="600">' + p.rank + '</text>';
+        svg += '<text data-rank-series="0" x="' + p.x + '" y="' + labelY + '" fill="' + color + '" font-size="12" text-anchor="middle" font-weight="600">' + p.rank + '</text>';
       });
       svg += '</svg>';
-      return svg;
+      return require('../components/interactive-rank-chart').interactiveRankChart(svg, data.map(p => p.date), [{ name: type === 'ccu' ? '동시접속자 순위' : '판매 순위', color, values: data.map(p => p.rank) }], points.map(p => p.x));
     }
 
     // 기간별 컨텐츠 생성
@@ -581,7 +581,7 @@ function generateGamePage(gameData) {
     return '<div class="rank-trend-section ' + sectionId + '">' +
       '<div class="trend-tab-row"><div class="tab-group trend-tabs-right">' +
       periods.map((p, i) => '<button class="tab-btn' + (i === 0 ? ' active' : '') + '" data-trend-period="' + p.id + '">' + p.label + '</button>').join('') +
-      '</div></div><div class="trend-charts">' + chartContents + '</div></div>' +
+      '</div></div><div class="trend-charts">' + chartContents + '</div><p class="game-chart-note">기간별 수집 기록 중 최고 순위 · 숫자가 작을수록 상위</p></div>' +
       '<script>(function(){var s=document.querySelector(".' + sectionId + '");if(!s)return;var ap="daily";' +
       's.querySelectorAll("[data-trend-period]").forEach(function(b){b.addEventListener("click",function(){' +
       's.querySelectorAll("[data-trend-period]").forEach(function(x){x.classList.remove("active")});' +
@@ -593,7 +593,7 @@ function generateGamePage(gameData) {
   // 매출 추이 차트 섹션 (서브탭 + 라인차트)
   function generateRankTrendSection() {
     if (!rankHistory || rankHistory.length === 0) {
-      return '<div class="game-empty">순위 추이 데이터가 없습니다</div>';
+      return '<div class="game-empty">추이 표시에 필요한 순위 기록이 없습니다.</div>';
     }
 
     const regions = [
@@ -966,7 +966,7 @@ function generateGamePage(gameData) {
   // 뉴스 섹션
   function generateNewsSection() {
     if (!news || news.length === 0) {
-      return '<div class="game-empty">관련 뉴스가 없습니다</div>';
+      return '<div class="game-empty">관련 뉴스가 없습니다.</div>';
     }
     return `<div class="game-news-list">${news.slice(0, 5).map(item => `
       <a class="game-news-item" href="${item.link}" target="_blank" rel="noopener">
@@ -979,7 +979,7 @@ function generateGamePage(gameData) {
   // 커뮤니티 섹션
   function generateCommunitySection() {
     if (!community || community.length === 0) {
-      return '<div class="game-empty">커뮤니티 게시물이 없습니다</div>';
+      return '<div class="game-empty">관련 커뮤니티 게시물이 없습니다.</div>';
     }
     return `<div class="game-community-list">${community.slice(0, 5).map(post => `
       <a class="game-community-item" href="${post.link}" target="_blank" rel="noopener">
@@ -991,7 +991,7 @@ function generateGamePage(gameData) {
 
   // 스팀 섹션
   function generateSteamSection() {
-    if (!steam) return '<div class="game-empty">스팀 데이터가 없습니다</div>';
+    if (!steam) return '<div class="game-empty">스팀 데이터가 없습니다.</div>';
     return `<div class="game-steam-stats">
       ${steam.currentPlayers ? `<div class="game-steam-stat"><span class="game-steam-value">${steam.currentPlayers.toLocaleString()}</span><span class="game-steam-label">현재 플레이어</span></div>` : ''}
       ${steam.peakPlayers ? `<div class="game-steam-stat"><span class="game-steam-value">${steam.peakPlayers.toLocaleString()}</span><span class="game-steam-label">피크 플레이어</span></div>` : ''}
@@ -1002,7 +1002,7 @@ function generateGamePage(gameData) {
   // 유튜브 섹션
   function generateYoutubeSection() {
     if (!youtube || youtube.length === 0) {
-      return '<div class="game-empty">관련 유튜브 영상이 없습니다</div>';
+      return '<div class="game-empty">관련 유튜브 영상이 없습니다.</div>';
     }
     return `<div class="game-youtube-grid">${youtube.slice(0, 4).map(video => `
       <a class="game-youtube-item" href="${video.link}" target="_blank" rel="noopener">
@@ -1070,23 +1070,26 @@ function generateGamePage(gameData) {
     <section class="section active" id="game">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container game-page-grid">
-        <h1 class="visually-hidden">${name} 매출, ${hasMobilePlatform ? '모바일 게임 순위' : '게임 순위'}, 뉴스</h1>
         <!-- 게임 히어로 -->
         <div class="home-card game-hero grid-full">
           <div class="game-hero-content">
             ${iconHtml}
             <div class="game-hero-info">
-              <div class="game-hero-title">${name}</div>
+              <h1 class="game-hero-title">${name}</h1>
               ${developer ? `<div class="game-hero-developer">${developer}</div>` : ''}
               ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
             </div>
             <a href="/games/" class="game-back-btn" title="게임 DB로 돌아가기">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </a>
+          </div>
+        </div>
             ${isSteamOnly && steam ? `
+        <div class="home-card grid-full game-steam-summary">
+          <div class="home-card-header"><h2 class="home-card-title">스팀 순위 분석</h2></div>
             <div class="game-hero-stats">
               <div class="game-hero-stat stat-ccu">
-                <span class="game-hero-stat-label">동접 순위</span>
+                <span class="game-hero-stat-label">동시접속자 순위</span>
                 <span class="game-hero-stat-value">${steam.rank || '-'}</span>
               </div>
               <div class="game-hero-stat stat-sales">
@@ -1098,57 +1101,39 @@ function generateGamePage(gameData) {
                 <span class="game-hero-stat-value">${steam.currentPlayers ? steam.currentPlayers.toLocaleString() : '-'}</span>
               </div>
             </div>
-            ` : ''}
-          </div>
         </div>
+            ` : ''}
 
         ${isSteamOnly ? `
         <!-- 스팀 게임 순위 -->
-        <div class="home-card">
+        <div class="home-card game-steam-chart">
           <div class="home-card-header">
-            <h2 class="home-card-title">${name} 스팀 게임 순위</h2>
+            <h2 class="home-card-title">동시접속자 순위</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('ccu')}</div>
         </div>
         <!-- 스팀 게임 순위 히스토리 -->
-        <div class="home-card">
+        <div class="home-card game-steam-chart">
           <div class="home-card-header">
-            <h2 class="home-card-title">스팀 순위 히스토리</h2>
+            <h2 class="home-card-title">판매 순위</h2>
           </div>
           <div class="home-card-body">${generateSteamChartSection('sales')}</div>
         </div>
         ` : showMobileRanking ? `
-        ${rankSummaryHtml ? `
-        <!-- 순위 요약 (정적: 280일 이력 KPI · 90일 추이 · 분포 · 국가별 · 월별 · 기록) -->
+        <!-- 이력이 부족해도 동일한 상세 레이아웃을 유지한다. -->
         <div class="home-card grid-full">
           <div class="home-card-header">
-            <h2 class="home-card-title">${name} 매출 순위 요약</h2>
+            <h2 class="home-card-title">매출 순위 분석</h2>
           </div>
-          <div class="home-card-body">${rankSummaryHtml}</div>
-        </div>` : ''}
-        <!-- 모바일 게임 순위 카드 -->
-        <div class="home-card">
-          <div class="home-card-header">
-            <h2 class="home-card-title">모바일 게임 순위</h2>
-          </div>
-          <div class="home-card-body">${generateRankingsSection()}</div>
+          <div class="home-card-body">${rankSummaryHtml || '<div class="game-empty">분석에 필요한 순위 기록이 없습니다.</div>'}</div>
         </div>
-
-        ${rankSummaryHtml ? '' : `
-        <!-- 모바일 게임 순위 히스토리 카드 (정적 순위 요약이 없는 게임만 — 요약이 있으면 90일 추이·월별 표가 대신함) -->
-        <div class="home-card">
-          <div class="home-card-header">
-            <h2 class="home-card-title">순위 히스토리</h2>
-          </div>
-          <div class="home-card-body">${generateRankTrendSection()}</div>
-        </div>`}
         ` : ''}
 
         ${relatedContent.length > 0 ? `
         <!-- 뉴스 (관련 콘텐츠: 이슈/위키/핫픽/인사이트) -->
         <div class="home-card grid-full">
           <div class="home-card-header">
-            <h2 class="home-card-title">뉴스</h2>
+            <h2 class="home-card-title">관련 리포트</h2>
           </div>
           <div class="home-card-body">${generateRelatedContentSection()}</div>
         </div>
@@ -1324,8 +1309,8 @@ function generateGamePage(gameData) {
   const seoDescription = rankSummaryText
     ? rankSummaryText
     : hasMobilePlatform
-      ? `${name} 매출, 모바일 게임 순위와 뉴스, 히스토리를 한눈에.`
-      : `${name} 매출, 스팀 게임 순위와 뉴스, 히스토리를 한눈에.`;
+      ? `${name} 모바일 매출 순위, 순위 기록 및 관련 뉴스.`
+      : `${name} 스팀 게임 순위, 순위 기록 및 관련 뉴스.`;
 
   const seoKeywords = hasMobilePlatform
     ? `${name}, ${name} 매출, ${name} 순위, 모바일 게임 순위, ${name} 앱스토어, ${name} 플레이스토어, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 뉴스`

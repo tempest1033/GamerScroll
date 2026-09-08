@@ -132,7 +132,7 @@ const searchBarHtml = `
   <div class="search-container">
     <div class="search-box">
       <a href="/" class="search-home-icon" aria-label="홈으로 이동">
-        <img src="/favicon.svg" alt="" width="20" height="20">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>
       </a>
       <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
       <button class="search-btn" type="button" aria-label="검색">
@@ -230,8 +230,10 @@ const searchBarHtml = `
 	    return gamesDataPromise;
 	  }
 
-  const searchInput = document.querySelector('.search-input');
-  const searchDropdown = document.querySelector('.search-dropdown');
+  // PC 헤더와 모바일 검색창을 각각 연결한다. 화면 크기 변경 후에도 동작한다.
+  document.querySelectorAll('.gs-search, body > .search-container').forEach(function(searchRoot) {
+  const searchInput = searchRoot.querySelector('.search-input');
+  const searchDropdown = searchRoot.querySelector('.search-dropdown');
 
   if (!searchInput || !searchDropdown) return;
 
@@ -400,7 +402,7 @@ const searchBarHtml = `
 
   // 외부 클릭 시 닫기
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.search-container')) {
+    if (!searchRoot.contains(e.target)) {
       searchDropdown.classList.remove('active');
     }
   });
@@ -451,10 +453,11 @@ const searchBarHtml = `
 	  });
 
   // 검색 버튼 클릭
-  const searchBtn = document.querySelector('.search-btn');
+  const searchBtn = searchRoot.querySelector('.search-btn');
   if (searchBtn) {
     searchBtn.addEventListener('click', executeSearch);
   }
+  });
 })();
 </script>`;
 
@@ -2550,7 +2553,7 @@ const imageFallbackScript = `
 // 모바일 메뉴(사이드 패널) 기본 내용: 순위 데이터 사이트 구조 그대로 (매거진·위키 카테고리 목록은 쓰지 않는다)
 function generateDefaultSidebarContent() {
   const groups = [
-    ['순위', [['/', '매출 순위'], ['/rankings/free/', '인기(무료)'], ['/rankings/subculture/', '서브컬처'], ['/rankings/global/', '글로벌'], ['/rankings/records/', '역대 기록'], ['/rankings/publishers/', '개발사'], ['/upcoming/', '출시 예정']]],
+    ['순위', [['/rankings/', '매출 순위'], ['/rankings/free/', '인기(무료)'], ['/rankings/genres/', '장르별 순위'], ['/rankings/global/', '글로벌'], ['/rankings/records/', '연간 기록'], ['/rankings/publishers/', '개발사']]],
     ['스팀', [['/steam/', '동접·판매 순위']]],
     ['리포트', [['/reports/', '순위 분석 · 인사이트']]],
     ['게임', [['/games/', '게임 DB']]],
@@ -2880,7 +2883,7 @@ function wrapWithLayout(content, options = {}) {
   return `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex: noindex || /\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(canonical || ''), breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>

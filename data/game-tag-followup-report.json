@@ -1,0 +1,1326 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-09",
+  "total": 40,
+  "summary": {
+    "lineage-like": {
+      "confirmed": 5,
+      "excluded": 2,
+      "unverified": 20
+    },
+    "subculture": {
+      "confirmed": 5,
+      "excluded": 1,
+      "unverified": 0
+    },
+    "idle": {
+      "confirmed": 2,
+      "excluded": 1,
+      "unverified": 4
+    }
+  },
+  "rows": [
+    {
+      "slug": "wyd-m",
+      "name": "WYD M",
+      "tag": "lineage-like",
+      "status": "confirmed",
+      "reason": "공식 게임 가이드에서 장비 파괴/복구·개인 거래·PK 성향/정당방위·수배·길드 공성·랭킹 및 다이아 성장 구조를 확인.",
+      "sources": [
+        "https://gamem.wydm.co.kr/HelpGuide/HelpGuideList.aspx?lan=0"
+      ],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6587560436",
+          "title": "WYD M",
+          "url": "https://apps.apple.com/kr/app/wyd-m/id6587560436?uo=4",
+          "checkedAt": "2026-09-08T17:47:04.441Z",
+          "surveyReference": "game-genre-survey.json#/games/wyd-m/stores/ios"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/61/47/f7/6147f7d1-034f-6e90-1603-af8bc1999a59/01.png/320x480bb.jpg",
+          "file": "mockups/store-review/11-1.png"
+        },
+        {
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/51/fa/7d/51fa7d04-e601-9636-409a-cfbd2bd49865/02.png/320x480bb.jpg",
+          "file": "mockups/store-review/11-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "엘피스-전기-소울링",
+      "name": "엘피스 전기: 소울링",
+      "tag": "lineage-like",
+      "status": "confirmed",
+      "reason": "공식 필드 PK·대규모 점령/공성·영혼 수집 성장 또는 자유 거래를 함께 확인. 스토어 화면에서도 성능 성장·대규모 전쟁 중심 구성을 재확인.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6742874430",
+          "title": "엘피스 전기: 소울링",
+          "url": "https://apps.apple.com/kr/app/%EC%97%98%ED%94%BC%EC%8A%A4-%EC%A0%84%EA%B8%B0-%EC%86%8C%EC%9A%B8%EB%A7%81/id6742874430?uo=4",
+          "checkedAt": "2026-09-08T17:46:49.198Z",
+          "surveyReference": "game-genre-survey.json#/games/엘피스-전기-소울링/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.lrgame.dldl.kr",
+          "title": "엘피스 전기: 소울링",
+          "url": "https://play.google.com/store/apps/details?id=com.lrgame.dldl.kr&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:38.479Z",
+          "surveyReference": "game-genre-survey.json#/games/엘피스-전기-소울링/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/SszEpMqsMfrBY9rdFNnkYH1j2_pe9CRjmmzS8Ba7jb5Klv61PsUnJOMLSoPUWfgslju7Yuz4BH3K0SFG3BZa",
+          "file": "mockups/store-review/5-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/6QeizdAHTkkC5_Gtc8_3xTCk0lPH8tD7U8cW8hFmKYg1LxkPsnpXRiXh2-Vlf4Daz5G3QU8Alc48AWcDYZ8BBNQ",
+          "file": "mockups/store-review/5-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "영혼-인도자신의-이름으로",
+      "name": "영혼 인도자：신의 이름으로",
+      "tag": "lineage-like",
+      "status": "confirmed",
+      "reason": "공식 필드 PK·대규모 점령/공성·영혼 수집 성장 또는 자유 거래를 함께 확인. 스토어 화면에서도 성능 성장·대규모 전쟁 중심 구성을 재확인.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6757415084",
+          "title": "영혼 인도자：신의 이름으로",
+          "url": "https://apps.apple.com/kr/app/%EC%98%81%ED%98%BC-%EC%9D%B8%EB%8F%84%EC%9E%90-%EC%8B%A0%EC%9D%98-%EC%9D%B4%EB%A6%84%EC%9C%BC%EB%A1%9C/id6757415084?uo=4",
+          "checkedAt": "2026-09-08T17:47:11.243Z",
+          "surveyReference": "game-genre-survey.json#/games/영혼-인도자신의-이름으로/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.game.btjkr.and",
+          "title": "영혼 인도자：신의 이름으로",
+          "url": "https://play.google.com/store/apps/details?id=com.game.btjkr.and&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:49:41.056Z",
+          "surveyReference": "game-genre-survey.json#/games/영혼-인도자신의-이름으로/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/aLg6cVh5qymhFokEVrET7oRxBtgBQm_xY3Eb40d9fOmTVjLng4m12socRnmdAxsJAD4wu0fXAutN9_lwjaiH1A",
+          "file": "mockups/store-review/18-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/zwr5gMmotQe72awgAnOyE9fLTacSq3s5F0fRuVbMssw3y857M2ueu2MkOfvE2Qm2azE50rnwDQnkx4YzIAk6tw",
+          "file": "mockups/store-review/18-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "스카이-어비스-혈맹의-서약",
+      "name": "스카이 어비스: 혈맹의 서약",
+      "tag": "lineage-like",
+      "status": "confirmed",
+      "reason": "공식 필드 PK·대규모 점령/공성·영혼 수집 성장 또는 자유 거래를 함께 확인. 스토어 화면에서도 성능 성장·대규모 전쟁 중심 구성을 재확인.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6779184651",
+          "title": "스카이 어비스: 혈맹의 서약",
+          "url": "https://apps.apple.com/kr/app/%EC%8A%A4%EC%B9%B4%EC%9D%B4-%EC%96%B4%EB%B9%84%EC%8A%A4-%ED%98%88%EB%A7%B9%EC%9D%98-%EC%84%9C%EC%95%BD/id6779184651?uo=4",
+          "checkedAt": "2026-09-08T17:47:20.658Z",
+          "surveyReference": "game-genre-survey.json#/games/스카이-어비스-혈맹의-서약/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.xmh.rpg.kr.an",
+          "title": "스카이 어비스: 혈맹의 서약",
+          "url": "https://play.google.com/store/apps/details?id=com.xmh.rpg.kr.an&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:51:06.228Z",
+          "surveyReference": "game-genre-survey.json#/games/스카이-어비스-혈맹의-서약/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/_oJmFBbuW8PwHorzGHDWe4m0FE0toV_Z-T7XbSerrltobW9JOSthH5wIaSwkz5XoM3q-ucIm7KNBVhA3aH-slA",
+          "file": "mockups/store-review/24-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/bFQ3P_jTYjyE2t5s0sugrEYK1GxTOkPZhGxsFZurTMbE2RLVL5h2ss-NIjAz3ZX3ucI_w5wDa33s1XQSKSlKZg",
+          "file": "mockups/store-review/24-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "레퀴엠m",
+      "name": "레퀴엠M",
+      "tag": "lineage-like",
+      "status": "confirmed",
+      "reason": "공식 Q&A의 자동전투·성능 성장·길드/이용자 경쟁·과금 VIP 혜택과 공식 거래소 설명, 실제 플레이 리뷰를 교차 확인.",
+      "sources": [
+        "https://rqmm.gnjoy.com/",
+        "https://v.daum.net/v/20260207102100533"
+      ],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6752376232",
+          "title": "레퀴엠M",
+          "url": "https://apps.apple.com/kr/app/%EB%A0%88%ED%80%B4%EC%97%A0m/id6752376232?uo=4",
+          "checkedAt": "2026-09-08T17:47:20.658Z",
+          "surveyReference": "game-genre-survey.json#/games/레퀴엠m/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.gravity.rqmm.aos",
+          "title": "레퀴엠M",
+          "url": "https://play.google.com/store/apps/details?id=com.gravity.rqmm.aos&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:51:02.507Z",
+          "surveyReference": "game-genre-survey.json#/games/레퀴엠m/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/OJYaiRaGWoLem4Z7h0WpRXaxo9ME9yt6-c1WoMZQWMmfnIuZyI02oeg3m8j4LFISilT36uIK_3wunlKhUX6EXg",
+          "file": "mockups/store-review/23-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/zdy2oEVXHjTwZXmmkFlBSp3tP-BDXCys2NDBvPgBlXJwKu64X-2Ns0Bz_MSMwgSDAPEZhifH94eeruwzJFkBZg",
+          "file": "mockups/store-review/23-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "루나-모바일",
+      "name": "루나 모바일",
+      "tag": "lineage-like",
+      "status": "excluded",
+      "reason": "소울게임즈의 루나 IP 캐주얼 커뮤니티 MMO. 공식 코스튬·펫·소셜 중심 구성과 플레이 리뷰를 대조했으며, PK/자동전투만으로 리니지류로 분류하지 않음.",
+      "sources": [
+        "https://game.donga.com/96175/"
+      ],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "1602486979",
+          "title": "루나 모바일",
+          "url": "https://apps.apple.com/kr/app/%EB%A3%A8%EB%82%98-%EB%AA%A8%EB%B0%94%EC%9D%BC/id1602486979?uo=4",
+          "checkedAt": "2026-09-08T17:47:06.650Z",
+          "surveyReference": "game-genre-survey.json#/games/루나-모바일/stores/ios"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/24/ec/11/24ec1175-3867-f5f5-c88f-9a4cd97b7d7b/iphone_A.png/320x480bb.jpg",
+          "file": "mockups/store-review/14-1.png"
+        },
+        {
+          "url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/76/94/a9/7694a9cb-dc5f-c84e-2e40-4580fe9ab96d/85c813d3-c89e-4040-a8ae-3bd80ba484f2_5_2688_1242.png/320x480bb.jpg",
+          "file": "mockups/store-review/14-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "루나-모바일-신서버-오픈",
+      "name": "루나 모바일 : 신서버 오픈",
+      "tag": "lineage-like",
+      "status": "excluded",
+      "reason": "소울게임즈의 루나 IP 캐주얼 커뮤니티 MMO. 공식 코스튬·펫·소셜 중심 구성과 플레이 리뷰를 대조했으며, PK/자동전투만으로 리니지류로 분류하지 않음.",
+      "sources": [
+        "https://game.donga.com/96175/"
+      ],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.soulgames.luna19",
+          "title": "루나 모바일",
+          "url": "https://play.google.com/store/apps/details?id=com.soulgames.luna19&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:40.502Z",
+          "surveyReference": "game-genre-survey.json#/games/루나-모바일-신서버-오픈/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/I6JvdPXBDxgq4alizPUSl2X5iaFkHwiBNsxj6oK62WLCtAygP5X2F3pyTo_Ws2LHKCOS_13pREBeH-KEUVezrJU",
+          "file": "mockups/store-review/15-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/U_JB4k_Q76Y2nbXSbWHLh7fx7UubDmuWUmddk1OLUcAfzQvZ7gvdGH4g1J3j0BF23Ceiuyb0TE6oiKxzo9QY",
+          "file": "mockups/store-review/15-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "아키르-로드-오브-디스트럭션",
+      "name": "아키르: 로드 오브 디스트럭션",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6741505662",
+          "title": "아키르: 로드 오브 디스트럭션",
+          "url": "https://apps.apple.com/kr/app/%EC%95%84%ED%82%A4%EB%A5%B4-%EB%A1%9C%EB%93%9C-%EC%98%A4%EB%B8%8C-%EB%94%94%EC%8A%A4%ED%8A%B8%EB%9F%AD%EC%85%98/id6741505662?uo=4",
+          "checkedAt": "2026-09-08T17:46:46.885Z",
+          "surveyReference": "game-genre-survey.json#/games/아키르-로드-오브-디스트럭션/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.godplace.krgp",
+          "title": "아키르: 로드 오브 디스트럭션",
+          "url": "https://play.google.com/store/apps/details?id=com.godplace.krgp&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:33.006Z",
+          "surveyReference": "game-genre-survey.json#/games/아키르-로드-오브-디스트럭션/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/JshCnQ88gAmpzOpEgk8aciNSCIVah07N9OhU9oiZIlrLknFsmSrWkvvSMScIdjusmw579XHbjN2wO2qyOsto",
+          "file": "mockups/store-review/1-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/gLyO8YEXsaXBrrr5VPtdwxqelE_ToRyC-8caZ_nAT26vU8lFuVC4e2gdW3BSpM1pgqPZ-6N3MYj8tg1ELsvPDuA",
+          "file": "mockups/store-review/1-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "심야귀담",
+      "name": "심야귀담",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6747372579",
+          "title": "심야귀담",
+          "url": "https://apps.apple.com/kr/app/%EC%8B%AC%EC%95%BC%EA%B7%80%EB%8B%B4/id6747372579?uo=4",
+          "checkedAt": "2026-09-08T17:46:49.198Z",
+          "surveyReference": "game-genre-survey.json#/games/심야귀담/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.v20.krgp",
+          "title": "심야귀담",
+          "url": "https://play.google.com/store/apps/details?id=com.v20.krgp&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:36.861Z",
+          "surveyReference": "game-genre-survey.json#/games/심야귀담/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/e4iSXJJ6Bba2x-VCVge8Yd_XxtRK8Z9bXQqnPnN8xQ4hz33zeCXzlAVkYonRqjD2JJCzZs_cyLvRpcuRAdMRyA",
+          "file": "mockups/store-review/2-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/1ckwOdP68HizEV068MxJCyvHvSlIKL9ssff9fXXJJZpInVUz5mIorp5oodb_st5i1PyELwabSKv5o2okCAwft-c",
+          "file": "mockups/store-review/2-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "아케론종말의-서곡",
+      "name": "아케론:종말의 서곡",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6743191824",
+          "title": "아케론:종말의 서곡",
+          "url": "https://apps.apple.com/kr/app/%EC%95%84%EC%BC%80%EB%A1%A0-%EC%A2%85%EB%A7%90%EC%9D%98-%EC%84%9C%EA%B3%A1/id6743191824?uo=4",
+          "checkedAt": "2026-09-08T17:46:49.198Z",
+          "surveyReference": "game-genre-survey.json#/games/아케론종말의-서곡/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.ulugame.hdqykrob.google",
+          "title": "아케론:종말의 서곡",
+          "url": "https://play.google.com/store/apps/details?id=com.ulugame.hdqykrob.google&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:37.545Z",
+          "surveyReference": "game-genre-survey.json#/games/아케론종말의-서곡/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/FG8zfr4Yw5H8NFCPhLdkS59TF1Xw0UPHnwqViHKtAQiG09k0KlNrrzjqFuie-RXf836AtubU32WyWTJEC7HNj2M",
+          "file": "mockups/store-review/3-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/aNxWcOeIMx9A7tXdz0HAuVToVZtlRGLpysqHeyzkkliiTiP6Dm8rpLcMJIfYJ9FDDrO5fvVd3Bo0_8PoRfEwSw",
+          "file": "mockups/store-review/3-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "신-선혼-리버스",
+      "name": "신 선혼: 리버스",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.xianxia.kr.rpg",
+          "title": "신 선혼: 리버스",
+          "url": "https://play.google.com/store/apps/details?id=com.xianxia.kr.rpg&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:38.130Z",
+          "surveyReference": "game-genre-survey.json#/games/신-선혼-리버스/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/37XkQ_sD8WoPQJuGtpzZF8PYG1n6Lx_gNzSlfr7fZfuj0iC5s2JKaAC43odIZd4T1iS8HCw0P1RTWMEtYYnEd6k",
+          "file": "mockups/store-review/4-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/yLQUyOC1bq9kWZhv-EUSx-lVGC_plfRaB02gWfxu6j7uKgnepurIyB0GYDHiwe61VffSLu6KwX97VvMagvRu",
+          "file": "mockups/store-review/4-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "요괴잡이소대-x-대환장-mmorpg",
+      "name": "요괴잡이소대 X 대환장 MMORPG",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.joynexgames.btaste.google",
+          "title": "요괴잡이소대 X 대환장 MMORPG",
+          "url": "https://play.google.com/store/apps/details?id=com.joynexgames.btaste.google&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:51.581Z",
+          "surveyReference": "game-genre-survey.json#/games/요괴잡이소대-x-대환장-mmorpg/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/WFlp_LokX4SqEHUM-OyL9V_x4KMCvh7WReJkpX8Guz81h2ZEMf46UTfN0Ew9pxYbQ8eS6gU0Ey1jBuOCnBCT",
+          "file": "mockups/store-review/6-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/WICdh_jRqPXmwx0SsT9nSVe3pRWPd0ECM0jaqPs6iKKtlFr9iEHft5GBilXyII9SUnOnYRz7P5Kem1c3RpcBWg",
+          "file": "mockups/store-review/6-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "전혼m",
+      "name": "전혼M",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.kr.jszh.google",
+          "title": "전혼M",
+          "url": "https://play.google.com/store/apps/details?id=com.kr.jszh.google&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:51.680Z",
+          "surveyReference": "game-genre-survey.json#/games/전혼m/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/_wiKfCp2-TeYRD_Kd7v1QIkghDvRidcK6XEuQ5xLskX-Y5B2_AipNLM-WPajqAxBLAIUYIhpmOpA-LMjPKKYMg",
+          "file": "mockups/store-review/7-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/UVi1PEfOFDrseRLYrF1xOyPJwPDNsJng0zX1NeTzN3di1-nAJV8KB_HPAlC5HNLTnMc_m2mVhsa8B-fNBTvevA",
+          "file": "mockups/store-review/7-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "질서수호자",
+      "name": "질서:수호자",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6752684846",
+          "title": "질서:수호자",
+          "url": "https://apps.apple.com/kr/app/%EC%A7%88%EC%84%9C-%EC%88%98%ED%98%B8%EC%9E%90/id6752684846?uo=4",
+          "checkedAt": "2026-09-08T17:46:54.505Z",
+          "surveyReference": "game-genre-survey.json#/games/질서수호자/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.zhixushouhuzhe.gema.xxguge",
+          "title": "질서:수호자",
+          "url": "https://play.google.com/store/apps/details?id=com.zhixushouhuzhe.gema.xxguge&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:54.682Z",
+          "surveyReference": "game-genre-survey.json#/games/질서수호자/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/PVpHjk1MhuIKkbDx_8oDeweuBHkrXgS2LZYvUfMUHJee_pZZFbZUKEU1LRS04W8B0y32SBwsnAovyZRrnTJO",
+          "file": "mockups/store-review/8-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/xDBaXrp8UF7OeViwU_dKMWJbtRV4bkwCkhgOKxFdONO0a0ndHrbjfVv0F4OxretWSnUJcw1FB7K7NvriLBrCNA",
+          "file": "mockups/store-review/8-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "디바인-신을-모시는-자",
+      "name": "디바인: 신을 모시는 자",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6744669416",
+          "title": "디바인: 신을 모시는 자",
+          "url": "https://apps.apple.com/kr/app/%EB%94%94%EB%B0%94%EC%9D%B8-%EC%8B%A0%EC%9D%84-%EB%AA%A8%EC%8B%9C%EB%8A%94-%EC%9E%90/id6744669416?uo=4",
+          "checkedAt": "2026-09-08T17:46:59.495Z",
+          "surveyReference": "game-genre-survey.json#/games/디바인-신을-모시는-자/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.zy.gpkr",
+          "title": "디바인: 신을 모시는 자",
+          "url": "https://play.google.com/store/apps/details?id=com.zy.gpkr&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:05.549Z",
+          "surveyReference": "game-genre-survey.json#/games/디바인-신을-모시는-자/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/1QWDDEK_N5kvR47fmX8qj9Fte4y8z79CH7gVQs9Bg0wOyZcgNMnuwLFUphOt0q-rH6cGH0kGhUpvzd2hcgb7",
+          "file": "mockups/store-review/9-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/R1h_7uhtdYi4b4JL74e-7L0EEGT-N6Vvgdzv8C_t02Jg7hkYmxy7Eofin-oA-tg6CVm7NpppfEK-dvRgiivLfQ",
+          "file": "mockups/store-review/9-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "블러드-앤-소울",
+      "name": "블러드 앤 소울",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6749836215",
+          "title": "ASURA: 블러드 앤 소울",
+          "url": "https://apps.apple.com/kr/app/asura-%EB%B8%94%EB%9F%AC%EB%93%9C-%EC%95%A4-%EC%86%8C%EC%9A%B8/id6749836215?uo=4",
+          "checkedAt": "2026-09-08T17:46:59.495Z",
+          "surveyReference": "game-genre-survey.json#/games/블러드-앤-소울/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.xone.gpkr",
+          "title": "ASURA: 블러드 앤 소울",
+          "url": "https://play.google.com/store/apps/details?id=com.xone.gpkr&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:07.118Z",
+          "surveyReference": "game-genre-survey.json#/games/블러드-앤-소울/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/o6tOKs7R9OGfTeVt5vxj-Sd0yTZd3xe3IOuGgvTQKMqLTz8UaXA0cRZCUjVfNcwIJRXxipnS5v9l3SOezmo65w",
+          "file": "mockups/store-review/10-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/TLLmdFCEbI8wd8szCjMuT8bc0OF0RawavgiihK1_s9MQZkGnlpbBBGmJxL_bB-cjv24v0Napq-YIsrxSEgIHRw",
+          "file": "mockups/store-review/10-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "조선협객전2m",
+      "name": "조선협객전2M",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6587555091",
+          "title": "조선협객전2M",
+          "url": "https://apps.apple.com/kr/app/%EC%A1%B0%EC%84%A0%ED%98%91%EA%B0%9D%EC%A0%842m/id6587555091?uo=4",
+          "checkedAt": "2026-09-08T17:47:04.441Z",
+          "surveyReference": "game-genre-survey.json#/games/조선협객전2m/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.smartnow.chosunm2",
+          "title": "조선협객전2M",
+          "url": "https://play.google.com/store/apps/details?id=com.smartnow.chosunm2&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:23.926Z",
+          "surveyReference": "game-genre-survey.json#/games/조선협객전2m/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/NZS5jBm04-sMvhRFKgtX1w3ejLjn4dTYj5QjJ8paSc9qdVuVyVak78BnRP_NJV4A0INvTXAEfRZ3RdoVxswo",
+          "file": "mockups/store-review/12-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/sZBSJlz-EryuExRpUu8sxbhj-8W07l_1aPHrebuB5i7JCZo5_w74HKjYQbTI85cX2Etpg41j0vJgnwqyBWg3ydE",
+          "file": "mockups/store-review/12-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "어비스-데스티니",
+      "name": "어비스: 데스티니",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6642691353",
+          "title": "어비스: 데스티니",
+          "url": "https://apps.apple.com/kr/app/%EC%96%B4%EB%B9%84%EC%8A%A4-%EB%8D%B0%EC%8A%A4%ED%8B%B0%EB%8B%88/id6642691353?uo=4",
+          "checkedAt": "2026-09-08T17:47:06.650Z",
+          "surveyReference": "game-genre-survey.json#/games/어비스-데스티니/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.ponekorea.google",
+          "title": "어비스: 데스티니",
+          "url": "https://play.google.com/store/apps/details?id=com.ponekorea.google&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:33.417Z",
+          "surveyReference": "game-genre-survey.json#/games/어비스-데스티니/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/-4bj1l7UxFaf40_j_3-Bgc8Z_blo29ViCY9M0YR0NDOJPsocT5sEhfqFa3P06ndoKr0Ksm0HJfosjQXfs7uCSA",
+          "file": "mockups/store-review/13-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/lQ2hzXgiqWHkA5G8gmgrRDlRuqQCzqBBYGdLZbh1Ve8Oiynf4p-_zp_gqKDaIPUXVRjJLQ1Jm4wzPCprJr6P",
+          "file": "mockups/store-review/13-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "에스페라",
+      "name": "에스페라",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6756991233",
+          "title": "에스페라",
+          "url": "https://apps.apple.com/kr/app/%EC%97%90%EC%8A%A4%ED%8E%98%EB%9D%BC/id6756991233?uo=4",
+          "checkedAt": "2026-09-08T17:47:09.176Z",
+          "surveyReference": "game-genre-survey.json#/games/에스페라/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.kr.lkhx.android",
+          "title": "에스페라",
+          "url": "https://play.google.com/store/apps/details?id=com.kr.lkhx.android&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:49:06.489Z",
+          "surveyReference": "game-genre-survey.json#/games/에스페라/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/mp38mBPtrQ3qziBxgfLc7M9mR11f8mOEKfWXjCvjOSjCVtaS2uagCe2s37tslb0LItwxjspFOjy8IDH0zpjCbA",
+          "file": "mockups/store-review/16-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/5mVGVEQvpc-_jWN0AWqKXz2y5TR20abH8QTVruBnY8owdan7y8Pz9vCFe8-koUj_gX6WdFG4OSj5efceOt-6jA",
+          "file": "mockups/store-review/16-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "천년의-환-결속의-가락지",
+      "name": "천년의 환: 결속의 가락지",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.ly.rpg.kr.gp",
+          "title": "천년의 환: 결속의 가락지",
+          "url": "https://play.google.com/store/apps/details?id=com.ly.rpg.kr.gp&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:49:33.104Z",
+          "surveyReference": "game-genre-survey.json#/games/천년의-환-결속의-가락지/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/JNoQ6l-TN-NN0KdBAofCXaw3mYTAdlWNkWv9NSLjrNy-cza08YkA5T3z7F2-c628PVFq3pvw17o0SK-5xMM7yA",
+          "file": "mockups/store-review/17-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/W3frco6L6URJD34o-wG0DDKYUULfxW_vCQ0p-kXpXnD1IZoSJtyThiV8PzcLJz9agTKwtB6jPMICswQ3jfd-",
+          "file": "mockups/store-review/17-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "이터널-크로니클",
+      "name": "이터널 크로니클",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6746905161",
+          "title": "이터널 크로니클",
+          "url": "https://apps.apple.com/kr/app/%EC%9D%B4%ED%84%B0%EB%84%90-%ED%81%AC%EB%A1%9C%EB%8B%88%ED%81%B4/id6746905161?uo=4",
+          "checkedAt": "2026-09-08T17:47:11.243Z",
+          "surveyReference": "game-genre-survey.json#/games/이터널-크로니클/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.tone.krgp",
+          "title": "이터널 크로니클",
+          "url": "https://play.google.com/store/apps/details?id=com.tone.krgp&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:49:51.075Z",
+          "surveyReference": "game-genre-survey.json#/games/이터널-크로니클/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/uwcLu0of8G88jFo-HOkWzZBysuyLczEhRPOX6HQW9wkSPbUtk_ffOsC6zbTbB0oivYcq3px3FZB9Qh78Q8N7sQ",
+          "file": "mockups/store-review/19-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/6qPiMbAFH1kQgVKG9Ywt9UyUmDn0Rv2QjtswG9Ecu8QmzUAcLi5IW7qMP8ijzfVt7D9FTEER_VCohhoVSPC9Og",
+          "file": "mockups/store-review/19-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "에스카라",
+      "name": "에스카라",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.broccolihk.eschara",
+          "title": "에스카라",
+          "url": "https://play.google.com/store/apps/details?id=com.broccolihk.eschara&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:50:02.791Z",
+          "surveyReference": "game-genre-survey.json#/games/에스카라/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/5QfYCef3CfjBVx5J7oYA2gAkkiKURyy-vUM0dIrLbskFCBfqJO87zyG3Nx3rf-mo1OZPoqtedDXzHfYYVJNotQ",
+          "file": "mockups/store-review/20-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/qpQqGy_KxgCHR2_goD9GAs_GtBMRzK6O9zHxdd3uzauXyQfcyaoWDw65NJbt_YcvwDEUMRg5Me8F7uOO5tUVXg",
+          "file": "mockups/store-review/20-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "혼문-달빛을-품은-mmorpg",
+      "name": "혼문 - 달빛을 품은 MMORPG",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.gameade.sjsb.google",
+          "title": "혼문 - 달빛을 품은 MMORPG",
+          "url": "https://play.google.com/store/apps/details?id=com.gameade.sjsb.google&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:50:32.655Z",
+          "surveyReference": "game-genre-survey.json#/games/혼문-달빛을-품은-mmorpg/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/Z4Ry9-yEgiArkyBAiL67sdWsaoDhqrduo9dbfkfHUWLyHkmWnvmC1ZKTfZW9lmVbZTRwAxcxeONbXHpI7nD2xEE",
+          "file": "mockups/store-review/21-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/0agjz73xMLlkm24yK4nhlrSvpNhFxPut9zFAYLXoBX0EX1-XypMfHAQA2CT1MxN_UJWrrq49utC26yxrUVxIZQ",
+          "file": "mockups/store-review/21-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "네메시스-나인",
+      "name": "네메시스: 나인",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.carrottechnology.nemesisnine",
+          "title": "네메시스: 나인",
+          "url": "https://play.google.com/store/apps/details?id=com.carrottechnology.nemesisnine&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:50:51.107Z",
+          "surveyReference": "game-genre-survey.json#/games/네메시스-나인/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/B9WvQLgLzVEX5BU-HyV1qD7EmJxEnTOKUabA_yg0vFhiuOVIlEmZEkFL2FA6qe-jV9L47ohJuB4PV7Kzy62LzWQ",
+          "file": "mockups/store-review/22-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/12u-Bz0Y44kZJ7eUUD8qpzN23IUzv2aWlQMmOsJkqxb4J4Em-s4u7Z4t2gAcfgt4S1ObSUkBYlIDfsuThEsrBA",
+          "file": "mockups/store-review/22-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "꿈의-여행자-별빛-여정",
+      "name": "꿈의 여행자: 별빛 여정",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6760754315",
+          "title": "꿈의 여행자: 별빛 여정",
+          "url": "https://apps.apple.com/kr/app/%EA%BF%88%EC%9D%98-%EC%97%AC%ED%96%89%EC%9E%90-%EB%B3%84%EB%B9%9B-%EC%97%AC%EC%A0%95/id6760754315?uo=4",
+          "checkedAt": "2026-09-08T17:47:22.829Z",
+          "surveyReference": "game-genre-survey.json#/games/꿈의-여행자-별빛-여정/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.dreamwalker.kr.gp",
+          "title": "꿈의 여행자: 별빛 여정",
+          "url": "https://play.google.com/store/apps/details?id=com.dreamwalker.kr.gp&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:51:09.133Z",
+          "surveyReference": "game-genre-survey.json#/games/꿈의-여행자-별빛-여정/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/hSpIx8aDmERf52UwfcmM9icduZVnhCj7WA7VliU5fTS2ZjD0XRw8HlClgrj_WHltUDP-arvIk55UlISX1qrCow",
+          "file": "mockups/store-review/25-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/LNGsjLXVRJ9qlu-vRmrBi8c3_WgEcXVoUozrEl3UKAmo13pJdeh-5LjfuanqVVqHkJZLgXE2kt4MyuBQxl7-tQ",
+          "file": "mockups/store-review/25-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "열혈강호-넥스트",
+      "name": "열혈강호: 넥스트",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6762442041",
+          "title": "열혈강호: 넥스트",
+          "url": "https://apps.apple.com/kr/app/%EC%97%B4%ED%98%88%EA%B0%95%ED%98%B8-%EB%84%A5%EC%8A%A4%ED%8A%B8/id6762442041?uo=4",
+          "checkedAt": "2026-09-08T17:47:22.829Z",
+          "surveyReference": "game-genre-survey.json#/games/열혈강호-넥스트/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.rxjhglkr.gp",
+          "title": "열혈강호: 넥스트",
+          "url": "https://play.google.com/store/apps/details?id=com.rxjhglkr.gp&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:51:13.379Z",
+          "surveyReference": "game-genre-survey.json#/games/열혈강호-넥스트/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/ExLHi3TD-GLfmUnM1wGnkvIshxPR5JgCwX3qDtQLXuhblH8rdLPqfOLB3n7OmKJY-hpsRGuybp_Robo6tT4E",
+          "file": "mockups/store-review/26-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/qcyPbnhdWjs6ra1qKL-6pSM6IM6uvnDO-1Up5GyHi3krVaUE_kEicaPxdMRMAJGNJSaIVJwyDN_RKfDSP3iVtQ",
+          "file": "mockups/store-review/26-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "프로젝트-오리진-x",
+      "name": "프로젝트 오리진 : X",
+      "tag": "lineage-like",
+      "status": "unverified",
+      "reason": "공식 스토어 설명·실제 등록 스크린샷·개발사 페이지/외부 검색까지 재검토. 자동 성장/MMORPG 홍보는 확인되지만 필드 경제·전쟁·성능 성장의 핵심 구조를 확정할 공개 플레이 자료가 부족하거나 페이지가 폐쇄됨. 광고 이미지로 태그를 확정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.carrottechnology.projectoriginx",
+          "title": "프로젝트 오리진 : X",
+          "url": "https://play.google.com/store/apps/details?id=com.carrottechnology.projectoriginx&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:51:16.742Z",
+          "surveyReference": "game-genre-survey.json#/games/프로젝트-오리진-x/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/D9nehXiFcsrdk0teLUAbRXRsNK-HrOJb8Y0JQ-R8pEl-rsS-MYFMoRuM8ZxxHeRIcna-bQvVA0zfavYaU-4C7w",
+          "file": "mockups/store-review/27-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/ip3xAWJsl_eb88Fasb6ifyDEZY6FKpbW1ClLB2YYttBLMwHU_oq0jwtkhpvHu4QmvXh7BsP3NMYneEwlcwCkip0",
+          "file": "mockups/store-review/27-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "항해킹-사가",
+      "name": "항해킹 사가",
+      "tag": "subculture",
+      "status": "confirmed",
+      "reason": "공식 등록 스크린샷에서 애니메이션 인물 중심의 수집·편성·전투 구성을 확인하고 해당 앱의 공식 설명과 대조. 성향 분류이며 IP 라이선스 적법성을 보증하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.zsagamge.alsrgsh",
+          "title": "항해킹 사가",
+          "url": "https://play.google.com/store/apps/details?id=com.zsagamge.alsrgsh&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:38.885Z",
+          "surveyReference": "game-genre-survey.json#/games/항해킹-사가/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/vUNGHA3ahm_0k17mj53a5t6P1VO43Gf2IQdNaiv8EE3dH7jT7Jm4JIuoautZi_vo3X8o_HNCOlujAO9NYzE9",
+          "file": "mockups/store-review/28-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/wnYbTz-symhW8PWdJovTp9Ay9IpN_BTXxlb8k1q7Ctmr_jXzGTYTryTbE1meKkZF5EeT5bvUYZbHopgwhrF0Rw",
+          "file": "mockups/store-review/28-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "애니-판타지-방치",
+      "name": "애니 판타지: 방치",
+      "tag": "subculture",
+      "status": "confirmed",
+      "reason": "공식 등록 스크린샷에서 애니메이션 인물 중심의 수집·편성·전투 구성을 확인하고 해당 앱의 공식 설명과 대조. 성향 분류이며 IP 라이선스 적법성을 보증하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.andromo.dev930514.app1068491",
+          "title": "애니 판타지: 방치",
+          "url": "https://play.google.com/store/apps/details?id=com.andromo.dev930514.app1068491&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:49:00.965Z",
+          "surveyReference": "game-genre-survey.json#/games/애니-판타지-방치/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/fgXoVCezCxqBQ63x8HEzthptRGoq7ih11nfpWdt8s4VgMl3Ek3NW5dTYs8-6g97Gd_aTwreDFYOg9StnO4jW",
+          "file": "mockups/store-review/29-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/VPXXaZy13LTxy8_tcEV5Y4qh0C2hUdAC1bhcLC30iztTZOUj_1C-SosYvgw0wRVXfgiDI8Y-Ra-l816amR8d",
+          "file": "mockups/store-review/29-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "해적-키우기-방치형-rpg",
+      "name": "해적 키우기-방치형 RPG",
+      "tag": "subculture",
+      "status": "confirmed",
+      "reason": "공식 등록 스크린샷에서 애니메이션 인물 중심의 수집·편성·전투 구성을 확인하고 해당 앱의 공식 설명과 대조. 성향 분류이며 IP 라이선스 적법성을 보증하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.hdfzxrpg.googlelb",
+          "title": "해적 키우기-방치형 RPG",
+          "url": "https://play.google.com/store/apps/details?id=com.hdfzxrpg.googlelb&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:50:36.095Z",
+          "surveyReference": "game-genre-survey.json#/games/해적-키우기-방치형-rpg/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/FsuWZAz4JB5C_TRQcPN6EF8txHMaiz9AGWPxmYltkVKFJNL4pJ_yyWLk_a-Ev8vyRbX_cUpjP_NiHCRaqfon5iI",
+          "file": "mockups/store-review/30-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/TItldFHHUFOTbTdicVUlMYXsuEguZtRS5kq_aWIR5A_DBklf8veZ9R2PumeuX14a82Hq7S5Dlv_-sytzaZ75YR8",
+          "file": "mockups/store-review/30-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "달토끼-키우기-5주년",
+      "name": "달토끼 키우기 - 5주년",
+      "tag": "subculture",
+      "status": "confirmed",
+      "reason": "공식 달토끼 린 캐릭터 서사·성우(CV 이새아)·캐릭터 감상 및 꾸미기와 스토어 이미지의 캐릭터 중심 구성을 확인.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "1599684924",
+          "title": "달토끼 키우기",
+          "url": "https://apps.apple.com/kr/app/%EB%8B%AC%ED%86%A0%EB%81%BC-%ED%82%A4%EC%9A%B0%EA%B8%B0/id1599684924?uo=4",
+          "checkedAt": "2026-09-08T17:47:18.056Z",
+          "surveyReference": "game-genre-survey.json#/games/달토끼-키우기-5주년/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.AbleGames.DalToKi",
+          "title": "달토끼 키우기",
+          "url": "https://play.google.com/store/apps/details?id=com.AbleGames.DalToKi&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:50:44.139Z",
+          "surveyReference": "game-genre-survey.json#/games/달토끼-키우기-5주년/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/kUr-AqBesxmY38VeY7LnHuMu7YFainX2cnBikL8IoPlRs3kmdNfA8BZKBOzyOM_qjmy91nzm4wPpCMAGE1hfYg",
+          "file": "mockups/store-review/31-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/1n9EV1niTkQsiXm7qydUGAKBWvNs1U6AHiZdysmAM2eTGqKWUVs-U7q5edXYvYJtEIhDkz8mv1S0JYLghfVJuys",
+          "file": "mockups/store-review/31-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "킹-오브-파이터-afk",
+      "name": "킹 오브 파이터 AFK",
+      "tag": "subculture",
+      "status": "confirmed",
+      "reason": "잘못 연결된 FARLIGHT 앱을 제거한 뒤, 양대 스토어 모두 넷마블 KOF AFK의 원작 파이터 수집·캐릭터 편성임을 확인.",
+      "sources": [
+        "https://play.google.com/store/apps/details?id=com.netmarble.kofafk"
+      ],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6499177365",
+          "title": "킹 오브 파이터 AFK",
+          "url": "https://apps.apple.com/kr/app/%ED%82%B9-%EC%98%A4%EB%B8%8C-%ED%8C%8C%EC%9D%B4%ED%84%B0-afk/id6499177365?uo=4",
+          "checkedAt": "2026-09-08T17:46:49.198Z",
+          "surveyReference": "game-genre-survey.json#/games/킹-오브-파이터-afk/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.netmarble.kofafk",
+          "title": "킹 오브 파이터 AFK",
+          "url": "https://play.google.com/store/apps/details?id=com.netmarble.kofafk&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T18:42:36.823Z",
+          "surveyReference": "game-genre-survey.json#/games/킹-오브-파이터-afk/stores/android"
+        }
+      ]
+    },
+    {
+      "slug": "alter-ego",
+      "name": "Alter Ego",
+      "tag": "subculture",
+      "status": "excluded",
+      "reason": "기존 alter-ego URL은 yejin lee의 가상 신분증·아바타 앱이다. Caramel Column의 동명 게임은 별도 DB 항목으로 분리했으므로 다른 앱의 성향 근거를 사용하지 않음.",
+      "sources": [
+        "https://apps.apple.com/kr/app/alter-ego/id1549657152"
+      ],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "1549657152",
+          "title": "Alter Ego",
+          "url": "https://apps.apple.com/kr/app/alter-ego/id1549657152?uo=4",
+          "checkedAt": "2026-09-08T17:47:15.976Z",
+          "surveyReference": "game-genre-survey.json#/games/alter-ego/stores/ios"
+        }
+      ]
+    },
+    {
+      "slug": "신의-탑-새로운-세계",
+      "name": "신의 탑: 새로운 세계",
+      "tag": "idle",
+      "status": "confirmed",
+      "reason": "실제 플레이 리뷰에서 시간 누적 전리품·진행도 연동 보상·자동 육성을 확인. 기본 장르는 수집형 RPG로 유지하고 방치 성장 방식만 태그로 부여.",
+      "sources": [
+        "https://www.ddaily.co.kr/page/view/2023073111574116558"
+      ],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "1599435437",
+          "title": "신의 탑: 새로운 세계",
+          "url": "https://apps.apple.com/kr/app/%EC%8B%A0%EC%9D%98-%ED%83%91-%EC%83%88%EB%A1%9C%EC%9A%B4-%EC%84%B8%EA%B3%84/id1599435437?uo=4",
+          "checkedAt": "2026-09-08T17:47:02.113Z",
+          "surveyReference": "game-genre-survey.json#/games/신의-탑-새로운-세계/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.netmarble.tog",
+          "title": "신의 탑: 새로운 세계",
+          "url": "https://play.google.com/store/apps/details?id=com.netmarble.tog&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:17.090Z",
+          "surveyReference": "game-genre-survey.json#/games/신의-탑-새로운-세계/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/vv-TtvuBp70zQ72Q9U8xPXWCfhUypqzE2wNKMgfVuY-54Jz2TZA4XZYhZGir20PeGirUcG6GdTVBh_L9g3lIGw",
+          "file": "mockups/store-review/35-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/DBRiVlOcXV6Ekd3zD0kro0VeVuL8dOnw4YDIUr2ODzzMXED05uF_SmIELQ_wdS5BTFCcFeHu7UnJLpmnjm_V",
+          "file": "mockups/store-review/35-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "픽셀-법사-키우기",
+      "name": "픽셀 법사 키우기",
+      "tag": "idle",
+      "status": "confirmed",
+      "reason": "Google Play 개발사 StreetComplete와 공식 개발사 사이트의 Pixel Mage: Idle RPG, 동일 기능 설명의 iOS 방치형 RPG 표기를 교차 확인.",
+      "sources": [
+        "https://streetcomplete.blogspot.com/",
+        "https://apps.apple.com/kr/app/id6741889270"
+      ],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.streetcomplete.pixelmagician",
+          "title": "픽셀 법사 키우기 : 1.5주년 2서버 오픈!",
+          "url": "https://play.google.com/store/apps/details?id=com.streetcomplete.pixelmagician&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:50:20.664Z",
+          "surveyReference": "game-genre-survey.json#/games/픽셀-법사-키우기/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/y4fuKUoHPboRNrx8Lt7iA0mVV2W3Bic-vgRVrBoLeOoCVNinUlMTsCbsYJoQZ5i_7iHLGZKvqhMwPE_RcMEMsQ",
+          "file": "mockups/store-review/37-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/nfCEDRvHMAw3wiEZfba4DS0D7qBLb4rbzqwHVqSNmJO-027oX8pl5d4qHWm4SJgBcTtAQgfLcYLsQ71Q50nCWg",
+          "file": "mockups/store-review/37-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "우르르-수비대-디펜스-rpg",
+      "name": "우르르 수비대! - 디펜스 RPG",
+      "tag": "idle",
+      "status": "excluded",
+      "reason": "공식 웨이브별 랜덤 소환·덱 운용 설명과 등록 플레이 화면에서 전투 중 선택/합성을 중심으로 확인. 방치형과의 비교 문구 및 자동 공격만으로 핵심 방치 성장 태그를 적용하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6753168115",
+          "title": "우르르수비대",
+          "url": "https://apps.apple.com/kr/app/%EC%9A%B0%EB%A5%B4%EB%A5%B4%EC%88%98%EB%B9%84%EB%8C%80/id6753168115?uo=4",
+          "checkedAt": "2026-09-08T17:47:02.113Z",
+          "surveyReference": "game-genre-survey.json#/games/우르르-수비대-디펜스-rpg/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.playhardlab.defenders",
+          "title": "우르르 수비대! - 디펜스 RPG",
+          "url": "https://play.google.com/store/apps/details?id=com.playhardlab.defenders&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:16.488Z",
+          "surveyReference": "game-genre-survey.json#/games/우르르-수비대-디펜스-rpg/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/NHVpBp0XoCDjDObPUkbQKMuGQZa7sIp91UsLudtddg6NNOMnJzb0tguoo003H3D8QZlTngkJ4CHofocbyBwX-g",
+          "file": "mockups/store-review/34-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/SMxfDKbqBakvPQGeYFUFMvYOnJNJ-ir_IkrhJOers-52UN-VPIuQdjs08OBOtDvb016xdbP2MMMc_NpMTInsOA",
+          "file": "mockups/store-review/34-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "보물사냥단go",
+      "name": "보물사냥단GO!",
+      "tag": "idle",
+      "status": "unverified",
+      "reason": "스토어 원문 전체·등록 스크린샷·개발사 및 외부 자료까지 재검토했으나 비접속/자율 성장의 동작을 확정할 근거가 없음. 세부 카테고리나 이름의 idle만으로 단정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "android",
+          "id": "com.bzslt.googlelb",
+          "title": "보물사냥단GO!",
+          "url": "https://play.google.com/store/apps/details?id=com.bzslt.googlelb&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:47:36.155Z",
+          "surveyReference": "game-genre-survey.json#/games/보물사냥단go/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/9WTvjQKITCACyi8Tnl1hjTgMKLPTYiOY_wfAMIQDZSaTIgN9Pqh8tnpIR98Eu2CYUogFDGVzzJPWd0vCRnNevkA",
+          "file": "mockups/store-review/32-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/aTRnTZuats94iNpnVqjGvCwIVzQhdhSNDg6bN1rL4tvTAqSbJnUmp7qtylJw5ZA7LYJdMTtiPoY_7PRwonaXmg",
+          "file": "mockups/store-review/32-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "히어로-모험단",
+      "name": "히어로 모험단",
+      "tag": "idle",
+      "status": "unverified",
+      "reason": "스토어 원문 전체·등록 스크린샷·개발사 및 외부 자료까지 재검토했으나 비접속/자율 성장의 동작을 확정할 근거가 없음. 세부 카테고리나 이름의 idle만으로 단정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6756605120",
+          "title": "히어로 모험단",
+          "url": "https://apps.apple.com/kr/app/%ED%9E%88%EC%96%B4%EB%A1%9C-%EB%AA%A8%ED%97%98%EB%8B%A8/id6756605120?uo=4",
+          "checkedAt": "2026-09-08T17:46:59.495Z",
+          "surveyReference": "game-genre-survey.json#/games/히어로-모험단/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.yxmxtkr.gp",
+          "title": "히어로 모험단",
+          "url": "https://play.google.com/store/apps/details?id=com.yxmxtkr.gp&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:48:10.940Z",
+          "surveyReference": "game-genre-survey.json#/games/히어로-모험단/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/09YeDedEH-Ac9itiWqrAnHXyRuHgU_9YlT1MbJRLGEwYt4FdjX09ayvfKyu3ZK9ukwGeBQoMTjjveE1UrHEgGw",
+          "file": "mockups/store-review/33-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/KrzzprEQvdJ-g56lQ0ml9-B0GmW4uZs388Tnrw67aJU_sl19JuA-oBn5NHS-Fw5HpQ1b1zLZJ17TR14_3UL4",
+          "file": "mockups/store-review/33-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "랜덤-영웅-대전-2",
+      "name": "랜덤 영웅 대전 2",
+      "tag": "idle",
+      "status": "unverified",
+      "reason": "스토어 원문 전체·등록 스크린샷·개발사 및 외부 자료까지 재검토했으나 비접속/자율 성장의 동작을 확정할 근거가 없음. 세부 카테고리나 이름의 idle만으로 단정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6755881449",
+          "title": "랜덤 영웅 대전 2",
+          "url": "https://apps.apple.com/kr/app/%EB%9E%9C%EB%8D%A4-%EC%98%81%EC%9B%85-%EB%8C%80%EC%A0%84-2/id6755881449?uo=4",
+          "checkedAt": "2026-09-08T17:47:09.176Z",
+          "surveyReference": "game-genre-survey.json#/games/랜덤-영웅-대전-2/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "com.matecorp.randomherobattle2",
+          "title": "랜덤 영웅 대전 2",
+          "url": "https://play.google.com/store/apps/details?id=com.matecorp.randomherobattle2&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:49:15.290Z",
+          "surveyReference": "game-genre-survey.json#/games/랜덤-영웅-대전-2/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/qW__0Pe6BePg4dKbP2n-qYxdxJl_PQ5vLIkACSPpt0Vus3wjVgL1LigDYRWLfWlHdVMh9tcvMWKRYrUUDwBA6nE",
+          "file": "mockups/store-review/36-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/T0l1OKqAZaAtmhKaA1NbEN9J8_Tidr9IzwPEpXnEx0qnsOWWsshE9Qw5x7fDkjkpq0LxwFIanH7mZrUHDcpBJQ",
+          "file": "mockups/store-review/36-2.png"
+        }
+      ]
+    },
+    {
+      "slug": "응발로-키우기",
+      "name": "응발로 키우기",
+      "tag": "idle",
+      "status": "unverified",
+      "reason": "스토어 원문 전체·등록 스크린샷·개발사 및 외부 자료까지 재검토했으나 비접속/자율 성장의 동작을 확정할 근거가 없음. 세부 카테고리나 이름의 idle만으로 단정하지 않음.",
+      "sources": [],
+      "storeEvidence": [
+        {
+          "store": "ios",
+          "id": "6780820379",
+          "title": "응 발로 키우기",
+          "url": "https://apps.apple.com/kr/app/%EC%9D%91-%EB%B0%9C%EB%A1%9C-%ED%82%A4%EC%9A%B0%EA%B8%B0/id6780820379?uo=4",
+          "checkedAt": "2026-09-08T17:47:18.056Z",
+          "surveyReference": "game-genre-survey.json#/games/응발로-키우기/stores/ios"
+        },
+        {
+          "store": "android",
+          "id": "kr.co.plgames.yeahfootcrasheridle",
+          "title": "응발로 키우기",
+          "url": "https://play.google.com/store/apps/details?id=kr.co.plgames.yeahfootcrasheridle&hl=ko&gl=kr",
+          "checkedAt": "2026-09-08T17:50:48.011Z",
+          "surveyReference": "game-genre-survey.json#/games/응발로-키우기/stores/android"
+        }
+      ],
+      "screenshotEvidence": [
+        {
+          "url": "https://play-lh.googleusercontent.com/3iN8ybD_Rm6tnBLVprah3_yWMXealSQCIOa7Jc5GMsoTyKxI4geeFDD91KeONrwDGmh4-dSxN1Dh2s6Lhqg4UtU",
+          "file": "mockups/store-review/38-1.png"
+        },
+        {
+          "url": "https://play-lh.googleusercontent.com/QHV0Th15imo-eC4AiSW-GJy9rZYK0WiGGAD1TQyVYKKoAJrKElZ-O14A82rNu3rg_aiEv4omOMOA2WPWmuWGPg8",
+          "file": "mockups/store-review/38-2.png"
+        }
+      ]
+    }
+  ]
+}

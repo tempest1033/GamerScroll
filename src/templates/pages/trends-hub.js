@@ -169,6 +169,11 @@ function generateTrendsHubPage({
   sidebarLatestArticles = []
 }) {
   const pickLcpImageAttrs = createLcpImageAttrPicker();
+  // 기존 허브 URL은 유지하되 레거시 분류는 일반 피드에서 제외한다.
+  issueReports = [];
+  hotpickReports = [];
+  sidebarPopularArticles = sidebarPopularArticles.filter(a => !/\/magazine\/(?:issue|hotpick)\//.test(a.link || a.url || a.path || ''));
+  sidebarLatestArticles = sidebarLatestArticles.filter(a => !/\/magazine\/(?:issue|hotpick)\//.test(a.link || a.url || a.path || ''));
   const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
 
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
@@ -218,7 +223,7 @@ function generateTrendsHubPage({
     return `
       <div class="home-card" id="magazine-popular">
         <div class="home-card-header">
-          <h2 class="home-card-title">인기</h2>
+          <h2 class="home-card-title">인기 기사</h2>
         </div>
         <div class="home-popular-list" id="${popularListId}">${popularCards}</div>
       </div>
@@ -266,7 +271,7 @@ function generateTrendsHubPage({
     return `
       <div class="home-card" id="magazine-latest">
         <div class="home-card-header">
-          <h2 class="home-card-title">최신</h2>
+          <h2 class="home-card-title">최신 기사</h2>
         </div>
         <div class="home-latest-grid" id="latestGrid">
           ${latestCards.initialHtml}
@@ -315,7 +320,7 @@ function generateTrendsHubPage({
   return wrapWithLayout(content, {
     currentPage: 'magazine',
     title: '매거진 - 게임 업계 이슈와 리포트',
-    description: '게임 업계 이슈와 리포트를 한눈에.',
+    description: '게임 업계 주요 이슈와 시장 분석 리포트.',
     keywords: '게임 트렌드, 게임 리포트, 게임 업계 이슈, 게임 순위, 게임 뉴스',
     canonical: `${siteBaseUrl}/magazine/`,
     pageScripts,
@@ -401,7 +406,7 @@ function generateIssueListPage({
     + sharedSidebarArticles(sidebarPopularArticles, sidebarLatestArticles);
   const content = `
     <section class="section active" id="issue-hub">
-      <h1 class="visually-hidden">리포트 - 게임 업계 핫이슈</h1>
+      <h1 class="visually-hidden">게임 업계 주요 이슈</h1>
       <div class="home-container">
         <div class="home-main">${topAds}${generateIssueGrid()}</div>
         <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>
@@ -598,7 +603,7 @@ function generateHotpickListPage({
     + sharedSidebarArticles(sidebarPopularArticles, sidebarLatestArticles);
   const content = `
     <section class="section active" id="hotpick-hub">
-      <h1 class="visually-hidden">핫픽 - 지금 주목할 게임 추천</h1>
+      <h1 class="visually-hidden">핫픽 - 게임 추천 및 분석</h1>
       <div class="home-container">
         <div class="home-main">${topAds}${generateHotpickGrid()}</div>
         <div class="home-sidebar"><div class="home-sidebar-sticky">${sidebar}</div></div>

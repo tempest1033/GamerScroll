@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "repairedAt": "2026-09-08T18:42:36.823Z",
+  "originalEvidence": "mockups/identity-repair-before/",
+  "repairs": [
+    {
+      "slug": "킹-오브-파이터-afk",
+      "androidBefore": "com.farlightgames.igame.gp",
+      "androidAfter": "com.netmarble.kofafk",
+      "incorrectAliasesRemoved": [
+        "천만여신: 가장 치명적인 AFK",
+        "천만여신 : 가장 치명적인 AFK",
+        "AFK: 새로운 여정",
+        "AFK: 새로운 여정 - 모든 영웅 증정",
+        "AFK: 새로운 여정 - 힐링 농장"
+      ]
+    },
+    {
+      "slug": "alter-ego",
+      "retainedIOS": "1549657152",
+      "androidMovedTo": "alter-ego-caramel-column",
+      "verifiedIOS": "1447605099",
+      "android": "com.caracolu.alterego"
+    }
+  ],
+  "rawHistoryModified": false,
+  "note": "기존 URL과 앱 ID별 수집 기록은 유지하며, 표시 시 게임 연결만 재계산한다. 검증된 ID가 있는 이 세 게임은 이름 폴백을 사용하지 않는다."
+}

@@ -69,10 +69,10 @@ function saveCache(cache) {
 }
 
 /**
- * src/styles 폴더의 CSS 파일들 해시 계산
+ * AIScroll 전용 CSS 파일들 해시 계산
  */
 function computeSourceCssHash() {
-  const stylesDir = './src/styles';
+  const stylesDir = './src/aiscroll-styles';
   if (!fs.existsSync(stylesDir)) return null;
 
   const files = fs.readdirSync(stylesDir).filter(f => f.endsWith('.css')).sort();
@@ -85,11 +85,10 @@ function computeSourceCssHash() {
 }
 
 /**
- * src/templates 폴더의 JS 파일들 해시 계산 (재귀)
- * AIScroll도 공통 광고/레이아웃 템플릿을 공유하므로 전체 템플릿 변경을 감지한다.
+ * AIScroll 전용 템플릿과 빌드 코드의 변경만 감지한다.
  */
 function computeTemplateJsHash() {
-  const templatesDir = './src/templates';
+  const templatesDir = './src/templates/ai-blog';
   if (!fs.existsSync(templatesDir)) return null;
 
   const hashes = [];
@@ -116,7 +115,7 @@ function computeTemplateJsHash() {
       hashes.push(`${extra}:${computeHash(fs.readFileSync(extra, 'utf8'))}`);
     }
   }
-  for (const extraDir of ['./src/build', './src/ai-blog']) {
+  for (const extraDir of ['./src/aiscroll-ui', './src/aiscroll-build', './src/ai-blog']) {
     if (fs.existsSync(extraDir)) scanDir(extraDir);
   }
   return computeHash(hashes.sort().join('|'));

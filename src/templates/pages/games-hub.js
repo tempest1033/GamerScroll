@@ -9,6 +9,7 @@ const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
+const escapeAttribute = (value) => String(value || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 /**
  * 초성 추출 함수
@@ -166,6 +167,7 @@ function generateGamesHubPage(options = {}) {
 	            <div class="group-games">
 	              ${grouped[initial].map(game => `
 	                <a href="/games/${game.slug}/" class="game-item" data-slug="${game.slug}">
+	                  <img class="game-item-icon" src="${escapeAttribute(resizeIcon(game.icon) || '/icon-192.png')}" alt="" width="36" height="36" loading="lazy" decoding="async" data-img-fallback-src="/icon-192.png">
 	                  <span class="game-name">${game.name}</span>
 	                </a>
 	              `).join('')}
@@ -197,14 +199,26 @@ function generateGamesHubPage(options = {}) {
       <h2 class="games-hub-section-title">최근 본 게임</h2>
       <div class="games-hub-recent-grid" id="recent-games-grid"></div>
     </section>
+    <script>
+    (function() {
+      // 첫 화면을 그리기 전에 최근 목록 한 줄의 공간을 확보한다.
+      try {
+        var recent = JSON.parse(localStorage.getItem('gamerscroll_recent_searches') || '[]');
+        if (Array.isArray(recent) && recent.length) {
+          document.getElementById('recent-games').classList.remove('is-hidden');
+        }
+      } catch (e) {}
+    })();
+    </script>
   `;
 
   const content = `
     <section class="section active" id="games">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container" id="top">
-        <h1 class="visually-hidden">게임 DB - 모바일·스팀 게임 검색, 게임별 순위 추이</h1>
-        <nav class="games-hub-tabs" aria-label="게임 DB"><a class="active" href="/games/">전체 게임</a><a href="/upcoming/">출시 예정</a></nav>
+        <div class="games-hub-intro">
+          <div><h1>게임 데이터베이스</h1><p>모바일·스팀 게임 검색 및 게임별 순위 기록</p></div>
+        </div>
         ${searchResultsSection}
         ${recentGamesSection}
         ${popularSection}
@@ -445,7 +459,7 @@ function generateGamesHubPage(options = {}) {
       title.textContent = \`"\${query}" 검색 결과 (\${results.length}개)\`;
 
       if (results.length === 0) {
-        grid.innerHTML = '';
+        grid.innerHTML = '<p class="search-no-results">일치하는 게임이 없습니다. 다른 이름이나 개발사명으로 검색해 보세요.</p>';
       } else {
         grid.innerHTML = results.slice(0, 50).map(game => \`
           <a href="/games/\${game.slug}/" class="games-hub-recent-card">
@@ -529,7 +543,7 @@ function generateGamesHubPage(options = {}) {
   // 모바일 자음 필터는 CSS sticky로 처리 (JS 로직 제거됨)
 
   // 초기화
-  initGameListIcons();
+  // 전체 목록 아이콘은 HTML에서 직접 제공하므로 검색 인덱스를 기다리지 않는다.
   renderRecentGames();
   handleSearchQuery();
 
@@ -545,8 +559,8 @@ function generateGamesHubPage(options = {}) {
 
   return wrapWithLayout(content, {
     title: '게임 DB - 모바일·스팀 게임 검색, 게임별 순위 추이 | 게이머스크롤',
-    description: '모바일·스팀 게임 3,000여 개를 이름으로 찾고, 게임별 앱스토어·구글플레이 매출 순위 추이와 역대 기록을 확인하세요. 출시 예정 게임도 함께 정리합니다.',
-    keywords: '게임 DB, 게임 검색, 모바일 게임 순위 추이, 게임 매출 순위 기록, 출시 예정 게임, 신작 게임',
+    description: '모바일·스팀 게임 검색과 앱스토어·구글플레이 매출 순위 추이, 게임별 역대 기록을 제공합니다.',
+    keywords: '게임 DB, 게임 검색, 모바일 게임 순위 추이, 게임 매출 순위 기록',
     canonical: `${siteBaseUrl}/games/`,
     currentPage: 'games',
     showSearchBar: true,

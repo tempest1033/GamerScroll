@@ -21,12 +21,12 @@ const {
   homeHref
 } = require('./index');
 const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, authorOf } = require('./taxonomy');
-const { AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
-const { renderRankingBlock } = require('../helpers/ranking-blocks');
-const { renderTextBlock, tableStackClass, tableCellLabelAttr } = require('../helpers/content-text');
-const { createArticleToc } = require('../helpers/article-toc');
-const { renderArticleAction } = require('../helpers/article-action');
-const { buildMetaDescription } = require('../../build/meta-description');
+const { AD_SLOTS, generateHomeAdPairSlot } = require('../../aiscroll-ui/layout');
+const { renderRankingBlock } = require('../../aiscroll-ui/helpers/ranking-blocks');
+const { renderTextBlock, tableStackClass, tableCellLabelAttr } = require('../../aiscroll-ui/helpers/content-text');
+const { createArticleToc } = require('../../aiscroll-ui/helpers/article-toc');
+const { renderArticleAction } = require('../../aiscroll-ui/helpers/article-action');
+const { buildMetaDescription } = require('../../aiscroll-build/meta-description');
 
 // games.json 로드 (ranking 블록 아이콘용)
 let gamesMap = {};

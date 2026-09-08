@@ -12,13 +12,15 @@ on:
       - 'reports/hotpick/**'
       - 'generate-ai-blog.js'
       - 'src/templates/ai-blog/**'
-      - 'src/templates/helpers/article-action.js'
-      - 'src/templates/layout/**'
+      - 'src/aiscroll-ui/**'
       - 'src/ai-blog/**'
-      - 'src/styles/**'
-      - 'src/build/**'
+      - 'src/aiscroll-styles/**'
+      - 'src/aiscroll-build/**'
       - 'ai-build-cache.js'
       - 'functions/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/ai-build.yml'
   workflow_dispatch:
 
 permissions:

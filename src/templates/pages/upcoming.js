@@ -57,10 +57,9 @@ function generateUpcomingPage(data) {
     <section class="section active" id="upcoming">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container">
-        <h1 class="visually-hidden">출시 게임 - 신작 게임, 출시 예정 게임</h1>
         <div class="upcoming-card home-card">
           <div class="home-card-header">
-            <h2 class="home-card-title">출시 게임</h2>
+            <h1 class="home-card-title">출시 게임</h1>
           </div>
           <div class="rankings-tabs-row">
             <div class="tab-group" id="upcomingTab">
@@ -143,7 +142,7 @@ function generateUpcomingPage(data) {
   return wrapWithLayout(content, {
     currentPage: 'upcoming',
     title: '출시 게임 - 신작 게임, 출시 예정 게임',
-    description: '출시 게임 - 신작 게임, 출시 예정 게임 정보를 한눈에.',
+    description: '플랫폼별 신규 출시 및 출시 예정 게임 정보.',
     keywords: '출시 게임, 신작 게임, 출시 예정 게임, 스팀 출시, 닌텐도 출시, PS5 출시, 모바일 신작',
     canonical: `${siteBaseUrl}/upcoming/`,
     pageScripts,

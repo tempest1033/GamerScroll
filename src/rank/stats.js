@@ -43,7 +43,7 @@ function loadRankStats(options = {}) {
   const byTitle = new Map(); // 초기 포맷(앱 ID 없음) 행을 제목으로 게임에 연결
   for (const g of games) {
     if (g.slug) bySlug.set(g.slug, g);
-    for (const t of [g.key, ...(g.aliases || [])]) if (t && !byTitle.has(t)) byTitle.set(t, g);
+    for (const t of [g.key, ...(g.aliases || [])]) if (!g.disableTitleFallback && t && !byTitle.has(t)) byTitle.set(t, g);
     if (!g.appIds) continue;
     if (g.appIds.ios) byApp.set('ios:' + g.appIds.ios, g);
     if (g.appIds.android) byApp.set('android:' + g.appIds.android, g);
@@ -52,13 +52,8 @@ function loadRankStats(options = {}) {
       if (g.appIds[`android_${c}`]) byApp.set('android:' + g.appIds[`android_${c}`], g);
     }
   }
-  const subculture = new Set();
-  try {
-    const sc = readJson(path.join(ROOT, 'data', 'subculture-games.json'));
-    const list = Array.isArray(sc) ? sc : sc.games || sc.slugs || Object.keys(sc);
-    for (const it of list) subculture.add(typeof it === 'string' ? it : it.slug || it.title || it.key);
-  } catch {}
-  const isSub = (g) => Boolean(g && (subculture.has(g.slug) || subculture.has(g.key)));
+  const taxonomy = require('./genres').loadGenres();
+  const isSub = g => taxonomy.matches(g, 'subculture');
 
   // ---------- 일별 이력 ----------
   const files = fs.existsSync(historyDir) ? fs.readdirSync(historyDir).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort() : [];
@@ -119,7 +114,8 @@ function loadRankStats(options = {}) {
   } catch {}
   function hourlyRanks(store, country, appId) {
     if (!hourly || !appId) return null;
-    const list = hourly.data.lists[`${store}_${country}_grossing`];
+    const archiveStore = store === 'android' ? 'aos' : store;
+    const list = hourly.data.lists[`${archiveStore}_${country}_grossing`];
     if (!list) return null;
     const idxs = new Set(); hourly.data.ids.forEach((id, i) => { if (String(id) === String(appId)) idxs.add(i); });
     if (!idxs.size) return null;

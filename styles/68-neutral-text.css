@@ -1,0 +1,46 @@
+/* 글자만 뉴트럴 톤으로 통일한다. 차트의 stroke·fill과 지표 색상 변수는 유지한다. */
+body a:not(.rk-preview-link):not(.rk-btn),
+body a:not(.rk-preview-link):not(.rk-btn):hover,
+body a:not(.rk-preview-link):not(.rk-btn):visited {
+  color: #515154 !important;
+}
+body .gs-header .gs-nav a.active,
+body .gs-header .gs-nav a:hover,
+body .site-container .rk .rk-tabs a.active,
+body .site-container .rk .rk-subnav a.active,
+body .site-container .rk-home .rk-hpanel .nm > button[aria-pressed="true"] {
+  color: #1d1d1f !important;
+}
+body .site-container .rk-home .rk-hpanel .nm > button[aria-pressed="true"] { font-weight: 600; }
+body .site-container .rk-home .rk-hpanel .nm > button:hover { color: #1d1d1f; text-decoration: underline; }
+body .site-container .rk .rk-chg.down,
+body .site-container .rk .rk-downc,
+body .site-container .rk .rk-tagnew,
+body .site-container .rk .rk-badge.sub,
+body .site-container .rk .rk-rk.top,
+body .site-container .rk .rk-pill .ios,
+body .site-container .rk .rk-pill .and,
+body .site-container .rk .rk-stat:first-child .v,
+body .site-container .rk .rk-feat .side .k,
+body .site-container .rk .rk-rep .k,
+body .site-container .rk .rk-cardl .k,
+body .site-container .popular-rank,
+body .site-container .stat-label,
+body .site-container .article-toc-num,
+body .site-container .article-toc-text,
+body .site-container .sidebar-article-rank,
+body .site-container .home-trend-card-category,
+body .site-container .home-trend-card-title-text {
+  color: #515154 !important;
+}
+body .site-container .rk .rk-cardl:hover .t { color: #1d1d1f !important; }
+body .site-container .index-link.active { color: #fff !important; }
+body .site-container .tab-btn,
+body .site-container .tab-btn.active,
+body .nav .nav-item.active { color: #1d1d1f !important; }
+body .site-container .blog-content a { text-decoration: underline; text-underline-offset: 3px; }
+body .site-container .rk .rk-btn:not(.primary) { color: #515154 !important; }
+body .site-container .rk .rk-btn.primary,
+body .site-container .rk .rk-preview-link { color: #fff !important; }
+body .site-container .rk .gs-list-action,
+body .site-container .rk .gs-list-action:hover { color: #515154 !important; }

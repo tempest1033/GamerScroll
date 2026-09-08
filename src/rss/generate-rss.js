@@ -174,8 +174,8 @@ function generateRSS(reportsDir, outputPath) {
   console.log('=== RSS 피드 생성 시작 ===\n');
 
   // 모든 리포트 수집
-  const issueItems = getIssueReports(reportsDir);
-  const hotpickItems = getHotpickReports(reportsDir);
+  const issueItems = [];
+  const hotpickItems = [];
   const rankingItems = getRankingReports(reportsDir);
   // 위키 아티클 수집
   const wikiDir = path.join(reportsDir, '../data/wiki');

@@ -161,7 +161,7 @@
 
 /* PC 상단 광고: 애드센스 응답 전(status 미확정)에는 빈 테두리 카드를 보이지 않는다.
    자리(min-height)는 CLS 방지를 위해 유지하고, 채워지면 카드 배경·테두리가 돌아온다.
-   unfilled는 아래 규칙이 카드 자체를 숨긴다. */
+   unfilled·차단 시에도 자리는 그대로 유지한다(아래 "Unfilled 광고 처리" 참고). */
 .ad-card-responsive-home:not(:has(ins.adsbygoogle[data-ad-status="filled"])),
 .ad-card-responsive-top:not(:has(ins.adsbygoogle[data-ad-status="filled"])) {
   background: transparent;
@@ -354,10 +354,27 @@ body.ads-disabled .article-layout {
 
 /* ===== Unfilled 광고 처리 ===== */
 
-/* 상단 광고: unfilled 시 빈 배너를 남기지 않음 */
-.ad-card-responsive-home:has(ins[data-ad-status="unfilled"]),
-.ad-card-responsive-top:has(ins[data-ad-status="unfilled"]) {
-  display: none !important;
+/* PC 상단 광고: 채워지기 전·unfilled·스크립트 차단 어느 경우에도 예약 높이(90px)를 유지한다.
+   예전처럼 카드를 display:none 하면 90px가 사라지며 본문 전체가 위로 튀어 올랐다(CLS).
+   채워질 때까지는 옅은 브랜드 마크만 중앙에 두고, unfilled가 확정되면 애드센스가 남긴 빈 iframe만 감춘다. */
+.ad-card-responsive-home:not(:has(ins[data-ad-status="filled"]))::before,
+.ad-card-responsive-top:not(:has(ins[data-ad-status="filled"]))::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  background: url('/favicon.svg') center/contain no-repeat;
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ad-card-responsive-home:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle,
+.ad-card-responsive-top:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle {
+  visibility: hidden;
 }
 
 /* Legacy top ad classes */

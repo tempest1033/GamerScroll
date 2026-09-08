@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "reviewedAt": "2026-09-09",
+  "references": {
+    "카피바라-go": ["https://sensortower.com/ko/blog/the-largest-contributing-market-to-Capybara-Go-revenue-is-Korea"],
+    "포지-마스터-forge-master": ["https://www.youtube.com/watch?v=WBz2Bs5RwPE"],
+    "용구탄생의비밀": ["https://play.google.com/store/apps/details?id=com.iug.yonggu&hl=zh_CN"],
+    "나-혼자-만렙-키우기": ["https://apps.apple.com/us/app/%EB%82%98-%ED%98%BC%EC%9E%90-%EB%A7%8C%EB%A0%99-%ED%82%A4%EC%9A%B0%EA%B8%B0/id6566177585?l=ko"],
+    "먼작귀-포켓": ["https://www.taptap.io/kr/app/33803518"],
+    "텐-발키리": ["https://www.ggemguide.com/m_mobile_view.htm?uid=5405"],
+    "표류소녀-다시-만난-세계": ["https://www.youtube.com/watch?v=XOWkJNO6uCo"],
+    "path-of-kings": ["https://poddtoppen.se/podcast/1605244897/two-a-half-gamers/path-of-kings-review-voodoos-midcore-pivot-is-real"],
+    "idle-9-months": ["https://play.google.com/store/apps/details?id=com.gpg.ninemonths&hl=en"],
+    "train-miner-놀면서-철도-게임": ["https://play.google.com/store/apps/details?id=games.flexus.trainminer&hl=en_US"],
+    "레퀴엠m": ["https://v.daum.net/v/20260207102100533"],
+    "아케론종말의-서곡": ["https://www.bluestacks.com/ko/blog/game-guides/acheron-prelude-to-the-end/apte-beginners-guide-ko.html"]
+  },
+  "groups": [
+    {
+      "tag": "lineage-like", "status": "confirmed",
+      "reason": "출시 후 플레이 리뷰에서 자동 성장·확률형 성능 성장·기존 리니지류 경쟁 구조 확인. 논타겟 요소가 있다고 자동 제외하지 않음.",
+      "sources": ["https://www.osen.co.kr/article/G1112681122", "https://www.yna.co.kr/view/AKR20230728143700017"],
+      "slugs": ["아키텍트-랜드-오브-엑자일", "아레스-라이즈-오브-가디언즈"]
+    },
+    {
+      "tag": "lineage-like", "status": "confirmed",
+      "reason": "인터서버 한정 자원 경쟁·길드 필드 점령 보상·캐릭터 자동 성장 구조 확인.",
+      "sources": ["https://game.donga.com/93047/"],
+      "slugs": ["v4"]
+    },
+    {
+      "tag": "lineage-like", "status": "confirmed",
+      "reason": "공식 설명에서 캐릭터 성장과 공개 필드 PK·문파 또는 길드 공성/영지전 중심 경쟁 구조 확인. 미르·무협 계열도 같은 플레이 기준으로 포함.",
+      "slugs": ["열혈강호-귀환", "사북성언데드", "천상비k", "묵청대도-깨어난-사북성", "묵청대도-바운티", "드래곤-베인", "i9-인페르노-나인-1주년", "킹덤-전쟁의-불씨", "미르의-전설-진", "그레이-사가", "사북쟁탈-고드랍-서버", "킹덤2-타오르는-전장"]
+    },
+    {
+      "tag": "lineage-like", "status": "confirmed",
+      "reason": "공식 자동/방치 성장과 필드 PK·유저 거래·영토 경쟁을 함께 확인한 혼합형. 방치형 태그와 중복 허용.",
+      "slugs": ["어나더던전", "잠룡-무협-도트-rpg", "마지막이야기-last-story-방치형-rpg", "집행검-클래식"]
+    },
+    {
+      "tag": "lineage-like", "status": "confirmed",
+      "reason": "리니지라이크 계승 및 클래스 전쟁 중심 MMORPG로 명시된 출시 자료.",
+      "sources": ["https://www.gameabout.com/news/articleView.html?idxno=95951"],
+      "slugs": ["린m잊혀진-유산"]
+    },
+    {
+      "tag": "lineage-like", "status": "confirmed",
+      "reason": "원작 고유 전투는 유지하지만 성능 도감·펫·윙 수집·강화·자동 사냥 중심으로 바뀐 모바일판의 플레이 리뷰 확인.",
+      "sources": ["https://game.donga.com/111158/"],
+      "slugs": ["그라나도에스파다m-x-신암행어사"]
+    },
+    {
+      "tag": "lineage-like", "status": "confirmed",
+      "reason": "공식 파밍·둔갑술·신수·대규모 전장 중심 클래식형. 과금 강도는 장르 판정의 단독 조건이 아니며 전작 이름만으로 승계하지 않음.",
+      "sources": ["https://www.dailygame.co.kr/view.php?ud=202602101423402960eb81adcc4e_26"],
+      "slugs": ["조선협객전-클래식"]
+    },
+    {
+      "tag": "lineage-like", "status": "excluded",
+      "reason": "본체는 거점 건설·자원 운영·부대 편성형 SLG/디펜스 또는 경영 게임. 공성전/길드 단어는 개별 캐릭터 중심 리니지라이크의 근거가 아님.",
+      "slugs": ["추억의-잡화점", "라이즈-오브-킹덤즈", "로드모바일-킹덤-워즈", "드래곤-엠파이어-전략-매니지먼트", "비지-세이비어", "삼국지-패업", "삼국지-왕전", "신삼국지-모바일", "last-fiefdom", "임진왜란-조선의-반격", "삼국지-천하결전", "로드러쉬", "lordrush-로드러쉬", "프로스트킹덤-머지-생존전략-slg"]
+    },
+    {
+      "tag": "lineage-like", "status": "excluded",
+      "reason": "영웅 덱·스테이지·방치 성장 중심 RPG. 보조 길드전이나 설명 속 MMORPG 비교 문구만으로 리니지라이크로 분류하지 않음.",
+      "slugs": ["legends-reborn-마지막-전투", "파이널삼국지2", "히어로-모험단", "돌-키우기-온라인", "신궁-키우기-방치형-rpg-길드-점령전-추가", "머머리-퀘스트", "우와-모험단", "초월자-키우기-15주년-점핑-이벤트", "18사쿠라-사가", "이것이-삼국지다-1500뽑기-증정", "멍꿀-클래식-방치형-파밍-rpg"]
+    },
+    {
+      "tag": "lineage-like", "status": "excluded",
+      "reason": "공식 핵심은 수동 액션·협동 던전·탐험·생활 또는 무역. MMORPG나 PvP 존재만으로 리니지라이크 태그를 부여하지 않음.",
+      "slugs": ["블레이드소울-레볼루션", "아이모-the-world-of-magic", "트리-오브-세이비어-네버랜드", "블루-프로토콜-스타-레조넌스", "eternal-hero-액션-rpg", "dynasty-legends-2-무쌍전란", "라그나로크x-next-generation", "the-라그나로크", "라그나로크m-eternal-love", "역수한", "제2의-나라-cross-worlds", "대항해의길", "sky-빛의-아이들", "이블랜드-에픽-오픈월드-멀티플레이-mmorpg", "트리-오브-세이비어-m", "실크로드-어게인", "드래곤네스트-월드", "아르미스"]
+    },
+    {
+      "tag": "lineage-like", "status": "unverified",
+      "reason": "공식 설명과 외부 검색을 검토했으나 성장 경제·필드 경쟁의 핵심 비중을 확정할 플레이 근거가 부족함. MMORPG/자동전투/공성전 단어만으로 포함·제외하지 않음.",
+      "slugs": ["아키르-로드-오브-디스트럭션", "심야귀담", "아케론종말의-서곡", "신-선혼-리버스", "엘피스-전기-소울링", "요괴잡이소대-x-대환장-mmorpg", "전혼m", "질서수호자", "디바인-신을-모시는-자", "블러드-앤-소울", "wyd-m", "조선협객전2m", "어비스-데스티니", "루나-모바일", "루나-모바일-신서버-오픈", "에스페라", "천년의-환-결속의-가락지", "영혼-인도자신의-이름으로", "이터널-크로니클", "에스카라", "혼문-달빛을-품은-mmorpg", "네메시스-나인", "레퀴엠m", "스카이-어비스-혈맹의-서약", "꿈의-여행자-별빛-여정", "열혈강호-넥스트", "프로젝트-오리진-x"]
+    },
+    {
+      "tag": "subculture", "status": "confirmed",
+      "reason": "공식 미소녀/미소년·캐릭터별 관계·성우·스토리·일러스트 감상 및 수집을 핵심으로 하는 작품. 남성향만으로 제한하지 않음.",
+      "slugs": ["괴담-여친-두-개의-선택", "제로웨이크-게이트-bl-rpg", "로스트-소드", "아우터플레인-outerplane", "모에라이-운명의-계약", "요괴-여친요괴는-너를-사랑해", "앵커패닉", "survival-shelter", "마인업-디펜스", "무기미도", "어비스디아", "프린세스-커넥트-redive", "마작일번가-온라인-대전-마작게임", "마작일번가-x-데이트-어-라이브-v", "에덴-더-라스트-라인", "텐-발키리", "앵커패닉-1주년-600뽑-대축제", "18사쿠라-사가", "메이크-드라마-mad", "소녀전쟁-환상의-천하통일전", "하우스메이트-그녀들", "히간-이루실"]
+    },
+    {
+      "tag": "subculture", "status": "confirmed",
+      "reason": "공식 원작 애니메이션·웹툰·일본 RPG의 인물 수집/서사 재현이 본체인 게임. 기간 한정 콜라보만 있는 게임과 구별.",
+      "slugs": ["one-piece-bounty-rush", "랑그릿사", "갓오브하이스쿨-x-신의탑", "one-piece-treasure-cruise", "shadowverse-worlds-beyond", "영웅전설-가가브-트릴로지", "그랜드체이스", "슬램덩크", "역대급-영지-설계사-촤라락-디펜스", "디지몬-소울체이서-시즌4", "더-킹-오브-파이터즈98-um온라인", "pokmon-masters-ex", "99강화-나무몽둥이-키우기", "나-혼자-만렙-키우기", "yu-gi-oh-duel-links", "another-eden-시공을-넘는-고양이"]
+    },
+    {
+      "tag": "subculture", "status": "confirmed",
+      "reason": "공식 개성 있는 영웅 수집·유대·애니메이션 표현·캐릭터 서사를 함께 확인한 캐릭터 중심 RPG.",
+      "slugs": ["히어로즈-오브-크라운", "세븐나이츠-키우기", "파이널-블레이드-기억을-깨우다", "포트리스-사가-방치형-rpg-게임", "렐리온-npc들의-생존기"]
+    },
+    {
+      "tag": "subculture", "status": "confirmed",
+      "reason": "미소녀 캐릭터·개별 서사·육성이 추가된 후속작이며, 원작과 별도로 판단.",
+      "sources": ["https://zdnet.co.kr/view/?no=20251129231136"],
+      "slugs": ["드래곤-플라이트2"]
+    },
+    {
+      "tag": "subculture", "status": "confirmed",
+      "reason": "한국콘텐츠진흥원 인터뷰에서 일본 서브컬처 시장의 사례로 언급된 작품. 공식 몬스터·캐릭터 수집도 확인.",
+      "sources": ["https://www.kocca.kr/global/2023_3%2B4/sub01_03.html"],
+      "slugs": ["퍼즐앤드래곤"]
+    },
+    {
+      "tag": "subculture", "status": "confirmed",
+      "reason": "니노쿠니 계승·감성 서사·애니메이션 표현 및 서브컬처 분류를 명시한 보도.",
+      "sources": ["https://www.techm.kr/news/articleView.html?idxno=105244"],
+      "slugs": ["제2의-나라-cross-worlds"]
+    },
+    {
+      "tag": "subculture", "status": "excluded",
+      "reason": "본체는 스포츠/위치 기반 탐험/MOBA/자기 캐릭터 액션·장비 성장/몬스터 육성. 애니메이션 스타일 메타데이터만으로 서브컬처에 포함하지 않음.",
+      "slugs": ["pokmon-go", "더-스파이크-크로스", "드래곤빌리지-럼블", "던전앤파이터-모바일", "변신-키우기", "소울-스트라이크-qwer-키우기", "보물사냥단go", "모바일-레전드-bang-bang", "검선귀환", "데몬-소서리스-키우기-길드-대항전-오픈", "드래곤빌리지", "라그나로크x-next-generation", "배구소녀-고등학교-배구-스토리", "뮤-포켓-나이츠-방치형rpg", "pokmon-unite", "라그나로크m-eternal-love", "삼국지-올스타-방치형-rpg", "드래곤-플라이트", "스위칭-히어로즈-키우기-rpg", "제노니아-크로노브레이크", "창세기전-키우기", "삼국이분다2", "드래곤-퀘스트-스매시-그로우-드퀘-로그라이트-rpg", "표류소녀-다시-만난-세계"]
+    },
+    {
+      "tag": "subculture", "status": "excluded",
+      "reason": "게임 본체의 핵심은 경영·합성·생활 샌드박스·아바타 꾸미기. 그림체와 이야기/교감 요소만으로 서브컬처 태그를 적용하지 않음.",
+      "slugs": ["sakura-school-simulator", "헬로-타운-신입사원-머지-성공-스토리", "동방-찻집", "아이러브커피", "봉쥬르-부티크-옷가게-경영-타이쿤", "마이-드레시돌-나만의-코디와-데코", "left-or-right-perfect-dress-up"]
+    },
+    {
+      "tag": "subculture", "status": "excluded",
+      "reason": "외부 애니메이션 등장 문구는 기간 한정 콜라보/스킨 안내. 본체의 장르·성향을 바꾸는 근거로 사용하지 않음.",
+      "slugs": ["외계인은-배고파", "afk-새로운-여정-힐링-농장"]
+    },
+    {
+      "tag": "subculture", "status": "unverified",
+      "reason": "공식 캐릭터/서사 자료만으로 타깃 성향을 확정하기 어렵거나 원작/게임 정체성 확인이 필요함. 단순 애니메이션 메타데이터로 확정하지 않음.",
+      "slugs": ["항해킹-사가", "애니-판타지-방치", "해적-키우기-방치형-rpg", "달토끼-키우기-5주년"]
+    },
+    {
+      "tag": "subculture", "status": "unverified",
+      "reason": "게임 DB에 연결된 양대 스토어가 서로 다른 작품임. 앱 연결 수정 승인 전에는 잘못 연결된 다른 게임의 근거를 적용하지 않음.",
+      "slugs": ["킹-오브-파이터-afk", "alter-ego"]
+    },
+    {
+      "tag": "idle", "status": "confirmed",
+      "reason": "공식 설명에서 본 게임을 방치형으로 명시하거나 오프라인 누적/자동 생산·성장 구조를 구체적으로 설명함. 전략·경영 등 기본 장르는 유지하고 혼합형 태그로 포함.",
+      "slugs": ["wos-화이트아웃-서바이벌", "킹샷kingshot", "건틀렛-방치형-액션-rpg", "legends-reborn-마지막-전투", "전함-고-고-고", "월드-크러쉬-히어로-포스", "포켓-챔프-3d-레이싱-게임", "항해킹-사가", "고양이-라이프-귀여운-시뮬레이션-게임", "갓물주-키우기", "idle-landlord-sim", "기어몬-타워-디펜스", "idle-lumber-empire-시뮬레이터", "모범-놀이터-타락자들", "기어-작동-최후의-요새-gear-defenders", "피자-레디-pizza-ready", "roadside-empire-로드사이드-엠파이어", "royal-lands-save-the-king", "화산파-키우기-1주년-기념-신규-서버", "어나더던전", "뉴포리아-서바이벌", "잃어버린-감옥-lost-prison-서바이벌", "디노-유니버스-dinosaur-universe", "좀비-광산타이쿤-금광-방치형-어드벤처-게임-idle", "와글와글-군단-방치형-라인-디펜스", "세븐나이츠-키우기", "유휴-은행-타이쿤-idle-bank-tycoon", "idle-block-miner", "상남자의-순애", "포세이돈키우기", "돌-키우기-온라인", "고양이-오피스-타이쿤-게임", "심쿵-삼국지-방치형-rpg", "암살자-키우기-방치형-rpg", "정사-방치형-rpg", "웨폰-마스터-키우기-방치형-전략-액션-rpg", "dragon-fever-td-악몽은-지킬-수-없다", "표창키우기2", "valor-legends-idle-rpg", "중년기사-김봉식", "삼국지-러쉬-origins-타워-디펜스", "소울이터-키우기", "golf-inc-tycoon", "idle-junkyard-tycoon-아이들-정크야드", "zen-shards-idle-merge-game", "고양이-테마파크-귀여운-방치형-타이쿤", "고양이-마법학교-신비하고-귀여운-타이쿤", "epic-stickman-rpg-idle-war", "냥킹덤-고양이-방치형-rpg", "아케인나이트-전생-방치형-성장-rpg", "외계인의-침공-alien-invasion-rpg", "드래곤-슬레이어-키우기-방치형-rpg", "캣스토랑-고양이-셰프", "butcher-hero-서바이벌-rpg", "99강화-나무몽둥이-키우기", "우와-모험단", "포레스트-아일랜드", "고양이-학교-귀여운-방치형-타이쿤-게임", "고양이와-스프", "갓오브하이스쿨-체인지-방치형-rpg", "2026-프로야구go", "오늘도-우라라-원시-헌팅-라이프", "오늘도-수호중-방치형-rpg", "난세표류기-한국사-방치형-rpg", "삼국이분다2", "라스트-발키리", "킹갓캐슬", "idle-outpost-tycoon-game", "zoo-sound-land", "햄스터-셰프-방치형-레스토랑-타이쿤", "darkslayer-2", "사신키우기2-중세편", "흑섬의-기대", "렐리온-npc들의-생존기", "별별히어로-영웅-다-있소", "초월자-키우기-15주년-점핑-이벤트", "idle-dot-shooter", "몬몬-마스터즈", "애프터-다크-after-dark", "천년의-구미호-키우기", "고양이는-정말-귀여워", "던전-시스터즈-픽셀-방치형-rpg", "시티-데몬헌터즈-각성자들", "드래곤-라이즈", "프리즌-라이프-prison-life", "검은-공주들-부서진-낙원", "라그나-소울", "이세계-용병단-키우기-방치형-rpg", "소녀전쟁-환상의-천하통일전", "마지막이야기-last-story-방치형-rpg", "고양이-시티-귀여운-도시-타이쿤-게임", "냥이-기사단-키우기-방치형-rpg", "모아용-영웅모으기", "수확왕-농장-타워-디펜스-harvest-king", "부족-또-전쟁-무한루프-rpg", "도깨비-소녀와-함께", "데몬-헌터-방치형-정령-키우기-rpg", "던전-견문록", "전사들과-모험", "진귀한-동물-수조", "모아용-최강영웅-서버대전", "아처캐슬-키우기-방치형-rpg", "픽셀-테이머즈", "battle-night", "theme-park-manager", "픽셀-탐험대", "슝슝-수련기", "불릿-히어로즈-타워-디펜스-게임", "galactic-merge-idle", "다크-나이트-키우기-방치형-rpg", "집행검-클래식", "잔망-티키타카"]
+    },
+    {
+      "tag": "idle", "status": "confirmed",
+      "reason": "공식 세부 방치형 카테고리와 외부 게임 소개/플레이 자료를 교차 확인.",
+      "slugs": ["카피바라-go", "포지-마스터-forge-master", "용구탄생의비밀", "나-혼자-만렙-키우기", "먼작귀-포켓", "텐-발키리", "표류소녀-다시-만난-세계", "path-of-kings", "idle-9-months", "train-miner-놀면서-철도-게임"]
+    },
+    {
+      "tag": "idle", "status": "excluded",
+      "reason": "방치형 문구는 개발사의 다른 게임 소개이거나 부가 모드/비교 표현. 본 게임의 핵심 진행을 방치형으로 확정할 근거로 사용하지 않음.",
+      "slugs": ["귀판오분전", "가디언-테일즈", "스타-세일러"]
+    },
+    {
+      "tag": "idle", "status": "excluded",
+      "reason": "직접 이동·선택·타이밍/회피가 필요한 액션 또는 런 단위 로그라이크. 자동 공격/제목의 idle/오프라인 실행 가능만으로 비접속 성장형에 포함하지 않음.",
+      "slugs": ["xp-hero-xp-히어로", "아이들-볼-이스케이프-링을-부수는-볼-게임", "rogue-legend-roguelike-rpg", "로그-레전드-로그라이크-rpg"]
+    },
+    {
+      "tag": "idle", "status": "unverified",
+      "reason": "공식 방치형 카테고리 또는 비교 문구는 있으나, 해당 작품의 자동/비접속 성장 구조를 확인할 독립적인 자료가 부족함.",
+      "slugs": ["보물사냥단go", "히어로-모험단", "우르르-수비대-디펜스-rpg", "신의-탑-새로운-세계", "랜덤-영웅-대전-2", "픽셀-법사-키우기", "응발로-키우기"]
+    },
+    {
+      "tag": "hypercasual", "status": "excluded",
+      "reason": "개발사 Voodoo가 카드 수집·기지 성장·장기 리텐션을 더해 하이퍼캐주얼에서 하이브리드 캐주얼로 전환했다고 직접 설명.",
+      "sources": ["https://www.pocketgamer.biz/mob-control-hybridising-a-hypercasual-hit/"],
+      "slugs": ["mob-control"]
+    }
+  ]
+}

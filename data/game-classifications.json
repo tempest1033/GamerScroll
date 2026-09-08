@@ -1,0 +1,2050 @@
+{
+  "version": 1,
+  "scope": "kr-mobile",
+  "categories": [
+    {
+      "id": "rpg",
+      "label": "RPG",
+      "kind": "genre"
+    },
+    {
+      "id": "casual-puzzle",
+      "label": "캐주얼·퍼즐",
+      "kind": "genre"
+    },
+    {
+      "id": "strategy-defense",
+      "label": "전략·디펜스",
+      "kind": "genre"
+    },
+    {
+      "id": "sports-racing",
+      "label": "스포츠·레이싱",
+      "kind": "genre"
+    },
+    {
+      "id": "action-shooting",
+      "label": "액션·슈팅",
+      "kind": "genre"
+    },
+    {
+      "id": "card-board",
+      "label": "카드·보드",
+      "kind": "genre"
+    },
+    {
+      "id": "simulation",
+      "label": "시뮬레이션",
+      "kind": "genre"
+    },
+    {
+      "id": "lineage-like",
+      "label": "리니지라이크",
+      "kind": "tag"
+    },
+    {
+      "id": "subculture",
+      "label": "서브컬처",
+      "kind": "tag"
+    },
+    {
+      "id": "idle",
+      "label": "방치형",
+      "kind": "tag"
+    },
+    {
+      "id": "hypercasual",
+      "label": "하이퍼캐주얼",
+      "kind": "tag"
+    }
+  ],
+  "games": {
+    "메이플-키우기": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "idle"
+      ]
+    },
+    "리니지m": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "리니지m12": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "리니지w": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "오딘-발할라-라이징": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "마비노기-모바일": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": []
+    },
+    "메이플스토리m": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": []
+    },
+    "세븐나이츠-리버스": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": []
+    },
+    "쿠키런-키우기-쿠키런-크럼블": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "idle"
+      ]
+    },
+    "캣-히어로-방치형-rpg": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "idle"
+      ]
+    },
+    "총잡이-고양이-방치형-키우기": {
+      "genres": [],
+      "tags": [
+        "idle"
+      ]
+    },
+    "wos-화이트아웃-서바이벌": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": [
+        "idle"
+      ]
+    },
+    "라스트-워-서바이벌": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": []
+    },
+    "킹샷kingshot": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": [
+        "idle"
+      ]
+    },
+    "클래시-로얄": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": []
+    },
+    "냥코-대전쟁": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": []
+    },
+    "운빨존많겜": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": []
+    },
+    "협동-타워-디펜스-친구와-함께": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": []
+    },
+    "랜덤-다이스-2": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": []
+    },
+    "로얄-매치-royal-match": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "로얄-킹덤-royal-kingdom": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "가십하버-합성-스토리-게임": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "꿈의-정원-gardenscapes": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "꿈의-집-homescapes": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "캔디크러쉬사가": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "씨사이드-익스케이프-합성-스토리-게임": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "테이스티-트레블-합성-게임": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "핫레스토랑-머지쿠킹": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "할리우드-머지": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "머지-쿠킹-테마-레스토랑merge-cooking": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "travel-town-결합-어드벤처": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "미스터리-타운-합치기-사건": {
+      "genres": [
+        "casual-puzzle"
+      ],
+      "tags": []
+    },
+    "꿈의-마을-township": {
+      "genres": [
+        "simulation",
+        "casual-puzzle"
+      ],
+      "tags": [],
+      "reviewNote": "공식 스토어 설명의 도시 건설·농장 운영·매치3 퍼즐 및 Google Play 세부 카테고리 확인. game-genre-survey.json 참조."
+    },
+    "efootball": {
+      "genres": [
+        "sports-racing"
+      ],
+      "tags": []
+    },
+    "컴투스프로야구v26": {
+      "genres": [
+        "sports-racing"
+      ],
+      "tags": []
+    },
+    "ea-sports-fc-online-m": {
+      "genres": [
+        "sports-racing"
+      ],
+      "tags": []
+    },
+    "fc-모바일": {
+      "genres": [
+        "sports-racing"
+      ],
+      "tags": []
+    },
+    "배틀그라운드": {
+      "genres": [
+        "action-shooting"
+      ],
+      "tags": []
+    },
+    "브롤스타즈": {
+      "genres": [
+        "action-shooting"
+      ],
+      "tags": []
+    },
+    "리그-오브-레전드-와일드-리프트": {
+      "genres": [
+        "action-shooting",
+        "strategy-defense"
+      ],
+      "tags": []
+    },
+    "한게임포커-클래식-7포커-홀덤-섯다-훌라-슬롯": {
+      "genres": [
+        "card-board"
+      ],
+      "tags": []
+    },
+    "한게임-포커": {
+      "genres": [
+        "card-board"
+      ],
+      "tags": []
+    },
+    "한게임-섯다맞고": {
+      "genres": [
+        "card-board"
+      ],
+      "tags": []
+    },
+    "피망-포커-카지노-로얄-홀덤-7포커-바둑이": {
+      "genres": [
+        "card-board"
+      ],
+      "tags": []
+    },
+    "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고": {
+      "genres": [
+        "card-board"
+      ],
+      "tags": []
+    },
+    "한게임-로얄홀덤": {
+      "genres": [
+        "card-board"
+      ],
+      "tags": []
+    },
+    "승리의-여신-니케": {
+      "genres": [
+        "rpg",
+        "action-shooting"
+      ],
+      "tags": [
+        "subculture"
+      ],
+      "reviewNote": "앱스토어의 카드 분류 대신 공식 설명의 실시간 슈팅 전투와 Google Play 액션 롤플레잉 분류를 적용. game-genre-survey.json 참조."
+    },
+    "명조워더링-웨이브": {
+      "genres": [
+        "rpg",
+        "action-shooting"
+      ],
+      "tags": [
+        "subculture"
+      ]
+    },
+    "젠레스-존-제로": {
+      "genres": [
+        "rpg",
+        "action-shooting"
+      ],
+      "tags": [
+        "subculture"
+      ]
+    },
+    "붕괴-스타레일": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "subculture"
+      ]
+    },
+    "원신공월의-노래": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "subculture"
+      ]
+    },
+    "트릭컬-리바이브": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "subculture"
+      ]
+    },
+    "limbus-company": {
+      "genres": [
+        "rpg",
+        "strategy-defense"
+      ],
+      "tags": [
+        "subculture"
+      ],
+      "reviewNote": "공식 턴제 RPG 설명과 Google Play 롤플레잉 세부 카테고리, 양대 스토어 전략 분류 확인. game-genre-survey.json 참조."
+    },
+    "에픽세븐": {
+      "genres": [
+        "rpg"
+      ],
+      "tags": [
+        "subculture"
+      ]
+    },
+    "명일방주": {
+      "genres": [
+        "strategy-defense"
+      ],
+      "tags": [
+        "subculture"
+      ]
+    },
+    "뱀피르": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "리니지2m": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "sd건담-지-제네레이션-이터널": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "오피스-퀸-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "앙상블스타즈": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "스타세이비어": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "와다다-던전런": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "rf-온라인-넥스트": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "정령킹-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "소녀전선2-망명": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "나이트-크로우": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "페이트그랜드-오더": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "로드나인": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "러브앤딥스페이스": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "레이븐2": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "슬레이어-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "변신-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "리니지2-레볼루션": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "브라운더스트2-가슴-벅찬-rpg": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "더-스타라이트": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "롬-리멤버-오브-마제스티": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "아키에이지-워-archeage-war": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "소울-스트라이크-qwer-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "우마무스메-프리티-더비": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "r2-origin": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "프라시아-전기": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "레전드-오브-이미르": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "도원결의-방치형-삼국지": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "열혈강호-화룡전": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "에오스-레드": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "r2m": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "검선귀환": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "벽람항로": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "나-혼자만-레벨업어라이즈": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "프로젝트-세카이-컬러풀-스테이지-feat하츠네-미쿠": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "냥냥-시노비-미소녀-닌자-디펜스": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "데몬-소서리스-키우기-길드-대항전-오픈": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "라이즈-신-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "전우치-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "리버스-1999": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "돼지-키우는-중입니다-국내산": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "소녀총사-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "aquaparkio": {
+      "tags": [
+        "hypercasual"
+      ]
+    },
+    "블루-아카이브": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "dragon-ball-z-폭렬격전": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "dk모바일-리본": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "미르4": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "킹방치-빵지의-제왕": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "주술회전-팬텀-퍼레이드": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "hit2": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "카오스-제로-나이트메어": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "스테이트-커넥트-교통-통제": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "dragon-ball-legends-드래곤-볼-레전즈": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "레츠고-레전드": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "일곱-개의-대죄-grand-cross": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "에오스-블랙": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "히어로즈-오브-크라운": {
+      "tags": [
+        "idle",
+        "subculture"
+      ]
+    },
+    "뮤-포켓-나이츠-방치형rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "소울-헌터-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "비지-세이비어": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "그놈은-드래곤": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "dumb-ways-to-die": {
+      "tags": [
+        "hypercasual"
+      ]
+    },
+    "이터널-에볼루션": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "명일방주-엔드필드": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "레전드-용사-키우기-신규-출시": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "마계학원": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "capybara-jump-cake-tower": {
+      "tags": [
+        "hypercasual"
+      ]
+    },
+    "스킬-마법사-키우기-신규-서버-오픈": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "헌터-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "신의-탑-새로운-세계": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "가디언-테일즈": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "괴수-8호-the-game": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "정사-치명적인-10000뽑기-지급": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "미송자의-노래-도트-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "삼국지-올스타-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "goblin-miner-idle-merger": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "카운터사이드": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "작혼-리치-마작": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "스위칭-히어로즈-키우기-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "신궁-키우기-방치형-rpg-길드-점령전-추가": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "카르나크": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "포트리스-사가-방치형-rpg-게임": {
+      "tags": [
+        "idle",
+        "subculture"
+      ]
+    },
+    "여고생과-리셋중-로그라이크-x-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "에버소울-eversoul": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "afk-아레나": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "조선협객전m": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "제노니아-크로노브레이크": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "머머리-퀘스트": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "임모탈-키우기-복귀-이벤트-리뉴얼": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "창세기전-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "judgment-day-신의-천사-심판의-날": {
+      "tags": [
+        "hypercasual"
+      ]
+    },
+    "픽셀-기사단-키우기-방치형rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "라살라스": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "애쉬앤베일-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "신세계-항로": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "고양이와-스프-힐링-고양이-키우기-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "knife-hit": {
+      "tags": [
+        "hypercasual"
+      ]
+    },
+    "오늘도-환생-2": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "에픽-스틱맨-방치형-rpg-전쟁": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "애니멀-버스터즈-방치형rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "스택-볼-플랫폼을-다-뚫어버리세요": {
+      "tags": [
+        "hypercasual"
+      ]
+    },
+    "픽셀-히어로즈-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "영광을-위하여": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "마왕-크래프트-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "황제의-검을-떨궜다": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "스포츠-스타-팀-매니저-방치형": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "안티스트레스-릴렉스-토이": {
+      "tags": [
+        "hypercasual"
+      ]
+    },
+    "용사가-돌아왔다-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "암살자-키우기-1주년": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "slice-master-idle-clicker": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "넋나간-삼국지": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "삼국블레이드-키우기-9999-뽑기-증정": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "해적-키우기-방치형-rpg": {
+      "tags": [
+        "idle",
+        "subculture"
+      ]
+    },
+    "바르디안-vardian": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "이블-소드": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "배고파용-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "다크슬레이어-2-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "달토끼-키우기-5주년": {
+      "tags": [
+        "idle",
+        "subculture"
+      ]
+    },
+    "테이밍-마스터-2-허니즈와-소환수-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "호드-워-어벤저의-소환": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "토이-삼국": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "추노-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "sol-enchant": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "냥찍-히어로즈-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "스타-세일러": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "불사용사-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "ete-chronicle": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "아스달-연대기-세-개의-세력": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "윈드러너-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "각성소녀-욕망의-여정": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "mha-united-survival": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "죠죠의-기묘한-모험-골든-스피릿": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "사신소년-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "제우스-오만의-신": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "건틀렛-방치형-액션-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "아키텍트-랜드-오브-엑자일": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "카피바라-go": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "열혈강호-귀환": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "legends-reborn-마지막-전투": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "사북성언데드": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "포지-마스터-forge-master": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "아레스-라이즈-오브-가디언즈": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "천상비k": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "전함-고-고-고": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "묵청대도-깨어난-사북성": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "월드-크러쉬-히어로-포스": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "v4": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "묵청대도-바운티": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "포켓-챔프-3d-레이싱-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "항해킹-사가": {
+      "tags": [
+        "idle",
+        "subculture"
+      ]
+    },
+    "고양이-라이프-귀여운-시뮬레이션-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "갓물주-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "idle-landlord-sim": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "기어몬-타워-디펜스": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "idle-lumber-empire-시뮬레이터": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "모범-놀이터-타락자들": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "기어-작동-최후의-요새-gear-defenders": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "피자-레디-pizza-ready": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "괴담-여친-두-개의-선택": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "roadside-empire-로드사이드-엠파이어": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "제로웨이크-게이트-bl-rpg": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "royal-lands-save-the-king": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "화산파-키우기-1주년-기념-신규-서버": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "어나더던전": {
+      "tags": [
+        "lineage-like",
+        "idle"
+      ]
+    },
+    "로스트-소드": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "아우터플레인-outerplane": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "린m잊혀진-유산": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "one-piece-bounty-rush": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "랑그릿사": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "뉴포리아-서바이벌": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "갓오브하이스쿨-x-신의탑": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "드래곤-플라이트2": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "퍼즐앤드래곤": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "드래곤-베인": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "모에라이-운명의-계약": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "요괴-여친요괴는-너를-사랑해": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "잃어버린-감옥-lost-prison-서바이벌": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "one-piece-treasure-cruise": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "shadowverse-worlds-beyond": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "앵커패닉": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "용구탄생의비밀": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "디노-유니버스-dinosaur-universe": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "좀비-광산타이쿤-금광-방치형-어드벤처-게임-idle": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "와글와글-군단-방치형-라인-디펜스": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "survival-shelter": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "세븐나이츠-키우기": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "영웅전설-가가브-트릴로지": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "유휴-은행-타이쿤-idle-bank-tycoon": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "파이널-블레이드-기억을-깨우다": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "i9-인페르노-나인-1주년": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "idle-block-miner": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "그랜드체이스": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "마인업-디펜스": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "상남자의-순애": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "슬램덩크": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "포세이돈키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "돌-키우기-온라인": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "제2의-나라-cross-worlds": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "고양이-오피스-타이쿤-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "심쿵-삼국지-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "잠룡-무협-도트-rpg": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "암살자-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "정사-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "웨폰-마스터-키우기-방치형-전략-액션-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "dragon-fever-td-악몽은-지킬-수-없다": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "킹덤-전쟁의-불씨": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "무기미도": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "표창키우기2": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "역대급-영지-설계사-촤라락-디펜스": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "디지몬-소울체이서-시즌4": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "valor-legends-idle-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "중년기사-김봉식": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "삼국지-러쉬-origins-타워-디펜스": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "소울이터-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "더-킹-오브-파이터즈98-um온라인": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "pokmon-masters-ex": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "golf-inc-tycoon": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "idle-junkyard-tycoon-아이들-정크야드": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "조선협객전-클래식": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "zen-shards-idle-merge-game": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "어비스디아": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "고양이-테마파크-귀여운-방치형-타이쿤": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "고양이-마법학교-신비하고-귀여운-타이쿤": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "epic-stickman-rpg-idle-war": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "냥킹덤-고양이-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "아케인나이트-전생-방치형-성장-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "외계인의-침공-alien-invasion-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "프린세스-커넥트-redive": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "드래곤-슬레이어-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "캣스토랑-고양이-셰프": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "마작일번가-온라인-대전-마작게임": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "마작일번가-x-데이트-어-라이브-v": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "butcher-hero-서바이벌-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "99강화-나무몽둥이-키우기": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "에덴-더-라스트-라인": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "우와-모험단": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "포레스트-아일랜드": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "고양이-학교-귀여운-방치형-타이쿤-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "고양이와-스프": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "나-혼자-만렙-키우기": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "갓오브하이스쿨-체인지-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "2026-프로야구go": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "오늘도-우라라-원시-헌팅-라이프": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "먼작귀-포켓": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "오늘도-수호중-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "난세표류기-한국사-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "yu-gi-oh-duel-links": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "삼국이분다2": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "라스트-발키리": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "킹갓캐슬": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "another-eden-시공을-넘는-고양이": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "idle-outpost-tycoon-game": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "텐-발키리": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "zoo-sound-land": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "햄스터-셰프-방치형-레스토랑-타이쿤": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "darkslayer-2": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "표류소녀-다시-만난-세계": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "path-of-kings": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "사신키우기2-중세편": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "idle-9-months": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "앵커패닉-1주년-600뽑-대축제": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "흑섬의-기대": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "렐리온-npc들의-생존기": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "별별히어로-영웅-다-있소": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "초월자-키우기-15주년-점핑-이벤트": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "18사쿠라-사가": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "idle-dot-shooter": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "몬몬-마스터즈": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "애프터-다크-after-dark": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "천년의-구미호-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "미르의-전설-진": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "메이크-드라마-mad": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "고양이는-정말-귀여워": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "던전-시스터즈-픽셀-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "시티-데몬헌터즈-각성자들": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "train-miner-놀면서-철도-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "드래곤-라이즈": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "그레이-사가": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "사북쟁탈-고드랍-서버": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "프리즌-라이프-prison-life": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "검은-공주들-부서진-낙원": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "라그나-소울": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "이세계-용병단-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "소녀전쟁-환상의-천하통일전": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "마지막이야기-last-story-방치형-rpg": {
+      "tags": [
+        "lineage-like",
+        "idle"
+      ]
+    },
+    "고양이-시티-귀여운-도시-타이쿤-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "냥이-기사단-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "모아용-영웅모으기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "수확왕-농장-타워-디펜스-harvest-king": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "부족-또-전쟁-무한루프-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "도깨비-소녀와-함께": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "하우스메이트-그녀들": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "히간-이루실": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "데몬-헌터-방치형-정령-키우기-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "그라나도에스파다m-x-신암행어사": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "킹덤2-타오르는-전장": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "던전-견문록": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "전사들과-모험": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "진귀한-동물-수조": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "모아용-최강영웅-서버대전": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "아처캐슬-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "픽셀-테이머즈": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "battle-night": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "theme-park-manager": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "픽셀-탐험대": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "슝슝-수련기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "불릿-히어로즈-타워-디펜스-게임": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "galactic-merge-idle": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "다크-나이트-키우기-방치형-rpg": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "집행검-클래식": {
+      "tags": [
+        "lineage-like",
+        "idle"
+      ]
+    },
+    "잔망-티키타카": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "킹-오브-파이터-afk": {
+      "tags": [
+        "subculture",
+        "idle"
+      ]
+    },
+    "엘피스-전기-소울링": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "wyd-m": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "애니-판타지-방치": {
+      "tags": [
+        "subculture"
+      ]
+    },
+    "영혼-인도자신의-이름으로": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "픽셀-법사-키우기": {
+      "tags": [
+        "idle"
+      ]
+    },
+    "레퀴엠m": {
+      "tags": [
+        "lineage-like"
+      ]
+    },
+    "스카이-어비스-혈맹의-서약": {
+      "tags": [
+        "lineage-like"
+      ]
+    }
+  }
+}

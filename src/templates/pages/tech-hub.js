@@ -254,7 +254,7 @@ function generateTechHubPage({
     return `
       <div class="home-card" id="tech-popular">
         <div class="home-card-header">
-          <h2 class="home-card-title">인기</h2>
+          <h2 class="home-card-title">인기 기사</h2>
         </div>
         <div class="home-popular-list" id="${popularListId}">${popularCards}</div>
       </div>
