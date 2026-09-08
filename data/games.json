@@ -46814,8 +46814,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "요새하는겜: 전략디펜스": {
+      "appIds": {
+        "ios": 6788296615
+      },
+      "aliases": [],
+      "developer": "NEWLEAP SOFT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ba/dc/8e/badc8e99-3903-d99f-902e-4af51321fb78/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
+      "slug": "요새하는겜-전략디펜스",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "전설의 대장간 후예: 도트 키우기 RPG": {
+      "appIds": {
+        "android": "com.patrick.legendsmith"
+      },
+      "aliases": [],
+      "developer": "Patrick Games KR",
+      "icon": "https://play-lh.googleusercontent.com/fi7Lmqt-ORaIyKmxLzoO3vPjlg-vBtCCRk0YSZIjY2m2fp8qrl8ZZ6th0bNc08hF6iGFpo6Y16Op-FnMO-P9zg",
+      "slug": "전설의-대장간-후예-도트-키우기-rpg",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Dot Link – 점을 연결하세요": {
+      "appIds": {
+        "android": "com.playvalve.connect.dots"
+      },
+      "aliases": [],
+      "developer": "Bluetile",
+      "icon": "https://play-lh.googleusercontent.com/DJ5QIUbfloacZzskC_HiyyEbHPN17t7NN-8f5P_xnPv_Io2XmSLiewBV_pEbipM9ISXwIxZhd1yw-sob5sL1",
+      "slug": "dot-link-점을-연결하세요",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-08",
-  "totalGames": 3582
+  "totalGames": 3585
 }

@@ -32903,6 +32903,52 @@
         }
       ],
       "addedAt": "2026-09-06T18:29:45.583Z"
+    },
+    {
+      "title": "요새하는겜: 전략디펜스",
+      "status": "single",
+      "appIds": {
+        "ios": 6788296615
+      },
+      "developer": "NEWLEAP SOFT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ba/dc/8e/badc8e99-3903-d99f-902e-4af51321fb78/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-08T10:24:18.620Z"
+    },
+    {
+      "title": "전설의 대장간 후예: 도트 키우기 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.patrick.legendsmith"
+      },
+      "developer": "Patrick Games KR",
+      "icon": "https://play-lh.googleusercontent.com/fi7Lmqt-ORaIyKmxLzoO3vPjlg-vBtCCRk0YSZIjY2m2fp8qrl8ZZ6th0bNc08hF6iGFpo6Y16Op-FnMO-P9zg",
+      "searchResults": [],
+      "addedAt": "2026-09-08T10:24:18.835Z"
+    },
+    {
+      "title": "Dot Link – 점을 연결하세요",
+      "status": "single",
+      "appIds": {
+        "android": "com.playvalve.connect.dots"
+      },
+      "developer": "Bluetile",
+      "icon": "https://play-lh.googleusercontent.com/DJ5QIUbfloacZzskC_HiyyEbHPN17t7NN-8f5P_xnPv_Io2XmSLiewBV_pEbipM9ISXwIxZhd1yw-sob5sL1",
+      "searchResults": [
+        {
+          "title": "모두 수집하세요!",
+          "appId": 1570641170
+        },
+        {
+          "title": "Dot Link - 점 잇기",
+          "appId": 6444312485
+        },
+        {
+          "title": "점들을 연결하세요: 두뇌 게임",
+          "appId": 6447007547
+        }
+      ],
+      "addedAt": "2026-09-08T10:24:19.192Z"
     }
   ],
   "approved": [
