@@ -46886,8 +46886,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Screw Match®: ASMR Game": {
+      "appIds": {
+        "ios": 6503636810
+      },
+      "aliases": [],
+      "developer": "BESTPLAY GAMES PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/4f/9a/ae4f9aa4-e6cf-70da-c0c8-4e1008d087fd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "screw-match-asmr-game",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-09",
-  "totalGames": 3588
+  "totalGames": 3589
 }
