@@ -1,30 +1,36 @@
 {
-  "updatedAt": "2026-09-07T00:35:35.768Z",
+  "updatedAt": "2026-09-08T00:52:53.027Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 36,
+      "views": 33,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 24,
+      "views": 28,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 19,
+      "views": 18,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-august-2026-kr",
+      "views": 14,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "dlss-5-leak-backlash",
-      "views": 10,
+      "views": 12,
       "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
@@ -36,20 +42,8 @@
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
-    },
-    {
-      "type": "issue",
-      "slug": "zeus-dual-market-revenue-no1",
-      "views": 5,
-      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-august-2026-kr",
-      "views": 5,
-      "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "wiki",
@@ -59,16 +53,17 @@
       "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
     },
     {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 5,
+      "path": "/wiki/knowledge/pd-vs-director/"
+    },
+    {
       "type": "hotpick",
       "slug": "agile-jira-confluence-game-dev",
       "views": 4,
       "path": "/magazine/hotpick/agile-jira-confluence-game-dev/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 4,
-      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "insight",
@@ -83,18 +78,17 @@
       "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
-      "type": "wiki",
-      "slug": "platform-fees-comparison",
-      "category": "business",
+      "type": "issue",
+      "slug": "zeus-dual-market-revenue-no1",
       "views": 4,
-      "path": "/wiki/business/platform-fees-comparison/"
+      "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
     },
     {
       "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
+      "slug": "heroes-of-might-and-magic",
+      "category": "history",
       "views": 4,
-      "path": "/wiki/knowledge/pd-vs-director/"
+      "path": "/wiki/history/heroes-of-might-and-magic/"
     },
     {
       "type": "insight",
@@ -104,10 +98,10 @@
     },
     {
       "type": "wiki",
-      "slug": "heroes-of-might-and-magic",
-      "category": "history",
+      "slug": "platform-fees-comparison",
+      "category": "business",
       "views": 3,
-      "path": "/wiki/history/heroes-of-might-and-magic/"
+      "path": "/wiki/business/platform-fees-comparison/"
     },
     {
       "type": "hotpick",
@@ -129,6 +123,12 @@
     },
     {
       "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 2,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
       "slug": "heartopia-cozy-game-revenue-record",
       "views": 2,
       "path": "/magazine/issue/heartopia-cozy-game-revenue-record/"
@@ -141,12 +141,6 @@
     },
     {
       "type": "issue",
-      "slug": "lineage-like-genre-decline-paradigm-shift",
-      "views": 2,
-      "path": "/magazine/issue/lineage-like-genre-decline-paradigm-shift/"
-    },
-    {
-      "type": "issue",
       "slug": "overwatch-shion-hero-52-skillset",
       "views": 2,
       "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
@@ -156,12 +150,6 @@
       "slug": "silksong-sea-of-sorrow",
       "views": 2,
       "path": "/magazine/issue/silksong-sea-of-sorrow/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-january-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/mobile-january-2026-kr/"
     },
     {
       "type": "ranking",
@@ -226,21 +214,9 @@
     },
     {
       "type": "issue",
-      "slug": "devil-may-cry-1-remake-rumor",
-      "views": 1,
-      "path": "/magazine/issue/devil-may-cry-1-remake-rumor/"
-    },
-    {
-      "type": "issue",
       "slug": "diablo2-resurrected-steam-launch",
       "views": 1,
       "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
-    },
-    {
-      "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 1,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",
@@ -250,9 +226,21 @@
     },
     {
       "type": "issue",
+      "slug": "lol-aram-mayhem-comeback",
+      "views": 1,
+      "path": "/magazine/issue/lol-aram-mayhem-comeback/"
+    },
+    {
+      "type": "issue",
       "slug": "lol-league-next-2027-overhaul",
       "views": 1,
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
+      "type": "issue",
+      "slug": "pubg-battlegrounds-birth-history",
+      "views": 1,
+      "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
     },
     {
       "type": "issue",
@@ -265,12 +253,6 @@
       "slug": "xbox-game-pass-march-2026",
       "views": 1,
       "path": "/magazine/issue/xbox-game-pass-march-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "lunar-new-year-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
     },
     {
       "type": "ranking",
@@ -318,6 +300,13 @@
       "category": "history",
       "views": 1,
       "path": "/wiki/history/the-war-of-genesis/"
+    },
+    {
+      "type": "wiki",
+      "slug": "chzzk-soop-p2p-grid",
+      "category": "knowledge",
+      "views": 1,
+      "path": "/wiki/knowledge/chzzk-soop-p2p-grid/"
     },
     {
       "type": "wiki",
