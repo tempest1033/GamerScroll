@@ -25,6 +25,9 @@ const outputDir = path.join(__dirname, '..', docsDir, 'games');
 
 // 템플릿 import
 const { generateGamePage } = require('../src/templates/pages/game');
+// 순위 요약 카드 (280일 이력 기반 KPI·추이·월별·기록 — 정적 HTML)
+const { renderGameRankSummary } = require('../src/templates/pages/rank-hub');
+let rankSummaryWarned = false;
 const { setCssFilename, setCssAssetVersion } = require('../src/templates/layout');
 const { CSS_ASSET_FILES, computeCssAssetVersion, ensureDocsCssAssetCopies } = require('../src/build/css-version');
 
@@ -1429,6 +1432,18 @@ for (const [gameName, gameInfo] of Object.entries(gamesData.games)) {
   gameData.slug = slug;
   gameData.hasData = hasData;
 
+  // 순위 요약 (모바일 앱 ID가 있는 게임만). 실패해도 페이지 생성은 계속.
+  try {
+    const summary = renderGameRankSummary({ ...gameInfo, key: gameName }, slug);
+    if (summary) {
+      gameData.rankSummaryHtml = summary.html;
+      gameData.rankSummaryText = summary.text;
+      gameData.rankSummaryDays = summary.days;
+    }
+  } catch (e) {
+    if (!rankSummaryWarned) { console.warn(`  ⚠️ 순위 요약 생성 실패 (${gameName}): ${e.message}`); rankSummaryWarned = true; }
+  }
+
   // 증분 빌드: 게임 데이터 해시 비교
   const cacheKey = slug;
   if (!forceFullRebuild && !buildCache.checkItemChanged(incrementalCache.games, cacheKey, gameData)) {
@@ -1500,7 +1515,8 @@ console.log(`🔑 검색 인덱스 버전: ${searchIndexVersion}`);
 buildCache.updateInputFilesSignature(incrementalCache, 'gamePages', inputSignature);
 buildCache.saveCache(incrementalCache);
 
-// updateSitemapGameEntries(); // 게임 페이지는 noindex → sitemap 제외
+// 색인 허용(noindex 없음) 게임 페이지만 sitemap 에 추가 — 멘션이 있거나 30일 이상 순위 이력이 있는 게임
+updateSitemapGameEntries();
 
 const actualBuilt = generatedCount - cacheSkippedCount;
 console.log(`\n✅ 게임 페이지 생성 완료!`);

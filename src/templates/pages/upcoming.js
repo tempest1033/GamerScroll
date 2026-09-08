@@ -149,6 +149,7 @@ function generateUpcomingPage(data) {
     pageScripts,
     breadcrumbs: [
       { name: '홈', url: `${siteBaseUrl}/` },
+      { name: '게임 DB', url: `${siteBaseUrl}/games/` },
       { name: '출시 게임', url: `${siteBaseUrl}/upcoming/` }
     ]
   });

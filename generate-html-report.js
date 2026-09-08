@@ -120,12 +120,14 @@ function getCssBundlesForDocPath(relativePath) {
   const normalized = String(relativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
   const bundles = ['/styles-core.css'];
   const needsGameCss =
+    normalized === 'index.html' || // 홈 상단 순위 요약(.rk)
     normalized === 'rankings.html' ||
     normalized === 'steam.html' ||
     normalized === 'upcoming.html' ||
     normalized.startsWith('games/') ||
     normalized.startsWith('rankings/') ||
     normalized.startsWith('steam/') ||
+    normalized.startsWith('reports/') || // 리포트 허브 (.rk)
     normalized.startsWith('upcoming/');
 
   if (normalized.startsWith('magazine/')) {
@@ -697,6 +699,101 @@ const { generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetai
 const { generateTrendsHubPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage } = require('./src/templates/pages/trends-hub');
 // 뉴스/커뮤니티/영상 페이지 제거됨 (크롤링 데이터는 유지)
 const { generateRankingsPage } = require('./src/templates/pages/rankings');
+// 순위 허브 리뉴얼(정적 HTML): /rankings/ 본문 + 국가별·월간·글로벌·역대 하위 페이지
+const rankHub = require('./src/templates/pages/rank-hub');
+const steamHub = require('./src/templates/pages/steam-hub');
+const { renderReportsHub } = require('./src/templates/pages/reports-hub');
+const { setHeaderStatus } = require('./src/templates/components/header');
+let rankHubFailed = false;
+let steamHubFailed = false;
+// 스팀 허브(정적) — 실패하면 구 스팀 페이지로 대체
+function generateSteamHome(d, cacheVersion) {
+  if (!steamHubFailed) {
+    try {
+      return steamHub.renderSteamHub();
+    } catch (e) {
+      steamHubFailed = true;
+      console.warn(`  ⚠️ 스팀 허브(정적) 생성 실패 → 구 스팀 페이지로 대체: ${e.message}`);
+    }
+  }
+  return generateSteamPage({ ...d, cacheVersion });
+}
+function generateRankingsHome(d, gamesData, cacheVersion) {
+  if (!rankHubFailed) {
+    try {
+      return rankHub.renderRankingsHub('kr');
+    } catch (e) {
+      rankHubFailed = true;
+      console.warn(`  ⚠️ 순위 허브(정적) 생성 실패 → 구 순위 페이지로 대체: ${e.message}`);
+    }
+  }
+  return generateRankingsPage({ ...d, games: gamesData, cacheVersion });
+}
+// /rankings/ 하위 페이지를 docs 에 직접 쓴다 (CSS 해시 링크는 이후 rewriteDocsStylesheetLinks 가 정규화). 사이트맵 항목을 돌려준다.
+function writeRankHubSubpages(docsDir) {
+  const entries = [];
+  if (rankHubFailed) return entries;
+  const write = (rel, html) => {
+    const dir = path.join(docsDir, 'rankings', rel);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+    entries.push({ loc: `https://gamerscroll.com/rankings/${rel}/`, priority: '0.7' });
+  };
+  let n = 0;
+  try {
+    const S = require('./src/rank/stats').loadRankStats();
+    for (const c of Object.keys(S.COUNTRIES)) {
+      if (c !== 'kr') { write(c, rankHub.renderRankingsHub(c)); n++; }
+      write(c === 'kr' ? 'free' : `free/${c}`, rankHub.renderRankingsHub(c, 'free')); n++;
+    }
+    write('subculture', rankHub.renderSubculture('kr')); n++;
+    write('global', rankHub.renderGlobal()); n++;
+    write('about', rankHub.renderAbout()); n++;
+    // 개발사: 목록 + TOP 200 에 게임이 2개 이상인 개발사 (최대 80개)
+    write('publishers', rankHub.renderPublishers('kr')); n++;
+    const pubs = rankHub.publisherPages(rankHub.publisherIndex(S, 'kr'));
+    for (const p of pubs) { write(`publishers/${p.slug}`, rankHub.renderPublisher(p, 'kr')); n++; }
+    write('records', rankHub.renderRecords('kr')); n++;
+    for (const mo of S.months) {
+      if (S.daysIn(mo).length < 7) continue;
+      const html = rankHub.renderMonthly(mo, 'kr');
+      if (html) { write(`monthly/${mo}`, html); n++; }
+    }
+    console.log(`  ✅ 순위 허브 하위 페이지 ${n}개 (국가 · 인기 · 서브컬처 · 글로벌 · 역대 · 산출 방법 · 개발사 ${pubs.length + 1} · 월간 ${S.months.length}개월)`);
+  } catch (e) {
+    console.warn(`  ⚠️ 순위 허브 하위 페이지 생성 실패: ${e.message}`);
+  }
+  // 스팀 게임 상세 (docs/steam/{appid}/): 동접 TOP 100 에 14일 이상 있었거나 오늘 차트에 있는 게임
+  if (!steamHubFailed) {
+    try {
+      let sn = 0;
+      for (const id of steamHub.steamGameIds()) {
+        const dir = path.join(docsDir, 'steam', id);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, 'index.html'), steamHub.renderSteamGame(id), 'utf8');
+        entries.push({ loc: `https://gamerscroll.com/steam/${id}/`, priority: '0.6' });
+        sn++;
+      }
+      console.log(`  ✅ 스팀 게임 페이지 ${sn}개`);
+    } catch (e) {
+      console.warn(`  ⚠️ 스팀 게임 페이지 생성 실패: ${e.message}`);
+    }
+  }
+  // 리포트 허브 (docs/reports/)
+  try {
+    const html = renderReportsHub();
+    if (html) {
+      const dir = path.join(docsDir, 'reports');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
+      entries.push({ loc: 'https://gamerscroll.com/reports/', priority: '0.8' });
+      console.log('  ✅ 리포트 허브 /reports/');
+    }
+  } catch (e) {
+    console.warn(`  ⚠️ 리포트 허브 생성 실패: ${e.message}`);
+  }
+  return entries;
+}
 const { generateSteamPage } = require('./src/templates/pages/steam');
 const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
@@ -805,10 +902,13 @@ const PURGECSS_SAFELIST = {
     'fonts-loaded', 'nav-ready', 'thumb-fallback',
     'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
     'ads-disabled', 'deferred-css-pending', 'realtime',
+    // 순위 허브(.rk) 컨테이너 — 게임 페이지 요약 카드는 purge 뒤에 생성되므로 rk-* 전체를 보호
+    'rk',
   ],
-  deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/],
+  deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/, /^rk-/],
   // gs-ad-*는 외부 번들(layout-core.js)의 classList.add로만 붙어 purge 스캔에 안 잡힘
-  greedy: [/^gs-ad-/],
+  // rk-*: 게임 페이지 순위 요약(.rk-stat 등)은 generate-game-pages.js가 purge 이후에 만든다
+  greedy: [/^gs-ad-/, /^rk-/],
   // 타이포 토큰(--font-*)은 core 번들(00-base)에 정의되고 article/report 번들에서 참조된다.
   // PurgeCSS variables 정리는 파일 단위라 core 쪽에서 미사용으로 오인해 지우므로 보호한다.
   variables: [/^--font-/],
@@ -833,6 +933,7 @@ async function purgeCssInDocs(docsDir) {
     {
       css: `${docsDir}/styles-game.css`,
       content: [
+        `${docsDir}/index.html`,
         `${docsDir}/games/**/*.html`,
         `${docsDir}/rankings/**/*.html`,
         `${docsDir}/steam/**/*.html`,
@@ -1344,9 +1445,12 @@ async function main() {
   const rankingsCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.rankings || {})).digest('hex').slice(0, 8);
   const steamCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.steam || {})).digest('hex').slice(0, 8);
 
+  // 상단 바 오른쪽 "갱신" 시각 (마지막 수집 시각)
+  try { if (data.timestamp) setHeaderStatus(`${require('./src/rank/stats').util.tsText(data.timestamp)} 갱신`); } catch {}
+
   const pages = [
-    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData, cacheVersion: rankingsCacheVersion }) },
-    { filename: 'steam.html', generator: (d) => generateSteamPage({ ...d, cacheVersion: steamCacheVersion }) },
+    { filename: 'rankings.html', generator: (d) => generateRankingsHome(d, gamesData, rankingsCacheVersion) },
+    { filename: 'steam.html', generator: (d) => generateSteamHome(d, steamCacheVersion) },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [], searchIndexVersion }) },
       { filename: '404.html', generator: generate404Page }
@@ -1964,8 +2068,8 @@ async function main() {
 
   // 기타 페이지 재생성 (정확한 매거진 counts 반영)
   const latePages = [
-    { filename: 'rankings.html', generator: (d) => generateRankingsPage({ ...d, games: gamesData, cacheVersion: rankingsCacheVersion }) },
-    { filename: 'steam.html', generator: (d) => generateSteamPage({ ...d, cacheVersion: steamCacheVersion }) },
+    { filename: 'rankings.html', generator: (d) => generateRankingsHome(d, gamesData, rankingsCacheVersion) },
+    { filename: 'steam.html', generator: (d) => generateSteamHome(d, steamCacheVersion) },
     { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: '404.html', generator: generate404Page }
   ];
@@ -2225,6 +2329,8 @@ async function main() {
     }
     fs.copyFileSync(`./${page}.html`, `${pageDir}/index.html`);
   }
+  // 순위 허브 하위 페이지 (docs/rankings/{jp,us,cn,tw,global,records,monthly/YYYY-MM}/)
+  const rankSitemapEntries = writeRankHubSubpages(DOCS_DIR);
 
   // privacy 페이지 복사 (푸터 링크 폴백/SEO용) - CSS 해시 동적 교체
   try {
@@ -2590,6 +2696,7 @@ async function main() {
     // /magazine/weekly/ 허브는 구 주간 페이지와 함께 noindex (legacy-weekly-noindex) → sitemap 제외
     // 순위/데이터
     { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate, priority: '0.8' },
+    ...rankSitemapEntries.map((e) => ({ ...e, lastmod: sitemapDate })),
     { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/upcoming/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/games/`, lastmod: sitemapDate, priority: '0.8' },

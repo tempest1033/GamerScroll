@@ -79,7 +79,7 @@ const chartHelpers = {
  * 게임 대시보드 페이지 생성
  */
 function generateGamePage(gameData) {
-  const { name, slug = '', platforms = [], developer = '', icon = null, rankings = {}, rankHistory = [], realtimeRanks = {}, snapshotLatestTimes = {}, steamHistory = [], news = [], community = [], steam = null, youtube = [], mentions = [], relatedContent = [] } = gameData;
+  const { name, slug = '', platforms = [], developer = '', icon = null, rankings = {}, rankHistory = [], realtimeRanks = {}, snapshotLatestTimes = {}, steamHistory = [], news = [], community = [], steam = null, youtube = [], mentions = [], relatedContent = [], rankSummaryHtml = '', rankSummaryText = '', rankSummaryDays = 0 } = gameData;
 
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
@@ -1118,6 +1118,14 @@ function generateGamePage(gameData) {
           <div class="home-card-body">${generateSteamChartSection('sales')}</div>
         </div>
         ` : showMobileRanking ? `
+        ${rankSummaryHtml ? `
+        <!-- 순위 요약 (정적: 280일 이력 KPI · 90일 추이 · 분포 · 국가별 · 월별 · 기록) -->
+        <div class="home-card grid-full">
+          <div class="home-card-header">
+            <h2 class="home-card-title">${name} 매출 순위 요약</h2>
+          </div>
+          <div class="home-card-body">${rankSummaryHtml}</div>
+        </div>` : ''}
         <!-- 모바일 게임 순위 카드 -->
         <div class="home-card">
           <div class="home-card-header">
@@ -1126,13 +1134,14 @@ function generateGamePage(gameData) {
           <div class="home-card-body">${generateRankingsSection()}</div>
         </div>
 
-        <!-- 모바일 게임 순위 히스토리 카드 -->
+        ${rankSummaryHtml ? '' : `
+        <!-- 모바일 게임 순위 히스토리 카드 (정적 순위 요약이 없는 게임만 — 요약이 있으면 90일 추이·월별 표가 대신함) -->
         <div class="home-card">
           <div class="home-card-header">
             <h2 class="home-card-title">순위 히스토리</h2>
           </div>
           <div class="home-card-body">${generateRankTrendSection()}</div>
-        </div>
+        </div>`}
         ` : ''}
 
         ${relatedContent.length > 0 ? `
@@ -1302,17 +1311,21 @@ function generateGamePage(gameData) {
     })();
   </script>`;
 
-  // 멘션 없는 페이지는 noindex (thin content 방지)
-  const hasMentions = mentions && mentions.length > 0;
+  // 멘션 없는 페이지는 noindex (thin content 방지). 단, 30일 이상 차트 이력이 있는 게임은
+  // 정적 순위 요약(KPI·추이·월별·기록)만으로도 고유 콘텐츠가 충분하므로 색인 허용.
+  const hasRankBody = rankSummaryHtml && rankSummaryDays >= 30;
+  const hasMentions = (mentions && mentions.length > 0) || hasRankBody;
 
   // 플랫폼별 SEO 메타 데이터
   const seoTitle = hasMobilePlatform
     ? `${name} 매출, 모바일 게임 순위, 뉴스`
     : `${name} 매출, 게임 순위, 뉴스`;
 
-  const seoDescription = hasMobilePlatform
-    ? `${name} 매출, 모바일 게임 순위와 뉴스, 히스토리를 한눈에.`
-    : `${name} 매출, 스팀 게임 순위와 뉴스, 히스토리를 한눈에.`;
+  const seoDescription = rankSummaryText
+    ? rankSummaryText
+    : hasMobilePlatform
+      ? `${name} 매출, 모바일 게임 순위와 뉴스, 히스토리를 한눈에.`
+      : `${name} 매출, 스팀 게임 순위와 뉴스, 히스토리를 한눈에.`;
 
   const seoKeywords = hasMobilePlatform
     ? `${name}, ${name} 매출, ${name} 순위, 모바일 게임 순위, ${name} 앱스토어, ${name} 플레이스토어, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 뉴스`

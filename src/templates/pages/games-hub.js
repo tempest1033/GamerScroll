@@ -203,7 +203,8 @@ function generateGamesHubPage(options = {}) {
     <section class="section active" id="games">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container" id="top">
-        <h1 class="visually-hidden">게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색</h1>
+        <h1 class="visually-hidden">게임 DB - 모바일·스팀 게임 검색, 게임별 순위 추이</h1>
+        <nav class="games-hub-tabs" aria-label="게임 DB"><a class="active" href="/games/">전체 게임</a><a href="/upcoming/">출시 예정</a></nav>
         ${searchResultsSection}
         ${recentGamesSection}
         ${popularSection}
@@ -543,9 +544,9 @@ function generateGamesHubPage(options = {}) {
   `;
 
   return wrapWithLayout(content, {
-    title: '게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색',
-    description: '게임 DB - 모바일 게임 순위, 스팀 게임 순위, 뉴스 검색을 한눈에.',
-    keywords: '게임 순위, 모바일 게임 순위, 스팀 게임 순위, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 스팀 매출 순위, 스팀 인기 순위, 게임 뉴스',
+    title: '게임 DB - 모바일·스팀 게임 검색, 게임별 순위 추이 | 게이머스크롤',
+    description: '모바일·스팀 게임 3,000여 개를 이름으로 찾고, 게임별 앱스토어·구글플레이 매출 순위 추이와 역대 기록을 확인하세요. 출시 예정 게임도 함께 정리합니다.',
+    keywords: '게임 DB, 게임 검색, 모바일 게임 순위 추이, 게임 매출 순위 기록, 출시 예정 게임, 신작 게임',
     canonical: `${siteBaseUrl}/games/`,
     currentPage: 'games',
     showSearchBar: true,

@@ -101,7 +101,17 @@ function getLocalTechThumbSrcset(category, slug, originalUrl) {
 
 const { getLocalReportThumbnail, getLocalReportThumbnailSrcset } = require('../helpers/thumbnail');
 
+// 홈 = 네 허브 요약 페이지 (home.js). 순위 통계가 실패하면 예전 매거진형 홈으로 대체한다.
 function generateIndexPage(data) {
+  try {
+    return require('./home').renderHome();
+  } catch (e) {
+    console.warn(`  ⚠️ 순위 홈 생성 실패 → 구 홈으로 대체: ${e.message}`);
+    return legacyGenerateIndexPage(data);
+  }
+}
+
+function legacyGenerateIndexPage(data) {
   const { rankings, news, steam, youtube, chzzk, community, upcoming, insight, metacritic, popularGames = [], popularArticles = [], games = {}, issueReports = [], insightReports = [], hotpickReports = [], rankingReports = [], wikiData = {}, techData = {}, sidebarPopularArticles = [], sidebarLatestArticles = [] } = data;
 
   // 공통 counts 계산 (사이드바 + 모바일 메뉴용)
@@ -688,6 +698,7 @@ function generateIndexPage(data) {
               <button class="tab-btn active" data-chart="grossing">매출</button>
               <button class="tab-btn" data-chart="free">인기</button>
             </div>
+            <a class="home-card-more" href="/rankings/">TOP 200 ›</a>
           </div>
         </div>
         <div class="home-card-body">
@@ -832,6 +843,14 @@ function generateIndexPage(data) {
 
   var popularBannerHtml = generatePopularBanner();
 
+  // 홈 상단 순위 요약 (정적 · 280일 이력 기반) — 실패해도 홈은 계속 만든다
+  var rankDigestHtml = '';
+  try {
+    rankDigestHtml = require('./rank-hub').renderRankDigest('kr', { limit: 10, compact: true });
+  } catch (e) {
+    console.warn('  ⚠️ 홈 순위 요약 실패: ' + e.message);
+  }
+
   // 모바일 사이드 패널 콘텐츠 (layout.js에서 공통 처리)
   var sidebarContent = generateSidebarCategories() + generateSidebarArticles();
 
@@ -842,6 +861,7 @@ function generateIndexPage(data) {
     '<div class="home-container">' +
     '<div class="home-main">' +
     generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true }) +
+    rankDigestHtml +
     insightCardHtml +
     generateHomePopular() +
     generateHomeLatest() +

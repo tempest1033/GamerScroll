@@ -32,7 +32,7 @@ function getPageExtraCssFiles(currentPage = '') {
   const page = String(currentPage || '').toLowerCase();
   let files = [];
   if (page === 'magazine') files = ['/styles-report.css', '/styles-article.css'];
-  if (['game', 'rankings', 'steam', 'upcoming'].includes(page)) files = ['/styles-game.css'];
+  if (['home', 'game', 'games', 'rankings', 'steam', 'upcoming', 'reports'].includes(page)) files = ['/styles-game.css'];
   if (page === 'wiki' || page === 'tech') files = ['/styles-article.css'];
   return files.map(withCssAssetVersion);
 }
@@ -2547,17 +2547,16 @@ const imageFallbackScript = `
 </script>`;
 
 // 기본 사이드바 콘텐츠 (공용 컴포넌트 - 모바일 패널용 id 사용)
-function generateDefaultSidebarContent(counts = {}, articles = {}) {
-  // 페이지별 articles > 전역 변수 순으로 폴백
-  const popularItems = (articles.popular && articles.popular.length > 0) ? articles.popular : globalPopularArticles;
-  const latestItems = (articles.latest && articles.latest.length > 0) ? articles.latest : globalLatestArticles;
-
-  return sharedSidebarCategories(counts)
-    + sharedSidebarArticles(popularItems, latestItems, {
-      tabId: 'panelSidebarTab',
-      popularId: 'panel-sidebar-popular',
-      latestId: 'panel-sidebar-latest'
-    });
+// 모바일 메뉴(사이드 패널) 기본 내용: 순위 데이터 사이트 구조 그대로 (매거진·위키 카테고리 목록은 쓰지 않는다)
+function generateDefaultSidebarContent() {
+  const groups = [
+    ['순위', [['/', '매출 순위'], ['/rankings/free/', '인기(무료)'], ['/rankings/subculture/', '서브컬처'], ['/rankings/global/', '글로벌'], ['/rankings/records/', '역대 기록'], ['/rankings/publishers/', '개발사'], ['/upcoming/', '출시 예정']]],
+    ['스팀', [['/steam/', '동접·판매 순위']]],
+    ['리포트', [['/reports/', '순위 분석 · 인사이트']]],
+    ['게임', [['/games/', '게임 DB']]],
+    ['', [['/rankings/about/', '산출 방법']]]
+  ];
+  return `<nav class="gs-menu" aria-label="전체 메뉴">${groups.map(([t, items]) => `<div class="gs-menu-group">${t ? `<div class="gs-menu-title">${t}</div>` : ''}${items.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</div>`).join('')}</nav>`;
 }
 
 // 모바일 사이드 패널 HTML 생성
@@ -2885,7 +2884,7 @@ function wrapWithLayout(content, options = {}) {
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
-  ${generateHeader()}
+  ${generateHeader(currentPage)}
   ${showSearchBar ? searchBarHtml : ''}
   ${generateNav(currentPage)}
   <main class="site-container">

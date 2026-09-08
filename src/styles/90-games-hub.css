@@ -60,6 +60,30 @@
   color: #f97316;
 }
 
+/* 게임 DB 탭: 전체 게임 · 출시 예정 */
+.games-hub-tabs {
+  display: flex;
+  gap: 24px;
+  margin: 0 0 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.games-hub-tabs a {
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.games-hub-tabs a.active {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
 /* 인기 게임 섹션 */
 .games-hub-popular {
   margin-bottom: 16px;
