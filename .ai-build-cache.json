@@ -1,9 +1,9 @@
 {
   "meta": {
     "cssHash": "a40d7a713542",
-    "templateJsHash": "2db32986504d",
+    "templateJsHash": "910e47cc49ff",
     "faviconSvgHash": "5a7e73e93309",
-    "lastBuild": "2026-09-09T10:45:42.357Z"
+    "lastBuild": "2026-09-09T11:36:49.857Z"
   },
   "articles": {
     "grok-46-launch-frontier-push": "d56693897c3e",
@@ -233,6 +233,7 @@
     "muse-spark-1-3-opencode": "ec5496b66633",
     "gpt6-astra-fable-comparison": "2a6899c55cf0",
     "coding-agent-picks-2026-09": "02d14e23cad5",
-    "muse-spark-13-contributor": "148a0abdadc5"
+    "muse-spark-13-contributor": "148a0abdadc5",
+    "kakao-chatgpt-plus-free": "461c3e9d2938"
   }
 }

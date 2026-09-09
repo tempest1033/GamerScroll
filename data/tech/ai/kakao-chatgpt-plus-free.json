@@ -2,10 +2,15 @@
   "slug": "kakao-chatgpt-plus-free",
   "site": "aiscroll",
   "category": "hot",
-  "topics": ["openai", "pricing"],
-  "publishLanguages": ["ko"],
+  "topics": [
+    "openai",
+    "pricing"
+  ],
+  "publishLanguages": [
+    "ko"
+  ],
   "status": "approved",
-  "date": "",
+  "date": "2026-09-09T11:30Z",
   "title": "카쫀쿠 시즌2? 카카오 ChatGPT Plus 2개월 무료 혜택",
   "summary": "카카오가 만 19세부터 34세까지 청년을 대상으로 ChatGPT Plus 2개월 무료 혜택을 제공한다. 유료 플랜 이용 이력 조건이 있으며, 결제 정보 등록과 종료 후 자동 결제가 없다.",
   "keywords": "카쫀쿠, 카카오, ChatGPT Plus, 2개월 무료",
