@@ -1463,6 +1463,12 @@ async function main() {
       { pagesDir: './docs/magazine/hotpick', sourceDir: path.join(__dirname, 'reports', 'hotpick') },
       { pagesDir: './docs/magazine/insight', sourceDir: path.join(__dirname, 'reports', 'insight') },
       { pagesDir: './docs/magazine/ranking', sourceDir: path.join(__dirname, 'reports', 'ranking') },
+      // 루트 magazine/은 docs/로 통째 복사되는 중간 산출물이라, 여기 남은 고아 페이지가
+      // 위 docs/ 정리 직후 다시 복사돼 되살아난다 (2026-09-09). 같은 기준으로 함께 정리한다.
+      { pagesDir: './magazine/issue', sourceDir: path.join(__dirname, 'reports', 'issue') },
+      { pagesDir: './magazine/hotpick', sourceDir: path.join(__dirname, 'reports', 'hotpick') },
+      { pagesDir: './magazine/insight', sourceDir: path.join(__dirname, 'reports', 'insight') },
+      { pagesDir: './magazine/ranking', sourceDir: path.join(__dirname, 'reports', 'ranking') },
       { pagesDir: './docs/wiki/business', sourceDir: path.join(__dirname, 'data', 'wiki', 'business') },
       { pagesDir: './docs/wiki/history', sourceDir: path.join(__dirname, 'data', 'wiki', 'history') },
       { pagesDir: './docs/wiki/knowledge', sourceDir: path.join(__dirname, 'data', 'wiki', 'knowledge') },
