@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://aiscroll.io/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/about/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/about/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/about/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/about/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/about/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/about/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/privacy/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/privacy/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/privacy/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/privacy/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/reviews/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/reviews/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/reviews/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/reviews/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/reviews/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/reviews/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/reviews/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/reviews/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/anthropic/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/anthropic/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/anthropic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/anthropic/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/anthropic/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/anthropic/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/anthropic/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/anthropic/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/china-ai/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/china-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/china-ai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/china-ai/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/china-ai/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/china-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/china-ai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/china-ai/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/coding-agents/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/coding-agents/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/coding-agents/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/coding-agents/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/coding-agents/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/coding-agents/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/coding-agents/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/coding-agents/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/google/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/google/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/google/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/google/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/google/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/google/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/google/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/google/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/industry/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/industry/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/industry/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/industry/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/industry/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/industry/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/industry/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/industry/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/meta/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/meta/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/meta/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/meta/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/meta/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/meta/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/meta/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/meta/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/openai/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/openai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/openai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/openai/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/openai/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/openai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/openai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/openai/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/pricing/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/pricing/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/pricing/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/pricing/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/vibecoding/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/vibecoding/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/vibecoding/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/vibecoding/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/vibecoding/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/vibecoding/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/vibecoding/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/vibecoding/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/topic/xai/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/xai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/xai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/xai/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/topic/xai/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/topic/xai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/topic/xai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/topic/xai/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/hot/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/hot/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/ko/article/hot/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/hot/kakao-chatgpt-plus-free/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/hot/kakao-chatgpt-plus-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/ko/article/hot/kakao-chatgpt-plus-free/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/reviews/muse-spark-13-contributor/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/reviews/muse-spark-13-contributor/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/reviews/muse-spark-13-contributor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/reviews/muse-spark-13-contributor/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/reviews/muse-spark-13-contributor/</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/reviews/muse-spark-13-contributor/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/reviews/muse-spark-13-contributor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/reviews/muse-spark-13-contributor/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/reviews/coding-agent-picks-2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/reviews/coding-agent-picks-2026-09/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/reviews/coding-agent-picks-2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/gpt6-astra-fable-comparison/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/gpt6-astra-fable-comparison/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/gpt6-astra-fable-comparison/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/gpt6-astra-fable-comparison/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/gpt6-astra-fable-comparison/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/gpt6-astra-fable-comparison/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/gpt6-astra-fable-comparison/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/gpt6-astra-fable-comparison/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/muse-spark-1-3-opencode/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/muse-spark-1-3-opencode/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/muse-spark-1-3-opencode/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/muse-spark-1-3-opencode/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/muse-spark-1-3-opencode/</loc>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/muse-spark-1-3-opencode/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/muse-spark-1-3-opencode/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/muse-spark-1-3-opencode/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/september-ai-model-war/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/september-ai-model-war/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/september-ai-model-war/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/september-ai-model-war/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/september-ai-model-war/</loc>
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/september-ai-model-war/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/september-ai-model-war/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/september-ai-model-war/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/china-frontier-model-surge/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/china-frontier-model-surge/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/china-frontier-model-surge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/china-frontier-model-surge/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/china-frontier-model-surge/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/china-frontier-model-surge/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/china-frontier-model-surge/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/china-frontier-model-surge/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/gemini-35-pro-crisis/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/gemini-35-pro-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/gemini-35-pro-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/gemini-35-pro-crisis/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/gemini-35-pro-crisis/</loc>
+    <lastmod>2026-08-26</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/gemini-35-pro-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/gemini-35-pro-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/gemini-35-pro-crisis/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/grok-46-launch-frontier-push/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/grok-46-launch-frontier-push/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/grok-46-launch-frontier-push/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/grok-46-launch-frontier-push/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/grok-46-launch-frontier-push/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/grok-46-launch-frontier-push/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/grok-46-launch-frontier-push/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/grok-46-launch-frontier-push/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/openai-price-cut-deepseek-flash/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/openai-price-cut-deepseek-flash/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/openai-price-cut-deepseek-flash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/openai-price-cut-deepseek-flash/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/openai-price-cut-deepseek-flash/</loc>
+    <lastmod>2026-08-01</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/openai-price-cut-deepseek-flash/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/openai-price-cut-deepseek-flash/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/openai-price-cut-deepseek-flash/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/claude-opus-5-early-reviews/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/claude-opus-5-early-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/claude-opus-5-early-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/claude-opus-5-early-reviews/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/claude-opus-5-early-reviews/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/claude-opus-5-early-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/claude-opus-5-early-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/claude-opus-5-early-reviews/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/gpt-56-codex-comeback/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/gpt-56-codex-comeback/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/gpt-56-codex-comeback/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/gpt-56-codex-comeback/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/gpt-56-codex-comeback/</loc>
+    <lastmod>2026-07-14</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/gpt-56-codex-comeback/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/gpt-56-codex-comeback/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/gpt-56-codex-comeback/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/anthropic-pricing-crisis/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/anthropic-pricing-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/anthropic-pricing-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/anthropic-pricing-crisis/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/anthropic-pricing-crisis/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/anthropic-pricing-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/anthropic-pricing-crisis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/anthropic-pricing-crisis/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/article/news/mythos-sovereign-ai-memory/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/mythos-sovereign-ai-memory/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/mythos-sovereign-ai-memory/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/mythos-sovereign-ai-memory/"/>
+  </url>
+  <url>
+    <loc>https://aiscroll.io/ko/article/news/mythos-sovereign-ai-memory/</loc>
+    <lastmod>2026-07-12</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aiscroll.io/article/news/mythos-sovereign-ai-memory/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/news/mythos-sovereign-ai-memory/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/news/mythos-sovereign-ai-memory/"/>
+  </url>
+</urlset>

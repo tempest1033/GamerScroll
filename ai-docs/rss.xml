@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIScroll - AI News & Insights</title>
+    <link>https://aiscroll.io</link>
+    <description>Latest AI news, trends, and insights. Stay updated with the AI industry.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Sep 2026 11:36:49 GMT</lastBuildDate>
+    <atom:link href="https://aiscroll.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title><![CDATA[Muse Spark 1.3: My Best-Value Coding Model]]></title>
+      <link>https://aiscroll.io/article/reviews/muse-spark-13-contributor/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/reviews/muse-spark-13-contributor/</guid>
+      <pubDate>Wed, 09 Sep 2026 11:00:00 GMT</pubDate>
+      <description><![CDATA[Muse Spark 1.3 is a low-cost coding worker on Contributor terms. Compare Meta pricing, OpenCode Go's $10 plan, limitations and required data sharing.]]></description>
+      <category><![CDATA[reviews]]></category>
+    </item>
+    <item>
+      <title><![CDATA[3 Coding Agent Picks for September 2026]]></title>
+      <link>https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/</guid>
+      <pubDate>Mon, 07 Sep 2026 17:00:00 GMT</pubDate>
+      <description><![CDATA[Paseo for remote panels, Orca for isolated parallel work, and DeepSeek Harness for flexible plugins: three September 2026 picks and who each suits.]]></description>
+      <category><![CDATA[reviews]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GPT-6 Astra vs Fable: Reviews and Plan Limits]]></title>
+      <link>https://aiscroll.io/article/news/gpt6-astra-fable-comparison/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/gpt6-astra-fable-comparison/</guid>
+      <pubDate>Mon, 07 Sep 2026 01:30:00 GMT</pubDate>
+      <description><![CDATA[GPT-6 Astra rivals Fable 5.1, but early reviews split by task. Benchmarks, subscription limits and usage resets help explain the choice.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Muse Spark 1.3 Tops OpenCode Daily Usage]]></title>
+      <link>https://aiscroll.io/article/news/muse-spark-1-3-opencode/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/muse-spark-1-3-opencode/</guid>
+      <pubDate>Fri, 04 Sep 2026 16:00:00 GMT</pubDate>
+      <description><![CDATA[Muse Spark 1.3 topped OpenCode daily token usage two days after launch, converting Meta's Contributor strategy and massive AI spending into live adoption.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[September AI Race: Five Labs Enter the Field]]></title>
+      <link>https://aiscroll.io/article/news/september-ai-model-war/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/september-ai-model-war/</guid>
+      <pubDate>Thu, 03 Sep 2026 02:00:00 GMT</pubDate>
+      <description><![CDATA[Claude Fable 5.1 set a new benchmark as Gemini and Muse closed in. With GPT Astra and Grok 4.7 on deck, September has become a five-lab frontier race.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Chinese AI Models Reach the Frontier]]></title>
+      <link>https://aiscroll.io/article/news/china-frontier-model-surge/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/china-frontier-model-surge/</guid>
+      <pubDate>Mon, 31 Aug 2026 02:00:00 GMT</pubDate>
+      <description><![CDATA[GLM-5.3-Flash, Qwen3.8-Flash-Next, and Kimi K3 scored 56–57 on AAII, landing within 4–7 points of leading US frontier models.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Gemini 3.5 Pro Shelved for Gemini 4?]]></title>
+      <link>https://aiscroll.io/article/news/gemini-35-pro-crisis/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/gemini-35-pro-crisis/</guid>
+      <pubDate>Wed, 26 Aug 2026 11:00:00 GMT</pubDate>
+      <description><![CDATA[Gemini 3.5 Pro missed its June launch as Google began Gemini 4 pretraining. Reliance on 3.7 Flash and key researcher departures compound the delay.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Grok 4.6 Launch Set: xAI Targets the Frontier]]></title>
+      <link>https://aiscroll.io/article/news/grok-46-launch-frontier-push/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/grok-46-launch-frontier-push/</guid>
+      <pubDate>Wed, 05 Aug 2026 09:30:00 GMT</pubDate>
+      <description><![CDATA[Musk announced Grok 4.6 for August 7. Following Grok 4.5's successful month, xAI aims to challenge the frontier held by Opus 5, Fable 5, and GPT-5.6.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[OpenAI Cuts GPT-5.6 Prices; DeepSeek Fires Back]]></title>
+      <link>https://aiscroll.io/article/news/openai-price-cut-deepseek-flash/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/openai-price-cut-deepseek-flash/</guid>
+      <pubDate>Sat, 01 Aug 2026 05:00:00 GMT</pubDate>
+      <description><![CDATA[OpenAI cut GPT-5.6 Luna prices by 80% on July 30. A day later, DeepSeek released a V4 Flash update, squeezing premium-priced Anthropic from both ends.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Claude Opus 5 Early Reviews: Efficiency King]]></title>
+      <link>https://aiscroll.io/article/news/claude-opus-5-early-reviews/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/claude-opus-5-early-reviews/</guid>
+      <pubDate>Tue, 28 Jul 2026 07:00:00 GMT</pubDate>
+      <description><![CDATA[Claude Opus 5 leads intelligence index post-launch. Users praise its token efficiency, though Fable 5 remains ahead in general-purpose capabilities.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GPT-5.6 Wins Early Praise on Price and Power]]></title>
+      <link>https://aiscroll.io/article/news/gpt-56-codex-comeback/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/gpt-56-codex-comeback/</guid>
+      <pubDate>Tue, 14 Jul 2026 10:00:00 GMT</pubDate>
+      <description><![CDATA[GPT-5.6 earns early praise for performance and value. As OpenAI expanded usage perks, Anthropic extended its limits and model-access offers in response.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[GPT-5.6 Leaves Claude Without Its Edge]]></title>
+      <link>https://aiscroll.io/article/news/anthropic-pricing-crisis/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/anthropic-pricing-crisis/</guid>
+      <pubDate>Sun, 12 Jul 2026 15:00:00 GMT</pubDate>
+      <description><![CDATA[GPT-5.6 has caught up while ChatGPT offers the stronger bundle. With Fable 5 gone from plans, Claude has lost its clearest user-facing edge.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Mythos: Sovereign AI Scale Race, Memory Crunch]]></title>
+      <link>https://aiscroll.io/article/news/mythos-sovereign-ai-memory/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/news/mythos-sovereign-ai-memory/</guid>
+      <pubDate>Sun, 12 Jul 2026 11:30:00 GMT</pubDate>
+      <description><![CDATA[Mythos made frontier AI a national-security asset. Larger-scale pretraining and sovereign AI data-center expansion are expected to lift HBM and DRAM demand.]]></description>
+      <category><![CDATA[news]]></category>
+    </item>
+  </channel>
+</rss>

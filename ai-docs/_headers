@@ -1,0 +1,27 @@
+/styles-core.264c9a4a.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles-core.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/styles-article.264c9a4a.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles-article.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/images/*
+  Cache-Control: public, max-age=604800
+
+/icon-*.png
+  Cache-Control: public, max-age=2592000
+
+/favicon*
+  Cache-Control: public, max-age=2592000
+
+/assets/feed/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+

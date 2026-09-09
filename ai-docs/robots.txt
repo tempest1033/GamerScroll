@@ -1,0 +1,5 @@
+# AIScroll robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://aiscroll.io/sitemap.xml
