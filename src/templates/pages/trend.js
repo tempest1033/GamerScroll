@@ -291,8 +291,8 @@ const findGameIcon = (text) => {
   return null;
 };
 
-// PC + 모바일 광고 슬롯 (사이드바 레이아웃 → 표준 고정 규격, ads.js narrow 변형)
-const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
+// PC + 모바일 광고 슬롯 — 2열 그리드 위 풀폭 1160px (2026-09-09, 이전엔 본문 열 안 narrow 고정 규격)
+const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
 
 // URL 수정 헬퍼 (이미지 프록시, width: 용도별 크기)
 const fixUrl = (url, width = 480) => {
@@ -892,9 +892,9 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
     <section class="section active" id="${type}">
 
       <article class="page-container issue-container">
+        ${topAds}
         <div class="article-layout">
           <div class="article-main">
-            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 ${type === 'issue' || type === 'hotpick' ? '<p class="report-legacy-notice">보관된 리포트 · 신규 리포트는 <a href="/reports/">순위 분석·인사이트</a>에서 확인할 수 있습니다.</p>' : ''}
@@ -1659,15 +1659,15 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
 
   const heroImg = thumbnail ? getLocalRankingImagePath(slug, thumbnail, 'thumbnail') : '';
 
-  // 상단 광고 (사이드바 레이아웃 → 표준 고정 규격)
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
+  // 상단 광고: 2열 그리드 위 풀폭 1160px (2026-09-09, 이전엔 본문 열 안 720px 고정 규격)
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
 
   const pageContent = `
     <section class="section active" id="ranking">
       <article class="page-container issue-container">
+        ${topAds}
         <div class="article-layout">
           <div class="article-main">
-            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 <h1 class="blog-title">${title}</h1>

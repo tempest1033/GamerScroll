@@ -158,8 +158,10 @@ body:not(.page-home) .blog-table-wrapper { border-color: #e5e5e9; border-radius:
 .page-upcoming .upcoming-icon { border-radius: 12px; box-shadow: none; }
 @media (min-width: 769px) {
   /* 헤더·본문·푸터의 외곽선은 같게, 기사 읽기 폭만 720px로 제한한다. */
-  .article-layout .article-main { max-width: 720px; justify-self: start; width: 100%; }
+  .article-layout .article-main { max-width: 780px; justify-self: start; width: 100%; }
   .article-layout { column-gap: 40px; }
+  /* 본문 읽기 폭도 열과 같은 780px (90-blog-article의 720px 개별 규칙을 한 번에 덮음). 17px 기준 한 줄 약 50자. */
+  .site-container .article-main .blog-card > *, .site-container .article-main .blog-content > * { max-width: 780px; }
   .article-layout .blog-title { word-break: keep-all; overflow-wrap: anywhere; }
   .page-games .group-games { grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 8px 16px; }
   .page-games .game-item { min-width: 0; padding: 10px 8px; }
@@ -169,6 +171,11 @@ body:not(.page-home) .blog-table-wrapper { border-color: #e5e5e9; border-radius:
   .page-games .games-hub-intro { margin-bottom: 28px; }
   .page-games .games-hub-popular, .page-games .games-hub-recent { margin-bottom: 32px; }
   .rk .rk-table td, .rk .rk-table th { font-variant-numeric: tabular-nums; }
+}
+@media (min-width: 1025px) {
+  /* 기사 2열: 본문 열을 읽기 폭(780px)에 맞추고 사이드바를 오른쪽 끝에 붙여, 본문과 사이드바 사이 빈 공간(기존 140px)을 없앤다 (2026-09-09).
+     90-blog-article의 1fr 300px보다 뒤에 적용되도록 .site-container로 특이도를 올린다. */
+  .site-container .article-layout { grid-template-columns: minmax(0, 780px) 300px; justify-content: space-between; }
 }
 @media (max-width: 768px) {
   body:not(.page-home) .rk h1, .page-games .games-hub-intro h1, .page-upcoming h1 { font-size: 26px; }
