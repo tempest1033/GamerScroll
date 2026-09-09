@@ -32040,7 +32040,11 @@
         "ios": "1447605099",
         "android": "com.caracolu.alterego"
       },
-      "aliases": ["ALTER EGO", "얼터 에고", "ALTER EGO (Caramel Column)"],
+      "aliases": [
+        "ALTER EGO",
+        "얼터 에고",
+        "ALTER EGO (Caramel Column)"
+      ],
       "developer": "Caramel Column Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/1a/c1/aa1ac176-5c4f-d261-2598-1b6ecde8c73a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "alter-ego-caramel-column",
@@ -46924,5 +46928,5 @@
     }
   },
   "lastUpdated": "2026-09-09",
-  "totalGames": 3590
+  "totalGames": 3591
 }
