@@ -11,6 +11,7 @@
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { loadRankStats, COUNTRIES, STORES, util } = require('../../rank/stats');
+const { publisherMark } = require('../components/publisher-mark');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { nums, min, avg, std, fmt1, esc, tsText } = util;
@@ -274,16 +275,15 @@ function renderMonthly(month, country = 'kr') {
   const pub = new Map();
   for (const a of cur.list.slice(0, 100)) { const d = a.row.developer || (a.game && a.game.developer) || '기타'; const p = pub.get(d) || { n: 0, best: 999 }; p.n++; p.best = Math.min(p.best, a.rank); pub.set(d, p); }
   const pubTop = [...pub.entries()].sort((a, b) => b[1].n - a[1].n || a[1].best - b[1].best).slice(0, 10);
-  const pubCard = `<div class="rk-card"><h2>개발사별 집계 <small>스토어 등록명 · TOP 100 내 게임 수</small></h2><table class="rk-table"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th></tr></thead><tbody>${pubTop.map(([d, p], i) => `<tr><td class="rk-rank">${i + 1}</td><td>${esc(d)}</td><td class="c">${p.n}</td><td class="c">${p.best}위</td></tr>`).join('')}</tbody></table></div>`;
-  const subTop = cur.list.filter((a) => S.isSub(a.game)).slice(0, 5);
-  const subCard = subTop.length ? `<div class="rk-card"><h2>서브컬처 TOP 5 <small>이달</small></h2><table class="rk-table"><tbody>${subTop.map((a) => `<tr><td class="rk-rank">${a.rank}</td><td>${C.appCell(a.row, a.store)}</td><td class="c">${chg(a.rank, prevRank.get(a.key))}</td></tr>`).join('')}</tbody></table></div>` : '';
+  const pubCard = `<div class="rk-card rk-month-publishers"><h2>개발사별 집계 <small>스토어 등록명 · TOP 100 기준</small></h2><table class="rk-table"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th></tr></thead><tbody>${pubTop.map(([d, p], i) => `<tr><td class="rk-rank">${i + 1}</td><td>${publisherMark(d)}</td><td class="c">${p.n}</td><td class="c">${p.best}위</td></tr>`).join('')}</tbody></table></div>`;
 
   const top = cur.list[0];
-  const faq = `<div class="rk-card"><h2>${m}월 순위 요약</h2><div class="rk-faq">
-<p><b>월간 통합 1위</b> ${nameA(top)}(${esc(top.row.developer || (top.game && top.game.developer) || '')}) — 앱스토어 평균 ${fmt1(avg(top.ios))}위, 구글플레이 평균 ${fmt1(avg(top.android))}위, 앱스토어 1위 ${top.ones}일.</p>
-<p><b>전월 대비 최대 상승</b> ${riser[0] ? `${nameA(riser[0])} — ${prevRank.get(riser[0].key)}위 → ${riser[0].rank}위` : '비교 데이터 없음'}.</p>
-<p><b>TOP 100 신규 진입</b> ${entrants.length ? entrants.map((a) => nameA(a) + `(${a.rank}위)`).join(', ') : '없음'}.</p>
-<p><b>서브컬처 1위</b> ${subTop[0] ? `${nameA(subTop[0])} — 통합 ${subTop[0].rank}위` : '해당 게임 없음'}.</p></div></div>`;
+  const faq = `<aside class="rk-card rk-month-brief"><h2>${m}월 순위 요약 <small>${cur.n}일 집계</small></h2><dl>
+<div><dt>월간 통합 1위</dt><dd><strong>${nameA(top)}</strong><span>앱스토어 평균 ${fmt1(avg(top.ios))}위 · 구글플레이 평균 ${fmt1(avg(top.android))}위</span></dd></div>
+<div><dt>전월 대비 최대 상승</dt><dd>${riser[0] ? `<strong>${nameA(riser[0])}</strong><span>전월 ${prevRank.get(riser[0].key)}위 → ${riser[0].rank}위</span>` : '비교 데이터 없음'}</dd></div>
+<div><dt>TOP 100 신규 진입</dt><dd>${entrants.length ? entrants.map((a) => `<span>${nameA(a)} <b>${a.rank}위</b></span>`).join('') : '없음'}</dd></div>
+<div><dt>앱스토어 1위 최다 일수</dt><dd>${ones[0] ? `<strong>${nameA(ones[0])}</strong><span>${ones[0].ones}일</span>` : '1위 기록 없음'}</dd></div>
+</dl></aside>`;
 
   const monthLinks = S.months.filter((mo) => S.daysIn(mo).length >= 7);
   const lead = `${y}년 ${m}월 ${COUNTRIES[country]} 앱스토어·구글플레이 매출 순위를 일 평균으로 합산한 월간 통합 순위. 1위 ${nameA(top)}, 2위 ${cur.list[1] ? nameA(cur.list[1]) : '-'}, 3위 ${cur.list[2] ? nameA(cur.list[2]) : '-'}. 집계 ${cur.n}일, 신규 진입 ${cur.list.filter((a) => a.rank <= 100 && !prevRank.has(a.key)).length}개.`;
@@ -293,8 +293,7 @@ ${subnav(S, 'monthly')}
 <div class="rk-colh"><h2>월간 통합 TOP 100</h2><small>두 스토어 일 평균 순위 합산 · 추이는 월별 평균 ${S.months[0]}~</small></div>
 ${monthList}
 <div class="rk-note">차트 밖(200위 밖)인 날은 201위로 계산합니다. 스토어별 평균은 해당 스토어 차트에 있던 날의 평균입니다.</div>
-<div class="rk-grid2">${pubCard}${subCard}</div>
-${faq}`;
+<div class="rk-grid2 rk-month-summary">${pubCard}${faq}</div>`;
   const canonical = `${siteBaseUrl}/rankings/monthly/${month}/`;
   return shell(S, {
     body,
@@ -316,20 +315,27 @@ function renderGlobal() {
   const prevPts = new Map(prev.list.map((a) => [a.key, a.pts]));
   const cell = (a, c) => { const i = a.ranks[`${c}_ios`], g = a.ranks[`${c}_android`]; const f = (v) => (v == null ? '<span class="rk-dim">·</span>' : v <= 10 ? `<b class="rk-gold">${v}</b>` : v); return `<td class="c">${f(i)}<span class="rk-dim"> / </span>${f(g)}</td>`; };
   const rows = cur.list.slice(0, 100).map((a) => { const dp = a.pts - (prevPts.get(a.key) || 0); return `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${C.appCell(a.row, a.store)}</td><td class="c">${chg(a.rank, prevRank.get(a.key))}</td><td class="r"><b>${a.pts.toLocaleString()}</b><br><span class="sm ${dp >= 0 ? 'rk-upc' : 'rk-downc'}">${dp >= 0 ? '+' : ''}${dp}</span></td><td class="c">${a.countries.size}</td>${Object.keys(COUNTRIES).map((c) => cell(a, c)).join('')}</tr>`; }).join('');
-  const top = cur.list[0];
-  const lead = `한국·일본·미국·중국·대만 5개국 × 앱스토어·구글플레이 매출 순위를 포인트(201 − 순위)로 합산한 글로벌 종합 순위. ${tsText(today.ts)} 기준 1위 ${top.game ? top.game.key : top.row.title} ${top.pts.toLocaleString()}점(${top.countries.size}개국 진입).`;
-  const body = `<div class="rk-head"><h1>글로벌 게임 매출 종합 순위</h1></div>
+  const lead = `한국·일본·미국·중국·대만의 게임 매출 차트를 국가·스토어별로 비교합니다. ${tsText(today.ts)} 기준. 국가 간 매출액을 합산하지 않으며, 중국은 앱스토어만 제공합니다.`;
+  const countryCards = Object.entries(COUNTRIES).map(([country, name]) => {
+    const stores = country === 'cn' ? ['ios'] : Object.keys(STORES);
+    return `<section class="rk-card rk-global-country"><h2><a href="${countryHref(country)}">${name}</a><small><a href="${countryHref(country)}">전체 순위 보기 ›</a></small></h2><div class="rk-global-stores">${stores.map(store => `<div class="rk-global-store"><h3>${STORES[store]} TOP 5</h3><ol>${(today.rows[country][store] || []).slice(0, 5).map((row, i) => `<li><span class="rk-global-rank">${i + 1}</span>${C.appCell(row, store)}</li>`).join('') || '<li>수집된 순위가 없습니다.</li>'}</ol></div>`).join('')}</div>${country === 'cn' ? '<p class="rk-note">중국은 앱스토어만 집계합니다.</p>' : ''}</section>`;
+  }).join('');
+  const body = `<div class="rk-head"><h1>국가별 게임 매출 순위</h1></div>
 ${subnav(S, 'global')}
-<div class="rk-card"><h2>종합 TOP 100 <small>국가별 표시: 앱스토어 / 구글플레이 순위</small></h2><div class="rk-scroll"><table class="rk-table"><thead><tr><th class="rank">순위</th><th>게임</th><th class="c">변동</th><th class="r">포인트</th><th class="c">국가</th>${Object.entries(COUNTRIES).map(([c, n]) => `<th class="c"><a href="${countryHref(c)}">${n}</a></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
-<div class="rk-note">포인트 = Σ(201 − 순위), 차트 밖은 0점입니다. 실제 매출액이 아닌 순위 기반 지표이며, 중국은 앱스토어만 집계합니다.</div></div>`;
+<p class="rk-note">각 국가·스토어의 차트 순위를 그대로 비교합니다. 국가 간 매출 규모를 합산한 순위가 아닙니다.</p>
+<div class="rk-grid2 rk-global-countries">${countryCards}</div>
+<details class="rk-card rk-global-index"><summary>글로벌 차트 지수 <span>참고 지표 · 펼쳐 보기</span></summary>
+<p class="rk-note">여러 시장에서의 차트 진입을 보여주는 보조 지표입니다. 실제 매출액이나 세계 매출 순위로 해석할 수 없습니다.</p>
+<div class="rk-scroll"><table class="rk-table"><thead><tr><th class="rank">지수 순서</th><th>게임</th><th class="c">변동</th><th class="r">포인트</th><th class="c">국가 수</th>${Object.entries(COUNTRIES).map(([c, n]) => `<th class="c"><a href="${countryHref(c)}">${n}</a></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
+<div class="rk-note">국가별 표기: 앱스토어 / 구글플레이 순위. 포인트 = Σ(201 − 순위), 1위 200점·200위 1점·차트 밖 0점입니다. 국가·스토어 가중치는 없으며, 여러 차트에 진입할수록 유리합니다. 중국은 앱스토어만 포함한 총 9개 차트 기준입니다.</div></details>`;
   const canonical = `${siteBaseUrl}/rankings/global/`;
   return shell(S, {
     body,
-    title: '글로벌 모바일 게임 매출 종합 순위 — 한국·일본·미국·중국·대만 합산 | 게이머스크롤',
+    title: '국가별 모바일 게임 매출 순위 비교 — 한국·일본·미국·중국·대만 | 게이머스크롤',
     description: lead,
     keywords: '글로벌 모바일 게임 매출 순위, 세계 게임 매출 순위, 일본 게임 매출 순위, 미국 게임 매출 순위, 중국 게임 매출 순위, 대만 게임 매출 순위',
     canonical,
-    crumbs: [{ name: '글로벌 종합', url: canonical }],
+    crumbs: [{ name: '국가별 순위', url: canonical }],
   });
 }
 
@@ -451,7 +457,7 @@ ${subnav(S, '')}
 <div class="rk-card"><h2>각 순위의 계산식</h2><div class="rk-faq">
 <p><b>일간 매출·인기 순위</b> 최근 수집한 스토어 차트 순위입니다. 변동은 전날 저장된 일별 이력 대비이며, 7일 추이는 최근 7일의 일별 기록입니다. 연속 1위 일수는 일별 이력을 기준으로 계산합니다.</p>
 <p><b>월간 통합</b> 그 달의 일별 순위를 스토어별로 평균 낸 뒤 두 스토어 평균을 다시 평균합니다. 차트(200위) 밖인 날은 201위로 계산하므로, 매일 두 스토어 모두 상위에 있는 게임이 유리합니다. 매출 추정치가 아니라 순위 기반 지표입니다.</p>
-<p><b>글로벌 종합</b> 5개국 × 2스토어 각 차트에서 (201 − 순위) 포인트를 주고 합산합니다. 차트 밖은 0점입니다. 국가별 시장 규모 가중치는 없습니다.</p>
+<p><b>글로벌 차트 지수</b> 국가·스토어별 순위를 먼저 제공하고, 보조 지표로만 포인트를 합산합니다. 중국은 앱스토어만 포함한 9개 차트에서 1위 200점·200위 1점·차트 밖 0점을 부여합니다. 국가·스토어 가중치가 없어 여러 차트에 진입한 게임에 유리하며, 실제 매출액이나 세계 매출 순위를 뜻하지 않습니다.</p>
 <p><b>연간 기록</b> 최신 수집일이 속한 연도의 기록만 집계합니다. 한국 앱스토어의 1위 누적 일수·최장 연속 1위·누적 순위 포인트(매일 201 − 순위), 월별 누적 포인트 TOP 3, 연내 첫 기록 순위를 표시합니다. 최장 TOP 10 유지는 앱스토어·구글플레이를 각각 계산하며, 연도 경계·수집 누락일·TOP 10 이탈일에서 연속 기록이 끊깁니다. 포인트는 매출액이 아니며, 진행 중인 연도·월은 최신 수집일까지 집계합니다.</p>
 <p><b>개발사 순위</b> 오늘 한국 두 스토어 매출 TOP 200 에 든 게임을 개발사별로 묶어 (200 − 순위 + 1) 포인트를 합산합니다. 법인 접미어(Corp., Co., Ltd. 등) 차이는 같은 개발사로 봅니다.</p>
 <p><b>서브컬처</b> 게이머스크롤이 관리하는 서브컬처(수집형·미소녀·애니 원작) 게임 목록에 있는 게임만 전체 매출 차트에서 골라낸 것입니다. 순위 숫자는 전체 차트에서의 순위입니다.</p>

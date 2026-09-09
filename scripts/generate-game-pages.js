@@ -1285,6 +1285,8 @@ const cssFilePaths = CSS_ASSET_FILES.map((f) => path.join(__dirname, '..', docsD
 const inputSignature = buildCache.getInputFilesSignature([
   __filename,
   path.join(__dirname, '../src/templates'),
+  path.join(__dirname, '../src/build/css-links.js'),
+  path.join(__dirname, '../src/build/css-safelist.js'),
   path.join(__dirname, '../src/rank'),
   gamesPath,
   historyDir,

@@ -5,6 +5,7 @@
 
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
+const { renderCssLinks } = require('../../build/css-links');
 
 function generateHead(options = {}) {
   const {
@@ -92,14 +93,8 @@ function generateHead(options = {}) {
     }
     return out.length > 0 ? out : ['/styles-core.css'];
   })();
-  const blockingCssFile = resolvedCssFiles[0] || '/styles-core.css';
   const deferredCssFiles = resolvedCssFiles.slice(1);
-  const blockingCssHtml = `<link rel="stylesheet" href="${escapeHtmlAttr(blockingCssFile)}">`;
-  const deferredCssHtml = deferredCssFiles.map((file) => {
-    const safeFile = escapeHtmlAttr(file);
-    return `<link rel="preload" href="${safeFile}" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="${safeFile}"></noscript>`;
-  }).join('\n  ');
-  const cssLinksHtml = deferredCssHtml ? `${blockingCssHtml}\n  ${deferredCssHtml}` : blockingCssHtml;
+  const cssLinksHtml = renderCssLinks(resolvedCssFiles);
   const deferredCssInitScript = deferredCssFiles.length > 0 ? `<script>
     (function() {
       var root = document.documentElement;

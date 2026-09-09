@@ -2855,7 +2855,7 @@ function wrapWithLayout(content, options = {}) {
     return '게임';
   })();
 
-  return `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="ko">
 <head>
   ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex: noindex || /\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(canonical || ''), breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage })}
@@ -2891,6 +2891,7 @@ function wrapWithLayout(content, options = {}) {
   <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
 </body>
 </html>`;
+  return require('../build/css-links').applyPageCss(html, resolvedCssFiles);
 }
 
 /**

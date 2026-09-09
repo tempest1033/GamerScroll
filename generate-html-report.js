@@ -153,23 +153,8 @@ function withCssAssetVersion(href) {
   return cssHref.replace(/\.css$/, `.${currentCssAssetVersion}.css`);
 }
 
-function renderDocsCssLinks(cssFiles) {
-  const files = [];
-  const seen = new Set();
-  for (const file of cssFiles) {
-    const href = String(file || '').trim();
-    if (!href || seen.has(href)) continue;
-    seen.add(href);
-    files.push(href);
-  }
-
-  const [blockingCss = '/styles-core.css', ...deferredCssFiles] = files.length > 0 ? files : ['/styles-core.css'];
-  const blockingCssHtml = `  <link rel="stylesheet" href="${blockingCss}">`;
-  const deferredCssHtml = deferredCssFiles.map((href) => (
-    `  <link rel="preload" href="${href}" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript><link rel="stylesheet" href="${href}"></noscript>`
-  )).join('\n');
-
-  return deferredCssHtml ? `${blockingCssHtml}\n${deferredCssHtml}` : blockingCssHtml;
+function renderDocsCssLinks(cssFiles, html) {
+  return require('./src/build/css-links').renderCssLinks(cssFiles, path.resolve('docs'), html);
 }
 
 function rewriteDocsStylesheetLinks(docsDir, includePrefixes = null) {
@@ -197,7 +182,7 @@ function rewriteDocsStylesheetLinks(docsDir, includePrefixes = null) {
       if (!includePrefixes.some((p) => relPathNorm.startsWith(p))) continue;
     }
     const cssFiles = getCssBundlesForDocPath(relPath);
-    const cssLinks = renderDocsCssLinks(cssFiles);
+    const cssLinks = renderDocsCssLinks(cssFiles, html);
     let replacedHtml = html;
     const headCloseIndex = html.search(/<\/head>/i);
     const firstLocalCssIndex = html.search(localCssTagSearchRe);
@@ -206,18 +191,19 @@ function rewriteDocsStylesheetLinks(docsDir, includePrefixes = null) {
       const headHtml = html.slice(0, headCloseIndex);
       const tailHtml = html.slice(headCloseIndex);
       const cleanedHead = headHtml
+        .replace(/<style\b[^>]*\bdata-layout-css="[^"]*"[^>]*>[\s\S]*?<\/style>\s*/gi, '')
         .replace(localCssTagRe, '')
         .replace(/[ \t]*<n\s*oscript>\s*<\/noscript>\r?\n?/gi, '')
         .replace(/[ \t]*<noscript>\s*<\/noscript>\r?\n?/gi, '');
       const mainCssCommentRe = /([ \t]*<!--\s*메인 CSS\s*-->\s*)/i;
       if (mainCssCommentRe.test(cleanedHead)) {
-        replacedHtml = `${cleanedHead.replace(mainCssCommentRe, `$1${cssLinks}\n`)}${tailHtml}`;
+        replacedHtml = `${cleanedHead.replace(mainCssCommentRe, (_, marker) => `${marker}${cssLinks}\n`)}${tailHtml}`;
       } else {
         const insertIndex = Math.min(firstLocalCssIndex, cleanedHead.length);
         replacedHtml = `${cleanedHead.slice(0, insertIndex)}${cssLinks}\n${cleanedHead.slice(insertIndex)}${tailHtml}`;
       }
     } else {
-      replacedHtml = html.replace(styleLinksBlockRe, `${cssLinks}\n`);
+      replacedHtml = html.replace(styleLinksBlockRe, () => `${cssLinks}\n`);
     }
 
     if (replacedHtml !== html) {
@@ -910,24 +896,7 @@ function minifyCss(css) {
 }
 
 // PurgeCSS 동적 클래스 safelist (런타임 JS에서 classList.add/toggle/className으로 추가되는 클래스)
-const PURGECSS_SAFELIST = {
-  standard: [
-    'active', 'loaded', 'open', 'hidden', 'expanded', 'collapsed',
-    'fonts-loaded', 'nav-ready', 'thumb-fallback',
-    'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
-    'ads-disabled', 'deferred-css-pending', 'realtime',
-    // 순위 허브(.rk) 컨테이너 — 게임 페이지 요약 카드는 purge 뒤에 생성되므로 rk-* 전체를 보호
-    'rk',
-  ],
-  deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/, /^rk-/],
-  // gs-ad-*는 외부 번들(layout-core.js)의 classList.add로만 붙어 purge 스캔에 안 잡힘
-  // rk-*: 게임 페이지 순위 요약(.rk-stat 등)은 generate-game-pages.js가 purge 이후에 만든다
-  greedy: [/^gs-ad-/, /^rk-/],
-  // 타이포 토큰(--font-*)은 core 번들(00-base)에 정의되고 article/report 번들에서 참조된다.
-  // PurgeCSS variables 정리는 파일 단위라 core 쪽에서 미사용으로 오인해 지우므로 보호한다.
-  // --data-*, --line, --chip-bg 도 core(02-shell-v2)에 정의되고 다른 번들(65~72)에서 참조된다 (2026-09-09)
-  variables: [/^--font-/, /^--data-/, /^--line$/, /^--chip-bg$/, /^--fs-/, /^--fw-/],
-};
+const PURGECSS_SAFELIST = require('./src/build/css-safelist');
 
 // PurgeCSS: docs/ 내 CSS 번들에서 미사용 CSS 제거
 async function purgeCssInDocs(docsDir) {
@@ -2136,6 +2105,7 @@ async function main() {
   }
   fs.copyFileSync('./index.html', `${DOCS_DIR}/index.html`);
   fs.copyFileSync('./404.html', `${DOCS_DIR}/404.html`);
+  require('./src/build/publisher-marks').copyPublisherMarks(__dirname, path.resolve(DOCS_DIR));
   const subPages = ['rankings', 'steam'];
   for (const page of subPages) {
     const pageDir = `${DOCS_DIR}/${page}`;

@@ -186,16 +186,20 @@ function loadRankStats(options = {}) {
   }
   const monthlyAvg = (country, appId, s) => months.map((mo) => avg(daysIn(mo).map((d) => rankOf(d, country, s, appId))));
 
-  // 글로벌 종합: 5개국 × 2스토어 포인트(201 − 순위) 합산
+  // 글로벌 차트 지수: 중국 Android를 제외한 9개 차트의 TOP 200.
   function aggregateGlobal(d) {
     const m = new Map();
-    for (const c of Object.keys(COUNTRIES)) for (const s of Object.keys(STORES)) d.rows[c][s].forEach((r, i) => {
+    for (const c of Object.keys(COUNTRIES)) for (const s of Object.keys(STORES)) {
+      if (c === 'cn' && s === 'android') continue;
+      d.rows[c][s].slice(0, 200).forEach((r, i) => {
       if (!r || !r.appId) return;
       const k = keyOf(s, r);
       let a = m.get(k);
       if (!a) { a = { key: k, row: r, store: s, game: gameOf(s, r), pts: 0, ranks: {}, countries: new Set() }; m.set(k, a); }
-      a.pts += 201 - i; a.ranks[`${c}_${s}`] = i + 1; a.countries.add(c);
+      if (a.ranks[`${c}_${s}`] != null) return;
+      a.pts += 200 - i; a.ranks[`${c}_${s}`] = i + 1; a.countries.add(c);
     });
+    }
     const list = [...m.values()].sort((x, y) => y.pts - x.pts);
     list.forEach((a, i) => (a.rank = i + 1));
     return { map: m, list };

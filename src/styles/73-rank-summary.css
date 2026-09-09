@@ -1,0 +1,35 @@
+/* 월간 요약과 국가별 차트 비교 */
+.rk .rk-month-summary { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: stretch; gap: 40px; }
+.rk .rk-month-summary > * { min-width: 0; }
+.rk .rk-month-summary h2 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.rk .rk-month-publishers td { height: 54px; }
+.rk .rk-publisher-cell { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.rk .rk-publisher-cell > span:last-child { overflow-wrap: anywhere; }
+.rk .rk-publisher-cell img, .rk .rk-publisher-initial { width: 32px; height: 32px; flex: 0 0 32px; border-radius: 6px; object-fit: contain; background: #fff; }
+.rk .rk-publisher-initial { display: grid; place-items: center; background: var(--rk-bg2); color: var(--rk-muted); font-weight: 700; }
+.rk .rk-month-brief { display: flex; flex-direction: column; }
+.rk .rk-month-brief dl { display: grid; grid-template-rows: repeat(4, minmax(0, 1fr)); flex: 1; margin: 0; }
+.rk .rk-month-brief dl > div { padding: 20px 0; border-bottom: 1px solid var(--rk-line); }
+.rk .rk-month-brief dt { color: var(--rk-muted); font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.rk .rk-month-brief dd { margin: 0; line-height: 1.8; overflow-wrap: anywhere; }
+.rk .rk-month-brief dd strong { font-size: 17px; }
+.rk .rk-month-brief dd span { display: block; color: var(--rk-text2); font-size: 13px; }
+.rk .rk-global-countries { gap: 20px 40px; }
+.rk .rk-global-country { min-width: 0; }
+.rk .rk-global-country h2 { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.rk .rk-global-stores { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.rk .rk-global-store { min-width: 0; }
+.rk .rk-global-store h3 { margin: 0; padding: 10px 0; font-size: 13px; color: var(--rk-muted); border-bottom: 1px solid var(--rk-line); }
+.rk .rk-global-store ol { list-style: none; padding: 0; margin: 0; }
+.rk .rk-global-store li { display: flex; align-items: center; min-height: 66px; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--rk-line); }
+.rk .rk-global-store li > :last-child { min-width: 0; flex: 1; }
+.rk .rk-global-store .rk-app > div { min-width: 0; flex: 1; }
+.rk .rk-global-store .rk-app .t, .rk .rk-global-store .rk-app .d { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rk .rk-global-rank { flex: 0 0 16px; color: var(--rk-muted); font-weight: 700; }
+.rk .rk-global-index > summary { cursor: pointer; font-size: 17px; font-weight: 700; padding: 16px 0; border-top: 1px solid var(--rk-line2); }
+.rk .rk-global-index > summary span { font-size: 12px; font-weight: 400; color: var(--rk-muted); margin-left: 10px; }
+@media (max-width: 768px) {
+  .rk .rk-month-summary, .rk .rk-global-countries { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .rk .rk-month-brief dl { grid-template-rows: none; }
+  .rk .rk-global-stores { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+}
