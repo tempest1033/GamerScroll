@@ -199,7 +199,8 @@ const homeOnly = process.env.HOME_ONLY === '1';
           const bounds = await podium.boundingBox();
           for (const item of await podium.locator('a').all()) {
             const box = await item.boundingBox();
-            assert.ok(Math.abs(box.y + box.height / 2 - bounds.y - bounds.height / 2) <= 2, 'TOP 3 게임의 세로 중앙 배치');
+            // 2026-09-09: 옆 카드(상승·최근 진입)와 같은 높이에서 시작하도록 위 정렬로 변경 (세로 중앙 배치 → 상단 정렬)
+            assert.ok(Math.abs(box.y - bounds.y) <= 2, 'TOP 3 게임의 상단 정렬');
           }
         }
         await page.locator('.rk-month-section').screenshot({ path: require('node:path').resolve(__dirname, `../mockups/home-month-centered-${width}.png`) });

@@ -33,22 +33,24 @@ function sparkUp(arr, { w = 120, h = 36, color = 'var(--rk-accent)' } = {}) {
 }
 
 // 30일 순위 추이 큰 차트 (1위가 위). 차트 밖(null)은 선을 끊는다.
-function rankChart(series, dates, { w = 560, h = 230, ranked = true } = {}) {
+// mobile: 좁은 viewBox(330px) 변형 — 두 벌을 렌더하고 CSS(.rk-chartsvg-m)로 화면 폭에 따라 하나만 보인다 (2026-09-09).
+function rankChart(series, dates, { w = 560, h = 230, ranked = true, mobile = false } = {}) {
   const vals = series.map((v) => (v == null || (ranked && v > 200) ? null : v));
   const present = vals.filter((v) => v != null);
-  if (present.length < 2) return '<p class="rk-empty">추이 표시에 필요한 기록이 부족합니다.</p>';
+  if (present.length < 2) return mobile ? '' : '<p class="rk-empty">추이 표시에 필요한 기록이 부족합니다.</p>';
   const lo = ranked ? 1 : 0; const hi = Math.max(ranked ? 10 : 1, ...present);
-  const padL = 36; const padR = 14; const padT = 14; const padB = 28;
+  const padL = mobile ? 40 : 36; const padR = 14; const padT = 14; const padB = 28;
+  const fs = mobile ? 12 : 10; const fsX = mobile ? 12 : 11; const xTicks = mobile ? 4 : 6;
   const x = (i) => padL + (i / Math.max(1, vals.length - 1)) * (w - padL - padR);
   const y = (v) => padT + (ranked ? (v - lo) / (hi - lo) : 1 - (v - lo) / (hi - lo)) * (h - padT - padB);
   const ticks = [lo, Math.round(lo + (hi - lo) / 3), Math.round(lo + (2 * (hi - lo)) / 3), hi].filter((t, i, a) => a.indexOf(t) === i);
-  const grid = ticks.map((t) => `<line x1="${padL}" x2="${w - padR}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="var(--rk-line)" /><text x="${padL - 8}" y="${(y(t) + 4).toFixed(1)}" font-size="10" fill="var(--rk-dim)" text-anchor="end">${ranked ? `${t}위` : t >= 10000 ? `${(t / 10000).toFixed(0)}만` : fmt(t)}</text>`).join('');
-  const step = Math.max(1, Math.ceil(vals.length / 6));
-  const labels = dates.map((d, i) => (i % step === 0 || i === dates.length - 1 ? `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="11" fill="var(--rk-dim)" text-anchor="middle">${d.slice(5)}</text>` : '')).join('');
+  const grid = ticks.map((t) => `<line x1="${padL}" x2="${w - padR}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="var(--rk-line)" /><text x="${padL - 8}" y="${(y(t) + 4).toFixed(1)}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="end">${ranked ? `${t}위` : t >= 10000 ? `${(t / 10000).toFixed(0)}만` : fmt(t)}</text>`).join('');
+  const step = Math.max(1, Math.ceil(vals.length / xTicks));
+  const labels = dates.map((d, i) => (i % step === 0 || i === dates.length - 1 ? `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="${fsX}" fill="var(--rk-dim)" text-anchor="middle">${d.slice(5)}</text>` : '')).join('');
   let d = ''; let open = false;
   vals.forEach((v, i) => { if (v == null) { open = false; return; } d += (open ? 'L' : 'M') + `${x(i).toFixed(1)},${y(v).toFixed(1)}`; open = true; });
   const li = vals.length - 1; const lv = vals[li];
-  return `<svg class="rk-chartsvg" viewBox="0 0 ${w} ${h}" role="img" aria-label="최근 ${series.length}일 ${ranked ? '순위' : '동접자'} 추이">${grid}${labels}<path d="${d}" fill="none" stroke="var(--rk-accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${lv != null ? `<circle cx="${x(li).toFixed(1)}" cy="${y(lv).toFixed(1)}" r="4" fill="var(--rk-accent)"/>` : ''}</svg>`;
+  return `<svg class="rk-chartsvg${mobile ? ' rk-chartsvg-m' : ''}" viewBox="0 0 ${w} ${h}" role="img" aria-label="최근 ${series.length}일 ${ranked ? '순위' : '동접자'} 추이">${grid}${labels}<path d="${d}" fill="none" stroke="var(--rk-accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${lv != null ? `<circle cx="${x(li).toFixed(1)}" cy="${y(lv).toFixed(1)}" r="4" fill="var(--rk-accent)"/>` : ''}</svg>`;
 }
 
 function renderHome() {
@@ -98,7 +100,7 @@ function renderHome() {
     previews[key] = `<div class="rk-preview-label"><span>게임별 추이</span><span>${esc(entry.label)}</span></div>
 <div class="rk-preview-title"><img src="${esc(entry.icon)}" alt=""><div><h2>${esc(entry.name)}</h2><p>${esc(entry.developer || '')}</p></div></div>
 <div class="rk-preview-value"><strong>${entry.value == null ? '기록 없음' : `${fmt(entry.value)}<small>${unit}</small>`}</strong>${entry.change}</div>
-<div class="rk-preview-chart">${rankChart(entry.series, entry.dates, { ranked: entry.ranked })}</div>
+<div class="rk-preview-chart">${rankChart(entry.series, entry.dates, { ranked: entry.ranked })}${rankChart(entry.series, entry.dates, { ranked: entry.ranked, w: 330, h: 200, mobile: true })}</div>
 <div class="rk-preview-kpis"><div><span>30일 ${entry.ranked ? '최고 순위' : '최고 동접'}</span><b>${best == null ? '기록 없음' : `${fmt(best)}${unit}`}</b></div><div><span>30일 평균 · ${values.length}일 기록</span><b>${mean == null ? '기록 없음' : `${entry.ranked ? fmt1(mean) : fmt(mean)}${unit}`}</b></div></div>
 ${rel.length ? `<p class="rk-preview-help">관련 리포트<br><a href="${rel[0].href}">${esc(rel[0].title)}</a></p>` : ''}
 <a class="rk-preview-link" href="${entry.href}">상세 기록 보기 →</a>`;

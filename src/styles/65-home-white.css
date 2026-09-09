@@ -15,7 +15,7 @@ body.page-home {
   --text-primary: #1d1d1f;
   --text-secondary: #515154;
   --text-muted: #6e6e73;
-  --text-tertiary: #76767c;
+  --text-tertiary: #6a6a70; /* #f5f5f7 위에서 대비 4.5 이상 (2026-09-09) */
   --primary: #0071e3;
   --accent: #0071e3;
   --gs-header-bg: rgba(255,255,255,.92);
@@ -82,7 +82,7 @@ body.page-home {
 .rk-home .rk-hpanel .rk-list li:has(button[aria-pressed="true"]) { background: #f5f5f7; }
 .rk-home .rk-hpanel .rk-list li:has(button[aria-pressed="true"]) .nm > button { color: #0066cc; }
 .rk-home .rk-hpanel .rk-list .nm > button { font-size: 14px; font-weight: 550; }
-.rk-home .rk-hpanel .rk-list .nm .dv { font-size: 11px; font-weight: 400; color: #76767c; }
+.rk-home .rk-hpanel .rk-list .nm .dv { font-size: 12px; font-weight: 400; color: var(--text-tertiary); }
 .rk-home .rk-list .rk-rk, .rk-home .rk-list .rk-rk.top { color: #6e6e73; font-size: 13px; font-weight: 500; }
 .rk-home .rk-hpanel .rk-list img { width: 40px; height: 40px; border-radius: 11px; box-shadow: none; }
 .rk-home .rk-hpanel .rk-list .rk-spark { width: 52px; opacity: .6; }
@@ -102,6 +102,8 @@ body.page-home {
 .rk-home .rk-preview-value .rk-chg { font-weight: 500; font-size: 13px; }
 .rk-home .rk-preview-chart { flex: 1; display: flex; align-items: center; margin: 14px -8px 18px; min-height: 80px; }
 .rk-home .rk-preview-chart .rk-chartsvg { width: 100%; height: 100%; max-height: 205px; }
+/* 모바일용 차트(좁은 viewBox)는 데스크톱에서 숨김 — 60-rank-chart의 공통 규칙과 동일 */
+.rk-home .rk-preview-chart .rk-chartsvg-m { display: none; }
 .rk-home .rk-preview-kpis { padding: 16px 0 0; border-top: 1px solid #dedee3; border-bottom: 0; gap: 18px; }
 .rk-home .rk-preview-kpis span { font-size: 11px; }
 .rk-home .rk-preview-kpis b { font-size: 22px; font-weight: 550; margin-top: 8px; }
@@ -113,7 +115,7 @@ body.page-home {
 /* 하단은 주제별로 호흡을 나누고, 제목에 굵은 구분선을 사용하지 않는다. */
 .rk-home .rk-section { margin-top: 60px; }
 .rk-home .rk-section > h2 { border: 0; padding: 0; font-size: 26px; font-weight: 650; letter-spacing: -.04em; gap: 12px; }
-.rk-home .rk-section > h2 small { color: #86868b; font-size: 13px; font-weight: 400; }
+.rk-home .rk-section > h2 small { color: #6e6e73; font-size: 13px; font-weight: 400; }
 .rk-home .rk-hmovers { gap: 48px; margin-top: 28px; }
 .rk-home .rk-hmovers .rk-hcard { border: 0; padding: 0; border-radius: 0; background: transparent; }
 .rk-home .rk-hmovers h3 { font-size: 17px; font-weight: 600; color: #1d1d1f; margin-bottom: 12px; }
@@ -171,7 +173,7 @@ body.page-home {
   .rk-home .rk-home-heading p { margin-top: 8px; font-size: 12px; }
   .rk-home .rk-hcards { display: grid; grid-template-columns: 1fr; gap: 18px; overflow: visible; padding: 0 0 26px; margin: 0; }
   .rk-home .rk-hcards > .rk-hcard { min-width: 0; padding: 16px 18px; border-radius: 16px; }
-  .rk-home .rk-hcard h3 { margin-bottom: 16px; font-size: 11px; }
+  .rk-home .rk-hcard h3 { margin-bottom: 16px; font-size: 12px; }
   .rk-home .rk-hcard .ones { gap: 18px; align-items: flex-start; }
   .rk-home .rk-hcard .one { flex-direction: column; align-items: flex-start; gap: 10px; }
   .rk-home .rk-hcard .one img { width: 48px; height: 48px; border-radius: 13px; }
@@ -197,6 +199,8 @@ body.page-home {
   .rk-home .rk-preview-value strong { font-size: 38px; }
   .rk-home .rk-preview-chart { flex: none; min-height: 125px; }
   .rk-home .rk-preview-chart .rk-chartsvg { height: auto; }
+  .rk-home .rk-preview-chart .rk-chartsvg:not(.rk-chartsvg-m) { display: none; }
+  .rk-home .rk-preview-chart .rk-chartsvg-m { display: block; }
   .rk-home .rk-preview-kpis b { font-size: 20px; }
   .rk-home .rk-section { margin-top: 42px; }
   .rk-home .rk-section > h2 { font-size: 23px; gap: 8px; }

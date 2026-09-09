@@ -30,19 +30,23 @@ function spark(vals, { w = 72, h = 22, color } = {}) {
   return `<svg class="rk-spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d}" fill="none" stroke="${c}" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 }
 // 큰 선 그래프 (동접자)
-function lineChart(vals, dates, { w = 1040, h = 260 } = {}) {
+// mobile: 좁은 viewBox(360px) 변형. 데스크톱 1040px 차트를 화면 폭으로 축소하면 축 글자가 5px가 되므로
+// 두 벌을 렌더하고 CSS(.rk-chartsvg-m)로 화면 폭에 따라 하나만 보인다 (2026-09-09).
+function lineChart(vals, dates, { w = 1040, h = 260, mobile = false } = {}) {
   const nums = vals.filter((v) => v != null);
   if (!nums.length) return '';
-  const hi = Math.max(...nums) * 1.05, L = 60, R = 12, T = 12, B = 26, n = vals.length;
+  const hi = Math.max(...nums) * 1.05, L = mobile ? 46 : 60, R = 12, T = 12, B = 26, n = vals.length;
+  const fs = mobile ? 12 : 11, xTicks = mobile ? 4 : 8;
   const x = (i) => L + (i / Math.max(n - 1, 1)) * (w - L - R);
   const y = (v) => T + (1 - v / hi) * (h - T - B);
+  const fmtAxis = (v) => (mobile && v >= 10000 ? `${Math.round(v / 10000)}만` : fmt(v));
   let grid = '';
-  for (let k = 0; k <= 4; k++) { const v = (hi * k) / 4; grid += `<line x1="${L}" x2="${w - R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--rk-line)"/><text x="${L - 8}" y="${(y(v) + 4).toFixed(1)}" text-anchor="end" font-size="11" fill="var(--rk-dim)">${fmt(v)}</text>`; }
+  for (let k = 0; k <= 4; k++) { const v = (hi * k) / 4; grid += `<line x1="${L}" x2="${w - R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--rk-line)"/><text x="${L - 8}" y="${(y(v) + 4).toFixed(1)}" text-anchor="end" font-size="${fs}" fill="var(--rk-dim)">${fmtAxis(v)}</text>`; }
   let lab = '';
-  for (let i = 0; i < n; i += Math.max(1, Math.ceil(n / 8))) lab += `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="11" fill="var(--rk-dim)" text-anchor="middle">${dates[i].slice(5)}</text>`;
+  for (let i = 0; i < n; i += Math.max(1, Math.ceil(n / xTicks))) lab += `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="middle">${dates[i].slice(5)}</text>`;
   let d = '', pen = false;
   vals.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + `${x(i).toFixed(1)},${y(v).toFixed(1)}`; pen = true; });
-  return `<svg class="rk-chartsvg" viewBox="0 0 ${w} ${h}" role="img" aria-label="일별 동접자 추이">${grid}${lab}<path d="${d}" fill="none" stroke="var(--rk-accent)" stroke-width="2" stroke-linejoin="round"/></svg>`;
+  return `<svg class="rk-chartsvg${mobile ? ' rk-chartsvg-m' : ''}" viewBox="0 0 ${w} ${h}" role="img" aria-label="일별 동접자 추이">${grid}${lab}<path d="${d}" fill="none" stroke="var(--rk-accent)" stroke-width="2" stroke-linejoin="round"/></svg>`;
 }
 const subnav = (active) => { const item = (id, href, label, cls = '') => `<a class="${[active === id ? 'active' : '', cls].filter(Boolean).join(' ')}" href="${href}">${label}</a>`; return `<nav class="rk-subnav" aria-label="스팀 순위 종류">${item('ccu', '/steam/', '동접')}${item('sell', '/steam/#sell', '판매')}${item('monthly', '/steam/#monthly', '월간')}${item('records', '/steam/#records', '역대 기록')}${item('about', '/rankings/about/', '산출 방법 ›', 'right')}</nav>`; };
 const appCell = (m, href) => `<div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t"><a href="${href}">${esc(m.name)}</a></div><div class="d">${esc(m.developer)}</div></div></div>`;
@@ -142,7 +146,7 @@ function renderSteamGame(appid) {
 <div class="rk-stat"><div class="l">30일 평균 동접</div><div class="v">${last30.length ? fmt(avg(last30)) : '기록 없음'}</div><div class="s">최근 ${last30.length}일 기록</div></div>
 <div class="rk-stat"><div class="l">역대 최고 동접</div><div class="v">${fmt(pk.ccu)}</div><div class="s">${pk.date || '-'}</div></div>
 <div class="rk-stat"><div class="l">동접 TOP 100 체류</div><div class="v">${onChart}<small>일</small></div><div class="s">${days.length}일 중</div></div></div>
-${ser.filter((v) => v != null).length >= 2 ? `<div class="rk-card"><h2>동접자 추이 <small>일별 · ${days[0].date} ~ ${T.date}</small></h2><div class="rk-chart">${lineChart(ser, dates)}</div></div>` : ''}
+${ser.filter((v) => v != null).length >= 2 ? `<div class="rk-card"><h2>동접자 추이 <small>일별 · ${days[0].date} ~ ${T.date}</small></h2><div class="rk-chart rk-chart-dual">${lineChart(ser, dates)}${lineChart(ser, dates, { w: 360, h: 220, mobile: true })}</div></div>` : ''}
 <div class="rk-card"><h2>월별 기록</h2><table class="rk-table"><thead><tr><th>월</th><th class="r">평균 동접</th><th class="r">최고 동접</th><th class="c">평균 순위</th><th class="c">최고 순위</th><th class="c">판매 최고</th><th class="c">기록일</th></tr></thead><tbody>${monthly.map((r) => `<tr><td><b>${r.mo}</b></td><td class="r">${fmt(r.avg)}</td><td class="r">${fmt(r.max)}</td><td class="c">${r.rank != null ? r.rank.toFixed(1) : '-'}</td><td class="c">${r.bestRank != null ? r.bestRank + '위' : '-'}</td><td class="c">${r.sell != null ? r.sell + '위' : '-'}</td><td class="c">${r.n}</td></tr>`).join('')}</tbody></table></div>
 ${related.length ? `<section class="rk-section"><h2>관련 리포트</h2><div class="rk-cards">${related.map((a) => `<a class="rk-cardl" href="${a.href}"><img src="${esc(a.thumbnail)}" alt="" loading="lazy"><div class="b"><div class="k">${a.catName}<span>${a.date}</span></div><div class="t">${esc(a.title)}</div></div></a>`).join('')}</div>${listLink('/reports/', '리포트 전체 보기')}</section>` : ''}`;
   const canonical = `${siteBaseUrl}/steam/${id}/`;

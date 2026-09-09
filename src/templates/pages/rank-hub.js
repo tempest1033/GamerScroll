@@ -497,11 +497,15 @@ function renderGameRankSummary(gameInfo, slug) {
   const text = `${name}의 ${today.date} 한국 ${STORES[baseStore]} 매출 순위 ${cur != null ? `${cur}위` : '현재 기록 없음'}${prev != null && cur != null ? ` (전일 ${dirText(cur, prev)})` : ''}, ${STORES[otherStore]} ${last(other) != null ? `${last(other)}위` : '현재 기록 없음'}. ${present.length ? `30일 평균 ${fmt1(avg(last30))}위, 역대 최고 ${allBest}위(${bestDay}), 1위 ${top1Days}일.` : '한국 매출 순위 이력이 없습니다.'}`;
 
   // 90일 차트
-  const N = Math.min(90, days.length), W = 1040, H = 240, L = 36, R = 12, T = 12, B = 28;
+  // 데스크톱(1040px)과 모바일(360px) 두 벌을 렌더하고 CSS(.rk-chart-dual)로 화면 폭에 따라 하나만 보인다.
+  // 1040px viewBox를 모바일 폭으로 축소하면 축 글자가 5px가 되기 때문 (2026-09-09).
+  const N = Math.min(90, days.length);
   const win = days.slice(-N);
-  const x = (i) => L + (i / Math.max(win.length - 1, 1)) * (W - L - R);
   const winMax = Math.max(5, ...nums([...base.slice(-N), ...other.slice(-N)]));
   const yMax = winMax <= 10 ? 10 : winMax <= 25 ? 25 : winMax <= 50 ? 50 : winMax <= 100 ? 100 : Math.ceil(winMax / 50) * 50;
+  const buildRankChart = ({ W, H, L, fs, mobile = false }) => {
+  const R = 12, T = 12, B = 28;
+  const x = (i) => L + (i / Math.max(win.length - 1, 1)) * (W - L - R);
   const yv = (r) => T + ((Math.min(r, yMax) - 1) / (yMax - 1)) * (H - T - B);
   const poly = (arr, color, seriesIndex) => {
     let d = '', open = false;
@@ -514,14 +518,16 @@ function renderGameRankSummary(gameInfo, slug) {
     return (d ? `<path data-rank-series="${seriesIndex}" d="${d}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>` : '') + dots.join('');
   };
   const yTicks = ({ 10: [1, 3, 5, 10], 25: [1, 5, 10, 25], 50: [1, 10, 25, 50], 100: [1, 10, 25, 50, 100], 200: [1, 50, 100, 150, 200] })[yMax] || [1, Math.round(yMax / 4), Math.round(yMax / 2), Math.round(yMax * .75), yMax];
-  const gridY = yTicks.map((r) => `<line x1="${L}" x2="${W - R}" y1="${yv(r)}" y2="${yv(r)}" stroke="var(--rk-line)"/><text x="${L - 6}" y="${yv(r) + 4}" font-size="11" fill="var(--rk-dim)" text-anchor="end">${r}</text>`).join('');
-  const ticks = [0, Math.floor(win.length / 3), Math.floor((2 * win.length) / 3), win.length - 1].map((i) => `<text x="${x(i)}" y="${H - 8}" font-size="11" fill="var(--rk-dim)" text-anchor="middle">${win[i].date.slice(5)}</text>`).join('');
-  const chart = require('../components/interactive-rank-chart').interactiveRankChart(
-    `<svg class="rk-chartsvg" viewBox="0 0 ${W} ${H}" role="img" aria-label="최근 ${N}일 한국 매출 순위 추이. 좌우 방향키로 날짜 이동, Escape로 닫기">${gridY}${ticks}${poly(kr, '#0071e3', 0)}${poly(krA, '#159668', 1)}</svg>`,
+  const gridY = yTicks.map((r) => `<line x1="${L}" x2="${W - R}" y1="${yv(r)}" y2="${yv(r)}" stroke="var(--rk-line)"/><text x="${L - 6}" y="${yv(r) + 4}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="end">${r}</text>`).join('');
+  const ticks = [0, Math.floor(win.length / 3), Math.floor((2 * win.length) / 3), win.length - 1].map((i) => `<text x="${x(i)}" y="${H - 8}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="middle">${win[i].date.slice(5)}</text>`).join('');
+  return require('../components/interactive-rank-chart').interactiveRankChart(
+    `<svg class="rk-chartsvg${mobile ? ' rk-chartsvg-m' : ''}" viewBox="0 0 ${W} ${H}" role="img" aria-label="최근 ${N}일 한국 매출 순위 추이. 좌우 방향키로 날짜 이동, Escape로 닫기">${gridY}${ticks}${poly(kr, '#0071e3', 0)}${poly(krA, '#159668', 1)}</svg>`,
     win.map(d => d.date),
     [{ name: '앱스토어', color: '#0071e3', values: kr.slice(-N) }, { name: '구글플레이', color: '#159668', values: krA.slice(-N) }],
     win.map((_, i) => x(i))
   );
+  };
+  const chart = `<div class="rk-chart-d">${buildRankChart({ W: 1040, H: 240, L: 36, fs: 11 })}</div><div class="rk-chart-m">${buildRankChart({ W: 360, H: 220, L: 34, fs: 12, mobile: true })}</div>`;
 
   // 시간대별
   const iosHours = S.hourlyRanks('ios', 'kr', ids.ios) || [];
@@ -568,7 +574,7 @@ function renderGameRankSummary(gameInfo, slug) {
 
   const html = `<div class="rk rk-game">
 ${stats}
-<div class="rk-card"><h2>순위 추이 — 최근 ${N}일 <small>한국 · 매출</small></h2><div class="rk-chart">${nums([...base.slice(-N), ...other.slice(-N)]).length ? chart : '<div class="game-empty">해당 기간의 한국 매출 순위 기록이 없습니다.</div>'}</div></div>
+<div class="rk-card"><h2>순위 추이 — 최근 ${N}일 <small>한국 · 매출</small></h2><div class="rk-chart rk-chart-dual">${nums([...base.slice(-N), ...other.slice(-N)]).length ? chart : '<div class="game-empty">해당 기간의 한국 매출 순위 기록이 없습니다.</div>'}</div></div>
 ${hourCard}
 ${comparisonCard}
 ${countryCard}

@@ -16,7 +16,11 @@ body:not(.page-home) .rk .rk-colh h2 { font-size: 20px; font-weight: 600; }
 body:not(.page-home) .rk .rk-colh h2::before { display: none; }
 body:not(.page-home) .rk .rk-list li { border-bottom-color: #eeeef0; border-radius: 8px; padding: 0 6px; }
 body:not(.page-home) .rk .rk-list .nm > a { font-size: 14px; font-weight: 550; }
-body:not(.page-home) .rk .rk-list .nm .dv { font-size: 10px; font-weight: 400; }
+body:not(.page-home) .rk .rk-list .nm .dv { font-size: 12px; font-weight: 400; }
+/* 가독성 (2026-09-09): 연속 1위 뱃지는 주황 글자/연주황 배경(대비 1.5)이라 안 읽혀 진한 갈색으로. */
+body:not(.page-home) .rk .rk-streak { color: #8a4b00; background: #fdf1dc; }
+/* 긴 설명문(소개 페이지 본문, 스팀 상세 요약)은 기사 본문과 같은 720px 폭으로 제한 */
+body:not(.page-home) .rk .rk-faq p, body:not(.page-home) .rk .rk-faq ul, body:not(.page-home) .rk .rk-lead { max-width: 720px; }
 body:not(.page-home) .rk .rk-list .rk-rk { color: #6e6e73; font-size: 13px; font-weight: 500; }
 body:not(.page-home) .rk .rk-list img { box-shadow: none; }
 body:not(.page-home) .rk .rk-chg { font-size: 12px; font-weight: 500; }
@@ -38,7 +42,7 @@ body:not(.page-home) .rk .rk-table thead th { background: #f5f5f7; color: #6e6e7
 body:not(.page-home) .rk .rk-table .rk-app .t { font-weight: 550; }
 body:not(.page-home) .rk .rk-table td.rk-rank { color: #6e6e73; font-weight: 500; }
 body:not(.page-home) .rk .rk-table tbody tr:hover { background: #fafafa; }
-body:not(.page-home) .rk .rk-badge { font-size: 10px; border-radius: 5px; font-weight: 400; }
+body:not(.page-home) .rk .rk-badge { font-size: 11.5px; border-radius: 5px; font-weight: 400; }
 body:not(.page-home) .rk .rk-hero { border: 0; padding: 12px 0 28px; border-radius: 0; background: transparent; }
 body:not(.page-home) .rk .rk-hero h1 { font-size: 32px; }
 body:not(.page-home) .rk .rk-hero .meta { font-size: 12px; }
@@ -189,4 +193,14 @@ body:not(.page-home) .blog-table-wrapper { border-color: #e5e5e9; border-radius:
   body:not(.page-home) .blog-content .blog-heading { font-size: 23px; }
   body:not(.page-home) .blog-summary { padding: 20px; }
   .page-reports .rk .rk-feat { gap: 24px; }
+  /* 가독성 (2026-09-09) */
+  /* 순위 하위탭: 가로 스크롤 대신 두 줄로 접어 잘림 없이 전부 보이게 */
+  body:not(.page-home) .rk .rk-subnav { flex-wrap: wrap; gap: 0 20px; overflow: visible; }
+  /* 표: 6열 표(국가별 순위·월별 기록)가 화면 밖으로 나가지 않게 여백·글자 축소, 헤더 줄바꿈 허용 */
+  body:not(.page-home) .rk .rk-table td, body:not(.page-home) .rk .rk-table th { padding-left: 4px !important; padding-right: 4px !important; font-size: 12.5px; }
+  /* 스팀 상세 월별 기록: 7열 중 보조 열(기록일)은 모바일에서 숨겨 화면 폭 안에 맞춘다 */
+  .page-steam .rk .rk-table th:nth-child(7), .page-steam .rk .rk-table td:nth-child(7) { display: none; }
+  body:not(.page-home) .rk .rk-table thead th { white-space: normal; line-height: 1.25; }
+  body:not(.page-home) .rk .rk-table td.spk { width: 56px; }
+  body:not(.page-home) .rk .rk-table td.spk svg { width: 56px; height: auto; }
 }

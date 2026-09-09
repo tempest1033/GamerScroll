@@ -105,7 +105,7 @@
 .rk td .rk-chg { font-size: 13px; }
 .rk .rk-badge { display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 6px; font-size: 11.5px; font-weight: 600; background: var(--rk-bg2); color: var(--rk-muted); vertical-align: middle; margin-left: 6px; }
 .rk .rk-badge.sub { color: var(--rk-sub); background: var(--rk-sub-bg); }
-.rk .rk-streak, .rk .rk-tagnew { display: inline-flex; align-items: center; margin-left: 6px; height: 18px; padding: 0 6px; border-radius: 5px; font-size: 10.5px; font-weight: 700; vertical-align: middle; }
+.rk .rk-streak, .rk .rk-tagnew { display: inline-flex; align-items: center; margin-left: 6px; height: 18px; padding: 0 6px; border-radius: 5px; font-size: 11.5px; font-weight: 700; vertical-align: middle; }
 .rk .rk-streak { color: var(--rk-gold); background: var(--rk-new-bg); }
 .rk .rk-tagnew { color: var(--rk-accent); background: var(--rk-accent-bg); }
 
@@ -203,6 +203,13 @@
 .rk .rk-stat .rk-spark { position: absolute; right: 0; bottom: 14px; width: 72px; height: 22px; opacity: .6; }
 .rk .rk-chart { padding: 4px 0 0; }
 .rk .rk-chartsvg { width: 100%; height: auto; display: block; }
+/* 모바일용 차트 변형: 좁은 viewBox로 따로 렌더해 축 글자가 5px로 쪼그라드는 문제 방지 (2026-09-09) */
+.rk .rk-chartsvg-m, .rk .rk-chart-m { display: none; }
+@media (max-width: 768px) {
+  /* 두 벌(.rk-chart-dual)을 렌더한 곳에서만 데스크톱 차트를 숨긴다 — 단일 차트는 그대로 */
+  .rk .rk-chart-dual .rk-chartsvg:not(.rk-chartsvg-m), .rk .rk-chart-dual .rk-chart-d { display: none; }
+  .rk .rk-chart-dual .rk-chartsvg-m, .rk .rk-chart-dual .rk-chart-m { display: block; }
+}
 .rk svg text { font-family: inherit; }
 .rk .rk-pill { display: flex; gap: 12px; flex-wrap: wrap; padding: 10px 0 0; font-size: 12.5px; color: var(--rk-muted); }
 .rk .rk-pill .ios { color: var(--rk-ios); } .rk .rk-pill .and { color: var(--rk-and); }
