@@ -19,8 +19,8 @@ body .site-container .rk .gs-list-action {
   padding: 10px 16px;
   border: 1px solid transparent;
   border-radius: 10px;
-  background: #f5f5f7;
-  color: #515154;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   font: inherit;
   font-size: 13px;
   font-weight: 500;
@@ -29,9 +29,9 @@ body .site-container .rk .gs-list-action {
   text-decoration: none;
   cursor: pointer;
 }
-body .site-container .rk .gs-list-action:hover { background: #eaeaec; color: #1d1d1f; text-decoration: none; }
+body .site-container .rk .gs-list-action:hover { background: #eaeaec; color: var(--text); text-decoration: none; }
 body .site-container .rk .gs-list-action:focus-visible,
-body .site-container .rk .rk-more-toggle:focus-visible ~ .gs-list-action { outline: 2px solid #0071e3; outline-offset: 3px; }
+body .site-container .rk .rk-more-toggle:focus-visible ~ .gs-list-action { outline: 2px solid var(--accent); outline-offset: 3px; }
 body .site-container .rk .rk-note .gs-list-action,
 body .site-container .rk .rk-section-footer .gs-list-action { margin-top: 0; }
 .gs-list-arrow { font-size: 20px; line-height: 1; }
@@ -110,7 +110,7 @@ body .site-container .rk .rk-card > h2 small { max-width: 100%; overflow-wrap: a
 @media (max-width: 768px) {
   body .nav .nav-inner { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: none; padding: 0 16px; gap: 0; overflow: visible; box-sizing: border-box; }
   body .nav .nav-inner .nav-item { display: flex; align-items: center; justify-content: center; min-width: 0; width: auto; margin: 0; padding: 0 4px; height: 48px; flex: none; text-align: center; }
-  body .nav .nav-inner .nav-item::after { left: 50%; right: auto; bottom: 0; width: 32px; transform: translateX(-50%); background: #1d1d1f; }
+  body .nav .nav-inner .nav-item::after { left: 50%; right: auto; bottom: 0; width: 32px; transform: translateX(-50%); background: var(--text); }
   body .site-container .rk .rk-table th,
   body .site-container .rk .rk-table td { padding-left: 6px; padding-right: 6px; }
 }
@@ -120,10 +120,10 @@ body .site-container .rk .rk-card > h2 small { max-width: 100%; overflow-wrap: a
 /* 홈: 모든 두 열의 경계와 주요 제목 시작선을 맞춘다. */
 .rk .rk-genre-filters { margin: 24px 0; display: grid; gap: 12px; }
 .rk .rk-genre-filter-row { display: flex; align-items: center; gap: 16px; min-width: 0; }
-.rk .rk-genre-filter-row > span { flex: 0 0 72px; color: #6e6e73; font-size: 12px; }
+.rk .rk-genre-filter-row > span { flex: 0 0 72px; color: var(--text-muted); font-size: 12px; }
 body .site-container .rk .rk-genre-filter-row .rk-tabs { display: flex; flex-wrap: nowrap; overflow-x: auto; min-width: 0; gap: 8px; margin: 0; padding: 4px 0; }
 .rk .rk-genre-filter-row .rk-tabs a { white-space: nowrap; flex: none; }
-.rk .rk-genre-overall { font-weight: 600; color: #515154; }
+.rk .rk-genre-overall { font-weight: 600; color: var(--text-secondary); }
 @media (min-width: 769px) {
   .site-container .rk .rk-cols.single > .rk-col.ios { grid-column: 2; }
 }

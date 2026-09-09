@@ -11,7 +11,6 @@ const {
   generateIssueDetailPage, generateInsightDetailPage,
   generateHotpickDetailPage, generateRankingDetailPage
 } = require('../src/templates/pages/trend');
-const { generateTechArticlePage } = require('../src/templates/pages/tech-article');
 const { generateAIBlogArticle } = require('../src/templates/ai-blog/article');
 
 const renderers = [
@@ -19,7 +18,6 @@ const renderers = [
   ['인사이트', article => generateInsightDetailPage({ post: article })],
   ['핫픽', article => generateHotpickDetailPage({ post: article })],
   ['순위 분석', article => generateRankingDetailPage({ post: article })],
-  ['테크', article => generateTechArticlePage({ article, category: 'ai' })],
   ['AI 한국어', article => generateAIBlogArticle(article, { lang: 'ko' })],
   ['AI 영어', article => generateAIBlogArticle(article, { lang: 'en' })]
 ];

@@ -127,15 +127,15 @@ function getCssBundlesForDocPath(relativePath) {
     normalized.startsWith('rankings/') ||
     normalized.startsWith('steam/') ||
     normalized.startsWith('reports/') || // 리포트 허브 (.rk)
-    normalized.startsWith('about/'); // 사이트 소개 (.rk)
+    normalized.startsWith('about/') || // 사이트 소개 (.rk)
+    normalized.startsWith('privacy/'); // 개인정보처리방침 (.rk, 2026-09-09 템플릿화)
 
   if (normalized.startsWith('magazine/')) {
     bundles.push('/styles-report.css', '/styles-article.css');
   } else if (needsGameCss) {
     bundles.push('/styles-game.css');
-  } else if (normalized.startsWith('tech/')) {
-    bundles.push('/styles-article.css');
   }
+  // tech/ 번들 분기는 2026-09-09 제거 (테크 페이지 생성 폐기)
 
   return bundles.map(withCssAssetVersion);
 }
@@ -777,12 +777,21 @@ function writeRankHubSubpages(docsDir) {
   } catch (e) {
     console.warn(`  ⚠️ 사이트 소개 생성 실패: ${e.message}`);
   }
+  // 개인정보처리방침 (docs/privacy/) — 2026-09-09 루트 정적 HTML 복사에서 템플릿 페이지로 교체
+  try {
+    const { renderPrivacyPage } = require('./src/templates/pages/privacy');
+    const dir = path.join(docsDir, 'privacy');
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), renderPrivacyPage(), 'utf8');
+    entries.push({ loc: 'https://gamerscroll.com/privacy/', priority: '0.3' });
+    console.log('  ✅ 개인정보처리방침 /privacy/');
+  } catch (e) {
+    console.warn(`  ⚠️ 개인정보처리방침 생성 실패: ${e.message}`);
+  }
   return entries;
 }
 const { generateSteamPage } = require('./src/templates/pages/steam');
 const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
-const { generateTechHubPage, generateTechCategoryPage } = require('./src/templates/pages/tech-hub');
-const { generateTechArticlePage } = require('./src/templates/pages/tech-article');
 const { generate404Page } = require('./src/templates/pages/404');
 const {
   setCssFilename,
@@ -2074,114 +2083,8 @@ async function main() {
   const wikiData = loadWikiData();
   const techData = loadTechData();
 
-  // ========== 테크 페이지 빌드 ==========
-  console.log('\n📱 테크 페이지 빌드...');
-  const techCategories = []; // Stage 3: tech 카테고리 제거
-
-  const techCategoryData = {
-    techData,
-    wikiData,
-    issueReportsCount: issueReports.length,
-    insightReportsCount: insightReports.length,
-    hotpickReportsCount: hotpickReports.length,
-    rankingReportsCount: rankingReports.length,
-    issueReports,
-    insightReports,
-    hotpickReports,
-    sidebarPopularArticles: sidebarPopularTech,
-    sidebarLatestArticles: sidebarLatestTech
-  };
-
-  // tech/index.html 생성 (Stage 3: techCategories 비어있으면 skip)
-  if (techCategories.length > 0) try {
-    const techDir = './tech';
-    if (!fs.existsSync(techDir)) {
-      fs.mkdirSync(techDir, { recursive: true });
-    }
-    const techHubHtml = generateTechHubPage(techCategoryData);
-    fs.writeFileSync(`${techDir}/index.html`, techHubHtml, 'utf8');
-    console.log(`  ✅ tech/index.html`);
-  } catch (err) {
-    console.error(`  ❌ tech/index.html: ${err.message}`);
-  }
-
-  // 테크 카테고리 목록 페이지 생성 (normal/index.html 등)
-  for (const category of techCategories) {
-    const categoryDir = `./tech/${category}`;
-    if (!fs.existsSync(categoryDir)) {
-      fs.mkdirSync(categoryDir, { recursive: true });
-    }
-
-    try {
-      const categoryHtml = generateTechCategoryPage({ ...techCategoryData, category });
-      fs.writeFileSync(`${categoryDir}/index.html`, categoryHtml, 'utf8');
-      console.log(`  ✅ tech/${category}/index.html`);
-    } catch (err) {
-      console.error(`  ❌ tech/${category}/index.html: ${err.message}`);
-    }
-  }
-
-  // 테크 개별 항목 페이지 생성
-  for (const category of techCategories) {
-    const articles = techData[category] || [];
-    if (articles.length === 0) continue;
-
-    const categoryDir = `./tech/${category}`;
-    let techBuilt = 0, techSkipped = 0;
-
-    for (let i = 0; i < articles.length; i++) {
-      const article = articles[i];
-      const pageDir = `${categoryDir}/${article.slug}`;
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-
-      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
-      const cacheKey = `${category}/${article.slug}`;
-      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
-      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.tech, cacheKey, article)) {
-        techSkipped++;
-        continue;
-      }
-
-      try {
-        // 관련 문서: parseRelatedDocs 통합 함수 사용
-        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports, insightReports, hotpickReports, rankingReports);
-
-        // 이전/다음 항목
-        const prevNext = {
-          prev: articles[i + 1] ? { slug: articles[i + 1].slug, title: articles[i + 1].title } : null,
-          next: articles[i - 1] ? { slug: articles[i - 1].slug, title: articles[i - 1].title } : null
-        };
-
-        const html = generateTechArticlePage({
-          article,
-          category,
-          relatedDocs,
-          prevNext,
-          issueReports,
-          allTechData: techData,
-          allWikiData: wikiData,
-          reportCounts: {
-            issue: issueReports.length,
-            insight: insightReports.length,
-            hotpick: hotpickReports.length,
-            ranking: rankingReports.length
-          },
-          magazineCounts: {
-          },
-          sidebarPopularArticles: sidebarPopularTech,
-          sidebarLatestArticles: sidebarLatestTech
-        });
-        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-        buildCache.updateCacheSection(incrementalCache.tech, cacheKey, article);
-        techBuilt++;
-      } catch (err) {
-        console.error(`  ❌ tech/${category}/${article.slug}: ${err.message}`);
-      }
-    }
-    buildCache.printBuildStats({ total: articles.length, built: techBuilt, skipped: techSkipped, type: `${category} 테크 페이지` });
-  }
+  // 테크 페이지 빌드는 2026-09-09 제거 (Stage 3에서 AI스크롤로 이관된 뒤 빈 카테고리 루프만 남아 있었음).
+  // /tech/* 는 functions/_middleware.js 가 301 처리한다.
 
   // 카드 deferred JSON을 외부 정적 파일로 분리 (초기 HTML 경량화)
   externalizeDeferredJsonPayloads();
@@ -2205,21 +2108,7 @@ async function main() {
   // 순위 허브 하위 페이지 (docs/rankings/{jp,us,cn,tw,global,records,monthly/YYYY-MM}/)
   const rankSitemapEntries = writeRankHubSubpages(DOCS_DIR);
 
-  // privacy 페이지 복사 (푸터 링크 폴백/SEO용) - CSS 해시 동적 교체
-  try {
-    const srcPrivacy = './privacy/index.html';
-    if (fs.existsSync(srcPrivacy)) {
-      const privacyDir = `${DOCS_DIR}/privacy`;
-      if (!fs.existsSync(privacyDir)) {
-        fs.mkdirSync(privacyDir, { recursive: true });
-      }
-      let privacyHtml = fs.readFileSync(srcPrivacy, 'utf8');
-      privacyHtml = privacyHtml.replace(/\/styles\.[a-f0-9]*\.css|\/styles\.css/, cssFilename);
-      fs.writeFileSync(`${privacyDir}/index.html`, privacyHtml);
-    }
-  } catch (err) {
-    console.warn('  ⚠️ privacy 페이지 복사 실패:', err.message);
-  }
+  // privacy 페이지는 writeRankHubSubpages 에서 템플릿으로 생성한다 (2026-09-09, 루트 정적 HTML 복사 폐기)
 
   // 위키 폴더(./wiki → docs/wiki) 복사는 2026-09-09 폐기. 배포본에 남은 docs/wiki 잔재는 매 빌드 제거한다.
   try {
