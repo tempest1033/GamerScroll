@@ -116,6 +116,16 @@
   overflow: hidden;
 }
 
+/* 네이티브 광고는 원본 프레임을 자르지 않는다. 크기·예약 높이·바깥 간격은 유지한다. */
+.ad-card.ad-card-native,
+.ad-card.ad-card-scroll,
+.ad-card.blog-in-article-ad {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+}
+
 .ad-card > ins.adsbygoogle,
 .ad-card > ins.adsbygoogle > iframe {
   border-radius: inherit;
@@ -304,6 +314,29 @@ body.ads-disabled .article-layout {
 /* .home-container나 .article-layout 자식이 있으면 이중 적용 방지 */
 .page-container:not(:has(> .home-container)):not(:has(> .article-layout)) {
   padding-top: var(--space-block-gap, 16px) !important;
+}
+
+/* 풀폭 상단 광고: 바깥 간격은 페이지에서 한 번만 부여한다. */
+@media (min-width: 769px) {
+  body:not(.page-home) .site-container:has(.ad-card-responsive-home) {
+    padding-top: 12px !important;
+  }
+  body .site-container .ad-card-responsive-home {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* PC/모바일 광고 다음 본문에 중복되던 예약 여백 제거 */
+body .section > .ad-card-responsive-home + .ad-card-mobile-top + .page-container {
+  padding-top: 0 !important;
+  margin-top: 12px;
+}
+body .page-container > .ad-card-responsive-home + .ad-card-mobile-top + .article-layout {
+  padding-top: 12px !important;
+}
+body .page-container > .ad-card-responsive-home + .ad-card-mobile-top + .article-layout .blog-header {
+  padding-top: 0;
 }
 
 /* home-main / article-main 최상단 ResponsiveHome 광고: 하단 마진만 (카드 간격과 동일) */

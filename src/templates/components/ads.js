@@ -102,7 +102,7 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; width:100%; max-width:1160px; height:250px; min-height:250px; max-height:250px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${cardClass} { display:flex !important; width:100%; max-width:970px; height:250px; min-height:250px; max-height:250px; margin:0 auto; border:0; border-radius:0; background:transparent; overflow:visible; align-items:center; justify-content:center; }
       .${styleId} { display:block !important; width:970px; max-width:100%; height:250px; min-height:250px; margin:0 auto; }
     }
   </style>
