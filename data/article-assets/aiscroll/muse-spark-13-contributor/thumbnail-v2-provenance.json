@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "source": "thumbnail-v2.png",
+  "generated": false,
+  "method": "Composite the unmodified official Meta AI symbol with separately typeset Muse Spark and 1.3 labels on black.",
+  "officialSource": "meta-muse-official.jpg",
+  "sourceUrl": "https://about.fb.com/wp-content/uploads/2026/04/Introducing-Muse-Spark_Social-Share.jpg?w=1200",
+  "sourcePage": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+  "credit": "Meta",
+  "usageBasis": "Limited editorial identification of the product discussed, not advertising, affiliation or endorsement. Copyright and trademark remain with Meta; no general reuse license is claimed.",
+  "symbolCrop": {"left": 295, "top": 275, "width": 130, "height": 130},
+  "symbolPlacement": {"left": 84, "top": 114},
+  "layout": "thumbnail-v2.svg",
+  "delivery": "thumbnail.webp",
+  "deliverySize": [640, 360],
+  "supersedes": "thumbnail-v1.png",
+  "createdAt": "2026-09-09"
+}

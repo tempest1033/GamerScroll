@@ -18,7 +18,7 @@ const fixture = compile({ games: {
   music: { stores: { ios: { status: 'found', genreIds: ['7011'] } } }
 } }, { games: {} });
 assert.deepEqual(fixture.games.mixed.genres.sort(), ['rpg', 'strategy-defense']);
-assert.deepEqual(fixture.games.mixed.suggestedTags, ['hypercasual']);
+assert.deepEqual(fixture.games.mixed.suggestedTags, []);
 assert.ok(!fixture.games.mixed.genres.includes('hypercasual'));
 assert.deepEqual(fixture.games.music.genres, []);
 assert.deepEqual(fixture.games.unavailable.reviewReasons, ['store-unavailable']);

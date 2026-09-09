@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": "thumbnail-v1.png",
+  "generated": true,
+  "provider": "openai-oauth",
+  "model": "chatgpt-image-auto",
+  "laneSource": "remembered",
+  "options": {},
+  "assetId": "1e40febc-4c1f-422b-989d-0cf05a01f96d",
+  "prompt": "Use: stylized-concept\nAsset: one landscape 16:9 editorial card thumbnail for an article about Meta Muse Spark 1.3 as a low-cost coding worker; at least 640 by 360 pixels\nScene: a clean abstract digital workbench with a compact luminous computing core assembling interlocking code-like blocks\nSubject: one small blue glass computing core with a bright spark at its center, surrounded by a few neatly assembled modular blocks\nStyle: polished editorial 3D illustration, soft directional studio lighting, blue and silver against a dark navy background\nComposition: wide landscape framing, bold simple silhouette legible in a small article card, all important objects inside the central safe area\nAvoid: no text, no logos, no watermarks, no faces, no simulated application screenshots",
+  "createdAt": "2026-09-09",
+  "createdAtPrecision": "date",
+  "delivery": "thumbnail.webp",
+  "deliverySize": [640, 360]
+}

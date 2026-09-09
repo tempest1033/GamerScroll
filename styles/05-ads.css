@@ -4,13 +4,13 @@
 
 /* ===== 광고 컨테이너 크기 ===== */
 
-/* 모바일 상단 광고 (320x100) */
+/* 모바일 상단 광고 (300x250) — 2026-09-09: 320×100 → 300×250. ads.js renderMobileOnlyHomeAd·layout.js normalizeAdVisualSize와 같은 값 */
 .ad-card-mobile-top {
   width: 100%;
-  max-width: 320px;
-  height: 100px;
-  min-height: 100px;
-  max-height: 100px;
+  max-width: 300px;
+  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,10 +25,10 @@
 .ad-card-mobile-top > ins.adsbygoogle iframe,
 .ad-card-mobile-top iframe {
   width: 100% !important;
-  max-width: 320px !important;
-  height: 100px !important;
-  min-height: 100px !important;
-  max-height: 100px !important;
+  max-width: 300px !important;
+  height: 250px !important;
+  min-height: 250px !important;
+  max-height: 250px !important;
   left: 0 !important;
   right: 0 !important;
 }
@@ -146,7 +146,7 @@
   }
 }
 
-/* 모바일 상단 광고는 320x100 슬롯 사이즈 그대로 reserve (base 100px 상속).
+/* 모바일 상단 광고는 300x250 슬롯 사이즈 그대로 reserve (.ad-card-mobile-top 250px).
    in-article BTF 광고는 아래 .blog-in-article-ad 규칙이 더 높은 reserve를 제공함. */
 
 /* AIScroll BTF in-article 광고 reserve (300x250) */
@@ -319,10 +319,10 @@ body.ads-disabled .article-layout {
   .home-main > .ad-card-mobile-top,
   .article-main > .ad-card-mobile-top {
     width: 100% !important;
-    max-width: 320px !important;
-    height: 100px !important;
-    min-height: 100px !important;
-    max-height: 100px !important;
+    max-width: 300px !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
     margin-top: 0 !important;
     margin-bottom: var(--space-block-gap, 16px) !important;
   }
@@ -338,10 +338,10 @@ body.ads-disabled .article-layout {
   .article-main > .ad-card-mobile-top > ins.adsbygoogle iframe,
   .article-main > .ad-card-mobile-top iframe {
     width: 100% !important;
-    max-width: 320px !important;
-    height: 100px !important;
-    min-height: 100px !important;
-    max-height: 100px !important;
+    max-width: 300px !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
   }
 }
 
@@ -354,8 +354,8 @@ body.ads-disabled .article-layout {
 
 /* ===== Unfilled 광고 처리 ===== */
 
-/* PC 상단 광고: 채워지기 전·unfilled·스크립트 차단 어느 경우에도 예약 높이(90px)를 유지한다.
-   예전처럼 카드를 display:none 하면 90px가 사라지며 본문 전체가 위로 튀어 올랐다(CLS).
+/* PC 상단 광고: 채워지기 전·unfilled·스크립트 차단 어느 경우에도 예약 높이(250px, ads.js 인라인)를 유지한다.
+   예전처럼 카드를 display:none 하면 예약 높이가 사라지며 본문 전체가 위로 튀어 올랐다(CLS).
    채워질 때까지는 옅은 브랜드 마크만 중앙에 두고, unfilled가 확정되면 애드센스가 남긴 빈 iframe만 감춘다. */
 .ad-card-responsive-home:not(:has(ins[data-ad-status="filled"]))::before,
 .ad-card-responsive-top:not(:has(ins[data-ad-status="filled"]))::before {

@@ -51,11 +51,6 @@
       "id": "idle",
       "label": "방치형",
       "kind": "tag"
-    },
-    {
-      "id": "hypercasual",
-      "label": "하이퍼캐주얼",
-      "kind": "tag"
     }
   ],
   "games": {
@@ -645,9 +640,7 @@
       ]
     },
     "aquaparkio": {
-      "tags": [
-        "hypercasual"
-      ]
+      "tags": []
     },
     "블루-아카이브": {
       "tags": [
@@ -741,9 +734,7 @@
       ]
     },
     "dumb-ways-to-die": {
-      "tags": [
-        "hypercasual"
-      ]
+      "tags": []
     },
     "이터널-에볼루션": {
       "tags": [
@@ -766,9 +757,7 @@
       ]
     },
     "capybara-jump-cake-tower": {
-      "tags": [
-        "hypercasual"
-      ]
+      "tags": []
     },
     "스킬-마법사-키우기-신규-서버-오픈": {
       "tags": [
@@ -888,9 +877,7 @@
       ]
     },
     "judgment-day-신의-천사-심판의-날": {
-      "tags": [
-        "hypercasual"
-      ]
+      "tags": []
     },
     "픽셀-기사단-키우기-방치형rpg": {
       "tags": [
@@ -918,9 +905,7 @@
       ]
     },
     "knife-hit": {
-      "tags": [
-        "hypercasual"
-      ]
+      "tags": []
     },
     "오늘도-환생-2": {
       "tags": [
@@ -938,9 +923,7 @@
       ]
     },
     "스택-볼-플랫폼을-다-뚫어버리세요": {
-      "tags": [
-        "hypercasual"
-      ]
+      "tags": []
     },
     "픽셀-히어로즈-방치형-rpg": {
       "tags": [
@@ -968,9 +951,7 @@
       ]
     },
     "안티스트레스-릴렉스-토이": {
-      "tags": [
-        "hypercasual"
-      ]
+      "tags": []
     },
     "용사가-돌아왔다-키우기": {
       "tags": [

@@ -1,7 +1,10 @@
 {
   "slug": "muse-spark-13-contributor",
   "site": "aiscroll",
-  "category": "hot",
+  "category": "reviews",
+  "legacyPaths": [
+    "/article/hot/muse-spark-13-contributor/"
+  ],
   "topics": ["meta", "coding-agents", "pricing"],
   "author": "Editor J",
   "status": "approved",

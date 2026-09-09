@@ -2,17 +2,17 @@
 body a:not(.rk-preview-link):not(.rk-btn),
 body a:not(.rk-preview-link):not(.rk-btn):hover,
 body a:not(.rk-preview-link):not(.rk-btn):visited {
-  color: #515154 !important;
+  color: var(--text-secondary) !important;
 }
 body .gs-header .gs-nav a.active,
 body .gs-header .gs-nav a:hover,
 body .site-container .rk .rk-tabs a.active,
 body .site-container .rk .rk-subnav a.active,
 body .site-container .rk-home .rk-hpanel .nm > button[aria-pressed="true"] {
-  color: #1d1d1f !important;
+  color: var(--text) !important;
 }
 body .site-container .rk-home .rk-hpanel .nm > button[aria-pressed="true"] { font-weight: 600; }
-body .site-container .rk-home .rk-hpanel .nm > button:hover { color: #1d1d1f; text-decoration: underline; }
+body .site-container .rk-home .rk-hpanel .nm > button:hover { color: var(--text); text-decoration: underline; }
 body .site-container .rk .rk-chg.down,
 body .site-container .rk .rk-downc,
 body .site-container .rk .rk-tagnew,
@@ -31,16 +31,22 @@ body .site-container .article-toc-text,
 body .site-container .sidebar-article-rank,
 body .site-container .home-trend-card-category,
 body .site-container .home-trend-card-title-text {
-  color: #515154 !important;
+  color: var(--text-secondary) !important;
 }
-body .site-container .rk .rk-cardl:hover .t { color: #1d1d1f !important; }
+body .site-container .rk .rk-cardl:hover .t { color: var(--text) !important; }
+/* 기사 목차의 현재 절: 다른 항목(회색)과 구분되게 검정 — 글자 3색 정책의 --text (2026-09-09) */
+body .site-container .article-toc-item.is-current,
+body .site-container .article-toc-item.is-current:hover,
+body .site-container .article-toc-item.is-current:visited,
+body .site-container .article-toc-item.is-current .article-toc-num,
+body .site-container .article-toc-item.is-current .article-toc-text { color: var(--text) !important; }
 body .site-container .index-link.active { color: #fff !important; }
 body .site-container .tab-btn,
 body .site-container .tab-btn.active,
-body .nav .nav-item.active { color: #1d1d1f !important; }
+body .nav .nav-item.active { color: var(--text) !important; }
 body .site-container .blog-content a { text-decoration: underline; text-underline-offset: 3px; }
-body .site-container .rk .rk-btn:not(.primary) { color: #515154 !important; }
+body .site-container .rk .rk-btn:not(.primary) { color: var(--text-secondary) !important; }
 body .site-container .rk .rk-btn.primary,
 body .site-container .rk .rk-preview-link { color: #fff !important; }
 body .site-container .rk .gs-list-action,
-body .site-container .rk .gs-list-action:hover { color: #515154 !important; }
+body .site-container .rk .gs-list-action:hover { color: var(--text-secondary) !important; }

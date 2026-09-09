@@ -1,36 +1,144 @@
 {
-  "updatedAt": "2026-07-16T07:40:50.377Z",
+  "updatedAt": "2026-09-09T10:10:39.795Z",
   "period": "7days",
   "articles": [
     {
-      "category": "openai",
-      "slug": "chatgpt-desktop-app",
-      "views": 5,
-      "path": "/article/openai/chatgpt-desktop-app/"
-    },
-    {
-      "category": "openai",
-      "slug": "gpt-5-6-checkpoint-svg-leak",
-      "views": 5,
-      "path": "/article/openai/gpt-5-6-checkpoint-svg-leak/"
-    },
-    {
-      "category": "ai",
-      "slug": "ai-model-intentional-performance-degradation",
-      "views": 4,
-      "path": "/article/ai/ai-model-intentional-performance-degradation/"
+      "category": "general",
+      "slug": "september-ai-model-war",
+      "views": 31,
+      "path": "/article/general/september-ai-model-war/"
     },
     {
       "category": "general",
-      "slug": "ai-subscription-login-gemini-holdout",
-      "views": 4,
-      "path": "/article/general/ai-subscription-login-gemini-holdout/"
+      "slug": "muse-spark-1-3-opencode",
+      "views": 8,
+      "path": "/article/general/muse-spark-1-3-opencode/"
     },
     {
       "category": "general",
-      "slug": "moltbook-ai-social-network",
+      "slug": "september-ai-model-war",
+      "views": 8,
+      "path": "/article/general/september-ai-model-war"
+    },
+    {
+      "category": "general",
+      "slug": "nvidia-feynman-architecture-2028",
+      "views": 7,
+      "path": "/article/general/nvidia-feynman-architecture-2028/"
+    },
+    {
+      "category": "ai-tools",
+      "slug": "cursor-composer-2-coding-model",
+      "views": 6,
+      "path": "/article/ai-tools/cursor-composer-2-coding-model/"
+    },
+    {
+      "category": "general",
+      "slug": "agent-mix-multi-model-stack",
+      "views": 6,
+      "path": "/article/general/agent-mix-multi-model-stack/"
+    },
+    {
+      "category": "google",
+      "slug": "apple-siri-gemini-partnership",
+      "views": 6,
+      "path": "/article/google/apple-siri-gemini-partnership/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-revenue-19b-openai-gap",
+      "views": 5,
+      "path": "/article/anthropic/anthropic-revenue-19b-openai-gap/"
+    },
+    {
+      "category": "general",
+      "slug": "kurzweil-singularity-review-2026",
+      "views": 5,
+      "path": "/article/general/kurzweil-singularity-review-2026/"
+    },
+    {
+      "category": "general",
+      "slug": "mistral-small4-unified-moe",
+      "views": 5,
+      "path": "/article/general/mistral-small4-unified-moe/"
+    },
+    {
+      "category": "general",
+      "slug": "open-source-ai-slop-crisis",
+      "views": 5,
+      "path": "/article/general/open-source-ai-slop-crisis/"
+    },
+    {
+      "category": "news",
+      "slug": "gemini-35-pro-crisis",
+      "views": 5,
+      "path": "/article/news/gemini-35-pro-crisis/"
+    },
+    {
+      "category": "news",
+      "slug": "muse-spark-1-3-opencode",
+      "views": 5,
+      "path": "/article/news/muse-spark-1-3-opencode/"
+    },
+    {
+      "category": "openai",
+      "slug": "codex-referral-reset-growth",
+      "views": 5,
+      "path": "/article/openai/codex-referral-reset-growth/"
+    },
+    {
+      "category": "vibecoding",
+      "slug": "codex-install-guide-mac",
+      "views": 5,
+      "path": "/article/vibecoding/codex-install-guide-mac/"
+    },
+    {
+      "category": "anthropic",
+      "slug": "anthropic-b2b-strategy-success",
       "views": 4,
-      "path": "/article/general/moltbook-ai-social-network/"
+      "path": "/article/anthropic/anthropic-b2b-strategy-success/"
+    },
+    {
+      "category": "general",
+      "slug": "applovin-ai-ad-gaming-revenue",
+      "views": 4,
+      "path": "/article/general/applovin-ai-ad-gaming-revenue/"
+    },
+    {
+      "category": "general",
+      "slug": "china-frontier-model-surge",
+      "views": 4,
+      "path": "/article/general/china-frontier-model-surge/"
+    },
+    {
+      "category": "general",
+      "slug": "coding-agent-market-share-war-anthropic-openai",
+      "views": 4,
+      "path": "/article/general/coding-agent-market-share-war-anthropic-openai/"
+    },
+    {
+      "category": "general",
+      "slug": "deepseek-mimo-price-war",
+      "views": 4,
+      "path": "/article/general/deepseek-mimo-price-war/"
+    },
+    {
+      "category": "general",
+      "slug": "karpathy-ai-job-exposure-score",
+      "views": 4,
+      "path": "/article/general/karpathy-ai-job-exposure-score/"
+    },
+    {
+      "category": "google",
+      "slug": "antigravity-usage-rollback-gemini-partial-revert",
+      "views": 4,
+      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
+    },
+    {
+      "category": "google",
+      "slug": "gemini-deep-think-hallucination-backlash",
+      "views": 4,
+      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
     },
     {
       "category": "google",
@@ -39,148 +147,40 @@
       "path": "/article/google/google-ai-pro-antigravity-rate-limit-crisis/"
     },
     {
+      "category": "google",
+      "slug": "google-io-2026-agentic-gemini",
+      "views": 4,
+      "path": "/article/google/google-io-2026-agentic-gemini/"
+    },
+    {
+      "category": "hot",
+      "slug": "coding-agent-picks-2026-09",
+      "views": 4,
+      "path": "/article/hot/coding-agent-picks-2026-09/"
+    },
+    {
+      "category": "news",
+      "slug": "gpt6-astra-fable-comparison",
+      "views": 4,
+      "path": "/article/news/gpt6-astra-fable-comparison/"
+    },
+    {
+      "category": "news",
+      "slug": "september-ai-model-war",
+      "views": 4,
+      "path": "/article/news/september-ai-model-war/"
+    },
+    {
+      "category": "openai",
+      "slug": "ai-saturates-coding-math-contests",
+      "views": 4,
+      "path": "/article/openai/ai-saturates-coding-math-contests/"
+    },
+    {
       "category": "openai",
       "slug": "gpt-5-4-mixed-reactions-benchmark-controversy",
       "views": 4,
       "path": "/article/openai/gpt-5-4-mixed-reactions-benchmark-controversy/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-mac",
-      "views": 4,
-      "path": "/article/vibecoding/claude-code-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "claude-code-install-guide-windows",
-      "views": 4,
-      "path": "/article/vibecoding/claude-code-install-guide-windows/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "codex-install-guide-mac",
-      "views": 4,
-      "path": "/article/vibecoding/codex-install-guide-mac/"
-    },
-    {
-      "category": "vibecoding",
-      "slug": "vibe-coding-version-control-guide",
-      "views": 4,
-      "path": "/article/vibecoding/vibe-coding-version-control-guide/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "anthropic-colossus-claude-higher-limits",
-      "views": 3,
-      "path": "/article/anthropic/anthropic-colossus-claude-higher-limits/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-agent-sdk-credit-pause",
-      "views": 3,
-      "path": "/article/anthropic/claude-agent-sdk-credit-pause/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "claude-opus-4-8-launch",
-      "views": 3,
-      "path": "/article/anthropic/claude-opus-4-8-launch/"
-    },
-    {
-      "category": "anthropic",
-      "slug": "korea-chipmakers-mythos-glasswing-access",
-      "views": 3,
-      "path": "/article/anthropic/korea-chipmakers-mythos-glasswing-access/"
-    },
-    {
-      "category": "general",
-      "slug": "best-coding-agents-2026-ranked",
-      "views": 3,
-      "path": "/article/general/best-coding-agents-2026-ranked/"
-    },
-    {
-      "category": "general",
-      "slug": "claude-code-vs-codex-coding-agent",
-      "views": 3,
-      "path": "/article/general/claude-code-vs-codex-coding-agent/"
-    },
-    {
-      "category": "general",
-      "slug": "glm-5-2-user-reviews",
-      "views": 3,
-      "path": "/article/general/glm-5-2-user-reviews/"
-    },
-    {
-      "category": "general",
-      "slug": "le-chaton-fat-mistral-meme",
-      "views": 3,
-      "path": "/article/general/le-chaton-fat-mistral-meme/"
-    },
-    {
-      "category": "general",
-      "slug": "meta-hatch-vibe-coding-agent",
-      "views": 3,
-      "path": "/article/general/meta-hatch-vibe-coding-agent/"
-    },
-    {
-      "category": "general",
-      "slug": "musk-openai-lawsuit-escalation",
-      "views": 3,
-      "path": "/article/general/musk-openai-lawsuit-escalation/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-feynman-architecture-2028",
-      "views": 3,
-      "path": "/article/general/nvidia-feynman-architecture-2028/"
-    },
-    {
-      "category": "general",
-      "slug": "nvidia-vera-rubin-agentic-ai",
-      "views": 3,
-      "path": "/article/general/nvidia-vera-rubin-agentic-ai/"
-    },
-    {
-      "category": "general",
-      "slug": "spacex-ipo-record-nasdaq-debut",
-      "views": 3,
-      "path": "/article/general/spacex-ipo-record-nasdaq-debut/"
-    },
-    {
-      "category": "general",
-      "slug": "upstage-solar-aaii-40-top3",
-      "views": 3,
-      "path": "/article/general/upstage-solar-aaii-40-top3/"
-    },
-    {
-      "category": "general",
-      "slug": "xai-exodus-grok-crisis",
-      "views": 3,
-      "path": "/article/general/xai-exodus-grok-crisis/"
-    },
-    {
-      "category": "general",
-      "slug": "xai-talent-exodus-grok-crisis",
-      "views": 3,
-      "path": "/article/general/xai-talent-exodus-grok-crisis/"
-    },
-    {
-      "category": "google",
-      "slug": "antigravity-usage-rollback-gemini-partial-revert",
-      "views": 3,
-      "path": "/article/google/antigravity-usage-rollback-gemini-partial-revert/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-31-pro-release",
-      "views": 3,
-      "path": "/article/google/gemini-31-pro-release/"
-    },
-    {
-      "category": "google",
-      "slug": "gemini-deep-think-hallucination-backlash",
-      "views": 3,
-      "path": "/article/google/gemini-deep-think-hallucination-backlash/"
     }
   ]
 }

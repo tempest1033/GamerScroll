@@ -35,7 +35,6 @@ function compile(survey, manual) {
     const candidates = [];
     const categories = sources.flatMap(s => s.categories);
     if (categories.some(c => ['방치형 RPG', '방치형'].includes(c))) candidates.push('idle');
-    if (categories.includes('하이퍼캐주얼')) candidates.push('hypercasual');
     const pendingTags = candidates.filter(t => !(override?.tags || []).includes(t));
     if (pendingTags.length) reasons.push('tag-review');
     games[slug] = { genres, sources, reviewReasons: reasons, suggestedTags: pendingTags };

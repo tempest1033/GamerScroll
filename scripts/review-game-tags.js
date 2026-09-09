@@ -16,11 +16,10 @@ function reviewTags(survey, config, decisions, legacy) {
     const signals = {
       'lineage-like': /MMORPG|공성전|혈맹|필드.{0,15}PK/i.test(text) || categories.includes('MMORPG'),
       subculture: categories.includes('애니메이션') || /서브컬[처쳐]|미소녀|미소년/.test(text) || legacySlugs.has(slug),
-      idle: categories.some(c => ['방치형 RPG', '방치형'].includes(c)) || /방치형/.test(text),
-      hypercasual: categories.includes('하이퍼캐주얼')
+      idle: categories.some(c => ['방치형 RPG', '방치형'].includes(c)) || /방치형/.test(text)
     };
     const reviews = {};
-    for (const tag of ['lineage-like', 'subculture', 'idle', 'hypercasual']) {
+    for (const tag of ['lineage-like', 'subculture', 'idle']) {
       const confirmed = decisions.confirmed[tag]?.[slug];
       const excluded = decisions.excluded[tag]?.[slug];
       const pending = decisions.pending[tag]?.[slug];
@@ -46,7 +45,7 @@ function reviewTags(survey, config, decisions, legacy) {
   for (const [tag, entries] of Object.entries(decisions.confirmed)) {
     for (const slug of Object.keys(entries)) if (!survey.games[slug]) throw new Error(`Unknown reviewed slug: ${tag}/${slug}`);
   }
-  for (const tag of ['lineage-like', 'subculture', 'idle', 'hypercasual']) {
+  for (const tag of ['lineage-like', 'subculture', 'idle']) {
     audit.summary[tag] = {};
     for (const g of Object.values(audit.games)) {
       const status = g.tags[tag].status;

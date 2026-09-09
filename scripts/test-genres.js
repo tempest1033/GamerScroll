@@ -50,7 +50,7 @@ console.log('PASS 장르·태그·중복 분류·미분류·현재 전체 순위
     for (const width of [1440, 390]) {
       const page = await browser.newPage({ viewport: { width, height: 1000 } });
       await page.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort());
-      for (const category of ['rpg', 'subculture', 'hypercasual']) {
+      for (const category of ['rpg', 'subculture', 'idle']) {
         try {
           await page.goto(`${base}/rankings/genres/${category}/`, { waitUntil: 'networkidle' });
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
