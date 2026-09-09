@@ -3,14 +3,8 @@
 const axios = require('axios');
 const sharp = require('sharp');
 
-const EDITORIAL_CHECKS = new Set([
-  'content/keyphrase-in-subheading',
-  'content/keyphrase-in-img-alt',
-  'content/density'
-]);
-
 function checkStatus(check) {
-  return check.pass ? 'PASS' : EDITORIAL_CHECKS.has(check.name) ? 'WARN' : 'FAIL';
+  return check.pass ? 'PASS' : 'FAIL';
 }
 
 async function imageHotlinkCheck($, pageUrl) {

@@ -1,0 +1,299 @@
+{
+  "slug": "muse-spark-13-contributor",
+  "site": "aiscroll",
+  "category": "hot",
+  "topics": ["meta", "coding-agents", "pricing"],
+  "author": "Editor J",
+  "status": "approved",
+  "date": "",
+  "title": "모델 추천 - 뮤즈 스파크 1.3 최고의 가격 대비 성능을 가진 모델",
+  "summary": "뮤즈 스파크 1.3은 컨트리뷰터 가격에서 구현 담당 워커로 추천할 만하다. 언어 능력과 넓은 맥락 판단의 아쉬움, 데이터 공유 조건, 오픈코드 Go 월 10달러 구독을 함께 살펴봤다.",
+  "keywords": "뮤즈 스파크 1.3, 컨트리뷰터, 오픈코드 Go, 오픈라우터",
+  "thumbnail": "/assets/images/tech/ai/muse-spark-13-contributor/thumbnail.webp",
+  "content": [
+    {
+      "type": "text",
+      "value": "최근 코딩 모델로 관심을 모으는 메타의 뮤즈 스파크 1.3은 가격부터 눈에 들어온다. 메타가 제공하는 컨트리뷰터 요금은 100만 토큰당 입력 0.10달러, 출력 0.20달러다. 데이터 공유에 동의해야 하는 조건이 있지만, 구현 작업을 자주 맡기는 용도라면 부담이 매우 낮다."
+    },
+    {
+      "type": "text",
+      "value": "직접 사용하며 높게 평가한 부분도 구현 능력과 비용의 조합이었다. 제목의 '최고의 가격 대비 성능'은 모든 모델을 동일 조건으로 비교한 순위가 아니라, 컨트리뷰터 가격으로 구현 담당 워커를 고를 때의 개인적인 추천이다. 가격과 이용 조건은 2026년 9월 9일 공식 문서를 기준으로 정리했다."
+    },
+    {
+      "type": "heading",
+      "value": "메타가 내놓은 코딩·에이전트 모델, 뮤즈 스파크 1.3"
+    },
+    {
+      "type": "text",
+      "value": "뮤즈 스파크 1.3은 메타가 9월 2일 공개한 AI 모델이다. 도구를 사용해 여러 단계의 작업을 수행하는 에이전트 기능과 코딩 능력을 개선했고, 메타의 코딩 도구인 뮤즈 코드와 메타 모델 API에서 제공한다. 단순히 답변을 생성하는 데 그치지 않고, 실제 작업을 진행하는 환경을 겨냥한 모델이다."
+    },
+    {
+      "type": "text",
+      "value": "[메타의 공식 발표](https://research.meta.ai/blog/introducing-muse-spark-1-3)에 따르면 내부 엔지니어 비교에서 1.2보다 도구 호출은 약 20%, 토큰 사용은 약 25% 줄었다. 메타 자체 평가이므로 모든 작업에서 같은 효과가 난다는 뜻은 아니다. 다만 코딩 성능뿐 아니라 작업에 드는 비용과 호출 횟수를 줄이는 방향으로 개선하고 있다."
+    },
+    {
+      "type": "text",
+      "value": "출시 직후에는 오픈코드 창업자 dax가 뮤즈 스파크가 딥시크를 제치고 일간 최다 사용 모델이 됐다는 게시물을 올리기도 했다. 초기 반응은 [출시 직후 사용량 보도](/ko/article/news/muse-spark-1-3-opencode/)에서도 소개했다. 사용량이 성능 순위는 아니지만, 개발자들이 실제로 선택하고 있는 모델이라는 배경은 된다."
+    },
+    {
+      "type": "heading",
+      "value": "저렴한 가격의 전제는 데이터 공유와 학습 활용 동의"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/muse-spark-13-contributor/meta-pricing.webp",
+      "caption": "메타 공식 가격표의 일반형·컨트리뷰터 단가 비교. 100만 토큰당 달러, 2026년 9월 9일 확인",
+      "alt": "뮤즈 스파크 1.3 컨트리뷰터와 일반형의 입력·출력·캐시 입력 단가 비교"
+    },
+    {
+      "type": "text",
+      "value": "컨트리뷰터는 오픈코드가 만든 할인 등급이 아니라 메타의 요금 정책이다. [메타 공식 가격표](https://dev.meta.ai/docs/pricing-rate-limits#contributor-tier)는 프롬프트와 응답을 향후 메타 모델 학습에 활용할 권한을 제공하는 대가로 요금을 낮춘다고 명시한다. 일반형과 컨트리뷰터의 차이를 먼저 구분해야 한다."
+    },
+    {
+      "type": "table",
+      "caption": "메타 모델 API 공식 요금. 2026년 9월 9일 확인, 100만 토큰당 달러",
+      "headers": ["구분", "입력", "출력", "캐시 입력", "학습 활용"],
+      "rows": [
+        ["일반형 Standard", "1.25", "4.25", "0.15", "프롬프트·응답을 학습에 사용하지 않음"],
+        ["컨트리뷰터 Contributor", "0.10", "0.20", "0.002", "프롬프트·응답의 학습 활용 허용"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "컨트리뷰터 모델은 데이터 공유를 허용해야 사용할 수 있다. 이용 서비스에서 학습용 데이터 공유 옵션을 제공한다면 이를 켜야 한다. 입력한 프롬프트와 코드, 모델의 응답은 메타의 모델 학습에 사용될 수 있으며, 단순히 익명 사용량 통계만 제공하는 조건이 아니다."
+    },
+    {
+      "type": "text",
+      "value": "특히 오픈라우터에서는 [개인정보 설정](https://openrouter.ai/settings/privacy)의 제공자 학습 허용 옵션을 확인해야 한다. 공식 문서상 무료 모델과 유료 모델의 허용 설정은 별도이며, 학습을 허용하지 않으면 학습에 데이터를 사용하는 제공자로 요청을 연결하지 않는다. 컨트리뷰터를 쓰기 위해서는 해당 모델에 맞는 허용 설정이 필요하다."
+    },
+    {
+      "type": "text",
+      "value": "오픈코드 Go도 이 모델을 학습 활용 대상이자 데이터 미보관 상품이 아닌 것으로 안내한다. 회사의 비공개 코드나 개인정보처럼 외부 공유가 제한된 자료를 넣어도 된다는 뜻은 아니다. 데이터 제공이 어려운 작업이라면 이 가격의 추천 대상에서 제외하는 편이 맞다."
+    },
+    {
+      "type": "heading",
+      "value": "구현은 우수하지만, 전체 판단보다 워커 역할에 어울린다"
+    },
+    {
+      "type": "text",
+      "value": "사용하며 가장 만족스러웠던 부분은 구현 성능이었다. 무엇을 만들어야 하는지 정해진 작업에서는 충분히 제 역할을 했다. 여러 AI가 역할을 나눠 일하는 오케스트레이션에서도, 구현을 맡기는 워커로 활용할 가치가 있다고 느꼈다."
+    },
+    {
+      "type": "text",
+      "value": "반면 언어 능력은 다소 아쉬웠고, 작업을 바라보는 시야가 좁다는 인상도 있었다. 눈앞의 구현을 진행하는 능력과 넓은 맥락에서 중요한 것을 판단하는 능력 사이에 차이가 느껴졌다. 직접 사용한 범위에서는 최상위 프런티어 모델을 전반적으로 대체하기보다 역할을 제한해 쓰는 쪽이 잘 맞았다."
+    },
+    {
+      "type": "text",
+      "value": "그래서 추천하는 구성은 전체 방향과 작업 분배, 최종 검토를 상위 모델이 맡고 뮤즈 스파크 1.3은 범위를 정한 구현을 담당하는 방식이다. 저렴하다고 모든 판단을 넘기는 것이 아니라, 잘하는 부분을 많이 맡기는 접근이다. 이는 별도의 정량 벤치마크 결과가 아닌 실제 사용감에 따른 활용 제안이다."
+    },
+    {
+      "type": "heading",
+      "value": "무료 체험은 Zen, 넉넉한 사용량은 월 10달러 오픈코드 Go"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/muse-spark-13-contributor/go-allowance.webp",
+      "caption": "월 10달러 Go 구독에 적용되는 사용량 한도. 5시간·주간·월간 한도가 함께 적용된다",
+      "alt": "월 10달러 구독의 5시간 12달러·주간 30달러·월간 60달러 상당 사용량"
+    },
+    {
+      "type": "text",
+      "value": "처음 써보고 싶다면 오픈코드 Zen의 `Muse Spark 1.3 Contributor Free`를 선택할 수 있다. [Zen 공식 문서](https://opencode.ai/docs/zen/)는 이를 한시적 무료 모델로 안내한다. Go 구독과는 별도 경로이며, 무료로 제공되는 한도 안에서 시험해 본 뒤 구독 여부를 결정하면 된다. 공개 문서에 고정된 무료 할당량 수치는 없어 무제한 사용을 전제로 해서는 안 된다."
+    },
+    {
+      "type": "text",
+      "value": "꾸준히 사용한다면 [오픈코드 Go 구독](https://opencode.ai/go)이 매력적이다. 월 10달러를 내면 Go의 별도 사용량 한도 안에서 컨트리뷰터 모델을 쓸 수 있다. 메타가 모델과 저렴한 단가를 제공하고, 오픈코드는 구독에 포함되는 사용량을 따로 책정한 구조다. 현재 이 모델에 적용되는 Go의 사용량 조건이 특히 넉넉하다."
+    },
+    {
+      "type": "table",
+      "caption": "오픈코드 Go의 뮤즈 스파크 1.3 컨트리뷰터 사용량 조건. 2026년 9월 9일 확인",
+      "headers": ["항목", "공식 안내"],
+      "rows": [
+        ["구독료", "월 10달러"],
+        ["5시간 한도", "12달러 상당 사용량"],
+        ["주간 한도", "30달러 상당 사용량"],
+        ["월간 한도", "60달러 상당 사용량"],
+        ["공식 추정 요청 수", "5시간 45,300회 / 월 226,600회"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "각 기간의 한도가 함께 적용되며, 달러 상당 사용량은 현금이나 환급 가능한 크레딧이 아니다. [Go 공식 문서](https://opencode.ai/docs/go/#usage-limits)의 요청 횟수 역시 보장 횟수가 아니라 추정치다. 뮤즈 스파크 기준 요청당 신규 입력 620토큰, 캐시 입력 71,400토큰, 출력 300토큰이라는 가정을 사용한다. 캐시 활용이 적거나 출력이 길어지면 실제 요청 수는 줄어든다."
+    },
+    {
+      "type": "text",
+      "value": "이용하려면 오픈코드 계정으로 Go에 구독하고 API 키를 발급받으면 된다. 오픈코드에서는 `/connect`로 `OpenCode Go`를 연결한 뒤 `/models`에서 `Muse Spark 1.3 Contributor`를 선택한다. 다른 코딩 에이전트에서도 사용할 수 있지만 클라이언트별 지원 조건을 확인해야 한다. Go 문서는 이 모델에 메타 정책에 따른 지역 제한이 있다고 안내한다."
+    },
+    {
+      "type": "text",
+      "value": "구독 대신 사용한 만큼 결제하고 싶다면 [오픈라우터의 컨트리뷰터 모델](https://openrouter.ai/meta/muse-spark-1.3-contributor)도 선택지다. 오픈라우터에서 고를 모델 ID는 `meta/muse-spark-1.3-contributor`이며, 일반형과 구분해야 한다. 결제 경로가 바뀌어도 학습용 데이터 공유를 허용해야 한다는 전제는 달라지지 않는다."
+    },
+    {
+      "type": "heading",
+      "value": "지금은 저렴한 구현 담당으로, 다음 메타 모델은 더 기대된다"
+    },
+    {
+      "type": "text",
+      "value": "뮤즈 스파크 1.3을 추천하는 이유는 모든 영역에서 가장 뛰어나서가 아니다. 아쉬운 부분을 감안하더라도 컨트리뷰터 가격에서 구현 능력 대비 비용이 매우 낮고, 오픈코드 Go의 현재 사용량 책정까지 더하면 자주 활용하기 좋기 때문이다. 데이터 공유가 가능한 작업에 한해 저렴한 워커를 찾는다면 먼저 써볼 만하다."
+    },
+    {
+      "type": "text",
+      "value": "반대로 일반형 정가나 메타의 정규 구독 상품까지 같은 수준으로 추천하는 것은 아니다. 비용 조건이 바뀌면 다른 모델과 비교했을 때의 매력도 떨어진다고 본다. 이번 추천은 컨트리뷰터의 저렴한 가격과 실제 구현 능력을 함께 놓고 내린 평가다."
+    },
+    {
+      "type": "text",
+      "value": "메타는 1.3 발표에서 더 큰 모델과 뮤즈 스파크의 오픈 웨이트 공개도 예고했다. 구체적인 일정과 성능은 지켜봐야 하지만, 이번 모델의 구현 능력에 언어 능력과 넓은 맥락을 판단하는 힘이 더해진다면 맡길 수 있는 역할도 늘어날 것이다. 지금은 가격 좋은 구현 담당으로 추천하고, 다음 메타 모델은 그보다 더 큰 기대를 갖고 기다리게 된다."
+    }
+  ],
+  "titleEn": "Muse Spark 1.3: My Best-Value Coding Model",
+  "summaryEn": "Muse Spark 1.3 is a low-cost coding worker on Contributor terms. Compare Meta pricing, OpenCode Go's $10 plan, limitations and required data sharing.",
+  "keywordsEn": "Contributor pricing, coding worker, OpenCode Go subscription, training data sharing",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Meta's Muse Spark 1.3 costs $0.10 per million input tokens and $0.20 per million output tokens on its Contributor tier. That price makes the newly released coding worker worth considering for frequent implementation work, provided sharing the work for model training is acceptable."
+    },
+    {
+      "type": "text",
+      "value": "The combination of implementation ability and cost is what stood out in my use. My best-value verdict is a personal recommendation for choosing a coding worker at Contributor pricing, not a ranking from controlled tests of every model. Prices, the OpenCode Go subscription and training data sharing conditions below were checked against official documentation on September 9, 2026."
+    },
+    {
+      "type": "heading",
+      "value": "Muse Spark 1.3: Meta's September Update"
+    },
+    {
+      "type": "text",
+      "value": "Meta released Muse Spark 1.3 on September 2 with improvements to coding and agent workflows that use tools across multiple steps. It is available through Muse Code and the Meta Model API. The focus extends beyond generating answers to carrying out work in an agent environment."
+    },
+    {
+      "type": "text",
+      "value": "In its [official announcement](https://research.meta.ai/blog/introducing-muse-spark-1-3), Meta reported roughly 20% fewer tool calls and 25% fewer tokens than version 1.2 in comparisons by its engineers. Those are Meta's own results, not a promise of equal savings on every task. They show an emphasis on reducing the work and cost needed to complete coding tasks."
+    },
+    {
+      "type": "text",
+      "value": "Shortly after release, OpenCode founder dax posted that Muse Spark had displaced DeepSeek as the most-used model of the day. We covered the initial response in our [earlier OpenCode usage article](/article/news/muse-spark-1-3-opencode/). Usage is not a performance ranking, but it provides context for the attention the model is receiving."
+    },
+    {
+      "type": "heading",
+      "value": "Contributor Pricing Requires Training Data Sharing"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/muse-spark-13-contributor/meta-pricing.webp",
+      "caption": "Meta's Standard and Contributor rates in USD per million tokens, checked September 9, 2026.",
+      "alt": "Contributor pricing compared with Standard input, output and cached input rates"
+    },
+    {
+      "type": "text",
+      "value": "Contributor is Meta's pricing tier, not a discount tier invented by OpenCode. [Meta's pricing documentation](https://dev.meta.ai/docs/pricing-rate-limits#contributor-tier) explicitly exchanges lower rates for permission to use prompts and completions to train future Meta models. Standard and Contributor access therefore need to be considered separately."
+    },
+    {
+      "type": "table",
+      "caption": "Meta Model API prices checked September 9, 2026. USD per million tokens.",
+      "headers": ["Tier", "Input", "Output", "Cached input", "Training policy"],
+      "rows": [
+        ["Standard", "$1.25", "$4.25", "$0.15", "Prompts and completions not used for training"],
+        ["Contributor", "$0.10", "$0.20", "$0.002", "Permission to train on prompts and completions"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Using the Contributor model requires permission to share data. Where the service exposes a training data sharing option, that option must be enabled. Training data sharing covers prompts, submitted code and model responses that may be used to train Meta models. It is not merely permission to collect anonymous usage totals."
+    },
+    {
+      "type": "text",
+      "value": "On OpenRouter, check the provider-training permission in [privacy settings](https://openrouter.ai/settings/privacy). Its documentation distinguishes permissions for free and paid models. Opting out prevents requests from being routed to providers that train on the data, so the appropriate permission must be enabled for Contributor access."
+    },
+    {
+      "type": "text",
+      "value": "For an OpenCode Go subscription, the provider also identifies this model as training-enabled and not zero-data-retention. Low pricing is not permission to submit confidential company code or personal information. If training data sharing is prohibited for the material, this recommendation does not apply to that work."
+    },
+    {
+      "type": "heading",
+      "value": "Strong Implementation, a Better Worker Than Lead"
+    },
+    {
+      "type": "text",
+      "value": "Implementation was the part I liked most. When the work to be built was defined, the model could do its job. I found it useful as a coding worker in orchestration, where multiple models take different roles."
+    },
+    {
+      "type": "text",
+      "value": "Language ability was less satisfying, and its view of the task sometimes felt narrow. There was a gap between implementing the immediate request and judging what matters across a broader context. In my use, this coding worker fit a bounded role better than a general replacement for the top frontier models."
+    },
+    {
+      "type": "text",
+      "value": "My suggested setup is to let a stronger model own the overall direction, task assignment and final review, while Muse Spark 1.3 serves as the coding worker. The point is to give the coding worker more scoped implementation, not to hand over every decision because it is cheap. This is a workflow recommendation from hands-on impressions, not a separate quantitative benchmark."
+    },
+    {
+      "type": "heading",
+      "value": "Free on Zen, Generous Allowances on $10 Go"
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/muse-spark-13-contributor/go-allowance.webp",
+      "caption": "The $10 monthly plan has simultaneous five-hour, weekly and monthly usage limits.",
+      "alt": "Time-window allowances of $12 per five hours, $30 per week and $60 per month"
+    },
+    {
+      "type": "text",
+      "value": "For an initial trial, OpenCode Zen lists `Muse Spark 1.3 Contributor Free`. The [Zen documentation](https://opencode.ai/docs/zen/) describes it as a limited-time free offering. This is separate from a Go subscription: try it within the available free allowance before deciding whether to subscribe. The public documentation does not specify a fixed free quota, so unlimited access should not be assumed."
+    },
+    {
+      "type": "text",
+      "value": "An [OpenCode Go subscription](https://opencode.ai/go) is attractive for regular use. It costs $10 per month and includes the Contributor model within Go's own usage limits. Meta provides the model and discounted token rates; OpenCode separately sets the usage allowance included in its subscription. The current allowance for this model is particularly generous."
+    },
+    {
+      "type": "table",
+      "caption": "OpenCode Go allowance for Muse Spark 1.3 Contributor, checked September 9, 2026.",
+      "headers": ["Item", "Published allowance"],
+      "rows": [
+        ["Subscription", "$10 per month"],
+        ["Five-hour limit", "$12 of usage"],
+        ["Weekly limit", "$30 of usage"],
+        ["Monthly limit", "$60 of usage"],
+        ["Estimated requests", "45,300 per five hours / 226,600 per month"]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "All time-window limits apply together. Dollar-denominated usage is not cash or refundable credit, and the request counts in [Go's documentation](https://opencode.ai/docs/go/#usage-limits) are estimates rather than guarantees. For Muse Spark, the calculation assumes 620 new input tokens, 71,400 cached input tokens and 300 output tokens per request. Less cache reuse or longer outputs will reduce the actual request count."
+    },
+    {
+      "type": "text",
+      "value": "To start an OpenCode Go subscription, subscribe with an OpenCode account and obtain an API key. In OpenCode, use `/connect` to select `OpenCode Go`, then select `Muse Spark 1.3 Contributor` through `/models`. Other coding agents can also use the service, subject to client requirements. Go lists regional restrictions under Meta's geographic policy for this model."
+    },
+    {
+      "type": "text",
+      "value": "For pay-as-you-go access instead of a subscription, [OpenRouter's Contributor model](https://openrouter.ai/meta/muse-spark-1.3-contributor) is another option. Its model ID is `meta/muse-spark-1.3-contributor`, distinct from Standard. Choosing a different billing route does not remove the requirement to allow training data sharing."
+    },
+    {
+      "type": "heading",
+      "value": "A Cheap Worker Today, More to Expect From Meta"
+    },
+    {
+      "type": "text",
+      "value": "I recommend Muse Spark 1.3 not because it leads in every capability, but because a coding worker costs so little on Contributor terms despite its weaknesses. The current allowance on an OpenCode Go subscription makes frequent use even more appealing. For work eligible for training data sharing, it is worth trying as a low-cost implementation worker."
+    },
+    {
+      "type": "text",
+      "value": "That endorsement does not extend equally to Standard API pricing or Meta's regular subscription products. Different costs change the comparison with other models, and I find it less compelling without the Contributor economics. This recommendation rests on the combination of discounted pricing and implementation ability in actual use."
+    },
+    {
+      "type": "text",
+      "value": "Meta's 1.3 announcement also previewed bigger models and a Muse Spark open-weights release. Timing and performance remain to be seen. If future models pair this implementation ability with stronger language skills and broader contextual judgment, they could take on more roles. For now, I recommend an inexpensive coding worker; Meta's next models are something I look forward to."
+    }
+  ],
+  "needTranslate": false,
+  "sources": [
+    {"name": "Meta AI Research", "title": "Introducing Muse Spark 1.3", "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3"},
+    {"name": "Meta", "title": "Pricing and rate limits — Contributor tier", "url": "https://dev.meta.ai/docs/pricing-rate-limits#contributor-tier"},
+    {"name": "OpenCode", "title": "Go — Usage limits and privacy", "url": "https://opencode.ai/docs/go/"},
+    {"name": "OpenCode", "title": "Zen — Free models and privacy", "url": "https://opencode.ai/docs/zen/"},
+    {"name": "OpenRouter", "title": "Muse Spark 1.3 Contributor", "url": "https://openrouter.ai/meta/muse-spark-1.3-contributor"},
+    {"name": "OpenRouter", "title": "Provider Logging — Training on Prompts", "url": "https://openrouter.ai/docs/guides/privacy/provider-logging"},
+    {"name": "dax / X", "title": "Muse Spark becomes the most-used model of the day on OpenCode", "url": "https://x.com/thdxr/status/2095568817275441409"}
+  ],
+  "relatedDocs": ["tech:ai/muse-spark-1-3-opencode", "tech:ai/september-ai-model-war", "tech:ai/coding-agent-picks-2026-09"],
+  "relatedGames": [],
+  "relatedArticles": []
+}

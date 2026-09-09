@@ -444,7 +444,7 @@ function structuralChecks(html, url) {
   }
   checks.push({
     name: 'body/img-alt+caption',
-    pass: imgFail.length === 0 && inlineImages.length > 0,
+    pass: imgFail.length === 0,
     detail: imgFail.length
       ? `${imgFail.length}/${inlineImages.length} fail (e.g. ${imgFail[0].src.slice(-60)})`
       : `${inlineImages.length} inline images OK (hero exempt)`,
@@ -820,12 +820,12 @@ function contentMorphChecks(keyphrases, profile, md) {
   const bodyTotalChars = blocks.bodyParas.reduce((a, p) => a + p.length, 0);
   function boundaryCheck(flags, label, totalSlots) {
     if (totalSlots === 0) {
-      // No slots and short body = OK; no slots and long body = topic missing markers.
-      const ok = bodyTotalChars < 600;
+      // Body images are optional; only existing image alts have a keyword gate.
+      const ok = label === 'in-img-alt' || bodyTotalChars < 600;
       return {
         name: `content/keyphrase-${label}`,
         pass: ok,
-        detail: ok ? 'no slot, short body (exempt)' : `no slot in long body (${bodyTotalChars} chars)`,
+        detail: label === 'in-img-alt' ? 'no inline images (not applicable)' : ok ? 'no slot, short body (exempt)' : `no slot in long body (${bodyTotalChars} chars)`,
       };
     }
     const matchedSlots = (label === 'in-subheading' ? h2NounSets : altNounSets).filter(

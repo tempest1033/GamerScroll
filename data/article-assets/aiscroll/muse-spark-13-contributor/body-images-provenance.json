@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "generated": false,
+  "method": "AIScroll-authored data graphics rendered from SVG; no image model or simulated product screenshot.",
+  "asOf": "2026-09-09",
+  "images": [
+    {
+      "source": "meta-pricing-v2.svg",
+      "delivery": "meta-pricing.webp",
+      "dataSource": "https://dev.meta.ai/docs/pricing-rate-limits#contributor-tier",
+      "units": "USD per 1M tokens",
+      "standard": {"input": 1.25, "output": 4.25, "cachedInput": 0.15},
+      "contributor": {"input": 0.10, "output": 0.20, "cachedInput": 0.002}
+    },
+    {
+      "source": "go-allowance-v2.svg",
+      "delivery": "go-allowance.webp",
+      "dataSource": "https://opencode.ai/docs/go/#usage-limits",
+      "subscriptionUSD": 10,
+      "fiveHourUsageUSD": 12,
+      "weeklyUsageUSD": 30,
+      "monthlyUsageUSD": 60
+    }
+  ]
+}

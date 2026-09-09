@@ -381,9 +381,9 @@ function planMorph(articles) {
   catch (e) { console.error(`morph failed: ${e.message}`); process.exit(2); }
   if (!quiet) process.stderr.write(`[audit-content] morph done in ${((Date.now() - t0) / 1000).toFixed(1)}s\n`);
 
-  // Soft/quality checks are warnings (advisory, tone-preserving); everything
-  // else is a blocking policy/structure failure. Exit code reflects blocking only.
-  const isWarn = (name) => /^(content\/density|content\/keyphrase-in-subheading|content\/sentence-length|content\/paragraph-length|body\/sections|body\/section-length)/.test(name);
+  // Readability and section shape remain advisory. Keyword density and
+  // placement are mandatory; the exit code includes their failures.
+  const isWarn = (name) => /^(content\/sentence-length|content\/paragraph-length|body\/sections|body\/section-length)/.test(name);
   const single = fileArgs.length > 0;
   const failCounts = new Map();
   let blockingArticles = 0;

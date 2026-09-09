@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f9f7ff"/><stop offset="1" stop-color="#eef9ff"/></linearGradient>
+    <linearGradient id="accent"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#c026d3"/></linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <circle cx="1130" cy="25" r="210" fill="#e9ddff" opacity=".65"/>
+  <circle cx="55" cy="710" r="170" fill="#d9f3f5" opacity=".55"/>
+  <rect x="48" y="46" width="7" height="70" rx="3.5" fill="url(#accent)"/>
+  <g font-family="Arial, sans-serif">
+    <text x="78" y="75" font-size="17" font-weight="700" letter-spacing="3" fill="#7c3aed">META MODEL API</text>
+    <text x="76" y="119" font-size="38" font-weight="700" fill="#202139">Muse Spark 1.3 pricing</text>
+    <text x="78" y="154" font-size="20" fill="#62657b">USD per million tokens</text>
+    <rect x="48" y="186" width="1104" height="391" rx="22" fill="#d9d4e7" opacity=".38"/>
+    <rect x="48" y="180" width="1104" height="391" rx="22" fill="#fff"/>
+    <path d="M730 180H1130Q1152 180 1152 202V549Q1152 571 1130 571H730Z" fill="#f2eaff"/>
+    <rect x="746" y="198" width="386" height="54" rx="12" fill="url(#accent)"/>
+    <text x="86" y="235" font-size="22" font-weight="700" fill="#62657b">Token type</text>
+    <text x="555" y="235" text-anchor="middle" font-size="25" font-weight="700" fill="#62657b">Standard</text>
+    <text x="939" y="234" text-anchor="middle" font-size="25" font-weight="700" fill="#fff">Contributor</text>
+    <path d="M78 272H1122M78 366H1122M78 460H1122" stroke="#e8e5f0" stroke-width="1.5"/>
+    <g font-size="26" fill="#34374b">
+      <text x="86" y="327">Input</text>
+      <text x="86" y="421">Output</text>
+      <text x="86" y="515">Cached input</text>
+    </g>
+    <g font-size="36" fill="#5e6378" text-anchor="middle">
+      <text x="555" y="331">$1.25</text>
+      <text x="555" y="425">$4.25</text>
+      <text x="555" y="519">$0.15</text>
+    </g>
+    <g font-size="43" fill="#7625c9" font-weight="700" text-anchor="middle">
+      <text x="939" y="333">$0.10</text>
+      <text x="939" y="427">$0.20</text>
+      <text x="939" y="521">$0.002</text>
+    </g>
+    <rect x="48" y="596" width="1104" height="58" rx="14" fill="#e9e2fa"/>
+    <circle cx="80" cy="625" r="12" fill="#7c3aed"/>
+    <text x="80" y="632" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">!</text>
+    <text x="104" y="632" font-size="22" font-weight="700" fill="#4c287e">Contributor requires training data sharing.</text>
+    <text x="50" y="688" font-size="16" fill="#686b7f">Source: Meta pricing documentation · Checked Sep 9, 2026</text>
+    <text x="1150" y="688" text-anchor="end" font-size="16" font-weight="700" letter-spacing="2" fill="#78718c">AISCROLL</text>
+  </g>
+</svg>

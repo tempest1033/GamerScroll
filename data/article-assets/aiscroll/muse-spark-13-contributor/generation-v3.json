@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "source": "thumbnail-v3.png",
+  "generated": true,
+  "provider": "openai-oauth",
+  "model": "chatgpt-image-auto",
+  "laneSource": "requested",
+  "options": {},
+  "assetId": "158e25bb-e38c-46e7-ac00-c69d15666e77",
+  "prompt": "Use: stylized-concept\nAsset: landscape 16:9 article thumbnail for Meta Muse Spark 1.3, readable at 640 by 360 pixels\nSubject: a large Meta AI Muse symbol on the left, formed by seven separated glossy oval petals arranged tangentially in an open circular flower ring, vivid violet and magenta gradients; the center stays empty\nScene: a dark black and violet studio space with a soft purple halo behind the symbol\nStyle: refined dimensional editorial artwork, luminous glass petals, restrained reflections and soft rim lighting\nComposition: symbol fills the left half; large version numerals fill the right half; balanced generous margins, all key content in central 80 percent\nText: \"Muse Spark\" in clean white sans-serif on the upper right, and \"1.3\" in very large bold white sans-serif beneath it; each appears once, with no other readable text\nAvoid: no infinity logo, no circuit cubes, no people, no watermarks, no interface screenshots, no extra words",
+  "createdAt": "2026-09-09",
+  "createdAtPrecision": "date",
+  "delivery": "thumbnail.webp",
+  "deliverySize": [640, 360],
+  "supersedes": "thumbnail-v2.png",
+  "note": "Generated editorial interpretation of the symbol, not the official vector artwork."
+}

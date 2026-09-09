@@ -289,6 +289,13 @@
     object-fit: cover !important;
   }
 
+  /* 본문 자료 이미지는 원본 비율로 표시하고 섬네일 자르기는 유지한다. */
+  #issue .blog-content .blog-image {
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+  }
+
   /* 단락 제목 - 크기는 공통 아티클 스케일(--font-article-h2-size)을 그대로 쓰고 여백만 조정 */
   #issue .blog-heading,
   #insight .blog-heading,

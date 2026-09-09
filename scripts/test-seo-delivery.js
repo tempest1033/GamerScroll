@@ -8,7 +8,7 @@ const { checkStatus, imageHotlinkCheck } = require('./lib/seo-delivery');
 
 (async () => {
   for (const name of ['content/density', 'content/keyphrase-in-subheading', 'content/keyphrase-in-img-alt']) {
-    assert.equal(checkStatus({ name, pass: false }), 'WARN');
+    assert.equal(checkStatus({ name, pass: false }), 'FAIL');
   }
   assert.equal(checkStatus({ name: 'body/image-hotlink', pass: false }), 'FAIL');
   assert.equal(checkStatus({ name: 'lighthouse/color-contrast', pass: false }), 'FAIL');
@@ -30,7 +30,7 @@ const { checkStatus, imageHotlinkCheck } = require('./lib/seo-delivery');
     assert.deepEqual(requests, ['/valid.png']);
     assert.equal((await imageHotlinkCheck(html('/missing.png'), page)).pass, false);
     assert.equal((await imageHotlinkCheck(html('/fake.png'), page)).pass, false);
-    console.log('SEO delivery: preview-origin resolution, deduplication, 404/invalid images and warning severity passed.');
+    console.log('SEO delivery: preview-origin resolution, deduplication, 404/invalid images and mandatory keyword severity passed.');
   } finally {
     await new Promise(resolve => server.close(resolve));
   }
