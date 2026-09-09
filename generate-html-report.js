@@ -47,6 +47,7 @@ const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
 const { CSS_ASSET_FILES, computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
+const { buildServiceWorker } = require('./src/build/service-worker');
 let currentCssAssetVersion = '';
 
 /**
@@ -132,6 +133,8 @@ function getCssBundlesForDocPath(relativePath) {
 
   if (normalized.startsWith('magazine/')) {
     bundles.push('/styles-report.css', '/styles-article.css');
+  } else if (normalized === 'games/index.html') {
+    bundles.push('/styles-catalog.css');
   } else if (needsGameCss) {
     bundles.push('/styles-game.css');
   }
@@ -957,6 +960,11 @@ async function purgeCssInDocs(docsDir) {
       label: 'styles-game.css',
     },
     {
+      css: `${docsDir}/styles-catalog.css`,
+      content: [`${docsDir}/games/index.html`, './games/index.html'],
+      label: 'styles-catalog.css',
+    },
+    {
       css: `${docsDir}/styles-article.css`,
       content: [
         `${docsDir}/magazine/**/*.html`,
@@ -1306,6 +1314,7 @@ async function main() {
   const cssFilename = '/styles-core.css';
   const cssBundles = [
     { entry: './src/styles/bundle-core.css', output: './styles-core.css', publicPath: '/styles-core.css', label: 'styles-core.css', required: true },
+    { entry: './src/styles/bundle-catalog.css', output: './styles-catalog.css', publicPath: '/styles-catalog.css', label: 'styles-catalog.css', required: true },
     { entry: './src/styles/bundle-report.css', output: './styles-report.css', publicPath: '/styles-report.css', label: 'styles-report.css', required: false },
     { entry: './src/styles/bundle-game.css', output: './styles-game.css', publicPath: '/styles-game.css', label: 'styles-game.css', required: false },
     { entry: './src/styles/bundle-article.css', output: './styles-article.css', publicPath: '/styles-article.css', label: 'styles-article.css', required: false }
@@ -1371,7 +1380,7 @@ async function main() {
     }
   }
 
-  const cssHashTargets = ['./styles-core.css', './styles-report.css', './styles-game.css', './styles-article.css'];
+  const cssHashTargets = CSS_ASSET_FILES.map(filename => `./${filename}`);
   const cssContentHash = didBundleCss
     ? crypto
         .createHash('md5')
@@ -2311,13 +2320,7 @@ async function main() {
       }
     }
 
-    const cssOutputs = [
-      'styles-core.css',
-      'styles-report.css',
-      'styles-game.css',
-      'styles-article.css'
-    ];
-    for (const filename of cssOutputs) {
+    for (const filename of CSS_ASSET_FILES) {
       const srcPath = `./${filename}`;
       if (fs.existsSync(srcPath)) {
         fs.copyFileSync(srcPath, `${DOCS_DIR}/${filename}`);
@@ -2643,122 +2646,7 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     `/assets/${LAYOUT_CORE_ASSET}?v=${runtimeAssetVersion}`,
     `/assets/${LAYOUT_RUNTIME_ASSET}?v=${runtimeAssetVersion}`
   ];
-  const swContent = `const CACHE_NAME = '${swCacheVersion}';
-const STATIC_CACHE = CACHE_NAME + '-static';
-const RUNTIME_CACHE = CACHE_NAME + '-runtime';
-const PRECACHE_URLS = ${JSON.stringify(swPrecacheUrls, null, 2)};
-const STATIC_EXT_RE = /\\.(?:css|js|mjs|png|jpg|jpeg|gif|webp|svg|ico|woff2?|ttf|otf|json)$/i;
-
-async function cachePut(cacheName, request, response) {
-  if (!response || response.status !== 200) return response;
-  const cache = await caches.open(cacheName);
-  cache.put(request, response.clone());
-  return response;
-}
-
-async function networkFirst(request, cacheName, fallbackUrl) {
-  try {
-    const response = await fetch(request);
-    return cachePut(cacheName, request, response);
-  } catch (err) {
-    const cached = await caches.match(request, { ignoreSearch: true });
-    if (cached) return cached;
-    if (fallbackUrl) {
-      const fallback = await caches.match(fallbackUrl, { ignoreSearch: true });
-      if (fallback) return fallback;
-    }
-    throw err;
-  }
-}
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then((cache) => cache.addAll(PRECACHE_URLS))
-      .catch(() => undefined)
-  );
-  // warm-up: rankings JSON (fire-and-forget, does not block install)
-  const warmupUrls = [
-    '/rankings/grossing-ios.json',
-    '/rankings/grossing-android.json',
-    '/rankings/free-ios.json',
-    '/rankings/free-android.json'
-  ];
-  caches.open(RUNTIME_CACHE).then((cache) =>
-    Promise.all(
-      warmupUrls.map((url) =>
-        fetch(url)
-          .then((res) => { if (res.status === 200) cache.put(url, res); })
-          .catch(() => undefined)
-      )
-    )
-  ).catch(() => undefined);
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) =>
-      Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== STATIC_CACHE && cacheName !== RUNTIME_CACHE) {
-            return caches.delete(cacheName);
-          }
-          return null;
-        })
-      )
-    )
-  );
-  self.clients.claim();
-});
-
-self.addEventListener('fetch', (event) => {
-  const request = event.request;
-  if (!request || request.method !== 'GET') return;
-
-  const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
-
-  const accept = request.headers.get('accept') || '';
-  const isHtml = request.mode === 'navigate' || accept.includes('text/html');
-  const isStatic = url.pathname.startsWith('/assets/') ||
-    url.pathname.startsWith('/rankings/') ||
-    STATIC_EXT_RE.test(url.pathname);
-
-  if (isHtml) {
-    event.respondWith(networkFirst(request, RUNTIME_CACHE, '/'));
-    return;
-  }
-
-  if (isStatic) {
-    // ?v= 쿼리 또는 hash-named 경로(/x.abcd1234.css)는 immutable → SWR 안전.
-    // 그 외 unversioned 경로는 network-first로 신선도 우선 (build 직후 stale CSS/JS 방지).
-    const isImmutable = url.searchParams.has('v') || /\\.[a-f0-9]{8,}\\./i.test(url.pathname);
-    if (!isImmutable) {
-      event.respondWith(networkFirst(request, STATIC_CACHE));
-      return;
-    }
-    event.respondWith((async () => {
-      const cached = await caches.match(request);
-      const revalidate = fetch(request)
-        .then((response) => cachePut(STATIC_CACHE, request, response))
-        .catch(() => null);
-
-      if (cached) {
-        event.waitUntil(revalidate);
-        return cached;
-      }
-
-      const fresh = await revalidate;
-      if (fresh) return fresh;
-      return new Response('', { status: 504, statusText: 'Gateway Timeout' });
-    })());
-    return;
-  }
-
-  event.respondWith(networkFirst(request, RUNTIME_CACHE));
-});
-`;
+  const swContent = buildServiceWorker({ version: swCacheVersion, precache: swPrecacheUrls });
   fs.writeFileSync(`${DOCS_DIR}/service-worker.js`, swContent, 'utf8');
   console.log(`🔄 Service Worker 생성 완료: ${swCacheVersion} (CSS: ${cssFilename})`);
 

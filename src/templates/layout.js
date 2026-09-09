@@ -32,7 +32,8 @@ function getPageExtraCssFiles(currentPage = '') {
   const page = String(currentPage || '').toLowerCase();
   let files = [];
   if (page === 'magazine') files = ['/styles-report.css', '/styles-article.css'];
-  if (['home', 'game', 'games', 'rankings', 'steam', 'reports', 'about'].includes(page)) files = ['/styles-game.css'];
+  if (['home', 'game', 'rankings', 'steam', 'reports', 'about'].includes(page)) files = ['/styles-game.css'];
+  if (page === 'games') files = ['/styles-catalog.css'];
   if (page === 'tech') files = ['/styles-article.css'];
   return files.map(withCssAssetVersion);
 }
@@ -67,6 +68,7 @@ function setGlobalSidebarArticles(popular, latest) {
 }
 
 const { generateHead } = require('./components/head');
+const { navigationPrefetchScript } = require('../runtime/navigation-prefetch');
 const { adRequestBootstrap } = require('./components/ad-request');
 const {
   renderAdCard,
@@ -2644,6 +2646,7 @@ function buildLayoutRuntimeBundle(options = {}) {
   const searchIndexVersion = String(options.searchIndexVersion || globalSearchIndexVersion || 'v1');
   const searchCacheKey = `gs_si_${searchIndexVersion}`;
   const scripts = [
+    navigationPrefetchScript,
     footerModalScript,
     adLazyLoadScript,
     imageFallbackScript,

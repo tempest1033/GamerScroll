@@ -21,6 +21,7 @@ const CSS_ASSET_FILES = [
   'styles-report.css',
   'styles-game.css',
   'styles-article.css',
+  'styles-catalog.css',
 ];
 
 const HASHED_CSS_RE = /^styles(?:-[a-z]+)?\.[a-f0-9]{8}\.css$/;

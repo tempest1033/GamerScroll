@@ -126,10 +126,10 @@ function generateGamesHubPage(options = {}) {
     <section class="games-hub-popular">
       <h2 class="games-hub-section-title">인기 게임</h2>
       <div class="games-hub-popular-grid">
-        ${popularGamesWithInfo.map(game => `
+        ${popularGamesWithInfo.map((game, index) => `
           <a href="/games/${game.slug}/" class="games-hub-popular-card">
             <span class="popular-rank">${game.rank}</span>
-            <img src="${resizeIcon(game.icon)}" alt="${game.name}" class="popular-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
+            <img src="${escapeAttribute(resizeIcon(game.icon))}" alt="${escapeAttribute(game.name)}" class="popular-icon" width="64" height="64" loading="${index < 4 ? 'eager' : 'lazy'}" decoding="async" data-img-fallback-src="/icon-192.png">
             <div class="popular-info">
               <span class="popular-name">${game.name}</span>
               <span class="popular-views">${game.views.toLocaleString()}회 조회</span>
@@ -161,17 +161,13 @@ function generateGamesHubPage(options = {}) {
       <h2 class="games-hub-section-title">전체 게임 (${gamesList.length}개)</h2>
       ${initialNav}
       <div class="games-hub-groups">
-        ${existingInitials.map(initial => `
+        ${existingInitials.map((initial, groupIndex) => `
           <details class="games-hub-group" id="initial-${initial}">
 	            <summary class="group-title"><h3>${initial} <span class="group-count">(${grouped[initial].length})</span></h3></summary>
 	            <div class="group-games">
-	              ${grouped[initial].map(game => `
-	                <a href="/games/${game.slug}/" class="game-item" data-slug="${game.slug}">
-	                  <img class="game-item-icon" src="${escapeAttribute(resizeIcon(game.icon) || '/icon-192.png')}" alt="" width="36" height="36" loading="lazy" decoding="async" data-img-fallback-src="/icon-192.png">
-	                  <span class="game-name">${game.name}</span>
-	                </a>
-	              `).join('')}
+	              ${grouped[initial].map(game => `<a href="/games/${escapeAttribute(game.slug)}/" class="game-item"><span class="game-name">${escapeAttribute(game.name)}</span></a>`).join('')}
 	            </div>
+              <script type="application/json" id="gamesIcons${groupIndex}DeferredData">${JSON.stringify(grouped[initial].map(game => resizeIcon(game.icon) || '/icon-192.png')).replace(/</g, '\\u003c')}</script>
 	          </details>
         `).join('')}
       </div>
@@ -257,6 +253,7 @@ function generateGamesHubPage(options = {}) {
 
   // 검색 인덱스 캐시
   let searchIndexCache = null;
+  let searchIndexPending = null;
 
   async function loadSearchIndexOnce() {
     if (searchIndexCache) return searchIndexCache;
@@ -269,24 +266,22 @@ function generateGamesHubPage(options = {}) {
       }
     } catch (e) {}
 
-    try {
-      const res = await fetch(SEARCH_INDEX_URL);
-      if (!res.ok) throw new Error('search-index fetch failed');
-      const raw = await res.json();
-      searchIndexCache = Array.isArray(raw) ? raw : (raw.games || []);
-      try {
-        for(var i=sessionStorage.length-1;i>=0;i--){var sk=sessionStorage.key(i);if(sk&&sk.startsWith('gs_si_')&&sk!==SEARCH_INDEX_CACHE_KEY)sessionStorage.removeItem(sk);}
-        sessionStorage.setItem(SEARCH_INDEX_CACHE_KEY, JSON.stringify(searchIndexCache));
-      } catch (e) {}
-    } catch (e) {
-      searchIndexCache = [];
+    if (!searchIndexPending) {
+      searchIndexPending = (async () => {
+        const res = await fetch(SEARCH_INDEX_URL);
+        if (!res.ok) throw new Error('search-index fetch failed');
+        const raw = await res.json();
+        const list = Array.isArray(raw) ? raw : raw.games;
+        if (!Array.isArray(list)) throw new Error('invalid search index');
+        searchIndexCache = list;
+        try { sessionStorage.setItem(SEARCH_INDEX_CACHE_KEY, JSON.stringify(list)); } catch (e) {}
+        return list;
+      })().finally(() => { searchIndexPending = null; });
     }
-
-    return searchIndexCache;
+    return searchIndexPending;
   }
 
-  // 전체 게임 목록 아이콘: HTML을 가볍게 유지하고(SEO: 텍스트/링크 유지),
-  // 보이는 항목만 search-index 기반으로 lazy hydrate 처리
+  // 텍스트와 링크는 정적 HTML로 유지하고, 펼친 그룹의 아이콘만 불러온다.
   function resizeIconUrl(url) {
     if (!url) return '';
     if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
@@ -294,67 +289,44 @@ function generateGamesHubPage(options = {}) {
     return url;
   }
 
-  function cssUrl(url) {
-    if (!url) return '';
-    url = resizeIconUrl(url);
-    const safe = String(url).replace(/\\\\/g, '\\\\\\\\').replace(/"/g, '\\"');
-    return 'url("' + safe + '")';
-  }
-
-  function createObserver(callback, options) {
-    const gsUtils = getGsUtils();
-    if (typeof gsUtils.createIntersectionObserver === 'function') {
-      return gsUtils.createIntersectionObserver(callback, options);
-    }
-    if (!('IntersectionObserver' in window)) return null;
-    const observer = new IntersectionObserver(function(entries) {
-      callback(entries, observer);
-    }, options || {});
-    return observer;
-  }
-
-  function initGameListIcons() {
-    const items = Array.from(document.querySelectorAll('.game-item[data-slug]'));
-    if (items.length === 0) return;
-
-    requestIdle(async () => {
-      const index = await loadSearchIndexOnce();
-      if (!Array.isArray(index) || index.length === 0) return;
-
-      const iconMap = new Map();
-      for (let i = 0; i < index.length; i++) {
-        const g = index[i];
-        if (!g || !g.slug || !g.icon) continue;
-        iconMap.set(g.slug, g.icon);
+  const pendingGroups = new WeakMap();
+  async function loadGroupIcons(group) {
+    if (!group.open || group.dataset.iconsReady || pendingGroups.has(group)) return;
+    const data = group.querySelector('script[type="application/json"]');
+    if (!data) return;
+    const work = (async () => {
+      let icons;
+      if (data.dataset.src) {
+        const response = await fetch(data.dataset.src);
+        if (!response.ok) throw new Error('group icons fetch failed');
+        icons = await response.json();
+      } else {
+        icons = JSON.parse(data.textContent);
       }
-
-      const observer = createObserver((entries, activeObserver) => {
-        for (let i = 0; i < entries.length; i++) {
-          const entry = entries[i];
-          if (!entry.isIntersecting) continue;
-          const el = entry.target;
-          const icon = iconMap.get(el.dataset.slug);
-          if (icon) el.style.setProperty('--game-icon', cssUrl(icon));
-          if (activeObserver) activeObserver.unobserve(el);
-        }
-      }, { rootMargin: '200px 0px' });
-
-      // 구형 브라우저 폴백: 상단 일부만 적용(대량 이미지 로드를 피함)
-      if (!observer) {
-        const limit = Math.min(80, items.length);
-        for (let i = 0; i < limit; i++) {
-          const el = items[i];
-          const icon = iconMap.get(el.dataset.slug);
-          if (icon) el.style.setProperty('--game-icon', cssUrl(icon));
-        }
-        return;
-      }
-
-      for (let i = 0; i < items.length; i++) {
-        observer.observe(items[i]);
-      }
-    }, 1500, 300);
+      const items = Array.from(group.querySelectorAll('.game-item'));
+      if (!Array.isArray(icons) || icons.length !== items.length) throw new Error('invalid group icons');
+      items.forEach((item, index) => {
+        const image = document.createElement('img');
+        image.className = 'game-item-icon';
+        image.alt = '';
+        image.width = image.height = 36;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        image.dataset.imgFallbackSrc = '/icon-192.png';
+        image.src = icons[index] || '/icon-192.png';
+        item.prepend(image);
+      });
+      group.dataset.iconsReady = '1';
+    })();
+    pendingGroups.set(group, work);
+    try { await work; } catch (error) {
+      // Keep names/links and placeholders usable; reopening retries this optional asset.
+      console.warn('Game icons could not be loaded', error);
+    } finally { pendingGroups.delete(group); }
   }
+  document.querySelector('.games-hub-groups').addEventListener('toggle', event => {
+    if (event.target.matches('.games-hub-group')) loadGroupIcons(event.target);
+  }, true);
 
   // 최근 본 게임 섹션 렌더링
   async function renderRecentGames() {
@@ -402,7 +374,7 @@ function generateGamesHubPage(options = {}) {
     const missingIcons = grid.querySelectorAll('img.recent-icon[data-needs-icon="1"]');
     if (missingIcons.length > 0) {
       requestIdle(async () => {
-        const index = await loadSearchIndexOnce();
+        const index = await loadSearchIndexOnce().catch(() => []);
         if (!Array.isArray(index) || index.length === 0) return;
 
         missingIcons.forEach(img => {
@@ -488,7 +460,7 @@ function generateGamesHubPage(options = {}) {
       if (href === '#top') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        const target = document.querySelector(href);
+        const target = document.getElementById(decodeURIComponent(href.slice(1)));
         if (target) {
           // 초성 그룹은 접혀 있으므로 먼저 펼친 뒤 이동한다.
           if ('open' in target) target.open = true;
@@ -551,7 +523,8 @@ function generateGamesHubPage(options = {}) {
   }
 
   // 초기화
-  // 전체 목록 아이콘은 HTML에서 직접 제공하므로 검색 인덱스를 기다리지 않는다.
+  // 이미 열린 그룹만 처리한다. 닫힌 그룹은 검색 인덱스도 이미지도 요청하지 않는다.
+  document.querySelectorAll('.games-hub-group[open]').forEach(loadGroupIcons);
   renderRecentGames();
   handleSearchQuery();
 
