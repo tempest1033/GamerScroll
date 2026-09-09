@@ -47033,8 +47033,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "요새하는겜 : 전략적 요새 디펜스": {
+      "appIds": {
+        "android": "com.kingkongsoft.jjry.g"
+      },
+      "aliases": [],
+      "developer": "킹콩소프트",
+      "icon": "https://play-lh.googleusercontent.com/q865c2zd_ZhzdMWUU4RRBDGGDnJ_zGyVGfjvp_-0Bn8EhPNPTjUpLKy86uFB_f8sP599svZVvFFWqC7HXl_c",
+      "slug": "요새하는겜-전략적-요새-디펜스",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-10",
-  "totalGames": 3600
+  "totalGames": 3601
 }
