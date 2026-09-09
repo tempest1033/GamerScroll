@@ -5,10 +5,14 @@
   "legacyPaths": [
     "/article/hot/muse-spark-13-contributor/"
   ],
-  "topics": ["meta", "coding-agents", "pricing"],
+  "topics": [
+    "meta",
+    "coding-agents",
+    "pricing"
+  ],
   "author": "Editor J",
   "status": "approved",
-  "date": "",
+  "date": "2026-09-09T11:00Z",
   "title": "모델 추천 - 뮤즈 스파크 1.3 최고의 가격 대비 성능을 가진 모델",
   "summary": "뮤즈 스파크 1.3은 컨트리뷰터 가격에서 구현 담당 워커로 추천할 만하다. 언어 능력과 넓은 맥락 판단의 아쉬움, 데이터 공유 조건, 오픈코드 Go 월 10달러 구독을 함께 살펴봤다.",
   "keywords": "뮤즈 스파크 1.3, 컨트리뷰터, 오픈코드 Go, 오픈라우터",
@@ -55,10 +59,28 @@
     {
       "type": "table",
       "caption": "메타 모델 API 공식 요금. 2026년 9월 9일 확인, 100만 토큰당 달러",
-      "headers": ["구분", "입력", "출력", "캐시 입력", "학습 활용"],
+      "headers": [
+        "구분",
+        "입력",
+        "출력",
+        "캐시 입력",
+        "학습 활용"
+      ],
       "rows": [
-        ["일반형 Standard", "1.25", "4.25", "0.15", "프롬프트·응답을 학습에 사용하지 않음"],
-        ["컨트리뷰터 Contributor", "0.10", "0.20", "0.002", "프롬프트·응답의 학습 활용 허용"]
+        [
+          "일반형 Standard",
+          "1.25",
+          "4.25",
+          "0.15",
+          "프롬프트·응답을 학습에 사용하지 않음"
+        ],
+        [
+          "컨트리뷰터 Contributor",
+          "0.10",
+          "0.20",
+          "0.002",
+          "프롬프트·응답의 학습 활용 허용"
+        ]
       ]
     },
     {
@@ -110,13 +132,31 @@
     {
       "type": "table",
       "caption": "오픈코드 Go의 뮤즈 스파크 1.3 컨트리뷰터 사용량 조건. 2026년 9월 9일 확인",
-      "headers": ["항목", "공식 안내"],
+      "headers": [
+        "항목",
+        "공식 안내"
+      ],
       "rows": [
-        ["구독료", "월 10달러"],
-        ["5시간 한도", "12달러 상당 사용량"],
-        ["주간 한도", "30달러 상당 사용량"],
-        ["월간 한도", "60달러 상당 사용량"],
-        ["공식 추정 요청 수", "5시간 45,300회 / 월 226,600회"]
+        [
+          "구독료",
+          "월 10달러"
+        ],
+        [
+          "5시간 한도",
+          "12달러 상당 사용량"
+        ],
+        [
+          "주간 한도",
+          "30달러 상당 사용량"
+        ],
+        [
+          "월간 한도",
+          "60달러 상당 사용량"
+        ],
+        [
+          "공식 추정 요청 수",
+          "5시간 45,300회 / 월 226,600회"
+        ]
       ]
     },
     {
@@ -193,10 +233,28 @@
     {
       "type": "table",
       "caption": "Meta Model API prices checked September 9, 2026. USD per million tokens.",
-      "headers": ["Tier", "Input", "Output", "Cached input", "Training policy"],
+      "headers": [
+        "Tier",
+        "Input",
+        "Output",
+        "Cached input",
+        "Training policy"
+      ],
       "rows": [
-        ["Standard", "$1.25", "$4.25", "$0.15", "Prompts and completions not used for training"],
-        ["Contributor", "$0.10", "$0.20", "$0.002", "Permission to train on prompts and completions"]
+        [
+          "Standard",
+          "$1.25",
+          "$4.25",
+          "$0.15",
+          "Prompts and completions not used for training"
+        ],
+        [
+          "Contributor",
+          "$0.10",
+          "$0.20",
+          "$0.002",
+          "Permission to train on prompts and completions"
+        ]
       ]
     },
     {
@@ -248,13 +306,31 @@
     {
       "type": "table",
       "caption": "OpenCode Go allowance for Muse Spark 1.3 Contributor, checked September 9, 2026.",
-      "headers": ["Item", "Published allowance"],
+      "headers": [
+        "Item",
+        "Published allowance"
+      ],
       "rows": [
-        ["Subscription", "$10 per month"],
-        ["Five-hour limit", "$12 of usage"],
-        ["Weekly limit", "$30 of usage"],
-        ["Monthly limit", "$60 of usage"],
-        ["Estimated requests", "45,300 per five hours / 226,600 per month"]
+        [
+          "Subscription",
+          "$10 per month"
+        ],
+        [
+          "Five-hour limit",
+          "$12 of usage"
+        ],
+        [
+          "Weekly limit",
+          "$30 of usage"
+        ],
+        [
+          "Monthly limit",
+          "$60 of usage"
+        ],
+        [
+          "Estimated requests",
+          "45,300 per five hours / 226,600 per month"
+        ]
       ]
     },
     {
@@ -288,15 +364,47 @@
   ],
   "needTranslate": false,
   "sources": [
-    {"name": "Meta AI Research", "title": "Introducing Muse Spark 1.3", "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3"},
-    {"name": "Meta", "title": "Pricing and rate limits — Contributor tier", "url": "https://dev.meta.ai/docs/pricing-rate-limits#contributor-tier"},
-    {"name": "OpenCode", "title": "Go — Usage limits and privacy", "url": "https://opencode.ai/docs/go/"},
-    {"name": "OpenCode", "title": "Zen — Free models and privacy", "url": "https://opencode.ai/docs/zen/"},
-    {"name": "OpenRouter", "title": "Muse Spark 1.3 Contributor", "url": "https://openrouter.ai/meta/muse-spark-1.3-contributor"},
-    {"name": "OpenRouter", "title": "Provider Logging — Training on Prompts", "url": "https://openrouter.ai/docs/guides/privacy/provider-logging"},
-    {"name": "dax / X", "title": "Muse Spark becomes the most-used model of the day on OpenCode", "url": "https://x.com/thdxr/status/2095568817275441409"}
+    {
+      "name": "Meta AI Research",
+      "title": "Introducing Muse Spark 1.3",
+      "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3"
+    },
+    {
+      "name": "Meta",
+      "title": "Pricing and rate limits — Contributor tier",
+      "url": "https://dev.meta.ai/docs/pricing-rate-limits#contributor-tier"
+    },
+    {
+      "name": "OpenCode",
+      "title": "Go — Usage limits and privacy",
+      "url": "https://opencode.ai/docs/go/"
+    },
+    {
+      "name": "OpenCode",
+      "title": "Zen — Free models and privacy",
+      "url": "https://opencode.ai/docs/zen/"
+    },
+    {
+      "name": "OpenRouter",
+      "title": "Muse Spark 1.3 Contributor",
+      "url": "https://openrouter.ai/meta/muse-spark-1.3-contributor"
+    },
+    {
+      "name": "OpenRouter",
+      "title": "Provider Logging — Training on Prompts",
+      "url": "https://openrouter.ai/docs/guides/privacy/provider-logging"
+    },
+    {
+      "name": "dax / X",
+      "title": "Muse Spark becomes the most-used model of the day on OpenCode",
+      "url": "https://x.com/thdxr/status/2095568817275441409"
+    }
   ],
-  "relatedDocs": ["tech:ai/muse-spark-1-3-opencode", "tech:ai/september-ai-model-war", "tech:ai/coding-agent-picks-2026-09"],
+  "relatedDocs": [
+    "tech:ai/muse-spark-1-3-opencode",
+    "tech:ai/september-ai-model-war",
+    "tech:ai/coding-agent-picks-2026-09"
+  ],
   "relatedGames": [],
   "relatedArticles": []
 }

@@ -1,17 +1,17 @@
 {
   "meta": {
-    "cssHash": "d01d9300b4bd",
-    "templateJsHash": "1f5302a69801",
-    "faviconSvgHash": null,
-    "lastBuild": "2026-09-09T10:28:59.269Z"
+    "cssHash": "a40d7a713542",
+    "templateJsHash": "2db32986504d",
+    "faviconSvgHash": "5a7e73e93309",
+    "lastBuild": "2026-09-09T10:45:42.357Z"
   },
   "articles": {
-    "grok-46-launch-frontier-push": "c9f1faeba112",
-    "openai-price-cut-deepseek-flash": "0b5b088ad5f6",
-    "claude-opus-5-early-reviews": "a4d5378e7495",
-    "gpt-56-codex-comeback": "7e2eea5d4cdb",
-    "anthropic-pricing-crisis": "95fffd76aeda",
-    "mythos-sovereign-ai-memory": "670a4e883c68",
+    "grok-46-launch-frontier-push": "d56693897c3e",
+    "openai-price-cut-deepseek-flash": "624bee9e5621",
+    "claude-opus-5-early-reviews": "63b796da72dc",
+    "gpt-56-codex-comeback": "069508768d7d",
+    "anthropic-pricing-crisis": "f0211e30d348",
+    "mythos-sovereign-ai-memory": "34d2ff091a76",
     "gpt-56-anthropic-tipping-point": "b52560e33e99",
     "anthropic-cadence-rsi-winner": "9a7b32687188",
     "sakana-fugu-sovereign-ai-benchmark-critique": "11547aefde44",
@@ -227,12 +227,12 @@
     "vibe-coding": "a13ffdb68575",
     "xai-cursor-grok-comeback": "b4ed9bd87618",
     "frontier-ai-release-deadlock": "b45f0ea4bddc",
-    "gemini-35-pro-crisis": "87618d772548",
-    "china-frontier-model-surge": "1ffaf60a35f8",
-    "september-ai-model-war": "1154a3323f95",
-    "muse-spark-1-3-opencode": "647077eb4c4f",
-    "gpt6-astra-fable-comparison": "ccffbd47bb5b",
-    "coding-agent-picks-2026-09": "956c67ab8ad1",
-    "muse-spark-13-contributor": "bdac57f5609e"
+    "gemini-35-pro-crisis": "ecfe2eba8a7e",
+    "china-frontier-model-surge": "b42abb6e3c9b",
+    "september-ai-model-war": "0c0014a7ab2a",
+    "muse-spark-1-3-opencode": "ec5496b66633",
+    "gpt6-astra-fable-comparison": "2a6899c55cf0",
+    "coding-agent-picks-2026-09": "02d14e23cad5",
+    "muse-spark-13-contributor": "148a0abdadc5"
   }
 }
