@@ -1,12 +1,12 @@
 {
   "meta": {
-    "cssHash": "992d03f4",
+    "cssHash": "72a10c02",
     "templateVersion": "1.0",
-    "lastBuild": "2026-09-09T07:06:45.101Z",
-    "sourceCssHash": "aaf2c507dd54",
-    "templateJsHash": "3f7cd3486bcc",
+    "lastBuild": "2026-09-09T07:33:38.704Z",
+    "sourceCssHash": "74230a4fb5ba",
+    "templateJsHash": "8689795f6854",
     "gamePagesCssMtime": 1779708874895.531,
-    "gamePagesCssVersion": "80f6e87b"
+    "gamePagesCssVersion": "9ef05817"
   },
   "games": {
     "60": "9ee478dc171e",
@@ -3961,6 +3961,6 @@
   "daily": {},
   "weekly": {},
   "inputFiles": {
-    "gamePages": "45cc807df55d"
+    "gamePages": "b959f78fc9a1"
   }
 }
