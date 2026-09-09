@@ -39,6 +39,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { publicationLanguages } = require('../src/templates/ai-blog/taxonomy');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 const MORPH_SCRIPT = path.join(__dirname, 'morph_analyze.py');
@@ -293,7 +294,7 @@ function evalArticle(file, json, morph, morphIdx) {
   const sumLen = (json.summary || '').length;
   checks.push({ name: 'meta/summary-len', pass: sumLen > 0 && sumLen <= SUMMARY_CHARS_MAX, detail: `${sumLen} chars (<= ${SUMMARY_CHARS_MAX})` });
 
-  if (isAiscroll) {
+  if (isAiscroll && publicationLanguages(json).includes('en')) {
     const enSumLen = (json.summaryEn || '').length;
     const kw = splitKeywords(json.keywords).join('|');
     const kwEn = splitKeywords(json.keywordsEn).join('|');
@@ -332,7 +333,7 @@ function evalArticle(file, json, morph, morphIdx) {
 
   // --- morph-backed (Kiwi) ---
   checks.push(...evalLang('ko', bodyText(koBlocks), headings, splitKeywords(json.keywords), morph, morphIdx.ko));
-  if (isAiscroll && enBlocks.length) {
+  if (isAiscroll && publicationLanguages(json).includes('en') && enBlocks.length) {
     checks.push(...evalLang('en', bodyText(enBlocks), headingTexts(enBlocks), splitKeywords(json.keywordsEn), morph, morphIdx.en));
   }
 
@@ -347,7 +348,7 @@ function planMorph(articles) {
     const ko = blocksOf(a.json, 'content');
     const koIdx = { body: push(bodyText(ko)), head: headingTexts(ko).map(push), kw: splitKeywords(a.json.keywords).map(push) };
     let enIdx = null;
-    if (a.json.site === 'aiscroll') {
+    if (a.json.site === 'aiscroll' && publicationLanguages(a.json).includes('en')) {
       const en = blocksOf(a.json, 'contentEn');
       if (en.length) enIdx = { body: push(bodyText(en)), head: headingTexts(en).map(push), kw: splitKeywords(a.json.keywordsEn).map(push) };
     }

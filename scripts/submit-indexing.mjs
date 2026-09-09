@@ -25,6 +25,10 @@
 
 import { readFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
+import { pathToFileURL } from 'node:url'
+import taxonomy from '../src/templates/ai-blog/taxonomy.js'
+
+const buildAiscrollUrls = article => Object.values(taxonomy.articlePublicationUrls(article))
 
 const DRY_RUN = process.argv.includes('--dry-run')
 
@@ -39,15 +43,9 @@ const HOST_KEYS = {
 }
 
 const SITE_BY_PREFIX = [
-  { prefix: 'data/tech/ai/',         build: ({ slug, category }) => [
-    `https://aiscroll.io/article/${category}/${slug}/`,
-    `https://aiscroll.io/ko/article/${category}/${slug}/`,
-  ]},
+  { prefix: 'data/tech/ai/',         build: buildAiscrollUrls },
   // 2026-09 재출발: 폴더가 카테고리를 강제하지 않는다 — URL은 JSON category(news/reviews/guides/benchmarks/hot)로 결정
-  { prefix: 'data/tech/vibecoding/', build: ({ slug, category }) => [
-    `https://aiscroll.io/article/${category}/${slug}/`,
-    `https://aiscroll.io/ko/article/${category}/${slug}/`,
-  ]},
+  { prefix: 'data/tech/vibecoding/', build: buildAiscrollUrls },
   { prefix: 'data/tech/normal/',     build: ({ slug })          => [`https://gamerscroll.com/tech/normal/${slug}/`] },
   { prefix: 'data/wiki/business/',   build: ({ slug })          => [`https://gamerscroll.com/wiki/business/${slug}/`] },
   { prefix: 'data/wiki/history/',    build: ({ slug })          => [`https://gamerscroll.com/wiki/history/${slug}/`] },
@@ -58,21 +56,21 @@ const SITE_BY_PREFIX = [
   { prefix: 'reports/ranking/',      build: ({ slug })          => [`https://gamerscroll.com/magazine/ranking/${slug}/`] },
 ]
 
+export function urlsForArticle(file, json) {
+  const route = SITE_BY_PREFIX.find(r => file.startsWith(r.prefix))
+  if (!route || json.status !== 'approved' || !json.slug) return []
+  return json.site === 'aiscroll' ? buildAiscrollUrls(json) : route.build(json)
+}
+
 function extractUrlsFromCommit() {
   const range = process.env.INDEXING_DIFF_RANGE || 'HEAD~1..HEAD'
   const diff = execSync(`git diff --name-only --diff-filter=AM ${range}`, { encoding: 'utf8' })
   const files = diff.split('\n').map(s => s.trim()).filter(s => s.endsWith('.json'))
   const urls = new Set()
   for (const file of files) {
-    const route = SITE_BY_PREFIX.find(r => file.startsWith(r.prefix))
-    if (!route) continue
     let json
     try { json = JSON.parse(readFileSync(file, 'utf8')) } catch { continue }
-    if (json.status !== 'approved') continue
-    const slug = json.slug
-    if (!slug) continue
-    const built = route.build({ slug, category: json.category || 'news' })
-    for (const u of built) urls.add(u)
+    for (const u of urlsForArticle(file, json)) urls.add(u)
   }
   return [...urls]
 }
@@ -138,7 +136,7 @@ async function main() {
   if (DRY_RUN) console.log('[indexnow] --dry-run: no live submission')
 }
 
-main().catch(err => {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch(err => {
   // Never fail CI on IndexNow errors; discovery still works via sitemap.
   console.warn('[indexnow] WARN non-fatal error', err?.message || err)
 })

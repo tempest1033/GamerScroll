@@ -80,6 +80,25 @@ const ORG_AUTHOR_CATEGORIES = new Set(['benchmarks', 'hot']);
 
 function normalizeLang(lang) { return lang === 'ko' ? 'ko' : 'en'; }
 
+// 기본은 한·영. 한국어 전용은 기사에 명시된 옵션으로만 선택한다.
+function publicationLanguages(article = {}) {
+  const languages = article.publishLanguages;
+  if (languages === undefined) return ['en', 'ko'];
+  if (!Array.isArray(languages) || !languages.includes('ko') ||
+      languages.some(lang => lang !== 'en' && lang !== 'ko') ||
+      new Set(languages).size !== languages.length) {
+    throw new Error('publishLanguages must be ["ko"] or ["en", "ko"]');
+  }
+  return ['en', 'ko'].filter(lang => languages.includes(lang));
+}
+
+function articlePublicationUrls(article, baseUrl = 'https://aiscroll.io') {
+  return Object.fromEntries(publicationLanguages(article).map(lang => [
+    lang,
+    `${baseUrl}${lang === 'ko' ? '/ko' : ''}/article/${normalizeCategory(article.category)}/${article.slug}/`
+  ]));
+}
+
 function normalizeCategory(category) {
   return CATEGORY_IDS.includes(category) ? category : DEFAULT_CATEGORY;
 }
@@ -153,6 +172,8 @@ module.exports = {
   SITE_X_URL,
   PERSON_AUTHOR,
   normalizeCategory,
+  publicationLanguages,
+  articlePublicationUrls,
   categoryLabel,
   categoryDescription,
   isTopic,

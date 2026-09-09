@@ -21,6 +21,7 @@ const {
   homeHref
 } = require('./index');
 const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, authorOf } = require('./taxonomy');
+const { publicationLanguages, articlePublicationUrls } = require('./taxonomy');
 const { AD_SLOTS, generateHomeAdPairSlot } = require('../../aiscroll-ui/layout');
 const { renderRankingBlock } = require('../../aiscroll-ui/helpers/ranking-blocks');
 const { renderTextBlock, tableStackClass, tableCellLabelAttr } = require('../../aiscroll-ui/helpers/content-text');
@@ -234,6 +235,7 @@ function highlightCode(code, lang) {
 function generateAIBlogArticle(article, data = {}) {
   const { popularArticles = [], latestArticles = [], allArticles = [] } = data;
   const _lang = data.lang === 'ko' ? 'ko' : 'en';
+  if (!publicationLanguages(article).includes(_lang)) throw new Error(`Article ${article.slug} is not published in ${_lang}`);
   const _langPrefix = _lang === 'ko' ? '/ko' : '';
   const _t = I18N[_lang] || I18N.en;
   const toc = createArticleToc(article.content, { title: _t.toc });
@@ -854,7 +856,7 @@ function generateAIBlogArticle(article, data = {}) {
     articleMeta: articleMeta,
     currentPage: article.category || 'news',
     lang,
-    alternates: data.alternates || null
+    alternates: articlePublicationUrls(article, SITE_CONFIG.baseUrl)
   });
 }
 

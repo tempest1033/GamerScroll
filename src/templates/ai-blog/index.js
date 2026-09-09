@@ -913,10 +913,11 @@ function wrapWithLayout(content, options = {}) {
   const isKo = lang === 'ko';
   const ogLocale = isKo ? 'ko_KR' : 'en_US';
   const rssHref = isKo ? `${SITE_CONFIG.baseUrl}/ko/rss.xml` : `${SITE_CONFIG.baseUrl}/rss.xml`;
-  const hreflangLinks = alternates ? `
-  <link rel="alternate" hreflang="en" href="${alternates.en}">
-  <link rel="alternate" hreflang="ko" href="${alternates.ko}">
-  <link rel="alternate" hreflang="x-default" href="${alternates.en}">` : '';
+  const alternateEntries = Object.entries(alternates || {}).filter(([language, url]) => ['en', 'ko'].includes(language) && url);
+  const hreflangLinks = alternateEntries.length ? '\n  ' + [
+    ...alternateEntries.map(([language, url]) => `<link rel="alternate" hreflang="${language}" href="${escapeHtml(url)}">`),
+    `<link rel="alternate" hreflang="x-default" href="${escapeHtml(alternates.en || alternates.ko)}">`
+  ].join('\n  ') : '';
 
   // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
   const effectiveCounts = Object.keys(sidebarCounts).length > 0 ? sidebarCounts : globalSidebarCounts;
@@ -2793,15 +2794,15 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     currentPage: categoryId,
     jsonLd: categoryJsonLd,
     lang,
-    alternates: { en: `${SITE_CONFIG.baseUrl}${collectionPath}`, ko: `${SITE_CONFIG.baseUrl}/ko${collectionPath}` }
+    alternates: options.alternates || { en: `${SITE_CONFIG.baseUrl}${collectionPath}`, ko: `${SITE_CONFIG.baseUrl}/ko${collectionPath}` }
   });
 }
 
 /**
  * 주제(태그) 페이지 생성 — /topic/<id>/. 카테고리 페이지와 같은 레이아웃.
  */
-function generateTopicPage(topicId, articles, popularArticles = [], latestArticles = [], lang = 'en') {
-  return generateCategoryPage(topicId, topicLabel(topicId, lang), articles, popularArticles, latestArticles, lang, { kind: 'topic' });
+function generateTopicPage(topicId, articles, popularArticles = [], latestArticles = [], lang = 'en', options = {}) {
+  return generateCategoryPage(topicId, topicLabel(topicId, lang), articles, popularArticles, latestArticles, lang, { ...options, kind: 'topic' });
 }
 
 module.exports = {

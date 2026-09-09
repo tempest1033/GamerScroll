@@ -32,6 +32,8 @@ const {
   LEGACY_CATEGORY_REDIRECTS,
   PERSON_AUTHOR,
   normalizeCategory,
+  publicationLanguages,
+  articlePublicationUrls,
   topicsOf,
   countTopics,
   countCategories
@@ -301,6 +303,7 @@ function loadArticles() {
         const content = fs.readFileSync(fullPath, 'utf8').replace(/^\uFEFF/, '');
         const data = JSON.parse(content);
         if (data.site !== 'aiscroll') continue;
+        publicationLanguages(data);
         ensurePublishDate(data, fullPath, 'UTC');
         const isValid = data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft');
         if (!isValid) continue;
@@ -330,6 +333,7 @@ function loadArticles() {
           const content = fs.readFileSync(fullPath, 'utf8').replace(/^\uFEFF/, '');
           const data = JSON.parse(content);
           if (data.site !== 'aiscroll') continue;
+          publicationLanguages(data);
           const isValid = data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft');
           if (!isValid) continue;
           if (loadedSlugs.has(data.slug)) continue;
@@ -580,7 +584,8 @@ function langDir(lang) {
   return lang === 'ko' ? path.join(DOCS_DIR, 'ko') : DOCS_DIR;
 }
 
-function getAlternates(pagePath) {
+function getAlternates(pagePath, article = null) {
+  if (article) return articlePublicationUrls(article, SITE_URL_CONST);
   return {
     en: `${SITE_URL_CONST}${pagePath}`,
     ko: `${SITE_URL_CONST}/ko${pagePath}`
@@ -589,8 +594,9 @@ function getAlternates(pagePath) {
 
 function mapArticles(articles, lang) {
   const isKo = lang === 'ko';
-  return articles.map(a => ({
+  return articles.filter(a => publicationLanguages(a).includes(lang)).map(a => ({
     slug: a.slug,
+    publishLanguages: publicationLanguages(a),
     category: normalizeCategory(a.category),
     topics: topicsOf(a),
     author: a.author,          // 'site' → Organization, 이름 → Person, 없음 → 카테고리 기본값 (taxonomy.authorOf)
@@ -632,6 +638,7 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     }
 
     const langArticles = mapArticles(articles, lang);
+    setGlobalSidebarCounts({ ...countCategories(langArticles), topics: countTopics(langArticles) });
 
     let popularArticles = [];
     if (popularArticlesData.articles && popularArticlesData.articles.length > 0) {
@@ -671,7 +678,7 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
         latestArticles,
         allArticles: langArticles,
         lang,
-        alternates: getAlternates(`/article/${article.category}/${article.slug}/`)
+        alternates: getAlternates(`/article/${article.category}/${article.slug}/`, article)
       });
       const articlePath = path.join(articleDir, article.category, article.slug);
       if (!fs.existsSync(articlePath)) {
@@ -704,7 +711,7 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     generateSearchPageFile(lang);
     generate404Page(lang);
     generateCategoryPages(langArticles, popularArticles, latestArticles, lang);
-    generateTopicPages(langArticles, popularArticles, latestArticles, lang);
+    generateTopicPages(langArticles, popularArticles, latestArticles, lang, articles);
   }
 }
 
@@ -722,13 +729,20 @@ function activeTopicIds(articles) {
   return Object.keys(counts).filter(id => counts[id] > 0 || NAV_TOPIC_IDS.includes(id)).sort();
 }
 
-function generateTopicPages(articles, popularArticles, latestArticles, lang = 'en') {
+function generateTopicPages(articles, popularArticles, latestArticles, lang = 'en', allArticles = articles) {
   const topicRoot = path.join(langDir(lang), 'topic');
   const ids = activeTopicIds(articles);
   for (const topicId of ids) {
     const topicDir = path.join(topicRoot, topicId);
     fs.mkdirSync(topicDir, { recursive: true });
-    fs.writeFileSync(path.join(topicDir, 'index.html'), generateTopicPage(topicId, articles, popularArticles, latestArticles, lang), 'utf8');
+    const alternates = {};
+    for (const candidate of ['en', 'ko']) {
+      const available = allArticles.filter(article => publicationLanguages(article).includes(candidate));
+      if (activeTopicIds(available).includes(topicId)) {
+        alternates[candidate] = `${SITE_URL_CONST}${candidate === 'ko' ? '/ko' : ''}/topic/${topicId}/`;
+      }
+    }
+    fs.writeFileSync(path.join(topicDir, 'index.html'), generateTopicPage(topicId, articles, popularArticles, latestArticles, lang, { alternates }), 'utf8');
   }
   // 사라진 주제의 페이지 제거 (화석 방지)
   if (fs.existsSync(topicRoot)) {
@@ -1170,12 +1184,8 @@ function generateSEOFiles(articles) {
   // === Stage 2e: dual-lang sitemap + ko rss ===
   // noindex 플래그 기사는 페이지는 남기되(EN·KO 모두 robots noindex) 사이트맵·RSS에서 뺀다.
   const indexable = (a) => !a.noindex;
-  const enArticles = mapArticles(articles, 'en').filter(indexable).map(a => ({
-    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, modifiedAt: a.modifiedAt, thumbnail: a.thumbnail
-  }));
-  const koArticles = mapArticles(articles, 'ko').filter(indexable).map(a => ({
-    slug: a.slug, category: a.category || 'general', title: a.title, summary: a.summary, date: a.date, modifiedAt: a.modifiedAt, thumbnail: a.thumbnail
-  }));
+  const enArticles = mapArticles(articles, 'en').filter(indexable);
+  const koArticles = mapArticles(articles, 'ko').filter(indexable);
 
   // 사이트맵 보조 유틸: lastmod은 max(date, modifiedAt) — file mtime 대신 article 메타로 일관.
   // priority는 최신 lastmod 기준 티어링 (크롤러가 신선 콘텐츠를 더 자주 방문하도록).
@@ -1198,39 +1208,50 @@ function generateSEOFiles(articles) {
   // 카테고리 인덱스는 실제 article category set에서 동적으로 생성 (ai-tools 같은 신규 카테고리 누락 방지).
   // 빈 articles 시에도 최소 인덱스(/, /privacy/)는 보장 — sitemap 미생성 방지.
   // 글이 있는 카테고리 + 주제 페이지(글 있음 또는 내비 대표) + 소개 페이지. 빈 카테고리는 얇은 페이지라 제외.
-  const activeCategories = new Set(enArticles.map(a => a.category));
-  if (activeCategories.size === 0) {
+  if (enArticles.length + koArticles.length === 0) {
     console.warn('  ⚠ no articles found — sitemap will contain only home + about + privacy entries');
   }
-  const baseSitemapPaths = [
-    { path: '/', priority: '1.0' },
-    { path: PERSON_AUTHOR.path, priority: '0.5' },
-    { path: '/privacy/', priority: '0.3' },
-    ...CATEGORY_IDS.filter(cat => activeCategories.has(cat)).map(cat => ({ path: `/article/${cat}/`, priority: '0.8' })),
-    ...activeTopicIds(articles).map(id => ({ path: `/topic/${id}/`, priority: '0.7' }))
-  ];
+  const baseSitemapPaths = new Map();
+  for (const [lang, entries] of [['en', enArticles], ['ko', koArticles]]) {
+    const activeCategories = new Set(entries.map(a => a.category));
+    const paths = [
+      { path: '/', priority: '1.0' },
+      { path: PERSON_AUTHOR.path, priority: '0.5' },
+      { path: '/privacy/', priority: '0.3' },
+      ...CATEGORY_IDS.filter(cat => activeCategories.has(cat)).map(cat => ({ path: `/article/${cat}/`, priority: '0.8' })),
+      ...activeTopicIds(entries).map(id => ({ path: `/topic/${id}/`, priority: '0.7' }))
+    ];
+    for (const entry of paths) {
+      const grouped = baseSitemapPaths.get(entry.path) || { ...entry, languages: [] };
+      grouped.languages.push(lang);
+      baseSitemapPaths.set(entry.path, grouped);
+    }
+  }
 
-  function makeAlternates(p) {
+  function makeAlternates(p, languages) {
+    const defaultPrefix = languages.includes('en') ? '' : '/ko';
     return [
-      `<xhtml:link rel="alternate" hreflang="en" href="${SITE_URL}${p}"/>`,
-      `<xhtml:link rel="alternate" hreflang="ko" href="${SITE_URL}/ko${p}"/>`,
-      `<xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${p}"/>`
+      ...languages.map(lang => `<xhtml:link rel="alternate" hreflang="${lang}" href="${SITE_URL}${lang === 'ko' ? '/ko' : ''}${p}"/>`),
+      `<xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${defaultPrefix}${p}"/>`
     ].join('\n    ');
   }
 
   const sitemapEntries = [];
-  for (const b of baseSitemapPaths) {
-    const alts = makeAlternates(b.path);
-    sitemapEntries.push({ loc: `${SITE_URL}${b.path}`, lastmod: today, priority: b.priority, alternates: alts });
-    sitemapEntries.push({ loc: `${SITE_URL}/ko${b.path}`, lastmod: today, priority: b.priority, alternates: alts });
+  for (const b of baseSitemapPaths.values()) {
+    const alts = makeAlternates(b.path, b.languages);
+    for (const lang of b.languages) {
+      sitemapEntries.push({ loc: `${SITE_URL}${lang === 'ko' ? '/ko' : ''}${b.path}`, lastmod: today, priority: b.priority, alternates: alts });
+    }
   }
-  for (const article of enArticles) {
+  for (const article of articles.filter(indexable)) {
     const articleDate = pickLastmod(article);
     const articlePriority = tierPriority(articleDate);
-    const p = `/article/${article.category}/${article.slug}/`;
-    const alts = makeAlternates(p);
-    sitemapEntries.push({ loc: `${SITE_URL}${p}`, lastmod: articleDate, priority: articlePriority, alternates: alts });
-    sitemapEntries.push({ loc: `${SITE_URL}/ko${p}`, lastmod: articleDate, priority: articlePriority, alternates: alts });
+    const p = `/article/${normalizeCategory(article.category)}/${article.slug}/`;
+    const languages = publicationLanguages(article);
+    const alts = makeAlternates(p, languages);
+    for (const url of Object.values(articlePublicationUrls(article, SITE_URL))) {
+      sitemapEntries.push({ loc: url, lastmod: articleDate, priority: articlePriority, alternates: alts });
+    }
   }
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -1272,8 +1293,9 @@ Sitemap: ${SITE_URL}/sitemap.xml
   // 2d. 고아 기사 페이지 정리 — 소스 JSON이 사라졌거나(삭제) 발행 목록에서
   // 빠진 기사의 정적 페이지 디렉토리를 en/ko 트리에서 제거한다 (화석 페이지 방지).
   // 옛 카테고리 폴더(general/openai/…)는 통째로 제거 — 그 URL은 아래 _redirects가 301로 받는다.
-  const validPageKeys = new Set(articles.map(a => `${normalizeCategory(a.category)}/${a.slug}`));
-  for (const articleRoot of [path.join(DOCS_DIR, 'article'), path.join(DOCS_DIR, 'ko', 'article')]) {
+  for (const lang of ['en', 'ko']) {
+    const validPageKeys = new Set(articles.filter(a => publicationLanguages(a).includes(lang)).map(a => `${normalizeCategory(a.category)}/${a.slug}`));
+    const articleRoot = path.join(langDir(lang), 'article');
     if (!fs.existsSync(articleRoot)) continue;
     for (const catEntry of fs.readdirSync(articleRoot, { withFileTypes: true })) {
       if (!catEntry.isDirectory()) continue;
@@ -1304,10 +1326,12 @@ Sitemap: ${SITE_URL}/sitemap.xml
   // 2e. _redirects (Cloudflare Pages) — 옛 카테고리 URL과 기사 JSON의 legacyPaths를 새 주소로 301.
   // 아카이브된 기사 URL은 여기 없으므로 404로 닫힌다 (soft-404 체인 방지). 정적 룰 한도 2,000 안.
   const redirectLines = [];
-  const pushRedirect = (from, to) => {
+  const pushRedirect = (from, to, languages = ['en', 'ko']) => {
     if (!from || !to || from === to) return;
-    redirectLines.push(`${from} ${to} 301`);
-    redirectLines.push(`/ko${from} /ko${to} 301`);
+    for (const lang of languages) {
+      const prefix = lang === 'ko' ? '/ko' : '';
+      redirectLines.push(`${prefix}${from} ${prefix}${to} 301`);
+    }
   };
   for (const [oldCat, target] of Object.entries(LEGACY_CATEGORY_REDIRECTS)) {
     pushRedirect(`/article/${oldCat}/`, target);
@@ -1316,7 +1340,7 @@ Sitemap: ${SITE_URL}/sitemap.xml
     const target = `/article/${normalizeCategory(a.category)}/${a.slug}/`;
     for (const legacy of (Array.isArray(a.legacyPaths) ? a.legacyPaths : [])) {
       const from = String(legacy || '').trim().replace(/^\/ko(?=\/)/, '');
-      if (from.startsWith('/')) pushRedirect(from.endsWith('/') ? from : `${from}/`, target);
+      if (from.startsWith('/')) pushRedirect(from.endsWith('/') ? from : `${from}/`, target, publicationLanguages(a));
     }
   }
   fs.writeFileSync(path.join(DOCS_DIR, '_redirects'), redirectLines.join('\n') + '\n', 'utf8');
