@@ -46925,8 +46925,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "In Falsus": {
+      "appIds": {
+        "steam": "3971950"
+      },
+      "aliases": [],
+      "developer": "lowiro",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3971950/66a587ac94f822cbe272f6cbf3b0ec9d1a344947/capsule_231x87.jpg?t=1788940567",
+      "slug": "in-falsus",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "The Death Game Report": {
+      "appIds": {
+        "steam": "5044770"
+      },
+      "aliases": [],
+      "developer": "shu3",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5044770/fdf7b0e64120e666b77adbbe823e29a6b4f9d078/capsule_231x87.jpg?t=1788253217",
+      "slug": "the-death-game-report",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-09",
-  "totalGames": 3591
+  "totalGames": 3593
 }
