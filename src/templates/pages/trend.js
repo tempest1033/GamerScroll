@@ -486,12 +486,9 @@ function renderParsedRelatedDocsHtml(parsedRelatedDocs) {
     } else if (item.type === 'ranking') {
       href = `/magazine/ranking/${item.slug}/`;
       thumbSrc = require('../helpers/thumbnail').getLocalReportThumbnail('ranking', item.slug, item.thumbnail);
-    } else if (item.type === 'wiki') {
-      href = `/wiki/${item.category}/${item.slug}/`;
-      thumbSrc = getLocalWikiThumbPath(item.category, item.slug, item.thumbnail);
-    } else if (item.type === 'tech') {
-      href = `/tech/${item.category}/${item.slug}/`;
-      thumbSrc = item.thumbnail ? fixUrl(item.thumbnail) : '/favicon.svg';
+    } else if (item.type === 'wiki' || item.type === 'tech') {
+      // 위키·테크는 폐기/이관돼 미들웨어 301만 남았다 — 관련 문서로 내보내지 않는다 (2026-09-09)
+      return '';
     } else {
       return '';
     }

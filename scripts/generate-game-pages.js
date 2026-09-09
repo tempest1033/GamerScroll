@@ -1357,7 +1357,8 @@ const issueArticles = loadIssueReports();
 const hotpickArticles = loadHotpickReports();
 const insightArticles = loadInsightReports();
 const wikiArticles = loadWikiArticles();
-const allRelatedContent = [...insightArticles, ...wikiArticles];
+// 위키 섹션은 2026-09-09 폐기(/wiki/* → /reports/ 301) — 관련 콘텐츠에 넣으면 깨진 링크가 된다. 인사이트만 사용.
+const allRelatedContent = [...insightArticles];
 console.log(`📰 관련 콘텐츠 로드: 이슈 ${issueArticles.length}개, 핫픽 ${hotpickArticles.length}개, 인사이트 ${insightArticles.length}개, 위키 ${wikiArticles.length}개`);
 
 // 검색 인덱스 생성

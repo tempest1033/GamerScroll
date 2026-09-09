@@ -624,6 +624,10 @@ function loadWikiData() {
   return { business: [], history: [], knowledge: [] };
 }
 
+// 옛 매거진 허브·카테고리 목록(/magazine/, /magazine/{issue,insight,hotpick,ranking}/)은 2026-09-09부터
+// /reports/ 로 301(functions/_middleware.js). 생성을 멈추고 산출물의 옛 index.html 도 정리한다. 기사 URL은 유지.
+const LEGACY_MAGAZINE_HUBS = false;
+
 // 테크 데이터 로드 함수 (Stage 3: GamerScroll에서 tech 제거)
 const TECH_DIR = './data/tech';
 function loadTechData() {
@@ -692,6 +696,15 @@ function generateRankingsHome(d, gamesData, cacheVersion) {
   }
   return generateRankingsPage({ ...d, games: gamesData, cacheVersion });
 }
+// 정적 하위 페이지 고아 정리: 이번 빌드에서 생성되지 않은 하위 디렉터리를 지운다 (deploy 브랜치 seed로 되살아나는 옛 페이지 방지).
+function removeOrphanDirs(parentDir, keep, match, label) {
+  if (!fs.existsSync(parentDir)) return;
+  for (const entry of fs.readdirSync(parentDir, { withFileTypes: true })) {
+    if (!entry.isDirectory() || keep.has(entry.name) || !match(entry.name)) continue;
+    fs.rmSync(path.join(parentDir, entry.name), { recursive: true, force: true });
+    console.log(`  🧹 고아 페이지 제거: ${label}/${entry.name}`);
+  }
+}
 // /rankings/ 하위 페이지를 docs 에 직접 쓴다 (CSS 해시 링크는 이후 rewriteDocsStylesheetLinks 가 정규화). 사이트맵 항목을 돌려준다.
 function writeRankHubSubpages(docsDir) {
   const entries = [];
@@ -722,6 +735,9 @@ function writeRankHubSubpages(docsDir) {
     write('publishers', rankHub.renderPublishers('kr')); n++;
     const pubs = rankHub.publisherPages(rankHub.publisherIndex(S, 'kr'));
     for (const p of pubs) { write(`publishers/${p.slug}`, rankHub.renderPublisher(p, 'kr')); n++; }
+    // 고아 정리: 목록에서 빠진 개발사·분류가 바뀐 장르의 옛 페이지 제거 (2026-09-09)
+    removeOrphanDirs(path.join(docsDir, 'rankings', 'publishers'), new Set(pubs.map((p) => p.slug)), () => true, 'rankings/publishers');
+    removeOrphanDirs(path.join(docsDir, 'rankings', 'genres'), new Set(require('./src/rank/genres').loadGenres().categories.map((c) => c.id)), () => true, 'rankings/genres');
     write('records', rankHub.renderRecords('kr')); n++;
     for (const mo of S.months) {
       if (S.daysIn(mo).length < 7) continue;
@@ -741,7 +757,8 @@ function writeRankHubSubpages(docsDir) {
   if (!steamHubFailed) {
     try {
       let sn = 0;
-      for (const id of steamHub.steamGameIds()) {
+      const steamIds = new Set(steamHub.steamGameIds());
+      for (const id of steamIds) {
         const dir = path.join(docsDir, 'steam', id);
         fs.mkdirSync(dir, { recursive: true });
         fs.writeFileSync(path.join(dir, 'index.html'), steamHub.renderSteamGame(id), 'utf8');
@@ -749,6 +766,9 @@ function writeRankHubSubpages(docsDir) {
         sn++;
       }
       console.log(`  ✅ 스팀 게임 페이지 ${sn}개`);
+      // 고아 정리: TOP 100 에서 빠져 더 이상 생성되지 않는 게임의 옛 상세 페이지는 사이트맵에 없는 채로
+      // 낡아 가며 색인되므로 제거한다 (2026-09-09). 숫자 디렉터리만 대상.
+      removeOrphanDirs(path.join(docsDir, 'steam'), steamIds, (name) => /^\d+$/.test(name), 'steam');
     } catch (e) {
       console.warn(`  ⚠️ 스팀 게임 페이지 생성 실패: ${e.message}`);
     }
@@ -1503,6 +1523,15 @@ async function main() {
         console.log(`  🧹 고아 페이지 제거: ${target.pagesDir.replace('./docs/', '')}/${entry.name}`);
       }
     }
+    // 옛 매거진 허브·목록 index.html 제거 (생성 중단, 미들웨어 301) — 루트 중간 산출물과 docs/ 양쪽 (2026-09-09)
+    if (!LEGACY_MAGAZINE_HUBS) {
+      for (const base of ['./magazine', './docs/magazine']) {
+        for (const rel of ['index.html', 'issue/index.html', 'insight/index.html', 'hotpick/index.html', 'ranking/index.html']) {
+          const file = path.join(base, rel);
+          if (fs.existsSync(file)) { fs.unlinkSync(file); console.log(`  🧹 옛 매거진 허브 제거: ${file}`); }
+        }
+      }
+    }
     // tech/normal 허브 화석 완전 제거 (매거진 재배치 완료 — deploy 브랜치 seed로 되살아나는 index.html 포함)
     if (fs.existsSync('./docs/tech/normal')) {
       fs.rmSync('./docs/tech/normal', { recursive: true, force: true });
@@ -1734,7 +1763,7 @@ async function main() {
   console.log(`  📰 사이드바 인기글: 전체 ${sidebarPopularAll.length}개, 매거진 ${sidebarPopularMagazine.length}개, 위키 ${sidebarPopularWiki.length}개, 테크 ${sidebarPopularTech.length}개`);
   console.log(`  📰 사이드바 최신글: 전체 ${sidebarLatestAll.length}개, 매거진 ${sidebarLatestMagazine.length}개, 위키 ${sidebarLatestWiki.length}개, 테크 ${sidebarLatestTech.length}개`);
 
-  try {
+  if (LEGACY_MAGAZINE_HUBS) try {
     const hubHtml = generateTrendsHubPage({
       issueReports: issueReports.map(p => ({
         slug: p.slug,
@@ -1817,7 +1846,7 @@ async function main() {
   if (!fs.existsSync(issueDir)) {
     fs.mkdirSync(issueDir, { recursive: true });
   }
-  try {
+  if (LEGACY_MAGAZINE_HUBS) try {
     const issueListHtml = generateIssueListPage(categoryPageData);
     fs.writeFileSync(`${issueDir}/index.html`, issueListHtml, 'utf8');
     console.log(`  ✅ magazine/issue/index.html`);
@@ -1830,7 +1859,7 @@ async function main() {
   if (!fs.existsSync(insightDir)) {
     fs.mkdirSync(insightDir, { recursive: true });
   }
-  try {
+  if (LEGACY_MAGAZINE_HUBS) try {
     const insightListHtml = generateInsightListPage({ ...categoryPageData, insightReports });
     fs.writeFileSync(`${insightDir}/index.html`, insightListHtml, 'utf8');
     console.log(`  ✅ magazine/insight/index.html`);
@@ -1843,7 +1872,7 @@ async function main() {
   if (!fs.existsSync(hotpickDir)) {
     fs.mkdirSync(hotpickDir, { recursive: true });
   }
-  try {
+  if (LEGACY_MAGAZINE_HUBS) try {
     const hotpickListHtml = generateHotpickListPage({ ...categoryPageData, hotpickReports });
     fs.writeFileSync(`${hotpickDir}/index.html`, hotpickListHtml, 'utf8');
     console.log(`  ✅ magazine/hotpick/index.html`);
@@ -1856,7 +1885,7 @@ async function main() {
   if (!fs.existsSync(rankingDir)) {
     fs.mkdirSync(rankingDir, { recursive: true });
   }
-  try {
+  if (LEGACY_MAGAZINE_HUBS) try {
     const rankingListHtml = generateRankingListPage({ ...categoryPageData, rankingReports });
     fs.writeFileSync(`${rankingDir}/index.html`, rankingListHtml, 'utf8');
     console.log(`  ✅ magazine/ranking/index.html`);

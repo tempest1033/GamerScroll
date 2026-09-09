@@ -174,7 +174,7 @@ ${links}`;
     const canonical = `${siteBaseUrl}${countryHref(country, 'free')}`;
     return shell(S, {
       body,
-      title: `${cname} 모바일 게임 인기 순위 TOP 200 — 앱스토어·구글플레이 무료 다운로드 (${today.date}) | 게이머스크롤`,
+      title: `${country === 'kr' ? '' : `${cname} `}모바일 게임 인기 순위 TOP 200 — 무료 (${today.date}) | 게이머스크롤`,
       description: lead,
       keywords: `${cname} 모바일 게임 인기 순위, 앱스토어 인기 게임 순위, 구글플레이 인기 게임 순위, 무료 게임 순위, 게임 다운로드 순위`,
       canonical,
@@ -189,7 +189,8 @@ ${cols}`;
   const canonical = `${siteBaseUrl}${countryHref(country)}`;
   return shell(S, {
     body,
-    title: `${cname} 모바일 게임 매출 순위 TOP 200 — 앱스토어·구글플레이 (${today.date}) | 게이머스크롤`,
+    // 2026-09-09 title 정책: 핵심 키워드 — 범위 (날짜) | 게이머스크롤, 60자 안팎. 한국은 국가명 생략.
+    title: `${country === 'kr' ? '' : `${cname} `}모바일 게임 매출 순위 TOP 200 — 앱스토어·구글플레이 (${today.date}) | 게이머스크롤`,
     description: lead,
     keywords: `${cname} 모바일 게임 매출 순위, 앱스토어 매출 순위, 구글플레이 매출 순위, 플레이스토어 순위, 모바일 게임 순위, 게임 매출 순위`,
     canonical,
@@ -396,7 +397,7 @@ ${subnav(S, 'pub')}
   const canonical = `${siteBaseUrl}/rankings/publishers/`;
   return shell(S, {
     body,
-    title: `모바일 게임 개발사 순위 — 매출 TOP 200 내 게임 수·포인트 (${today.date}) | 게이머스크롤`,
+    title: `모바일 게임 개발사 순위 TOP ${Math.min(100, list.length)} (${today.date}) | 게이머스크롤`,
     description: lead,
     keywords: '게임 개발사 순위, 게임 퍼블리셔 순위, 넥슨 게임 순위, 엔씨소프트 게임 순위, 넷마블 게임 순위, 모바일 게임 회사 순위',
     canonical,
@@ -427,7 +428,8 @@ ${kpi}
   const canonical = `${siteBaseUrl}/rankings/publishers/${encodeURIComponent(pub.slug)}/`;
   return shell(S, {
     body,
-    title: `${pub.name} 게임 매출 순위 — 앱스토어·구글플레이 TOP 200 내 ${pub.games.size}개 (${today.date}) | 게이머스크롤`,
+    // 상세 페이지는 날짜를 빼고 짧게 (개발사명이 길어 70자를 넘던 페이지 19개)
+    title: `${pub.name} 게임 매출 순위 — TOP 200 내 ${pub.games.size}개 | 게이머스크롤`,
     description: lead,
     keywords: `${pub.name} 게임 순위, ${pub.name} 매출 순위, ${pub.name} 모바일 게임, ${pub.name} 신작`,
     canonical,

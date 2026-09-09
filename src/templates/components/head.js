@@ -8,9 +8,9 @@ const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
 function generateHead(options = {}) {
   const {
-    title = '게이머스크롤 | 데일리 게임 인사이트',
-    description = '데일리 게임 인사이트 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
-    keywords = '게임 순위, 모바일 게임, 스팀 순위, 게임 뉴스, 앱스토어 순위, 플레이스토어 순위, 게임 업계, 게임주, 게이머스크롤',
+    title = '게이머스크롤 — 게임 순위 데이터·분석',
+    description = '앱스토어·구글플레이·스팀 게임 순위를 매일 기록하고 분석합니다. 매출 순위, 동접자, 월간·글로벌 통합 순위와 게임별 순위 추이.',
+    keywords = '게임 순위, 모바일 게임 매출 순위, 앱스토어 순위, 구글플레이 순위, 스팀 순위, 게임 순위 분석, 게이머스크롤',
     canonical = 'https://gamerscroll.com',
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)

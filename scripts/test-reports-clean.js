@@ -11,7 +11,8 @@ const reportList = require('../src/rank/reports').loadReports();
 let legacy = 0;
 for (const type of ['issue', 'hotpick']) {
   const folder = path.join(root, 'docs/magazine', type);
-  const paths = [path.join(folder, 'index.html'), ...fs.readdirSync(folder, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => path.join(folder, e.name, 'index.html'))];
+  // 목록 index.html은 2026-09-09부터 생성하지 않는다(/reports/ 301) — 기사 디렉터리만 검사
+  const paths = fs.readdirSync(folder, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => path.join(folder, e.name, 'index.html'));
   for (const file of paths) {
     const $ = cheerio.load(fs.readFileSync(file, 'utf8'));
     assert.match($('meta[name="robots"]').attr('content') || '', /noindex/);

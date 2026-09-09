@@ -204,7 +204,7 @@ ${reportsSec}
   return wrapWithLayout(content, {
     currentPage: 'home',
     pageScripts,
-    title: '게이머스크롤 — 모바일·스팀 게임 순위 데이터, 매일 갱신',
+    title: '게임 순위 데이터·분석 — 모바일 매출·스팀 동접, 매일 갱신 | 게이머스크롤',
     description: lead,
     keywords: '모바일 게임 순위, 게임 매출 순위, 앱스토어 매출 순위, 구글플레이 매출 순위, 스팀 순위, 스팀 동접자 순위, 게임 순위 분석',
     canonical: `${siteBaseUrl}/`,

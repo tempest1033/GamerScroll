@@ -1300,19 +1300,20 @@ function generateGamePage(gameData) {
   const hasMentions = (mentions && mentions.length > 0) || hasRankBody;
 
   // 플랫폼별 SEO 메타 데이터
+  // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎
   const seoTitle = hasMobilePlatform
-    ? `${name} 매출, 모바일 게임 순위, 뉴스`
-    : `${name} 매출, 게임 순위, 뉴스`;
+    ? `${name} 매출 순위 추이 — 앱스토어·구글플레이 기록`
+    : `${name} 스팀 순위 추이 — 동접·판매 기록`;
 
   const seoDescription = rankSummaryText
     ? rankSummaryText
     : hasMobilePlatform
-      ? `${name} 모바일 매출 순위, 순위 기록 및 관련 뉴스.`
-      : `${name} 스팀 게임 순위, 순위 기록 및 관련 뉴스.`;
+      ? `${name}의 앱스토어·구글플레이 매출 순위 추이와 역대 순위 기록.`
+      : `${name}의 스팀 동접자·판매 순위 추이와 역대 순위 기록.`;
 
   const seoKeywords = hasMobilePlatform
-    ? `${name}, ${name} 매출, ${name} 순위, 모바일 게임 순위, ${name} 앱스토어, ${name} 플레이스토어, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 뉴스`
-    : `${name}, ${name} 매출, ${name} 순위, ${name} 스팀, 게임 순위, 스팀 게임 순위, 스팀 매출 순위, 스팀 인기 순위, 게임 뉴스`;
+    ? `${name}, ${name} 매출, ${name} 순위, ${name} 매출 순위, ${name} 앱스토어 순위, ${name} 구글플레이 순위, 모바일 게임 매출 순위`
+    : `${name}, ${name} 순위, ${name} 스팀 순위, ${name} 동접자, ${name} 판매 순위, 스팀 게임 순위`;
 
   const canonicalUrl = `${siteBaseUrl}/games/${slug || encodeURIComponent(name.replace(/\s+/g, '-').toLowerCase())}/`;
 

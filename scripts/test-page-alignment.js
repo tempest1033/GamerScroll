@@ -9,8 +9,8 @@ const routes = [
   '/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/',
   '/rankings/monthly/2026-08/', '/rankings/global/', '/rankings/records/',
   '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/',
-  '/games/', '/games/메이플-키우기/', '/reports/', '/magazine/',
-  '/magazine/ranking/', '/magazine/insight/',
+  // 옛 매거진 허브(/magazine/, /magazine/{ranking,insight}/)는 2026-09-09부터 생성 중단 + /reports/ 301
+  '/games/', '/games/메이플-키우기/', '/reports/',
   '/magazine/ranking/subculture-august-2026-kr/',
 ];
 

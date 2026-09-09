@@ -43,18 +43,19 @@ const routes = process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['
               }
             }
             if (route === '/rankings/' || route === '/steam/') {
+              // 2026-09-09 리뉴얼: 허브는 상위 20개만 기본 표시하고 '전체 보기'로 펼친다
               const controls = page.locator('.rk-more-toggle');
-              for (let i = 0; i < await controls.count(); i++) assert.ok(await controls.nth(i).isChecked(), '기본 전체 펼침');
+              for (let i = 0; i < await controls.count(); i++) assert.ok(!(await controls.nth(i).isChecked()), '기본 상위 20 접힘');
               const control = controls.first();
               const id = await control.getAttribute('id');
               const label = page.locator(`label[for="${id}"]`);
               const column = control.locator('..');
               const rows = column.locator('li.ext:visible');
-              assert.ok(await rows.count() > 0, '전체 행 표시');
+              assert.equal(await rows.count(), 0, '접힌 상태');
               await label.click();
-              assert.equal(await rows.count(), 0, '접기');
+              assert.ok(await rows.count() > 0, '전체 보기');
               await label.click();
-              assert.ok(await rows.count() > 0, '다시 펼치기');
+              assert.equal(await rows.count(), 0, '다시 접기');
             }
             if (colorScheme === 'dark' && route.includes('where-winds')) {
               await page.screenshot({ path: path.resolve(__dirname, `../mockups/game-clean-${width}.png`), fullPage: true });

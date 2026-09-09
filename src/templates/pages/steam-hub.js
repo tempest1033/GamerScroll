@@ -153,7 +153,8 @@ ${related.length ? `<section class="rk-section"><h2>관련 리포트</h2><div cl
   const canonical = `${siteBaseUrl}/steam/${id}/`;
   return shell(ST, {
     body,
-    title: `${m.name} 스팀 동접자·판매 순위 추이 (${T.date}) | 게이머스크롤`,
+    // 상세 페이지는 날짜 없이 짧게 (2026-09-09 title 정책)
+    title: `${m.name} 스팀 동접자·판매 순위 | 게이머스크롤`,
     description: text,
     keywords: `${m.name} 동접자, ${m.name} 스팀 순위, ${m.name} 동시접속자, ${m.name} 판매 순위`,
     canonical,
