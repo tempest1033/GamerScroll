@@ -1,5 +1,5 @@
 /* 홈에서 확정한 화이트 테마를 순위·게임·리포트·본문에 확장한다. */
-body:not(.page-home) .rk { --rk-accent-bg: #f0f6ff; --rk-line: var(--line); --rk-up: #d43e42; --rk-down: var(--accent); }
+body:not(.page-home) .rk { --rk-accent-bg: #f0f6ff; --rk-line: var(--line); --rk-up: var(--data-up); --rk-down: var(--accent); --rk-new: var(--data-new); }
 body:not(.page-home) .rk h1 { font-size: 36px; line-height: 1.25; font-weight: 650; letter-spacing: -.045em; }
 body:not(.page-home) .rk .rk-head { margin: 12px 0 28px; }
 body:not(.page-home) .rk .rk-subnav { gap: 26px; margin-top: 24px; }
@@ -18,7 +18,7 @@ body:not(.page-home) .rk .rk-list li { border-bottom-color: var(--border-subtle)
 body:not(.page-home) .rk .rk-list .nm > a { font-size: 14px; font-weight: 550; }
 body:not(.page-home) .rk .rk-list .nm .dv { font-size: 12px; font-weight: 400; }
 /* 가독성 (2026-09-09): 연속 1위 뱃지는 주황 글자/연주황 배경(대비 1.5)이라 안 읽혀 진한 갈색으로. */
-body:not(.page-home) .rk .rk-streak { color: #8a4b00; background: #fdf1dc; }
+body:not(.page-home) .rk .rk-streak { color: var(--data-new); background: var(--data-new-bg); } /* NEW와 같은 앰버 토큰 */
 /* 긴 설명문(소개 페이지 본문, 스팀 상세 요약)은 기사 본문과 같은 720px 폭으로 제한 */
 body:not(.page-home) .rk .rk-faq p, body:not(.page-home) .rk .rk-faq ul, body:not(.page-home) .rk .rk-lead { max-width: 720px; }
 body:not(.page-home) .rk .rk-list .rk-rk { color: var(--text-muted); font-size: 13px; font-weight: 500; }

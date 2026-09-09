@@ -902,7 +902,8 @@ const PURGECSS_SAFELIST = {
   greedy: [/^gs-ad-/, /^rk-/],
   // 타이포 토큰(--font-*)은 core 번들(00-base)에 정의되고 article/report 번들에서 참조된다.
   // PurgeCSS variables 정리는 파일 단위라 core 쪽에서 미사용으로 오인해 지우므로 보호한다.
-  variables: [/^--font-/],
+  // --data-*, --line, --chip-bg 도 core(02-shell-v2)에 정의되고 다른 번들(65~72)에서 참조된다 (2026-09-09)
+  variables: [/^--font-/, /^--data-/, /^--line$/, /^--chip-bg$/, /^--fs-/, /^--fw-/],
 };
 
 // PurgeCSS: docs/ 내 CSS 번들에서 미사용 CSS 제거

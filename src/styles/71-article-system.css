@@ -33,6 +33,9 @@ body .site-container .ranking-chart { max-width: 100%; min-width: 0; }
 body .site-container .ranking-chart .apexcharts-text { font-family: inherit !important; }
 
 /* ===== 포맷 정리 (2026-09-09) ===== */
+/* 기사 표의 등락 뱃지: 순위 페이지와 같은 규칙 (상승 빨강, 하락 회색) — 이전엔 초록/빨강으로 반대였다 */
+body .site-container .blog-table-wrapper .rank-up { background: #fdeceb; color: var(--data-up); }
+body .site-container .blog-table-wrapper .rank-down { background: var(--bg-secondary); color: var(--text-muted); }
 /* 모서리 3단계: 미디어 16 / 상자 12 / 칩 8 */
 body .site-container .blog-figure, body .site-container .blog-header + .blog-figure, body .site-container .blog-hero { border-radius: 16px; }
 body .site-container .blog-figure .blog-image { border-radius: 16px; }
