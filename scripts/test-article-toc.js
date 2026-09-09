@@ -209,7 +209,8 @@ test('긴 PC 목차의 마지막 항목도 화면 안에서 접근할 수 있다
 });
 
 test('JavaScript 없이도 모바일 목차를 펼치고 제목으로 이동할 수 있다', async () => {
-  const { context, page } = await openPage(renderers[6][1], {
+  // 테크 렌더러 제거 후 인덱스 6은 없다 → 마지막(AI 영어) 렌더러 (2026-09-09)
+  const { context, page } = await openPage(renderers[renderers.length - 1][1], {
     javaScriptEnabled: false,
     viewport: { width: 390, height: 844 }
   });

@@ -34,6 +34,12 @@ body .site-container .home-trend-card-title-text {
   color: var(--text-secondary) !important;
 }
 body .site-container .rk .rk-cardl:hover .t { color: var(--text) !important; }
+/* 기사 목차의 현재 절: 다른 항목(회색)과 구분되게 검정 — 글자 3색 정책의 --text (2026-09-09) */
+body .site-container .article-toc-item.is-current,
+body .site-container .article-toc-item.is-current:hover,
+body .site-container .article-toc-item.is-current:visited,
+body .site-container .article-toc-item.is-current .article-toc-num,
+body .site-container .article-toc-item.is-current .article-toc-text { color: var(--text) !important; }
 body .site-container .index-link.active { color: #fff !important; }
 body .site-container .tab-btn,
 body .site-container .tab-btn.active,

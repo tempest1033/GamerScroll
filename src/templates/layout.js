@@ -2181,9 +2181,8 @@ const adLazyLoadScript = `
     var isMobileTopAd = wrap.classList.contains('ad-card-mobile-top');
     var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
     if (isTopAd && !isMobileTopAd) centerTopAdCreative(ad, wrap, iframe);
-    var minHeight = isTopAd
-      ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 100 : 90)
-      : 0;
+    // 상단 광고 예약 높이: PC 1160×250(빌보드) · 모바일 300×250 — ads.js·05-ads.css와 같은 값 (2026-09-09, 이전 90/100)
+    var minHeight = isTopAd ? 250 : 0;
     var targetHeight = Math.max(iframeHeight, minHeight);
     var adHeight = Math.round(ad.getBoundingClientRect().height || ad.offsetHeight || 0);
     var wrapHeight = Math.round(wrap.getBoundingClientRect().height || wrap.offsetHeight || 0);
@@ -2199,7 +2198,8 @@ const adLazyLoadScript = `
     ad.style.minHeight = targetHeight + 'px';
 
     if (isMobileTopAd) {
-      var mobileAdMaxWidth = 320;
+      var mobileAdMaxWidth = 300;
+      var mobileAdHeightPx = '250px';
       var parentRect = wrap.parentElement && wrap.parentElement.getBoundingClientRect
         ? wrap.parentElement.getBoundingClientRect()
         : null;
@@ -2209,20 +2209,20 @@ const adLazyLoadScript = `
       if (!mobileAdWidth || mobileAdWidth < 1) mobileAdWidth = mobileAdMaxWidth;
       var mobileAdWidthPx = Math.round(mobileAdWidth) + 'px';
       wrap.style.setProperty('width', mobileAdWidthPx, 'important');
-      wrap.style.setProperty('max-width', '320px', 'important');
-      wrap.style.setProperty('height', '100px', 'important');
-      wrap.style.setProperty('min-height', '100px', 'important');
-      wrap.style.setProperty('max-height', '100px', 'important');
+      wrap.style.setProperty('max-width', mobileAdMaxWidth + 'px', 'important');
+      wrap.style.setProperty('height', mobileAdHeightPx, 'important');
+      wrap.style.setProperty('min-height', mobileAdHeightPx, 'important');
+      wrap.style.setProperty('max-height', mobileAdHeightPx, 'important');
       ad.style.setProperty('width', mobileAdWidthPx, 'important');
-      ad.style.setProperty('max-width', '320px', 'important');
-      ad.style.setProperty('height', '100px', 'important');
-      ad.style.setProperty('min-height', '100px', 'important');
-      ad.style.setProperty('max-height', '100px', 'important');
+      ad.style.setProperty('max-width', mobileAdMaxWidth + 'px', 'important');
+      ad.style.setProperty('height', mobileAdHeightPx, 'important');
+      ad.style.setProperty('min-height', mobileAdHeightPx, 'important');
+      ad.style.setProperty('max-height', mobileAdHeightPx, 'important');
       iframe.style.setProperty('width', mobileAdWidthPx, 'important');
-      iframe.style.setProperty('max-width', '320px', 'important');
-      iframe.style.setProperty('height', '100px', 'important');
-      iframe.style.setProperty('min-height', '100px', 'important');
-      iframe.style.setProperty('max-height', '100px', 'important');
+      iframe.style.setProperty('max-width', mobileAdMaxWidth + 'px', 'important');
+      iframe.style.setProperty('height', mobileAdHeightPx, 'important');
+      iframe.style.setProperty('min-height', mobileAdHeightPx, 'important');
+      iframe.style.setProperty('max-height', mobileAdHeightPx, 'important');
     }
   }
 

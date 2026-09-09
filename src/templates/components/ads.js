@@ -96,14 +96,15 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
 </div>`;
   }
   // 풀폭 페이지(사이드바 없음): 콘텐츠 폭(1160px)까지 반응형 — 홈 상단 광고(.rk-home-ad)와 같은 폭 (2026-09-09, 이전 970px).
-  // 높이는 90px로 고정해 첫 페인트부터 자리를 잡고, 어떤 크리에이티브가 와도 카드가 늘어나지 않게 한다
-  // (반응형 horizontal 유닛은 <ins>의 CSS height를 그대로 요청 규격으로 쓴다 → 970×90/728×90).
+  // 높이는 250px로 고정해 첫 페인트부터 자리를 잡고, 어떤 크리에이티브가 와도 카드가 늘어나지 않게 한다
+  // (반응형 horizontal 유닛은 <ins>의 CSS height를 그대로 요청 규격으로 쓴다 → 970×250 빌보드, 재고 없으면 970×90/728×90을 가운데 배치).
+  // 2026-09-09: 90 → 250 (빌보드). 함께 바꿀 곳: 05-ads.css 예약 높이, layout.js normalizeAdVisualSize의 minHeight.
   return `<div class="ad-card ad-card-responsive-home ${cardClass}">
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; width:100%; max-width:1160px; height:90px; min-height:90px; max-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
-      .${styleId} { display:block !important; width:100%; height:90px; min-height:90px; margin:0 auto; }
+      .${cardClass} { display:flex !important; width:100%; max-width:1160px; height:250px; min-height:250px; max-height:250px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:block !important; width:100%; height:250px; min-height:250px; margin:0 auto; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
@@ -116,7 +117,8 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
 
 /**
  * 모바일 전용 홈 상단 광고
- * Mobile: 320x100, Desktop: 숨김
+ * Mobile: 300x250, Desktop: 숨김
+ * 2026-09-09: 320×100 → 300×250 (재고가 가장 많은 규격). 함께 바꿀 곳: 05-ads.css .ad-card-mobile-top, layout.js normalizeAdVisualSize.
  */
 function renderMobileOnlyHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
@@ -124,15 +126,15 @@ function renderMobileOnlyHomeAd(slotId) {
   const cardClass = `${styleId}-card`;
   return `<div class="ad-card ad-card-mobile-top ${cardClass}">
   <style>
-    .${cardClass} { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
-    .${styleId}, .${cardClass} > .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .${cardClass} { display:flex !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .${styleId}, .${cardClass} > .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:block !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; margin:0 auto; }
     .${cardClass} > .${styleId} > div { overflow:hidden !important; }
     @media (min-width: 769px) {
       .${cardClass}, .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
-       style="display:block;width:100%;max-width:320px;height:100px"
+       style="display:block;width:100%;max-width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
 </div>`;
@@ -140,7 +142,7 @@ function renderMobileOnlyHomeAd(slotId) {
 
 /**
  * 홈/상단 광고 페어
- * PC는 auto-responsive, 모바일은 320x100 고정 슬롯으로 분리
+ * PC는 auto-responsive(1160×250), 모바일은 300x250 고정 슬롯으로 분리
  */
 function renderHomeAdPair(pcSlotId, mobileSlotId, opts) {
   if (!ADS_ENABLED) return '';
