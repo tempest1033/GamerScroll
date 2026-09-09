@@ -26,16 +26,18 @@ body.page-home {
 .page-home .site-container { max-width: var(--site-max-width); padding: 0 var(--site-gutter) 80px; }
 .page-home .gs-header { border-bottom-color: #eeeef0; }
 .page-home .gs-nav a { font-size: 13px; font-weight: 500; color: #515154; }
-.page-home .gs-nav a:hover { color: #0071e3; }
+.page-home .gs-nav a:hover { color: #1d1d1f; }
 .page-home .gs-status { display: none; }
 .page-home .rk-home { --rk-accent-bg: #f0f6ff; --rk-line: #e5e5e9; --rk-up: #d43e42; --rk-down: #0071e3; }
 
 /* 제목은 크게, 부가 설명은 가볍게. 게임 아이콘이 화면의 색감을 담당한다. */
-.rk-home .rk-home-heading { display: block; padding: 24px 0; margin: 0; }
+/* 첫 화면: 제목은 한 줄로 가볍게, 기준일을 붙여 데이터가 바로 시작되게 한다 (2026-09-09). */
+.rk-home .rk-home-heading { display: block; padding: 12px 0 20px; margin: 0; }
 .rk-home .rk-home-hero-copy { width: 100%; }
-.rk-home .rk-home-heading h1 { font-size: clamp(28px,2.7vw,36px); font-weight: 650; letter-spacing: -.045em; line-height: 1.3; }
+.rk-home .rk-home-heading h1 { font-size: 30px; font-weight: 650; letter-spacing: -.045em; line-height: 1.3; }
 .rk-home .rk-home-heading h1 span { color: #86868b; }
-.rk-home .rk-home-heading p { margin-top: 18px; color: #6e6e73; font-size: 14px; line-height: 1.65; }
+.rk-home .rk-home-heading p { margin-top: 8px; color: #6e6e73; font-size: 13px; line-height: 1.65; }
+.rk-home .rk-home-heading p time { color: #1d1d1f; font-weight: 500; font-variant-numeric: tabular-nums; }
 .rk-home .rk-home-heading .rk-links-row { gap: 10px; flex-direction: column; align-items: flex-end; padding-bottom: 4px; }
 .rk-home .rk-home-heading .rk-links-row a { height: auto; padding: 0; color: #0066cc; border: 0; background: none; font-size: 13px; font-weight: 400; }
 .rk-home .rk-home-heading .rk-links-row a:hover { text-decoration: underline; }
@@ -46,7 +48,7 @@ body.page-home {
 .rk-home .rk-hcard .one { display: flex; gap: 12px; flex-wrap: nowrap; padding: 0; min-width: 0; }
 .rk-home .rk-hcard .one:first-child { padding: 0; }
 .rk-home .rk-hcard .one img { width: 52px; height: 52px; border-radius: 14px; box-shadow: 0 3px 10px #0000000d; object-fit: cover; }
-.rk-home .rk-hcard .one .l { color: #6e6e73; font-weight: 400; font-size: 10px; line-height: 1.5; }
+.rk-home .rk-hcard .one .l { color: #6e6e73; font-weight: 400; font-size: 11px; line-height: 1.5; }
 .rk-home .rk-hcard .one .n { max-width: 150px; font-size: 13px; font-weight: 600; margin-top: 5px; }
 .rk-home .rk-hcards > .rk-hcard.steam { padding: 20px 108px 20px 24px; background: #f5f5f7; border-radius: 20px; }
 .rk-home .rk-hcard.steam h3 { margin-bottom: 12px; white-space: nowrap; }
@@ -80,7 +82,7 @@ body.page-home {
 .rk-home .rk-hpanel .rk-list li:has(button[aria-pressed="true"]) { background: #f5f5f7; }
 .rk-home .rk-hpanel .rk-list li:has(button[aria-pressed="true"]) .nm > button { color: #0066cc; }
 .rk-home .rk-hpanel .rk-list .nm > button { font-size: 14px; font-weight: 550; }
-.rk-home .rk-hpanel .rk-list .nm .dv { font-size: 10px; font-weight: 400; color: #76767c; }
+.rk-home .rk-hpanel .rk-list .nm .dv { font-size: 11px; font-weight: 400; color: #76767c; }
 .rk-home .rk-list .rk-rk, .rk-home .rk-list .rk-rk.top { color: #6e6e73; font-size: 13px; font-weight: 500; }
 .rk-home .rk-hpanel .rk-list img { width: 40px; height: 40px; border-radius: 11px; box-shadow: none; }
 .rk-home .rk-hpanel .rk-list .rk-spark { width: 52px; opacity: .6; }
@@ -103,8 +105,9 @@ body.page-home {
 .rk-home .rk-preview-kpis { padding: 16px 0 0; border-top: 1px solid #dedee3; border-bottom: 0; gap: 18px; }
 .rk-home .rk-preview-kpis span { font-size: 11px; }
 .rk-home .rk-preview-kpis b { font-size: 22px; font-weight: 550; margin-top: 8px; }
-.rk-home .rk-preview-link { display: inline-flex; align-self: flex-start; align-items: center; margin-top: 18px; padding: 12px 20px; border-radius: 999px; background: #0071e3; color: #fff; font-size: 12px; font-weight: 500; }
-.rk-home .rk-preview-link:hover { background: #0077ed; }
+/* 키컬러 정리: 버튼·활성 상태는 검정, 파랑은 데이터(하락·앱스토어·차트)에만 쓴다 (2026-09-09). */
+.rk-home .rk-preview-link { display: inline-flex; align-self: flex-start; align-items: center; margin-top: 18px; padding: 12px 20px; border-radius: 999px; background: #1d1d1f; color: #fff; font-size: 12px; font-weight: 500; }
+.rk-home .rk-preview-link:hover { background: #3a3a3f; }
 .rk-home .rk-preview-help { font-size: 11px; line-height: 1.75; color: #6e6e73; margin: 14px 0 0; }
 
 /* 하단은 주제별로 호흡을 나누고, 제목에 굵은 구분선을 사용하지 않는다. */
@@ -118,26 +121,30 @@ body.page-home {
 .rk-home .rk-hmovers .rk-hcard .mrow .n { font-weight: 500; }
 .rk-home .rk-hmovers .rk-hcard .mrow .rk-chg { font-size: 12px; font-weight: 500; }
 .rk-home .rk-home-ad { margin: 16px 0 12px; }
-.rk-home .rk-month-section { padding: 30px; background: #f5f5f7; border-radius: 24px; }
-.rk-home .rk-hmonth { gap: 16px; margin-top: 12px; }
-.rk-home .rk-hmonth .rk-card { border: 0; padding: 20px; border-radius: 18px; margin-top: 12px; }
-.rk-home .rk-hmonth .rk-card h2 { border: 0; font-size: 16px; font-weight: 600; padding: 0 0 12px; }
-.rk-home .rk-hmonth .rk-card h2 small { font-size: 10px; text-align: left; }
-.rk-home .rk-hmonth .rk-table td { font-size: 12px; }
-.rk-home .rk-hmonth .rk-app .t { font-size: 12px; }
-.rk-home .rk-hmonth .rk-app .d { font-size: 10px; }
+/* 월간 분석: 회색 상자를 걷어내고 '주요 순위 변동'과 같은 선 구분 문법으로 통일 (2026-09-09). */
+.rk-home .rk-month-section { padding: 0; background: transparent; border-radius: 0; }
+.rk-home .rk-hmonth { gap: 40px; margin-top: 28px; }
+.rk-home .rk-hmonth .rk-card { border: 0; padding: 0; border-radius: 0; margin-top: 0; background: transparent; }
+.rk-home .rk-hmonth .rk-card h2 { border: 0; border-bottom: 1px solid #eeeef0; font-size: 17px; font-weight: 600; color: #1d1d1f; padding: 0 0 12px; margin-bottom: 4px; }
+.rk-home .rk-hmonth .rk-card h2 small { font-size: 12px; text-align: left; }
+.rk-home .rk-hmonth .rk-table td { font-size: 13px; }
+.rk-home .rk-hmonth .rk-app .t { font-size: 13px; }
+.rk-home .rk-hmonth .rk-app .d { font-size: 12px; }
 .rk-home .rk-hmonth .rk-app img { width: 28px; height: 28px; border-radius: 8px; }
 .rk-home .rk-hmonth .rk-app .t, .rk-home .rk-hmonth .rk-app .d { max-width: 112px; }
 .rk-home .rk-podium a, .rk-home .rk-podium .p1 { background: transparent; padding: 16px 2px; }
 .rk-home .rk-podium img, .rk-home .rk-podium .p1 img { width: 48px; height: 48px; border-radius: 13px; }
 .rk-home .rk-podium b, .rk-home .rk-podium .p1 b { color: #6e6e73; }
 .rk-home .rk-podium .n { font-weight: 500; }
+/* 리포트 카드: 리포트 허브(3열 · 16:9 · 12px 모서리)와 같은 규격 */
+.rk-home .rk-cards.four { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; }
 .rk-home .rk-cardl { border: 0; border-radius: 0; background: transparent; }
-.rk-home .rk-cardl img { border-radius: 18px; }
-.rk-home .rk-cardl .b { padding: 16px 2px; }
-.rk-home .rk-cardl .k { color: #6e6e73; font-size: 11px; font-weight: 500; }
-.rk-home .rk-cards.four .rk-cardl .t { font-size: 16px; font-weight: 600; margin-top: 8px; line-height: 1.5; }
-.rk-home .rk-cardl:hover .t { color: #0066cc; }
+.rk-home .rk-cardl img { border-radius: 12px; aspect-ratio: 16 / 9; object-fit: cover; background: #f5f5f7; }
+.rk-home .rk-cardl .b { padding: 16px 0; }
+.rk-home .rk-cardl .k { color: #6e6e73; font-size: 12px; font-weight: 400; }
+.rk-home .rk-cards.four .rk-cardl .t { font-size: 20px; font-weight: 600; margin-top: 8px; line-height: 1.5; }
+.rk-home .rk-cards.four .rk-cardl .s { font-size: 13px; color: #6e6e73; line-height: 1.7; }
+.rk-home .rk-cardl:hover .t { text-decoration: underline; text-underline-offset: 4px; }
 .rk-home .rk-foot { font-size: 11px; color: #86868b; margin-top: 60px; }
 .page-home .site-footer { border: 0; background: #f5f5f7; max-width: none; padding: 24px max(var(--site-gutter),calc((100% - var(--site-max-width))/2 + var(--site-gutter))); font-size: 11px; }
 
@@ -159,9 +166,9 @@ body.page-home {
   .page-home > .search-container .search-input::placeholder { color: #6e6e73; }
   .page-home > .search-container .search-btn { background: transparent; color: #6e6e73; }
   .page-home .nav { background: #fff !important; border-bottom: 1px solid #eeeef0; }
-  .rk-home .rk-home-heading { padding: 16px 0 24px; }
-  .rk-home .rk-home-heading h1 { font-size: 28px; line-height: 1.3; letter-spacing: -.045em; }
-  .rk-home .rk-home-heading p { margin-top: 14px; font-size: 12px; max-width: 290px; }
+  .rk-home .rk-home-heading { padding: 8px 0 20px; }
+  .rk-home .rk-home-heading h1 { font-size: 26px; line-height: 1.3; letter-spacing: -.045em; }
+  .rk-home .rk-home-heading p { margin-top: 8px; font-size: 12px; }
   .rk-home .rk-hcards { display: grid; grid-template-columns: 1fr; gap: 18px; overflow: visible; padding: 0 0 26px; margin: 0; }
   .rk-home .rk-hcards > .rk-hcard { min-width: 0; padding: 16px 18px; border-radius: 16px; }
   .rk-home .rk-hcard h3 { margin-bottom: 16px; font-size: 11px; }
@@ -169,14 +176,14 @@ body.page-home {
   .rk-home .rk-hcard .one { flex-direction: column; align-items: flex-start; gap: 10px; }
   .rk-home .rk-hcard .one img { width: 48px; height: 48px; border-radius: 13px; }
   .rk-home .rk-hcard .one .n { font-size: 11px; max-width: 100%; }
-  .rk-home .rk-hcard .one .l { font-size: 9px; }
+  .rk-home .rk-hcard .one .l { font-size: 11px; }
   .rk-home .rk-hcards > .rk-hcard.steam { min-width: 0; padding: 16px 100px 16px 18px; border-radius: 16px; }
   .rk-home .rk-hcard.steam h3 { margin-bottom: 8px; }
   .rk-home .rk-hcard.steam .big { font-size: 26px; }
   .rk-home .rk-hcard.steam .rk-spark { bottom: 26px; }
   .rk-home .rk-market-heading { margin-top: 28px; margin-bottom: 18px; gap: 12px; }
   .rk-home .rk-market-heading h2 { font-size: 24px; }
-  .rk-home .rk-market-heading .rk-asof { font-size: 9px; }
+  .rk-home .rk-market-heading .rk-asof { font-size: 11px; }
   .rk-home .rk-workspace { grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; gap: 0; }
   .rk-home .rk-workspace .rk-htabs-sec { padding: 0; }
   .rk-home .rk-htabs { margin: 0; padding: 0 0 14px; gap: 4px; }
@@ -196,10 +203,9 @@ body.page-home {
   .rk-home .rk-section > h2 small { font-size: 11px; }
   .rk-home .rk-hmovers { grid-template-columns: 1fr; gap: 28px; margin-top: 24px; }
   .rk-home .rk-hmovers .rk-hcard .mrow .r { display: block; }
-  .rk-home .rk-month-section { padding: 22px 16px; margin-left: -4px; margin-right: -4px; border-radius: 20px; }
-  .rk-home .rk-hmonth { grid-template-columns: 1fr; gap: 12px; }
-  .rk-home .rk-hmonth .rk-card { padding: 20px 16px; margin-top: 0; }
-  .rk-home .rk-hmonth > :first-child { margin-top: 10px; }
+  .rk-home .rk-month-section { padding: 0; margin-left: 0; margin-right: 0; border-radius: 0; }
+  .rk-home .rk-hmonth { grid-template-columns: 1fr; gap: 28px; margin-top: 20px; }
+  .rk-home .rk-hmonth .rk-card { padding: 0; margin-top: 0; }
   .rk-home .rk-hmonth .rk-app .t { max-width: 140px; }
   .rk-home .rk-cards.four { grid-template-columns: 1fr; gap: 24px; }
   .rk-home .rk-home-ad { margin: 0 0 12px; }

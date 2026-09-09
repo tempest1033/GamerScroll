@@ -95,11 +95,11 @@ function externalizeDeferredJsonPayloads() {
   }
   ensureDir(FEED_ASSETS_DIR);
 
-  const rootHtmlFiles = ['index.html', '404.html', 'rankings.html', 'steam.html', 'upcoming.html']
+  const rootHtmlFiles = ['index.html', '404.html', 'rankings.html', 'steam.html']
     .filter((file) => fs.existsSync(file))
     .map((file) => `./${file}`);
   const nestedHtmlFiles = [];
-  ['games', 'wiki', 'tech', 'magazine'].forEach((dir) => collectHtmlFilesUnderDir(`./${dir}`, nestedHtmlFiles));
+  ['games', 'tech', 'magazine'].forEach((dir) => collectHtmlFilesUnderDir(`./${dir}`, nestedHtmlFiles));
   const allHtmlFiles = [...rootHtmlFiles, ...nestedHtmlFiles];
 
   allHtmlFiles.forEach((filePath) => {
@@ -123,18 +123,17 @@ function getCssBundlesForDocPath(relativePath) {
     normalized === 'index.html' || // 홈 상단 순위 요약(.rk)
     normalized === 'rankings.html' ||
     normalized === 'steam.html' ||
-    normalized === 'upcoming.html' ||
     normalized.startsWith('games/') ||
     normalized.startsWith('rankings/') ||
     normalized.startsWith('steam/') ||
     normalized.startsWith('reports/') || // 리포트 허브 (.rk)
-    normalized.startsWith('upcoming/');
+    normalized.startsWith('about/'); // 사이트 소개 (.rk)
 
   if (normalized.startsWith('magazine/')) {
     bundles.push('/styles-report.css', '/styles-article.css');
   } else if (needsGameCss) {
     bundles.push('/styles-game.css');
-  } else if (normalized.startsWith('wiki/') || normalized.startsWith('tech/')) {
+  } else if (normalized.startsWith('tech/')) {
     bundles.push('/styles-article.css');
   }
 
@@ -618,46 +617,11 @@ function updateHistoryRankingsFromCSV(date) {
   }
 }
 
-// 위키 데이터 로드 함수
+// 위키 데이터 로드 함수 — 위키 섹션은 2026-09-09 폐기 (/wiki/* 는 미들웨어에서 /reports/ 로 301).
+// data/wiki/ 원고는 AI스크롤 빌드(ai-build.yml)가 공유하므로 파일은 남기고, 게이머스크롤 빌드에서는
+// 빈 목록을 돌려 관련 문서·홈 최신 기사·사이드바 카운트·RSS 어디에도 섞이지 않게 한다.
 function loadWikiData() {
-  const categories = ['business', 'history', 'knowledge'];
-  const wikiData = {};
-
-  for (const category of categories) {
-    const categoryDir = `${WIKI_DIR}/${category}`;
-    wikiData[category] = [];
-
-    if (!fs.existsSync(categoryDir)) continue;
-
-    const files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.json'));
-    for (const file of files) {
-      try {
-        const raw = fs.readFileSync(`${categoryDir}/${file}`, 'utf8').replace(/^\uFEFF/, '');
-        const article = JSON.parse(raw);
-        ensurePublishDate(article, `${categoryDir}/${file}`, 'KST');
-        const status = article.status || '';
-        const isApproved = status === 'approved' || status === 'published';
-        const isDraft = status === 'draft';
-        // AIScroll 전용 글은 GamerScroll 빌드/사이트맵에서 제외 (도메인 간 중복 콘텐츠 방지)
-        const isAiscrollOnly = article.site === 'aiscroll';
-        if (!isAiscrollOnly && (isApproved || (includeDrafts && isDraft))) {
-          const slug = article.slug || file.replace('.json', '');
-          wikiData[category].push({
-            ...article,
-            slug,
-            _jsonFilePath: `${categoryDir}/${file}`
-          });
-        }
-      } catch (e) {
-        console.warn(`  ⚠️ 위키 파일 로드 실패: ${categoryDir}/${file}`);
-      }
-    }
-
-    // 날짜 기준 정렬 (최신순)
-    wikiData[category].sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  return wikiData;
+  return { business: [], history: [], knowledge: [] };
 }
 
 // 테크 데이터 로드 함수 (Stage 3: GamerScroll에서 tech 제거)
@@ -688,7 +652,6 @@ const {
   fetchCommunityPosts,
   fetchNews,
   fetchSteamRankings,
-  fetchUpcomingGames,
   fetchRankings,
   fetchMetacriticGames
 } = require('./src/crawlers');
@@ -798,13 +761,21 @@ function writeRankHubSubpages(docsDir) {
   } catch (e) {
     console.warn(`  ⚠️ 리포트 허브 생성 실패: ${e.message}`);
   }
+  // 사이트 소개 (docs/about/) — 푸터 '소개' 링크
+  try {
+    const { renderAboutPage } = require('./src/templates/pages/about');
+    const dir = path.join(docsDir, 'about');
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), renderAboutPage(), 'utf8');
+    entries.push({ loc: 'https://gamerscroll.com/about/', priority: '0.5' });
+    console.log('  ✅ 사이트 소개 /about/');
+  } catch (e) {
+    console.warn(`  ⚠️ 사이트 소개 생성 실패: ${e.message}`);
+  }
   return entries;
 }
 const { generateSteamPage } = require('./src/templates/pages/steam');
-const { generateUpcomingPage } = require('./src/templates/pages/upcoming');
 const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
-const { generateWikiHubPage, generateWikiCategoryPage } = require('./src/templates/pages/wiki-hub');
-const { generateWikiArticlePage } = require('./src/templates/pages/wiki-article');
 const { generateTechHubPage, generateTechCategoryPage } = require('./src/templates/pages/tech-hub');
 const { generateTechArticlePage } = require('./src/templates/pages/tech-article');
 const { generate404Page } = require('./src/templates/pages/404');
@@ -945,7 +916,8 @@ async function purgeCssInDocs(docsDir) {
         './src/templates/pages/game.js',
         `${docsDir}/rankings/**/*.html`,
         `${docsDir}/steam/**/*.html`,
-        `${docsDir}/upcoming/**/*.html`,
+        `${docsDir}/reports/**/*.html`,
+        `${docsDir}/about/**/*.html`,
       ],
       label: 'styles-game.css',
     },
@@ -953,7 +925,6 @@ async function purgeCssInDocs(docsDir) {
       css: `${docsDir}/styles-article.css`,
       content: [
         `${docsDir}/magazine/**/*.html`,
-        `${docsDir}/wiki/**/*.html`,
         `${docsDir}/tech/**/*.html`,
         // 루트 생성본(아직 docs 로 복사 전)도 스캔 — magazine 섹션 id 보존
         './magazine/**/*.html',
@@ -991,7 +962,7 @@ async function purgeCssInDocs(docsDir) {
 }
 
 async function main() {
-  let news, community, rankings, steam, youtube, chzzk, upcoming;
+  let news, community, rankings, steam, youtube, chzzk;
 
   // KST 시간 계산
   const now = new Date();
@@ -1018,7 +989,6 @@ async function main() {
     steam = cache.steam;
     youtube = cache.youtube;
     chzzk = cache.chzzk;
-    upcoming = cache.upcoming;
   } else {
     // 일반 모드: 시간대별 조건부 크롤링
     const existingCache = fs.existsSync(CACHE_FILE) ? JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8')) : null;
@@ -1055,17 +1025,8 @@ async function main() {
       chzzk = existingCache.chzzk;
     }
 
-    // 출시 예정 게임 - 크롤링할 때 같이 갱신
-    if (needsCrawling || !existingCache?.upcoming) {
-      console.log('\n📅 출시 예정 게임 수집 중...');
-      upcoming = await fetchUpcomingGames(store, FirecrawlClient, FIRECRAWL_API_KEY);
-    } else {
-      console.log('📅 출시 예정 - 캐시 사용');
-      upcoming = existingCache.upcoming;
-    }
-
-    // 캐시 저장
-    const cache = { timestamp: new Date().toISOString(), news, community, rankings, steam, youtube, chzzk, upcoming };
+    // 캐시 저장 (출시 예정 게임 수집은 2026-09-09 /upcoming/ 폐기와 함께 제거)
+    const cache = { timestamp: new Date().toISOString(), news, community, rankings, steam, youtube, chzzk };
     fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf8');
     console.log('\n💾 캐시 저장 완료');
 
@@ -1252,7 +1213,7 @@ async function main() {
   const insightReportsCount = insightReportsForHome.length;
   const hotpickReportsCount = hotpickReportsForHome.length;
   const rankingReportsCount = rankingReportsForHome.length;
-  const data = { rankings, news, steam, youtube, chzzk, community, upcoming, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
+  const data = { rankings, news, steam, youtube, chzzk, community, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};
@@ -1459,7 +1420,6 @@ async function main() {
   const pages = [
     { filename: 'rankings.html', generator: (d) => generateRankingsHome(d, gamesData, rankingsCacheVersion) },
     { filename: 'steam.html', generator: (d) => generateSteamHome(d, steamCacheVersion) },
-    { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [], searchIndexVersion }) },
       { filename: '404.html', generator: generate404Page }
   ];
@@ -2078,7 +2038,6 @@ async function main() {
   const latePages = [
     { filename: 'rankings.html', generator: (d) => generateRankingsHome(d, gamesData, rankingsCacheVersion) },
     { filename: 'steam.html', generator: (d) => generateSteamHome(d, steamCacheVersion) },
-    { filename: 'upcoming.html', generator: generateUpcomingPage },
     { filename: '404.html', generator: generate404Page }
   ];
   for (const page of latePages) {
@@ -2100,114 +2059,9 @@ async function main() {
     console.error(`  ❌ index.html: ${err.message}`);
   }
 
-  // 위키 페이지 생성
-  console.log('\n📚 위키 페이지 생성...');
+  // 위키 페이지 생성은 2026-09-09 폐기 (loadWikiData 주석 참고). 테크 빌드가 참조하는 빈 데이터만 유지한다.
   const wikiData = loadWikiData();
-  const techData = loadTechData();  // 위키 사이드바에서 테크 카운트 필요
-  const categories = ['business', 'history', 'knowledge'];
-
-  // 위키 메인 및 카테고리 목록 페이지 생성
-  const wikiCategoryData = {
-    wikiData,
-    techData,
-    issueReportsCount: issueReports.length,
-    insightReportsCount: insightReports.length,
-    hotpickReportsCount: hotpickReports.length,
-    rankingReportsCount: rankingReports.length,
-    sidebarPopularArticles: sidebarPopularWiki,
-    sidebarLatestArticles: sidebarLatestWiki
-  };
-
-  // wiki/index.html 생성
-  try {
-    const wikiDir = './wiki';
-    if (!fs.existsSync(wikiDir)) {
-      fs.mkdirSync(wikiDir, { recursive: true });
-    }
-    const wikiHubHtml = generateWikiHubPage(wikiCategoryData);
-    fs.writeFileSync(`${wikiDir}/index.html`, wikiHubHtml, 'utf8');
-    console.log(`  ✅ wiki/index.html`);
-  } catch (err) {
-    console.error(`  ❌ wiki/index.html: ${err.message}`);
-  }
-
-  // 카테고리 목록 페이지 생성 (history/index.html, knowledge/index.html 등)
-  for (const category of categories) {
-    const categoryDir = `./wiki/${category}`;
-    if (!fs.existsSync(categoryDir)) {
-      fs.mkdirSync(categoryDir, { recursive: true });
-    }
-
-    try {
-      const categoryHtml = generateWikiCategoryPage({ ...wikiCategoryData, category });
-      fs.writeFileSync(`${categoryDir}/index.html`, categoryHtml, 'utf8');
-      console.log(`  ✅ wiki/${category}/index.html`);
-    } catch (err) {
-      console.error(`  ❌ wiki/${category}/index.html: ${err.message}`);
-    }
-  }
-
-  // 위키 개별 항목 페이지 생성
-  for (const category of categories) {
-    const articles = wikiData[category] || [];
-    if (articles.length === 0) continue;
-
-    const categoryDir = `./wiki/${category}`;
-    let wikiBuilt = 0, wikiSkipped = 0;
-
-    for (let i = 0; i < articles.length; i++) {
-      const article = articles[i];
-      const pageDir = `${categoryDir}/${article.slug}`;
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-
-      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
-      const cacheKey = `${category}/${article.slug}`;
-      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
-      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.wiki, cacheKey, article)) {
-        wikiSkipped++;
-        continue;
-      }
-
-      try {
-        // 관련 문서: parseRelatedDocs 통합 함수 사용
-        const relatedDocs = parseRelatedDocs(article, category, wikiData, techData, issueReports, insightReports, hotpickReports, rankingReports);
-
-        // 이전/다음 항목
-        const prevNext = {
-          prev: articles[i + 1] ? { slug: articles[i + 1].slug, title: articles[i + 1].title } : null,
-          next: articles[i - 1] ? { slug: articles[i - 1].slug, title: articles[i - 1].title } : null
-        };
-
-        const html = generateWikiArticlePage({
-          article,
-          category,
-          relatedDocs,
-          prevNext,
-          issueReports,
-          allWikiData: wikiData,
-          allTechData: techData,
-          reportCounts: {
-            issue: issueReports.length,
-            insight: insightReports.length,
-            hotpick: hotpickReports.length,
-            ranking: rankingReports.length
-          },
-          magazineCounts: {
-          },
-          sidebarPopularArticles: sidebarPopularWiki,
-          sidebarLatestArticles: sidebarLatestWiki
-        });
-        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-        buildCache.updateCacheSection(incrementalCache.wiki, cacheKey, article);
-        wikiBuilt++;
-      } catch (err) {
-        console.error(`  ❌ wiki/${category}/${article.slug}: ${err.message}`);
-      }
-    }
-    buildCache.printBuildStats({ total: articles.length, built: wikiBuilt, skipped: wikiSkipped, type: `${category} 위키 페이지` });
-  }
+  const techData = loadTechData();
 
   // ========== 테크 페이지 빌드 ==========
   console.log('\n📱 테크 페이지 빌드...');
@@ -2329,7 +2183,7 @@ async function main() {
   }
   fs.copyFileSync('./index.html', `${DOCS_DIR}/index.html`);
   fs.copyFileSync('./404.html', `${DOCS_DIR}/404.html`);
-  const subPages = ['rankings', 'steam', 'upcoming'];
+  const subPages = ['rankings', 'steam'];
   for (const page of subPages) {
     const pageDir = `${DOCS_DIR}/${page}`;
     if (!fs.existsSync(pageDir)) {
@@ -2356,27 +2210,18 @@ async function main() {
     console.warn('  ⚠️ privacy 페이지 복사 실패:', err.message);
   }
 
-  // wiki 폴더 복사
+  // 위키 폴더(./wiki → docs/wiki) 복사는 2026-09-09 폐기. 배포본에 남은 docs/wiki 잔재는 매 빌드 제거한다.
   try {
-    const srcWiki = './wiki';
-    if (fs.existsSync(srcWiki)) {
-      const copyDir = (src, dest) => {
-        if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
-        const entries = fs.readdirSync(src, { withFileTypes: true });
-        for (const entry of entries) {
-          const srcPath = `${src}/${entry.name}`;
-          const destPath = `${dest}/${entry.name}`;
-          if (entry.isDirectory()) {
-            copyDir(srcPath, destPath);
-          } else {
-            fs.copyFileSync(srcPath, destPath);
-          }
-        }
-      };
-      copyDir(srcWiki, `${DOCS_DIR}/wiki`);
+    if (fs.existsSync(`${DOCS_DIR}/wiki`)) {
+      fs.rmSync(`${DOCS_DIR}/wiki`, { recursive: true, force: true });
+      console.log('  🧹 docs/wiki 잔재 제거 (위키 폐기)');
+    }
+    if (fs.existsSync(`${DOCS_DIR}/upcoming`)) {
+      fs.rmSync(`${DOCS_DIR}/upcoming`, { recursive: true, force: true });
+      console.log('  🧹 docs/upcoming 잔재 제거 (출시 게임 폐기)');
     }
   } catch (err) {
-    console.warn('  ⚠️ wiki 폴더 복사 실패:', err.message);
+    console.warn('  ⚠️ 폐기 섹션 잔재 제거 실패:', err.message);
   }
 
   // tech 폴더 복사
@@ -2657,7 +2502,7 @@ async function main() {
     // 동결 모드: 스테이징 트리(magazine/·wiki/·tech/)에서 복사돼 들어온 페이지만
     // 정규화한다. 증분 스킵으로 스테이징에 남은 구버전 해시 링크를 동결 해시로
     // 교정하기 위함이며, games/ 등 배포본 페이지는 건드리지 않아 churn이 없다.
-    const copiedTrees = ['magazine/', 'wiki/', 'tech/'];
+    const copiedTrees = ['magazine/', 'tech/'];
     rewriteDocsStylesheetLinks(DOCS_DIR, copiedTrees);
     stripTechSidebarFromNonTechDocs(DOCS_DIR, copiedTrees);
   }
@@ -2696,38 +2541,15 @@ async function main() {
     // 홈
     { loc: `${siteBaseUrl}/`, lastmod: sitemapDate, priority: '1.0' },
     // 매거진 (허브 + 목록)
-    { loc: `${siteBaseUrl}/magazine/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/magazine/issue/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/magazine/insight/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/magazine/hotpick/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/magazine/ranking/`, lastmod: sitemapDate, priority: '0.8' },
+    // 매거진 허브·카테고리 목록(/magazine/, /magazine/{type}/)은 2026-09-09부터 /reports/ 로 301 → sitemap 제외
     // /magazine/weekly/ 허브는 구 주간 페이지와 함께 noindex (legacy-weekly-noindex) → sitemap 제외
     // 순위/데이터
     { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate, priority: '0.8' },
     ...rankSitemapEntries.map((e) => ({ ...e, lastmod: sitemapDate })),
     { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/upcoming/`, lastmod: sitemapDate, priority: '0.8' },
     { loc: `${siteBaseUrl}/games/`, lastmod: sitemapDate, priority: '0.8' },
-    // 위키 (허브 + 카테고리)
-    { loc: `${siteBaseUrl}/wiki/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/wiki/business/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/wiki/history/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/wiki/knowledge/`, lastmod: sitemapDate, priority: '0.8' },
-    // 테크 카테고리는 AIScroll로 이관됨 (Stage 3)
+    // 위키·출시 게임은 2026-09-09 폐기 (미들웨어 301), 테크 카테고리는 AIScroll로 이관됨 (Stage 3)
   ];
-
-  // 위키 페이지 자동 스캔
-  const wikiSitemapData = loadWikiData();
-  const wikiSitemapCategories = ['business', 'history', 'knowledge'];
-  let wikiPages = [];
-  for (const category of wikiSitemapCategories) {
-    const articles = wikiSitemapData[category] || [];
-    wikiPages.push(...articles.map(article => ({
-      loc: `${siteBaseUrl}/wiki/${category}/${article.slug}/`,
-      lastmod: normalizeLastmodDate(article.date),
-      priority: '0.6'
-    })));
-  }
 
   // 테크 페이지 자동 스캔
   const techSitemapData = loadTechData();
@@ -2805,7 +2627,7 @@ async function main() {
 
   // Sitemap XML 생성 (PC URL만 - 중복 신호 최소화로 색인 효율 향상)
   require('./src/build/archive-legacy-reports').archiveLegacyReports(DOCS_DIR);
-  const allPages = [...mainPages, ...wikiPages, ...techPages, ...magazinePages].filter(page => !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(page.loc));
+  const allPages = [...mainPages, ...techPages, ...magazinePages].filter(page => !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(page.loc));
   const sitemapEntries = allPages.map(page => {
     return `  <url>
     <loc>${page.loc}</loc>
@@ -2819,7 +2641,7 @@ async function main() {
 ${sitemapEntries}
 </urlset>`;
   fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
-  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 위키 ${wikiPages.length}개 + 테크 ${techPages.length}개 + 매거진 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
+  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 테크 ${techPages.length}개 + 매거진 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
 
   // robots.txt 생성
   // 주의: /games/ 페이지는 <meta robots="noindex,follow">이므로 Disallow 금지.

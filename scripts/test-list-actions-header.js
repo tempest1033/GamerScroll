@@ -12,7 +12,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
       const page = await browser.newPage({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
       await page.route('**/*', route => route.request().url().startsWith(base) ? route.continue() : route.abort());
       let headerReference;
-      for (const url of ['/', '/rankings/', '/rankings/free/', '/rankings/jp/', '/steam/', '/games/', '/reports/', '/magazine/', '/wiki/', '/games/메이플-키우기/', '/magazine/ranking/subculture-august-2026-kr/']) {
+      for (const url of ['/', '/rankings/', '/rankings/free/', '/rankings/jp/', '/steam/', '/games/', '/reports/', '/magazine/', '/games/메이플-키우기/', '/magazine/ranking/subculture-august-2026-kr/']) {
         try {
           await page.goto(base + url, { waitUntil: 'networkidle' });
           await page.evaluate(() => document.fonts.ready);

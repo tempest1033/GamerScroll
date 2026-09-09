@@ -74,6 +74,18 @@ async function handleGamerScrollLegacyRedirect(url, path) {
     return Response.redirect("https://aiscroll.io/ko/", 301);
   }
 
+  // 2026-09-09 위키·출시 게임 섹션 폐기: 옛 URL은 가장 가까운 허브(리포트·게임 DB)로 301.
+  if (path === "/wiki" || path.startsWith("/wiki/")) {
+    return Response.redirect(`${url.origin}/reports/`, 301);
+  }
+  if (path === "/upcoming" || path === "/upcoming/" || path === "/upcoming.html") {
+    return Response.redirect(`${url.origin}/games/`, 301);
+  }
+  // 옛 매거진 허브·카테고리 목록은 리포트 허브로 통합 (기사 URL /magazine/<type>/<slug>/ 은 유지).
+  if (/^\/magazine\/?$/.test(path) || /^\/magazine\/(issue|insight|hotpick|ranking)\/?$/.test(path)) {
+    return Response.redirect(`${url.origin}/reports/`, 301);
+  }
+
   return null;
 }
 

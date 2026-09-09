@@ -108,37 +108,6 @@ function getRankingReports(reportsDir) {
   return items;
 }
 
-function getWikiArticles(wikiDir) {
-  if (!fs.existsSync(wikiDir)) return [];
-
-  const items = [];
-  const categories = fs.readdirSync(wikiDir).filter(f =>
-    fs.statSync(path.join(wikiDir, f)).isDirectory()
-  );
-
-  for (const category of categories) {
-    const categoryDir = path.join(wikiDir, category);
-    const files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.json'));
-
-    for (const file of files) {
-      const data = readJsonFile(path.join(categoryDir, file));
-      if (!data || data.status !== 'approved' || data.noindex === true) continue;
-
-      items.push({
-        type: 'wiki',
-        title: `[위키] ${data.title}`,
-        link: `${SITE_URL}/wiki/${category}/${data.slug}/`,
-        description: data.summary || '',
-        date: new Date(data.date),
-        thumbnail: data.thumbnail || '',
-        category: '위키'
-      });
-    }
-  }
-
-  return items;
-}
-
 function getTechArticles(techDir) {
   if (!fs.existsSync(techDir)) return [];
 
@@ -177,9 +146,7 @@ function generateRSS(reportsDir, outputPath) {
   const issueItems = [];
   const hotpickItems = [];
   const rankingItems = getRankingReports(reportsDir);
-  // 위키 아티클 수집
-  const wikiDir = path.join(reportsDir, '../data/wiki');
-  const wikiItems = getWikiArticles(wikiDir);
+  // 위키 아티클은 2026-09-09 /wiki/ 폐기와 함께 피드에서 제외
 
   // 테크 아티클 수집
   const techDir = path.join(reportsDir, '../data/tech');
@@ -188,11 +155,10 @@ function generateRSS(reportsDir, outputPath) {
   console.log(`이슈 리포트: ${issueItems.length}개`);
   console.log(`핫픽 리포트: ${hotpickItems.length}개`);
   console.log(`순위 분석: ${rankingItems.length}개`);
-  console.log(`위키 아티클: ${wikiItems.length}개`);
   console.log(`테크 아티클: ${techItems.length}개`);
 
   // 합치고 날짜순 정렬
-  const allItems = [...issueItems, ...hotpickItems, ...rankingItems, ...wikiItems, ...techItems]
+  const allItems = [...issueItems, ...hotpickItems, ...rankingItems, ...techItems]
     .sort((a, b) => b.date - a.date)
     .slice(0, MAX_ITEMS);
 

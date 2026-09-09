@@ -9,9 +9,9 @@ const routes = [
   '/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/',
   '/rankings/monthly/2026-08/', '/rankings/global/', '/rankings/records/',
   '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/',
-  '/games/', '/games/메이플-키우기/', '/reports/', '/magazine/', '/wiki/',
+  '/games/', '/games/메이플-키우기/', '/reports/', '/magazine/',
   '/magazine/ranking/', '/magazine/insight/',
-  '/magazine/ranking/subculture-august-2026-kr/', '/upcoming/',
+  '/magazine/ranking/subculture-august-2026-kr/',
 ];
 
 (async () => {

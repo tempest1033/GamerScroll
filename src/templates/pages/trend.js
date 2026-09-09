@@ -865,7 +865,8 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
     sidebarPopularArticles, sidebarLatestArticles,
     { activeLink: `/magazine/${currentType}/${currentSlug}/` }
   );
-  const sidebarHTML = toc.sidebarHTML + generateSidebarCategories() + generateSidebarArticles(slug, type);
+  // 사이드바는 목차 + 인기·최신만. 카테고리 카운트 블록은 위키 폐기 후 두 줄뿐이라 뺐다 (2026-09-09).
+  const sidebarHTML = toc.sidebarHTML + generateSidebarArticles(slug, type);
 
   const sidebarScript = sidebarHTML ? `
     <script>
@@ -1619,7 +1620,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     sidebarPopularArticles, sidebarLatestArticles,
     { activeLink: `/magazine/${currentType}/${currentSlug}/` }
   );
-  const sidebarHTML = toc.sidebarHTML + generateSidebarCategories() + generateSidebarArticles(slug, 'ranking');
+  const sidebarHTML = toc.sidebarHTML + generateSidebarArticles(slug, 'ranking');
 
   const sidebarScript = sidebarHTML ? `
     <script>

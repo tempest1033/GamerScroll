@@ -115,15 +115,19 @@ const homeOnly = process.env.HOME_ONLY === '1';
           if (width <= 768) continue;
           const first = await rows.first().boundingBox();
           const last = await rows.last().boundingBox();
+          // 목록 열은 10행 + '전체 보기' 버튼(.rk-hmore)까지가 한 덩어리 — 분석 박스는 그 바닥선에 맞춘다.
+          const more = page.locator(`.rk-hpanel.${id} .rk-hmore`);
+          const moreBox = (await more.count()) ? await more.first().boundingBox() : null;
+          const columnBottom = moreBox ? moreBox.y + moreBox.height : last.y + last.height;
           const panel = await page.locator('#rk-home-preview').boundingBox();
           assert.ok(Math.abs(first.y - panel.y) <= 2, `${id} 상단 ${first.y} / ${panel.y}`);
-          assert.ok(Math.abs(last.y + last.height - panel.y - panel.height) <= 2, `${id} 하단 ${last.y + last.height} / ${panel.y + panel.height}`);
+          assert.ok(Math.abs(columnBottom - panel.y - panel.height) <= 2, `${id} 하단 ${columnBottom} / ${panel.y + panel.height}`);
           const overflow = await page.locator('#rk-home-preview').evaluate(el => el.scrollHeight - el.clientHeight);
           assert.ok(overflow <= 2, `${id} 분석 내용 넘침 ${overflow}px`);
         }
       });
       await page.emulateMedia({ colorScheme: 'dark' });
-      for (const route of (homeOnly ? ['/'] : ['/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/', monthly, '/rankings/global/', '/rankings/records/', '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/', '/games/', '/games/메이플-키우기/', '/reports/', '/magazine/ranking/subculture-august-2026-kr/', '/upcoming/'])) {
+      for (const route of (homeOnly ? ['/'] : ['/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/', monthly, '/rankings/global/', '/rankings/records/', '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/', '/games/', '/games/메이플-키우기/', '/reports/', '/magazine/ranking/subculture-august-2026-kr/'])) {
         await run(`${width}px ${route === '/' ? '홈 ' : ''}가로 넘침·제목 ${route}`, async () => {
           await visit(route);
           const geometry = await page.evaluate(() => ({

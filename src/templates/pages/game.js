@@ -1072,6 +1072,7 @@ function generateGamePage(gameData) {
       <div class="page-container game-page-grid">
         <!-- 게임 히어로 -->
         <div class="home-card game-hero grid-full">
+          <div class="game-crumb"><a href="/games/">게임 DB</a><span>›</span><span>${name}</span></div>
           <div class="game-hero-content">
             ${iconHtml}
             <div class="game-hero-info">
@@ -1079,9 +1080,6 @@ function generateGamePage(gameData) {
               ${developer ? `<div class="game-hero-developer">${developer}</div>` : ''}
               ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
             </div>
-            <a href="/games/" class="game-back-btn" title="게임 DB로 돌아가기">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            </a>
           </div>
         </div>
             ${isSteamOnly && steam ? `

@@ -352,8 +352,7 @@ function generateHead(options = {}) {
   <meta name="twitter:site" content="@gamerscroll">
   <meta name="twitter:creator" content="@gamerscroll">
   <!-- Theme & Favicon -->
-  <meta name="theme-color" content="#f5f7fa" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

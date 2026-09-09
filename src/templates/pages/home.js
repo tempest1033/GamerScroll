@@ -171,14 +171,22 @@ ${panels.map((p, i) => `<input type="radio" name="rk-ht" id="ht-${p.id}" class="
   // ---------- 4. 이달의 데이터: 월간 TOP 3 포디움 · 서브컬처 5 · 신작 5 ----------
   const ms = S.monthStats(S.latestMonth, country);
   const podium = ms ? `<div class="rk-podium">${ms.list.slice(0, 3).map((a, i) => `<a class="p${i + 1}" href="${C.hrefOf(a.game) || `/rankings/monthly/${S.latestMonth}/`}"><img src="${esc(C.iconOf(a.row, a.game))}" alt="" loading="lazy"><b>${i + 1}</b><span class="n">${esc(a.game ? a.game.key : a.row.title)}</span><span class="s">평균 ${a.score.toFixed(1)}위</span></a>`).join('')}</div>` : '';
-  const subs = iosRows.filter((x) => S.isSub(x.g)).slice(0, 5).map((x) => `<tr>${rankCell(x.rank)}<td>${C.appCell(x.r, 'ios')}</td><td class="c">${chg(x.rank, x.prev)}</td></tr>`).join('');
+  // 이달의 상승 게임: 월간 통합 평균 순위가 전월(7일 이상 집계된 직전 달) 대비 가장 많이 오른 5개. 전월 기록이 없는 신작은 '최근 진입 게임'이 맡는다.
+  const prevMonth = [...S.months].reverse().find((mo) => mo < S.latestMonth && S.daysIn(mo).length >= 7) || null;
+  const pms = prevMonth ? S.monthStats(prevMonth, country) : null;
+  const prevRankOf = new Map(pms ? pms.list.map((a) => [a.key, a.rank]) : []);
+  const climbers = ms && pms ? ms.list.filter((a) => a.rank <= 100 && prevRankOf.has(a.key) && prevRankOf.get(a.key) > a.rank)
+    .sort((a, b) => (prevRankOf.get(b.key) - b.rank) - (prevRankOf.get(a.key) - a.rank)).slice(0, 5)
+    .map((a) => `<tr>${rankCell(a.rank)}<td>${C.appCell(a.row, a.store)}</td><td class="c">${chg(a.rank, prevRankOf.get(a.key))}</td></tr>`).join('') : '';
+  const climbSub = prevMonth ? `${Number(prevMonth.slice(5))}월 대비 월간 평균 순위` : '월간 평균 순위';
   const debuts = S.debutRows(country, 'ios').slice(0, 5).map((x) => `<tr>${rankCell(x.cur)}<td>${C.appCell(x.r, 'ios')}</td><td class="v">${x.age}일째<small>최고 ${x.best}위</small></td></tr>`).join('');
   const mini = (title, sub, rows, href, label) => `<div class="rk-card"><h2>${title} <small>${sub}</small></h2><table class="rk-table"><tbody>${rows || EMPTY}</tbody></table><div class="rk-note">${listLink(href, label)}</div></div>`;
   const monthSec = `<section class="rk-section rk-home-sec rk-month-section"><h2>월간 순위 분석 <small>${S.latestMonth}</small></h2>
-<div class="rk-hmonth">${ms ? `<div class="rk-card"><h2>월간 통합 TOP 3 <small>두 스토어 일 평균 순위</small></h2>${podium}<div class="rk-note">${listLink(`/rankings/monthly/${S.latestMonth}/`, '월간 순위 전체 보기')}</div></div>` : ''}${mini('서브컬처 순위', '일간 앱스토어 매출', subs, '/rankings/subculture/', '서브컬처 순위 전체 보기')}${mini('최근 진입 게임', '최근 45일 첫 진입', debuts, '/games/', '게임 DB 보기')}</div></section>`;
+<div class="rk-hmonth">${ms ? `<div class="rk-card"><h2>월간 통합 TOP 3 <small>두 스토어 일 평균 순위</small></h2>${podium}<div class="rk-note">${listLink(`/rankings/monthly/${S.latestMonth}/`, '월간 순위 전체 보기')}</div></div>` : ''}${mini('이달의 상승 게임', climbSub, climbers, `/rankings/monthly/${S.latestMonth}/`, '월간 순위 전체 보기')}${mini('최근 진입 게임', '최근 45일 첫 진입', debuts, '/games/', '게임 DB 보기')}</div></section>`;
 
   // ---------- 5. 리포트 4편 ----------
-  const cards = reports.slice(0, 4).map((a) => `<a class="rk-cardl" href="${a.href}"><img src="${esc(a.thumbnail)}" alt="" loading="lazy" decoding="async"><div class="b"><div class="k">${a.catName}<span>${a.date}</span></div><div class="t">${esc(a.title)}</div><div class="s">${esc(a.summary)}</div></div></a>`).join('');
+  // 리포트 허브와 같은 3열 카드 규격 (2026-09-09: 4열 → 3열)
+  const cards = reports.slice(0, 3).map((a) => `<a class="rk-cardl" href="${a.href}"><img src="${esc(a.thumbnail)}" alt="" loading="lazy" decoding="async"><div class="b"><div class="k">${a.catName}<span>${a.date}</span></div><div class="t">${esc(a.title)}</div><div class="s">${esc(a.summary)}</div></div></a>`).join('');
   const reportsSec = cards ? `<section class="rk-section rk-home-sec"><h2>분석 리포트</h2><div class="rk-cards four">${cards}</div><div class="rk-section-footer">${listLink('/reports/', `전체 ${reports.length}편 보기`)}</div></section>` : '';
 
   const nameOf = (s) => (today.rows[country][s][0] ? S.nameOf(s, today.rows[country][s][0]) : '-');
@@ -187,7 +195,7 @@ ${panels.map((p, i) => `<input type="radio" name="rk-ht" id="ht-${p.id}" class="
     <section class="section active" id="home">
       <div class="page-container rk rk-home">
 <div class="rk-home-ad">${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}</div>
-<div class="rk-home-heading"><div class="rk-home-hero-copy"><h1>게임 순위 및 시장 분석</h1><p>모바일 게임 매출 순위 · 스팀 동시접속자 및 판매 순위</p></div></div>
+<div class="rk-home-heading"><div class="rk-home-hero-copy"><h1>게임 순위 및 시장 분석</h1><p><time datetime="${today.date}">${today.date}</time> 기준 · 모바일 게임 매출 순위 · 스팀 동시접속자 및 판매 순위</p></div></div>
 ${hcards}
 <div class="rk-market-heading"><h2>일간 게임 순위</h2></div>
 ${workspace}

@@ -16,6 +16,10 @@ function generateFooter() {
 	  <footer class="site-footer">
 	    <span>© ${year} 게이머스크롤</span>
 	    <span class="footer-divider">|</span>
+	    <a href="/about/" class="footer-about-link">소개</a>
+	    <span class="footer-divider">|</span>
+	    <a href="https://x.com/gamerscroll" class="footer-x-link" rel="me noopener" target="_blank">X</a>
+	    <span class="footer-divider">|</span>
 	    <a href="/privacy/" class="footer-privacy-link" data-modal-open="privacy-modal">개인정보처리방침</a>
 	  </footer>
 

@@ -9,8 +9,8 @@ const navItems = [
   { id: 'reports', label: '리포트', href: '/reports/' },
   { id: 'games', label: '게임 DB', href: '/games/' }
 ];
-// 페이지 ID → 내비 항목 (게임 상세·출시 예정은 게임 DB, 매거진·위키는 리포트를 활성화. 홈은 활성 항목 없음)
-const NAV_ALIAS = { game: 'games', upcoming: 'games', magazine: 'reports', wiki: 'reports', tech: 'reports' };
+// 페이지 ID → 내비 항목 (게임 상세는 게임 DB, 매거진·테크는 리포트를 활성화. 홈은 활성 항목 없음)
+const NAV_ALIAS = { game: 'games', magazine: 'reports', tech: 'reports' };
 const navIdOf = (currentPage) => NAV_ALIAS[currentPage] || currentPage;
 
 function generateNav(currentPage = 'home') {

@@ -44,7 +44,8 @@ body:not(.page-home) .rk .rk-hero h1 { font-size: 32px; }
 body:not(.page-home) .rk .rk-hero .meta { font-size: 12px; }
 body:not(.page-home) .rk .rk-hero .meta b { font-weight: 500; }
 body:not(.page-home) .rk .rk-btn { border-radius: 999px; font-weight: 500; }
-body:not(.page-home) .rk .rk-btn.primary { background: #0071e3; }
+body:not(.page-home) .rk .rk-btn.primary { background: #1d1d1f; color: #fff; }
+body:not(.page-home) .rk .rk-btn.primary:hover { background: #3a3a3f; }
 body:not(.page-home) .rk .rk-chart { background: #f5f5f7; padding: 24px; border-radius: 20px; }
 body:not(.page-home) .rk .rk-foot { font-size: 11px; margin-top: 52px; color: #86868b; }
 body:not(.page-home) .rk .rk-links-row a { border: 0; background: #f5f5f7; border-radius: 999px; font-weight: 400; }
@@ -85,7 +86,17 @@ body .site-container #steam .rk-list .num b { font-size: 13px; font-weight: 500;
 .page-games .index-link { font-size: 13px; font-weight: 500; }
 .page-games .group-title { font-weight: 600; }
 /* 초성 탐색과 목록: PC의 열을 너무 잘게 쪼개지 않는다. */
-.page-games .group-title { border-bottom: 1px solid #e5e5e9; font-size: 18px; padding-bottom: 14px; }
+/* 초성 그룹은 접이식(details): 3,583개를 한 번에 펼치지 않는다 (2026-09-09) */
+.page-games .games-hub-groups { gap: 0; }
+.page-games .games-hub-group { padding: 0; margin-top: 0; border-top: 1px solid #eeeef0; }
+.page-games .games-hub-group:last-child { border-bottom: 1px solid #eeeef0; }
+.page-games .group-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; padding: 18px 4px; border: 0; cursor: pointer; list-style: none; font-size: 18px; }
+.page-games .group-title::-webkit-details-marker { display: none; }
+.page-games .group-title h3 { margin: 0; font-size: 18px; font-weight: 600; color: #1d1d1f; }
+.page-games .group-title::after { content: ''; width: 8px; height: 8px; border-right: 1.5px solid #6e6e73; border-bottom: 1.5px solid #6e6e73; transform: rotate(45deg); margin: -4px 8px 0 0; transition: transform .15s; }
+.page-games .games-hub-group[open] > .group-title::after { transform: rotate(225deg); margin-top: 4px; }
+.page-games .group-title:hover { background: #fafafa; border-radius: 10px; }
+.page-games .group-games { padding: 4px 0 22px; }
 .page-games .index-link { border: 0; background: transparent; }
 .page-games .index-link.active { background: #1d1d1f; color: #fff; }
 .page-games .index-link-back { border: 0; color: #6e6e73; background: transparent; }

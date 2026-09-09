@@ -32,8 +32,8 @@ function getPageExtraCssFiles(currentPage = '') {
   const page = String(currentPage || '').toLowerCase();
   let files = [];
   if (page === 'magazine') files = ['/styles-report.css', '/styles-article.css'];
-  if (['home', 'game', 'games', 'rankings', 'steam', 'upcoming', 'reports'].includes(page)) files = ['/styles-game.css'];
-  if (page === 'wiki' || page === 'tech') files = ['/styles-article.css'];
+  if (['home', 'game', 'games', 'rankings', 'steam', 'reports', 'about'].includes(page)) files = ['/styles-game.css'];
+  if (page === 'tech') files = ['/styles-article.css'];
   return files.map(withCssAssetVersion);
 }
 
@@ -127,12 +127,15 @@ const AD_SLOTS = {
 const LAYOUT_CORE_ASSET = 'layout-core.js';
 const LAYOUT_RUNTIME_ASSET = 'layout-runtime.js';
 
+// 모바일 상단 바에도 데스크톱과 같은 워드마크를 쓴다 (2026-09-09: 홈 아이콘 → 로고).
+const MOBILE_LOGO_SVG = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../assets/logo-wordmark-outlined.svg'), 'utf8');
+
 // 상단 검색바 (홈/일반 페이지용)
 const searchBarHtml = `
   <div class="search-container">
     <div class="search-box">
-      <a href="/" class="search-home-icon" aria-label="홈으로 이동">
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>
+      <a href="/" class="search-home-icon search-logo" aria-label="게이머스크롤 홈">
+        ${MOBILE_LOGO_SVG}
       </a>
       <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
       <button class="search-btn" type="button" aria-label="검색">
@@ -1577,7 +1580,7 @@ const swipeScript = `
     (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   if (!isTouchDevice) return;
 
-  const navSections = ['magazine', 'wiki', 'tech', 'games', 'rankings', 'steam', 'upcoming'];
+  const navSections = ['magazine', 'tech', 'games', 'rankings', 'steam'];
 
   const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
@@ -2565,7 +2568,7 @@ function generateDefaultSidebarContent() {
 // 모바일 사이드 패널 HTML 생성
 function generateMobileSidePanel(sidebarContent = '') {
   const content = sidebarContent || generateDefaultSidebarContent();
-  return `
+  const panel = `
     <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
     <div class="mobile-side-panel" id="mobileSidePanel">
       <div class="mobile-side-panel-header">
@@ -2580,12 +2583,11 @@ function generateMobileSidePanel(sidebarContent = '') {
         ${content}
       </div>
     </div>
-    <button class="mobile-fab" id="mobileFab" aria-label="메뉴 열기">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
   `;
+  // 햄버거 FAB은 2026-09-09 제거: 상단 탭 4개와 같은 메뉴를 한 번 더 보여줘 중복이었다.
+  // 여는 버튼이 없으므로 패널도 렌더링하지 않는다 (마크업은 되살릴 때를 위해 panel 에 남김).
+  void panel;
+  return '';
 }
 
 // 모바일 사이드 패널 스크립트

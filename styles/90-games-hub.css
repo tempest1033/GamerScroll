@@ -57,7 +57,7 @@
 .games-hub-section-title .section-icon {
   width: 20px;
   height: 20px;
-  color: #f97316;
+  color: var(--primary);
 }
 
 /* 게임 DB 탭: 전체 게임 · 출시 예정 */
@@ -117,8 +117,8 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background: linear-gradient(135deg, #f97316, #fb923c);
-  color: white;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
   font-size: var(--font-desc-size);
   font-weight: var(--font-card-title-weight);
   border-radius: 8px;
@@ -302,20 +302,20 @@
 
 .index-link.active {
   color: white;
-  background: #f97316;
-  border-color: #f97316;
+  background: var(--text-primary);
+  border-color: var(--text-primary);
 }
 
 .index-link-back {
-  background: rgba(194, 65, 12, 0.15);
-  border-color: #c2410c;
-  color: #c2410c;
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
 }
 
 .index-link-back:hover {
-  color: white;
-  background: #c2410c;
-  border-color: #c2410c;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border-color: var(--text-secondary);
 }
 
 /* 전체 게임 섹션 */
@@ -339,7 +339,7 @@
   color: var(--text-primary);
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #f97316;
+  border-bottom: 1px solid var(--border);
 }
 
 .group-count {
@@ -414,14 +414,43 @@
     font-size: var(--font-section-size);
   }
 
+  /* 모바일: 인기 게임 10개를 세로 한 줄로 늘어놓지 않고 2열로 압축 */
   .games-hub-popular-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
 
   .games-hub-popular-card {
-    padding: 8px 10px;
-    gap: 10px;
+    padding: 10px;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .games-hub-popular-card .popular-rank {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  .games-hub-popular-card .popular-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .games-hub-popular-card .popular-info {
+    min-width: 0;
+  }
+
+  .games-hub-popular-card .popular-name {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .games-hub-popular-card .popular-views {
+    font-size: 11px;
   }
 
   /* 게임 페이지 전용 - CSS sticky로 자동 고정 */

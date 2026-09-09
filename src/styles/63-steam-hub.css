@@ -23,7 +23,7 @@
 .rk .rk-hero .meta b { color: var(--rk-text2); font-weight: 600; }
 .rk .rk-pills { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
 .rk .rk-pills span { font-size: 12.5px; font-weight: 600; padding: 5px 10px; border-radius: 8px; background: var(--rk-bg2); color: var(--rk-text2); }
-.rk .rk-pills span.one { background: var(--rk-new-bg); color: var(--rk-gold); }
+.rk .rk-pills span.one { background: var(--rk-accent-bg); color: var(--rk-accent); }
 .rk .rk-hero .actions { margin-left: auto; display: flex; gap: 6px; flex: none; }
 .rk .rk-btn { display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 9px; background: var(--rk-bg2); font-size: 13px; color: var(--rk-text2); font-weight: 600; white-space: nowrap; }
 .rk .rk-btn.primary { background: var(--rk-text); color: #fff; }

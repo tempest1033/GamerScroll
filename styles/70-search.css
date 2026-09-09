@@ -364,7 +364,8 @@
     transform: none !important;
     width: 100% !important;
     height: 2px !important;
-    background: #f97316 !important;
+    /* 데스크톱 탭 밑줄과 같은 검정(텍스트색) — 주황 강조는 리뉴얼에서 제거 */
+    background: var(--nav-active-color, #1e293b) !important;
     border-radius: 1px !important;
   }
 
@@ -374,7 +375,7 @@
     }
 
     .nav-item.active::after {
-      background: #f97316 !important;
+      background: #fff !important;
     }
   }
 

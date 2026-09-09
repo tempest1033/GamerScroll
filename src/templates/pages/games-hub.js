@@ -162,8 +162,8 @@ function generateGamesHubPage(options = {}) {
       ${initialNav}
       <div class="games-hub-groups">
         ${existingInitials.map(initial => `
-          <div class="games-hub-group" id="initial-${initial}">
-	            <h3 class="group-title">${initial} <span class="group-count">(${grouped[initial].length})</span></h3>
+          <details class="games-hub-group" id="initial-${initial}">
+	            <summary class="group-title"><h3>${initial} <span class="group-count">(${grouped[initial].length})</span></h3></summary>
 	            <div class="group-games">
 	              ${grouped[initial].map(game => `
 	                <a href="/games/${game.slug}/" class="game-item" data-slug="${game.slug}">
@@ -172,7 +172,7 @@ function generateGamesHubPage(options = {}) {
 	                </a>
 	              `).join('')}
 	            </div>
-	          </div>
+	          </details>
         `).join('')}
       </div>
     </section>
@@ -490,6 +490,8 @@ function generateGamesHubPage(options = {}) {
       } else {
         const target = document.querySelector(href);
         if (target) {
+          // 초성 그룹은 접혀 있으므로 먼저 펼친 뒤 이동한다.
+          if ('open' in target) target.open = true;
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
@@ -541,6 +543,12 @@ function generateGamesHubPage(options = {}) {
   onScroll();
 
   // 모바일 자음 필터는 CSS sticky로 처리 (JS 로직 제거됨)
+
+  // URL 해시로 직접 들어온 경우 해당 초성 그룹을 펼친다.
+  if (location.hash && location.hash.indexOf('#initial-') === 0) {
+    const hashTarget = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (hashTarget && 'open' in hashTarget) hashTarget.open = true;
+  }
 
   // 초기화
   // 전체 목록 아이콘은 HTML에서 직접 제공하므로 검색 인덱스를 기다리지 않는다.

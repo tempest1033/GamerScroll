@@ -117,7 +117,7 @@ function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit 
     return `<li${collapse && i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">전체 ${rank}위</span> · ` : ''}${esc(r.developer || (g && g.developer) || '')}${extra}${detail}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}</li>`;
   };
   const id = `rk-more-${s}`;
-  return `${collapse ? `<input type="checkbox" id="${id}" class="rk-more-toggle rk-control" checked aria-label="${STORES[s]} 전체 순위 표시">` : ''}<ol class="rk-list">${items.map(li).join('') || '<li class="rk-empty">해당 게임이 없습니다</li>'}</ol>${collapse ? expandLabel(id, items.length, VISIBLE) : ''}`;
+  return `${collapse ? `<input type="checkbox" id="${id}" class="rk-more-toggle rk-control" aria-label="${STORES[s]} 전체 순위 표시">` : ''}<ol class="rk-list">${items.map(li).join('') || '<li class="rk-empty">해당 게임이 없습니다</li>'}</ol>${collapse ? expandLabel(id, items.length, VISIBLE) : ''}`;
 }
 const storeCols = (S, C, country, chart, opts, stores) => {
   const hasAnd = stores.includes('android');

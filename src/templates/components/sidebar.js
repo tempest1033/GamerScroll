@@ -13,12 +13,6 @@ const REPORT_ITEMS = [
   { id: 'insight', name: '인사이트', link: '/reports/#insight' }
 ];
 
-const WIKI_ITEMS = [
-  { id: 'history', name: '히스토리', link: '/wiki/history/' },
-  { id: 'knowledge', name: '지식', link: '/wiki/knowledge/' },
-  { id: 'business', name: '비즈니스', link: '/wiki/business/' }
-];
-
 const TECH_ITEMS = [
   { id: 'normal', name: '일반', link: '/tech/normal/' },
   { id: 'ai', name: 'AI', link: '/tech/ai/' },
@@ -27,9 +21,9 @@ const TECH_ITEMS = [
 
 // 테크 그룹은 테크 페이지 전용 (generate-html-report.js의
 // stripTechSidebarFromNonTechDocs 규칙과 동일한 노출 정책)
+// 위키 그룹은 2026-09-09 폐기 (/wiki/* → /reports/ 301)
 const DEFAULT_GROUPS = [
-  { title: '리포트', link: '/reports/', items: REPORT_ITEMS },
-  { title: '위키', link: '/wiki/', items: WIKI_ITEMS }
+  { title: '리포트', link: '/reports/', items: REPORT_ITEMS }
 ];
 
 const TECH_GROUP = { title: '테크', link: '/tech/', items: TECH_ITEMS };

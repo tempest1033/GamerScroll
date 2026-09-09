@@ -3,7 +3,6 @@ const { fetchChzzkLives, fetchSoopLives } = require('./live');
 const { fetchCommunityPosts } = require('./community');
 const { fetchNews, extractGameTag } = require('./news');
 const { fetchSteamDetails, fetchSteamRankings } = require('./steam');
-const { fetchUpcomingGames, fetchSteamUpcoming, fetchNintendoUpcoming, fetchPS5Upcoming, fetchMobileUpcoming } = require('./upcoming');
 const { fetchRankings, countries } = require('./rankings');
 const { fetchGameStockList, fetchStockPrices, fetchStockPrice, getStockCode } = require('./stocks');
 
@@ -26,13 +25,6 @@ module.exports = {
   // Steam
   fetchSteamDetails,
   fetchSteamRankings,
-
-  // Upcoming
-  fetchUpcomingGames,
-  fetchSteamUpcoming,
-  fetchNintendoUpcoming,
-  fetchPS5Upcoming,
-  fetchMobileUpcoming,
 
   // Rankings
   fetchRankings,

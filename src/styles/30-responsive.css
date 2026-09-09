@@ -161,9 +161,9 @@
 
 /* 다크모드 - 블루/인디고→오렌지 복원 */
 @media (prefers-color-scheme: dark) {
-  /* 네비 active - 밑줄만 오렌지, 폰트 색 유지 */
+  /* 네비 active - 밑줄은 텍스트색과 동일 (리뉴얼: 주황 강조 제거) */
   .nav-item.active::after {
-    background: #f97316;
+    background: currentColor;
   }
   /* 홈 트렌드 카드 다크모드 */
   .home-trend-card {

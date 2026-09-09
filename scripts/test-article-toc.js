@@ -12,7 +12,6 @@ const {
   generateHotpickDetailPage, generateRankingDetailPage
 } = require('../src/templates/pages/trend');
 const { generateTechArticlePage } = require('../src/templates/pages/tech-article');
-const { generateWikiArticlePage } = require('../src/templates/pages/wiki-article');
 const { generateAIBlogArticle } = require('../src/templates/ai-blog/article');
 
 const renderers = [
@@ -21,7 +20,6 @@ const renderers = [
   ['핫픽', article => generateHotpickDetailPage({ post: article })],
   ['순위 분석', article => generateRankingDetailPage({ post: article })],
   ['테크', article => generateTechArticlePage({ article, category: 'ai' })],
-  ['위키', article => generateWikiArticlePage({ article, category: 'guide' })],
   ['AI 한국어', article => generateAIBlogArticle(article, { lang: 'ko' })],
   ['AI 영어', article => generateAIBlogArticle(article, { lang: 'en' })]
 ];
@@ -55,7 +53,7 @@ test('모든 기사 유형에서 목차와 본문 앵커가 일치하고 중복 
       assert.ok(ids.every(Boolean));
       assert.equal(ids[0], '같은-제목');
       assert.equal(ids[2], '같은-제목-2');
-      assert.equal(ids[6], name === '위키' ? '기존-앵커' : '1-기존-앵커');
+      assert.equal(ids[6], '1-기존-앵커');
       for (const selector of ['#sidebar-toc', '.article-toc-mobile']) {
         const links = $(`${selector} a`);
         assert.equal(links.length, titles.length);
