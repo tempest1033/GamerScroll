@@ -173,18 +173,13 @@ ${panels.map((p, i) => `<input type="radio" name="rk-ht" id="ht-${p.id}" class="
   // ---------- 4. 이달의 데이터: 월간 TOP 3 포디움 · 서브컬처 5 · 신작 5 ----------
   const ms = S.monthStats(S.latestMonth, country);
   const podium = ms ? `<div class="rk-podium">${ms.list.slice(0, 3).map((a, i) => `<a class="p${i + 1}" href="${C.hrefOf(a.game) || `/rankings/monthly/${S.latestMonth}/`}"><img src="${esc(C.iconOf(a.row, a.game))}" alt="" loading="lazy"><b>${i + 1}</b><span class="n">${esc(a.game ? a.game.key : a.row.title)}</span><span class="s">평균 ${a.score.toFixed(1)}위</span></a>`).join('')}</div>` : '';
-  // 이달의 상승 게임: 월간 통합 평균 순위가 전월(7일 이상 집계된 직전 달) 대비 가장 많이 오른 5개. 전월 기록이 없는 신작은 '최근 진입 게임'이 맡는다.
-  const prevMonth = [...S.months].reverse().find((mo) => mo < S.latestMonth && S.daysIn(mo).length >= 7) || null;
-  const pms = prevMonth ? S.monthStats(prevMonth, country) : null;
-  const prevRankOf = new Map(pms ? pms.list.map((a) => [a.key, a.rank]) : []);
-  const climbers = ms && pms ? ms.list.filter((a) => a.rank <= 100 && prevRankOf.has(a.key) && prevRankOf.get(a.key) > a.rank)
-    .sort((a, b) => (prevRankOf.get(b.key) - b.rank) - (prevRankOf.get(a.key) - a.rank)).slice(0, 5)
-    .map((a) => `<tr>${rankCell(a.rank)}<td>${C.appCell(a.row, a.store)}</td><td class="c">${chg(a.rank, prevRankOf.get(a.key))}</td></tr>`).join('') : '';
-  const climbSub = prevMonth ? `${Number(prevMonth.slice(5))}월 대비 월간 평균 순위` : '월간 평균 순위';
+  // 스팀 월간 동접 TOP 5: 이 줄에서만 볼 수 있는 스팀 월간 데이터 (2026-09-09, 이전엔 '이달의 상승 게임' — 주요 순위 변동과 성격이 겹쳐 교체)
+  const steamMonthRows = ST ? ST.monthlyTop(ST.latestMonth, 5).map((a) => { const m = ST.info(a.appid); return `<tr>${rankCell(a.rank)}<td><div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t"><a href="/steam/${m.appid}/">${esc(m.name)}</a></div><div class="d">${esc(m.developer)}</div></div></div></td><td class="v">${fmt(a.avg)}<small>월 평균 동접</small></td></tr>`; }).join('') : '';
+  const steamMonthSub = ST ? `${ST.latestMonth} · 일별 기록 평균` : '일별 기록 평균';
   const debuts = S.debutRows(country, 'ios').slice(0, 5).map((x) => `<tr>${rankCell(x.cur)}<td>${C.appCell(x.r, 'ios')}</td><td class="v">${x.age}일째<small>최고 ${x.best}위</small></td></tr>`).join('');
   const mini = (title, sub, rows, href, label) => `<div class="rk-card"><h2>${title} <small>${sub}</small></h2><table class="rk-table"><tbody>${rows || EMPTY}</tbody></table><div class="rk-note">${listLink(href, label)}</div></div>`;
   const monthSec = `<section class="rk-section rk-home-sec rk-month-section"><h2>월간 순위 분석 <small>${S.latestMonth}</small></h2>
-<div class="rk-hmonth">${ms ? `<div class="rk-card"><h2>월간 통합 TOP 3 <small>두 스토어 일 평균 순위</small></h2>${podium}<div class="rk-note">${listLink(`/rankings/monthly/${S.latestMonth}/`, '월간 순위 전체 보기')}</div></div>` : ''}${mini('이달의 상승 게임', climbSub, climbers, `/rankings/monthly/${S.latestMonth}/`, '월간 순위 전체 보기')}${mini('최근 진입 게임', '최근 45일 첫 진입', debuts, '/games/', '게임 DB 보기')}</div></section>`;
+<div class="rk-hmonth">${ms ? `<div class="rk-card"><h2>월간 통합 TOP 3 <small>두 스토어 일 평균 순위</small></h2>${podium}<div class="rk-note">${listLink(`/rankings/monthly/${S.latestMonth}/`, '월간 순위 전체 보기')}</div></div>` : ''}${mini('스팀 월간 동접 TOP 5', steamMonthSub, steamMonthRows, '/steam/#monthly', '스팀 월간 순위 보기')}${mini('최근 진입 게임', '최근 45일 첫 진입', debuts, '/games/', '게임 DB 보기')}</div></section>`;
 
   // ---------- 5. 리포트 4편 ----------
   // 리포트 허브와 같은 3열 카드 규격 (2026-09-09: 4열 → 3열)
