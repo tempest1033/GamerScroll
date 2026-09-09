@@ -33,7 +33,7 @@ const COPY = {
         `Mixdog, a coding agent the editor builds, is labeled as the editor's own tool wherever it appears in a comparison or benchmark.`
       ]],
       ['What you will not find here', [
-        `No rewritten press releases, no articles produced in bulk to chase keywords, and no claims about tools the editor has not run. AIScroll restarted in September 2026 with that rule; earlier news-digest posts were retired and are not indexed.`
+        `No rewritten press releases, no articles produced in bulk to chase keywords, and no invented hands-on experience. Source-based comparisons are clearly identified. AIScroll restarted in September 2026 with that rule; earlier news-digest posts were retired and are not indexed.`
       ]]
     ],
     sectionsHeading: 'Sections'
@@ -60,7 +60,7 @@ const COPY = {
         `편집자가 만드는 코딩 에이전트 Mixdog가 비교나 벤치마크에 등장할 때는 항상 자사 도구임을 표시합니다.`
       ]],
       ['이 사이트에 없는 것', [
-        `보도자료 재작성, 검색어를 노리고 대량으로 찍어낸 글, 써보지 않은 도구에 대한 단정은 없습니다. AIScroll은 2026년 9월에 이 원칙으로 다시 시작했고, 이전의 뉴스 요약 글은 정리해 색인에서 제외했습니다.`
+        `보도자료 재작성, 검색어를 노리고 대량으로 찍어낸 글, 직접 써보지 않은 도구를 실사용한 것처럼 표현하는 글은 없습니다. 자료 기반 비교는 그 근거를 명확히 밝힙니다. AIScroll은 2026년 9월에 이 원칙으로 다시 시작했고, 이전의 뉴스 요약 글은 정리해 색인에서 제외했습니다.`
       ]]
     ],
     sectionsHeading: '카테고리'
