@@ -728,6 +728,11 @@ function writeRankHubSubpages(docsDir) {
       const html = rankHub.renderMonthly(mo, 'kr');
       if (html) { write(`monthly/${mo}`, html); n++; }
     }
+    // /rankings/monthly/ 직접 접근은 404였음 → 최신 달로 보내는 리다이렉트 페이지 (noindex, 사이트맵 제외) (2026-09-09)
+    if (S.latestMonth) {
+      const latestHref = `/rankings/monthly/${S.latestMonth}/`;
+      write('monthly', `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex, follow"><meta http-equiv="refresh" content="0; url=${latestHref}"><link rel="canonical" href="https://gamerscroll.com${latestHref}"><title>월간 게임 순위 - 게이머스크롤</title></head><body><p>최신 월간 순위로 이동합니다. <a href="${latestHref}">${S.latestMonth} 월간 순위</a></p></body></html>`);
+    }
     console.log(`  ✅ 순위 허브 하위 페이지 ${n}개 (국가 · 인기 · 서브컬처 · 글로벌 · 역대 · 산출 방법 · 개발사 ${pubs.length + 1} · 월간 ${S.months.length}개월)`);
   } catch (e) {
     console.warn(`  ⚠️ 순위 허브 하위 페이지 생성 실패: ${e.message}`);

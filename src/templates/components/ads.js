@@ -95,14 +95,14 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
        data-ad-slot="${slotId}"></ins>
 </div>`;
   }
-  // 풀폭 페이지(사이드바 없음): 최대 970 반응형.
+  // 풀폭 페이지(사이드바 없음): 콘텐츠 폭(1160px)까지 반응형 — 홈 상단 광고(.rk-home-ad)와 같은 폭 (2026-09-09, 이전 970px).
   // 높이는 90px로 고정해 첫 페인트부터 자리를 잡고, 어떤 크리에이티브가 와도 카드가 늘어나지 않게 한다
   // (반응형 horizontal 유닛은 <ins>의 CSS height를 그대로 요청 규격으로 쓴다 → 970×90/728×90).
   return `<div class="ad-card ad-card-responsive-home ${cardClass}">
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
-      .${cardClass} { display:flex !important; width:100%; max-width:970px; height:90px; min-height:90px; max-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${cardClass} { display:flex !important; width:100%; max-width:1160px; height:90px; min-height:90px; max-height:90px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
       .${styleId} { display:block !important; width:100%; height:90px; min-height:90px; margin:0 auto; }
     }
   </style>
