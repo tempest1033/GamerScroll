@@ -60,7 +60,7 @@ function renderResponsiveHomeAd(slotId) {
 
 /**
  * PC 전용 홈/상단 광고
- * Desktop: full-width responsive slot, Mobile: 숨김
+ * Desktop: 970×250 고정 요청 (좁은 화면은 가용 폭×250), Mobile: 숨김
  */
 function renderDesktopOnlyHomeAd(slotId, opts) {
   if (!ADS_ENABLED || !slotId) return '';
@@ -95,23 +95,21 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
        data-ad-slot="${slotId}"></ins>
 </div>`;
   }
-  // 풀폭 페이지(사이드바 없음): 콘텐츠 폭(1160px)까지 반응형 — 홈 상단 광고(.rk-home-ad)와 같은 폭 (2026-09-09, 이전 970px).
-  // 높이는 250px로 고정해 첫 페인트부터 자리를 잡고, 어떤 크리에이티브가 와도 카드가 늘어나지 않게 한다
-  // (반응형 horizontal 유닛은 <ins>의 CSS height를 그대로 요청 규격으로 쓴다 → 970×250 빌보드, 재고 없으면 970×90/728×90을 가운데 배치).
-  // 2026-09-09: 90 → 250 (빌보드). 함께 바꿀 곳: 05-ads.css 예약 높이, layout.js normalizeAdVisualSize의 minHeight.
-  return `<div class="ad-card ad-card-responsive-home ${cardClass}">
+  // 풀폭 페이지: horizontal 자동 크기 선택을 제거하고 970×250 빌보드를 요청한다.
+  // CSS 높이만 250px로 두고 horizontal을 지정하면 실제 요청이 90px로 선택될 수 있다.
+  // 좁은 PC 화면에서는 부모 폭 안에 맞추되 높이 250px는 유지한다. 모바일·narrow 슬롯은 별도 규격을 유지한다.
+  return `<div class="ad-card ad-card-responsive-home gs-ad-fixed ${cardClass}">
   <style>
     .${cardClass}, .${styleId} { display:none !important; }
     @media (min-width: 769px) {
       .${cardClass} { display:flex !important; width:100%; max-width:1160px; height:250px; min-height:250px; max-height:250px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
-      .${styleId} { display:block !important; width:100%; height:250px; min-height:250px; margin:0 auto; }
+      .${styleId} { display:block !important; width:970px; max-width:100%; height:250px; min-height:250px; margin:0 auto; }
     }
   </style>
-  <ins class="adsbygoogle ${styleId}"
+  <ins class="adsbygoogle gs-ad-fixed ${styleId}"
+       style="display:inline-block"
        data-ad-client="${ADSENSE_CLIENT}"
-       data-ad-slot="${slotId}"
-       data-ad-format="horizontal"
-       data-full-width-responsive="true"></ins>
+       data-ad-slot="${slotId}"></ins>
 </div>`;
 }
 
@@ -142,7 +140,7 @@ function renderMobileOnlyHomeAd(slotId) {
 
 /**
  * 홈/상단 광고 페어
- * PC는 auto-responsive(1160×250), 모바일은 300x250 고정 슬롯으로 분리
+ * PC는 970×250 (좁은 화면은 가용 폭×250), 모바일은 300x250 슬롯으로 분리
  */
 function renderHomeAdPair(pcSlotId, mobileSlotId, opts) {
   if (!ADS_ENABLED) return '';
