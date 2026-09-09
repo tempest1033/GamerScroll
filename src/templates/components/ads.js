@@ -18,6 +18,7 @@
 
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
+const { earlyTopAdScript } = require('./ad-request');
 
 // 고유 ID 생성용 카운터
 let adStyleCounter = 0;
@@ -146,7 +147,8 @@ function renderHomeAdPair(pcSlotId, mobileSlotId, opts) {
   if (!ADS_ENABLED) return '';
   return [
     renderDesktopOnlyHomeAd(pcSlotId, opts),
-    renderMobileOnlyHomeAd(mobileSlotId || pcSlotId)
+    renderMobileOnlyHomeAd(mobileSlotId || pcSlotId),
+    earlyTopAdScript
   ].filter(Boolean).join('\n');
 }
 

@@ -67,6 +67,7 @@ function setGlobalSidebarArticles(popular, latest) {
 }
 
 const { generateHead } = require('./components/head');
+const { adRequestBootstrap } = require('./components/ad-request');
 const {
   renderAdCard,
   renderResponsiveTopAd,
@@ -2016,21 +2017,12 @@ const fontAndEmojiScript = `
 // Ad init - AdSense queue is the standard mechanism: push() before script load is auto-processed on arrival.
 const adLazyLoadScript = `
 <script>
+${adRequestBootstrap}
 (function() {
   var ads = document.querySelectorAll('.adsbygoogle');
   if (!ads.length) return;
 
-  function isHiddenAd(ad) {
-    if (!ad) return true;
-    var node = ad;
-    while (node && node !== document.body) {
-      if (node.offsetParent === null) return true;
-      var cs = window.getComputedStyle ? getComputedStyle(node) : null;
-      if (cs && cs.display === 'none') return true;
-      node = node.parentElement;
-    }
-    return false;
-  }
+  var isHiddenAd = window.__gsAdRequests.isHidden;
 
   // Phase B: cleanup registry — observers/listeners released on pagehide.
   var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
@@ -2266,36 +2258,14 @@ const adLazyLoadScript = `
 
   function pushAd(ad) {
     if (!ad) return false;
-    if (document.body.classList.contains('ads-disabled')) return false;
-    if (ad.getAttribute('data-gs-ad-pushed') === '1') return true;
-    if (isHiddenAd(ad)) return false;
-    // Zero-width slot -> skip; pushing into width:0 throws AdSense "availableWidth=0".
-    var pushRect = ad.getBoundingClientRect ? ad.getBoundingClientRect() : null;
-    if (pushRect && pushRect.width <= 0) return false;
     observeAdVisualSize(ad);
-    ad.setAttribute('data-gs-ad-pushed', '1');
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      ad.removeAttribute('data-gs-ad-pushed');
-      return false;
-    }
-    return true;
+    return window.__gsAdRequests.push(ad);
   }
 
   // push() cannot target a slot — it consumes the FIRST unprocessed <ins> in
   // DOM order, hidden or not, so hidden slots (other breakpoint's units)
   // starve visible ones of their pushes. Remove hidden <ins> nodes up front.
-  var liveAds = [];
-  for (var ri = 0; ri < ads.length; ri++) {
-    var cand = ads[ri];
-    if (isHiddenAd(cand)) {
-      if (cand.parentNode) cand.parentNode.removeChild(cand);
-    } else {
-      liveAds.push(cand);
-    }
-  }
-  ads = liveAds;
+  ads = window.__gsAdRequests.visibleAds(ads);
   if (!ads.length) return;
   for (var a = 0; a < ads.length; a++) { observeAdVisualSize(ads[a]); }
 
