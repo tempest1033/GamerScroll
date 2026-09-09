@@ -9,24 +9,24 @@ const DEFAULT_CATEGORY = 'news';
 
 const CATEGORY_LABELS = {
   en: { news: 'News', reviews: 'Reviews', guides: 'Guides', benchmarks: 'Benchmarks', hot: 'Hot Picks' },
-  ko: { news: '뉴스', reviews: '후기', guides: '가이드', benchmarks: '벤치마크', hot: '핫픽' }
+  ko: { news: '뉴스', reviews: '리뷰', guides: '가이드', benchmarks: '벤치마크', hot: '핫픽' }
 };
 
 // 카테고리 페이지 <title>·description 용 설명 (언어별)
 const CATEGORY_DESCRIPTIONS = {
   en: {
     news: 'AI model launches, pricing changes, and industry moves, checked against primary sources.',
-    reviews: 'Hands-on reviews of AI models and coding agents from paid subscriptions the editor actually uses.',
+    reviews: 'Reviews, comparisons, evaluations, and recommendations for AI models and tools, distinguishing hands-on experience from source-based analysis.',
     guides: 'Install and setup guides for coding agents, kept current with a stated as-of date.',
     benchmarks: 'Terminal-Bench and coding-agent results measured on our own hardware, with methodology.',
-    hot: 'Deals, free credits, limit resets, and tools worth grabbing this week.'
+    hot: 'Sales, special offers, free giveaways, and limited-time events for AI products and services.'
   },
   ko: {
     news: 'AI 모델 출시, 요금 변경, 업계 동향을 1차 자료로 확인해 정리한 뉴스.',
-    reviews: '편집자가 실제 결제해 쓰는 AI 모델·코딩 에이전트의 실사용 후기.',
+    reviews: 'AI 모델·도구의 사용기·비교·평가·추천. 직접 사용한 경험과 자료 기반 분석을 구분합니다.',
     guides: '코딩 에이전트 설치·설정 가이드. 기준 시점을 밝히고 계속 갱신합니다.',
     benchmarks: '자체 하드웨어에서 직접 측정한 Terminal-Bench·코딩 에이전트 결과와 방법론.',
-    hot: '할인, 무료 크레딧, 한도 리셋, 이번 주 잡을 만한 도구.'
+    hot: 'AI 제품·서비스의 할인·특가·무료 배포·기간 한정 이벤트.'
   }
 };
 

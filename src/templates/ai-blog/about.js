@@ -22,11 +22,11 @@ const COPY = {
         `Editor J is on X as <a href="${SITE_X_URL}" rel="me noopener" target="_blank">${X_HANDLE}</a>. Corrections and questions go there.`
       ]],
       ['How each type of article is made', [
-        `<strong>Reviews</strong> are based on paid personal subscriptions the editor uses for real work, and they state the dates, the tasks, what it cost, and where the tool failed. If the editor has not used something, AIScroll does not review it.`,
+        `<strong>Reviews</strong> cover hands-on use, comparisons, evaluations, and recommendations for AI models and tools. Hands-on articles state the usage period, tasks, costs, and limitations. Comparisons based on official documentation or release notes identify those sources and do not claim first-hand experience.`,
         `<strong>Benchmarks</strong> are measured on the editor's own machine with the method, harness, and run count written into the article. Numbers quoted from vendor announcements or public leaderboards are labeled as such and never mixed with our own runs.`,
         `<strong>Guides</strong> carry an as-of date and are revised in place when tools change, instead of being republished as new posts.`,
         `<strong>News</strong> is checked against the primary source (release notes, filings, official posts) before publication, and the sources are linked at the end of each piece.`,
-        `<strong>Hot Picks</strong> are deals, credits, and tools the editor would actually use; nothing is placed for payment, and affiliate links, if any, are marked.`
+        `<strong>Hot Picks</strong> cover sales, special offers, free giveaways, and limited-time events. General tool recommendations belong in Reviews. Nothing is placed for payment, and affiliate links, if any, are marked.`
       ]],
       ['AI assistance and disclosure', [
         `AI tools are used for drafting, translation between Korean and English, and copy editing. Hands-on use, measurements, and editorial judgment are the editor's. Each article ends with a short note saying which of these applied.`,
@@ -49,11 +49,11 @@ const COPY = {
         `X 계정은 <a href="${SITE_X_URL}" rel="me noopener" target="_blank">${X_HANDLE}</a>입니다. 정정 요청과 문의는 이곳으로 주세요.`
       ]],
       ['글 종류별 제작 기준', [
-        `<strong>후기</strong>는 편집자가 실제 결제해 업무에 쓰는 구독을 바탕으로 쓰며, 사용 기간과 작업, 실제 비용, 도구가 실패한 지점을 함께 적습니다. 직접 써보지 않은 도구는 후기를 쓰지 않습니다.`,
+        `<strong>리뷰</strong>는 AI 모델·도구의 사용기·비교·평가·추천을 다룹니다. 실사용 글에는 사용 기간과 작업, 비용과 한계를 적습니다. 공식 문서·릴리스 기록에 기반한 비교는 출처를 밝히며 직접 사용한 경험처럼 표현하지 않습니다.`,
         `<strong>벤치마크</strong>는 편집자 소유 장비에서 직접 측정하고, 방법·하네스·실행 횟수를 본문에 씁니다. 공식 발표나 공개 리더보드 수치는 출처를 표시하고 자체 측정값과 섞지 않습니다.`,
         `<strong>가이드</strong>는 기준 시점을 밝히고, 도구가 바뀌면 새 글을 내는 대신 같은 글을 고칩니다.`,
         `<strong>뉴스</strong>는 발행 전 1차 자료(릴리스 노트, 공시, 공식 게시물)로 확인하고, 출처를 글 끝에 링크합니다.`,
-        `<strong>핫픽</strong>은 편집자가 실제로 쓸 만하다고 판단한 할인·크레딧·도구만 다룹니다. 대가를 받고 싣는 항목은 없고, 제휴 링크가 있으면 표시합니다.`
+        `<strong>핫픽</strong>은 할인·특가·무료 배포·기간 한정 이벤트를 다룹니다. 일반적인 도구 추천은 리뷰로 분류합니다. 대가를 받고 싣는 항목은 없고, 제휴 링크가 있으면 표시합니다.`
       ]],
       ['AI 사용과 공개', [
         `AI 도구는 초안 정리, 한국어·영어 번역, 교정에 씁니다. 실사용, 측정, 편집 판단은 편집자가 합니다. 각 글 끝에 이 중 무엇을 적용했는지 한 줄로 밝힙니다.`,

@@ -1,10 +1,12 @@
 {
   "slug": "coding-agent-picks-2026-09",
   "site": "aiscroll",
-  "category": "hot",
+  "category": "reviews",
+  "legacyPaths": [
+    "/article/hot/coding-agent-picks-2026-09/"
+  ],
   "topics": [
-    "coding-agents",
-    "vibecoding"
+    "coding-agents"
   ],
   "author": "Editor J",
   "status": "approved",
