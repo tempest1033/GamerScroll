@@ -32971,6 +32971,30 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/4f/9a/ae4f9aa4-e6cf-70da-c0c8-4e1008d087fd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-08T21:18:49.641Z"
+    },
+    {
+      "title": "맛있는 몬스터 타운: 요리 타이쿤 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.catlab.cookingtown"
+      },
+      "developer": "Cat Lab",
+      "icon": "https://play-lh.googleusercontent.com/TY06QcvTJRm43f64ZWzlaSAwPg7nYkQFGpXahHsd2jddu3MHes3NPzyJ3FBLtJJ1YGv5aCaHVFGjkA4r_AjjFA",
+      "searchResults": [
+        {
+          "title": "맛있는 몬스터 타운",
+          "appId": 6762172435
+        },
+        {
+          "title": "로블록스(Roblox)",
+          "appId": 431946152
+        },
+        {
+          "title": "Seek of Souls - 자유 더 모험 -",
+          "appId": 1535579183
+        }
+      ],
+      "addedAt": "2026-09-09T06:16:15.524Z"
     }
   ],
   "approved": [

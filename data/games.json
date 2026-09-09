@@ -46898,8 +46898,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "맛있는 몬스터 타운: 요리 타이쿤 게임": {
+      "appIds": {
+        "android": "com.catlab.cookingtown"
+      },
+      "aliases": [],
+      "developer": "Cat Lab",
+      "icon": "https://play-lh.googleusercontent.com/TY06QcvTJRm43f64ZWzlaSAwPg7nYkQFGpXahHsd2jddu3MHes3NPzyJ3FBLtJJ1YGv5aCaHVFGjkA4r_AjjFA",
+      "slug": "맛있는-몬스터-타운-요리-타이쿤-게임",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-09",
-  "totalGames": 3589
+  "totalGames": 3590
 }
