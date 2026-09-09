@@ -32995,6 +32995,39 @@
         }
       ],
       "addedAt": "2026-09-09T06:16:15.524Z"
+    },
+    {
+      "title": "이클립스: 더 어웨이크닝",
+      "status": "single",
+      "appIds": {
+        "ios": 6745164499
+      },
+      "developer": "Smilegate, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/d8/11/98d8118c-079d-978b-308d-08f3541a907f/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-09T15:52:21.849Z"
+    },
+    {
+      "title": "붐붐캡틴: 서바이벌",
+      "status": "single",
+      "appIds": {
+        "ios": 6745582536
+      },
+      "developer": "Game Duo Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/02/42/4c02427f-0319-320a-5f46-59046038108c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-09T15:52:22.038Z"
+    },
+    {
+      "title": "주해전기",
+      "status": "single",
+      "appIds": {
+        "ios": 6786232832
+      },
+      "developer": "TIEN PHAT REAL ESTATE BUSINESS AND INVESTMENT JOINT STOCK COMPANY",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ce/31/7f/ce317f4f-1c76-ca9c-3acc-89a01b63117b/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-09T15:52:22.226Z"
     }
   ],
   "approved": [

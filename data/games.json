@@ -46961,8 +46961,80 @@
       "platforms": [
         "steam"
       ]
+    },
+    "이클립스: 더 어웨이크닝": {
+      "appIds": {
+        "ios": 6745164499
+      },
+      "aliases": [],
+      "developer": "Smilegate, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/d8/11/98d8118c-079d-978b-308d-08f3541a907f/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/512x512bb.jpg",
+      "slug": "이클립스-더-어웨이크닝",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "붐붐캡틴: 서바이벌": {
+      "appIds": {
+        "ios": 6745582536
+      },
+      "aliases": [],
+      "developer": "Game Duo Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/02/42/4c02427f-0319-320a-5f46-59046038108c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "붐붐캡틴-서바이벌",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "주해전기": {
+      "appIds": {
+        "ios": 6786232832
+      },
+      "aliases": [],
+      "developer": "TIEN PHAT REAL ESTATE BUSINESS AND INVESTMENT JOINT STOCK COMPANY",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ce/31/7f/ce317f4f-1c76-ca9c-3acc-89a01b63117b/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "주해전기",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Touhou Koumakyou: New Classic - the Embodiment of Scarlet Devil": {
+      "appIds": {
+        "steam": "4659620"
+      },
+      "aliases": [],
+      "developer": "上海アリス幻樂団",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4659620/7b2f7f9e439f377ebbe8126d0aa156dbb2c315d1/capsule_231x87.jpg?t=1788964897",
+      "slug": "touhou-koumakyou-new-classic-the-embodiment-of-scarlet-devil",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Hunt: Showdown 1896 - Sage of Joseon": {
+      "appIds": {
+        "steam": "4730770"
+      },
+      "aliases": [],
+      "developer": "Crytek",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4730770/38be973d02a754754be1bb64082e8e89f4516b0b/capsule_231x87.jpg?t=1788958812",
+      "slug": "hunt-showdown-1896-sage-of-joseon",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Touhou Koumakyou: New Classic Soundtrack": {
+      "appIds": {
+        "steam": "4924910"
+      },
+      "aliases": [],
+      "developer": "上海アリス幻樂団",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4924910/c81ce75aed3cf30bd08dfea2e120d0fe4567dd6a/capsule_231x87.jpg?t=1788964975",
+      "slug": "touhou-koumakyou-new-classic-soundtrack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-09",
-  "totalGames": 3594
+  "lastUpdated": "2026-09-10",
+  "totalGames": 3600
 }
