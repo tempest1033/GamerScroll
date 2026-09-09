@@ -335,6 +335,9 @@ function renderRankingCard(block, ctx) {
     }
   }
   const cardUnit = cardItem.unit || block.unit || '점';
+  // 원고에 값이 "최고 5위"처럼 라벨을 포함해 들어오면 라벨이 두 번 찍히므로("최고 최고 5위") 앞의 라벨을 떼어낸다 (2026-09-09)
+  const statValue = (value, label) => { const s = String(value ?? '').trim(); return label && s.startsWith(label) ? s.slice(label.length).trim() : s; };
+  const iosLabel = cardItem.iosLabel || 'iOS', aosLabel = cardItem.androidLabel || 'AOS';
 
   return `
     <div class="ranking-card ${cardItem.highlight ? 'ranking-card-highlight' : ''}">
@@ -344,8 +347,8 @@ function renderRankingCard(block, ctx) {
         <div class="ranking-card-score">${cardItem.score?.toLocaleString() || ''}${cardUnit}</div>
       </div>
       <div class="ranking-card-stats">
-        ${cardItem.ios ? `<div class="ranking-card-stat stat-ios"><span class="stat-label">${cardItem.iosLabel || 'iOS'}</span><span class="stat-value">${cardItem.ios}</span></div>` : ''}
-        ${cardItem.android ? `<div class="ranking-card-stat stat-aos"><span class="stat-label">${cardItem.androidLabel || 'AOS'}</span><span class="stat-value">${cardItem.android}</span></div>` : ''}
+        ${cardItem.ios ? `<div class="ranking-card-stat stat-ios"><span class="stat-label">${iosLabel}</span><span class="stat-value">${statValue(cardItem.ios, iosLabel)}</span></div>` : ''}
+        ${cardItem.android ? `<div class="ranking-card-stat stat-aos"><span class="stat-label">${aosLabel}</span><span class="stat-value">${statValue(cardItem.android, aosLabel)}</span></div>` : ''}
       </div>
     </div>
   `;

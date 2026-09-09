@@ -133,7 +133,7 @@
 .rk .rk-app .t { font-weight: 600; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; letter-spacing: -.015em; }
 .rk .rk-app .d { font-size: 12.5px; color: var(--rk-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 260px; }
 .rk .rk-spark { width: 72px; height: 22px; display: block; }
-.rk .rk-note { font-size: 12.5px; color: var(--rk-muted); padding: 10px 0 0; line-height: 1.6; }
+.rk .rk-note { font-size: 13.5px; color: var(--rk-muted); padding: 10px 0 0; line-height: 1.6; }
 .rk .rk-links a { display: flex; align-items: center; gap: 8px; padding: 14px 0; border-bottom: 1px solid var(--rk-line); font-size: 15px; font-weight: 600; flex-wrap: wrap; }
 .rk .rk-links a::after { content: "›"; margin-left: auto; color: var(--rk-dim); font-size: 20px; }
 .rk .rk-links span { color: var(--rk-muted); font-size: 12.5px; font-weight: 400; flex-basis: 100%; }

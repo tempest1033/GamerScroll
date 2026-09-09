@@ -12,13 +12,13 @@
 .page-game #game .game-crumb a { color: inherit; text-decoration: none; }
 .page-game #game .game-crumb a:hover { color: #1d1d1f; }
 .page-game #game .game-hero-content { padding: 0 0 24px; gap: 20px; border-bottom: 1px solid #e5e5e9; }
-.page-game #game .game-hero-title { font-size: 30px; line-height: 1.3; overflow-wrap: anywhere; }
+.page-game #game .game-hero-title { font-size: 32px; line-height: 1.3; overflow-wrap: anywhere; } /* 스팀 상세 h1과 동일 (2026-09-09) */
 .page-game #game .game-hero-icon { width: 72px; height: 72px; border-radius: 16px; }
 .page-game #game .game-hero-stat-value { color: #1d1d1f; font-variant-numeric: tabular-nums; }
 .page-game #game .game-hero-stat-label { color: #6e6e73; white-space: nowrap; }
 .page-game #game .game-back-btn { order: 3; }
 .page-game .site-container #game .home-card-header { padding: 0 !important; margin-bottom: 16px; }
-.page-game #game .home-card-title { font-size: 22px; line-height: 1.4; }
+.page-game #game .home-card-title { font-size: 24px; line-height: 1.4; } /* 섹션 h2 24px 통일 (2026-09-09) */
 .page-game #game .page-container .trend-tab-row { padding: 0 0 12px; border-bottom: 1px solid #e5e5e9; flex-wrap: wrap; }
 .page-game #game .page-container .tab-btn,
 .page-game #game .page-container .market-toggle-btn {

@@ -59,7 +59,7 @@ body.page-home {
 
 /* 순위와 분석: 큰 외곽 상자는 없애고, 분석 영역만 옅은 회색 표면으로 분리한다. */
 .rk-home .rk-market-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; margin: 44px 0 20px; }
-.rk-home .rk-market-heading h2 { margin: 0; color: #1d1d1f; font-size: 28px; font-weight: 650; letter-spacing: -.04em; }
+.rk-home .rk-market-heading h2 { margin: 0; color: #1d1d1f; font-size: 26px; font-weight: 600; letter-spacing: -.04em; } /* 다른 홈 섹션 h2와 동일 (2026-09-09) */
 .rk-home .rk-market-heading .rk-asof { margin: 0; font-size: 11px; text-align: right; line-height: 1.7; }
 .rk-home .rk-workspace { grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); grid-template-rows: auto auto auto; gap: 0 40px; border: 0; border-radius: 0; background: transparent; overflow: visible; align-items: stretch; }
 .rk-home .rk-workspace > .rk-htabs { grid-column: 1; grid-row: 1; }
@@ -114,7 +114,7 @@ body.page-home {
 
 /* 하단은 주제별로 호흡을 나누고, 제목에 굵은 구분선을 사용하지 않는다. */
 .rk-home .rk-section { margin-top: 60px; }
-.rk-home .rk-section > h2 { border: 0; padding: 0; font-size: 26px; font-weight: 650; letter-spacing: -.04em; gap: 12px; }
+.rk-home .rk-section > h2 { border: 0; padding: 0; font-size: 26px; font-weight: 600; letter-spacing: -.04em; gap: 12px; }
 .rk-home .rk-section > h2 small { color: #6e6e73; font-size: 13px; font-weight: 400; }
 .rk-home .rk-hmovers { gap: 48px; margin-top: 28px; }
 .rk-home .rk-hmovers .rk-hcard { border: 0; padding: 0; border-radius: 0; background: transparent; }
