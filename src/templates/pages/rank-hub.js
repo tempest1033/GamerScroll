@@ -165,7 +165,8 @@ function renderRankingsHub(country = 'kr', chart = 'grossing') {
 
   if (isFree) {
     const links = `<div class="rk-card"><h2>관련 순위</h2><div class="rk-links"><a href="${countryHref(country)}">${cname} 매출 순위 <span>앱스토어·구글플레이 매출 TOP 200</span></a><a href="/rankings/subculture/">서브컬처 게임 순위 <span>수집형·미소녀·애니메이션 원작 게임</span></a><a href="/rankings/monthly/${S.latestMonth}/">${S.latestMonth} 월간 매출 순위 <span>두 스토어 일 평균 기준 통합 순위</span></a></div></div>`;
-    const body = `<div class="rk-head"><h1>${cname} 모바일 게임 인기 순위</h1></div>
+    // 화면 h1은 '모바일'을 뺀다 — 상단 탭이 이미 '모바일'이라 중복 (2026-09-09). <title>·메타·키워드는 검색 유입용으로 유지.
+    const body = `<div class="rk-head"><h1>${cname} 게임 인기 순위</h1></div>
 ${subnav(S, 'free')}
 <div class="rk-toolbar">${countryTabs(country, 'free')}</div>
 ${cols}
@@ -181,7 +182,7 @@ ${links}`;
     });
   }
 
-  const body = `<div class="rk-head"><h1>${country === 'kr' ? '모바일 게임 매출 순위' : `${cname} 모바일 게임 매출 순위`}</h1></div>
+  const body = `<div class="rk-head"><h1>${country === 'kr' ? '게임 매출 순위' : `${cname} 게임 매출 순위`}</h1></div>
 ${subnav(S, 'rank')}
 <div class="rk-toolbar">${countryTabs(country)}</div>
 ${cols}`;
@@ -285,7 +286,7 @@ function renderMonthly(month, country = 'kr') {
 
   const monthLinks = S.months.filter((mo) => S.daysIn(mo).length >= 7);
   const lead = `${y}년 ${m}월 ${COUNTRIES[country]} 앱스토어·구글플레이 매출 순위를 일 평균으로 합산한 월간 통합 순위. 1위 ${nameA(top)}, 2위 ${cur.list[1] ? nameA(cur.list[1]) : '-'}, 3위 ${cur.list[2] ? nameA(cur.list[2]) : '-'}. 집계 ${cur.n}일, 신규 진입 ${cur.list.filter((a) => a.rank <= 100 && !prevRank.has(a.key)).length}개.`;
-  const body = `<div class="rk-head"><h1>${y}년 ${m}월 모바일 게임 매출 순위</h1></div>
+  const body = `<div class="rk-head"><h1>${y}년 ${m}월 게임 매출 순위</h1></div>
 ${subnav(S, 'monthly')}
 <div class="rk-toolbar"><div class="rk-tabs months">${monthLinks.map((mo) => `<a class="${mo === month ? 'active' : ''}" href="/rankings/monthly/${mo}/">${mo}</a>`).join('')}</div></div>
 <div class="rk-colh"><h2>월간 통합 TOP 100</h2><small>두 스토어 일 평균 순위 합산 · 추이는 월별 평균 ${S.months[0]}~</small></div>
@@ -316,7 +317,7 @@ function renderGlobal() {
   const rows = cur.list.slice(0, 100).map((a) => { const dp = a.pts - (prevPts.get(a.key) || 0); return `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${C.appCell(a.row, a.store)}</td><td class="c">${chg(a.rank, prevRank.get(a.key))}</td><td class="r"><b>${a.pts.toLocaleString()}</b><br><span class="sm ${dp >= 0 ? 'rk-upc' : 'rk-downc'}">${dp >= 0 ? '+' : ''}${dp}</span></td><td class="c">${a.countries.size}</td>${Object.keys(COUNTRIES).map((c) => cell(a, c)).join('')}</tr>`; }).join('');
   const top = cur.list[0];
   const lead = `한국·일본·미국·중국·대만 5개국 × 앱스토어·구글플레이 매출 순위를 포인트(201 − 순위)로 합산한 글로벌 종합 순위. ${tsText(today.ts)} 기준 1위 ${top.game ? top.game.key : top.row.title} ${top.pts.toLocaleString()}점(${top.countries.size}개국 진입).`;
-  const body = `<div class="rk-head"><h1>글로벌 모바일 게임 매출 종합 순위</h1></div>
+  const body = `<div class="rk-head"><h1>글로벌 게임 매출 종합 순위</h1></div>
 ${subnav(S, 'global')}
 <div class="rk-card"><h2>종합 TOP 100 <small>국가별 표시: 앱스토어 / 구글플레이 순위</small></h2><div class="rk-scroll"><table class="rk-table"><thead><tr><th class="rank">순위</th><th>게임</th><th class="c">변동</th><th class="r">포인트</th><th class="c">국가</th>${Object.entries(COUNTRIES).map(([c, n]) => `<th class="c"><a href="${countryHref(c)}">${n}</a></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
 <div class="rk-note">포인트 = Σ(201 − 순위), 차트 밖은 0점입니다. 실제 매출액이 아닌 순위 기반 지표이며, 중국은 앱스토어만 집계합니다.</div></div>`;
@@ -356,7 +357,7 @@ function renderRecords(country = 'kr') {
   const rec = (label, a, val) => (a ? C.tick(label, a.row, 'ios', val) : '');
   const ticker = `<div class="rk-ticker">${rec('1위 최다', ones[0], `<span class="rk-chg same">${ones[0] ? ones[0].ones : 0}일</span>`)}${rec('최장 연속 1위', longest, `<span class="rk-chg same">${longest ? longest.bestStreak : 0}일</span>`)}${rec('누적 포인트 1위', pts[0], `<span class="rk-chg same">${pts[0] ? pts[0].pts.toLocaleString() : ''}</span>`)}</div>`;
   const lead = `${year}년 ${cname} 모바일 게임 매출 순위 기록. ${days[0]?.date || `${year}-01-01`} ~ ${today.date}, ${days.length}일 수집 기준. 앱스토어 1위 일수·누적 순위 포인트·월별 TOP 3와 스토어별 최장 TOP 10 연속 유지 기록.`;
-  const body = `<div class="rk-head"><h1>${year}년 모바일 게임 매출 순위 연간 기록</h1></div>
+  const body = `<div class="rk-head"><h1>${year}년 게임 매출 순위 연간 기록</h1></div>
 ${subnav(S, 'records')}
 <div class="rk-grid2">${onesT}${ptsT}</div>
 <div class="rk-grid2">${top10Tables}</div>
@@ -388,7 +389,7 @@ function renderPublishers(country = 'kr') {
   const paged = publisherPageSet(list);
   const rows = list.slice(0, 100).map((p) => `<tr><td class="rk-rank ${p.rank <= 3 ? 'top' : ''}">${p.rank}</td><td>${paged.has(p.slug) ? `<a class="rk-pubname" href="/rankings/publishers/${encodeURIComponent(p.slug)}/">${esc(p.name)}</a>` : `<span class="rk-pubname">${esc(p.name)}</span>`}<div class="rk-pubicons">${p.gameList.slice(0, 4).map((e) => `<img src="${esc(C.iconOf(e.row, e.g))}" alt="${esc(S.nameOf(e.store, e.row))}" title="${esc(S.nameOf(e.store, e.row))}" loading="lazy">`).join('')}</div></td><td class="c"><b>${p.games.size}</b></td><td class="c">${p.best}위</td><td class="c">${p.top10 || '-'}</td><td class="r"><b>${p.pts.toLocaleString()}</b></td></tr>`).join('');
   const lead = `${cname} 앱스토어·구글플레이 매출 TOP 200 에 든 게임을 개발사별로 묶은 순위. 포인트 1위 ${list[0] ? `${list[0].name}(${list[0].games.size}개 게임)` : '-'}, 2위 ${list[1] ? list[1].name : '-'}, 3위 ${list[2] ? list[2].name : '-'}. ${tsText(today.ts)} 기준, 매일 갱신.`;
-  const body = `<div class="rk-head"><h1>모바일 게임 개발사 순위</h1></div>
+  const body = `<div class="rk-head"><h1>게임 개발사 순위</h1></div>
 ${subnav(S, 'pub')}
 <div class="rk-card"><h2>개발사 TOP ${Math.min(100, list.length)} <small>${list.length}개 개발사 · ${cname} 매출 TOP 200 기준</small></h2><table class="rk-table rk-pubtable"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th><th class="c">TOP 10</th><th class="r">포인트</th></tr></thead><tbody>${rows}</tbody></table>
 <div class="rk-note">개발사 이름은 스토어 등록명 기준이며 법인 접미어(Corp., Co., Ltd. 등) 차이는 같은 개발사로 묶습니다. 자회사·퍼블리셔가 다른 이름으로 등록된 경우는 따로 집계됩니다.</div></div>`;

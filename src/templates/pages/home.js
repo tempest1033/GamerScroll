@@ -192,7 +192,7 @@ ${panels.map((p, i) => `<input type="radio" name="rk-ht" id="ht-${p.id}" class="
     <section class="section active" id="home">
       <div class="page-container rk rk-home">
 <div class="rk-home-ad">${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}</div>
-<div class="rk-home-heading"><div class="rk-home-hero-copy"><h1>게임 순위 및 시장 분석</h1><p><time datetime="${today.date}">${today.date}</time> 기준 · 모바일 게임 매출 순위 · 스팀 동시접속자 및 판매 순위</p></div></div>
+<div class="rk-home-heading"><div class="rk-home-hero-copy"><h1>게임 순위 및 시장 분석</h1><p><time datetime="${today.date}">${today.date}</time> 기준 · 모바일 매출 순위 · 스팀 동접·판매 순위</p></div></div>
 ${hcards}
 <div class="rk-market-heading"><h2>일간 게임 순위</h2></div>
 ${workspace}

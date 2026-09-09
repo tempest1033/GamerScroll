@@ -99,7 +99,8 @@ ${gameSummary('최근 신규 진입', fresh, fresh ? `${fmt(fresh.ccu)}명` : '-
   const monthly = ST.monthlyTop(mo, 10).map((a) => `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${appCell(ST.info(a.appid), gameHref(a.appid))}</td><td class="v">${fmt(a.avg)}<small>월 평균 동접</small></td></tr>`).join('');
   const peaks = ST.allTimePeaks(10).map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${appCell(ST.info(a.appid), gameHref(a.appid))}</td><td class="v">${fmt(a.ccu)}<small>${a.date}</small></td></tr>`).join('');
   const lead = `스팀 동접자 1위 ${ST.info(top.appid).name}(${fmt(top.ccu)}명), 2위 ${T.mp[1] ? ST.info(T.mp[1].appid).name : '-'}, 3위 ${T.mp[2] ? ST.info(T.mp[2].appid).name : '-'}. 한국 스토어 최고 판매 1위 ${T.sellers[0] ? ST.info(T.sellers[0].appid).name : '-'}. ${T.date} 기준, 매일 갱신.`;
-  const body = `<div class="rk-head"><h1>스팀 게임 순위</h1></div>
+  // 화면 h1은 '스팀'을 뺀다 — 상단 탭이 이미 '스팀' (2026-09-09). <title>·메타는 유지.
+  const body = `<div class="rk-head"><h1>게임 순위</h1></div>
 ${kpi}
 ${cols}
 <div class="rk-grid2 home" id="monthly"><div class="rk-card"><h2>월간 동시접속자 순위 <small>${mo} · 일별 기록 평균 TOP 10</small></h2><table class="rk-table"><tbody>${monthly}</tbody></table></div><div class="rk-card" id="records"><h2>최고 동시접속자 기록 <small>${days[0].date} 이후 TOP 10</small></h2><table class="rk-table"><tbody>${peaks}</tbody></table></div></div>`;

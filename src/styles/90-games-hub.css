@@ -414,16 +414,18 @@
     font-size: var(--font-section-size);
   }
 
-  /* 모바일: 인기 게임 10개를 세로 한 줄로 늘어놓지 않고 2열로 압축 */
+  /* 모바일: 2열이면 게임명이 거의 다 잘려서(Where…, 쿠키런 …) 1열 컴팩트 행으로 (2026-09-09) */
   .games-hub-popular-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
   }
 
-  .games-hub-popular-card {
-    padding: 10px;
-    gap: 8px;
+  .games-hub-popular-card,
+  body.page-games .games-hub-popular-card {
+    padding: 8px 12px;
+    gap: 10px;
     min-width: 0;
+    border-radius: 12px;
   }
 
   .games-hub-popular-card .popular-rank {
@@ -446,7 +448,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .games-hub-popular-card .popular-views {
