@@ -31234,14 +31234,16 @@
     },
     "캔디크러쉬소다": {
       "appIds": {
-        "ios": "850417475"
+        "ios": 850417475,
+        "android": "com.king.candycrushsodasaga"
       },
       "aliases": [],
       "developer": "King",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/97/d3/5997d33d-12aa-781c-921a-6b6cecd0ae47/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "캔디크러쉬소다",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Tidy Puzzle: Perfect Satisfy": {
@@ -40158,14 +40160,16 @@
     },
     "이세계 용병단 키우기: 방치형 RPG": {
       "appIds": {
-        "ios": "6471457105"
+        "ios": 6471457105,
+        "android": "com.Cryptect.Mercenary"
       },
       "aliases": [],
       "developer": "Cryptect Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/ed/b9/5eedb93b-a913-17de-998b-3c79af620453/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "이세계-용병단-키우기-방치형-rpg",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Free Fire: 9th Anniversary": {
@@ -46158,14 +46162,16 @@
     },
     "Connect Tracks: 로직 퍼즐": {
       "appIds": {
-        "ios": 6793115010
+        "ios": 6793115010,
+        "android": "com.oakever.traintrack"
       },
       "aliases": [],
       "developer": "Oakever Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/8f/cc/878fcc15-bbac-6fda-00df-b839cdf58188/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "connect-tracks-로직-퍼즐",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Gugu Gaga: Keyboard Escape": {
@@ -47045,8 +47051,218 @@
       "platforms": [
         "android"
       ]
+    },
+    "드림 가든": {
+      "appIds": {
+        "ios": 6760174727
+      },
+      "aliases": [],
+      "developer": "Pogo Hopper",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/49/6c/0c496c8a-8712-29db-8b2f-8fc93bde4bf5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "드림-가든",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "패션 코디 퍼즐": {
+      "appIds": {
+        "android": "com.fun.beautyparty.an"
+      },
+      "aliases": [],
+      "developer": "Ocean Joy",
+      "icon": "https://play-lh.googleusercontent.com/Gr0D6KqBv-X-7RRJt3mc9IwGwdWhs3kG31eZPx33r6Kf-l2xbYLpZEE58OIvMYXy6lwo4pn8Rl3sl23_ELvt8Ic",
+      "slug": "패션-코디-퍼즐",
+      "platforms": [
+        "android"
+      ]
+    },
+    "솔리테어 - 클래식 카드게임, Solitaire": {
+      "appIds": {
+        "android": "solitaire.patience.card.games.klondike.free"
+      },
+      "aliases": [],
+      "developer": "Guru Puzzle Game",
+      "icon": "https://play-lh.googleusercontent.com/nVTU-EbcHkMg-KXt93shtsgX506v_zDBLG04H2pnp4Lom2J_mSp5gHO5YtZhCSpDpLJUgBYneCd5h6oDduKJ6Q",
+      "slug": "솔리테어-클래식-카드게임-solitaire",
+      "platforms": [
+        "android"
+      ]
+    },
+    "갤럭시 어택: 슈팅 비행기게임 - 80년대 고전게임": {
+      "appIds": {
+        "android": "com.alien.shooter.galaxy.attack"
+      },
+      "aliases": [],
+      "developer": "1SOFT",
+      "icon": "https://play-lh.googleusercontent.com/SMfXn4VJhStbSWDqXBdM2j3Fb9dzbYHtctTz7lzs4Rr5fjHbhr3JitUu4bN4qw7QYEcCmkp3Xq6rh3c3IOBL",
+      "slug": "갤럭시-어택-슈팅-비행기게임-80년대-고전게임",
+      "platforms": [
+        "android"
+      ]
+    },
+    "AdVenture Communist": {
+      "appIds": {
+        "android": "com.kongregate.mobile.adventurecommunist.google",
+        "ios": 1225683141
+      },
+      "aliases": [],
+      "developer": "Hyper Hippo",
+      "icon": "https://play-lh.googleusercontent.com/qzwdBHNlNBKvVXJ2QDjsLaRydFBauRLvJuL8F0ySnS6OPYgt7vcElWqS0e97XmtL4xRMkMzV8VUOA7b73TzG6Q",
+      "slug": "adventure-communist",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Bus Go:Traffic Puzzle": {
+      "appIds": {
+        "android": "bus.traffic.fever.jam.puzzle.busgo",
+        "ios": 6780712692
+      },
+      "aliases": [],
+      "developer": "PopStoneGameTechnologyLimited-Shooting",
+      "icon": "https://play-lh.googleusercontent.com/SCXa4Z-BnHoox-hvatLHfYM4GtZqPXnwCJn2ogOGBEZEPb_d8j2Ck935u70_yjnEkGBlYEQouDIuFj_o5nzoOw",
+      "slug": "bus-gotraffic-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Angry Smash": {
+      "appIds": {
+        "android": "com.tripledot.angrysmash"
+      },
+      "aliases": [],
+      "developer": "Tripledot Studios Limited",
+      "icon": "https://play-lh.googleusercontent.com/bptkGLVubdfZoymZ704AeJESlJ_9QHp5fzlqQAozwNOetQUHaD4LTkLRM0mQxFIyE15aI8eexFdbRNA5c39xog",
+      "slug": "angry-smash",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Luna Belle Tiles": {
+      "appIds": {
+        "android": "com.tsftf.luna.belle.tiles"
+      },
+      "aliases": [],
+      "developer": "Time Counter",
+      "icon": "https://play-lh.googleusercontent.com/j_5qLasXd9l0EH2QZYamD9QIaNyMRn3b8wI4DBZiE6aHunOf6uXHQ2kkaO6kVsl2ND1oYkF-2Th2PIAy6k582g",
+      "slug": "luna-belle-tiles",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Wings of Heroes: 비행 게임": {
+      "appIds": {
+        "android": "it.rortos.aircombat",
+        "ios": 1528146941
+      },
+      "aliases": [],
+      "developer": "RORTOS",
+      "icon": "https://play-lh.googleusercontent.com/guNaFqq8IFIuQtlUlRrxr5Q2onGx0i8_M__CbKOWdUauOZcxIXTfGvcU-vimBiC3bNBYZ82Ia2IpLK0gu2G20w",
+      "slug": "wings-of-heroes-비행-게임",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "과일팡 : 과즙팡팡 머지 병합 게임": {
+      "appIds": {
+        "android": "com.stormborn.cute.fruit.merge"
+      },
+      "aliases": [],
+      "developer": "Stormborn Inc.",
+      "icon": "https://play-lh.googleusercontent.com/rAsjE-j9cDI18nEx9sQ85x6NmilIfToJtNgPBMudGoKqOPgHqMfrNcsZ-ElIPAkFsR7tSHLfDmcBfn-FFJfe_g",
+      "slug": "과일팡-과즙팡팡-머지-병합-게임",
+      "platforms": [
+        "android"
+      ]
+    },
+    "딱픽_광고없이 낱말 퍼즐 풀기": {
+      "appIds": {
+        "android": "com.dwavetech.ddakpick"
+      },
+      "aliases": [],
+      "developer": "dwavetech",
+      "icon": "https://play-lh.googleusercontent.com/LqltA7RlWzoUDBLPtB2qFBd0RpwNsQ7Eyu5qyEZZsHoPpEMK11ZaNyZ7pKxTUYR0gZL5wFiNggIiB2iuXZmF",
+      "slug": "딱픽광고없이-낱말-퍼즐-풀기",
+      "platforms": [
+        "android"
+      ]
+    },
+    "클럽스토리: 축구 매니저": {
+      "appIds": {
+        "android": "app.clubstory.football"
+      },
+      "aliases": [],
+      "developer": "NBstudio",
+      "icon": "https://play-lh.googleusercontent.com/nql6HyIbGT9FHg0UIoCp8rX-flTXgWK810Loa5Ox_fZrHz7lXO00wwshmKwgrc7IPxuIpGuaByJ4IvnnIpGFdw",
+      "slug": "클럽스토리-축구-매니저",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Cute Scoop DIY: ASMR Packing": {
+      "appIds": {
+        "android": "lucky.scoop.diy.mistery.asmrpacking.forgirls"
+      },
+      "aliases": [],
+      "developer": "BLACKGEMS GLOBAL JOINT STOCK COMPANY",
+      "icon": "https://play-lh.googleusercontent.com/EtSwWxoWEIw4paFZl7avM9ZS5dhN2OpMsI3UwUmmozScc9C1fwWj1l742ThMHTBqzRiS7IL_oDQqGwTouXOPXGM",
+      "slug": "cute-scoop-diy-asmr-packing",
+      "platforms": [
+        "android"
+      ]
+    },
+    "냥냥팡팡 : 매치퍼즐": {
+      "appIds": {
+        "android": "com.stormborn.catpang.block"
+      },
+      "aliases": [],
+      "developer": "Stormborn Inc.",
+      "icon": "https://play-lh.googleusercontent.com/NIkgnAGXsQXGsUcUzpV3nPGQmz_AIsa4cGqgJKWxggm7IM7qMq41FZiOfGfaOZahW_UWiro7BOb1BdOnbvWkeA",
+      "slug": "냥냥팡팡-매치퍼즐",
+      "platforms": [
+        "android"
+      ]
+    },
+    "헌팅 라이벌즈: 사격게임과 동물사냥": {
+      "appIds": {
+        "android": "games.my.sniper.wild.hunting"
+      },
+      "aliases": [],
+      "developer": "KEYSTORM HOLDINGS LTD",
+      "icon": "https://play-lh.googleusercontent.com/CD1tSZVG1hd-uPxvjXgOpbfRBavQ7G3hZl0ea8PglloMj-QuRhzMJMQerxABjb_Ns3HzC2jGpVHRcxogFTUe",
+      "slug": "헌팅-라이벌즈-사격게임과-동물사냥",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Arrow Sort Master": {
+      "appIds": {
+        "android": "com.hashbytestudio.arrowsortmaster"
+      },
+      "aliases": [],
+      "developer": "INDOVIA",
+      "icon": "https://play-lh.googleusercontent.com/zUhwptOy20_6dUF-AFNnp7_vRU80qM8H53RvrrAKJxl7C7B3Sui2SaKnzBWza68Ct9xq4t7sgnxQ-GpGl16p",
+      "slug": "arrow-sort-master",
+      "platforms": [
+        "android"
+      ]
+    },
+    "The Legend of Fancy Realm Remake": {
+      "appIds": {
+        "steam": "4030150"
+      },
+      "aliases": [],
+      "developer": " USERJOY Technology Co.,Ltd.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4030150/60083c0d62503d9ba3428fe7f7df86b4018b39cc/capsule_231x87.jpg?t=1788968730",
+      "slug": "the-legend-of-fancy-realm-remake",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-10",
-  "totalGames": 3601
+  "totalGames": 3618
 }

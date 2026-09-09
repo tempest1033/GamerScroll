@@ -19948,9 +19948,10 @@
     },
     {
       "title": "캔디크러쉬소다",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "850417475"
+        "ios": 850417475,
+        "android": "com.king.candycrushsodasaga"
       },
       "developer": "King",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/97/d3/5997d33d-12aa-781c-921a-6b6cecd0ae47/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
@@ -28264,13 +28265,27 @@
     },
     {
       "title": "이세계 용병단 키우기: 방치형 RPG",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6471457105"
+        "ios": 6471457105,
+        "android": "com.Cryptect.Mercenary"
       },
       "developer": "Cryptect Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/ed/b9/5eedb93b-a913-17de-998b-3c79af620453/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "이세계 용병단 키우기: 방치형 RPG",
+          "appId": 6471457105
+        },
+        {
+          "title": "환생 용병단 : 방치형 키우기 RPG",
+          "appId": 1515542137
+        },
+        {
+          "title": "우르르 용병단!",
+          "appId": 6443603223
+        }
+      ],
       "addedAt": "2026-07-11T14:18:30.050Z"
     },
     {
@@ -32347,13 +32362,19 @@
     },
     {
       "title": "Connect Tracks: 로직 퍼즐",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6793115010
+        "ios": 6793115010,
+        "android": "com.oakever.traintrack"
       },
       "developer": "Oakever Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/8f/cc/878fcc15-bbac-6fda-00df-b839cdf58188/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Connect Tracks: 로직 퍼즐",
+          "appId": 6793115010
+        }
+      ],
       "addedAt": "2026-08-31T17:11:27.940Z"
     },
     {
@@ -33044,6 +33065,338 @@
         }
       ],
       "addedAt": "2026-09-09T19:05:59.891Z"
+    },
+    {
+      "title": "드림 가든",
+      "status": "single",
+      "appIds": {
+        "ios": 6760174727
+      },
+      "developer": "Pogo Hopper",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/49/6c/0c496c8a-8712-29db-8b2f-8fc93bde4bf5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-09T23:53:53.827Z"
+    },
+    {
+      "title": "패션 코디 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.fun.beautyparty.an"
+      },
+      "developer": "Ocean Joy",
+      "icon": "https://play-lh.googleusercontent.com/Gr0D6KqBv-X-7RRJt3mc9IwGwdWhs3kG31eZPx33r6Kf-l2xbYLpZEE58OIvMYXy6lwo4pn8Rl3sl23_ELvt8Ic",
+      "searchResults": [
+        {
+          "title": "Makeover Match: 매치3퍼즐",
+          "appId": 1622338658
+        },
+        {
+          "title": "기타 소녀 매치3 -  힐링 & 꾸미기 퍼즐",
+          "appId": 1603345713
+        },
+        {
+          "title": "추락한 아름다움: 머지&스토리",
+          "appId": 6758072393
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:54.168Z"
+    },
+    {
+      "title": "솔리테어 - 클래식 카드게임, Solitaire",
+      "status": "single",
+      "appIds": {
+        "android": "solitaire.patience.card.games.klondike.free"
+      },
+      "developer": "Guru Puzzle Game",
+      "icon": "https://play-lh.googleusercontent.com/nVTU-EbcHkMg-KXt93shtsgX506v_zDBLG04H2pnp4Lom2J_mSp5gHO5YtZhCSpDpLJUgBYneCd5h6oDduKJ6Q",
+      "searchResults": [
+        {
+          "title": "솔리테어 — 카드 게임",
+          "appId": 1190849728
+        },
+        {
+          "title": "솔리테어 크루즈: 두뇌 트레이닝 용 퍼즐 카드 게임",
+          "appId": 1500251668
+        },
+        {
+          "title": "솔리테어: 덱다웃",
+          "appId": 1153389718
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:54.551Z"
+    },
+    {
+      "title": "갤럭시 어택: 슈팅 비행기게임 - 80년대 고전게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.alien.shooter.galaxy.attack"
+      },
+      "developer": "1SOFT",
+      "icon": "https://play-lh.googleusercontent.com/SMfXn4VJhStbSWDqXBdM2j3Fb9dzbYHtctTz7lzs4Rr5fjHbhr3JitUu4bN4qw7QYEcCmkp3Xq6rh3c3IOBL",
+      "searchResults": [
+        {
+          "title": "외계인 슈팅 게임",
+          "appId": 1225548580
+        },
+        {
+          "title": "로블록스(Roblox)",
+          "appId": 431946152
+        },
+        {
+          "title": "Galaxiga: Classic Arcade Game",
+          "appId": 1519367184
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:54.858Z"
+    },
+    {
+      "title": "AdVenture Communist",
+      "status": "matched",
+      "appIds": {
+        "android": "com.kongregate.mobile.adventurecommunist.google",
+        "ios": 1225683141
+      },
+      "developer": "Hyper Hippo",
+      "icon": "https://play-lh.googleusercontent.com/qzwdBHNlNBKvVXJ2QDjsLaRydFBauRLvJuL8F0ySnS6OPYgt7vcElWqS0e97XmtL4xRMkMzV8VUOA7b73TzG6Q",
+      "searchResults": [
+        {
+          "title": "AdVenture Communist",
+          "appId": 1225683141
+        },
+        {
+          "title": "AdVenture Capitalist",
+          "appId": 927006017
+        },
+        {
+          "title": "AdVenture Ages",
+          "appId": 1510649539
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:55.263Z"
+    },
+    {
+      "title": "Bus Go:Traffic Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "bus.traffic.fever.jam.puzzle.busgo",
+        "ios": 6780712692
+      },
+      "developer": "PopStoneGameTechnologyLimited-Shooting",
+      "icon": "https://play-lh.googleusercontent.com/SCXa4Z-BnHoox-hvatLHfYM4GtZqPXnwCJn2ogOGBEZEPb_d8j2Ck935u70_yjnEkGBlYEQouDIuFj_o5nzoOw",
+      "searchResults": [
+        {
+          "title": "Bus Go:Traffic Puzzle",
+          "appId": 6780712692
+        },
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 3D",
+          "appId": 6505095234
+        },
+        {
+          "title": "Bus Escape: Traffic Jam",
+          "appId": 6689516366
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:55.583Z"
+    },
+    {
+      "title": "Angry Smash",
+      "status": "single",
+      "appIds": {
+        "android": "com.tripledot.angrysmash"
+      },
+      "developer": "Tripledot Studios Limited",
+      "icon": "https://play-lh.googleusercontent.com/bptkGLVubdfZoymZ704AeJESlJ_9QHp5fzlqQAozwNOetQUHaD4LTkLRM0mQxFIyE15aI8eexFdbRNA5c39xog",
+      "searchResults": [
+        {
+          "title": "Angry Smash - Physics Puzzle",
+          "appId": 6785384304
+        },
+        {
+          "title": "Big Angry Gorilla City Smash",
+          "appId": 1508774559
+        },
+        {
+          "title": "Smash Hit",
+          "appId": 603527166
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:55.893Z"
+    },
+    {
+      "title": "Luna Belle Tiles",
+      "status": "single",
+      "appIds": {
+        "android": "com.tsftf.luna.belle.tiles"
+      },
+      "developer": "Time Counter",
+      "icon": "https://play-lh.googleusercontent.com/j_5qLasXd9l0EH2QZYamD9QIaNyMRn3b8wI4DBZiE6aHunOf6uXHQ2kkaO6kVsl2ND1oYkF-2Th2PIAy6k582g",
+      "searchResults": [],
+      "addedAt": "2026-09-09T23:53:56.126Z"
+    },
+    {
+      "title": "Wings of Heroes: 비행 게임",
+      "status": "matched",
+      "appIds": {
+        "android": "it.rortos.aircombat",
+        "ios": 1528146941
+      },
+      "developer": "RORTOS",
+      "icon": "https://play-lh.googleusercontent.com/guNaFqq8IFIuQtlUlRrxr5Q2onGx0i8_M__CbKOWdUauOZcxIXTfGvcU-vimBiC3bNBYZ82Ia2IpLK0gu2G20w",
+      "searchResults": [
+        {
+          "title": "Wings of Heroes: 비행 게임",
+          "appId": 1528146941
+        },
+        {
+          "title": "Wing Fighter",
+          "appId": 1562065271
+        },
+        {
+          "title": "스카이 윙(Sky Wings) - 오프라인 오락실 슈팅",
+          "appId": 1146694349
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:56.553Z"
+    },
+    {
+      "title": "과일팡 : 과즙팡팡 머지 병합 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.stormborn.cute.fruit.merge"
+      },
+      "developer": "Stormborn Inc.",
+      "icon": "https://play-lh.googleusercontent.com/rAsjE-j9cDI18nEx9sQ85x6NmilIfToJtNgPBMudGoKqOPgHqMfrNcsZ-ElIPAkFsR7tSHLfDmcBfn-FFJfe_g",
+      "searchResults": [],
+      "addedAt": "2026-09-09T23:53:57.437Z"
+    },
+    {
+      "title": "딱픽_광고없이 낱말 퍼즐 풀기",
+      "status": "single",
+      "appIds": {
+        "android": "com.dwavetech.ddakpick"
+      },
+      "developer": "dwavetech",
+      "icon": "https://play-lh.googleusercontent.com/LqltA7RlWzoUDBLPtB2qFBd0RpwNsQ7Eyu5qyEZZsHoPpEMK11ZaNyZ7pKxTUYR0gZL5wFiNggIiB2iuXZmF",
+      "searchResults": [
+        {
+          "title": "Word Pin Jam - 나사와 단어 퍼즐게임",
+          "appId": 6760995612
+        },
+        {
+          "title": "Sudoku365 둘이서 스도쿠·매일",
+          "appId": 1505967828
+        },
+        {
+          "title": "Crossword Chef: Mini to Mega",
+          "appId": 6504644427
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:57.761Z"
+    },
+    {
+      "title": "클럽스토리: 축구 매니저",
+      "status": "single",
+      "appIds": {
+        "android": "app.clubstory.football"
+      },
+      "developer": "NBstudio",
+      "icon": "https://play-lh.googleusercontent.com/nql6HyIbGT9FHg0UIoCp8rX-flTXgWK810Loa5Ox_fZrHz7lXO00wwshmKwgrc7IPxuIpGuaByJ4IvnnIpGFdw",
+      "searchResults": [
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "UFL - 축구게임 2026",
+          "appId": 6755629873
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:58.039Z"
+    },
+    {
+      "title": "Cute Scoop DIY: ASMR Packing",
+      "status": "single",
+      "appIds": {
+        "android": "lucky.scoop.diy.mistery.asmrpacking.forgirls"
+      },
+      "developer": "BLACKGEMS GLOBAL JOINT STOCK COMPANY",
+      "icon": "https://play-lh.googleusercontent.com/EtSwWxoWEIw4paFZl7avM9ZS5dhN2OpMsI3UwUmmozScc9C1fwWj1l742ThMHTBqzRiS7IL_oDQqGwTouXOPXGM",
+      "searchResults": [
+        {
+          "title": "Lucky Scoop - DIY Packing",
+          "appId": 6761824373
+        },
+        {
+          "title": "Mukbang Scoop ASMR",
+          "appId": 6791533156
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:58.297Z"
+    },
+    {
+      "title": "냥냥팡팡 : 매치퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.stormborn.catpang.block"
+      },
+      "developer": "Stormborn Inc.",
+      "icon": "https://play-lh.googleusercontent.com/NIkgnAGXsQXGsUcUzpV3nPGQmz_AIsa4cGqgJKWxggm7IM7qMq41FZiOfGfaOZahW_UWiro7BOb1BdOnbvWkeA",
+      "searchResults": [
+        {
+          "title": "애니팡2 - 3매치 퍼즐게임",
+          "appId": 660164846
+        },
+        {
+          "title": "애니팡3 - 매치 3 퍼즐",
+          "appId": 1126201781
+        },
+        {
+          "title": "티니핑 매직 매치",
+          "appId": 6786589102
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:58.601Z"
+    },
+    {
+      "title": "헌팅 라이벌즈: 사격게임과 동물사냥",
+      "status": "single",
+      "appIds": {
+        "android": "games.my.sniper.wild.hunting"
+      },
+      "developer": "KEYSTORM HOLDINGS LTD",
+      "icon": "https://play-lh.googleusercontent.com/CD1tSZVG1hd-uPxvjXgOpbfRBavQ7G3hZl0ea8PglloMj-QuRhzMJMQerxABjb_Ns3HzC2jGpVHRcxogFTUe",
+      "searchResults": [
+        {
+          "title": "헌팅 라이벌즈: 동물 사냥 스나이퍼 사격 게임",
+          "appId": 6751531911
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:58.899Z"
+    },
+    {
+      "title": "Arrow Sort Master",
+      "status": "single",
+      "appIds": {
+        "android": "com.hashbytestudio.arrowsortmaster"
+      },
+      "developer": "INDOVIA",
+      "icon": "https://play-lh.googleusercontent.com/zUhwptOy20_6dUF-AFNnp7_vRU80qM8H53RvrrAKJxl7C7B3Sui2SaKnzBWza68Ct9xq4t7sgnxQ-GpGl16p",
+      "searchResults": [
+        {
+          "title": "털실 마스터 - 마법의 정렬 버스주차퍼즐게임",
+          "appId": 6743385713
+        },
+        {
+          "title": "Wool Craze - 3D 트레드 뜨개질 게임마스터",
+          "appId": 6744317674
+        },
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 3D",
+          "appId": 6505095234
+        }
+      ],
+      "addedAt": "2026-09-09T23:53:59.198Z"
     }
   ],
   "approved": [

@@ -1,13 +1,21 @@
 {
-  "updatedAt": "2026-09-08T23:30:13.872Z",
+  "updatedAt": "2026-09-09T23:44:50.907Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "where-winds-meet",
+      "views": 7
+    },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 7
     },
     {
-      "slug": "where-winds-meet",
+      "slug": "palworld",
+      "views": 6
+    },
+    {
+      "slug": "vpet",
       "views": 6
     },
     {
@@ -15,7 +23,23 @@
       "views": 6
     },
     {
+      "slug": "로드러쉬",
+      "views": 6
+    },
+    {
+      "slug": "에이지-오브-엠파이어-모바일",
+      "views": 6
+    },
+    {
       "slug": "에픽세븐",
+      "views": 6
+    },
+    {
+      "slug": "탈출-게임-암스테르담",
+      "views": 6
+    },
+    {
+      "slug": "탑-히어로즈-영웅의-시대",
       "views": 6
     },
     {
@@ -52,30 +76,6 @@
     },
     {
       "slug": "my-hero-ultra-rumble",
-      "views": 5
-    },
-    {
-      "slug": "palworld",
-      "views": 5
-    },
-    {
-      "slug": "pixel-flow",
-      "views": 5
-    },
-    {
-      "slug": "sakura-school-simulator",
-      "views": 5
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
-      "views": 5
-    },
-    {
-      "slug": "vpet",
-      "views": 5
-    },
-    {
-      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
       "views": 5
     }
   ]
