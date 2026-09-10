@@ -33440,6 +33440,30 @@
       "icon": "https://play-lh.googleusercontent.com/v1bjDUGJjAs7L9woZPW94YAIcoqIPR3EspxLhsJfwOk0a2whsYaC3BehMt_4l4A-RPkWW84rsJapynPOFwDwtoI",
       "searchResults": [],
       "addedAt": "2026-09-10T02:39:51.020Z"
+    },
+    {
+      "title": "Ghost Sniper: 전쟁 FPS 슈팅게임",
+      "status": "single",
+      "appIds": {
+        "android": "sniper.war.target.soldier.shooter.aldagames.com"
+      },
+      "developer": "Alda Games",
+      "icon": "https://play-lh.googleusercontent.com/75K0gIcTq9VlnOHwKB5Iz5tCVVxMmL2bXWlPT_FbytKAeOLmgvcQTH1UV0y-3bN4S3J5y_KX3v-NI8TzBpQCBQ",
+      "searchResults": [
+        {
+          "title": "월드워 히어로즈: WW2 슈팅게임온라인",
+          "appId": 1281535229
+        },
+        {
+          "title": "섀도우건 레전드 ( SHADOWGUN LEGENDS)",
+          "appId": 1091251242
+        },
+        {
+          "title": "Tacticool: 5vs5 슈팅게임 & 전술 총게임",
+          "appId": 1240200305
+        }
+      ],
+      "addedAt": "2026-09-10T07:38:12.088Z"
     }
   ],
   "approved": [

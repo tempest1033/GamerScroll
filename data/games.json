@@ -47289,8 +47289,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Ghost Sniper: 전쟁 FPS 슈팅게임": {
+      "appIds": {
+        "android": "sniper.war.target.soldier.shooter.aldagames.com"
+      },
+      "aliases": [],
+      "developer": "Alda Games",
+      "icon": "https://play-lh.googleusercontent.com/75K0gIcTq9VlnOHwKB5Iz5tCVVxMmL2bXWlPT_FbytKAeOLmgvcQTH1UV0y-3bN4S3J5y_KX3v-NI8TzBpQCBQ",
+      "slug": "ghost-sniper-전쟁-fps-슈팅게임",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-10",
-  "totalGames": 3620
+  "totalGames": 3621
 }
