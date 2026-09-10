@@ -47385,8 +47385,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Gunman Contracts - Stand Alone": {
+      "appIds": {
+        "steam": "2421750"
+      },
+      "aliases": [],
+      "developer": "ANB_Seth",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2421750/c9af0a70e3d357013cc9056acdd2730489c83d47/capsule_231x87.jpg?t=1789059640",
+      "slug": "gunman-contracts-stand-alone",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-11",
-  "totalGames": 3628
+  "totalGames": 3629
 }
