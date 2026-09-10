@@ -1,43 +1,43 @@
 {
-  "updatedAt": "2026-09-09T01:25:12.943Z",
+  "updatedAt": "2026-09-10T02:31:07.102Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 35,
+      "views": 31,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 31,
+      "views": 26,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
-      "slug": "subculture-july-2026-kr",
-      "views": 17,
-      "path": "/magazine/ranking/subculture-july-2026-kr/"
+      "slug": "subculture-august-2026-kr",
+      "views": 25,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "ranking",
-      "slug": "subculture-august-2026-kr",
+      "slug": "subculture-july-2026-kr",
       "views": 15,
-      "path": "/magazine/ranking/subculture-august-2026-kr/"
+      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "dlss-5-leak-backlash",
-      "views": 8,
+      "views": 10,
       "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
-      "type": "issue",
-      "slug": "fable-astra-september-launch",
-      "views": 7,
-      "path": "/magazine/issue/fable-astra-september-launch/"
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 5,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "wiki",
@@ -60,6 +60,12 @@
       "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 4,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
       "type": "wiki",
       "slug": "pd-vs-director",
       "category": "knowledge",
@@ -67,22 +73,16 @@
       "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
+      "type": "hotpick",
+      "slug": "ff7-remake-switch2-release",
       "views": 3,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
     },
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
       "views": 3,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
-    },
-    {
-      "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 3,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
@@ -105,21 +105,15 @@
     },
     {
       "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 2,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 2,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "hotpick",
       "slug": "nioh3-hotpick-soulslike-masterpiece",
       "views": 2,
       "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "version-control-system",
+      "views": 2,
+      "path": "/magazine/hotpick/version-control-system/"
     },
     {
       "type": "issue",
@@ -132,6 +126,12 @@
       "slug": "chzzk-lck-naver-viewer-complaints",
       "views": 2,
       "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 2,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
     },
     {
       "type": "issue",
@@ -177,12 +177,6 @@
       "path": "/magazine/hotpick/mac-mini-m4-best-value-2026/"
     },
     {
-      "type": "hotpick",
-      "slug": "version-control-system",
-      "views": 1,
-      "path": "/magazine/hotpick/version-control-system/"
-    },
-    {
       "type": "insight",
       "slug": "cookierun-crumble-performance",
       "views": 1,
@@ -219,12 +213,6 @@
       "path": "/magazine/issue/nvidia-dlss5-controversy/"
     },
     {
-      "type": "issue",
-      "slug": "starcraft-shooter-blizzard-nexon",
-      "views": 1,
-      "path": "/magazine/issue/starcraft-shooter-blizzard-nexon/"
-    },
-    {
       "type": "ranking",
       "slug": "mobile-february-2026-kr",
       "views": 1,
@@ -256,13 +244,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/publisher-developer-relationship/"
-    },
-    {
-      "type": "wiki",
-      "slug": "the-war-of-genesis",
-      "category": "history",
-      "views": 1,
-      "path": "/wiki/history/the-war-of-genesis/"
     },
     {
       "type": "wiki",

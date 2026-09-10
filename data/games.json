@@ -38940,14 +38940,16 @@
     },
     "젤리 버스터즈: 퍼즐 게임": {
       "appIds": {
-        "ios": "6756058501"
+        "ios": "6756058501",
+        "android": "com.moonactive.jellybusters"
       },
       "aliases": [],
       "developer": "Moon Active",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/50/9a/d9/509ad9b7-498e-72e8-85f6-90af62b32af9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "젤리-버스터즈-퍼즐-게임",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "그레이 사가": {
@@ -45490,14 +45492,16 @@
     },
     "구해줄거냥? : 고양이 마을 퍼즐": {
       "appIds": {
-        "ios": 6761253603
+        "ios": 6761253603,
+        "android": "com.Nanali.ArrowsAndCats"
       },
       "aliases": [],
       "developer": "Nanali Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/a9/2c/37a92c90-98be-7ff0-ca08-211b3e669868/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "구해줄거냥-고양이-마을-퍼즐",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "FEED THE AI": {
@@ -47261,8 +47265,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "LUDUS - Merge Arena PvP": {
+      "appIds": {
+        "android": "com.studion.mergearena"
+      },
+      "aliases": [],
+      "developer": "TOP APP GAMES LTD",
+      "icon": "https://play-lh.googleusercontent.com/DbnSgl-ou7WzVsDQkOY7Yi1_3OScfEUh39DL50fSIrMb2ywuB_FyN23nPTfPKL302q1lxHIldP9e0qp-RRJvcg",
+      "slug": "ludus-merge-arena-pvp",
+      "platforms": [
+        "android"
+      ]
+    },
+    "선샤인 아일랜드 (Sunshine Island)": {
+      "appIds": {
+        "android": "com.newmoonproduction.sunshineisland"
+      },
+      "aliases": [],
+      "developer": "Goodgame Studios",
+      "icon": "https://play-lh.googleusercontent.com/v1bjDUGJjAs7L9woZPW94YAIcoqIPR3EspxLhsJfwOk0a2whsYaC3BehMt_4l4A-RPkWW84rsJapynPOFwDwtoI",
+      "slug": "선샤인-아일랜드-sunshine-island",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-10",
-  "totalGames": 3618
+  "totalGames": 3620
 }

@@ -26825,13 +26825,19 @@
     },
     {
       "title": "젤리 버스터즈: 퍼즐 게임",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6756058501"
+        "ios": "6756058501",
+        "android": "com.moonactive.jellybusters"
       },
       "developer": "Moon Active",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/50/9a/d9/509ad9b7-498e-72e8-85f6-90af62b32af9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "젤리 버스터즈: 퍼즐 게임",
+          "appId": "6756058501"
+        }
+      ],
       "addedAt": "2026-06-29T20:24:04.469Z"
     },
     {
@@ -31951,13 +31957,19 @@
     },
     {
       "title": "구해줄거냥? : 고양이 마을 퍼즐",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6761253603
+        "ios": 6761253603,
+        "android": "com.Nanali.ArrowsAndCats"
       },
       "developer": "Nanali Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/a9/2c/37a92c90-98be-7ff0-ca08-211b3e669868/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "구해줄거냥? : 고양이 마을 퍼즐",
+          "appId": 6761253603
+        }
+      ],
       "addedAt": "2026-08-25T10:58:55.070Z"
     },
     {
@@ -33397,6 +33409,37 @@
         }
       ],
       "addedAt": "2026-09-09T23:53:59.198Z"
+    },
+    {
+      "title": "LUDUS - Merge Arena PvP",
+      "status": "single",
+      "appIds": {
+        "android": "com.studion.mergearena"
+      },
+      "developer": "TOP APP GAMES LTD",
+      "icon": "https://play-lh.googleusercontent.com/DbnSgl-ou7WzVsDQkOY7Yi1_3OScfEUh39DL50fSIrMb2ywuB_FyN23nPTfPKL302q1lxHIldP9e0qp-RRJvcg",
+      "searchResults": [
+        {
+          "title": "LUDUS: PvP 전략 카드 배틀 아레나 RPG 게임",
+          "appId": 6446642912
+        },
+        {
+          "title": "캐슬 듀얼: PvP 전장을 지배하라!",
+          "appId": 6479882092
+        }
+      ],
+      "addedAt": "2026-09-10T02:39:50.834Z"
+    },
+    {
+      "title": "선샤인 아일랜드 (Sunshine Island)",
+      "status": "single",
+      "appIds": {
+        "android": "com.newmoonproduction.sunshineisland"
+      },
+      "developer": "Goodgame Studios",
+      "icon": "https://play-lh.googleusercontent.com/v1bjDUGJjAs7L9woZPW94YAIcoqIPR3EspxLhsJfwOk0a2whsYaC3BehMt_4l4A-RPkWW84rsJapynPOFwDwtoI",
+      "searchResults": [],
+      "addedAt": "2026-09-10T02:39:51.020Z"
     }
   ],
   "approved": [
