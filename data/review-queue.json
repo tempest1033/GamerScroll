@@ -33464,6 +33464,33 @@
         }
       ],
       "addedAt": "2026-09-10T07:38:12.088Z"
+    },
+    {
+      "title": "MiniMuses",
+      "status": "single",
+      "appIds": {
+        "ios": 6798905825
+      },
+      "developer": "Studio Sirenia",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/c4/a5/62c4a5ae-148b-84b2-4977-8fc5b327e2a5/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-10T12:28:52.564Z"
+    },
+    {
+      "title": "대검키우기",
+      "status": "single",
+      "appIds": {
+        "android": "com.chopchop.greatSwordRPG"
+      },
+      "developer": "ChopChopGames",
+      "icon": "https://play-lh.googleusercontent.com/A16ZO6TJwy8LW79PJC5pg_ln2Tu9E_tSMiFa3N18z_snlvQBqzqlS6HgaI4kE0YUd3GTqIbe-OoZ0_gjgSz6t7I",
+      "searchResults": [
+        {
+          "title": "레드 소드",
+          "appId": 1500823858
+        }
+      ],
+      "addedAt": "2026-09-10T12:28:52.842Z"
     }
   ],
   "approved": [

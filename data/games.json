@@ -47301,8 +47301,56 @@
       "platforms": [
         "android"
       ]
+    },
+    "MiniMuses": {
+      "appIds": {
+        "ios": 6798905825
+      },
+      "aliases": [],
+      "developer": "Studio Sirenia",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/c4/a5/62c4a5ae-148b-84b2-4977-8fc5b327e2a5/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "minimuses",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "대검키우기": {
+      "appIds": {
+        "android": "com.chopchop.greatSwordRPG"
+      },
+      "aliases": [],
+      "developer": "ChopChopGames",
+      "icon": "https://play-lh.googleusercontent.com/A16ZO6TJwy8LW79PJC5pg_ln2Tu9E_tSMiFa3N18z_snlvQBqzqlS6HgaI4kE0YUd3GTqIbe-OoZ0_gjgSz6t7I",
+      "slug": "대검키우기",
+      "platforms": [
+        "android"
+      ]
+    },
+    "PLATiNA :: LAB - FLAGSHIP Collection": {
+      "appIds": {
+        "steam": "5058960"
+      },
+      "aliases": [],
+      "developer": "HIGH-END Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5058960/2c3a8a95584e1faaa9eac6207f9ef6f22b16272d/capsule_231x87.jpg?t=1789027055",
+      "slug": "platina-lab-flagship-collection",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Artillery Miner": {
+      "appIds": {
+        "steam": "4391380"
+      },
+      "aliases": [],
+      "developer": "Alextgr8",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4391380/a6a4cc6a95f6bd8487743eb46beac733d3467a06/capsule_231x87.jpg?t=1788991711",
+      "slug": "artillery-miner",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-10",
-  "totalGames": 3621
+  "totalGames": 3625
 }
