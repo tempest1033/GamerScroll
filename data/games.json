@@ -47349,8 +47349,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Fruits Plate": {
+      "appIds": {
+        "ios": 6804592883
+      },
+      "aliases": [],
+      "developer": "blazer",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/0f/77/130f779a-3a9c-6703-ac2d-01ab4cd78bba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "fruits-plate",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "3 Tiles - 타일을 연결하여 블록 퍼즐 맞추기": {
+      "appIds": {
+        "android": "tile.master.connect.matching.game"
+      },
+      "aliases": [],
+      "developer": "Appsyoulove",
+      "icon": "https://play-lh.googleusercontent.com/UGrxBXX8QUNmP23S_Al61y-V5zPe0ak3oVs9dW_YuqwkgHAVKkZuuHNkk33zwLLpCcw-LxcCaReR_on6ClDspPM",
+      "slug": "3-tiles-타일을-연결하여-블록-퍼즐-맞추기",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Dumb Ways to Build": {
+      "appIds": {
+        "steam": "4412320"
+      },
+      "aliases": [],
+      "developer": "Dumb Ways to Die",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4412320/d0ca58fce7e7bc5a0a87784f18e537adba07d99a/capsule_231x87.jpg?t=1789053992",
+      "slug": "dumb-ways-to-build",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-10",
-  "totalGames": 3625
+  "lastUpdated": "2026-09-11",
+  "totalGames": 3628
 }

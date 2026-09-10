@@ -33491,6 +33491,41 @@
         }
       ],
       "addedAt": "2026-09-10T12:28:52.842Z"
+    },
+    {
+      "title": "Fruits Plate",
+      "status": "single",
+      "appIds": {
+        "ios": 6804592883
+      },
+      "developer": "blazer",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/0f/77/130f779a-3a9c-6703-ac2d-01ab4cd78bba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-10T16:44:23.040Z"
+    },
+    {
+      "title": "3 Tiles - 타일을 연결하여 블록 퍼즐 맞추기",
+      "status": "single",
+      "appIds": {
+        "android": "tile.master.connect.matching.game"
+      },
+      "developer": "Appsyoulove",
+      "icon": "https://play-lh.googleusercontent.com/UGrxBXX8QUNmP23S_Al61y-V5zPe0ak3oVs9dW_YuqwkgHAVKkZuuHNkk33zwLLpCcw-LxcCaReR_on6ClDspPM",
+      "searchResults": [
+        {
+          "title": "3 Tiles - 매직 게임 타일",
+          "appId": 1525211513
+        },
+        {
+          "title": "Triple Tile 트리플 타일: 퍼즐 게임 맞추기",
+          "appId": 1572661625
+        },
+        {
+          "title": "Color Slide - 컬러 슬라이드 퍼즐",
+          "appId": 6590876141
+        }
+      ],
+      "addedAt": "2026-09-10T16:44:23.469Z"
     }
   ],
   "approved": [
