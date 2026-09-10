@@ -47397,8 +47397,22 @@
       "platforms": [
         "steam"
       ]
+    },
+    "슈퍼마켓 스토리 3D": {
+      "appIds": {
+        "android": "com.twh011.market.simulator.manager",
+        "ios": 6779201235
+      },
+      "aliases": [],
+      "developer": "Pusilung",
+      "icon": "https://play-lh.googleusercontent.com/EsCdwSfxrTVotULVdNBbX9quXB-a8--qDipYHBLaJsYsLPwQ6xDBz9wvNvvBilYUTbCqM9DC2JbUMpVnnDC7gg",
+      "slug": "슈퍼마켓-스토리-3d",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-11",
-  "totalGames": 3629
+  "totalGames": 3630
 }

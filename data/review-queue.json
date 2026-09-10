@@ -33526,6 +33526,31 @@
         }
       ],
       "addedAt": "2026-09-10T16:44:23.469Z"
+    },
+    {
+      "title": "슈퍼마켓 스토리 3D",
+      "status": "matched",
+      "appIds": {
+        "android": "com.twh011.market.simulator.manager",
+        "ios": 6779201235
+      },
+      "developer": "Pusilung",
+      "icon": "https://play-lh.googleusercontent.com/EsCdwSfxrTVotULVdNBbX9quXB-a8--qDipYHBLaJsYsLPwQ6xDBz9wvNvvBilYUTbCqM9DC2JbUMpVnnDC7gg",
+      "searchResults": [
+        {
+          "title": "슈퍼마켓 스토리 3D",
+          "appId": 6779201235
+        },
+        {
+          "title": "좋은 피자, 위대한 피자",
+          "appId": 911121200
+        },
+        {
+          "title": "ChatGPT",
+          "appId": 6448311069
+        }
+      ],
+      "addedAt": "2026-09-10T23:46:03.050Z"
     }
   ],
   "approved": [
