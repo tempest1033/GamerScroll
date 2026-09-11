@@ -45200,14 +45200,16 @@
     },
     "머지 쿡토피아": {
       "appIds": {
-        "ios": 6754389442
+        "ios": 6754389442,
+        "android": "com.davincinote.twomergesimul"
       },
       "aliases": [],
       "developer": "DaVinciNote Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/44/fc/2b44fc19-5486-d881-369d-0c459b0ef4c6/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "머지-쿡토피아",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "오늘두호두-날마다 두뇌 트레이닝": {
@@ -46988,14 +46990,16 @@
     },
     "붐붐캡틴: 서바이벌": {
       "appIds": {
-        "ios": 6745582536
+        "ios": 6745582536,
+        "android": "net.gameduo.bbc"
       },
       "aliases": [],
       "developer": "Game Duo Co.,Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/02/42/4c02427f-0319-320a-5f46-59046038108c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "붐붐캡틴-서바이벌",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "주해전기": {
@@ -47549,8 +47553,48 @@
       "platforms": [
         "android"
       ]
+    },
+    "매직 디펜스 : 타워디펜스&로그라이크": {
+      "appIds": {
+        "android": "com.ObliqueGames.MagicTowerDefense100"
+      },
+      "aliases": [],
+      "developer": "OBLIQUE GAMES",
+      "icon": "https://play-lh.googleusercontent.com/L1szi0jnSU7JrGEgr2UGO4AF4xEB2zi42k4wQi2Uwvux6lCriqvgL0H2-3M2Kom2gBpXLjXxfandMpqrcMsYgA",
+      "slug": "매직-디펜스-타워디펜스로그라이크",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Find Em All! - Hidden Objects": {
+      "appIds": {
+        "android": "com.agavegames.findemall",
+        "ios": 6761472533
+      },
+      "aliases": [],
+      "developer": "Agave Games",
+      "icon": "https://play-lh.googleusercontent.com/U-XnLlJJ23J6ckejHd6dnJHheu6Ub7YYDZB9p4T4FbiGcJCO0hcGWR0kpJpt6WVpy8bGml3C4Undcb4C7pe5eBo",
+      "slug": "find-em-all-hidden-objects",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "피아노 드림 타일 4: 마법의 리듬": {
+      "appIds": {
+        "android": "music.brainrot.relax.magic.beat.piano",
+        "ios": 1508864310
+      },
+      "aliases": [],
+      "developer": "PulseBeat Studios",
+      "icon": "https://play-lh.googleusercontent.com/eeS1mxpO_9ASeTAP382FBfx38LoTNWrAhxrplHCGAhn8X-SvGLmz3huaLDcciL9u7_umo91zNVwyIOIbg9rzXg",
+      "slug": "피아노-드림-타일-4-마법의-리듬",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-12",
-  "totalGames": 3641
+  "totalGames": 3644
 }
