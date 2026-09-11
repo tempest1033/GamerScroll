@@ -33562,6 +33562,41 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/89/cd/fa/89cdfab2-1fe9-1e0d-8022-1deb3c3b9fed/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-11T02:33:59.925Z"
+    },
+    {
+      "title": "협동마법디펜스 : 마법사 키우기",
+      "status": "single",
+      "appIds": {
+        "ios": 6778703795
+      },
+      "developer": "Teamsparta Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/30/f3/80/30f380f3-172c-5af7-0cd5-17baa6496c7a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-11T07:33:00.909Z"
+    },
+    {
+      "title": "Star Spark",
+      "status": "single",
+      "appIds": {
+        "android": "com.starspark.spark.starra"
+      },
+      "developer": "Courier Tree",
+      "icon": "https://play-lh.googleusercontent.com/5CplYy3A8n551dx1gwpqDqyHdIIcw5C4IoXUaCTPVSNp9NnfxSrI5XXPxlpF7FhdLg_Nzo3sQ8r2M2NTENF8DA",
+      "searchResults": [
+        {
+          "title": "WhatsApp Messenger",
+          "appId": 310633997
+        },
+        {
+          "title": "Filmora: AI 영상 제작 & 동영상 편집",
+          "appId": 1019382747
+        },
+        {
+          "title": "Alight Motion",
+          "appId": 1459833443
+        }
+      ],
+      "addedAt": "2026-09-11T07:33:01.391Z"
     }
   ],
   "approved": [

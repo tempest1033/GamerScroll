@@ -47423,8 +47423,32 @@
       "platforms": [
         "ios"
       ]
+    },
+    "협동마법디펜스 : 마법사 키우기": {
+      "appIds": {
+        "ios": 6778703795
+      },
+      "aliases": [],
+      "developer": "Teamsparta Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/30/f3/80/30f380f3-172c-5af7-0cd5-17baa6496c7a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "협동마법디펜스-마법사-키우기",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Star Spark": {
+      "appIds": {
+        "android": "com.starspark.spark.starra"
+      },
+      "aliases": [],
+      "developer": "Courier Tree",
+      "icon": "https://play-lh.googleusercontent.com/5CplYy3A8n551dx1gwpqDqyHdIIcw5C4IoXUaCTPVSNp9NnfxSrI5XXPxlpF7FhdLg_Nzo3sQ8r2M2NTENF8DA",
+      "slug": "star-spark",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-11",
-  "totalGames": 3631
+  "totalGames": 3633
 }
