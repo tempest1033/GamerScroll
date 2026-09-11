@@ -47064,14 +47064,16 @@
     },
     "드림 가든": {
       "appIds": {
-        "ios": 6760174727
+        "ios": 6760174727,
+        "android": "com.phzm.kr"
       },
       "aliases": [],
       "developer": "Pogo Hopper",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/49/6c/0c496c8a-8712-29db-8b2f-8fc93bde4bf5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "드림-가든",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "패션 코디 퍼즐": {
@@ -47593,8 +47595,70 @@
         "android",
         "ios"
       ]
+    },
+    "주술 팬텀 퍼레이드": {
+      "appIds": {
+        "android": "com.zxhzjjk2gp1.kr"
+      },
+      "aliases": [],
+      "developer": "Limitid squle",
+      "icon": "https://play-lh.googleusercontent.com/gdEqhtgAaaOpVQcnMKAP9YKHpzUY0UsM1bhhA0SsCVj986lF3iilcAo0yw-ThHlhQcCXPSiY2NeRzNAxhOLbMw",
+      "slug": "주술-팬텀-퍼레이드",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Yarn Connect: Cozy Puzzle": {
+      "appIds": {
+        "android": "connect.knots.rope.cozy.logic.puzzle",
+        "ios": 6785400665
+      },
+      "aliases": [],
+      "developer": "Cloud Nine Games",
+      "icon": "https://play-lh.googleusercontent.com/cpdgQVlicQq5iiajie6JBde4tRFctG70JSGhBxQRpw84TqMdNPR5-QHl3zNH5JMWVh5oZompoUEaTSF3X5x_m6Y",
+      "slug": "yarn-connect-cozy-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "아가타 키우기": {
+      "appIds": {
+        "android": "com.aircap.agatha.idle"
+      },
+      "aliases": [],
+      "developer": "AIRCAP Inc.",
+      "icon": "https://play-lh.googleusercontent.com/XCpIkWVLeQLJ5KKYeqCBiOFekIBOSJr-AJQDFa-Inp41yg_ODCr0lO7jYhnoySQe3ZlOMvH_Ub7KhyydRnVulbk",
+      "slug": "아가타-키우기",
+      "platforms": [
+        "android"
+      ]
+    },
+    "MiniMuse": {
+      "appIds": {
+        "android": "com.studiosirenia.minimuse"
+      },
+      "aliases": [],
+      "developer": "Studio Sirenia",
+      "icon": "https://play-lh.googleusercontent.com/N68suXuE9eUHzUgFZv3KO1JmvZlT9iXqpEki834iCxIwWVodgbYB9cnEcPujVvncfVuQ_zLpQG9ETTtewHTVqg",
+      "slug": "minimuse",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Jam Bus:Sandfall": {
+      "appIds": {
+        "android": "bus.sand.fall.jam.loop.traffic.flow"
+      },
+      "aliases": [],
+      "developer": "Nova Games Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/-TcLefDSecp5lo9jZbNF1LcnFVef7kv0pUNUGEBoX-Q22Ipc8wSWk8Z9cv-dHE4s7c4_hy8j4x8h1H_IFzO-kH0",
+      "slug": "jam-bussandfall",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-12",
-  "totalGames": 3644
+  "totalGames": 3649
 }

@@ -33098,13 +33098,19 @@
     },
     {
       "title": "드림 가든",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6760174727
+        "ios": 6760174727,
+        "android": "com.phzm.kr"
       },
       "developer": "Pogo Hopper",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/49/6c/0c496c8a-8712-29db-8b2f-8fc93bde4bf5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "드림 가든",
+          "appId": 6760174727
+        }
+      ],
       "addedAt": "2026-09-09T23:53:53.827Z"
     },
     {
@@ -33829,6 +33835,101 @@
         }
       ],
       "addedAt": "2026-09-11T19:32:56.623Z"
+    },
+    {
+      "title": "주술 팬텀 퍼레이드",
+      "status": "single",
+      "appIds": {
+        "android": "com.zxhzjjk2gp1.kr"
+      },
+      "developer": "Limitid squle",
+      "icon": "https://play-lh.googleusercontent.com/gdEqhtgAaaOpVQcnMKAP9YKHpzUY0UsM1bhhA0SsCVj986lF3iilcAo0yw-ThHlhQcCXPSiY2NeRzNAxhOLbMw",
+      "searchResults": [
+        {
+          "title": "주술회전 팬텀 퍼레이드",
+          "appId": 6475925341
+        },
+        {
+          "title": "천지겁",
+          "appId": 6746790794
+        },
+        {
+          "title": "카피바라 머지 - 매치 게임",
+          "appId": 6590634675
+        }
+      ],
+      "addedAt": "2026-09-11T21:58:27.905Z"
+    },
+    {
+      "title": "Yarn Connect: Cozy Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "connect.knots.rope.cozy.logic.puzzle",
+        "ios": 6785400665
+      },
+      "developer": "Cloud Nine Games",
+      "icon": "https://play-lh.googleusercontent.com/cpdgQVlicQq5iiajie6JBde4tRFctG70JSGhBxQRpw84TqMdNPR5-QHl3zNH5JMWVh5oZompoUEaTSF3X5x_m6Y",
+      "searchResults": [
+        {
+          "title": "Yarn Connect: Cozy Puzzle",
+          "appId": 6785400665
+        },
+        {
+          "title": "Yarn Fever! 뜨개질 퍼즐 - 트레드 마스터",
+          "appId": 6747875092
+        },
+        {
+          "title": "Wool Sort - 실타래루프나사 뜨개질 종류의게임",
+          "appId": 6740840220
+        }
+      ],
+      "addedAt": "2026-09-11T21:58:28.187Z"
+    },
+    {
+      "title": "아가타 키우기",
+      "status": "single",
+      "appIds": {
+        "android": "com.aircap.agatha.idle"
+      },
+      "developer": "AIRCAP Inc.",
+      "icon": "https://play-lh.googleusercontent.com/XCpIkWVLeQLJ5KKYeqCBiOFekIBOSJr-AJQDFa-Inp41yg_ODCr0lO7jYhnoySQe3ZlOMvH_Ub7KhyydRnVulbk",
+      "searchResults": [],
+      "addedAt": "2026-09-11T21:58:28.371Z"
+    },
+    {
+      "title": "MiniMuse",
+      "status": "single",
+      "appIds": {
+        "android": "com.studiosirenia.minimuse"
+      },
+      "developer": "Studio Sirenia",
+      "icon": "https://play-lh.googleusercontent.com/N68suXuE9eUHzUgFZv3KO1JmvZlT9iXqpEki834iCxIwWVodgbYB9cnEcPujVvncfVuQ_zLpQG9ETTtewHTVqg",
+      "searchResults": [
+        {
+          "title": "MiniMuses",
+          "appId": 6798905825
+        },
+        {
+          "title": "Gacha Life 2",
+          "appId": 6468838207
+        },
+        {
+          "title": "Gacha Mods Hub",
+          "appId": 1642756518
+        }
+      ],
+      "addedAt": "2026-09-11T21:58:28.697Z"
+    },
+    {
+      "title": "Jam Bus:Sandfall",
+      "status": "single",
+      "appIds": {
+        "android": "bus.sand.fall.jam.loop.traffic.flow"
+      },
+      "developer": "Nova Games Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/-TcLefDSecp5lo9jZbNF1LcnFVef7kv0pUNUGEBoX-Q22Ipc8wSWk8Z9cv-dHE4s7c4_hy8j4x8h1H_IFzO-kH0",
+      "searchResults": [],
+      "addedAt": "2026-09-11T21:58:28.958Z"
     }
   ],
   "approved": [
