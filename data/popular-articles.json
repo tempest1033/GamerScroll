@@ -1,30 +1,30 @@
 {
-  "updatedAt": "2026-09-10T02:31:07.102Z",
+  "updatedAt": "2026-09-11T02:24:54.741Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
+      "slug": "subculture-august-2026-kr",
+      "views": 32,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 31,
+      "views": 28,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 26,
+      "views": 24,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
-      "slug": "subculture-august-2026-kr",
-      "views": 25,
-      "path": "/magazine/ranking/subculture-august-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 15,
+      "views": 14,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
@@ -36,7 +36,7 @@
     {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 5,
+      "views": 7,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
@@ -55,22 +55,9 @@
     },
     {
       "type": "insight",
-      "slug": "lineage-like-market-revival",
-      "views": 4,
-      "path": "/magazine/insight/lineage-like-market-revival/"
-    },
-    {
-      "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
       "views": 4,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 4,
-      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -86,6 +73,12 @@
     },
     {
       "type": "issue",
+      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
+      "views": 3,
+      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
+    },
+    {
+      "type": "issue",
       "slug": "zeus-dual-market-revenue-no1",
       "views": 3,
       "path": "/magazine/issue/zeus-dual-market-revenue-no1/"
@@ -96,6 +89,13 @@
       "category": "business",
       "views": 3,
       "path": "/wiki/business/platform-fees-comparison/"
+    },
+    {
+      "type": "wiki",
+      "slug": "pd-vs-director",
+      "category": "knowledge",
+      "views": 3,
+      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -116,6 +116,12 @@
       "path": "/magazine/hotpick/version-control-system/"
     },
     {
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
+      "views": 2,
+      "path": "/magazine/insight/lineage-like-market-revival/"
+    },
+    {
       "type": "issue",
       "slug": "aion2-midterm-report-card",
       "views": 2,
@@ -129,12 +135,6 @@
     },
     {
       "type": "issue",
-      "slug": "nvidia-rtx-60-rubin-lineup-rumor",
-      "views": 2,
-      "path": "/magazine/issue/nvidia-rtx-60-rubin-lineup-rumor/"
-    },
-    {
-      "type": "issue",
       "slug": "overwatch-shion-hero-52-skillset",
       "views": 2,
       "path": "/magazine/issue/overwatch-shion-hero-52-skillset/"
@@ -144,6 +144,12 @@
       "slug": "pubg-battlegrounds-birth-history",
       "views": 2,
       "path": "/magazine/issue/pubg-battlegrounds-birth-history/"
+    },
+    {
+      "type": "issue",
+      "slug": "xenoblade-genesis-switch2-2027",
+      "views": 2,
+      "path": "/magazine/issue/xenoblade-genesis-switch2-2027/"
     },
     {
       "type": "ranking",
@@ -237,13 +243,6 @@
       "category": "business",
       "views": 1,
       "path": "/wiki/business/game-ip-licensing/"
-    },
-    {
-      "type": "wiki",
-      "slug": "publisher-developer-relationship",
-      "category": "business",
-      "views": 1,
-      "path": "/wiki/business/publisher-developer-relationship/"
     },
     {
       "type": "wiki",
