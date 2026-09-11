@@ -33930,6 +33930,30 @@
       "icon": "https://play-lh.googleusercontent.com/-TcLefDSecp5lo9jZbNF1LcnFVef7kv0pUNUGEBoX-Q22Ipc8wSWk8Z9cv-dHE4s7c4_hy8j4x8h1H_IFzO-kH0",
       "searchResults": [],
       "addedAt": "2026-09-11T21:58:28.958Z"
+    },
+    {
+      "title": "Block Puzzle Brick Smash",
+      "status": "single",
+      "appIds": {
+        "android": "block.puzzle.brick.smash.game"
+      },
+      "developer": "Wood Puzzle Sudoku Games",
+      "icon": "https://play-lh.googleusercontent.com/q52LyAsB2rKluqbyAJyKKXM1I_-xNYoZ1ZKLGBcnd7mjF9zf27hlvfLnwzwJi-fmxBMI9wQE1CF8hW4355RxEWI",
+      "searchResults": [
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "2048",
+          "appId": 840919914
+        },
+        {
+          "title": "Brick Blast - 벽돌깨기 공튀기기",
+          "appId": 6756913359
+        }
+      ],
+      "addedAt": "2026-09-11T23:54:51.934Z"
     }
   ],
   "approved": [

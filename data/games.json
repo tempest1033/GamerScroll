@@ -47657,8 +47657,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Block Puzzle Brick Smash": {
+      "appIds": {
+        "android": "block.puzzle.brick.smash.game"
+      },
+      "aliases": [],
+      "developer": "Wood Puzzle Sudoku Games",
+      "icon": "https://play-lh.googleusercontent.com/q52LyAsB2rKluqbyAJyKKXM1I_-xNYoZ1ZKLGBcnd7mjF9zf27hlvfLnwzwJi-fmxBMI9wQE1CF8hW4355RxEWI",
+      "slug": "block-puzzle-brick-smash",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-12",
-  "totalGames": 3649
+  "totalGames": 3650
 }
