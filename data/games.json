@@ -46974,14 +46974,16 @@
     },
     "이클립스: 더 어웨이크닝": {
       "appIds": {
-        "ios": 6745164499
+        "ios": "6745164499",
+        "android": "com.smilegate.eclipse.stove.google"
       },
       "aliases": [],
       "developer": "Smilegate, Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/d8/11/98d8118c-079d-978b-308d-08f3541a907f/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/512x512bb.jpg",
       "slug": "이클립스-더-어웨이크닝",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "붐붐캡틴: 서바이벌": {
@@ -47471,8 +47473,84 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Cutie Tiles: Link Blitz": {
+      "appIds": {
+        "android": "com.CutieTiles.Link.Blitz.HotGirl"
+      },
+      "aliases": [],
+      "developer": "KAKATO",
+      "icon": "https://play-lh.googleusercontent.com/qpU0YMQZnPlwU3uAIzPV5jzyQRVqbAF2cjQhLwm0wuR9SJ2kCIP1w03FtsbpjuoTG5yIE15KrAqVq1rQSdp0",
+      "slug": "cutie-tiles-link-blitz",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Bouncy Match: Bubble Word": {
+      "appIds": {
+        "android": "wordsort.merge.bubble",
+        "ios": 6771322750
+      },
+      "aliases": [],
+      "developer": "Hyper Surfer Games",
+      "icon": "https://play-lh.googleusercontent.com/_pXAP68Qbs78u3lOaOgXU3QkCJYXgRggSHop7017OWdm2PhxGpo2627TeHeLbqXrO0TQg9sY5wY8tPCD6Pc6XQ",
+      "slug": "bouncy-match-bubble-word",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Battle Kiss:Girl's Survival": {
+      "appIds": {
+        "android": "com.smgame.strategy"
+      },
+      "aliases": [],
+      "developer": "Smart Fun Casual Games",
+      "icon": "https://play-lh.googleusercontent.com/BA29SSjOnx9wUfdU0dsTCoVbxol5AUQYgibp1ykxpYF3CXu-MWzMwra-_5OlmVlUwIMP0XHOr4LY9vrqlkHKXA",
+      "slug": "battle-kissgirls-survival",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Idle Coin Flip: Merge Coins": {
+      "appIds": {
+        "android": "games.midnite.icf",
+        "ios": 6760704765
+      },
+      "aliases": [],
+      "developer": "Midnite Srl",
+      "icon": "https://play-lh.googleusercontent.com/rnwINHX4E9Fqm9kKteBjZW_37kla73TKVgQ2O6vKGcYqo05jJvOHyn6Nj8sqx0qsAXwAvYknCiODl9Ui4X4T",
+      "slug": "idle-coin-flip-merge-coins",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Arrow Trace: Escape Puzzle": {
+      "appIds": {
+        "android": "com.run.puzzle.arrow"
+      },
+      "aliases": [],
+      "developer": "Game Changer Software",
+      "icon": "https://play-lh.googleusercontent.com/yjJRdhz3hbPGn4X44_1OG-ngrZptKYxx4UKwk7Txx-b8ibI0QqU6YM9SiYj77ftVACK6WgxebdJZGWzU_1MfB8M",
+      "slug": "arrow-trace-escape-puzzle",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Pixel Gem Loop: Coloring Game": {
+      "appIds": {
+        "android": "pixel.gem.sort.art.puzzle.loop"
+      },
+      "aliases": [],
+      "developer": "Shinrays Games",
+      "icon": "https://play-lh.googleusercontent.com/HMm6xLvAOxOIOYVBnDJVmLVUUcenyzjUysdK2DYcRTiIhkuxgnSt4w1U2t2drlVVaSGd8199a1ifHkU1mgFAzg",
+      "slug": "pixel-gem-loop-coloring-game",
+      "platforms": [
+        "android"
+      ]
     }
   },
-  "lastUpdated": "2026-09-11",
-  "totalGames": 3635
+  "lastUpdated": "2026-09-12",
+  "totalGames": 3641
 }

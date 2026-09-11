@@ -33031,13 +33031,19 @@
     },
     {
       "title": "이클립스: 더 어웨이크닝",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6745164499
+        "ios": "6745164499",
+        "android": "com.smilegate.eclipse.stove.google"
       },
       "developer": "Smilegate, Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/d8/11/98d8118c-079d-978b-308d-08f3541a907f/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "이클립스: 더 어웨이크닝",
+          "appId": "6745164499"
+        }
+      ],
       "addedAt": "2026-09-09T15:52:21.849Z"
     },
     {
@@ -33608,6 +33614,135 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/a1/d2/bca1d268-553b-bd5a-58b1-567ab657c052/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-11T12:26:52.930Z"
+    },
+    {
+      "title": "Cutie Tiles: Link Blitz",
+      "status": "single",
+      "appIds": {
+        "android": "com.CutieTiles.Link.Blitz.HotGirl"
+      },
+      "developer": "KAKATO",
+      "icon": "https://play-lh.googleusercontent.com/qpU0YMQZnPlwU3uAIzPV5jzyQRVqbAF2cjQhLwm0wuR9SJ2kCIP1w03FtsbpjuoTG5yIE15KrAqVq1rQSdp0",
+      "searchResults": [],
+      "addedAt": "2026-09-11T16:49:13.565Z"
+    },
+    {
+      "title": "Bouncy Match: Bubble Word",
+      "status": "matched",
+      "appIds": {
+        "android": "wordsort.merge.bubble",
+        "ios": 6771322750
+      },
+      "developer": "Hyper Surfer Games",
+      "icon": "https://play-lh.googleusercontent.com/_pXAP68Qbs78u3lOaOgXU3QkCJYXgRggSHop7017OWdm2PhxGpo2627TeHeLbqXrO0TQg9sY5wY8tPCD6Pc6XQ",
+      "searchResults": [
+        {
+          "title": "Bouncy Match: Bubble Word",
+          "appId": 6771322750
+        },
+        {
+          "title": "Bouncy Balls - Tap Match 3 Game",
+          "appId": 1079959631
+        },
+        {
+          "title": "Bubble Bang - 버블슈팅 공",
+          "appId": 6769755370
+        }
+      ],
+      "addedAt": "2026-09-11T16:49:13.845Z"
+    },
+    {
+      "title": "Battle Kiss:Girl's Survival",
+      "status": "single",
+      "appIds": {
+        "android": "com.smgame.strategy"
+      },
+      "developer": "Smart Fun Casual Games",
+      "icon": "https://play-lh.googleusercontent.com/BA29SSjOnx9wUfdU0dsTCoVbxol5AUQYgibp1ykxpYF3CXu-MWzMwra-_5OlmVlUwIMP0XHOr4LY9vrqlkHKXA",
+      "searchResults": [
+        {
+          "title": "Battle Kiss",
+          "appId": 6739955204
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        }
+      ],
+      "addedAt": "2026-09-11T16:49:14.115Z"
+    },
+    {
+      "title": "Idle Coin Flip: Merge Coins",
+      "status": "matched",
+      "appIds": {
+        "android": "games.midnite.icf",
+        "ios": 6760704765
+      },
+      "developer": "Midnite Srl",
+      "icon": "https://play-lh.googleusercontent.com/rnwINHX4E9Fqm9kKteBjZW_37kla73TKVgQ2O6vKGcYqo05jJvOHyn6Nj8sqx0qsAXwAvYknCiODl9Ui4X4T",
+      "searchResults": [
+        {
+          "title": "Idle Coin Flip: Merge Coins",
+          "appId": 6760704765
+        },
+        {
+          "title": "금과 고블린: 방치형 광부 타이쿤 게임",
+          "appId": 1529762599
+        },
+        {
+          "title": "합성검 던지기 : 방치형 키우기",
+          "appId": 1566484834
+        }
+      ],
+      "addedAt": "2026-09-11T16:49:14.511Z"
+    },
+    {
+      "title": "Arrow Trace: Escape Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.run.puzzle.arrow"
+      },
+      "developer": "Game Changer Software",
+      "icon": "https://play-lh.googleusercontent.com/yjJRdhz3hbPGn4X44_1OG-ngrZptKYxx4UKwk7Txx-b8ibI0QqU6YM9SiYj77ftVACK6WgxebdJZGWzU_1MfB8M",
+      "searchResults": [
+        {
+          "title": "Shinro - Sudoku Matrix Mines",
+          "appId": 406112544
+        },
+        {
+          "title": "Trace Letters Level 2 - Number",
+          "appId": 1122321185
+        },
+        {
+          "title": "Arrows - Maze Puzzle",
+          "appId": 6762364017
+        }
+      ],
+      "addedAt": "2026-09-11T16:49:14.799Z"
+    },
+    {
+      "title": "Pixel Gem Loop: Coloring Game",
+      "status": "single",
+      "appIds": {
+        "android": "pixel.gem.sort.art.puzzle.loop"
+      },
+      "developer": "Shinrays Games",
+      "icon": "https://play-lh.googleusercontent.com/HMm6xLvAOxOIOYVBnDJVmLVUUcenyzjUysdK2DYcRTiIhkuxgnSt4w1U2t2drlVVaSGd8199a1ifHkU1mgFAzg",
+      "searchResults": [
+        {
+          "title": "Pixel Gem Loop - 컬러아트 정렬",
+          "appId": 6791414854
+        },
+        {
+          "title": "숫자별로 색칠하기: 픽셀 색칠 게임",
+          "appId": 1317978215
+        },
+        {
+          "title": "Pixel Art - 숫자로 색칠하기",
+          "appId": 1274972321
+        }
+      ],
+      "addedAt": "2026-09-11T16:49:15.198Z"
     }
   ],
   "approved": [
