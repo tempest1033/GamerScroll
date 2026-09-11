@@ -47447,8 +47447,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "Claw Master – 로그라이크 히어로": {
+      "appIds": {
+        "ios": 6755685940
+      },
+      "aliases": [],
+      "developer": "AI Games FZ",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/a1/d2/bca1d268-553b-bd5a-58b1-567ab657c052/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "claw-master-로그라이크-히어로",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "The Farmer Was Replaced": {
+      "appIds": {
+        "steam": "2060160"
+      },
+      "aliases": [],
+      "developer": "Timon Herzog",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2060160/12f2add76581b250df67d45572754cf7152fe05d/capsule_231x87.jpg?t=1788960388",
+      "slug": "the-farmer-was-replaced",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-11",
-  "totalGames": 3633
+  "totalGames": 3635
 }
