@@ -47669,8 +47669,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Tentacle Locker 2": {
+      "appIds": {
+        "steam": "4071460"
+      },
+      "aliases": [],
+      "developer": "HotPink",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4071460/b1c4a73c9690551bfad2a89258a54a008b5c499e/capsule_231x87.jpg?t=1789180136",
+      "slug": "tentacle-locker-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-12",
-  "totalGames": 3650
+  "totalGames": 3651
 }
