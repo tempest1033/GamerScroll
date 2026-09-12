@@ -47693,8 +47693,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "나이트디프": {
+      "appIds": {
+        "android": "com.nicegirl.gp.find.nightdiff"
+      },
+      "aliases": [],
+      "developer": "CiKiMi Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/rv3RDxcpjn1ywdJUgTbDlVDkUZAHMfgB6qCL_ri6IwfbtsLXc4l7tzqOyD1Y18AzyWtvK6p1lDo4DRgU_fiZ",
+      "slug": "나이트디프",
+      "platforms": [
+        "android"
+      ]
     }
   },
-  "lastUpdated": "2026-09-12",
-  "totalGames": 3652
+  "lastUpdated": "2026-09-13",
+  "totalGames": 3653
 }
