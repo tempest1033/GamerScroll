@@ -33624,13 +33624,23 @@
     },
     {
       "title": "Claw Master – 로그라이크 히어로",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6755685940
+        "ios": 6755685940,
+        "android": "hero.claw.master"
       },
       "developer": "AI Games FZ",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/a1/d2/bca1d268-553b-bd5a-58b1-567ab657c052/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Claw Master – 로그라이크 히어로",
+          "appId": 6755685940
+        },
+        {
+          "title": "Heroes Adventure",
+          "appId": 6742219457
+        }
+      ],
       "addedAt": "2026-09-11T12:26:52.930Z"
     },
     {
@@ -33976,6 +33986,54 @@
       "icon": "https://play-lh.googleusercontent.com/rv3RDxcpjn1ywdJUgTbDlVDkUZAHMfgB6qCL_ri6IwfbtsLXc4l7tzqOyD1Y18AzyWtvK6p1lDo4DRgU_fiZ",
       "searchResults": [],
       "addedAt": "2026-09-12T17:45:17.493Z"
+    },
+    {
+      "title": "Water Sort: Master Colors",
+      "status": "single",
+      "appIds": {
+        "android": "water.sort.master.colors.games"
+      },
+      "developer": "Bobodoo Game",
+      "icon": "https://play-lh.googleusercontent.com/aHRW4_LMQeEptwRlW-SDuGN5E492O-38vWz_J-Nawamg6-We010xsRuWIaEUWdmkYO1TKkGcGpQUc3x1B0I_Pg",
+      "searchResults": [
+        {
+          "title": "Water Sort Puzzle",
+          "appId": 1514542157
+        },
+        {
+          "title": "Water Sort - 색깔 분류",
+          "appId": 6749558825
+        },
+        {
+          "title": "Order Crazy - 음료 물 분류 순서 일치게임",
+          "appId": 6751222488
+        }
+      ],
+      "addedAt": "2026-09-12T20:08:16.225Z"
+    },
+    {
+      "title": "랜덤 다이스 디펜스 : PVP 타워 디펜스",
+      "status": "single",
+      "appIds": {
+        "android": "com.percent.royaldice"
+      },
+      "developer": "111%",
+      "icon": "https://play-lh.googleusercontent.com/OLh-9wZI9n7p7YV-AHiBkJsppvbxYr6AdVEFcEzj4-BZWTVxDG9NixUAxisFTO4174LXEOsv-nWhrcS2Bp70PQ",
+      "searchResults": [
+        {
+          "title": "랜덤 다이스: 디펜스(Random Dice)",
+          "appId": 1462877149
+        },
+        {
+          "title": "33RD: 동물 랜덤 디펜스 게임",
+          "appId": 1511972977
+        },
+        {
+          "title": "운빨존많겜",
+          "appId": 6482291732
+        }
+      ],
+      "addedAt": "2026-09-12T20:08:16.654Z"
     }
   ],
   "approved": [
