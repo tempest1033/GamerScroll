@@ -34034,6 +34034,58 @@
         }
       ],
       "addedAt": "2026-09-12T20:08:16.654Z"
+    },
+    {
+      "title": "계급장 키우기 - 대폭발",
+      "status": "matched",
+      "appIds": {
+        "android": "com.lucky.superexplosion",
+        "ios": 1548882289
+      },
+      "developer": "Lucky Chan Games",
+      "icon": "https://play-lh.googleusercontent.com/Ijfd5dtrImg3ZLRLowsYNr3UNpp6UOsOqAOWhWeiJ5la-kuwxHih_AFS3JwZOzGlxz6dcUmjupF2utBsvW9JSw",
+      "searchResults": [
+        {
+          "title": "계급장 키우기 - 대폭발",
+          "appId": 1548882289
+        }
+      ],
+      "addedAt": "2026-09-12T22:09:13.559Z"
+    },
+    {
+      "title": "후르츠 플레이트",
+      "status": "single",
+      "appIds": {
+        "android": "com.blazer.fruitsplate"
+      },
+      "developer": "Blazer Games",
+      "icon": "https://play-lh.googleusercontent.com/k94kiTi3DZ0eTynylrzLvewyFE1BNgfDgGnY0gVBF8LK37xgszEQIg8iSbXRyQPoRgIb_LQk6biXUhchGet3EA",
+      "searchResults": [],
+      "addedAt": "2026-09-12T22:09:13.744Z"
+    },
+    {
+      "title": "2248 Master: 숫자 퍼즐2048",
+      "status": "single",
+      "appIds": {
+        "android": "com.sofish.master2248.gp"
+      },
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/nLkUVP5kW00Y_ZwLc6BpJhpnjH2-vI9jXCcusjRelFwPJBx7-KAPZn86JyIgw02FhEiMUJ96e2gB5Ts9DdJSrg",
+      "searchResults": [
+        {
+          "title": "스도쿠 - 클래식 로직 퍼즐 게임",
+          "appId": 1193508329
+        },
+        {
+          "title": "X2 Blocks: 2048 Number Match",
+          "appId": 1480338372
+        },
+        {
+          "title": "Triple Tile 트리플 타일: 퍼즐 게임 맞추기",
+          "appId": 1572661625
+        }
+      ],
+      "addedAt": "2026-09-12T22:09:14.048Z"
     }
   ],
   "approved": [

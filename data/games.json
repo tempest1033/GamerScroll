@@ -47731,8 +47731,70 @@
       "platforms": [
         "android"
       ]
+    },
+    "계급장 키우기 - 대폭발": {
+      "appIds": {
+        "android": "com.lucky.superexplosion",
+        "ios": 1548882289
+      },
+      "aliases": [],
+      "developer": "Lucky Chan Games",
+      "icon": "https://play-lh.googleusercontent.com/Ijfd5dtrImg3ZLRLowsYNr3UNpp6UOsOqAOWhWeiJ5la-kuwxHih_AFS3JwZOzGlxz6dcUmjupF2utBsvW9JSw",
+      "slug": "계급장-키우기-대폭발",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "후르츠 플레이트": {
+      "appIds": {
+        "android": "com.blazer.fruitsplate"
+      },
+      "aliases": [],
+      "developer": "Blazer Games",
+      "icon": "https://play-lh.googleusercontent.com/k94kiTi3DZ0eTynylrzLvewyFE1BNgfDgGnY0gVBF8LK37xgszEQIg8iSbXRyQPoRgIb_LQk6biXUhchGet3EA",
+      "slug": "후르츠-플레이트",
+      "platforms": [
+        "android"
+      ]
+    },
+    "2248 Master: 숫자 퍼즐2048": {
+      "appIds": {
+        "android": "com.sofish.master2248.gp"
+      },
+      "aliases": [],
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/nLkUVP5kW00Y_ZwLc6BpJhpnjH2-vI9jXCcusjRelFwPJBx7-KAPZn86JyIgw02FhEiMUJ96e2gB5Ts9DdJSrg",
+      "slug": "2248-master-숫자-퍼즐2048",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Liar Moon Shangri-La": {
+      "appIds": {
+        "steam": "1932690"
+      },
+      "aliases": [],
+      "developer": "Rejet",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1932690/capsule_231x87.jpg?t=1658723361",
+      "slug": "liar-moon-shangri-la",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Temtem": {
+      "appIds": {
+        "steam": "745920"
+      },
+      "aliases": [],
+      "developer": "Crema",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/745920/6cfcb78ce8fe8448e6afb94e1aa6890445608ca0/capsule_231x87.jpg?t=1773698361",
+      "slug": "temtem",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-13",
-  "totalGames": 3655
+  "totalGames": 3660
 }
