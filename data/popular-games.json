@@ -1,14 +1,18 @@
 {
-  "updatedAt": "2026-09-11T02:24:54.380Z",
+  "updatedAt": "2026-09-12T02:32:19.736Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 8
+    },
     {
       "slug": "where-winds-meet",
       "views": 7
     },
     {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 7
+      "slug": "arrow-pro-3d",
+      "views": 6
     },
     {
       "slug": "palworld",
@@ -20,6 +24,10 @@
     },
     {
       "slug": "단어-찾기-단어-게임",
+      "views": 6
+    },
+    {
+      "slug": "레이싱-마스터",
       "views": 6
     },
     {
@@ -47,10 +55,6 @@
       "views": 5
     },
     {
-      "slug": "arrow-pro-3d",
-      "views": 5
-    },
-    {
       "slug": "barotrauma",
       "views": 5
     },
@@ -72,10 +76,6 @@
     },
     {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 5
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
       "views": 5
     }
   ]
