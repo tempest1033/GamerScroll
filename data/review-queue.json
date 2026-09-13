@@ -34121,6 +34121,99 @@
       "icon": "https://play-lh.googleusercontent.com/DuYDYZpBIXCM_u4LO5HnEKdoYz8HYVGOmguIKG0BT3Y5ZoVgeLgXU9uzYgy75fgldpb714bi2Yz19WHan2a1",
       "searchResults": [],
       "addedAt": "2026-09-13T02:40:24.576Z"
+    },
+    {
+      "title": "Bus Crowd - 교통 체증",
+      "status": "matched",
+      "appIds": {
+        "android": "busflow.traffic.puzzle",
+        "ios": 6754059516
+      },
+      "developer": "Hyper Surfer Games",
+      "icon": "https://play-lh.googleusercontent.com/rWBLG3G5fxfxVMQ2XXouQPhGV_X-Q3oBbZn_cZcIWUnHOm_DzbQA1beAwQ6p1PJfj_z9CyTFcQ8_6BPetnCHzQ",
+      "searchResults": [
+        {
+          "title": "Bus Crowd - 교통 체증",
+          "appId": 6754059516
+        },
+        {
+          "title": "Car Jam Loop: 주차 탈출 자동차 두뇌 퍼즐",
+          "appId": 6783277968
+        }
+      ],
+      "addedAt": "2026-09-13T19:45:49.604Z"
+    },
+    {
+      "title": "Fallen beauty: 병합 및 스토리",
+      "status": "single",
+      "appIds": {
+        "android": "com.fallenbeauty.google"
+      },
+      "developer": "Kinetic Energy Game",
+      "icon": "https://play-lh.googleusercontent.com/pqP6_VIvX0hjWgY9RCLIK8rw3Tq-BywOxeid3NfInHUICD8G-FZhfi8McCmbtzBkGCgqWK4PbhNEs8aACMpj",
+      "searchResults": [
+        {
+          "title": "인스타 커버 및  로고디자인어플",
+          "appId": 1480713869
+        },
+        {
+          "title": "Merge Animals: 일치병합및건설병합된동물",
+          "appId": 1559505880
+        },
+        {
+          "title": "꿈의집꾸미기 - Merge Matters",
+          "appId": 1546447477
+        }
+      ],
+      "addedAt": "2026-09-13T19:45:50.039Z"
+    },
+    {
+      "title": "Cutie Sort: 고양이 분류 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "sort.casual.color.cat.puzzle.match"
+      },
+      "developer": "Easetouch",
+      "icon": "https://play-lh.googleusercontent.com/64udQifq6ukd71ZgNxM4C_n0DcBFEVBa2Blx1-Jcgt7b1J9TAq89qKXy54RcKghq4H6xBNcw05kxBxPJr50tOw",
+      "searchResults": [
+        {
+          "title": "Cutie Sort - 귀여운 색깔 분류 퍼즐",
+          "appId": 6796547048
+        },
+        {
+          "title": "정렬 열풍: 상품 정렬",
+          "appId": 6738115643
+        },
+        {
+          "title": "바비큐 정렬: 짝 맞추기 챌린지",
+          "appId": 6745950737
+        }
+      ],
+      "addedAt": "2026-09-13T19:45:50.392Z"
+    },
+    {
+      "title": "Screw Bolts 3D",
+      "status": "single",
+      "appIds": {
+        "android": "screw.puzzle.sort.nuts.bolts.unscrew.pin.jam.out.unlock.color"
+      },
+      "developer": "Fruit Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/fP0GPsZqNofpU76CmNqWUmXaRV7dExqLy_HSsCFcQhDpT989YyNKMiTYOVohGVpot_B-rYNwBm1JoiYdbGQ_yA",
+      "searchResults": [
+        {
+          "title": "Screw Sort 3D 나사 빼기 매치 &볼트 퍼즐",
+          "appId": 6633425539
+        },
+        {
+          "title": "3D Bolt Master: 나사 핀 잼",
+          "appId": 6738771575
+        },
+        {
+          "title": "나사 매치 - 볼트업 퍼즐게임",
+          "appId": 6499293031
+        }
+      ],
+      "addedAt": "2026-09-13T19:45:50.701Z"
     }
   ],
   "approved": [

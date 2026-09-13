@@ -47817,8 +47817,58 @@
       "platforms": [
         "android"
       ]
+    },
+    "Bus Crowd - 교통 체증": {
+      "appIds": {
+        "android": "busflow.traffic.puzzle",
+        "ios": 6754059516
+      },
+      "aliases": [],
+      "developer": "Hyper Surfer Games",
+      "icon": "https://play-lh.googleusercontent.com/rWBLG3G5fxfxVMQ2XXouQPhGV_X-Q3oBbZn_cZcIWUnHOm_DzbQA1beAwQ6p1PJfj_z9CyTFcQ8_6BPetnCHzQ",
+      "slug": "bus-crowd-교통-체증",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Fallen beauty: 병합 및 스토리": {
+      "appIds": {
+        "android": "com.fallenbeauty.google"
+      },
+      "aliases": [],
+      "developer": "Kinetic Energy Game",
+      "icon": "https://play-lh.googleusercontent.com/pqP6_VIvX0hjWgY9RCLIK8rw3Tq-BywOxeid3NfInHUICD8G-FZhfi8McCmbtzBkGCgqWK4PbhNEs8aACMpj",
+      "slug": "fallen-beauty-병합-및-스토리",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Cutie Sort: 고양이 분류 퍼즐": {
+      "appIds": {
+        "android": "sort.casual.color.cat.puzzle.match"
+      },
+      "aliases": [],
+      "developer": "Easetouch",
+      "icon": "https://play-lh.googleusercontent.com/64udQifq6ukd71ZgNxM4C_n0DcBFEVBa2Blx1-Jcgt7b1J9TAq89qKXy54RcKghq4H6xBNcw05kxBxPJr50tOw",
+      "slug": "cutie-sort-고양이-분류-퍼즐",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Screw Bolts 3D": {
+      "appIds": {
+        "android": "screw.puzzle.sort.nuts.bolts.unscrew.pin.jam.out.unlock.color"
+      },
+      "aliases": [],
+      "developer": "Fruit Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/fP0GPsZqNofpU76CmNqWUmXaRV7dExqLy_HSsCFcQhDpT989YyNKMiTYOVohGVpot_B-rYNwBm1JoiYdbGQ_yA",
+      "slug": "screw-bolts-3d",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-14",
-  "totalGames": 3662
+  "totalGames": 3666
 }
