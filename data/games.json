@@ -47867,8 +47867,44 @@
       "platforms": [
         "android"
       ]
+    },
+    "Water Sort: Color Match": {
+      "appIds": {
+        "android": "com.water.sort.puzzle.game.color.magic.free"
+      },
+      "aliases": [],
+      "developer": "FunForge Studios",
+      "icon": "https://play-lh.googleusercontent.com/VHwzrc545VhgoHyEllu_MmGISJSRpN4uCEHwYDm35DJgTYmIUJfnX7sHXhjpenj_AqxaFDAWLfYJSYvIbm_IAhY",
+      "slug": "water-sort-color-match",
+      "platforms": [
+        "android"
+      ]
+    },
+    "그릴 매치 - 음식 정렬 퍼즐": {
+      "appIds": {
+        "android": "com.grill.sort.food.skewer.sorting.matching.games"
+      },
+      "aliases": [],
+      "developer": "Guru Puzzle Game",
+      "icon": "https://play-lh.googleusercontent.com/P6w2IKofIkYVd1DIe_jk-31n2X-82HiAFYV-_nvpW1qbV_ZFh5RLk56WKZy0y9XQw5gGls-B0xHenADEWzNRyWA",
+      "slug": "그릴-매치-음식-정렬-퍼즐",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Spider Fighter 3": {
+      "appIds": {
+        "android": "com.starplay.spider.fighter.openworld"
+      },
+      "aliases": [],
+      "developer": "Starplay FZCO",
+      "icon": "https://play-lh.googleusercontent.com/jSHpomdddSm_gdAjnSzjdq_5DeDvrCEHuSHeEaRm3jXYDKhpxcfkV6JxhFz4Giq4QrQP6yWIVaU9DM4hx1VyQQ",
+      "slug": "spider-fighter-3",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-14",
-  "totalGames": 3666
+  "totalGames": 3669
 }

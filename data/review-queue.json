@@ -34214,6 +34214,78 @@
         }
       ],
       "addedAt": "2026-09-13T19:45:50.701Z"
+    },
+    {
+      "title": "Water Sort: Color Match",
+      "status": "single",
+      "appIds": {
+        "android": "com.water.sort.puzzle.game.color.magic.free"
+      },
+      "developer": "FunForge Studios",
+      "icon": "https://play-lh.googleusercontent.com/VHwzrc545VhgoHyEllu_MmGISJSRpN4uCEHwYDm35DJgTYmIUJfnX7sHXhjpenj_AqxaFDAWLfYJSYvIbm_IAhY",
+      "searchResults": [
+        {
+          "title": "Water Sort Puzzle",
+          "appId": 1514542157
+        },
+        {
+          "title": "Order Crazy - 음료 물 분류 순서 일치게임",
+          "appId": 6751222488
+        },
+        {
+          "title": "Water Sort! 3D 워터 정렬 퍼즐 게임",
+          "appId": 6758611499
+        }
+      ],
+      "addedAt": "2026-09-13T22:09:57.831Z"
+    },
+    {
+      "title": "그릴 매치 - 음식 정렬 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.grill.sort.food.skewer.sorting.matching.games"
+      },
+      "developer": "Guru Puzzle Game",
+      "icon": "https://play-lh.googleusercontent.com/P6w2IKofIkYVd1DIe_jk-31n2X-82HiAFYV-_nvpW1qbV_ZFh5RLk56WKZy0y9XQw5gGls-B0xHenADEWzNRyWA",
+      "searchResults": [
+        {
+          "title": "그릴 매치 - 음식 분류 게임",
+          "appId": 6752890879
+        },
+        {
+          "title": "Grill Sort:꼬치게임 음식정렬 정리 매치3퍼즐앱",
+          "appId": 6742812903
+        },
+        {
+          "title": "푸드 그릴 매치: 퍼즐 맞추기",
+          "appId": 6753728028
+        }
+      ],
+      "addedAt": "2026-09-13T22:09:58.142Z"
+    },
+    {
+      "title": "Spider Fighter 3",
+      "status": "single",
+      "appIds": {
+        "android": "com.starplay.spider.fighter.openworld"
+      },
+      "developer": "Starplay FZCO",
+      "icon": "https://play-lh.googleusercontent.com/jSHpomdddSm_gdAjnSzjdq_5DeDvrCEHuSHeEaRm3jXYDKhpxcfkV6JxhFz4Giq4QrQP6yWIVaU9DM4hx1VyQQ",
+      "searchResults": [
+        {
+          "title": "Super Fighter 3: Open City",
+          "appId": 1659408861
+        },
+        {
+          "title": "Spider Fighter 2 격투게임",
+          "appId": 1608130041
+        },
+        {
+          "title": "Spider Fuser",
+          "appId": 6746333947
+        }
+      ],
+      "addedAt": "2026-09-13T22:09:58.463Z"
     }
   ],
   "approved": [
