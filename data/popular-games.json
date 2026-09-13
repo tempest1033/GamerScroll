@@ -1,7 +1,15 @@
 {
-  "updatedAt": "2026-09-12T02:32:19.736Z",
+  "updatedAt": "2026-09-13T07:53:18.686Z",
   "period": "30days",
   "games": [
+    {
+      "slug": "제우스-오만의-신",
+      "views": 13
+    },
+    {
+      "slug": "이클립스-더-어웨이크닝",
+      "views": 8
+    },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 8
@@ -68,14 +76,6 @@
     },
     {
       "slug": "hero-siege",
-      "views": 5
-    },
-    {
-      "slug": "mistfall-hunter",
-      "views": 5
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
       "views": 5
     }
   ]
