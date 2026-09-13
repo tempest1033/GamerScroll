@@ -47793,8 +47793,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "체스 클럽 - 체스 보드 게임": {
+      "appIds": {
+        "android": "com.gamovation.chessclubpilot"
+      },
+      "aliases": [],
+      "developer": "GamoVation",
+      "icon": "https://play-lh.googleusercontent.com/Xr_i4rqTeq5JkId_A2ZTcQXZKGZ-IWlTm6MR-fPnnCEC7yAsPWpxZOo4BDnZigCyrozIm5Pi-Qjq5ZSIfX-0",
+      "slug": "체스-클럽-체스-보드-게임",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-13",
-  "totalGames": 3660
+  "totalGames": 3661
 }

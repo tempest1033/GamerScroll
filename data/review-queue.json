@@ -34086,6 +34086,30 @@
         }
       ],
       "addedAt": "2026-09-12T22:09:14.048Z"
+    },
+    {
+      "title": "체스 클럽 - 체스 보드 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.gamovation.chessclubpilot"
+      },
+      "developer": "GamoVation",
+      "icon": "https://play-lh.googleusercontent.com/Xr_i4rqTeq5JkId_A2ZTcQXZKGZ-IWlTm6MR-fPnnCEC7yAsPWpxZOo4BDnZigCyrozIm5Pi-Qjq5ZSIfX-0",
+      "searchResults": [
+        {
+          "title": "체스 · 플레이 및 배우기 온라인",
+          "appId": 329218549
+        },
+        {
+          "title": "Chess - Offline Board Game",
+          "appId": 1591188795
+        },
+        {
+          "title": "데이터 필요없는 게임 - 와이파이 필요없는 게임",
+          "appId": 6448104157
+        }
+      ],
+      "addedAt": "2026-09-13T00:00:09.779Z"
     }
   ],
   "approved": [
