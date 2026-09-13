@@ -1,37 +1,31 @@
 {
-  "updatedAt": "2026-09-12T02:32:20.215Z",
+  "updatedAt": "2026-09-13T02:31:31.512Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-august-2026-kr",
-      "views": 34,
+      "views": 36,
       "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 24,
+      "views": 27,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "wiki",
       "slug": "gukjeon-hanwoori",
       "category": "knowledge",
-      "views": 22,
+      "views": 15,
       "path": "/wiki/knowledge/gukjeon-hanwoori/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 11,
+      "views": 10,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
-    },
-    {
-      "type": "issue",
-      "slug": "dlss-5-leak-backlash",
-      "views": 9,
-      "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
       "type": "hotpick",
@@ -40,17 +34,10 @@
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
-      "type": "wiki",
-      "slug": "excel-formulas-for-game-balance",
-      "category": "knowledge",
+      "type": "issue",
+      "slug": "dlss-5-leak-backlash",
       "views": 5,
-      "path": "/wiki/knowledge/excel-formulas-for-game-balance/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "ff7-remake-switch2-release",
-      "views": 3,
-      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+      "path": "/magazine/issue/dlss-5-leak-backlash/"
     },
     {
       "type": "insight",
@@ -93,9 +80,15 @@
     },
     {
       "type": "hotpick",
-      "slug": "nioh3-hotpick-soulslike-masterpiece",
+      "slug": "ff7-remake-switch2-release",
       "views": 2,
-      "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
+      "path": "/magazine/hotpick/ff7-remake-switch2-release/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
+      "views": 2,
+      "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
       "type": "insight",
@@ -166,15 +159,15 @@
     },
     {
       "type": "hotpick",
+      "slug": "nioh3-hotpick-soulslike-masterpiece",
+      "views": 1,
+      "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
+    },
+    {
+      "type": "hotpick",
       "slug": "version-control-system",
       "views": 1,
       "path": "/magazine/hotpick/version-control-system/"
-    },
-    {
-      "type": "issue",
-      "slug": "diablo2-resurrected-steam-launch",
-      "views": 1,
-      "path": "/magazine/issue/diablo2-resurrected-steam-launch/"
     },
     {
       "type": "issue",
@@ -190,15 +183,15 @@
     },
     {
       "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 1,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
-      "type": "issue",
       "slug": "nvidia-dlss5-controversy",
       "views": 1,
       "path": "/magazine/issue/nvidia-dlss5-controversy/"
+    },
+    {
+      "type": "issue",
+      "slug": "starcraft-shooter-blizzard",
+      "views": 1,
+      "path": "/magazine/issue/starcraft-shooter-blizzard/"
     },
     {
       "type": "ranking",
