@@ -1,0 +1,14 @@
+{
+  "reference_pending_primary_provider_and_fee_basis": {"evidence_role": "reference", "review_status": "pending"},
+  "reference_only_cutoff_and_basis": {"evidence_role": "reference", "review_status": "pending"},
+  "reference_only_extra_store_basis_and_refunds": {"evidence_role": "reference", "review_status": "pending"},
+  "lower_bound_candidate_pending_basis": {"evidence_role": "candidate", "review_status": "pending"},
+  "reference_only_store_and_basis": {"evidence_role": "reference", "review_status": "pending"},
+  "review_source_rank_conflict_before_use": {"evidence_role": "reference", "review_status": "conflicted"},
+  "candidate_pending_rank_alignment": {"evidence_role": "candidate", "review_status": "clear"},
+  "candidate_pending_app_mapping_and_rank_alignment": {"evidence_role": "candidate", "review_status": "clear"},
+  "reference_only_global_scope_and_basis": {"evidence_role": "reference", "review_status": "pending"},
+  "reference_only_extra_store_and_basis": {"evidence_role": "reference", "review_status": "pending"},
+  "reference_only_period_and_source_conflicts": {"evidence_role": "reference", "review_status": "conflicted"},
+  "reference_only_ai_summary_and_imprecise_week": {"evidence_role": "reference", "review_status": "pending"}
+}

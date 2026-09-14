@@ -30,6 +30,17 @@ cache/search-console/
 # 참고용 외부 코드 (yoastseo source 등 — local-only reference)
 ref/
 
+# 내부 순위 계측 모델 — 계산·검증 산출물은 로컬 전용, 저장소에는 코드만 (2026-09-14)
+data/rank-models/
+reports/rank-models/
+reports/archive-bundles/
+.venv-revenue/
+.utmp/
+__pycache__/
+
+# 로컬 목업·격리 빌드 복사본
+mockups/
+
 # 로컬 dev 도우미 (디자인 비교/임시 처리용)
 /dev-*.js
 /ai-docs/_serve.js

@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const cheerio = require('cheerio');
 const { loadRankStats, COUNTRIES, STORES } = require('../src/rank/stats');
-const { renderMonthly, renderGlobal } = require('../src/templates/pages/rank-hub');
+const { renderMonthly, renderGlobal, renderRankingsHub, renderPublishers } = require('../src/templates/pages/rank-hub');
 const S = loadRankStats();
 const rows = Object.fromEntries(Object.keys(COUNTRIES).map(c => [c, Object.fromEntries(Object.keys(STORES).map(s => [s, []]))]));
 rows.kr.ios = Array.from({ length: 201 }, (_, i) => ({ appId: `test-rank-${i}`, title: `Test ${i}` }));
@@ -30,6 +30,28 @@ assert.equal(previous('.rk-month-brief h2').text().includes('7월 순위 요약'
 const global = cheerio.load(renderGlobal());
 assert.equal(global('.rk-global-country,.rk-global-store').length, 0);
 assert.equal(global('.rk-global-index').is('details'), false);
-assert.equal(global('.rk-global-index tbody tr').length, 100);
+assert.equal(global('.rk-global-index tbody tr').length, 200);
+assert.equal(global('.rk-global-index tbody tr:last-child td:first-child').text(), '200');
+assert.equal(global('.rk-global-index h2').text(), '글로벌 차트 지수 TOP 200');
+assert.equal(global('.rk-global-index .rk-note').length, 0);
 assert.equal(global('h1').text(), '글로벌 차트 지수');
 console.log('PASS monthly layout, marks, month selection, always-visible global index');
+
+for (const country of Object.keys(COUNTRIES)) {
+  for (const chart of ['grossing', 'free']) {
+    const page = cheerio.load(renderRankingsHub(country, chart));
+    const chartRows = chart === 'free' ? S.today.rowsFree : S.today.rows;
+    for (const store of Object.keys(STORES)) {
+      const expected = Math.min(200, (chartRows[country][store] || []).length);
+      const entries = page(`.rk-col.${store === 'ios' ? 'ios' : 'and'} .rk-list > li:not(.rk-empty)`);
+      assert.equal(entries.length, expected, `${country}/${chart}/${store}`);
+      assert.equal(entries.filter('.ext,[hidden]').length, 0);
+      if (expected) assert.equal(entries.last().find('.rk-rk').text(), String(expected));
+    }
+    assert.equal(page('.rk-more-toggle').length, 0);
+  }
+}
+const publishers = cheerio.load(renderPublishers());
+assert.equal(publishers('.rk-note').length, 0);
+assert(publishers('.rk-pubtable tbody tr').length > 0);
+console.log('PASS all countries and stores expanded through TOP 200, publisher note removed');

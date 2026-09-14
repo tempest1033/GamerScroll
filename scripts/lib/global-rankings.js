@@ -9,6 +9,7 @@
  * 하루 파일 포맷 (v1):
  *   { v: 1, date, ids: ["<storeId>", ...],
  *     lists: { "ios_kr_grossing": { times: ["01:00", ...], ranks: [[idx, ...], ...] } } }
+ *   runs[time] 에 회차별 수집 상태를 추가 저장한다. 이전 파일에는 없을 수 있다.
  *   ranks[t][r-1] = ids 인덱스. 배열 위치가 곧 순위. 제목·개발사는 사전에서 찾는다.
  *   같은 시각(HH:MM)이 다시 들어오면 덮어쓴다.
  *
@@ -55,14 +56,61 @@ function listDays(dir = DEFAULT_DIR) {
     .sort();
 }
 
+/** 이전 회차의 상태와 마지막 성공 위치. 과거 순위를 새 회차로 복사하지 않는다. */
+function readCollectionState(keys, dir = DEFAULT_DIR) {
+  const state = Object.fromEntries(keys.map((key) => [key, { status: 'unknown', lastSuccess: null }]));
+  const unresolved = new Set(keys);
+  const unchecked = new Set(keys);
+  for (const date of listDays(dir).reverse()) {
+    const day = readDay(date, dir);
+    const times = [...new Set([
+      ...Object.keys(day.runs || {}),
+      ...Object.values(day.lists).flatMap((list) => list.times)
+    ])].sort().reverse();
+    for (const time of times) {
+      const report = day.runs?.[time];
+      for (const key of new Set([...unchecked, ...unresolved])) {
+        const list = day.lists[key];
+        const at = list ? list.times.indexOf(time) : -1;
+        const recorded = report?.charts[key];
+        const count = at >= 0 ? list.ranks[at].length : 0;
+        if (unchecked.has(key) && (!report || recorded)) {
+          state[key].status = recorded?.status || (count ? 'ok' : 'unknown');
+          unchecked.delete(key);
+        }
+        if (unresolved.has(key) && count && (!recorded || recorded.status === 'ok')) {
+          state[key].lastSuccess = { date, time, count, observedAt: recorded?.observedAt || null };
+          unresolved.delete(key);
+        }
+      }
+      if (!unresolved.size && !unchecked.size) return state;
+    }
+  }
+  return state;
+}
+
 /**
  * 한 회차의 순위를 하루 파일에 덧붙인다.
  * @param {string} date  KST YYYY-MM-DD
  * @param {string} time  KST HH:MM
  * @param {Object<string,string[]>} lists  "ios_kr_grossing" → storeId 배열(순위순)
  */
-function appendRun(date, time, lists, dir = DEFAULT_DIR) {
+function appendRun(date, time, lists, dir = DEFAULT_DIR, report = null) {
   const day = readDay(date, dir) || { v: 1, date, ids: [], lists: {} };
+  if (report) {
+    // 같은 회차를 다시 저장할 때 실패한 차트에 이전 성공 데이터가 남지 않게 한다.
+    for (const key of Object.keys(report.charts)) {
+      const list = day.lists[key];
+      const at = list ? list.times.indexOf(time) : -1;
+      if (at >= 0) {
+        list.times.splice(at, 1);
+        list.ranks.splice(at, 1);
+        if (!list.times.length) delete day.lists[key];
+      }
+    }
+    day.runs ||= {};
+    day.runs[time] = report;
+  }
   const idIndex = new Map(day.ids.map((id, i) => [id, i]));
   const indexOf = (id) => {
     let i = idIndex.get(id);
@@ -106,4 +154,4 @@ function expandDay(day) {
   return rows;
 }
 
-module.exports = { DEFAULT_DIR, appsPath, dayPath, loadApps, saveApps, readDay, listDays, appendRun, expandDay };
+module.exports = { DEFAULT_DIR, appsPath, dayPath, loadApps, saveApps, readDay, listDays, readCollectionState, appendRun, expandDay };

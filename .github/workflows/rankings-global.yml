@@ -36,6 +36,8 @@ jobs:
         run: npm ci --prefer-offline --ignore-scripts
 
       - name: Collect
+        id: collect
+        continue-on-error: true
         run: node scripts/collect-global-rankings.js --concurrency 10
 
       - name: Commit and push
@@ -52,4 +54,11 @@ jobs:
             git pull --rebase origin main || exit 1
           done
           echo "::error::push failed after 3 retries"
+          exit 1
+
+      # 부분 수집 파일과 진단 정보는 보존하되, 실행 자체는 성공으로 위장하지 않는다.
+      - name: Check collection completeness
+        if: steps.collect.outcome != 'success'
+        run: |
+          echo "::error::Global rankings collection was incomplete. See the job summary and snapshot run status."
           exit 1

@@ -91,16 +91,13 @@ function publisherIndex(S, country = 'kr') {
 }
 const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs" role="navigation" aria-label="국가">${Object.entries(COUNTRIES).map(([c, n]) => `<a class="${c === active ? 'active' : ''}" href="${countryHref(c, chart)}">${n}</a>`).join('')}</div>`;
 
-// 두 스토어 리스트 한 열 (매출/인기 공용). filter 가 있으면 그 게임만 남기고 접지 않는다.
+// 두 스토어 리스트 한 열 (매출/인기 공용). 최대 200위까지 접지 않고 표시한다.
 function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit = 200, preview = null, withinCategory = false } = {}) {
-  const { expandLabel } = require('../components/list-actions');
   const { today, yday, days } = S;
   const isFree = chart === 'free';
   const rows = (isFree ? today.rowsFree : today.rows)[country][s] || [];
   const rk = isFree ? S.freeRankOf : S.rankOf;
   const items = rows.slice(0, limit).map((r, i) => ({ r, i })).filter(({ r }) => r && (!filter || filter(r, S.gameOf(s, r))));
-  const VISIBLE = 20; // 20위까지 펼쳐 두고 나머지는 접는다 (HTML 에는 전부 들어가 검색엔진은 200위까지 읽는다)
-  const collapse = !filter && items.length > VISIBLE;
   const li = ({ r, i }, categoryIndex) => {
     const rank = i + 1; const prev = rk(yday, country, s, r.appId);
     const week = days.slice(-7).map((d) => rk(d, country, s, r.appId));
@@ -115,10 +112,9 @@ function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit 
     const name = preview ? `<button type="button" data-rk-preview="${esc(preview(r, rank, g))}" aria-controls="rk-home-preview" aria-pressed="false">${esc(S.nameOf(s, r))}</button>` : C.nameLink(s, r);
     const detail = preview ? ` · <a href="${C.hrefOf(g) || countryHref(country)}">상세 ›</a>` : '';
     const displayRank = withinCategory ? categoryIndex + 1 : rank;
-    return `<li${collapse && i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">전체 ${rank}위</span> · ` : ''}${esc(r.developer || (g && g.developer) || '')}${extra}${detail}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}</li>`;
+    return `<li><span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">전체 ${rank}위</span> · ` : ''}${esc(r.developer || (g && g.developer) || '')}${extra}${detail}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}</li>`;
   };
-  const id = `rk-more-${s}`;
-  return `${collapse ? `<input type="checkbox" id="${id}" class="rk-more-toggle rk-control" aria-label="${STORES[s]} 전체 순위 표시">` : ''}<ol class="rk-list">${items.map(li).join('') || '<li class="rk-empty">해당 게임이 없습니다</li>'}</ol>${collapse ? expandLabel(id, items.length, VISIBLE) : ''}`;
+  return `<ol class="rk-list">${items.map(li).join('') || '<li class="rk-empty">해당 게임이 없습니다</li>'}</ol>`;
 }
 const storeCols = (S, C, country, chart, opts, stores) => {
   const hasAnd = stores.includes('android');
@@ -314,14 +310,14 @@ function renderGlobal() {
   const prevRank = new Map(prev.list.map((a) => [a.key, a.rank]));
   const prevPts = new Map(prev.list.map((a) => [a.key, a.pts]));
   const cell = (a, c) => { const i = a.ranks[`${c}_ios`], g = a.ranks[`${c}_android`]; const f = (v) => (v == null ? '<span class="rk-dim">·</span>' : v <= 10 ? `<b class="rk-gold">${v}</b>` : v); return `<td class="c">${f(i)}<span class="rk-dim"> / </span>${f(g)}</td>`; };
-  const rows = cur.list.slice(0, 100).map((a) => { const dp = a.pts - (prevPts.get(a.key) || 0); return `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${C.appCell(a.row, a.store)}</td><td class="c">${chg(a.rank, prevRank.get(a.key))}</td><td class="r"><b>${a.pts.toLocaleString()}</b><br><span class="sm ${dp >= 0 ? 'rk-upc' : 'rk-downc'}">${dp >= 0 ? '+' : ''}${dp}</span></td><td class="c">${a.countries.size}</td>${Object.keys(COUNTRIES).map((c) => cell(a, c)).join('')}</tr>`; }).join('');
+  const rows = cur.list.slice(0, 200).map((a) => { const dp = a.pts - (prevPts.get(a.key) || 0); return `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${C.appCell(a.row, a.store)}</td><td class="c">${chg(a.rank, prevRank.get(a.key))}</td><td class="r"><b>${a.pts.toLocaleString()}</b><br><span class="sm ${dp >= 0 ? 'rk-upc' : 'rk-downc'}">${dp >= 0 ? '+' : ''}${dp}</span></td><td class="c">${a.countries.size}</td>${Object.keys(COUNTRIES).map((c) => cell(a, c)).join('')}</tr>`; }).join('');
   const lead = `한국·일본·미국·중국·대만 9개 스토어 차트의 순위 포인트를 합산한 글로벌 차트 지수. ${tsText(today.ts)} 기준. 실제 매출액이나 세계 매출 순위가 아니며 중국은 앱스토어만 포함합니다.`;
   const body = `<div class="rk-head"><h1>글로벌 차트 지수</h1></div>
 ${subnav(S, 'global')}
-<section class="rk-card rk-global-index" aria-label="글로벌 차트 지수 TOP 100">
-<p class="rk-note">여러 시장에서의 차트 진입을 보여주는 보조 지표입니다. 실제 매출액이나 세계 매출 순위로 해석할 수 없습니다.</p>
+<section class="rk-card rk-global-index" aria-label="글로벌 차트 지수 TOP 200">
+<h2>글로벌 차트 지수 TOP 200</h2>
 <div class="rk-scroll"><table class="rk-table"><thead><tr><th class="rank">지수 순서</th><th>게임</th><th class="c">변동</th><th class="r">포인트</th><th class="c">국가 수</th>${Object.entries(COUNTRIES).map(([c, n]) => `<th class="c"><a href="${countryHref(c)}">${n}</a></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
-<div class="rk-note">국가별 표기: 앱스토어 / 구글플레이 순위. 포인트 = Σ(201 − 순위), 1위 200점·200위 1점·차트 밖 0점입니다. 국가·스토어 가중치는 없으며, 여러 차트에 진입할수록 유리합니다. 중국은 앱스토어만 포함한 총 9개 차트 기준입니다.</div></section>`;
+</section>${require('../../rank/monthly-estimates').renderMonthlyEstimates()}`;
   const canonical = `${siteBaseUrl}/rankings/global/`;
   return shell(S, {
     body,
@@ -393,7 +389,7 @@ function renderPublishers(country = 'kr') {
   const body = `<div class="rk-head"><h1>게임 개발사 순위</h1></div>
 ${subnav(S, 'pub')}
 <div class="rk-card"><h2>개발사 TOP ${Math.min(100, list.length)} <small>${list.length}개 개발사 · ${cname} 매출 TOP 200 기준</small></h2><table class="rk-table rk-pubtable"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th><th class="c">TOP 10</th><th class="r">포인트</th></tr></thead><tbody>${rows}</tbody></table>
-<div class="rk-note">개발사 이름은 스토어 등록명 기준이며 법인 접미어(Corp., Co., Ltd. 등) 차이는 같은 개발사로 묶습니다. 자회사·퍼블리셔가 다른 이름으로 등록된 경우는 따로 집계됩니다.</div></div>`;
+</div>`;
   const canonical = `${siteBaseUrl}/rankings/publishers/`;
   return shell(S, {
     body,

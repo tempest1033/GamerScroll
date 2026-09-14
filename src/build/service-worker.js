@@ -11,16 +11,29 @@ function serviceWorkerRuntime(config, eligible) {
     return response && response.status === 200 && !/no-store|private/i.test(response.headers.get('cache-control') || '');
   }
   async function cachePut(cacheName, request, response) {
-    if (!cacheable(response)) return response;
+    if (!cacheable(response) || request.cache === 'no-store') return response;
     const cache = await caches.open(cacheName);
     await cache.put(request, response.clone());
     return response;
+  }
+  async function storeDocument(url, response) {
+    if (!cacheable(response) || response.redirected || !/text\/html/i.test(response.headers.get('content-type') || '')) return;
+    const cache = await caches.open(PREFETCH_CACHE);
+    const headers = new Headers(response.headers);
+    headers.set('x-gs-prefetched-at', String(Date.now()));
+    await cache.put(url, new Response(response.clone().body, { status: response.status, headers }));
+    const keys = await cache.keys();
+    await Promise.all(keys.slice(0, Math.max(0, keys.length - 4)).map(key => cache.delete(key)));
   }
   async function networkFirst(request, cacheName, event) {
     try {
       const response = await fetch(request);
       // Cache a clone in the background; do not hold streamed HTML behind cache.put.
       event.waitUntil(cachePut(cacheName, request, response).catch(() => undefined));
+      if (request.cache !== 'no-store' && request.url && new URL(request.url).pathname.startsWith('/rankings/') &&
+          eligible(request.url, self.location.origin) && cacheName === RUNTIME_CACHE) {
+        event.waitUntil(storeDocument(request.url, response).catch(() => undefined));
+      }
       return response;
     } catch (error) {
       // Query strings may select different rankings/search results; never ignore them.
@@ -42,12 +55,7 @@ function serviceWorkerRuntime(config, eligible) {
       const timeout = setTimeout(() => controller.abort(), 4000);
       try {
         const response = await fetch(new Request(url, { headers: { Accept: 'text/html' }, signal: controller.signal }));
-        if (!cacheable(response) || response.redirected || !/text\/html/i.test(response.headers.get('content-type') || '')) return;
-        const headers = new Headers(response.headers);
-        headers.set('x-gs-prefetched-at', String(Date.now()));
-        await cache.put(url, new Response(response.body, { status: response.status, headers }));
-        const keys = await cache.keys();
-        await Promise.all(keys.slice(0, Math.max(0, keys.length - 4)).map(key => cache.delete(key)));
+        await storeDocument(url, response);
       } finally { clearTimeout(timeout); }
     })();
     pending.set(url, work);
@@ -55,18 +63,22 @@ function serviceWorkerRuntime(config, eligible) {
     finally { pending.delete(url); }
   }
   async function navigate(request, event) {
-    if (eligible(request.url, self.location.origin)) {
+    if (eligible(request.url, self.location.origin) && !['reload', 'no-cache', 'no-store'].includes(request.cache)) {
       try {
+        // Share an intent request already in flight (bounded by its four-second timeout).
+        // A failed speculative request still falls through to ordinary navigation.
+        const work = pending.get(request.url);
+        if (work) await work.catch(() => undefined);
         const cache = await caches.open(PREFETCH_CACHE);
         const response = await cache.match(request);
         if (response) {
-          await cache.delete(request);
           const timestamp = Number(response.headers.get('x-gs-prefetched-at'));
           if (timestamp > 0 && Date.now() - timestamp < PREFETCH_TTL) {
             const headers = new Headers(response.headers);
             headers.delete('x-gs-prefetched-at');
             return new Response(response.body, { status: response.status, headers });
           }
+          await cache.delete(request);
         }
       } catch { /* A missing/unavailable cache does not block navigation. */ }
     }
