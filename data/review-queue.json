@@ -34292,6 +34292,28 @@
         }
       ],
       "addedAt": "2026-09-13T22:09:58.463Z"
+    },
+    {
+      "title": "포코포코: 모바일 동물 퍼즐 힐링 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 977918624
+      },
+      "developer": "Treenod Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9e/b5/1a/9eb51a74-39b4-01e0-a946-6587e884b31f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-14T09:35:28.723Z"
+    },
+    {
+      "title": "찾았다! 마피아",
+      "status": "single",
+      "appIds": {
+        "android": "com.werewolfgp.tw"
+      },
+      "developer": "Gohassel Games Limited",
+      "icon": "https://play-lh.googleusercontent.com/mMW3DWniiLS03CgIkTWMKWpqn0Wjg_FiBDDFs3UXZFYqeH0dZ9F-hP-vm-iQrcVneUGqWlCQeAJ4oUN4f0_YuQ",
+      "searchResults": [],
+      "addedAt": "2026-09-14T09:35:29.001Z"
     }
   ],
   "approved": [

@@ -47907,8 +47907,44 @@
       "platforms": [
         "android"
       ]
+    },
+    "포코포코: 모바일 동물 퍼즐 힐링 게임": {
+      "appIds": {
+        "ios": 977918624
+      },
+      "aliases": [],
+      "developer": "Treenod Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9e/b5/1a/9eb51a74-39b4-01e0-a946-6587e884b31f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "포코포코-모바일-동물-퍼즐-힐링-게임",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "찾았다! 마피아": {
+      "appIds": {
+        "android": "com.werewolfgp.tw"
+      },
+      "aliases": [],
+      "developer": "Gohassel Games Limited",
+      "icon": "https://play-lh.googleusercontent.com/mMW3DWniiLS03CgIkTWMKWpqn0Wjg_FiBDDFs3UXZFYqeH0dZ9F-hP-vm-iQrcVneUGqWlCQeAJ4oUN4f0_YuQ",
+      "slug": "찾았다-마피아",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Creator Chronicles": {
+      "appIds": {
+        "steam": "3947460"
+      },
+      "aliases": [],
+      "developer": "Origin Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3947460/1d5f46492ee148b3a1829c346bf5de9ab57d0309/capsule_231x87_alt_assets_0.jpg?t=1789374135",
+      "slug": "creator-chronicles",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-14",
-  "totalGames": 3669
+  "totalGames": 3672
 }

@@ -1,25 +1,29 @@
 {
-  "updatedAt": "2026-09-13T07:53:18.686Z",
+  "updatedAt": "2026-09-14T09:27:44.852Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 13
+      "views": 15
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 8
-    },
-    {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 8
+      "views": 11
     },
     {
       "slug": "where-winds-meet",
       "views": 7
     },
     {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 7
+    },
+    {
       "slug": "arrow-pro-3d",
+      "views": 6
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
       "views": 6
     },
     {
@@ -28,6 +32,10 @@
     },
     {
       "slug": "vpet",
+      "views": 6
+    },
+    {
+      "slug": "wos-화이트아웃-서바이벌",
       "views": 6
     },
     {
@@ -68,14 +76,6 @@
     },
     {
       "slug": "geometry-dash-lite",
-      "views": 5
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 5
-    },
-    {
-      "slug": "hero-siege",
       "views": 5
     }
   ]
