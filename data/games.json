@@ -47979,8 +47979,62 @@
       "platforms": [
         "steam"
       ]
+    },
+    "연탄후라이 키우기 - 퇴사 인생 성공신화 방치형 디펜스": {
+      "appIds": {
+        "android": "com.stairs.friedegg"
+      },
+      "aliases": [],
+      "developer": "Gpeddler",
+      "icon": "https://play-lh.googleusercontent.com/ILHXIlaO41OdwT3T_uLTvpBM0cRJLMt0mi7FcCX1-AB06RbJPoeoAP13nBy_Z-a3okqEoBVkwr8l6_qKWR0F7g",
+      "slug": "연탄후라이-키우기-퇴사-인생-성공신화-방치형-디펜스",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Family Bay: 머지 & 팜": {
+      "appIds": {
+        "android": "com.moonactive.familymerge",
+        "ios": 6753110925
+      },
+      "aliases": [],
+      "developer": "Moon Active",
+      "icon": "https://play-lh.googleusercontent.com/qPbRGAyfUjbEysXWTkRRcOwYeh2cTUxBq7Uq--3wXiuZLIGN9dc6g_2eq5Jb90T2UjiwTj2cMuez5OHSs5P2zw",
+      "slug": "family-bay-머지-팜",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Ragdoll Archers - CrazyGames": {
+      "appIds": {
+        "android": "com.Ericetto.RagdollArchers",
+        "ios": 6763999535
+      },
+      "aliases": [],
+      "developer": "CrazyGames.com",
+      "icon": "https://play-lh.googleusercontent.com/15zkozUZzNZXG2Hx_FdE0S9paEUGP6ufaKr_VXDK6Tl2ytLDjA7967wb561g1B39oqp30loRsHFQpIKjbO3l-A",
+      "slug": "ragdoll-archers-crazygames",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "스틸본: 탱크 키우기 RPG (Steelborn)": {
+      "appIds": {
+        "android": "com.playbrew.tanks",
+        "ios": 6768921423
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/zls6epO26xrJaT4hG431JXd9-wcYgKcoTCifWWQYOkIAqrU54wACSyQtODfLKvaoj22ZgKxGDyyoidnHsI186Co",
+      "slug": "스틸본-탱크-키우기-rpg-steelborn",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-15",
-  "totalGames": 3675
+  "totalGames": 3679
 }

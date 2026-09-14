@@ -34349,6 +34349,81 @@
       "icon": "https://play-lh.googleusercontent.com/DVryEpSc8yilLqBZhJPA7IviVPoMC3m5x6xlU71tumKmKO9ga0xZsY10OkZXV-hZO3gLP4PWXhP-BhG40yVGyvk",
       "searchResults": [],
       "addedAt": "2026-09-14T16:05:56.037Z"
+    },
+    {
+      "title": "연탄후라이 키우기 - 퇴사 인생 성공신화 방치형 디펜스",
+      "status": "single",
+      "appIds": {
+        "android": "com.stairs.friedegg"
+      },
+      "developer": "Gpeddler",
+      "icon": "https://play-lh.googleusercontent.com/ILHXIlaO41OdwT3T_uLTvpBM0cRJLMt0mi7FcCX1-AB06RbJPoeoAP13nBy_Z-a3okqEoBVkwr8l6_qKWR0F7g",
+      "searchResults": [
+        {
+          "title": "연탄후라이 키우기",
+          "appId": 6745242463
+        }
+      ],
+      "addedAt": "2026-09-14T23:24:58.564Z"
+    },
+    {
+      "title": "Family Bay: 머지 & 팜",
+      "status": "matched",
+      "appIds": {
+        "android": "com.moonactive.familymerge",
+        "ios": 6753110925
+      },
+      "developer": "Moon Active",
+      "icon": "https://play-lh.googleusercontent.com/qPbRGAyfUjbEysXWTkRRcOwYeh2cTUxBq7Uq--3wXiuZLIGN9dc6g_2eq5Jb90T2UjiwTj2cMuez5OHSs5P2zw",
+      "searchResults": [
+        {
+          "title": "Family Bay: 머지 & 팜",
+          "appId": 6753110925
+        },
+        {
+          "title": "패밀리팜 어드벤처®",
+          "appId": 1543158709
+        },
+        {
+          "title": "패밀리팜",
+          "appId": 539920547
+        }
+      ],
+      "addedAt": "2026-09-14T23:24:58.937Z"
+    },
+    {
+      "title": "Ragdoll Archers - CrazyGames",
+      "status": "matched",
+      "appIds": {
+        "android": "com.Ericetto.RagdollArchers",
+        "ios": 6763999535
+      },
+      "developer": "CrazyGames.com",
+      "icon": "https://play-lh.googleusercontent.com/15zkozUZzNZXG2Hx_FdE0S9paEUGP6ufaKr_VXDK6Tl2ytLDjA7967wb561g1B39oqp30loRsHFQpIKjbO3l-A",
+      "searchResults": [
+        {
+          "title": "Ragdoll Archers - CrazyGames",
+          "appId": 6763999535
+        }
+      ],
+      "addedAt": "2026-09-14T23:24:59.237Z"
+    },
+    {
+      "title": "스틸본: 탱크 키우기 RPG (Steelborn)",
+      "status": "matched",
+      "appIds": {
+        "android": "com.playbrew.tanks",
+        "ios": 6768921423
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/zls6epO26xrJaT4hG431JXd9-wcYgKcoTCifWWQYOkIAqrU54wACSyQtODfLKvaoj22ZgKxGDyyoidnHsI186Co",
+      "searchResults": [
+        {
+          "title": "스틸본: 탱크 키우기 RPG (Steelborn)",
+          "appId": 6768921423
+        }
+      ],
+      "addedAt": "2026-09-14T23:24:59.445Z"
     }
   ],
   "approved": [
