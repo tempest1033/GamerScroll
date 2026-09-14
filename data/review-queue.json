@@ -34314,6 +34314,41 @@
       "icon": "https://play-lh.googleusercontent.com/mMW3DWniiLS03CgIkTWMKWpqn0Wjg_FiBDDFs3UXZFYqeH0dZ9F-hP-vm-iQrcVneUGqWlCQeAJ4oUN4f0_YuQ",
       "searchResults": [],
       "addedAt": "2026-09-14T09:35:29.001Z"
+    },
+    {
+      "title": "Craft Builder: 3D Block World",
+      "status": "single",
+      "appIds": {
+        "android": "com.novas.craft.builder.block.world"
+      },
+      "developer": "Coup Coup LTD",
+      "icon": "https://play-lh.googleusercontent.com/HKD3MUFqidgq2sV8bup3TE6UlYDvW-b72Q96Tj4u7JwxsuG9hizTFeuhWa4jASjeDBpuq8eryye1TOWH3a2vhQ",
+      "searchResults": [
+        {
+          "title": "House Builder for Minecraft PE",
+          "appId": 1497683446
+        },
+        {
+          "title": "블록 공예 3D: 의 도시 설계 시뮬레이터 가장",
+          "appId": 981633844
+        },
+        {
+          "title": "School Party Craft",
+          "appId": 6478331791
+        }
+      ],
+      "addedAt": "2026-09-14T16:05:55.827Z"
+    },
+    {
+      "title": "다크엔젤: 천사 강림",
+      "status": "single",
+      "appIds": {
+        "android": "com.ulugame.ylnskr.google"
+      },
+      "developer": "게임랜드주식회사",
+      "icon": "https://play-lh.googleusercontent.com/DVryEpSc8yilLqBZhJPA7IviVPoMC3m5x6xlU71tumKmKO9ga0xZsY10OkZXV-hZO3gLP4PWXhP-BhG40yVGyvk",
+      "searchResults": [],
+      "addedAt": "2026-09-14T16:05:56.037Z"
     }
   ],
   "approved": [

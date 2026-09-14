@@ -47943,8 +47943,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Craft Builder: 3D Block World": {
+      "appIds": {
+        "android": "com.novas.craft.builder.block.world"
+      },
+      "aliases": [],
+      "developer": "Coup Coup LTD",
+      "icon": "https://play-lh.googleusercontent.com/HKD3MUFqidgq2sV8bup3TE6UlYDvW-b72Q96Tj4u7JwxsuG9hizTFeuhWa4jASjeDBpuq8eryye1TOWH3a2vhQ",
+      "slug": "craft-builder-3d-block-world",
+      "platforms": [
+        "android"
+      ]
+    },
+    "다크엔젤: 천사 강림": {
+      "appIds": {
+        "android": "com.ulugame.ylnskr.google"
+      },
+      "aliases": [],
+      "developer": "게임랜드주식회사",
+      "icon": "https://play-lh.googleusercontent.com/DVryEpSc8yilLqBZhJPA7IviVPoMC3m5x6xlU71tumKmKO9ga0xZsY10OkZXV-hZO3gLP4PWXhP-BhG40yVGyvk",
+      "slug": "다크엔젤-천사-강림",
+      "platforms": [
+        "android"
+      ]
     }
   },
-  "lastUpdated": "2026-09-14",
-  "totalGames": 3672
+  "lastUpdated": "2026-09-15",
+  "totalGames": 3674
 }
