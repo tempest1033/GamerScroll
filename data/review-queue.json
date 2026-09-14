@@ -33589,13 +33589,19 @@
     },
     {
       "title": "협동마법디펜스 : 마법사 키우기",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6778703795
+        "ios": "6778703795",
+        "android": "com.TeamSparta.CSD"
       },
       "developer": "Teamsparta Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/30/f3/80/30f380f3-172c-5af7-0cd5-17baa6496c7a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "협동마법디펜스 : 마법사 키우기",
+          "appId": "6778703795"
+        }
+      ],
       "addedAt": "2026-09-11T07:33:00.909Z"
     },
     {
