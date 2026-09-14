@@ -1,0 +1,9 @@
+--- gpboost/basic.py
++++ gpboost/basic.py
+@@ -4972,3 +4972,3 @@
+-                offset = 0
+-                if likelihood != "gaussian":
+-                    offset = -1
++                # Local experiment fix: Error_var is prepended after random
++                # coefficient names are constructed, for Gaussian models too.
++                offset = -1

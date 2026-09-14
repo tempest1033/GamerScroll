@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Distinguish curve mass normalization from implicit platform reweighting. Country-store grouping makes raw and normalized fixed curves equivalent reparameterizations, not additional evidence.",
+  "primaryMetric": "rmsLogError",
+  "curves": {
+    "round13": {
+      "exponents": {"ios": 1.25, "aos": 0.5625, "cn": 1.0},
+      "basis": "Previously selected on the same August data; diagnostic only."
+    },
+    "reciprocal": {
+      "exponents": {"ios": 1.0, "aos": 1.0, "cn": 1.0},
+      "basis": "Simple control."
+    }
+  },
+  "candidates": [
+    {"id": "normalized_four_groups", "curve": "round13", "normalization": "top200_conditional", "groups": "cn_jp_rest_stores", "objective": "log"},
+    {"id": "normalized_five_groups", "curve": "round13", "normalization": "top200_conditional", "groups": "country_store_groups", "objective": "log"},
+    {"id": "normalized_five_groups_dollar", "curve": "round13", "normalization": "top200_conditional", "groups": "country_store_groups", "objective": "dollar"},
+    {"id": "reciprocal_five_groups", "curve": "reciprocal", "normalization": "top200_conditional", "groups": "country_store_groups", "objective": "log"}
+  ],
+  "constraints": [
+    "Fit only training-game labels, no named-game overrides.",
+    "Report all candidates and condition diagnostics; increased parameter count is not an improvement by itself.",
+    "The normalized curve does not imply all store revenue is earned by the top 200."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Predeclared diagnostics of normalization, objective, and parameter removal; not independent confirmation on the reused August sample.",
+  "primaryMetric": "rmsLogError",
+  "curves": {
+    "reciprocal": {
+      "exponents": {"ios": 1.0, "aos": 1.0, "cn": 1.0},
+      "basis": "Simple reciprocal-rank control, not an empirically identified revenue curve."
+    },
+    "round13": {
+      "exponents": {"ios": 1.25, "aos": 0.5625, "cn": 1.0},
+      "basis": "Previously selected on this same August sample; fixed-shape diagnostics remain selection-exposed."
+    },
+    "historical_ios_transfer": {
+      "exponents": {"ios": 0.86, "aos": 0.86, "cn": 0.86},
+      "basis": "Legacy 0.86 coefficient claim could not be verified from the primary table in this audit; retained as an explicitly unverified sensitivity assumption, not an empirical 2026 revenue coefficient."
+    }
+  },
+  "candidates": [
+    {"id": "reciprocal_scale", "curve": "reciprocal", "normalization": "raw", "groups": "one", "objective": "log"},
+    {"id": "reciprocal_regions", "curve": "reciprocal", "normalization": "raw", "groups": "cn_jp_rest", "objective": "log"},
+    {"id": "historical_ios_transfer", "curve": "historical_ios_transfer", "normalization": "raw", "groups": "cn_jp_rest", "objective": "log"},
+    {"id": "round13_plain", "curve": "round13", "normalization": "raw", "groups": "cn_jp_rest", "objective": "log"},
+    {"id": "round13_conditional_budget", "curve": "round13", "normalization": "top200_conditional", "groups": "cn_jp_rest", "objective": "log"},
+    {"id": "round13_conditional_scale", "curve": "round13", "normalization": "top200_conditional", "groups": "one", "objective": "log"},
+    {"id": "round13_plain_dollar_loss", "curve": "round13", "normalization": "raw", "groups": "cn_jp_rest", "objective": "dollar"},
+    {"id": "round13_conditional_dollar_loss", "curve": "round13", "normalization": "top200_conditional", "groups": "cn_jp_rest", "objective": "dollar"}
+  ],
+  "constraints": [
+    "Positive regional contributions; no per-game multipliers.",
+    "No arbitrary China/Japan coefficient cap or ensemble weight.",
+    "Training-only numerical feature scaling.",
+    "Group coefficients are regression parameters for partial-market signals, not identified market budgets.",
+    "TOP200-normalized shares are conditional on the chart; no unmeasured tail-budget assertion.",
+    "No regional revenue label enters this diagnostic fitting cycle.",
+    "Published regional revenues are consistency checks, not independent validation of models already using the same game's global amount."
+  ]
+}
