@@ -1037,44 +1037,8 @@
   }
 }
 
-/* --- 다크모드 오버라이드 --- */
-@media (prefers-color-scheme: dark) {
-  /* 다크모드 섹션 변수 오버라이드 (PurgeCSS가 core에서 제거하므로 여기 정의) */
-  :root {
-    --section-gradient: transparent;
-    --section-gradient-strong: rgba(255, 255, 255, 0.02);
-    --section-icon-bg: rgba(255, 107, 53, 0.15);
-    --section-accent-bg: rgba(255, 255, 255, 0.05);
-    --section-border: rgba(255, 255, 255, 0.1);
-  }
-
-  .weekly-section-desc,
-  .weekly-hot-desc,
-  .weekly-metric-desc,
-  .weekly-community-desc,
-  .weekly-streaming-desc,
-  .weekly-ranking-desc,
-  .weekly-rank-reason,
-  .weekly-stock-comment {
-    color: var(--text-secondary) !important;
-  }
-
-  .weekly-section-title,
-  .weekly-hot-title,
-  .weekly-metric-title,
-  .weekly-community-title,
-  .weekly-streaming-title {
-    color: #fff !important;
-  }
-
-  .weekly-ranking-badge {
-    color: rgba(255, 255, 255, 0.95) !important;
-  }
-
-  #insight .page-container span:not(.home-insight-tag):not([class*="badge"]):not([class*="rank"]):not(.weekly-stock-percent):not(.weekly-stock-arrow) {
-    color: rgba(255, 255, 255, 0.9);
-  }
-}
+/* 다크모드 오버라이드 블록 제거 (2026-09-15): 사이트는 라이트 고정인데 OS 다크 모드에서 이 블록이 적용돼
+   인사이트 페이지의 span(사이드바 인기/최신 제목·관련 문서·관련 게임·이전/다음)과 주간 리포트 제목이 흰색으로 사라졌다. */
 
 /* --- 썸네일 fade-in (placeholder → loaded) --- */
 .weekly-hot-thumb img,

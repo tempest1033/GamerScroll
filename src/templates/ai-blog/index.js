@@ -686,7 +686,7 @@ function generateAIBlogIndex(data) {
   }
 
   // 상단 광고
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
   const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
   const _homeDescription = _lang === 'ko'
     ? 'AIScroll은 AI 모델 출시, 코딩 에이전트, 빅테크 전략, 연구 동향을 빠르게 정리해 주는 AI 산업 인사이트 허브입니다.'
@@ -2560,7 +2560,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       </div>`
     : `<p class="search-empty">${_lang === 'ko' ? '아직 이 분류에 글이 없습니다. 곧 채워집니다.' : 'No articles here yet — coming soon.'}</p>`;
 
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
   const _catT = I18N[_lang] || I18N.en;
   const categoryIntro = isTopicPage ? '' : categoryDescription(categoryId, _lang);
 

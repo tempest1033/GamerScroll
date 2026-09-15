@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot, generateRectangleAdSlot } = require('../layout');
 const {
   generateSidebarCategories: sharedSidebarCategories,
   generateSidebarArticles: sharedSidebarArticles
@@ -862,8 +862,8 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
     sidebarPopularArticles, sidebarLatestArticles,
     { activeLink: `/magazine/${currentType}/${currentSlug}/` }
   );
-  // 사이드바는 목차 + 인기·최신만. 카테고리 카운트 블록은 위키 폐기 후 두 줄뿐이라 뺐다 (2026-09-09).
-  const sidebarHTML = toc.sidebarHTML + generateSidebarArticles(slug, type);
+  // 사이드바는 목차 → 300×250 광고 → 인기·최신 (AIScroll 기사 사이드바와 동일 구성). 카테고리 카운트 블록은 위키 폐기 후 두 줄뿐이라 뺐다 (2026-09-09).
+  const sidebarHTML = toc.sidebarHTML + generateRectangleAdSlot(AD_SLOTS.RectanglePC001) + generateSidebarArticles(slug, type);
 
   const sidebarScript = sidebarHTML ? `
     <script>
@@ -1617,7 +1617,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
     sidebarPopularArticles, sidebarLatestArticles,
     { activeLink: `/magazine/${currentType}/${currentSlug}/` }
   );
-  const sidebarHTML = toc.sidebarHTML + generateSidebarArticles(slug, 'ranking');
+  const sidebarHTML = toc.sidebarHTML + generateRectangleAdSlot(AD_SLOTS.RectanglePC001) + generateSidebarArticles(slug, 'ranking');
 
   const sidebarScript = sidebarHTML ? `
     <script>

@@ -5,8 +5,27 @@
 
 /* 레이아웃: 본문 760 + 사이드바 300 */
 .article-layout {
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 56px;
+  /* 사이드바 316 = 왼쪽 선·여백 16 + 300×250 광고 폭 300 (광고가 눌려 284로 요청되지 않게) */
+  grid-template-columns: minmax(0, 1fr) 316px;
+  gap: 40px;
+}
+/* 공용 규칙이 제목·대표 이미지·중간 광고만 720px 중앙 정렬해 본문(왼쪽 정렬)과 20px 어긋났다.
+   본문 컬럼(760px) 안에서는 모두 왼쪽 끝에 맞춰 같은 폭을 쓴다. */
+.article-main .blog-card > *,
+.article-main .blog-content > *,
+.article-main .blog-header,
+.article-main .blog-lead-figure,
+.article-main .blog-in-article-ad,
+.article-main .blog-sources {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* 상단 광고: 기사 레이아웃 바깥(풀폭)에 놓여 홈과 같은 970 반응형 슬롯을 쓴다 */
+.issue-container > .ad-card-responsive-home {
+  margin: 12px auto 24px;
+  background: transparent;
+  border: 0;
 }
 
 /* 빵부스러기: 홈 / 카테고리 */
@@ -158,6 +177,12 @@
 }
 .blog-content a:hover {
   text-decoration-color: var(--text-primary);
+}
+/* 공용 CSS 에 남은 OS 다크 모드 규칙(반투명 흰 배경)이 라이트 고정 사이트에서 새지 않게 고정 */
+.blog-content code {
+  background: var(--bg-secondary);
+  border-color: var(--border);
+  color: var(--text-primary);
 }
 .blog-figure {
   margin: 32px 0;
@@ -380,11 +405,16 @@
 .article-sidebar-sticky > * {
   margin-bottom: 0;
 }
+/* 왼쪽 선은 블록마다가 아니라 사이드바 전체에 한 줄로 — 공유·목차·광고·순위 사이에서 끊기지 않는다 */
+.article-sidebar-sticky {
+  padding-left: 16px;
+  border-left: 1px solid #e0ddd6;
+}
 .blog-share,
 .article-sidebar .article-toc,
 .article-sidebar #sidebar-articles {
-  padding-left: 16px;
-  border-left: 1px solid #e0ddd6;
+  padding-left: 0;
+  border-left: 0;
 }
 .blog-share-label,
 .article-sidebar .article-toc-title,

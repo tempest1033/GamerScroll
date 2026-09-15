@@ -136,6 +136,10 @@ header#aiscroll-header .aiscroll-search .search-no-results {
     gap: 4px;
     /* 40px 여백 + 로고 폭(26px 높이 기준 ≈ 98px) + 40px 간격 */
     padding: 0 320px 0 178px;
+    /* 내비 상자가 헤더 전체를 덮으므로 클릭은 메뉴 항목만 받게 한다 (로고·검색창 가림 방지) */
+    pointer-events: none;
+  }
+  .nav-inner .nav-item {
     pointer-events: auto;
   }
   .nav-item,
@@ -160,12 +164,16 @@ header#aiscroll-header .aiscroll-search .search-no-results {
   }
 }
 
-/* ---------- 상단 광고 자리: 970 폭 중앙, 예약 높이는 유닛 실제 크기 기준(PC 90 · 모바일 100) ---------- */
-.home-main > .ad-card-responsive-home:first-child,
-.article-main > .ad-card-responsive-home:first-child {
+/* ---------- 상단 광고 자리: 홈·카테고리는 사이드바가 없어졌으므로 05-ads.css 의 732px 상한을 풀고 970 반응형으로 ---------- */
+.home-main > .ad-card-responsive-home:first-child {
   margin-top: 12px;
   background: transparent;
   border: 0;
+}
+@media (min-width: 769px) {
+  .home-main > .ad-card-responsive-home {
+    max-width: 970px !important;
+  }
 }
 
 /* ---------- 페이지 폭 ---------- */

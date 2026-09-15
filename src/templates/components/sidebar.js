@@ -64,7 +64,8 @@ function generateSidebarArticles(popular = [], latest = [], options = {}) {
   const latestId = options.latestId || 'sidebar-latest';
   const activeLink = options.activeLink || null;
 
-  const renderList = (items) => (items || []).filter(item => !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(item.link || item.url || item.path || '')).slice(0, cap).map((item, i) => {
+  const visible = (items) => (items || []).filter(item => item && item.title && !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(item.link || item.url || item.path || '')).slice(0, cap);
+  const renderList = (items) => visible(items).map((item, i) => {
     const link = item.link || item.url || item.path || '#';
     return `
       <a href="${link}" class="sidebar-article-item${activeLink && link === activeLink ? ' active' : ''}">
@@ -72,6 +73,9 @@ function generateSidebarArticles(popular = [], latest = [], options = {}) {
         <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
       </a>`;
   }).join('');
+
+  // 인기·최신 모두 비어 있으면 빈 번호 목록 대신 블록 자체를 내지 않는다.
+  if (visible(popular).length === 0 && visible(latest).length === 0) return '';
 
   return `
       <div class="home-card" id="sidebar-articles">

@@ -658,15 +658,16 @@ function generateAIBlogArticle(article, data = {}) {
     : '';
 
   // 상단 광고
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
+  // 상단 광고: 홈과 같은 풀폭 970 반응형 슬롯. 본문 컬럼(760px) 안에 두면 728×90 고정으로 줄어들어 레이아웃 바깥에 둔다.
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
 
   // 메인 콘텐츠 (GamerScroll 스타일 + 사이드바 레이아웃)
   const content = `
     <section class="section active" id="issue">
       <article class="page-container issue-container">
+        ${topAds}
         <div class="article-layout">
           <div class="article-main">
-            ${topAds}
             <div class="blog-card">
               <header class="blog-header">
                 <nav class="blog-crumb" aria-label="${_lang === 'ko' ? '현재 위치' : 'Breadcrumb'}"><a href="${homeHref(_lang)}">${_lang === 'ko' ? '홈' : 'Home'}</a><span class="blog-crumb-sep">/</span><a href="${categoryHref(normalizeCategory(article.category), _lang)}">${escapeHtml(_t.categoryLabels[normalizeCategory(article.category)] || '')}</a></nav>

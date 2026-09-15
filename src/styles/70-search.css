@@ -369,15 +369,7 @@
     border-radius: 1px !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .nav-item.active {
-      color: #fff !important;
-    }
-
-    .nav-item.active::after {
-      background: #fff !important;
-    }
-  }
+  /* (삭제) 다크 모드 .nav-item.active 흰색: 라이트 고정 사이트라 OS 다크 모드 사용자의 모바일 활성 탭 글자가 사라졌다 (2026-09-15) */
 
   /* 검색창 내부 홈 아이콘 표시 */
   .search-home-icon {
