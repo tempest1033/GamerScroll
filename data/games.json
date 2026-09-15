@@ -48097,8 +48097,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "햄토피아 : 머지 드림 쇼핑몰": {
+      "appIds": {
+        "ios": 6447044108
+      },
+      "aliases": [],
+      "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/9b/c4/399bc4e6-85f4-0c70-8f3b-795580ad5963/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "햄토피아-머지-드림-쇼핑몰",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Dimraeth": {
+      "appIds": {
+        "steam": "2402680"
+      },
+      "aliases": [],
+      "developer": "Mudtek",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2402680/c89849716df0c45bfe23a28ab36fd8c988c39e14/capsule_231x87.jpg?t=1789492776",
+      "slug": "dimraeth",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-15",
-  "totalGames": 3684
+  "lastUpdated": "2026-09-16",
+  "totalGames": 3686
 }
