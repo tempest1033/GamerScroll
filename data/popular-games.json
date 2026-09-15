@@ -1,21 +1,41 @@
 {
-  "updatedAt": "2026-09-14T09:27:44.852Z",
+  "updatedAt": "2026-09-15T12:46:48.968Z",
   "period": "30days",
   "games": [
     {
-      "slug": "제우스-오만의-신",
-      "views": 15
+      "slug": "이클립스-더-어웨이크닝",
+      "views": 17
     },
     {
-      "slug": "이클립스-더-어웨이크닝",
-      "views": 11
+      "slug": "제우스-오만의-신",
+      "views": 17
+    },
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 8
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 7
     },
     {
       "slug": "where-winds-meet",
       "views": 7
     },
     {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "slug": "wos-화이트아웃-서바이벌",
+      "views": 7
+    },
+    {
+      "slug": "단어-찾기-단어-게임",
+      "views": 7
+    },
+    {
+      "slug": "레이싱-마스터",
+      "views": 7
+    },
+    {
+      "slug": "에픽세븐",
       "views": 7
     },
     {
@@ -23,7 +43,19 @@
       "views": 6
     },
     {
-      "slug": "monopoly-go-모노폴리-go",
+      "slug": "barotrauma",
+      "views": 6
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 6
+    },
+    {
+      "slug": "hero-siege",
+      "views": 6
+    },
+    {
+      "slug": "mistfall-hunter",
       "views": 6
     },
     {
@@ -31,52 +63,20 @@
       "views": 6
     },
     {
+      "slug": "pixel-flow",
+      "views": 6
+    },
+    {
+      "slug": "sakura-school-simulator",
+      "views": 6
+    },
+    {
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 6
+    },
+    {
       "slug": "vpet",
       "views": 6
-    },
-    {
-      "slug": "wos-화이트아웃-서바이벌",
-      "views": 6
-    },
-    {
-      "slug": "단어-찾기-단어-게임",
-      "views": 6
-    },
-    {
-      "slug": "레이싱-마스터",
-      "views": 6
-    },
-    {
-      "slug": "로드러쉬",
-      "views": 6
-    },
-    {
-      "slug": "에이지-오브-엠파이어-모바일",
-      "views": 6
-    },
-    {
-      "slug": "에픽세븐",
-      "views": 6
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
-      "views": 6
-    },
-    {
-      "slug": "탑-히어로즈-영웅의-시대",
-      "views": 6
-    },
-    {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 5
-    },
-    {
-      "slug": "barotrauma",
-      "views": 5
-    },
-    {
-      "slug": "geometry-dash-lite",
-      "views": 5
     }
   ]
 }

@@ -48073,8 +48073,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "나 혼자만 상한가 : 회귀 인생게임": {
+      "appIds": {
+        "ios": 6790010650
+      },
+      "aliases": [],
+      "developer": "SEIZEMODE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/b9/72/aeb972d3-439a-68b8-d050-0e2afda73dff/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "나-혼자만-상한가-회귀-인생게임",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Active Matter": {
+      "appIds": {
+        "steam": "2887580"
+      },
+      "aliases": [],
+      "developer": "Matter Team",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2887580/252fece2d2d53e0dea48671c13a9d7e3cc4473b2/capsule_231x87.jpg?t=1789472580",
+      "slug": "active-matter",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-15",
-  "totalGames": 3682
+  "totalGames": 3684
 }
