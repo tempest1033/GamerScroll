@@ -48121,8 +48121,70 @@
       "platforms": [
         "steam"
       ]
+    },
+    "사북:아이스 킹덤": {
+      "appIds": {
+        "ios": 6758198841
+      },
+      "aliases": [],
+      "developer": "HONG KONG TANYOU LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/56/35/5a5635ee-e3b1-94df-aff1-8a1b6b51f950/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "사북아이스-킹덤",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Flick Shot Rogues": {
+      "appIds": {
+        "ios": 6758023730
+      },
+      "aliases": [],
+      "developer": "Noodlecake",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d0/78/7a/d0787a39-9dbf-8a65-4661-7eb16cfcc3e3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "flick-shot-rogues",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "세라핌 키우기 : 방치형 RPG": {
+      "appIds": {
+        "ios": 6762546442
+      },
+      "aliases": [],
+      "developer": "SunMyeong Kim",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/79/b1/5879b168-fac0-8a94-538b-6cc2b48b94a7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "세라핌-키우기-방치형-rpg",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Bus In!": {
+      "appIds": {
+        "android": "com.dino.bus.in.color.block",
+        "ios": 6798087355
+      },
+      "aliases": [],
+      "developer": "Dino Games Lab",
+      "icon": "https://play-lh.googleusercontent.com/Su5H12ZXoVLGSfsVIQ8ZRxO8ORULUfFudFyQSBOgQvhvJSFWkWSqBtnea4myJf95tTwHecEKT5Wu-2daHzPZVg",
+      "slug": "bus-in",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "iMic - Voice Changer": {
+      "appIds": {
+        "steam": "4620140"
+      },
+      "aliases": [],
+      "developer": "XU MINGYI",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4620140/95643d61a13147515640f62909a567b4449826c0/capsule_231x87.jpg?t=1784055371",
+      "slug": "imic-voice-changer",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-16",
-  "totalGames": 3686
+  "totalGames": 3691
 }
