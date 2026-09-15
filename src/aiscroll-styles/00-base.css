@@ -31,7 +31,7 @@
 
     /* 글로벌 폰트 스택 - 블로그용 가독성 우선 */
     html, body {
-      font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", "Malgun Gothic", sans-serif;
+      font-family: Inter, "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", "Malgun Gothic", sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -103,29 +103,29 @@
       }
     }
     :root {
-      /* === Primary Colors - 심플 모던 블로그 블루 === */
-      --primary: #2563EB;
-      --primary-light: #3B82F6;
-      --primary-dark: #1D4ED8;
-      --accent: #2563EB;
+      /* === Primary Colors - 라이트 리뉴얼 포인트 블루 (로고 점·링크 강조 한 색만) === */
+      --primary: #2457E6;
+      --primary-light: #3B6DF0;
+      --primary-dark: #1B45C4;
+      --accent: #2457E6;
 
-      /* === Background & Surface - 쿨 그레이 페이지 + 순백 카드 (표면 위계) === */
-      --bg: #F5F6F8;
+      /* === Background & Surface - 오프화이트 페이지 + 순백 카드 (라이트 전용) === */
+      --bg: #F4F3EF;
       --bg-elevated: #FFFFFF;
       --card: #FFFFFF;
       --card-hover: #FFFFFF;
 
-      /* === Border - 얇고 은은한 톤 === */
-      --border: #E4E4E7;
-      --border-subtle: #ECECEF;
-      --border-hover: var(--primary); /* 호버 시 보더 색상 */
+      /* === Border - 따뜻한 회색 선 === */
+      --border: #E8E6E1;
+      --border-subtle: #EFEDE8;
+      --border-hover: #CFCBC2; /* 호버 시 보더 색상 */
 
-      /* === Text - 뉴트럴 그레이 톤 === */
-      --text: #18181B;
-      --text-primary: #18181B;
-      --text-secondary: #3F3F46;
-      --text-muted: #6B6B73;
-      --text-tertiary: #A1A1AA;
+      /* === Text - 잉크 블랙 + 웜 그레이 === */
+      --text: #1A1918;
+      --text-primary: #0B0B0A;
+      --text-secondary: #2B2A27;
+      --text-muted: #6F7280;
+      --text-tertiary: #A8A49B;
 
 	      /* === Typography - 본문/제목 통합 관리 (데스크탑 기본) === */
 	      --font-title-size: 18px;
@@ -213,21 +213,21 @@
       --gradient-accent: linear-gradient(135deg, #218BFF 0%, #0550AE 100%);
 
       /* === 호환성 변수 (별칭) === */
-      --bg-secondary: #F4F4F5;
-      --bg-tertiary: #E4E4E7;
-      --border-color: #E4E4E7;
-      --bg-hover: #F4F4F5;
+      --bg-secondary: #ECEBE6;
+      --bg-tertiary: #E8E6E1;
+      --border-color: #E8E6E1;
+      --bg-hover: #ECEBE6;
       --accent-color: var(--primary); /* 강조 색상 */
       --card-bg: var(--card); /* 카드 배경 */
       --font-meta-weight: 500; /* 메타 텍스트 굵기 */
       --font-desc-line-height: 1.6; /* 설명 텍스트 행간 */
 
-	      /* === Shadows - 레이어드 소프트 섀도 (카드가 떠 보이는 모던 블로그 톤) === */
-	      --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.04);
-	      --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.05), 0 1px 2px rgb(0 0 0 / 0.04);
-	      --shadow: 0 2px 8px rgb(0 0 0 / 0.06), 0 1px 3px rgb(0 0 0 / 0.05);
-	      --shadow-lg: 0 8px 24px rgb(0 0 0 / 0.09), 0 2px 6px rgb(0 0 0 / 0.05);
-	      --shadow-xl: 0 16px 48px rgb(0 0 0 / 0.12);
+	      /* === Shadows - 라이트 리뉴얼: 그림자 대신 1px 테두리. 카드 호버도 테두리 색만 바뀐다 === */
+	      --shadow-xs: none;
+	      --shadow-sm: none;
+	      --shadow: none;
+	      --shadow-lg: 0 8px 24px rgb(0 0 0 / 0.06);
+	      --shadow-xl: 0 16px 48px rgb(0 0 0 / 0.10);
 
       /* === Glass Effect === */
       --glass-bg: rgba(255, 255, 255, 0.7);
@@ -236,7 +236,7 @@
 
 	      /* === Interactive States === */
 	      --hover-bg: var(--bg-hover);
-	      --active-bg: #eef2ff;
+	      --active-bg: #E8E6E1;
 	      --item-bg: #ffffff;
 
       /* === Semantic Colors === */

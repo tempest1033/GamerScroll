@@ -1,6 +1,5 @@
 /* Shared core styles for all pages */
 @import url("./00-base.css");
-@import url("./01-dark-mode.css");
 @import url("./05-ads.css");
 @import url("./06-tabs.css");
 @import url("./07-home-subtabs.css");
@@ -17,3 +16,4 @@
 @import url("./91-trends-hub-feed.css");
 @import url("./92-wiki.css");
 @import url("./99-edge-to-edge.css");
+@import url("./95-light-renewal.css");

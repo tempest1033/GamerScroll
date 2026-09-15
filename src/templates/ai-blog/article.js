@@ -22,7 +22,7 @@ const {
 } = require('./index');
 const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, authorOf } = require('./taxonomy');
 const { publicationLanguages, articlePublicationUrls } = require('./taxonomy');
-const { AD_SLOTS, generateHomeAdPairSlot } = require('../../aiscroll-ui/layout');
+const { AD_SLOTS, generateHomeAdPairSlot, generateRectangleAdSlot } = require('../../aiscroll-ui/layout');
 const { renderRankingBlock } = require('../../aiscroll-ui/helpers/ranking-blocks');
 const { renderTextBlock, tableStackClass, tableCellLabelAttr } = require('../../aiscroll-ui/helpers/content-text');
 const { createArticleToc } = require('../../aiscroll-ui/helpers/article-toc');
@@ -514,8 +514,8 @@ function generateAIBlogArticle(article, data = {}) {
     `).join('');
     const latestListHtml = renderList(latestArticles);
 
+    // 라이트 리뉴얼: 카테고리 목록 카드는 상단 내비와 겹쳐 뺐다. 인기/최신 순위만.
     return `
-      ${generateCategoryMenu()}
       <div class="home-card" id="sidebar-articles">
         <div class="home-card-header">
           <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
@@ -560,7 +560,7 @@ function generateAIBlogArticle(article, data = {}) {
         return allArticles.find(a => a.slug === slug);
       })
       .filter(Boolean)
-      .slice(0, 4);
+      .slice(0, 3);
 
     if (filteredRelated.length === 0) return '';
 
@@ -608,11 +608,44 @@ function generateAIBlogArticle(article, data = {}) {
     </div>
   `;
 
-  // PC는 고정 사이드바, 모바일은 본문 시작의 접이식 목차를 사용한다.
+  // 공유 — eesel 방식: 라벨 + 둥근 아이콘 버튼(X · LinkedIn · Facebook · 링크 복사). 독자용이라 사이트 계정과 무관.
+  const shareUrl = `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${normalizeCategory(article.category)}/${article.slug}/`;
+  const shareUrlEnc = encodeURIComponent(shareUrl);
+  const shareTextEnc = encodeURIComponent(article.title || '');
+  const shareLabel = _lang === 'ko' ? '이 글 공유' : 'Share this article';
+  const shareHTML = `
+    <div class="blog-share" aria-label="${shareLabel}">
+      <p class="blog-share-label">${shareLabel}</p>
+      <div class="blog-share-buttons">
+        <a class="blog-share-btn" href="https://x.com/intent/post?text=${shareTextEnc}&url=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.2 8.2L23.3 22h-6.6l-5.2-6.8L5.6 22H2.4l7.7-8.8L1 2h6.8l4.7 6.2L18.9 2zm-1.2 18.1h1.8L6.4 3.8H4.5l13.2 16.3z"/></svg></a>
+        <a class="blog-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
+        <a class="blog-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+        <button type="button" class="blog-share-btn blog-share-copy" data-share-url="${escapeHtml(shareUrl)}" data-copied-label="${_lang === 'ko' ? '복사됨' : 'Copied'}" aria-label="${_lang === 'ko' ? '링크 복사' : 'Copy link'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></button>
+      </div>
+    </div>`;
+
+  // PC는 고정 사이드바(공유 → 목차 → 300×250 → 인기/최신), 모바일은 본문 시작의 접이식 목차를 사용한다.
   const sidebarHTML = `
+    ${shareHTML}
     ${toc.sidebarHTML}
+    ${generateRectangleAdSlot(AD_SLOTS.RectanglePC001)}
     ${generateSidebarArticles()}
   `;
+
+  // 글쓴이 소개 — eesel 'Article by' 블록. 모든 글에 Editor J 로 통일.
+  const authorBoxHTML = (() => {
+    const isKo = _lang === 'ko';
+    const kicker = isKo ? '글쓴이' : 'Article by';
+    const bio = isKo
+      ? '코딩 에이전트 Mixdog를 비롯해 여러 프로그램을 개발해 온 한국의 개발자. AI를 활용해 다양한 콘텐츠를 만들고 있으며, 그 과정에서 얻은 경험을 공유하기 위해 AI 관련 글을 쓰고 있습니다.'
+      : 'A developer in Korea who has built Mixdog, a coding agent, along with a range of other software. Creates content with AI, and writes here to share what that experience has taught them.';
+    return `
+      <section class="blog-author-box">
+        <p class="blog-author-kicker">${kicker}</p>
+        <h2 class="blog-author-name">Editor J</h2>
+        <p class="blog-author-bio">${bio}</p>
+      </section>`;
+  })();
 
   // 저자(사람/사이트)·주제 태그 — 구글이 보는 "누가" 신호 (제작 방식 문구는 노출하지 않는다)
   const author = authorOf(article, SITE_CONFIG.name, SITE_CONFIG.baseUrl);
@@ -636,6 +669,7 @@ function generateAIBlogArticle(article, data = {}) {
             ${topAds}
             <div class="blog-card">
               <header class="blog-header">
+                <nav class="blog-crumb" aria-label="${_lang === 'ko' ? '현재 위치' : 'Breadcrumb'}"><a href="${homeHref(_lang)}">${_lang === 'ko' ? '홈' : 'Home'}</a><span class="blog-crumb-sep">/</span><a href="${categoryHref(normalizeCategory(article.category), _lang)}">${escapeHtml(_t.categoryLabels[normalizeCategory(article.category)] || '')}</a></nav>
                 <h1 class="blog-title">${escapeHtml(article.title)}</h1>
                 <div class="blog-meta">
                   ${bylineHTML}
@@ -666,6 +700,7 @@ function generateAIBlogArticle(article, data = {}) {
 
               ${generateRelatedArticles()}
               ${sourcesHTML}
+              ${authorBoxHTML}
             </div>
 
             ${navHTML}
@@ -708,7 +743,25 @@ function generateAIBlogArticle(article, data = {}) {
         init();
       }
     })();
-  </script>${toc.scriptHTML}`;
+  </script>${toc.scriptHTML}<script>
+    (function() {
+      var btn = document.querySelector('.blog-share-copy');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var url = btn.getAttribute('data-share-url') || location.href;
+        var done = function() {
+          btn.classList.add('is-copied');
+          btn.setAttribute('data-tip', btn.getAttribute('data-copied-label') || 'Copied');
+          setTimeout(function() { btn.classList.remove('is-copied'); }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done, function() { window.prompt('URL', url); });
+        } else {
+          window.prompt('URL', url);
+        }
+      });
+    })();
+  </script>`;
 
   // 카테고리 라벨 매핑
   const categoryLabels = _t.categoryLabels;

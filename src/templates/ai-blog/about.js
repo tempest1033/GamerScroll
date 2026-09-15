@@ -18,7 +18,7 @@ const COPY = {
     updated: 'Last updated: September 2026',
     sections: [
       ['Who writes this', [
-        `AIScroll is written and run by <strong>Editor J</strong> (pen name), a game developer in Korea who runs both <a href="https://gamerscroll.com/" rel="noopener" target="_blank">GamerScroll</a> and AIScroll. There is no content team; every article is drafted, checked, and published by the same person.`,
+        `AIScroll is a blog run by <strong>Editor J</strong> (pen name), a developer in Korea who has built <strong>Mixdog</strong>, a coding agent, along with a range of other software, and creates content with AI. This site is where that experience with AI gets shared. Editor J also runs <a href="https://gamerscroll.com/" rel="noopener" target="_blank">GamerScroll</a>.`,
         `Editor J is on X as <a href="${SITE_X_URL}" rel="me noopener" target="_blank">${X_HANDLE}</a>. Corrections and questions go there.`
       ]],
       ['How each type of article is made', [
@@ -28,13 +28,6 @@ const COPY = {
         `<strong>News</strong> is checked against the primary source (release notes, filings, official posts) before publication, and the sources are linked at the end of each piece.`,
         `<strong>Hot Picks</strong> cover sales, special offers, free giveaways, and limited-time events. General tool recommendations belong in Reviews. Nothing is placed for payment, and affiliate links, if any, are marked.`
       ]],
-      ['AI assistance and disclosure', [
-        `AI tools are used for drafting, translation between Korean and English, and copy editing. Hands-on use, measurements, and editorial judgment are the editor's. Each article ends with a short note saying which of these applied.`,
-        `Mixdog, a coding agent the editor builds, is labeled as the editor's own tool wherever it appears in a comparison or benchmark.`
-      ]],
-      ['What you will not find here', [
-        `No rewritten press releases, no articles produced in bulk to chase keywords, and no invented hands-on experience. Source-based comparisons are clearly identified. AIScroll restarted in September 2026 with that rule; earlier news-digest posts were retired and are not indexed.`
-      ]]
     ],
     sectionsHeading: 'Sections'
   },
@@ -45,7 +38,7 @@ const COPY = {
     updated: '최종 수정: 2026년 9월',
     sections: [
       ['누가 쓰는가', [
-        `AIScroll은 <strong>Editor J</strong>(필명)가 혼자 쓰고 운영합니다. <a href="https://gamerscroll.com/" rel="noopener" target="_blank">게이머스크롤</a>과 AIScroll을 운영 중인 한국의 게임 개발자입니다. 별도의 콘텐츠 팀은 없으며 모든 글의 초안·검증·발행을 같은 사람이 합니다.`,
+        `AIScroll은 <strong>Editor J</strong>(필명)가 운영하는 블로그입니다. 코딩 에이전트 <strong>Mixdog</strong>를 비롯해 여러 프로그램을 개발해 온 한국의 개발자로, AI를 활용해 다양한 콘텐츠를 만들고 있습니다. 그 과정에서 얻은 AI 관련 경험을 공유하기 위해 이 사이트에 글을 쓰고 있습니다. <a href="https://gamerscroll.com/" rel="noopener" target="_blank">게이머스크롤</a>도 함께 운영합니다.`,
         `X 계정은 <a href="${SITE_X_URL}" rel="me noopener" target="_blank">${X_HANDLE}</a>입니다. 정정 요청과 문의는 이곳으로 주세요.`
       ]],
       ['글 종류별 제작 기준', [
@@ -55,13 +48,6 @@ const COPY = {
         `<strong>뉴스</strong>는 발행 전 1차 자료(릴리스 노트, 공시, 공식 게시물)로 확인하고, 출처를 글 끝에 링크합니다.`,
         `<strong>핫픽</strong>은 할인·특가·무료 배포·기간 한정 이벤트를 다룹니다. 일반적인 도구 추천은 리뷰로 분류합니다. 대가를 받고 싣는 항목은 없고, 제휴 링크가 있으면 표시합니다.`
       ]],
-      ['AI 사용과 공개', [
-        `AI 도구는 초안 정리, 한국어·영어 번역, 교정에 씁니다. 실사용, 측정, 편집 판단은 편집자가 합니다. 각 글 끝에 이 중 무엇을 적용했는지 한 줄로 밝힙니다.`,
-        `편집자가 만드는 코딩 에이전트 Mixdog가 비교나 벤치마크에 등장할 때는 항상 자사 도구임을 표시합니다.`
-      ]],
-      ['이 사이트에 없는 것', [
-        `보도자료 재작성, 검색어를 노리고 대량으로 찍어낸 글, 직접 써보지 않은 도구를 실사용한 것처럼 표현하는 글은 없습니다. 자료 기반 비교는 그 근거를 명확히 밝힙니다. AIScroll은 2026년 9월에 이 원칙으로 다시 시작했고, 이전의 뉴스 요약 글은 정리해 색인에서 제외했습니다.`
-      ]]
     ],
     sectionsHeading: '카테고리'
   }

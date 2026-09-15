@@ -95,6 +95,13 @@ const AI_CATEGORY_IDS = CATEGORY_IDS;
 const SIDEBAR_CATEGORY_IDS = CATEGORY_IDS;
 
 
+// 로고: assets/aiscroll-logo.svg (점 4개 마크 + Pretendard 800 워드마크 윤곽선). 인라인으로 넣어 currentColor 를 따른다.
+const AISCROLL_LOGO_SVG = (() => {
+  const raw = fs.readFileSync(path.join(__dirname, '..', '..', '..', 'assets', 'aiscroll-logo.svg'), 'utf8').trim();
+  return raw.replace(/^<svg\b([^>]*?)\s(?:width|height)="[^"]*"/g, '<svg$1').replace(/^<svg\b([^>]*?)\s(?:width|height)="[^"]*"/g, '<svg$1');
+})();
+const logoSvg = (className) => AISCROLL_LOGO_SVG.replace(/^<svg\b/, `<svg class="${className}"`);
+
 // AIScroll 헤더 (로고 + 검색창 - PC용)
 function generateHeader(lang = 'en') {
   const _t = I18N[lang] || I18N.en;
@@ -105,23 +112,7 @@ function generateHeader(lang = 'en') {
       <div class="header-title aiscroll-logo">
         <a href="${_homeHref}">
           <span class="visually-hidden">AIScroll</span>
-          <svg class="logo-svg" viewBox="0 0 400 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <defs>
-              <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#2563EB" />
-                <stop offset="100%" stop-color="#60A5FA" />
-              </linearGradient>
-            </defs>
-            <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard', -apple-system, sans-serif" font-size="52" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">AI SCROLL</text>
-            <!-- 왼쪽 안테나 -->
-            <rect x="6" y="18" width="8" height="20" rx="4" fill="url(#techGrad)" opacity="0.4"/>
-            <rect x="20" y="12" width="8" height="32" rx="4" fill="url(#techGrad)" opacity="0.7"/>
-            <rect x="34" y="6" width="8" height="44" rx="4" fill="url(#techGrad)"/>
-            <!-- 오른쪽 안테나 -->
-            <rect x="358" y="6" width="8" height="44" rx="4" fill="url(#techGrad)"/>
-            <rect x="372" y="12" width="8" height="32" rx="4" fill="url(#techGrad)" opacity="0.7"/>
-            <rect x="386" y="18" width="8" height="20" rx="4" fill="url(#techGrad)" opacity="0.4"/>
-          </svg>
+          ${logoSvg('logo-svg')}
         </a>
       </div>
       <div class="aiscroll-search">
@@ -149,21 +140,7 @@ function generateSearchContainer(lang = 'en') {
   return `
   <div class="search-container">
     <a href="${_homeHref}" class="search-home-logo" aria-label="AIScroll">
-      <svg class="search-home-logo-svg" viewBox="0 0 400 56" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="techGradMobile" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#2563EB" />
-            <stop offset="100%" stop-color="#60A5FA" />
-          </linearGradient>
-        </defs>
-        <text class="logo-text-svg" x="50%" y="50%" dy="2" font-family="'Pretendard Variable', 'Pretendard', -apple-system, sans-serif" font-size="52" font-weight="900" fill="currentColor" text-anchor="middle" dominant-baseline="middle" letter-spacing="-0.5">AI SCROLL</text>
-        <rect x="6" y="18" width="8" height="20" rx="4" fill="url(#techGradMobile)" opacity="0.4"/>
-        <rect x="20" y="12" width="8" height="32" rx="4" fill="url(#techGradMobile)" opacity="0.7"/>
-        <rect x="34" y="6" width="8" height="44" rx="4" fill="url(#techGradMobile)"/>
-        <rect x="358" y="6" width="8" height="44" rx="4" fill="url(#techGradMobile)"/>
-        <rect x="372" y="12" width="8" height="32" rx="4" fill="url(#techGradMobile)" opacity="0.7"/>
-        <rect x="386" y="18" width="8" height="20" rx="4" fill="url(#techGradMobile)" opacity="0.4"/>
-      </svg>
+      ${logoSvg('search-home-logo-svg')}
     </a>
     <a href="${_searchHref}" class="search-toggle" aria-label="${_t.search}" aria-expanded="false" aria-controls="as-mobile-search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -190,14 +167,13 @@ function generateFooter(lang = 'en') {
   const _t = I18N[lang] || I18N.en;
   const _p = lang === 'ko' ? '/ko' : '';
   const year = new Date().getFullYear();
+  // 라이트 리뉴얼: 한 줄 푸터 — 로고 · © · (우측) 소개 · 개인정보. X 링크는 화면에서만 뺀다(rel=me 는 소개 페이지에 남음).
   return `
   <footer class="site-footer">
-    <span>© ${year} AIScroll</span>
-    <span class="footer-divider">|</span>
+    <a href="${homeHref(lang)}" class="footer-logo" aria-label="AIScroll">${logoSvg('footer-logo-svg')}</a>
+    <span class="footer-copy">© ${year} AIScroll</span>
+    <span class="footer-spacer"></span>
     <a href="${_p}${PERSON_AUTHOR.path}" class="footer-about-link">${_t.about}</a>
-    <span class="footer-divider">|</span>
-    <a href="${SITE_X_URL}" class="footer-x-link" rel="me noopener" target="_blank">X</a>
-    <span class="footer-divider">|</span>
     <a href="${_p}/privacy/" class="footer-privacy-link">${_t.privacy}</a>
   </footer>`;
 }
@@ -446,7 +422,7 @@ function getThumbSrcset(url, xsWidth = 240, smWidth = 480, sizes = '(max-width: 
   };
 }
 
-const FEED_PAGE_SIZE = 15;
+const FEED_PAGE_SIZE = 12; // 3열 × 4줄 — 마지막 줄이 비지 않게
 // 첫 페이지는 전부 서버 렌더한다. 일부만 렌더하고 JS로 채우면 로드 후 그리드가 자라며
 // 아래 요소(숨김 SEO 링크·페이지네이션)가 밀려 CLS가 생긴다 (라이브 측정 0.239).
 const INITIAL_FEED_RENDER_COUNT = FEED_PAGE_SIZE;
@@ -722,47 +698,18 @@ function generateAIBlogIndex(data) {
     <section class="home-section active" id="home">
       <h1 class="visually-hidden">${_homeTitle}</h1>
       <div class="page-container">
-        <div class="home-container">
+        <div class="home-container home-container--single">
           <div class="home-main">
             ${topAds}
             ${generatePopularCards()}
             ${generateLatestGrid()}
-          </div>
-          <div class="home-sidebar">
-            <div class="home-sidebar-sticky">
-              ${generateSidebarArticles()}
-            </div>
           </div>
         </div>
       </div>
     </section>
   `;
 
-  // 페이지 스크립트 (GamerScroll 공통 페이저/탭 유틸 동일 사용)
-  const sidebarLatestDeferScript = `
-  <script>
-    (function() {
-      var init = function() {
-        if (!window.GSUtils || typeof window.GSUtils.initSidebarLatestDefer !== 'function') return;
-        window.GSUtils.initSidebarLatestDefer({
-          tabId: 'sidebarArticleTab',
-          latestListId: 'sidebar-latest',
-          templateId: 'sidebar-latest-template',
-          idleTimeout: 3200,
-          fallbackDelay: 1600
-        });
-      };
-      if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.initSidebarLatestDefer === 'function') {
-        init();
-      } else if (typeof window.__gsOnReady === 'function') {
-        window.__gsOnReady(init);
-      } else if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init, { once: true });
-      } else {
-        init();
-      }
-    })();
-  </script>`;
+  // 페이지 스크립트 (GamerScroll 공통 페이저 유틸 동일 사용). 라이트 리뉴얼로 홈 사이드바가 없어져 사이드바 탭 스크립트는 뺐다.
   const pageScripts = `
     ${buildCardFeedPagerScript({
       grid: '#homeLatestGrid',
@@ -782,10 +729,8 @@ function generateAIBlogIndex(data) {
       mobileDomWindowPages: 1,
       mobileInitialPages: 1,
       mobileLoadBatchPages: 1,
-      eagerScrollAdPushLimit: 1,
-      sidebarTabId: 'sidebarArticleTab'
+      eagerScrollAdPushLimit: 1
     })}
-    ${sidebarLatestDeferScript}
   `;
 
   // WebSite JSON-LD for homepage (includes SearchAction)
@@ -986,7 +931,7 @@ function wrapWithLayout(content, options = {}) {
       }, 3000);
     })();
   </script>` : '';
-  const htmlClassNames = ['dark-mode'];
+  const htmlClassNames = [];
   if (deferredCssFiles.length > 0) htmlClassNames.push('deferred-css-pending');
   const htmlClassAttr = escapeHtml(htmlClassNames.join(' '));
 
@@ -1049,8 +994,8 @@ function wrapWithLayout(content, options = {}) {
   <link rel="manifest" href="/manifest.json">
   <meta name="application-name" content="${SITE_CONFIG.name}">
   <meta name="apple-mobile-web-app-title" content="${SITE_CONFIG.name}">
-  <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="color-scheme" content="light">
 
   <!-- Open Graph -->
   <meta property="og:title" content="${escapeHtml(effectiveOgTitle)}">
@@ -1092,6 +1037,7 @@ function wrapWithLayout(content, options = {}) {
 
   <!-- 폰트: Pretendard Variable dynamic subset 셀프호스팅 (generate-ai-blog.js copyAssets 가 복사). font-display: swap -->
   <link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css">
+  <link rel="stylesheet" href="/assets/fonts/inter/inter.css">
   ${cssLinksHtml}
   ${deferredCssGuardScript}
   <style>
@@ -1777,6 +1723,12 @@ function wrapWithLayout(content, options = {}) {
       }
 
       function renderResults(results) {
+        // 모바일: 검색 인덱스 로드가 끝나기 전에 검색창을 닫으면 결과가 뒤늦게 떠서 드롭다운만 남는다. 닫힌 뒤엔 그리지 않는다.
+        if (mobileMode && !container.classList.contains('search-open')) {
+          searchDropdown.innerHTML = '';
+          hideDropdown();
+          return;
+        }
         if (!results || results.length === 0) {
           searchDropdown.innerHTML = emptyHtml;
           searchDropdown.classList.add('active');
@@ -2443,15 +2395,16 @@ function wrapWithLayout(content, options = {}) {
  * 검색 결과 페이지 생성
  */
 function generateSearchPage(lang = 'en') {
+  const _isKo = lang === 'ko';
   const content = `
     <section class="home-section active" id="search">
       <div class="page-container issue-container">
         <div class="home-card">
           <div class="home-card-header">
-            <h1 class="home-card-title">Search Results</h1>
+            <h1 class="home-card-title">${_isKo ? '검색 결과' : 'Search Results'}</h1>
           </div>
           <div class="home-card-body" id="search-results">
-            <p class="search-loading">Loading...</p>
+            <p class="search-loading">${_isKo ? '불러오는 중…' : 'Loading...'}</p>
           </div>
           <div class="home-pagination" id="search-pagination" style="display:none;">
             <button class="home-page-btn home-page-prev" disabled>‹</button>
@@ -2511,9 +2464,9 @@ function generateSearchPage(lang = 'en') {
             '<a href="' + asArticleHref(a.category || 'news', a.slug) + '" class="category-list-card">' +
               '<div class="category-list-thumb">' +
                 (a.thumbnail ? '<img src="' + resolveSearchThumbUrl(a.thumbnail) + '" alt="" width="480" height="270" loading="lazy" decoding="async" data-img-fallback="hide">' : '') +
-                (a.date ? '<span class="category-list-badge">' + a.date + '</span>' : '') +
               '</div>' +
               '<div class="category-list-info">' +
+                (a.date ? '<span class="category-list-date">' + String(a.date).slice(0, 10).replace(/-/g, '.') + '</span>' : '') +
                 '<h3 class="category-list-title">' + a.title + '</h3>' +
                 (a.summary ? '<p class="category-list-summary">' + a.summary + '</p>' : '') +
               '</div>' +
@@ -2607,109 +2560,33 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       </div>`
     : `<p class="search-empty">${_lang === 'ko' ? '아직 이 분류에 글이 없습니다. 곧 채워집니다.' : 'No articles here yet — coming soon.'}</p>`;
 
-  // 카테고리별 기사 개수 계산
-  const countByCategory = {};
-  articles.forEach(a => {
-    const cat = normalizeCategory(a.category);
-    countByCategory[cat] = (countByCategory[cat] || 0) + 1;
-  });
-
-  const _catT = I18N[_lang] || I18N.en;
-  // 0건 카테고리는 사이드바에서 숨긴다 (상단 내비에는 남는다)
-  const categories = SIDEBAR_CATEGORY_IDS
-    .filter(id => (countByCategory[id] || 0) > 0)
-    .map(id => ({ id, label: _catT.categoryLabels[id] }));
-
-  // 사이드바 렌더링
-  const renderSidebarList = (items) => items.slice(0, 10).map((item, i) => `
-    <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="sidebar-article-item">
-      <span class="sidebar-article-rank">${i + 1}</span>
-      <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
-    </a>
-  `).join('');
-  const latestSidebarListHtml = renderSidebarList(latestArticles);
-
-  const sidebarHtml = `
-    <div class="home-sidebar">
-      <div class="home-sidebar-sticky">
-        <div class="home-card" id="sidebar-categories">
-          <div class="sidebar-category-group">
-            <div class="home-card-header">
-              <h3 class="home-card-title">${(I18N[_lang] || I18N.en).categories}</h3>
-            </div>
-            <div class="sidebar-category-list">
-              ${categories.map(cat => `
-                <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
-                  <span class="sidebar-category-name">${cat.label}</span><span class="sidebar-category-count">${countByCategory[cat.id] || 0}</span>
-                </a>
-              `).join('')}
-            </div>
-          </div>
-        </div>
-        <div class="home-card" id="sidebar-articles">
-          <div class="home-card-header">
-            <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-              <button class="tab-btn small active" data-sidebar-tab="popular">${(I18N[_lang] || I18N.en).popular}</button>
-              <button class="tab-btn small" data-sidebar-tab="latest">${(I18N[_lang] || I18N.en).latest}</button>
-            </div>
-          </div>
-          <div class="home-card-body">
-            <div class="sidebar-article-list active" id="sidebar-popular">${renderSidebarList(popularArticles)}</div>
-            <div class="sidebar-article-list" id="sidebar-latest"></div>
-            <template id="sidebar-latest-template">${latestSidebarListHtml}</template>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { narrow: true });
+  const _catT = I18N[_lang] || I18N.en;
+  const categoryIntro = isTopicPage ? '' : categoryDescription(categoryId, _lang);
 
+  // 라이트 리뉴얼: 홈과 같은 단일 컬럼(사이드바 없음). 제목 + 분류 설명 + 카드 그리드.
   const content = `
     <section class="home-section active" id="category">
       <div class="page-container">
-        <div class="home-container">
+        <div class="home-container home-container--single">
           <div class="home-main">
             ${topAds}
+            <header class="collection-head">
+              <p class="collection-kicker">${isTopicPage ? escapeHtml(_catT.topics) : escapeHtml(_catT.categories)}</p>
+              <h1 class="collection-title">${escapeHtml(categoryLabel)}</h1>
+              ${categoryIntro ? `<p class="collection-desc">${escapeHtml(categoryIntro)}</p>` : ''}
+            </header>
             <div class="home-card">
-              <div class="home-card-header">
-                <h1 class="home-card-title">${escapeHtml(categoryLabel)}</h1>
-              </div>
               <div class="home-card-body">
                 ${articleListHtml}
               </div>
             </div>
           </div>
-          ${sidebarHtml}
         </div>
       </div>
     </section>
   `;
 
-  const sidebarLatestDeferScript = `
-  <script>
-    (function() {
-      var init = function() {
-        if (!window.GSUtils || typeof window.GSUtils.initSidebarLatestDefer !== 'function') return;
-        window.GSUtils.initSidebarLatestDefer({
-          tabId: 'sidebarArticleTab',
-          latestListId: 'sidebar-latest',
-          templateId: 'sidebar-latest-template',
-          idleTimeout: 3200,
-          fallbackDelay: 1600
-        });
-      };
-      if (window.GSUtils && window.GSUtils.__ready === true && typeof window.GSUtils.initSidebarLatestDefer === 'function') {
-        init();
-      } else if (typeof window.__gsOnReady === 'function') {
-        window.__gsOnReady(init);
-      } else if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init, { once: true });
-      } else {
-        init();
-      }
-    })();
-  </script>`;
   const pageScripts = `
     ${buildCardFeedPagerScript({
       grid: '#categoryGrid',
@@ -2729,10 +2606,8 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       mobileDomWindowPages: 1,
       mobileInitialPages: 1,
       mobileLoadBatchPages: 1,
-      eagerScrollAdPushLimit: 1,
-      sidebarTabId: 'sidebarArticleTab'
+      eagerScrollAdPushLimit: 1
     })}
-    ${sidebarLatestDeferScript}
   `;
 
   const _catInLanguage = _lang === 'ko' ? 'ko-KR' : 'en-US';

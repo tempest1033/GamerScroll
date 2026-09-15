@@ -450,6 +450,24 @@ async function copyAssets(faviconChanged = false) {
     fs.copyFileSync(aiFaviconSrc, path.join(DOCS_DIR, 'favicon.svg'));
   }
 
+  // 파비콘 원본은 저장소(assets/aiscroll-favicon.svg)가 기준. ai-docs/favicon.svg 는 배포 시드라 매 빌드 덮어쓴다.
+  const faviconSrc = path.join(__dirname, 'assets', 'aiscroll-favicon.svg');
+  if (fs.existsSync(faviconSrc)) {
+    const faviconDest = path.join(DOCS_DIR, 'favicon.svg');
+    const next = fs.readFileSync(faviconSrc);
+    if (!fs.existsSync(faviconDest) || !next.equals(fs.readFileSync(faviconDest))) {
+      fs.copyFileSync(faviconSrc, faviconDest);
+      faviconChanged = true;
+      console.log('favicon.svg 갱신 (assets/aiscroll-favicon.svg)');
+    }
+  }
+
+  // Inter 폰트 셀프호스팅 (assets/fonts/inter → ai-docs/assets/fonts/inter). 참조 경로는 ai-blog/index.js 의 <link>와 일치.
+  const interSrcDir = path.join(__dirname, 'assets', 'fonts', 'inter');
+  if (fs.existsSync(interSrcDir)) {
+    copyDirRecursive(interSrcDir, path.join(DOCS_DIR, 'assets', 'fonts', 'inter'));
+  }
+
   // manifest.json 복사
   const manifestSrc = path.join(__dirname, 'ai-docs', 'manifest.json');
   if (fs.existsSync(manifestSrc)) {

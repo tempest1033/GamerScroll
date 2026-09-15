@@ -1,0 +1,563 @@
+/* ==========================================================================
+   AIScroll 라이트 리뉴얼 — 공통 오버라이드 (core 번들 마지막에 로드)
+   목업: mockups/aiscroll-light/ (eesel.ai/blog 실측값 기준). 색·서체 토큰은 00-base.css.
+   기존 DOM 구조는 유지하고 모양만 바꾼다. 인라인 <style>(헤더·검색)보다 이겨야 하는 곳은 #aiscroll-header 로 특이도를 올린다.
+   ========================================================================== */
+
+:root {
+  --font-title-weight: 600;
+  --font-card-title-weight: 600;
+  --font-nav-weight: 400;
+  --font-article-title-size: 38px;
+  --font-article-h2-size: 25px;
+  --font-article-h3-size: 20px;
+  --font-article-body-size: 16px;
+  --font-article-lead-size: 17px;
+  --font-feature-title-size: 22px;
+  --font-card-title-size: 18px;
+  --font-card-summary-size: 14px;
+  --font-card-meta-size: 12px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --glass-bg: #ffffff;
+  --glass-bg-solid: #ffffff;
+  --glass-border: var(--border);
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  /* 10-home-core.css 의 body 시스템 폰트 스택이 00-base 를 덮어써 Inter·Pretendard 가 적용되지 않던 문제 — 여기서 최종 확정 */
+  font-family: Inter, "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4,
+.home-trend-card-title, .hero-feature-title, .sidebar-article-title, .article-toc-text {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- 헤더 (PC) : 로고 · 내비 · 검색 한 줄 84px ---------- */
+header#aiscroll-header.aiscroll-header {
+  padding: 0;
+  height: 84px;
+  background: var(--bg);
+  z-index: 120;
+}
+header#aiscroll-header .aiscroll-header-inner {
+  max-width: 1185px;
+  height: 84px;
+  padding: 0 40px;
+  gap: 16px;
+}
+header#aiscroll-header .aiscroll-logo a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-primary);
+}
+header#aiscroll-header .aiscroll-logo .logo-svg {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+header#aiscroll-header .aiscroll-search {
+  width: 260px;
+}
+header#aiscroll-header .aiscroll-search .search-box {
+  height: 36px;
+  padding: 0 14px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-sizing: border-box;
+}
+header#aiscroll-header .aiscroll-search .search-box:focus-within {
+  border-color: var(--text-tertiary);
+}
+header#aiscroll-header .aiscroll-search .search-input {
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+}
+header#aiscroll-header .aiscroll-search .search-input::placeholder {
+  color: var(--text-muted);
+}
+header#aiscroll-header .aiscroll-search .search-btn {
+  color: var(--text-muted);
+}
+header#aiscroll-header .aiscroll-search .search-btn svg {
+  width: 15px;
+  height: 15px;
+}
+header#aiscroll-header .aiscroll-search .search-dropdown {
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-radius: 12px !important;
+}
+header#aiscroll-header .aiscroll-search .search-result-item {
+  color: var(--text);
+  border-bottom: 1px solid var(--border-subtle);
+}
+header#aiscroll-header .aiscroll-search .search-result-item:hover {
+  background: var(--bg);
+}
+header#aiscroll-header .aiscroll-search .search-no-results {
+  color: var(--text-muted);
+}
+
+/* 내비: PC에서는 헤더 줄 안(로고 오른쪽)에 겹쳐 놓는다. 마크업 순서(헤더 → 모바일 검색바 → 내비)는 모바일 스크립트 때문에 유지. */
+@media (min-width: 769px) {
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 84px;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-bottom: 0;
+    box-shadow: none;
+    z-index: 121;
+    pointer-events: none;
+  }
+  .nav-inner {
+    max-width: 1185px;
+    height: 84px;
+    align-items: center;
+    justify-content: flex-start !important;
+    gap: 4px;
+    /* 40px 여백 + 로고 폭(26px 높이 기준 ≈ 98px) + 40px 간격 */
+    padding: 0 320px 0 178px;
+    pointer-events: auto;
+  }
+  .nav-item,
+  .nav-item:hover,
+  .nav-item.active {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: var(--text);
+    background: transparent;
+  }
+  .nav-item:hover {
+    background: var(--bg-secondary);
+  }
+  .nav-item.active {
+    font-weight: 500;
+  }
+  .nav-item.active::after {
+    display: none;
+  }
+}
+
+/* ---------- 상단 광고 자리: 970 폭 중앙, 예약 높이는 유닛 실제 크기 기준(PC 90 · 모바일 100) ---------- */
+.home-main > .ad-card-responsive-home:first-child,
+.article-main > .ad-card-responsive-home:first-child {
+  margin-top: 12px;
+  background: transparent;
+  border: 0;
+}
+
+/* ---------- 페이지 폭 ---------- */
+.page-container {
+  max-width: 1185px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.home-container--single {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+/* 카드 제목은 호버해도 색을 바꾸지 않는다(포인트 블루 대신 테두리만 진해짐) */
+.home-trend-card:hover .home-trend-card-title,
+.hero-feature:hover .hero-feature-title {
+  color: var(--text);
+}
+
+/* ---------- 대표글 (인기 1위) 가로 카드 ---------- */
+.home-hero {
+  margin: 24px 0;
+}
+.hero-feature {
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fbfaf8;
+  align-items: stretch;
+  box-shadow: none;
+}
+.hero-feature:hover {
+  border-color: var(--border-hover);
+  box-shadow: none;
+  transform: none;
+}
+.hero-feature-media {
+  aspect-ratio: 585 / 329;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+.hero-feature-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-feature-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 26px 32px 20px;
+}
+.hero-feature-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-muted);
+}
+.hero-feature-kicker,
+.hero-feature-category {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  background: var(--bg-tertiary);
+  color: #3f4147;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.hero-feature-kicker {
+  background: var(--text);
+  color: #fff;
+}
+.hero-feature-title {
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  margin: 0;
+}
+.hero-feature-summary {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---------- 최신 그리드: 3열, 카드는 흰 배경 + 1px 테두리 ---------- */
+#home-latest.home-card,
+#category .home-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+#home-latest .home-section-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+#home-latest .home-card-body,
+#category .home-card-body {
+  padding: 0;
+}
+.home-latest-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0;
+}
+.home-trend-card.home-latest-item,
+.home-latest-grid .home-trend-card {
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color 0.15s;
+}
+.home-latest-grid .home-trend-card:hover {
+  border-color: var(--border-hover);
+  transform: none;
+  box-shadow: none;
+}
+.home-latest-grid .home-trend-card-image {
+  aspect-ratio: 365 / 205;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+.home-latest-grid .home-trend-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.home-latest-grid .home-trend-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px 16px 16px;
+}
+.home-latest-grid .home-trend-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+.home-latest-grid .home-trend-card-category {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  background: var(--bg-tertiary);
+  color: #3f4147;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.home-latest-grid .home-trend-card-title {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+.home-latest-grid .home-trend-card-summary {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---------- 페이지 넘김: 원형 32px, 활성 검정 ---------- */
+.home-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 32px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.home-page-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--bg-tertiary);
+  color: #3f4147;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.home-page-btn:hover:not(:disabled) {
+  background: #dedbd3;
+}
+.home-page-btn:disabled {
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: default;
+}
+.home-page-info,
+.home-page-index {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 카테고리·토픽 페이지 머리 ---------- */
+.collection-head {
+  margin: 28px 0 24px;
+}
+.collection-kicker {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0 0 8px;
+}
+.collection-title {
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  color: var(--text-primary);
+  margin: 0;
+}
+.collection-desc {
+  max-width: 640px;
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+.search-empty {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--text-muted);
+}
+/* 검색 결과: 날짜는 썸네일 위 배지 대신 제목 위 작은 회색 텍스트 */
+.category-list-date {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 푸터: 한 줄 ---------- */
+.site-footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1185px;
+  margin: 48px auto 0;
+  padding: 28px 40px;
+  border-top: 0;
+  background: var(--bg-secondary);
+  border-radius: 16px 16px 0 0;
+  text-align: left;
+  font-size: 13px;
+  line-height: 20px;
+  color: #3f4147;
+}
+.site-footer .footer-logo {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-primary);
+  margin-right: 4px;
+}
+.site-footer .footer-logo-svg {
+  height: 18px;
+  width: auto;
+  display: block;
+}
+.site-footer .footer-spacer {
+  flex: 1;
+}
+.site-footer a {
+  color: #3f4147;
+  padding: 0;
+  margin: 0;
+}
+.site-footer a:hover {
+  color: var(--text-primary);
+}
+.site-footer .footer-divider {
+  display: none;
+}
+
+/* ---------- 모바일 ---------- */
+@media (max-width: 768px) {
+  .page-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .search-container .search-home-logo-svg {
+    height: 22px;
+    width: auto;
+  }
+  .search-container .search-home-logo {
+    color: var(--text-primary);
+  }
+  /* 모바일 내비: 탭·스와이프 중(.swiping / body.is-swiping 의 color:inherit)에도 글자색이 빠지지 않게 고정 */
+  .nav .nav-inner .nav-item,
+  .nav .nav-inner .nav-item.active,
+  .nav .nav-inner .nav-item.swiping,
+  .nav .nav-inner .nav-item:active,
+  .nav .nav-inner .nav-item:focus {
+    color: var(--text) !important;
+    -webkit-text-fill-color: var(--text) !important;
+    opacity: 1 !important;
+  }
+  .nav-item.active {
+    --nav-active-color: var(--text-primary);
+  }
+  .nav .nav-inner .nav-item.active::after {
+    background: var(--text-primary) !important;
+  }
+  /* 모바일 피드 카드: 썸네일·제목·요약을 한 덩어리 흰 카드로 (공용 규칙이 테두리를 지우므로 !important) */
+  #home-latest #homeLatestGrid,
+  #categoryGrid {
+    gap: 16px !important;
+  }
+  #home-latest #homeLatestGrid > .home-trend-card,
+  #categoryGrid > .home-trend-card {
+    padding: 6px !important;
+    background: #fff !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  #homeLatestGrid > .home-trend-card .home-trend-card-image,
+  #categoryGrid > .home-trend-card .home-trend-card-image {
+    border-radius: 8px;
+  }
+  #homeLatestGrid > .home-trend-card .home-trend-card-body,
+  #categoryGrid > .home-trend-card .home-trend-card-body {
+    padding: 14px 12px 12px;
+  }
+  .hero-feature {
+    grid-template-columns: 1fr;
+  }
+  .hero-feature-body {
+    padding: 18px 14px 14px;
+  }
+  .home-latest-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0;
+  }
+  .home-latest-grid .home-trend-card-summary {
+    display: -webkit-box;
+  }
+  .collection-title {
+    font-size: 26px;
+  }
+  .site-footer {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    margin-top: 32px;
+    padding: 24px 16px calc(24px + env(safe-area-inset-bottom, 0px));
+    border-radius: 0;
+  }
+}

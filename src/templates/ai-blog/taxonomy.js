@@ -72,11 +72,10 @@ const LEGACY_CATEGORY_REDIRECTS = {
   vibecoding: '/topic/vibecoding/'
 };
 
-// 저자. 후기·가이드·뉴스는 사람(Editor J), 순위·벤치마크·핫픽처럼 집계 방법론이 저자인 글은 사이트(Organization).
-// JSON의 author 필드로 글 단위 재지정: "site" → Organization, 그 외 문자열 → Person 이름.
+// 저자. 모든 카테고리가 사람(Editor J)으로 통일. JSON의 author 필드로 글 단위 재지정: "site" → Organization, 그 외 문자열 → Person 이름.
 const SITE_X_URL = 'https://x.com/aiscroll_io';
 const PERSON_AUTHOR = { name: 'Editor J', path: '/about/' };
-const ORG_AUTHOR_CATEGORIES = new Set(['benchmarks', 'hot']);
+const ORG_AUTHOR_CATEGORIES = new Set();
 
 function normalizeLang(lang) { return lang === 'ko' ? 'ko' : 'en'; }
 
