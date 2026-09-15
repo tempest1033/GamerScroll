@@ -1,4 +1,4 @@
-﻿/**
+/**
  * 트렌드 페이지 템플릿
  * NOTE: 복잡한 기능은 추후 추가 예정
  */
@@ -253,7 +253,7 @@ function generateComparisonChart(chartBlock) {
             var el = document.getElementById('${chartId}');
             if (!el || el.dataset.rendered) return;
             el.dataset.rendered = 'true';
-            var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var isDark = false; /* 라이트 고정 (2026-09-15) */
             var labelColor = isDark ? '#adb5bd' : '#666';
             var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
             new ApexCharts(el, {
@@ -1247,7 +1247,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${lineChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
-                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var isDark = false; /* 라이트 고정 (2026-09-15) */
                       var labelColor = isDark ? '#adb5bd' : '#666';
                       var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
@@ -1340,7 +1340,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                     var el = document.getElementById('${donutChartId}');
                     if (!el || el.dataset.rendered) return;
                     el.dataset.rendered = 'true';
-                    var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    var isDark = false; /* 라이트 고정 (2026-09-15) */
                     var labelColor = isDark ? '#adb5bd' : '#666';
                     var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                     new ApexCharts(el, {
@@ -1425,7 +1425,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${trendChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
-                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var isDark = false; /* 라이트 고정 (2026-09-15) */
                       var labelColor = isDark ? '#adb5bd' : '#666';
                       var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
@@ -1472,7 +1472,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${heatChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
-                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var isDark = false; /* 라이트 고정 (2026-09-15) */
                       var labelColor = isDark ? '#adb5bd' : '#666';
                       var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {
@@ -1519,7 +1519,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
                       var el = document.getElementById('${radarChartId}');
                       if (!el || el.dataset.rendered) return;
                       el.dataset.rendered = 'true';
-                      var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      var isDark = false; /* 라이트 고정 (2026-09-15) */
                       var labelColor = isDark ? '#adb5bd' : '#666';
                       var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
                       new ApexCharts(el, {

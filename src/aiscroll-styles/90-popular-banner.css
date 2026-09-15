@@ -111,20 +111,8 @@
   opacity: 0.7;
 }
 
-/* 다크모드 - 실시간 인기 배너 */
-@media (prefers-color-scheme: dark) {
-  .popular-banner {
-    background: var(--card);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .popular-banner-item {
-    background: var(--card-hover);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-  .popular-banner-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 모바일 띠 배너 - 숨김 */
 @media (max-width: 768px) {

@@ -686,7 +686,7 @@ function generateAIBlogIndex(data) {
   }
 
   // 상단 광고
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { billboard: true });
   const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
   const _homeDescription = _lang === 'ko'
     ? 'AIScroll은 AI 모델 출시, 코딩 에이전트, 빅테크 전략, 연구 동향을 빠르게 정리해 주는 AI 산업 인사이트 허브입니다.'
@@ -2228,7 +2228,7 @@ function wrapWithLayout(content, options = {}) {
       var isMobileTopAd = wrap.classList.contains('ad-card-mobile-top');
       var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
       var minHeight = isTopAd
-        ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 100 : 90)
+        ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 250 : 90)
         : 0;
       var targetHeight = Math.max(iframeHeight, minHeight);
       var adHeight = Math.round(ad.getBoundingClientRect().height || ad.offsetHeight || 0);
@@ -2243,7 +2243,9 @@ function wrapWithLayout(content, options = {}) {
       ad.style.minHeight = targetHeight + 'px';
       if (isShortTopAd) iframe.style.minHeight = minHeight + 'px';
       if (isMobileTopAd) {
-        var mobileAdMaxWidth = 320;
+        // 모바일 상단은 300×250 고정 (2026-09-15, 이전 320×100)
+        var mobileAdMaxWidth = 300;
+        var mobileAdHeightPx = '250px';
         var parentRect = wrap.parentElement && wrap.parentElement.getBoundingClientRect
           ? wrap.parentElement.getBoundingClientRect()
           : null;
@@ -2252,21 +2254,13 @@ function wrapWithLayout(content, options = {}) {
         var mobileAdWidth = Math.min(mobileAdMaxWidth, parentWidth || mobileAdMaxWidth, viewportWidth || mobileAdMaxWidth);
         if (!mobileAdWidth || mobileAdWidth < 1) mobileAdWidth = mobileAdMaxWidth;
         var mobileAdWidthPx = Math.round(mobileAdWidth) + 'px';
-        wrap.style.setProperty('width', mobileAdWidthPx, 'important');
-        wrap.style.setProperty('max-width', '320px', 'important');
-        wrap.style.setProperty('height', '100px', 'important');
-        wrap.style.setProperty('min-height', '100px', 'important');
-        wrap.style.setProperty('max-height', '100px', 'important');
-        ad.style.setProperty('width', mobileAdWidthPx, 'important');
-        ad.style.setProperty('max-width', '320px', 'important');
-        ad.style.setProperty('height', '100px', 'important');
-        ad.style.setProperty('min-height', '100px', 'important');
-        ad.style.setProperty('max-height', '100px', 'important');
-        iframe.style.setProperty('width', mobileAdWidthPx, 'important');
-        iframe.style.setProperty('max-width', '320px', 'important');
-        iframe.style.setProperty('height', '100px', 'important');
-        iframe.style.setProperty('min-height', '100px', 'important');
-        iframe.style.setProperty('max-height', '100px', 'important');
+        [wrap, ad, iframe].forEach(function(el) {
+          el.style.setProperty('width', mobileAdWidthPx, 'important');
+          el.style.setProperty('max-width', mobileAdMaxWidth + 'px', 'important');
+          el.style.setProperty('height', mobileAdHeightPx, 'important');
+          el.style.setProperty('min-height', mobileAdHeightPx, 'important');
+          el.style.setProperty('max-height', mobileAdHeightPx, 'important');
+        });
       }
     }
     function observeAdVisualSize(ad) {
@@ -2560,7 +2554,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
       </div>`
     : `<p class="search-empty">${_lang === 'ko' ? '아직 이 분류에 글이 없습니다. 곧 채워집니다.' : 'No articles here yet — coming soon.'}</p>`;
 
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { billboard: true });
   const _catT = I18N[_lang] || I18N.en;
   const categoryIntro = isTopicPage ? '' : categoryDescription(categoryId, _lang);
 

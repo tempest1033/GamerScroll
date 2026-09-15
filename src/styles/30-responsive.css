@@ -159,33 +159,8 @@
   margin-bottom: 0;
 }
 
-/* 다크모드 - 블루/인디고→오렌지 복원 */
-@media (prefers-color-scheme: dark) {
-  /* 네비 active - 밑줄은 텍스트색과 동일 (리뉴얼: 주황 강조 제거) */
-  .nav-item.active::after {
-    background: currentColor;
-  }
-  /* 홈 트렌드 카드 다크모드 */
-  .home-trend-card {
-    background: var(--card-bg);
-    border-color: var(--border);
-  }
-  /* 로고 배지/텍스트 */
-  .logo-badge {
-    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
-  }
-  .header-title .logo-game {
-    background: linear-gradient(135deg, #ff6b35 0%, #ffc107 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-  /* === 트렌드 페이지 전체 오버라이드 === */
-  /* 급상승/급하락 뱃지 */
-  .rank-badge {
-    background: rgba(255, 107, 53, 0.15) !important;
-    color: #ff6b35 !important;
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 .demo-badge {
   display: inline-block;

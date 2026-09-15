@@ -65,8 +65,34 @@ function renderResponsiveHomeAd(slotId) {
 function renderDesktopOnlyHomeAd(slotId, opts) {
   if (!ADS_ENABLED || !slotId) return '';
   const narrow = opts && opts.narrow;
+  const billboard = opts && opts.billboard;
   const styleId = `ad-home-pc-${++adStyleCounter}`;
   const cardClass = `${styleId}-card`;
+  if (billboard) {
+    // 풀폭 상단 빌보드: 반응형 슬롯에 CSS 로 고정 규격을 지정(애드센스 허용 방식, narrow 변형과 동일).
+    // ≥1200 970×250 / 900~1199 728×90 / 769~899 468×60. 카드 높이를 규격에 맞춰 예약해 로드 전후 CLS 를 막는다.
+    return `<div class="ad-card ad-card-responsive-home gs-ad-fixed ${cardClass}">
+  <style>
+    .${cardClass}, .${styleId} { display:none !important; }
+    @media (min-width: 769px) {
+      .${cardClass} { display:flex !important; width:100%; max-width:970px; min-height:60px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .${styleId} { display:block !important; width:468px; height:60px; margin:0 auto; }
+    }
+    @media (min-width: 900px) {
+      .${cardClass} { min-height:90px; }
+      .${styleId} { width:728px; height:90px; }
+    }
+    @media (min-width: 1200px) {
+      .${cardClass} { min-height:250px; }
+      .${styleId} { width:970px; height:250px; }
+    }
+  </style>
+  <ins class="adsbygoogle gs-ad-fixed ${styleId}"
+       style="display:inline-block"
+       data-ad-client="${ADSENSE_CLIENT}"
+       data-ad-slot="${slotId}"></ins>
+</div>`;
+  }
   if (narrow) {
     // 좁은 컬럼(사이드바 레이아웃): 반응형 대신 표준 고정 규격을 브레이크포인트별로 지정한다.
     // 컬럼 폭이 723px라 반응형(horizontal)은 723×100 같은 비표준 크기를 요청했고,
@@ -114,7 +140,7 @@ function renderDesktopOnlyHomeAd(slotId, opts) {
 
 /**
  * 모바일 전용 홈 상단 광고
- * Mobile: 320x100, Desktop: 숨김
+ * Mobile: 300x250 (2026-09-15, 이전 320x100), Desktop: 숨김
  */
 function renderMobileOnlyHomeAd(slotId) {
   if (!ADS_ENABLED || !slotId) return '';
@@ -122,15 +148,15 @@ function renderMobileOnlyHomeAd(slotId) {
   const cardClass = `${styleId}-card`;
   return `<div class="ad-card ad-card-mobile-top ${cardClass}">
   <style>
-    .${cardClass} { display:flex !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
-    .${styleId}, .${cardClass} > .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:block !important; width:100% !important; max-width:320px !important; height:100px !important; min-height:100px !important; max-height:100px !important; margin:0 auto; }
+    .${cardClass} { display:flex !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .${styleId}, .${cardClass} > .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:block !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; margin:0 auto; }
     .${cardClass} > .${styleId} > div { overflow:hidden !important; }
     @media (min-width: 769px) {
       .${cardClass}, .${styleId}, .${cardClass} > .${styleId} > div, .${cardClass} > .${styleId} iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
     }
   </style>
   <ins class="adsbygoogle ${styleId}"
-       style="display:block;width:100%;max-width:320px;height:100px"
+       style="display:block;width:100%;max-width:300px;height:250px"
        data-ad-client="${ADSENSE_CLIENT}"
        data-ad-slot="${slotId}"></ins>
 </div>`;

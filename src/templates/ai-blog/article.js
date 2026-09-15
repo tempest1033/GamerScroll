@@ -659,7 +659,7 @@ function generateAIBlogArticle(article, data = {}) {
 
   // 상단 광고
   // 상단 광고: 홈과 같은 풀폭 970 반응형 슬롯. 본문 컬럼(760px) 안에 두면 728×90 고정으로 줄어들어 레이아웃 바깥에 둔다.
-  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001);
+  const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { billboard: true });
 
   // 메인 콘텐츠 (GamerScroll 스타일 + 사이드바 레이아웃)
   const content = `

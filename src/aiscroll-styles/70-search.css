@@ -368,15 +368,8 @@
     border-radius: 1px !important;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .nav-item.active {
-      color: #fff !important;
-    }
+  /* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
 
-    .nav-item.active::after {
-      background: #f97316 !important;
-    }
-  }
 
   /* 검색창 내부 홈 아이콘 표시 */
   .search-home-icon {

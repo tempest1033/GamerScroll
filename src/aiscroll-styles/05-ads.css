@@ -4,13 +4,13 @@
 
 /* ===== 광고 컨테이너 크기 ===== */
 
-/* 모바일 상단 광고 (320x100) */
+/* 모바일 상단 광고 (300x250, 2026-09-15 — 이전 320x100) */
 .ad-card-mobile-top {
   width: 100%;
-  max-width: 320px;
-  height: 100px;
-  min-height: 100px;
-  max-height: 100px;
+  max-width: 300px;
+  height: 250px;
+  min-height: 250px;
+  max-height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,10 +25,10 @@
 .ad-card-mobile-top > ins.adsbygoogle iframe,
 .ad-card-mobile-top iframe {
   width: 100% !important;
-  max-width: 320px !important;
-  height: 100px !important;
-  min-height: 100px !important;
-  max-height: 100px !important;
+  max-width: 300px !important;
+  height: 250px !important;
+  min-height: 250px !important;
+  max-height: 250px !important;
   left: 0 !important;
   right: 0 !important;
 }
@@ -319,10 +319,10 @@ body.ads-disabled .article-layout {
   .home-main > .ad-card-mobile-top,
   .article-main > .ad-card-mobile-top {
     width: 100% !important;
-    max-width: 320px !important;
-    height: 100px !important;
-    min-height: 100px !important;
-    max-height: 100px !important;
+    max-width: 300px !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
     margin-top: 0 !important;
     margin-bottom: var(--space-block-gap, 16px) !important;
   }
@@ -338,10 +338,10 @@ body.ads-disabled .article-layout {
   .article-main > .ad-card-mobile-top > ins.adsbygoogle iframe,
   .article-main > .ad-card-mobile-top iframe {
     width: 100% !important;
-    max-width: 320px !important;
-    height: 100px !important;
-    min-height: 100px !important;
-    max-height: 100px !important;
+    max-width: 300px !important;
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
   }
 }
 

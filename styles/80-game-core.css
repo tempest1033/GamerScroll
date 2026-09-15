@@ -267,11 +267,8 @@
   color: var(--text);
 }
 
-@media (prefers-color-scheme: dark) {
-  .game-rank-country-name {
-    color: rgba(255, 255, 255, 0.9);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 .game-rank-country-value {
   font-size: var(--font-section-size);

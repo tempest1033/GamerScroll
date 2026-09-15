@@ -404,6 +404,9 @@
 }
 .article-sidebar-sticky > * {
   margin-bottom: 0;
+  /* 세로 flex + max-height 컨테이너에서 overflow:hidden 인 광고 카드가 자동 min-height 0 으로 눌려
+     300×250 이 잘리거나(뷰포트 높이에 따라 0~120px) 사라지던 문제 — 항목은 줄어들지 않게 */
+  flex-shrink: 0;
 }
 /* 왼쪽 선은 블록마다가 아니라 사이드바 전체에 한 줄로 — 공유·목차·광고·순위 사이에서 끊기지 않는다 */
 .article-sidebar-sticky {

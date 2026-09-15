@@ -91,17 +91,8 @@
   transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;
 }
 
-/* 다크모드 - 호버 스타일 */
-@media (prefers-color-scheme: dark) {
-  .gm-item {
-    background: var(--card);
-  }
-  .gm-item:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.05);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 .gm-item-header {
   display: flex;
@@ -143,13 +134,8 @@ a.gm-item {
   transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
 }
 
-@media (prefers-color-scheme: dark) {
-  a.gm-item:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.05);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 트렌드 허브 헤더 내 제목 스타일 */
 .gm-item-header .gm-item-title {
@@ -196,14 +182,8 @@ a.gm-item {
   overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  .gm-item-title {
-    color: var(--text);
-  }
-  .gm-item-desc {
-    color: var(--text-secondary);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 @media (max-width: 768px) {
   .gm-item-desc {

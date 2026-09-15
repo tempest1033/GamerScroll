@@ -176,12 +176,8 @@ a.blog-editor:hover {
   text-align: left;
 }
 
-@media (prefers-color-scheme: dark) {
-  .blog-summary {
-    background: color-mix(in srgb, var(--primary) 12%, var(--card));
-    color: var(--text);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 이미지 다음 요약 (제목 → 이미지 → 요약 순서) */
 .blog-figure + .blog-summary {
@@ -204,12 +200,8 @@ a.blog-editor:hover {
   border-radius: 6px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .blog-tag {
-    background: rgba(33, 139, 255, 0.18);
-    color: #93C5FD;
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 본문 섹션 - 카드 내부 */
 .blog-content {
@@ -238,14 +230,8 @@ a.blog-editor:hover {
   text-decoration-color: var(--primary-dark);
 }
 
-@media (prefers-color-scheme: dark) {
-  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):not(.article-action) {
-    color: #60a5fa;
-  }
-  .blog-content a:not(.blog-link-button):not(.blog-related-card):not(.blog-related-issue-card):not(.article-action):hover {
-    color: var(--link-hover-accent);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 본문 단락 */
 .blog-paragraph {
@@ -481,14 +467,8 @@ a.blog-editor:hover {
   pointer-events: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .blog-quote {
-    border-left-color: var(--border-subtle, var(--border));
-  }
-  .blog-quote::before {
-    color: var(--border);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 코드블록 */
 .blog-code {
@@ -531,24 +511,8 @@ a.blog-editor:hover {
 .blog-code .tok-punct { color: var(--text-secondary); }
 .blog-code .code-comment { color: #6e7781; }
 
-@media (prefers-color-scheme: dark) {
-  .blog-code pre {
-    background: #161616;
-    border-color: #272727;
-  }
-  .blog-code code {
-    color: var(--text);
-  }
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
 
-  /* 구문 강조 토큰 - GitHub Dark 팔레트 */
-  .blog-code .tok-kw { color: #ff7b72; }
-  .blog-code .tok-str { color: #a5d6ff; }
-  .blog-code .tok-num { color: #79c0ff; }
-  .blog-code .tok-com { color: #8b949e; }
-  .blog-code .tok-fn { color: #d2a8ff; }
-  .blog-code .tok-bi { color: #79c0ff; }
-  .blog-code .code-comment { color: #8b949e; }
-}
 
 /* 주석/메타 정보 (순위 분석 서문 등) */
 .blog-note {
@@ -603,14 +567,8 @@ a.blog-editor:hover {
   margin-top: 32px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .blog-aside {
-    background: color-mix(in srgb, var(--accent) 10%, var(--card));
-  }
-  .blog-aside code {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 코드 스니펫 */
 .blog-content code {
@@ -628,12 +586,8 @@ a.blog-editor:hover {
   color: var(--primary);
 }
 
-@media (prefers-color-scheme: dark) {
-  .blog-content code {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 공통 기사 목차 — 카테고리·인기 카드와 같은 라벨·행·번호 규격
    (라벨 13px 대문자 / 행 14px / 번호 13px·20px 폭·gap 12px — 인기 리스트의 순위 열과 동일).
@@ -2079,25 +2033,8 @@ a.blog-editor:hover {
   font-weight: 500;
 }
 
-/* 다크모드 */
-@media (prefers-color-scheme: dark) {
-  .ranking-chart-wrapper,
-  .ranking-card,
-  .ranking-summary-item {
-    background: var(--card);
-    border-color: var(--border);
-  }
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
 
-  .ranking-chart .apexcharts-text,
-  .ranking-chart .apexcharts-xaxis-label,
-  .ranking-chart .apexcharts-yaxis-label {
-    fill: var(--text-muted) !important;
-  }
-
-  .ranking-chart .apexcharts-gridline {
-    stroke: var(--border) !important;
-  }
-}
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {

@@ -61,15 +61,8 @@
   border-color: var(--primary);
 }
 
-/* 다크모드 - 탭 버튼 */
-@media (prefers-color-scheme: dark) {
-  #game .page-container .tab-btn {
-    color: rgba(255, 255, 255, 0.85);
-  }
-  #game .page-container .tab-btn:hover {
-    color: #fff;
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 .trend-legend-row {
   display: flex;
@@ -205,16 +198,8 @@
   fill: rgba(255, 255, 255, 0.7);
 }
 
-/* 다크모드 - 차트 스타일 */
-@media (prefers-color-scheme: dark) {
-  .chart-grid {
-    stroke: rgba(255, 255, 255, 0.1);
-  }
-  .chart-ylabel,
-  .chart-xlabel {
-    fill: rgba(255, 255, 255, 0.7);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 게임 empty 상태 */
 .game-empty {

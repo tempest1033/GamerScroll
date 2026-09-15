@@ -242,7 +242,7 @@ function generateComparisonChart(chartBlock, ctx) {
             var el = document.getElementById('${chartId}');
             if (!el || el.dataset.rendered) return;
             el.dataset.rendered = 'true';
-            var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var isDark = false; /* 라이트 고정 (2026-09-15) */
             var labelColor = isDark ? '#adb5bd' : '#666';
             var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
             new ApexCharts(el, {
@@ -412,7 +412,7 @@ function renderRankingCompare(block, ctx) {
             var el = document.getElementById('${compChartId}');
             if (!el || el.dataset.rendered) return;
             el.dataset.rendered = 'true';
-            var isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var isDark = false; /* 라이트 고정 (2026-09-15) */
             var labelColor = isDark ? '#adb5bd' : '#666';
             var gridColor = isDark ? 'rgba(255,255,255,0.1)' : '#e0e0e0';
             new ApexCharts(el, {

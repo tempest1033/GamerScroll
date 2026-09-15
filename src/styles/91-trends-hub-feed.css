@@ -115,16 +115,8 @@
   color: var(--text-secondary);
 }
 
-/* 다크모드 - 트렌드 피드 */
-@media (prefers-color-scheme: dark) {
-  .trend-feed-card {
-    background: var(--card-bg);
-    border-color: var(--border);
-  }
-  .trend-feed-card-tag {
-    background: rgba(0, 0, 0, 0.65);
-  }
-}
+/* 다크 모드 블록 제거 (2026-09-15): 라이트 고정 */
+
 
 /* 모바일 - 트렌드 피드 */
 @media (max-width: 768px) {
