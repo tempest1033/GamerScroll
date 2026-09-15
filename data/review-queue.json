@@ -32149,13 +32149,19 @@
     },
     {
       "title": "Car Evolve",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6754464806
+        "ios": 6754464806,
+        "android": "io.heseri.car"
       },
       "developer": "Heseri Games Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/4a/f2/6a4af240-fcd1-ac68-5627-fcf7aec25d19/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Car Evolve",
+          "appId": 6754464806
+        }
+      ],
       "addedAt": "2026-08-27T18:04:02.674Z"
     },
     {
@@ -34424,6 +34430,66 @@
         }
       ],
       "addedAt": "2026-09-14T23:24:59.445Z"
+    },
+    {
+      "title": "Minesweeper: 지뢰찾기 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6760481311
+      },
+      "developer": "Cloud Motion Lab LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/f1/10/80f1102a-be2c-287f-2e60-f2c933f48e9a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-15T05:22:51.066Z"
+    },
+    {
+      "title": "Block Blitz: 블록 퍼즐",
+      "status": "matched",
+      "appIds": {
+        "android": "com.playgames.block",
+        "ios": 6741576655
+      },
+      "developer": "Bluetile",
+      "icon": "https://play-lh.googleusercontent.com/WQPAJX9DtdhkqVLE2t4U8ZllD3_X1PPcx4Arq1i22doT1tNfUlS7S5zANZBw_Bh7_F9wT4HXxytlKSE4YccB",
+      "searchResults": [
+        {
+          "title": "Block Blitz: 블록 퍼즐",
+          "appId": 6741576655
+        },
+        {
+          "title": "블록 - Block Puzzle",
+          "appId": 1498176588
+        },
+        {
+          "title": "Candy Block Puzzle Blitz",
+          "appId": 1081720194
+        }
+      ],
+      "addedAt": "2026-09-15T05:22:51.429Z"
+    },
+    {
+      "title": "유아용 그림그리기 및 색칠 게임 - 2-6세 색칠공부",
+      "status": "single",
+      "appIds": {
+        "android": "com.bimiboo.kids.drawing"
+      },
+      "developer": "Bimi Boo Kids Learning Games for Toddlers FZ-LLC",
+      "icon": "https://play-lh.googleusercontent.com/wtz9KlSYBTTCCAa0yJQFD7TvLzGdqYnhYvxb1L464H8Ck58kkvtZizewye_mojyikZk-GiYqCCqL_vrrODSl",
+      "searchResults": [
+        {
+          "title": "유아용 색칠공부: 2–5세 어린이게임 그림 그리기 게임",
+          "appId": 6444398254
+        },
+        {
+          "title": "어린이 색칠게임: 유아 그림 그리기 공부 2~5세",
+          "appId": 1001555097
+        },
+        {
+          "title": "Todli:유아용 그리기 아기 색칠공부! 키즈 어린이",
+          "appId": 908698556
+        }
+      ],
+      "addedAt": "2026-09-15T05:22:51.841Z"
     }
   ],
   "approved": [

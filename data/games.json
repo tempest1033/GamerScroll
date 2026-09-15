@@ -45826,14 +45826,16 @@
     },
     "Car Evolve": {
       "appIds": {
-        "ios": 6754464806
+        "ios": 6754464806,
+        "android": "io.heseri.car"
       },
       "aliases": [],
       "developer": "Heseri Games Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/4a/f2/6a4af240-fcd1-ac68-5627-fcf7aec25d19/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "car-evolve",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Resonance: A Plague Tale Legacy": {
@@ -48033,8 +48035,46 @@
         "android",
         "ios"
       ]
+    },
+    "Minesweeper: 지뢰찾기 퍼즐": {
+      "appIds": {
+        "ios": 6760481311
+      },
+      "aliases": [],
+      "developer": "Cloud Motion Lab LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/f1/10/80f1102a-be2c-287f-2e60-f2c933f48e9a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "minesweeper-지뢰찾기-퍼즐",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Block Blitz: 블록 퍼즐": {
+      "appIds": {
+        "android": "com.playgames.block",
+        "ios": 6741576655
+      },
+      "aliases": [],
+      "developer": "Bluetile",
+      "icon": "https://play-lh.googleusercontent.com/WQPAJX9DtdhkqVLE2t4U8ZllD3_X1PPcx4Arq1i22doT1tNfUlS7S5zANZBw_Bh7_F9wT4HXxytlKSE4YccB",
+      "slug": "block-blitz-블록-퍼즐",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "유아용 그림그리기 및 색칠 게임 - 2-6세 색칠공부": {
+      "appIds": {
+        "android": "com.bimiboo.kids.drawing"
+      },
+      "aliases": [],
+      "developer": "Bimi Boo Kids Learning Games for Toddlers FZ-LLC",
+      "icon": "https://play-lh.googleusercontent.com/wtz9KlSYBTTCCAa0yJQFD7TvLzGdqYnhYvxb1L464H8Ck58kkvtZizewye_mojyikZk-GiYqCCqL_vrrODSl",
+      "slug": "유아용-그림그리기-및-색칠-게임-2-6세-색칠공부",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-15",
-  "totalGames": 3679
+  "totalGames": 3682
 }
