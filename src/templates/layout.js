@@ -2182,8 +2182,12 @@ ${adRequestBootstrap}
     var wrapHeight = Math.round(wrap.getBoundingClientRect().height || wrap.offsetHeight || 0);
     var hasExtraSpace = (adHeight - targetHeight > 24) || (wrapHeight - targetHeight > 24);
     var isShortTopAd = isTopAd && iframeHeight < minHeight;
+    // 이미 축소(gs-ad-compact)된 카드보다 크리에이티브가 커진 경우도 다시 맞춘다.
+    // 애드센스가 로드 중 iframe을 잠깐 작게 잡았다가 원래 크기로 되돌리면, 축소만 하고 확대는 안 하던
+    // 이전 로직에서는 카드가 작은 높이로 굳어 overflow:hidden 에 광고 아랫부분이 잘린 채 남았다.
+    var isClipped = wrap.classList.contains('gs-ad-compact') && (targetHeight - wrapHeight > 1 || targetHeight - adHeight > 1);
 
-    if (!hasExtraSpace && !isShortTopAd) return;
+    if (!hasExtraSpace && !isShortTopAd && !isClipped) return;
 
     wrap.classList.add('gs-ad-compact');
     wrap.style.height = targetHeight + 'px';

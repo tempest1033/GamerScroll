@@ -2175,16 +2175,21 @@ const adLazyLoadScript = `
     var isMobileTopAd = wrap.classList.contains('ad-card-mobile-top');
     var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
     if (isTopAd && !isMobileTopAd) centerTopAdCreative(ad, wrap, iframe);
+    // 상단 광고 예약 높이: 모바일 300×250 (2026-09-15, 이전 320×100) · PC 90 (728×90/468×60 브레이크포인트의 최소치)
     var minHeight = isTopAd
-      ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 100 : 90)
+      ? ((window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 250 : 90)
       : 0;
     var targetHeight = Math.max(iframeHeight, minHeight);
     var adHeight = Math.round(ad.getBoundingClientRect().height || ad.offsetHeight || 0);
     var wrapHeight = Math.round(wrap.getBoundingClientRect().height || wrap.offsetHeight || 0);
     var hasExtraSpace = (adHeight - targetHeight > 24) || (wrapHeight - targetHeight > 24);
     var isShortTopAd = isTopAd && iframeHeight < minHeight;
+    // 이미 축소(gs-ad-compact)된 카드보다 크리에이티브가 커진 경우도 다시 맞춘다.
+    // 애드센스가 로드 중 iframe을 잠깐 작게 잡았다가 원래 크기로 되돌리면, 축소만 하고 확대는 안 하던
+    // 이전 로직에서는 카드가 작은 높이로 굳어 overflow:hidden 에 광고 아랫부분이 잘린 채 남았다.
+    var isClipped = wrap.classList.contains('gs-ad-compact') && (targetHeight - wrapHeight > 1 || targetHeight - adHeight > 1);
 
-    if (!hasExtraSpace && !isShortTopAd) return;
+    if (!hasExtraSpace && !isShortTopAd && !isClipped) return;
 
     wrap.classList.add('gs-ad-compact');
     wrap.style.height = targetHeight + 'px';
@@ -2193,7 +2198,8 @@ const adLazyLoadScript = `
     ad.style.minHeight = targetHeight + 'px';
 
     if (isMobileTopAd) {
-      var mobileAdMaxWidth = 320;
+      var mobileAdMaxWidth = 300;
+      var mobileAdHeightPx = '250px';
       var parentRect = wrap.parentElement && wrap.parentElement.getBoundingClientRect
         ? wrap.parentElement.getBoundingClientRect()
         : null;
@@ -2203,20 +2209,20 @@ const adLazyLoadScript = `
       if (!mobileAdWidth || mobileAdWidth < 1) mobileAdWidth = mobileAdMaxWidth;
       var mobileAdWidthPx = Math.round(mobileAdWidth) + 'px';
       wrap.style.setProperty('width', mobileAdWidthPx, 'important');
-      wrap.style.setProperty('max-width', '320px', 'important');
-      wrap.style.setProperty('height', '100px', 'important');
-      wrap.style.setProperty('min-height', '100px', 'important');
-      wrap.style.setProperty('max-height', '100px', 'important');
+      wrap.style.setProperty('max-width', mobileAdMaxWidth + 'px', 'important');
+      wrap.style.setProperty('height', mobileAdHeightPx, 'important');
+      wrap.style.setProperty('min-height', mobileAdHeightPx, 'important');
+      wrap.style.setProperty('max-height', mobileAdHeightPx, 'important');
       ad.style.setProperty('width', mobileAdWidthPx, 'important');
-      ad.style.setProperty('max-width', '320px', 'important');
-      ad.style.setProperty('height', '100px', 'important');
-      ad.style.setProperty('min-height', '100px', 'important');
-      ad.style.setProperty('max-height', '100px', 'important');
+      ad.style.setProperty('max-width', mobileAdMaxWidth + 'px', 'important');
+      ad.style.setProperty('height', mobileAdHeightPx, 'important');
+      ad.style.setProperty('min-height', mobileAdHeightPx, 'important');
+      ad.style.setProperty('max-height', mobileAdHeightPx, 'important');
       iframe.style.setProperty('width', mobileAdWidthPx, 'important');
-      iframe.style.setProperty('max-width', '320px', 'important');
-      iframe.style.setProperty('height', '100px', 'important');
-      iframe.style.setProperty('min-height', '100px', 'important');
-      iframe.style.setProperty('max-height', '100px', 'important');
+      iframe.style.setProperty('max-width', mobileAdMaxWidth + 'px', 'important');
+      iframe.style.setProperty('height', mobileAdHeightPx, 'important');
+      iframe.style.setProperty('min-height', mobileAdHeightPx, 'important');
+      iframe.style.setProperty('max-height', mobileAdHeightPx, 'important');
     }
   }
 

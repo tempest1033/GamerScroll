@@ -2235,7 +2235,9 @@ function wrapWithLayout(content, options = {}) {
       var wrapHeight = Math.round(wrap.getBoundingClientRect().height || wrap.offsetHeight || 0);
       var hasExtraSpace = (adHeight - targetHeight > 24) || (wrapHeight - targetHeight > 24);
       var isShortTopAd = isTopAd && iframeHeight < minHeight;
-      if (!hasExtraSpace && !isShortTopAd) return;
+      // 이미 축소(gs-ad-compact)된 카드보다 크리에이티브가 커지면 다시 맞춘다 (축소만 하면 overflow:hidden 에 잘린 채 굳음).
+      var isClipped = wrap.classList.contains('gs-ad-compact') && (targetHeight - wrapHeight > 1 || targetHeight - adHeight > 1);
+      if (!hasExtraSpace && !isShortTopAd && !isClipped) return;
       wrap.classList.add('gs-ad-compact');
       wrap.style.height = targetHeight + 'px';
       wrap.style.minHeight = targetHeight + 'px';
