@@ -48307,8 +48307,32 @@
         "android",
         "ios"
       ]
+    },
+    "데이브 더 다이버": {
+      "appIds": {
+        "ios": "6759962259"
+      },
+      "aliases": [],
+      "developer": "Mintrocket",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/55/d5/ee55d59e-a983-3e69-2d93-5f3f39336687/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "데이브-더-다이버",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "모래공방 : 색모래 블록 퍼즐": {
+      "appIds": {
+        "android": "com.puzzle.sand.fill.aos"
+      },
+      "aliases": [],
+      "developer": "Stormborn Inc.",
+      "icon": "https://play-lh.googleusercontent.com/dbvSjUYjVK5OejV7i0nhMsNWQ__qFUdsu9Ma4IfFIacQa7sf5oWN2cCITPoOKnK-flg7Qep70YESkr8tXIYI",
+      "slug": "모래공방-색모래-블록-퍼즐",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-17",
-  "totalGames": 3701
+  "totalGames": 3703
 }
