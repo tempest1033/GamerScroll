@@ -48257,8 +48257,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "포레스트 사이: 네버랜드​": {
+      "appIds": {
+        "android": "com.fskr.google"
+      },
+      "aliases": [],
+      "developer": "Hifun Game",
+      "icon": "https://play-lh.googleusercontent.com/TuwNmZiR7tVRu56e9HD8K94k6VFY9Rz5bwP_lJ2Qwi5YTAq35Ilm5HDU4curtEP6Hatzd0nhSou0pKWxgOsIZSQ",
+      "slug": "포레스트-사이-네버랜드",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Another Eden Begins": {
+      "appIds": {
+        "steam": "4163960"
+      },
+      "aliases": [],
+      "developer": "WRIGHT FLYER STUDIOS",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4163960/fa1ca147e40f7c484d738eecfa6db8967b39da05/capsule_231x87.jpg?t=1789572133",
+      "slug": "another-eden-begins",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-16",
-  "totalGames": 3697
+  "lastUpdated": "2026-09-17",
+  "totalGames": 3699
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-15T12:46:48.968Z",
+  "updatedAt": "2026-09-16T17:12:30.351Z",
   "period": "30days",
   "games": [
     {
@@ -11,6 +11,10 @@
       "views": 17
     },
     {
+      "slug": "wos-화이트아웃-서바이벌",
+      "views": 8
+    },
+    {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 8
     },
@@ -20,10 +24,6 @@
     },
     {
       "slug": "where-winds-meet",
-      "views": 7
-    },
-    {
-      "slug": "wos-화이트아웃-서바이벌",
       "views": 7
     },
     {
@@ -39,11 +39,19 @@
       "views": 7
     },
     {
+      "slug": "1-하트-윌-우들-스크류-온",
+      "views": 6
+    },
+    {
       "slug": "arrow-pro-3d",
       "views": 6
     },
     {
       "slug": "barotrauma",
+      "views": 6
+    },
+    {
+      "slug": "geometry-dash-lite",
       "views": 6
     },
     {
@@ -59,23 +67,15 @@
       "views": 6
     },
     {
+      "slug": "my-hero-ultra-rumble",
+      "views": 6
+    },
+    {
       "slug": "palworld",
       "views": 6
     },
     {
       "slug": "pixel-flow",
-      "views": 6
-    },
-    {
-      "slug": "sakura-school-simulator",
-      "views": 6
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
-      "views": 6
-    },
-    {
-      "slug": "vpet",
       "views": 6
     }
   ]

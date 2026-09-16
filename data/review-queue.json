@@ -34624,6 +34624,26 @@
       "icon": "https://play-lh.googleusercontent.com/lqDLJcILIBjEqryB1924rhsLpS6NUOS_sQabC1Upuy4MIwxLJ0FaN6hmaRiNZqVbCGzyDx4NNegGT6farMNQKA",
       "searchResults": [],
       "addedAt": "2026-09-16T12:30:20.531Z"
+    },
+    {
+      "title": "포레스트 사이: 네버랜드​",
+      "status": "single",
+      "appIds": {
+        "android": "com.fskr.google"
+      },
+      "developer": "Hifun Game",
+      "icon": "https://play-lh.googleusercontent.com/TuwNmZiR7tVRu56e9HD8K94k6VFY9Rz5bwP_lJ2Qwi5YTAq35Ilm5HDU4curtEP6Hatzd0nhSou0pKWxgOsIZSQ",
+      "searchResults": [
+        {
+          "title": "트리 오브 세이비어: 네버랜드",
+          "appId": 6480157886
+        },
+        {
+          "title": "드림 포레스트 : 네버랜드",
+          "appId": 6789073034
+        }
+      ],
+      "addedAt": "2026-09-16T17:20:38.788Z"
     }
   ],
   "approved": [
