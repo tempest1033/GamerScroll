@@ -48233,8 +48233,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "에버나이트: 리버스": {
+      "appIds": {
+        "ios": 6762976425
+      },
+      "aliases": [],
+      "developer": "LONGSIN GAME",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/37/32/89373298-d967-6f4b-e1a5-83b3d0c6c9ed/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "에버나이트-리버스",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "드리미 크러쉬": {
+      "appIds": {
+        "android": "com.gp.qsnmate.dreamycrush"
+      },
+      "aliases": [],
+      "developer": "LanFei Dream",
+      "icon": "https://play-lh.googleusercontent.com/lqDLJcILIBjEqryB1924rhsLpS6NUOS_sQabC1Upuy4MIwxLJ0FaN6hmaRiNZqVbCGzyDx4NNegGT6farMNQKA",
+      "slug": "드리미-크러쉬",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-16",
-  "totalGames": 3695
+  "totalGames": 3697
 }
