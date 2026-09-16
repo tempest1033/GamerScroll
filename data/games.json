@@ -48195,8 +48195,46 @@
       "platforms": [
         "steam"
       ]
+    },
+    "수련협객": {
+      "appIds": {
+        "android": "com.and1games.xzyx",
+        "ios": 6804947937
+      },
+      "aliases": [],
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/AXsivDj0ZwkrFFvRhXH-WpbrRcVfJ3sLh2etDhECyNxIGSgxR9saiRxzdOG_7XoeKoLsK7VhGwwmyJ5ul6Mb3A",
+      "slug": "수련협객",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "광기의 원시인": {
+      "appIds": {
+        "android": "com.sfhdtc.fkysr.gp"
+      },
+      "aliases": [],
+      "developer": "Ninth Space-Time（HK）",
+      "icon": "https://play-lh.googleusercontent.com/QNoH4Ss_nZVmbrbuE7fXv0bCjz79nvvKaRC9aIPFaVAVnhbVuJQ_pTiNNfzKYj7VpcuYX4rWet7qKLvhR1RDvA",
+      "slug": "광기의-원시인",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Aniimo": {
+      "appIds": {
+        "steam": "4126040"
+      },
+      "aliases": [],
+      "developer": "Pawprint Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4126040/9cd26f736939c12a37f54cd3a49a9c08a318ec03/capsule_231x87.jpg?t=1789523496",
+      "slug": "aniimo",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-16",
-  "totalGames": 3692
+  "totalGames": 3695
 }

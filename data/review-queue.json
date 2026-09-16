@@ -34570,6 +34570,38 @@
         }
       ],
       "addedAt": "2026-09-15T20:27:07.450Z"
+    },
+    {
+      "title": "수련협객",
+      "status": "matched",
+      "appIds": {
+        "android": "com.and1games.xzyx",
+        "ios": 6804947937
+      },
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/AXsivDj0ZwkrFFvRhXH-WpbrRcVfJ3sLh2etDhECyNxIGSgxR9saiRxzdOG_7XoeKoLsK7VhGwwmyJ5ul6Mb3A",
+      "searchResults": [
+        {
+          "title": "수련협객",
+          "appId": 6804947937
+        },
+        {
+          "title": "잠룡 : 무협 도트 RPG",
+          "appId": 6740556884
+        }
+      ],
+      "addedAt": "2026-09-16T06:43:38.525Z"
+    },
+    {
+      "title": "광기의 원시인",
+      "status": "single",
+      "appIds": {
+        "android": "com.sfhdtc.fkysr.gp"
+      },
+      "developer": "Ninth Space-Time（HK）",
+      "icon": "https://play-lh.googleusercontent.com/QNoH4Ss_nZVmbrbuE7fXv0bCjz79nvvKaRC9aIPFaVAVnhbVuJQ_pTiNNfzKYj7VpcuYX4rWet7qKLvhR1RDvA",
+      "searchResults": [],
+      "addedAt": "2026-09-16T06:43:38.706Z"
     }
   ],
   "approved": [
