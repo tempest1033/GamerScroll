@@ -48331,8 +48331,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Tales of Graces f Remastered": {
+      "appIds": {
+        "steam": "2530980"
+      },
+      "aliases": [],
+      "developer": "TOSE CO., LTD.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2530980/ea4cb2ef65329a3090aebb2095e5fef0539d56d6/capsule_231x87.jpg?t=1739758056",
+      "slug": "tales-of-graces-f-remastered",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-17",
-  "totalGames": 3703
+  "totalGames": 3704
 }
