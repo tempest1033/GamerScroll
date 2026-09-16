@@ -34644,6 +34644,47 @@
         }
       ],
       "addedAt": "2026-09-16T17:20:38.788Z"
+    },
+    {
+      "title": "CarLoop",
+      "status": "single",
+      "appIds": {
+        "android": "com.blast.puzzlegame.bear"
+      },
+      "developer": "UUTEAM Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/kXV6uMBL6dYmmcW-Bj3fieilXIrYNvLAIkMB0IeGwOr9qzB0RuJjXl-Mco9p6fKgNQu-_ZEtQcK9UgaAyN1c2CE",
+      "searchResults": [
+        {
+          "title": "CarLoop: Block Sort",
+          "appId": 6779541699
+        }
+      ],
+      "addedAt": "2026-09-16T18:38:10.674Z"
+    },
+    {
+      "title": "Tricky Mean3",
+      "status": "matched",
+      "appIds": {
+        "android": "pics.onigiri.trickymean3",
+        "ios": 6775674610
+      },
+      "developer": "ONIGIRI GAMES",
+      "icon": "https://play-lh.googleusercontent.com/sMG0DoZvcT1TIuoyzKolbbeY2boqVEYi1pPJt7X3uNruMbAkZEo9MD-GEfhjkZJL51PueXpm_Pd9_l0KvnIr",
+      "searchResults": [
+        {
+          "title": "Tricky Mean3",
+          "appId": 6775674610
+        },
+        {
+          "title": "Tricky Story 2: Brain Twist",
+          "appId": 6757844491
+        },
+        {
+          "title": "Brain Puzzle: Tricky Quest",
+          "appId": 6670789598
+        }
+      ],
+      "addedAt": "2026-09-16T18:38:10.999Z"
     }
   ],
   "approved": [

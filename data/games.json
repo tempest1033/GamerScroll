@@ -48281,8 +48281,34 @@
       "platforms": [
         "steam"
       ]
+    },
+    "CarLoop": {
+      "appIds": {
+        "android": "com.blast.puzzlegame.bear"
+      },
+      "aliases": [],
+      "developer": "UUTEAM Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/kXV6uMBL6dYmmcW-Bj3fieilXIrYNvLAIkMB0IeGwOr9qzB0RuJjXl-Mco9p6fKgNQu-_ZEtQcK9UgaAyN1c2CE",
+      "slug": "carloop",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Tricky Mean3": {
+      "appIds": {
+        "android": "pics.onigiri.trickymean3",
+        "ios": 6775674610
+      },
+      "aliases": [],
+      "developer": "ONIGIRI GAMES",
+      "icon": "https://play-lh.googleusercontent.com/sMG0DoZvcT1TIuoyzKolbbeY2boqVEYi1pPJt7X3uNruMbAkZEo9MD-GEfhjkZJL51PueXpm_Pd9_l0KvnIr",
+      "slug": "tricky-mean3",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-17",
-  "totalGames": 3699
+  "totalGames": 3701
 }
