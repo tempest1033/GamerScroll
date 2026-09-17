@@ -1,17 +1,21 @@
 {
-  "updatedAt": "2026-09-16T17:12:30.351Z",
+  "updatedAt": "2026-09-17T17:14:05.237Z",
   "period": "30days",
   "games": [
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 17
+      "views": 20
     },
     {
       "slug": "제우스-오만의-신",
-      "views": 17
+      "views": 19
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
+      "views": 9
+    },
+    {
+      "slug": "where-winds-meet",
       "views": 8
     },
     {
@@ -23,7 +27,11 @@
       "views": 7
     },
     {
-      "slug": "where-winds-meet",
+      "slug": "palworld",
+      "views": 7
+    },
+    {
+      "slug": "vpet",
       "views": 7
     },
     {
@@ -35,7 +43,23 @@
       "views": 7
     },
     {
+      "slug": "로드러쉬",
+      "views": 7
+    },
+    {
+      "slug": "에이지-오브-엠파이어-모바일",
+      "views": 7
+    },
+    {
       "slug": "에픽세븐",
+      "views": 7
+    },
+    {
+      "slug": "탈출-게임-암스테르담",
+      "views": 7
+    },
+    {
+      "slug": "탑-히어로즈-영웅의-시대",
       "views": 7
     },
     {
@@ -52,30 +76,6 @@
     },
     {
       "slug": "geometry-dash-lite",
-      "views": 6
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 6
-    },
-    {
-      "slug": "hero-siege",
-      "views": 6
-    },
-    {
-      "slug": "mistfall-hunter",
-      "views": 6
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 6
-    },
-    {
-      "slug": "palworld",
-      "views": 6
-    },
-    {
-      "slug": "pixel-flow",
       "views": 6
     }
   ]
