@@ -48124,14 +48124,16 @@
     },
     "사북:아이스 킹덤": {
       "appIds": {
-        "ios": 6758198841
+        "ios": "6758198841",
+        "android": "com.lzcsice.kr.gp"
       },
       "aliases": [],
       "developer": "HONG KONG TANYOU LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/56/35/5a5635ee-e3b1-94df-aff1-8a1b6b51f950/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "사북아이스-킹덤",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Flick Shot Rogues": {
@@ -48405,8 +48407,34 @@
       "platforms": [
         "android"
       ]
+    },
+    "代號鳶-沉浸式劇情卡牌手遊": {
+      "appIds": {
+        "android": "com.qookkagames.codekite.gp.hk",
+        "ios": 6444551035
+      },
+      "aliases": [],
+      "developer": "Qookka Games",
+      "icon": "https://play-lh.googleusercontent.com/Q_UYKLuPI1Wx7b9F8D0AZlqyoCXEZzNYNZpmuaPs8faj7om9WljRrJq_aYKsQ-JwaDOYVRBMSbYv0g1Ll0Epgg",
+      "slug": "",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "후더덕 서바이벌": {
+      "appIds": {
+        "ios": 6793854765
+      },
+      "aliases": [],
+      "developer": "Joy Net Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/af/9f/7a/af9f7a91-0cea-27d0-660c-efac30d80c40/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "후더덕-서바이벌",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-18",
-  "totalGames": 3709
+  "totalGames": 3711
 }
