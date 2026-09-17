@@ -34737,6 +34737,28 @@
         }
       ],
       "addedAt": "2026-09-17T01:44:33.932Z"
+    },
+    {
+      "title": "루미마스터",
+      "status": "single",
+      "appIds": {
+        "ios": "6760446844"
+      },
+      "developer": "BILIBILI HK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/ba/d7/5abad7cc-30c5-a8a2-b8fd-dbd4da4600a4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-17T12:35:26.258Z"
+    },
+    {
+      "title": "동방사신전",
+      "status": "single",
+      "appIds": {
+        "android": "com.witgames.dongbang.google"
+      },
+      "developer": "Wit-Games",
+      "icon": "https://play-lh.googleusercontent.com/MkoIctlqxt_ussXPS3lOHO8uQvtWwBNGUUfeQmU84jh1TVa5yH8MRUcvat4bhDRg5BxTpKBQjs5cM6B-ErWJ",
+      "searchResults": [],
+      "addedAt": "2026-09-17T12:35:26.871Z"
     }
   ],
   "approved": [
