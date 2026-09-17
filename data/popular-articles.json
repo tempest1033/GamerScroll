@@ -1,24 +1,30 @@
 {
-  "updatedAt": "2026-09-16T01:31:08.637Z",
+  "updatedAt": "2026-09-17T01:34:44.449Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
-      "slug": "subculture-august-2026-kr",
-      "views": 29,
-      "path": "/magazine/ranking/subculture-august-2026-kr/"
-    },
-    {
-      "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 27,
+      "views": 26,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "ranking",
+      "slug": "subculture-august-2026-kr",
+      "views": 19,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 13,
+      "views": 11,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
+      "views": 7,
+      "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
       "type": "ranking",
@@ -27,34 +33,28 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
+      "type": "insight",
+      "slug": "sol-enchant-ranking-streak",
+      "views": 5,
+      "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
       "type": "hotpick",
       "slug": "gpt-pro-kakao-hot-deal",
-      "views": 6,
+      "views": 3,
       "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
-      "slug": "lineage-like-market-revival",
-      "views": 5,
-      "path": "/magazine/insight/lineage-like-market-revival/"
-    },
-    {
-      "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 4,
+      "views": 3,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "insight",
-      "slug": "sol-enchant-ranking-streak",
-      "views": 4,
-      "path": "/magazine/insight/sol-enchant-ranking-streak/"
-    },
-    {
-      "type": "issue",
-      "slug": "dlss-5-leak-backlash",
+      "slug": "subculture-market-crisis-winner-takes-all",
       "views": 2,
-      "path": "/magazine/issue/dlss-5-leak-backlash/"
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -67,13 +67,6 @@
       "slug": "subculture-april-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "pd-vs-director",
-      "category": "knowledge",
-      "views": 2,
-      "path": "/wiki/knowledge/pd-vs-director/"
     },
     {
       "type": "hotpick",
@@ -100,22 +93,10 @@
       "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
     },
     {
-      "type": "hotpick",
-      "slug": "version-control-system",
-      "views": 1,
-      "path": "/magazine/hotpick/version-control-system/"
-    },
-    {
       "type": "insight",
       "slug": "cookierun-crumble-performance",
       "views": 1,
       "path": "/magazine/insight/cookierun-crumble-performance/"
-    },
-    {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 1,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -149,6 +130,18 @@
     },
     {
       "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-july-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-july-2026-kr/"
+    },
+    {
+      "type": "ranking",
       "slug": "subculture-february-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-february-2026-kr/"
@@ -158,13 +151,6 @@
       "slug": "subculture-january-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "wiki",
-      "slug": "gukjeon-hanwoori",
-      "category": "knowledge",
-      "views": 1,
-      "path": "/wiki/knowledge/gukjeon-hanwoori/"
     }
   ]
 }

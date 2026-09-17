@@ -34605,13 +34605,19 @@
     },
     {
       "title": "에버나이트: 리버스",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6762976425
+        "ios": "6762976425",
+        "android": "com.yyjlkr.az"
       },
       "developer": "LONGSIN GAME",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/37/32/89373298-d967-6f4b-e1a5-83b3d0c6c9ed/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "에버나이트: 리버스",
+          "appId": "6762976425"
+        }
+      ],
       "addedAt": "2026-09-16T12:30:20.169Z"
     },
     {
@@ -34707,6 +34713,30 @@
       "icon": "https://play-lh.googleusercontent.com/dbvSjUYjVK5OejV7i0nhMsNWQ__qFUdsu9Ma4IfFIacQa7sf5oWN2cCITPoOKnK-flg7Qep70YESkr8tXIYI",
       "searchResults": [],
       "addedAt": "2026-09-16T20:27:04.271Z"
+    },
+    {
+      "title": "Smash Land!",
+      "status": "single",
+      "appIds": {
+        "android": "com.flow.smashparty"
+      },
+      "developer": "Flow Games A.S.",
+      "icon": "https://play-lh.googleusercontent.com/KCp0RI0b5soxMm-VaiimK-rhbSRRGl8zGvO3Isc_eSUdrMyzES7saPjQUu1CTsKZzz_hiQIXz_QLM0BvS4SQ7_M",
+      "searchResults": [
+        {
+          "title": "Smash Fest!",
+          "appId": 6748084174
+        },
+        {
+          "title": "Angry Smash - Physics Puzzle",
+          "appId": 6785384304
+        },
+        {
+          "title": "Smash Hit",
+          "appId": 603527166
+        }
+      ],
+      "addedAt": "2026-09-17T01:44:33.932Z"
     }
   ],
   "approved": [

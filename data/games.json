@@ -48236,14 +48236,16 @@
     },
     "에버나이트: 리버스": {
       "appIds": {
-        "ios": 6762976425
+        "ios": "6762976425",
+        "android": "com.yyjlkr.az"
       },
       "aliases": [],
       "developer": "LONGSIN GAME",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/37/32/89373298-d967-6f4b-e1a5-83b3d0c6c9ed/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "에버나이트-리버스",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "드리미 크러쉬": {
@@ -48343,8 +48345,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Smash Land!": {
+      "appIds": {
+        "android": "com.flow.smashparty"
+      },
+      "aliases": [],
+      "developer": "Flow Games A.S.",
+      "icon": "https://play-lh.googleusercontent.com/KCp0RI0b5soxMm-VaiimK-rhbSRRGl8zGvO3Isc_eSUdrMyzES7saPjQUu1CTsKZzz_hiQIXz_QLM0BvS4SQ7_M",
+      "slug": "smash-land",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Trails in the Sky 2nd Chapter": {
+      "appIds": {
+        "steam": "4225980"
+      },
+      "aliases": [],
+      "developer": "Nihon Falcom",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4225980/30e1d016966bd8a050e8548991b1a2bb64a934f6/capsule_231x87.jpg?t=1789409245",
+      "slug": "trails-in-the-sky-2nd-chapter",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-17",
-  "totalGames": 3704
+  "totalGames": 3706
 }
