@@ -48459,8 +48459,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "폴리스 치프": {
+      "appIds": {
+        "ios": 6757350661
+      },
+      "aliases": [],
+      "developer": "VoyagerOne",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7b/e6/84/7be6842e-44ea-d20e-ffe7-927e6b566be1/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg",
+      "slug": "폴리스-치프",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Alien Tribe 3: RTS": {
+      "appIds": {
+        "ios": 1206876323
+      },
+      "aliases": [],
+      "developer": "Ukando Software",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3f/13/60/3f1360be-c8e7-fac8-b802-8af77d013402/alien-tribe-3-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "slug": "alien-tribe-3-rts",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Privateers: Pirate Wars": {
+      "appIds": {
+        "ios": 6759914444
+      },
+      "aliases": [],
+      "developer": "MADFATCAT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/36/a8/8036a881-4a12-bb5e-3904-9cd9071defb9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "privateers-pirate-wars",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-18",
-  "totalGames": 3713
+  "totalGames": 3716
 }
