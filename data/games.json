@@ -48314,14 +48314,16 @@
     },
     "데이브 더 다이버": {
       "appIds": {
-        "ios": "6759962259"
+        "ios": "6759962259",
+        "android": "com.mintrocket.drmobile"
       },
       "aliases": [],
       "developer": "Mintrocket",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/55/d5/ee55d59e-a983-3e69-2d93-5f3f39336687/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "데이브-더-다이버",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "모래공방 : 색모래 블록 퍼즐": {
@@ -48445,8 +48447,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ENDLESS Legend™ 2": {
+      "appIds": {
+        "steam": "3407390"
+      },
+      "aliases": [],
+      "developer": "AMPLITUDE Studios",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3407390/9f2ee6ecca69fa997206c328e095d77b431b0501/capsule_231x87.jpg?t=1789669890",
+      "slug": "endless-legend-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-18",
-  "totalGames": 3712
+  "totalGames": 3713
 }

@@ -34700,13 +34700,19 @@
     },
     {
       "title": "데이브 더 다이버",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6759962259"
+        "ios": "6759962259",
+        "android": "com.mintrocket.drmobile"
       },
       "developer": "Mintrocket",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/55/d5/ee55d59e-a983-3e69-2d93-5f3f39336687/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "데이브 더 다이버",
+          "appId": "6759962259"
+        }
+      ],
       "addedAt": "2026-09-16T20:27:03.884Z"
     },
     {
