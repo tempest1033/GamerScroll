@@ -48495,8 +48495,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "The Rhapsody of Zephyr Remastered": {
+      "appIds": {
+        "steam": "5099430"
+      },
+      "aliases": [],
+      "developer": "Nine Circles Corporation",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5099430/bc93cc2b639509d3cb80b00162efbe1aa1c62fb9/capsule_231x87.jpg?t=1789743560",
+      "slug": "the-rhapsody-of-zephyr-remastered",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-18",
-  "totalGames": 3716
+  "lastUpdated": "2026-09-19",
+  "totalGames": 3717
 }
