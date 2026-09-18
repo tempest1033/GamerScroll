@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-17T17:14:05.237Z",
+  "updatedAt": "2026-09-18T18:47:26.004Z",
   "period": "30days",
   "games": [
     {
@@ -8,75 +8,75 @@
     },
     {
       "slug": "제우스-오만의-신",
-      "views": 19
+      "views": 20
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 9
-    },
-    {
-      "slug": "where-winds-meet",
-      "views": 8
-    },
-    {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 8
+      "views": 10
     },
     {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 7
+      "views": 6
+    },
+    {
+      "slug": "where-winds-meet",
+      "views": 6
+    },
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 6
     },
     {
       "slug": "palworld",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "vpet",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "단어-찾기-단어-게임",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "레이싱-마스터",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "로드러쉬",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "에이지-오브-엠파이어-모바일",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "에픽세븐",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "탈출-게임-암스테르담",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "탑-히어로즈-영웅의-시대",
-      "views": 7
+      "views": 5
     },
     {
       "slug": "1-하트-윌-우들-스크류-온",
-      "views": 6
+      "views": 4
+    },
+    {
+      "slug": "3d운전교실",
+      "views": 4
     },
     {
       "slug": "arrow-pro-3d",
-      "views": 6
+      "views": 4
     },
     {
       "slug": "barotrauma",
-      "views": 6
-    },
-    {
-      "slug": "geometry-dash-lite",
-      "views": 6
+      "views": 4
     }
   ]
 }
