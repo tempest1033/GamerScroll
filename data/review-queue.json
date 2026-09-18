@@ -34832,6 +34832,33 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/36/a8/8036a881-4a12-bb5e-3904-9cd9071defb9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-18T11:43:56.883Z"
+    },
+    {
+      "title": "황야의 무법자: 타워 디펜스",
+      "status": "single",
+      "appIds": {
+        "ios": 6760276770
+      },
+      "developer": "PurpleCow Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/37/2f/c6372f81-36f1-1590-519a-b8845f111bbe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-18T21:30:22.593Z"
+    },
+    {
+      "title": "도스게임박스 - 추억의 레트로 오락실",
+      "status": "single",
+      "appIds": {
+        "android": "com.dos.gamebox"
+      },
+      "developer": "dosgamebox",
+      "icon": "https://play-lh.googleusercontent.com/ITJklaZqhv9a4TphDC-0wVCQXzYhsijvOmepyhKyCRGGAS92M08iL-jaAQ492xxoBjVQb9VPAumlj3h7HwpBWw",
+      "searchResults": [
+        {
+          "title": "고전게임 오락실",
+          "appId": 6743382705
+        }
+      ],
+      "addedAt": "2026-09-18T21:30:23.198Z"
     }
   ],
   "approved": [

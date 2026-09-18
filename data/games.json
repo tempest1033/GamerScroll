@@ -48507,8 +48507,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "황야의 무법자: 타워 디펜스": {
+      "appIds": {
+        "ios": 6760276770
+      },
+      "aliases": [],
+      "developer": "PurpleCow Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/37/2f/c6372f81-36f1-1590-519a-b8845f111bbe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "황야의-무법자-타워-디펜스",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "도스게임박스 - 추억의 레트로 오락실": {
+      "appIds": {
+        "android": "com.dos.gamebox"
+      },
+      "aliases": [],
+      "developer": "dosgamebox",
+      "icon": "https://play-lh.googleusercontent.com/ITJklaZqhv9a4TphDC-0wVCQXzYhsijvOmepyhKyCRGGAS92M08iL-jaAQ492xxoBjVQb9VPAumlj3h7HwpBWw",
+      "slug": "도스게임박스-추억의-레트로-오락실",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-19",
-  "totalGames": 3717
+  "totalGames": 3719
 }
