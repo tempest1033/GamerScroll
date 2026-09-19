@@ -48581,8 +48581,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Meow Sort: Color Puzzle Master": {
+      "appIds": {
+        "ios": 6790235894
+      },
+      "aliases": [],
+      "developer": "UUTEAM Technology Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/75/22/e1752275-bd82-1d9b-be6f-b609a8559bbb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "meow-sort-color-puzzle-master",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-20",
-  "totalGames": 3723
+  "totalGames": 3724
 }

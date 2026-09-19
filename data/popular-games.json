@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T18:47:26.004Z",
+  "updatedAt": "2026-09-19T19:52:33.277Z",
   "period": "30days",
   "games": [
     {
@@ -19,19 +19,11 @@
       "views": 6
     },
     {
-      "slug": "where-winds-meet",
-      "views": 6
-    },
-    {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 6
     },
     {
-      "slug": "palworld",
-      "views": 5
-    },
-    {
-      "slug": "vpet",
+      "slug": "where-winds-meet",
       "views": 5
     },
     {
@@ -43,23 +35,7 @@
       "views": 5
     },
     {
-      "slug": "로드러쉬",
-      "views": 5
-    },
-    {
-      "slug": "에이지-오브-엠파이어-모바일",
-      "views": 5
-    },
-    {
       "slug": "에픽세븐",
-      "views": 5
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
-      "views": 5
-    },
-    {
-      "slug": "탑-히어로즈-영웅의-시대",
       "views": 5
     },
     {
@@ -71,11 +47,35 @@
       "views": 4
     },
     {
-      "slug": "arrow-pro-3d",
+      "slug": "barotrauma",
       "views": 4
     },
     {
-      "slug": "barotrauma",
+      "slug": "geometry-dash-lite",
+      "views": 4
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 4
+    },
+    {
+      "slug": "hero-siege",
+      "views": 4
+    },
+    {
+      "slug": "loop-master-컬러-정렬-퍼즐",
+      "views": 4
+    },
+    {
+      "slug": "mistfall-hunter",
+      "views": 4
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 4
+    },
+    {
+      "slug": "palworld",
       "views": 4
     }
   ]
