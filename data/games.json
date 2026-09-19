@@ -48464,14 +48464,16 @@
     },
     "폴리스 치프": {
       "appIds": {
-        "ios": 6757350661
+        "ios": "6757350661",
+        "android": "com.slg.policewar"
       },
       "aliases": [],
       "developer": "VoyagerOne",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7b/e6/84/7be6842e-44ea-d20e-ffe7-927e6b566be1/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg",
       "slug": "폴리스-치프",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Alien Tribe 3: RTS": {
