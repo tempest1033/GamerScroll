@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T01:05:14.171Z",
+  "updatedAt": "2026-09-19T01:21:59.617Z",
   "period": "7days",
   "articles": [
     {
@@ -45,16 +45,22 @@
       "path": "/magazine/ranking/subculture-may-2026-kr/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
       "type": "insight",
       "slug": "subculture-market-crisis-winner-takes-all",
       "views": 2,
       "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-february-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-april-2026-kr",
+      "views": 2,
+      "path": "/magazine/ranking/subculture-april-2026-kr/"
     },
     {
       "type": "hotpick",
@@ -88,6 +94,12 @@
     },
     {
       "type": "issue",
+      "slug": "atelier-karia-night-kingdom",
+      "views": 1,
+      "path": "/magazine/issue/atelier-karia-night-kingdom/"
+    },
+    {
+      "type": "issue",
       "slug": "lineage-classic-refund-exploit-ban",
       "views": 1,
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
@@ -112,15 +124,21 @@
     },
     {
       "type": "ranking",
-      "slug": "mobile-february-2026-kr",
+      "slug": "lunar-new-year-2026-kr",
       "views": 1,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "mobile-july-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-july-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "steam-february-2026",
+      "views": 1,
+      "path": "/magazine/ranking/steam-february-2026/"
     },
     {
       "type": "ranking",

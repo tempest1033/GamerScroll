@@ -48531,8 +48531,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "후더덕 서바이벌-777뽑기 증정": {
+      "appIds": {
+        "android": "com.mrtgd2kr.google"
+      },
+      "aliases": [],
+      "developer": "Joy Nice Games",
+      "icon": "https://play-lh.googleusercontent.com/rDbVN_XC0pxpQMgTMRD9n7et-PpV5PFfF-jS86jBpkKkiSx2kPrvN65t_XlY5V4sHQvbL1RxT05eMJIXksDXoA",
+      "slug": "후더덕-서바이벌-777뽑기-증정",
+      "platforms": [
+        "android"
+      ]
+    },
+    "창세기전 외전: 서풍의 광시곡 리마스터 Soundtrack": {
+      "appIds": {
+        "steam": "5150030"
+      },
+      "aliases": [],
+      "developer": "Nine Circles Corporation",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5150030/c1cfa5ec3e383ed47cbbec90ffa0a53267e74420/capsule_231x87.jpg?t=1789759548",
+      "slug": "창세기전-외전-서풍의-광시곡-리마스터-soundtrack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-19",
-  "totalGames": 3719
+  "totalGames": 3721
 }
