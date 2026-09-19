@@ -34752,13 +34752,19 @@
     },
     {
       "title": "루미마스터",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6760446844"
+        "ios": "6760446844",
+        "android": "com.bilibili.lumi.kr"
       },
       "developer": "BILIBILI HK LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/ba/d7/5abad7cc-30c5-a8a2-b8fd-dbd4da4600a4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "루미마스터",
+          "appId": "6760446844"
+        }
+      ],
       "addedAt": "2026-09-17T12:35:26.258Z"
     },
     {
@@ -34870,6 +34876,17 @@
       "icon": "https://play-lh.googleusercontent.com/rDbVN_XC0pxpQMgTMRD9n7et-PpV5PFfF-jS86jBpkKkiSx2kPrvN65t_XlY5V4sHQvbL1RxT05eMJIXksDXoA",
       "searchResults": [],
       "addedAt": "2026-09-19T01:31:20.535Z"
+    },
+    {
+      "title": "Pawdoku - 논리 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6782894084
+      },
+      "developer": "AI FIRST FOR EVERYTHING TECHNOLOGY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/96/ba/7596baad-28d9-ed07-6a90-554a394278de/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-19T06:20:50.838Z"
     }
   ],
   "approved": [

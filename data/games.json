@@ -48388,14 +48388,16 @@
     },
     "루미마스터": {
       "appIds": {
-        "ios": "6760446844"
+        "ios": "6760446844",
+        "android": "com.bilibili.lumi.kr"
       },
       "aliases": [],
       "developer": "BILIBILI HK LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/ba/d7/5abad7cc-30c5-a8a2-b8fd-dbd4da4600a4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "루미마스터",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "동방사신전": {
@@ -48555,8 +48557,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Pawdoku - 논리 퍼즐": {
+      "appIds": {
+        "ios": 6782894084
+      },
+      "aliases": [],
+      "developer": "AI FIRST FOR EVERYTHING TECHNOLOGY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/96/ba/7596baad-28d9-ed07-6a90-554a394278de/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "pawdoku-논리-퍼즐",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-19",
-  "totalGames": 3721
+  "totalGames": 3722
 }
