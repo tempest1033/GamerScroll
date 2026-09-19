@@ -48569,8 +48569,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Spinner Evolution": {
+      "appIds": {
+        "ios": 6797758873
+      },
+      "aliases": [],
+      "developer": "HYPERMONK GAMES OYUN YAZILIM PAZARLAMA VE DANISMANLIK ANONIM SIRKETI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/9f/ac/d29fac57-51eb-5669-c61c-05ccc3225691/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "spinner-evolution",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-19",
-  "totalGames": 3722
+  "totalGames": 3723
 }
