@@ -34915,6 +34915,53 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/75/22/e1752275-bd82-1d9b-be6f-b609a8559bbb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-19T19:59:17.752Z"
+    },
+    {
+      "title": "더 루키: 고교야구선수 키우기",
+      "status": "single",
+      "appIds": {
+        "ios": 6800343219
+      },
+      "developer": "The Rookie Lab",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/94/cf/9594cfc5-1aef-2ca7-b274-e9f15243d1d8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-20T19:41:52.788Z"
+    },
+    {
+      "title": "Catedrop: Card Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6788647921
+      },
+      "developer": "GOODROID,Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/aa/76/61aa76cf-5edf-e9bf-5e10-5d6b097917ef/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-20T19:41:52.983Z"
+    },
+    {
+      "title": "Colordoku: Logic Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.clarkstudio.an.queen.colordoku",
+        "ios": 6789040217
+      },
+      "developer": "CLARK STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/NF-1GGuBvzaXBH0OljEJHsrdS6hdQkeNiPqAkrrv3mB_K1LO1fdWRzWyW_OTFDZqBtAl4Cr6YwAO4omdilM3YHg",
+      "searchResults": [
+        {
+          "title": "Colordoku: Logic Puzzle",
+          "appId": 6789040217
+        },
+        {
+          "title": "Hue9: 컬러 스도쿠",
+          "appId": 6758043250
+        },
+        {
+          "title": "ColorDoku: Block Puzzle",
+          "appId": 6775775168
+        }
+      ],
+      "addedAt": "2026-09-20T19:41:53.517Z"
     }
   ],
   "approved": [

@@ -48607,8 +48607,46 @@
       "platforms": [
         "steam"
       ]
+    },
+    "더 루키: 고교야구선수 키우기": {
+      "appIds": {
+        "ios": 6800343219
+      },
+      "aliases": [],
+      "developer": "The Rookie Lab",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/94/cf/9594cfc5-1aef-2ca7-b274-e9f15243d1d8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "더-루키-고교야구선수-키우기",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Catedrop: Card Puzzle": {
+      "appIds": {
+        "ios": 6788647921
+      },
+      "aliases": [],
+      "developer": "GOODROID,Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/aa/76/61aa76cf-5edf-e9bf-5e10-5d6b097917ef/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "catedrop-card-puzzle",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Colordoku: Logic Puzzle": {
+      "appIds": {
+        "android": "com.clarkstudio.an.queen.colordoku",
+        "ios": 6789040217
+      },
+      "aliases": [],
+      "developer": "CLARK STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/NF-1GGuBvzaXBH0OljEJHsrdS6hdQkeNiPqAkrrv3mB_K1LO1fdWRzWyW_OTFDZqBtAl4Cr6YwAO4omdilM3YHg",
+      "slug": "colordoku-logic-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-21",
-  "totalGames": 3725
+  "totalGames": 3728
 }
