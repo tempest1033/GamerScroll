@@ -48595,8 +48595,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "CONTROL Resonant": {
+      "appIds": {
+        "steam": "3669870"
+      },
+      "aliases": [],
+      "developer": "Remedy Entertainment",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3669870/867a73afa5f21c28aaa14e9b0a4d895c540d4a0c/capsule_231x87.jpg?t=1789653825",
+      "slug": "control-resonant",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-20",
-  "totalGames": 3724
+  "lastUpdated": "2026-09-21",
+  "totalGames": 3725
 }
