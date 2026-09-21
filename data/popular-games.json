@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-09-20T22:06:04.436Z",
+  "updatedAt": "2026-09-21T23:45:46.417Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 24
+      "views": 25
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 21
+      "views": 22
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 14
+      "views": 15
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 9
+      "views": 10
     },
     {
       "slug": "monopoly-go-모노폴리-go",
@@ -32,10 +32,6 @@
     },
     {
       "slug": "레이싱-마스터",
-      "views": 5
-    },
-    {
-      "slug": "에픽세븐",
       "views": 5
     },
     {
@@ -76,6 +72,10 @@
     },
     {
       "slug": "palworld",
+      "views": 4
+    },
+    {
+      "slug": "pixel-flow",
       "views": 4
     }
   ]

@@ -48723,8 +48723,20 @@
         "android",
         "ios"
       ]
+    },
+    "뱅드림! 아워 노트": {
+      "appIds": {
+        "ios": 6757695187
+      },
+      "aliases": [],
+      "developer": "BILIBILI HK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/e7/1c/b1e71c16-312a-d0d7-ffec-6ef1ec1ce7ef/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "뱅드림-아워-노트",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-22",
-  "totalGames": 3734
+  "totalGames": 3735
 }
