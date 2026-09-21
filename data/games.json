@@ -48586,14 +48586,18 @@
     },
     "Meow Sort: Color Puzzle Master": {
       "appIds": {
-        "ios": 6790235894
+        "ios": 6790235894,
+        "android": "com.meow.sort.puzzle.pet.arrange.color.android"
       },
-      "aliases": [],
+      "aliases": [
+        "Meow Sort-Color Puzzle Master"
+      ],
       "developer": "UUTEAM Technology Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/75/22/e1752275-bd82-1d9b-be6f-b609a8559bbb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "meow-sort-color-puzzle-master",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "CONTROL Resonant": {
@@ -48693,8 +48697,34 @@
       "platforms": [
         "steam"
       ]
+    },
+    "포트블록스: 이동요새 GO!": {
+      "appIds": {
+        "ios": 6761804867
+      },
+      "aliases": [],
+      "developer": "HYPERRISE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/cc/50/53cc5011-08c2-a513-aabb-3f33c4122132/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "포트블록스-이동요새-go",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "브라 메이커 (Bra Maker)": {
+      "appIds": {
+        "android": "com.playstrom.bramaker",
+        "ios": 1617578309
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/wUoaXrBkJPlmmF6BjsbSGO6-asnyQpIDqQVuqQvKp3C50PmHpU3UbEZfmWfnQsI7UH45TuXQjv2ijTmSCbW6fg",
+      "slug": "브라-메이커-bra-maker",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-22",
-  "totalGames": 3732
+  "totalGames": 3734
 }

@@ -34907,13 +34907,27 @@
     },
     {
       "title": "Meow Sort: Color Puzzle Master",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6790235894
+        "ios": 6790235894,
+        "android": "com.meow.sort.puzzle.pet.arrange.color.android"
       },
       "developer": "UUTEAM Technology Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/75/22/e1752275-bd82-1d9b-be6f-b609a8559bbb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Meow Sort: Color Puzzle Master",
+          "appId": 6790235894
+        },
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "스도쿠 - 클래식 로직 퍼즐 게임",
+          "appId": 1193508329
+        }
+      ],
       "addedAt": "2026-09-19T19:59:17.752Z"
     },
     {
@@ -34984,6 +34998,42 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/47/98/6d4798b0-3483-ba46-dc1e-5f89a8a76665/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-21T11:05:44.670Z"
+    },
+    {
+      "title": "포트블록스: 이동요새 GO!",
+      "status": "single",
+      "appIds": {
+        "ios": 6761804867
+      },
+      "developer": "HYPERRISE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/cc/50/53cc5011-08c2-a513-aabb-3f33c4122132/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-21T20:53:20.007Z"
+    },
+    {
+      "title": "브라 메이커 (Bra Maker)",
+      "status": "matched",
+      "appIds": {
+        "android": "com.playstrom.bramaker",
+        "ios": 1617578309
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/wUoaXrBkJPlmmF6BjsbSGO6-asnyQpIDqQVuqQvKp3C50PmHpU3UbEZfmWfnQsI7UH45TuXQjv2ijTmSCbW6fg",
+      "searchResults": [
+        {
+          "title": "브라 메이커 (Bra Maker)",
+          "appId": 1617578309
+        },
+        {
+          "title": "브롤 아트 — 브롤스타즈 스킨 메이커",
+          "appId": 1511931306
+        },
+        {
+          "title": "비키니 DIY : 브래지어 비키니 게임",
+          "appId": 6443551349
+        }
+      ],
+      "addedAt": "2026-09-21T20:53:20.547Z"
     }
   ],
   "approved": [
