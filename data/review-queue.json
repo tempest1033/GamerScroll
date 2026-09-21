@@ -34962,6 +34962,28 @@
         }
       ],
       "addedAt": "2026-09-20T19:41:53.517Z"
+    },
+    {
+      "title": "Cutie Sort - 귀여운 색깔 분류 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6796547048
+      },
+      "developer": "Ladaneta Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/79/b3/a5/79b3a5ca-317a-c0a6-6814-c7986d155842/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-21T11:05:44.496Z"
+    },
+    {
+      "title": "뿌요뿌요!! 퀘스트",
+      "status": "single",
+      "appIds": {
+        "ios": 6448901492
+      },
+      "developer": "Sesisoft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/47/98/6d4798b0-3483-ba46-dc1e-5f89a8a76665/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-21T11:05:44.670Z"
     }
   ],
   "approved": [

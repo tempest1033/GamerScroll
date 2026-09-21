@@ -48657,8 +48657,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Cutie Sort - 귀여운 색깔 분류 퍼즐": {
+      "appIds": {
+        "ios": 6796547048
+      },
+      "aliases": [],
+      "developer": "Ladaneta Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/79/b3/a5/79b3a5ca-317a-c0a6-6814-c7986d155842/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "cutie-sort-귀여운-색깔-분류-퍼즐",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "뿌요뿌요!! 퀘스트": {
+      "appIds": {
+        "ios": 6448901492
+      },
+      "aliases": [],
+      "developer": "Sesisoft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/47/98/6d4798b0-3483-ba46-dc1e-5f89a8a76665/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "뿌요뿌요-퀘스트",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Yandere Virus": {
+      "appIds": {
+        "steam": "4513060"
+      },
+      "aliases": [],
+      "developer": "Moka Sphere",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4513060/557d7c1d918a2ef462792d648bf4880ee95cfca4/capsule_231x87.jpg?t=1789973956",
+      "slug": "yandere-virus",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-21",
-  "totalGames": 3729
+  "totalGames": 3732
 }
