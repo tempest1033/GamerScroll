@@ -48795,8 +48795,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "랜덤 영웅 킹덤": {
+      "appIds": {
+        "ios": "6793740057"
+      },
+      "aliases": [],
+      "developer": "Mate Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/c2/56/0cc2562b-aa16-78f0-b05e-811b805701c4/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "랜덤-영웅-킹덤",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "토이 신선": {
+      "appIds": {
+        "ios": 6803772054
+      },
+      "aliases": [],
+      "developer": "END9 GAMES Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/a2/ee/c2a2eedd-c4f4-34ce-69b4-78439e570f06/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "토이-신선",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-22",
-  "totalGames": 3740
+  "totalGames": 3742
 }
