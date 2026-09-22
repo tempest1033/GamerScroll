@@ -35078,6 +35078,45 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/a2/ee/c2a2eedd-c4f4-34ce-69b4-78439e570f06/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-22T13:42:10.857Z"
+    },
+    {
+      "title": "워해머 40,000: 볼트건 Boom",
+      "status": "single",
+      "appIds": {
+        "ios": 6767193770
+      },
+      "developer": "Nitro Games Oyj",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/97/3c/bd973c83-5f38-5724-be78-fb03a83fdf99/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-22T23:33:56.779Z"
+    },
+    {
+      "title": "디지털 챔피언",
+      "status": "single",
+      "appIds": {
+        "android": "com.smgj.hkgame"
+      },
+      "developer": "Bit404",
+      "icon": "https://play-lh.googleusercontent.com/4DofSSn9NRXOf_RNJiDR6XfOgk_GM9Fo5uRl4Gw5b7-ngf0IKjbDhvsy6gT7T3QMcioXq2HjiJ-Zz8IpGZmnpTg",
+      "searchResults": [],
+      "addedAt": "2026-09-22T23:33:57.176Z"
+    },
+    {
+      "title": "요괴의 전설M",
+      "status": "matched",
+      "appIds": {
+        "android": "com.guanyang.monsterlegendmgp",
+        "ios": 6794267795
+      },
+      "developer": "feixin games",
+      "icon": "https://play-lh.googleusercontent.com/QCPAzHtGamTtSF_vrjVrKDIJelVez8j75KGMaDRmlk8crjwp7UycS73gMnKY8DLjl8fr_Bn4oMeDoF94Y_viNw",
+      "searchResults": [
+        {
+          "title": "요괴의 전설M",
+          "appId": 6794267795
+        }
+      ],
+      "addedAt": "2026-09-22T23:33:57.382Z"
     }
   ],
   "approved": [

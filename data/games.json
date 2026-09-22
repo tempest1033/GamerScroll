@@ -48819,8 +48819,58 @@
       "platforms": [
         "ios"
       ]
+    },
+    "워해머 40,000: 볼트건 Boom": {
+      "appIds": {
+        "ios": 6767193770
+      },
+      "aliases": [],
+      "developer": "Nitro Games Oyj",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/97/3c/bd973c83-5f38-5724-be78-fb03a83fdf99/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/512x512bb.jpg",
+      "slug": "워해머-40000-볼트건-boom",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "디지털 챔피언": {
+      "appIds": {
+        "android": "com.smgj.hkgame"
+      },
+      "aliases": [],
+      "developer": "Bit404",
+      "icon": "https://play-lh.googleusercontent.com/4DofSSn9NRXOf_RNJiDR6XfOgk_GM9Fo5uRl4Gw5b7-ngf0IKjbDhvsy6gT7T3QMcioXq2HjiJ-Zz8IpGZmnpTg",
+      "slug": "디지털-챔피언",
+      "platforms": [
+        "android"
+      ]
+    },
+    "요괴의 전설M": {
+      "appIds": {
+        "android": "com.guanyang.monsterlegendmgp",
+        "ios": 6794267795
+      },
+      "aliases": [],
+      "developer": "feixin games",
+      "icon": "https://play-lh.googleusercontent.com/QCPAzHtGamTtSF_vrjVrKDIJelVez8j75KGMaDRmlk8crjwp7UycS73gMnKY8DLjl8fr_Bn4oMeDoF94Y_viNw",
+      "slug": "요괴의-전설m",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Train Sim World® 7": {
+      "appIds": {
+        "steam": "4678800"
+      },
+      "aliases": [],
+      "developer": "Dovetail Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4678800/ca730229ba0764a0963592feab972e2c3b2e5999/capsule_231x87.jpg?t=1789494050",
+      "slug": "train-sim-world-7",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-23",
-  "totalGames": 3742
+  "totalGames": 3746
 }
