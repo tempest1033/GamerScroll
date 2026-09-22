@@ -48735,8 +48735,44 @@
       "platforms": [
         "ios"
       ]
+    },
+    "애니모": {
+      "appIds": {
+        "ios": 6759098797
+      },
+      "aliases": [],
+      "developer": "PAWPRINT INTERACTIVE ENTERTAINMENT PTE. LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ab/a8/2e/aba82e5b-5492-1e01-d677-634abedfa5e8/FPX_AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "애니모",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Dressmaker": {
+      "appIds": {
+        "steam": "4019220"
+      },
+      "aliases": [],
+      "developer": "Cozy Lives",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4019220/7f07d1dd7a97e00694481ee7747940989dc5820c/capsule_231x87.jpg?t=1790009899",
+      "slug": "dressmaker",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Escape Simulator 2: Apocalypse DLC": {
+      "appIds": {
+        "steam": "4575720"
+      },
+      "aliases": [],
+      "developer": "Pine Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4575720/a41516835e8c07068a414dffa16a4eccfaf2092c/capsule_231x87.jpg?t=1790011694",
+      "slug": "escape-simulator-2-apocalypse-dlc",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-22",
-  "totalGames": 3735
+  "totalGames": 3738
 }

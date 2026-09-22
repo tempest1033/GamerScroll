@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-09-21T00:22:15.510Z",
+  "updatedAt": "2026-09-22T02:45:31.726Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "ranking",
-      "slug": "subculture-june-2026-kr",
-      "views": 15,
-      "path": "/magazine/ranking/subculture-june-2026-kr/"
-    },
     {
       "type": "ranking",
       "slug": "subculture-august-2026-kr",
       "views": 11,
       "path": "/magazine/ranking/subculture-august-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-june-2026-kr",
+      "views": 11,
+      "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "insight",
@@ -23,7 +23,7 @@
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 6,
+      "views": 5,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
@@ -34,21 +34,21 @@
     },
     {
       "type": "insight",
-      "slug": "cookierun-crumble-performance",
-      "views": 3,
-      "path": "/magazine/insight/cookierun-crumble-performance/"
-    },
-    {
-      "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
       "views": 3,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
+      "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 2,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "insight",
+      "slug": "cookierun-crumble-performance",
+      "views": 2,
+      "path": "/magazine/insight/cookierun-crumble-performance/"
     },
     {
       "type": "ranking",
@@ -76,15 +76,21 @@
     },
     {
       "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 1,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
-    },
-    {
-      "type": "hotpick",
       "slug": "nioh3-hotpick-soulslike-masterpiece",
       "views": 1,
       "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
+    },
+    {
+      "type": "hotpick",
+      "slug": "version-control-system",
+      "views": 1,
+      "path": "/magazine/hotpick/version-control-system/"
+    },
+    {
+      "type": "insight",
+      "slug": "2026-game-trends",
+      "views": 1,
+      "path": "/magazine/insight/2026-game-trends/"
     },
     {
       "type": "insight",
@@ -117,12 +123,6 @@
       "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
     },
     {
-      "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
-      "views": 1,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
-    },
-    {
       "type": "ranking",
       "slug": "lunar-new-year-2026-kr",
       "views": 1,
@@ -145,6 +145,12 @@
       "slug": "subculture-april-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-may-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/subculture-may-2026-kr/"
     }
   ]
 }
