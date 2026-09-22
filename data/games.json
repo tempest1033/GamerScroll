@@ -48771,8 +48771,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Galvatein : Adventurers' Guild": {
+      "appIds": {
+        "steam": "3208930"
+      },
+      "aliases": [],
+      "developer": "BLANBEE",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3208930/305e134c8a0be39b7ce302a66df6b6653ef53ea4/capsule_231x87.jpg?t=1790060446",
+      "slug": "galvatein-adventurers-guild",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Everest: Real Climbing Simulator": {
+      "appIds": {
+        "steam": "3877940"
+      },
+      "aliases": [],
+      "developer": "Funcity",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3877940/a783e162879810af87798147aa56d5e4a01102e3/capsule_231x87_alt_assets_0.jpg?t=1789245744",
+      "slug": "everest-real-climbing-simulator",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-22",
-  "totalGames": 3738
+  "totalGames": 3740
 }
