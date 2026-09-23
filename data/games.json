@@ -48923,8 +48923,56 @@
       "platforms": [
         "steam"
       ]
+    },
+    "그릴 매치 - 음식 분류 게임": {
+      "appIds": {
+        "ios": 6752890879
+      },
+      "aliases": [],
+      "developer": "Guru Smart Holding Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6c/95/b2/6c95b275-7da5-ba2f-c53c-fa4ad9d9085c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "그릴-매치-음식-분류-게임",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Warframe: Narin Bundle": {
+      "appIds": {
+        "steam": "5126960"
+      },
+      "aliases": [],
+      "developer": "Digital Extremes",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5126960/28026864f3b10ee35678b8a33b6a8696d76656f4/capsule_231x87.jpg?t=1790175806",
+      "slug": "warframe-narin-bundle",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Warframe: Citrine Prime Access - Weapons Pack": {
+      "appIds": {
+        "steam": "5131900"
+      },
+      "aliases": [],
+      "developer": "Digital Extremes",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5131900/64516dc9af51a2ad8f741387118a401ca34f4af8/capsule_231x87.jpg?t=1790175995",
+      "slug": "warframe-citrine-prime-access-weapons-pack",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Warframe: Citrine Prime Access - Accessories Pack": {
+      "appIds": {
+        "steam": "5131910"
+      },
+      "aliases": [],
+      "developer": "Digital Extremes",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5131910/23c697118c0f25fc8aabd9a6341769e1ea2bb5d5/capsule_231x87.jpg?t=1790175969",
+      "slug": "warframe-citrine-prime-access-accessories-pack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-23",
-  "totalGames": 3750
+  "lastUpdated": "2026-09-24",
+  "totalGames": 3754
 }
