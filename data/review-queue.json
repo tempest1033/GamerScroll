@@ -35037,13 +35037,19 @@
     },
     {
       "title": "뱅드림! 아워 노트",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6757695187
+        "ios": 6757695187,
+        "android": "com.bilibili.sirius"
       },
       "developer": "BILIBILI HK LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/e7/1c/b1e71c16-312a-d0d7-ffec-6ef1ec1ce7ef/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "뱅드림! 아워 노트",
+          "appId": 6757695187
+        }
+      ],
       "addedAt": "2026-09-21T23:51:46.661Z"
     },
     {
@@ -35117,6 +35123,33 @@
         }
       ],
       "addedAt": "2026-09-22T23:33:57.382Z"
+    },
+    {
+      "title": "나만 SSS급 퇴마사",
+      "status": "single",
+      "appIds": {
+        "android": "com.fmkr.az"
+      },
+      "developer": "Stardome Game",
+      "icon": "https://play-lh.googleusercontent.com/ceUBjNJg-amLkxroSmXROYnMLidaq6fv7nvXuWxgxZ9_9tdRLC62yprljkycEM7YIpnBtnC-H1PJF8V47BO8Wg",
+      "searchResults": [],
+      "addedAt": "2026-09-23T07:16:29.784Z"
+    },
+    {
+      "title": "나 혼자만 상한가 : 회귀 주식 키우기 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.seizemode.up"
+      },
+      "developer": "seizemode",
+      "icon": "https://play-lh.googleusercontent.com/VWCEeu33uStjL3W9rbI94KbsC93X30-VeFBkPHZ5mrrkayqeYNtu_x9HXBh6w3TtPWVvTQGH_VIaB7kt-0tzYA",
+      "searchResults": [
+        {
+          "title": "나 혼자만 상한가 : 회귀 인생게임",
+          "appId": 6790010650
+        }
+      ],
+      "addedAt": "2026-09-23T07:16:30.074Z"
     }
   ],
   "approved": [
