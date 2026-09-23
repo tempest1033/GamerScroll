@@ -46666,14 +46666,18 @@
     },
     "잔망 티키타카": {
       "appIds": {
-        "android": "com.megagiant.tikitaca.google"
+        "android": "com.megagiant.tikitaca.google",
+        "ios": 6763452677
       },
-      "aliases": [],
+      "aliases": [
+        "잔망티키타카"
+      ],
       "developer": "megagiant",
       "icon": "https://play-lh.googleusercontent.com/LmOFEGjGNQ52z4Ao1QrQNtGjDhEnXDybqnoBF9eDl_gi3N22q9qrwzZwpsSg-vyGmzCa_Y2H4u2-bg7a1krD",
       "slug": "잔망-티키타카",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ]
     },
     "Hidden Western Top-Down 3D": {
@@ -48895,8 +48899,32 @@
       "platforms": [
         "android"
       ]
+    },
+    "World Tour Merge: 합성게임 여행 어드벤처": {
+      "appIds": {
+        "ios": 6467041463
+      },
+      "aliases": [],
+      "developer": "SOLOBAND GAMES LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/3a/69/fc3a6935-c71c-ca6a-4803-2207f91f99e9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "world-tour-merge-합성게임-여행-어드벤처",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Heroes' Vow: Three Kingdoms": {
+      "appIds": {
+        "steam": "3020510"
+      },
+      "aliases": [],
+      "developer": "Free Wing",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3020510/3ab38f88ff8c7bb97300d9bcf23c1d34e0cca661/capsule_231x87.jpg?t=1790149894",
+      "slug": "heroes-vow-three-kingdoms",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-23",
-  "totalGames": 3748
+  "totalGames": 3750
 }
