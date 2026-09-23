@@ -1,13 +1,7 @@
 {
-  "updatedAt": "2026-09-22T02:45:31.726Z",
+  "updatedAt": "2026-09-23T01:37:20.847Z",
   "period": "7days",
   "articles": [
-    {
-      "type": "ranking",
-      "slug": "subculture-august-2026-kr",
-      "views": 11,
-      "path": "/magazine/ranking/subculture-august-2026-kr/"
-    },
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
@@ -15,10 +9,22 @@
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
+      "type": "ranking",
+      "slug": "subculture-august-2026-kr",
+      "views": 8,
+      "path": "/magazine/ranking/subculture-august-2026-kr/"
+    },
+    {
       "type": "insight",
       "slug": "lineage-like-market-revival",
-      "views": 8,
+      "views": 5,
       "path": "/magazine/insight/lineage-like-market-revival/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 5,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "ranking",
@@ -29,14 +35,8 @@
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 4,
-      "path": "/magazine/insight/sol-enchant-ranking-streak/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
       "views": 3,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+      "path": "/magazine/insight/sol-enchant-ranking-streak/"
     },
     {
       "type": "hotpick",
@@ -117,22 +117,10 @@
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
-      "type": "issue",
-      "slug": "lineage-classic-refund-exploit-ban",
-      "views": 1,
-      "path": "/magazine/issue/lineage-classic-refund-exploit-ban/"
-    },
-    {
       "type": "ranking",
       "slug": "lunar-new-year-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/lunar-new-year-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "mobile-july-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/mobile-july-2026-kr/"
     },
     {
       "type": "ranking",
@@ -145,12 +133,6 @@
       "slug": "subculture-april-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/subculture-april-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-may-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-may-2026-kr/"
     }
   ]
 }

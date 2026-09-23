@@ -1,82 +1,82 @@
 {
-  "updatedAt": "2026-09-21T23:45:46.417Z",
+  "updatedAt": "2026-09-23T01:37:20.530Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 25
+      "views": 26
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 22
+      "views": 23
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 15
+      "views": 16
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 10
+      "views": 11
     },
     {
       "slug": "monopoly-go-모노폴리-go",
+      "views": 7
+    },
+    {
+      "slug": "단어-찾기-단어-게임",
       "views": 6
+    },
+    {
+      "slug": "1-하트-윌-우들-스크류-온",
+      "views": 5
+    },
+    {
+      "slug": "3d운전교실",
+      "views": 5
+    },
+    {
+      "slug": "barotrauma",
+      "views": 5
+    },
+    {
+      "slug": "geometry-dash-lite",
+      "views": 5
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 5
+    },
+    {
+      "slug": "loop-master-컬러-정렬-퍼즐",
+      "views": 5
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 5
+    },
+    {
+      "slug": "pixel-flow",
+      "views": 5
+    },
+    {
+      "slug": "sakura-school-simulator",
+      "views": 5
+    },
+    {
+      "slug": "skate",
+      "views": 5
     },
     {
       "slug": "where-winds-meet",
       "views": 5
     },
     {
-      "slug": "단어-찾기-단어-게임",
+      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
       "views": 5
     },
     {
       "slug": "레이싱-마스터",
       "views": 5
-    },
-    {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 4
-    },
-    {
-      "slug": "3d운전교실",
-      "views": 4
-    },
-    {
-      "slug": "barotrauma",
-      "views": 4
-    },
-    {
-      "slug": "geometry-dash-lite",
-      "views": 4
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 4
-    },
-    {
-      "slug": "hero-siege",
-      "views": 4
-    },
-    {
-      "slug": "loop-master-컬러-정렬-퍼즐",
-      "views": 4
-    },
-    {
-      "slug": "mistfall-hunter",
-      "views": 4
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 4
-    },
-    {
-      "slug": "palworld",
-      "views": 4
-    },
-    {
-      "slug": "pixel-flow",
-      "views": 4
     }
   ]
 }
