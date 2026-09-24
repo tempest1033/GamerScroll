@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-09-23T01:37:20.530Z",
+  "updatedAt": "2026-09-24T07:01:51.796Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 26
+      "views": 27
     },
     {
       "slug": "이클립스-더-어웨이크닝",
@@ -21,6 +21,14 @@
     {
       "slug": "monopoly-go-모노폴리-go",
       "views": 7
+    },
+    {
+      "slug": "레이싱-마스터",
+      "views": 7
+    },
+    {
+      "slug": "where-winds-meet",
+      "views": 6
     },
     {
       "slug": "단어-찾기-단어-게임",
@@ -47,6 +55,10 @@
       "views": 5
     },
     {
+      "slug": "hero-siege",
+      "views": 5
+    },
+    {
       "slug": "loop-master-컬러-정렬-퍼즐",
       "views": 5
     },
@@ -55,27 +67,15 @@
       "views": 5
     },
     {
+      "slug": "palworld",
+      "views": 5
+    },
+    {
       "slug": "pixel-flow",
       "views": 5
     },
     {
       "slug": "sakura-school-simulator",
-      "views": 5
-    },
-    {
-      "slug": "skate",
-      "views": 5
-    },
-    {
-      "slug": "where-winds-meet",
-      "views": 5
-    },
-    {
-      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
-      "views": 5
-    },
-    {
-      "slug": "레이싱-마스터",
       "views": 5
     }
   ]
