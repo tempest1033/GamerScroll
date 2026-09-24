@@ -49023,8 +49023,20 @@
         "android",
         "ios"
       ]
+    },
+    "CoPlay: 2인용 게임 오프라인": {
+      "appIds": {
+        "ios": 6447750990
+      },
+      "aliases": [],
+      "developer": "Vision Blueprint Technology Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/93/20/0a93200e-767c-7c85-6e6d-3e3224c5fab9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "coplay-2인용-게임-오프라인",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-24",
-  "totalGames": 3758
+  "totalGames": 3759
 }

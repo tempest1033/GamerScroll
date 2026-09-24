@@ -35236,6 +35236,17 @@
         }
       ],
       "addedAt": "2026-09-24T07:10:58.718Z"
+    },
+    {
+      "title": "CoPlay: 2인용 게임 오프라인",
+      "status": "single",
+      "appIds": {
+        "ios": 6447750990
+      },
+      "developer": "Vision Blueprint Technology Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/93/20/0a93200e-767c-7c85-6e6d-3e3224c5fab9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-24T12:58:19.752Z"
     }
   ],
   "approved": [
