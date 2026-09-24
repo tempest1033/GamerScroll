@@ -35054,13 +35054,19 @@
     },
     {
       "title": "애니모",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6759098797
+        "ios": "6759098797",
+        "android": "com.x.aniimos"
       },
       "developer": "PAWPRINT INTERACTIVE ENTERTAINMENT PTE. LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ab/a8/2e/aba82e5b-5492-1e01-d677-634abedfa5e8/FPX_AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "애니모",
+          "appId": "6759098797"
+        }
+      ],
       "addedAt": "2026-09-22T02:54:18.152Z"
     },
     {
@@ -35247,6 +35253,23 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/93/20/0a93200e-767c-7c85-6e6d-3e3224c5fab9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-24T12:58:19.752Z"
+    },
+    {
+      "title": "귀귀살전",
+      "status": "matched",
+      "appIds": {
+        "android": "com.HellAssociation.WhosNext",
+        "ios": 6756009282
+      },
+      "developer": "저승협회",
+      "icon": "https://play-lh.googleusercontent.com/zikbINtRgMEbze-4yu5E2cbjMT-A20o2OgiN9cjU4ZuSmKs0gHjfanLqY6mSxSBxVncv-VX2wjxmVsBLTqWeHbM",
+      "searchResults": [
+        {
+          "title": "귀귀살전",
+          "appId": 6756009282
+        }
+      ],
+      "addedAt": "2026-09-24T17:50:55.439Z"
     }
   ],
   "approved": [

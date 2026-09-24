@@ -48744,14 +48744,16 @@
     },
     "애니모": {
       "appIds": {
-        "ios": 6759098797
+        "ios": "6759098797",
+        "android": "com.x.aniimos"
       },
       "aliases": [],
       "developer": "PAWPRINT INTERACTIVE ENTERTAINMENT PTE. LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ab/a8/2e/aba82e5b-5492-1e01-d677-634abedfa5e8/FPX_AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "애니모",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Dressmaker": {
@@ -48986,14 +48988,16 @@
     },
     "Kingdom Rush 6: Genesis TD": {
       "appIds": {
-        "ios": "6759664029"
+        "ios": "6759664029",
+        "steam": "4259190"
       },
       "aliases": [],
       "developer": "Ironhide S.A.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/95/d1/10/95d110ff-3e4c-3fac-4969-8033c59eac94/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "kingdom-rush-6-genesis-td",
       "platforms": [
-        "ios"
+        "ios",
+        "steam"
       ]
     },
     "토이 신선 - 모든 영웅 증정": {
@@ -49035,8 +49039,34 @@
       "platforms": [
         "ios"
       ]
+    },
+    "귀귀살전": {
+      "appIds": {
+        "android": "com.HellAssociation.WhosNext",
+        "ios": 6756009282
+      },
+      "aliases": [],
+      "developer": "저승협회",
+      "icon": "https://play-lh.googleusercontent.com/zikbINtRgMEbze-4yu5E2cbjMT-A20o2OgiN9cjU4ZuSmKs0gHjfanLqY6mSxSBxVncv-VX2wjxmVsBLTqWeHbM",
+      "slug": "귀귀살전",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
+    "Natsu-Mon: 20th Century Summer Kid": {
+      "appIds": {
+        "steam": "2839280"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2839280/capsule_231x87.jpg?t=1790227732",
+      "slug": "natsu-mon-20th-century-summer-kid",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-24",
-  "totalGames": 3759
+  "lastUpdated": "2026-09-25",
+  "totalGames": 3761
 }
