@@ -1,18 +1,24 @@
 {
-  "updatedAt": "2026-09-23T01:37:20.847Z",
+  "updatedAt": "2026-09-24T01:34:21.209Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 11,
+      "views": 16,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-august-2026-kr",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/ranking/subculture-august-2026-kr/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 6,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "insight",
@@ -21,28 +27,22 @@
       "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 5,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
       "views": 5,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 4,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
       "views": 3,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "gpt-pro-kakao-hot-deal",
-      "views": 2,
-      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
     },
     {
       "type": "insight",
@@ -76,6 +76,12 @@
     },
     {
       "type": "hotpick",
+      "slug": "gpt-pro-kakao-hot-deal",
+      "views": 1,
+      "path": "/magazine/hotpick/gpt-pro-kakao-hot-deal/"
+    },
+    {
+      "type": "hotpick",
       "slug": "nioh3-hotpick-soulslike-masterpiece",
       "views": 1,
       "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
@@ -91,12 +97,6 @@
       "slug": "2026-game-trends",
       "views": 1,
       "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "insight",
-      "slug": "subculture-market-crisis-winner-takes-all",
-      "views": 1,
-      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
     },
     {
       "type": "issue",
@@ -121,6 +121,18 @@
       "slug": "lunar-new-year-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/lunar-new-year-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-july-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-july-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "mobile-june-2026-kr",
+      "views": 1,
+      "path": "/magazine/ranking/mobile-june-2026-kr/"
     },
     {
       "type": "ranking",
