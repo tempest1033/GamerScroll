@@ -49139,8 +49139,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Sand Blocks: Drop Puzzle": {
+      "appIds": {
+        "ios": 6757140488
+      },
+      "aliases": [],
+      "developer": "Rollic Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/24/78/3c247842-8a54-ed19-9d4f-8cd1e721a600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "sand-blocks-drop-puzzle",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-26",
-  "totalGames": 3767
+  "totalGames": 3768
 }
