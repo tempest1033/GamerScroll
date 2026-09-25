@@ -48976,14 +48976,16 @@
     },
     "이모탈 라이징: 불멸의 각성": {
       "appIds": {
-        "ios": 6795748071
+        "ios": "6795748071",
+        "android": "com.hkgt.mot.kr.gp"
       },
       "aliases": [],
       "developer": "GOAT GAMES COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5b/9a/42/5b9a4206-d6a2-8b5d-5bfa-d51ea748d777/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "이모탈-라이징-불멸의-각성",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Kingdom Rush 6: Genesis TD": {

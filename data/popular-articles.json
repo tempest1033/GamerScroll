@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-24T01:34:21.209Z",
+  "updatedAt": "2026-09-25T02:52:42.142Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 16,
+      "views": 19,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
@@ -15,34 +15,40 @@
       "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
-      "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 6,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-market-revival",
-      "views": 5,
-      "path": "/magazine/insight/lineage-like-market-revival/"
-    },
-    {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 5,
+      "views": 7,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "issue",
       "slug": "lol-league-next-2027-overhaul",
-      "views": 4,
+      "views": 5,
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 3,
+      "views": 4,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
+      "views": 3,
+      "path": "/magazine/insight/lineage-like-market-revival/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 3,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-january-2026-kr",
+      "views": 3,
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "insight",
@@ -55,12 +61,6 @@
       "slug": "mobile-february-2026-kr",
       "views": 2,
       "path": "/magazine/ranking/mobile-february-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-january-2026-kr",
-      "views": 2,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "hotpick",
@@ -139,12 +139,6 @@
       "slug": "steam-february-2026",
       "views": 1,
       "path": "/magazine/ranking/steam-february-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-april-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-april-2026-kr/"
     }
   ]
 }
