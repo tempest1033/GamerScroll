@@ -49103,8 +49103,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Castlevania: 40th Anniversary": {
+      "appIds": {
+        "ios": 1498019884
+      },
+      "aliases": [],
+      "developer": "KONAMI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/27/af/ed27afe5-3d3a-2033-a2f0-2f5b42e15baa/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "castlevania-40th-anniversary",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Rotate Rings": {
+      "appIds": {
+        "ios": 6793924927
+      },
+      "aliases": [],
+      "developer": "Nebula Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/d2/28/a0d2287e-3406-6134-6080-0676f7e9608f/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "rotate-rings",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-25",
-  "totalGames": 3764
+  "totalGames": 3766
 }

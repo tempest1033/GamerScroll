@@ -35298,6 +35298,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/54/fa/d0/54fad027-9e94-ff4a-3cc6-da9f2fc0a4b3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-25T08:35:48.385Z"
+    },
+    {
+      "title": "Castlevania: 40th Anniversary",
+      "status": "single",
+      "appIds": {
+        "ios": 1498019884
+      },
+      "developer": "KONAMI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/27/af/ed27afe5-3d3a-2033-a2f0-2f5b42e15baa/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-25T14:11:48.915Z"
+    },
+    {
+      "title": "Rotate Rings",
+      "status": "single",
+      "appIds": {
+        "ios": 6793924927
+      },
+      "developer": "Nebula Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/d2/28/a0d2287e-3406-6134-6080-0676f7e9608f/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-25T14:11:49.247Z"
     }
   ],
   "approved": [
