@@ -49127,8 +49127,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Ori and the Blind Forest": {
+      "appIds": {
+        "steam": "261570"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/261570/capsule_231x87.jpg?t=1667504148",
+      "slug": "ori-and-the-blind-forest",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-25",
-  "totalGames": 3766
+  "lastUpdated": "2026-09-26",
+  "totalGames": 3767
 }
