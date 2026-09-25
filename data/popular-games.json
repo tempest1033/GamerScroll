@@ -1,82 +1,82 @@
 {
-  "updatedAt": "2026-09-24T07:01:51.796Z",
+  "updatedAt": "2026-09-25T08:26:14.216Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 27
+      "views": 29
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 23
+      "views": 24
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 16
+      "views": 17
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 11
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 7
+      "views": 10
     },
     {
       "slug": "레이싱-마스터",
       "views": 7
     },
     {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 6
+    },
+    {
       "slug": "where-winds-meet",
       "views": 6
-    },
-    {
-      "slug": "단어-찾기-단어-게임",
-      "views": 6
-    },
-    {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 5
-    },
-    {
-      "slug": "3d운전교실",
-      "views": 5
-    },
-    {
-      "slug": "barotrauma",
-      "views": 5
-    },
-    {
-      "slug": "geometry-dash-lite",
-      "views": 5
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 5
-    },
-    {
-      "slug": "hero-siege",
-      "views": 5
-    },
-    {
-      "slug": "loop-master-컬러-정렬-퍼즐",
-      "views": 5
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 5
     },
     {
       "slug": "palworld",
       "views": 5
     },
     {
-      "slug": "pixel-flow",
+      "slug": "vpet",
       "views": 5
     },
     {
-      "slug": "sakura-school-simulator",
+      "slug": "단어-찾기-단어-게임",
       "views": 5
+    },
+    {
+      "slug": "로드러쉬",
+      "views": 5
+    },
+    {
+      "slug": "킹샷kingshot",
+      "views": 5
+    },
+    {
+      "slug": "탈출-게임-암스테르담",
+      "views": 5
+    },
+    {
+      "slug": "탑-히어로즈-영웅의-시대",
+      "views": 5
+    },
+    {
+      "slug": "1-하트-윌-우들-스크류-온",
+      "views": 4
+    },
+    {
+      "slug": "3d운전교실",
+      "views": 4
+    },
+    {
+      "slug": "arrow-pro-3d",
+      "views": 4
+    },
+    {
+      "slug": "barotrauma",
+      "views": 4
+    },
+    {
+      "slug": "geometry-dash-lite",
+      "views": 4
     }
   ]
 }

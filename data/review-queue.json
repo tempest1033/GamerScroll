@@ -35276,6 +35276,28 @@
         }
       ],
       "addedAt": "2026-09-24T17:50:55.439Z"
+    },
+    {
+      "title": "Shoot & Hide",
+      "status": "single",
+      "appIds": {
+        "ios": 6747033069
+      },
+      "developer": "Crazy Labs",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b2/7f/6d/b27f6db8-6164-ceb0-6fd5-02ba8b077c0f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-25T08:35:48.151Z"
+    },
+    {
+      "title": "Helix Jump",
+      "status": "single",
+      "appIds": {
+        "ios": 1345968745
+      },
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/54/fa/d0/54fad027-9e94-ff4a-3cc6-da9f2fc0a4b3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-25T08:35:48.385Z"
     }
   ],
   "approved": [

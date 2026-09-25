@@ -49067,8 +49067,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Shoot & Hide": {
+      "appIds": {
+        "ios": 6747033069
+      },
+      "aliases": [],
+      "developer": "Crazy Labs",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b2/7f/6d/b27f6db8-6164-ceb0-6fd5-02ba8b077c0f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "shoot-hide",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Helix Jump": {
+      "appIds": {
+        "ios": 1345968745
+      },
+      "aliases": [],
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/54/fa/d0/54fad027-9e94-ff4a-3cc6-da9f2fc0a4b3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "helix-jump",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Ori and the Will of the Wisps": {
+      "appIds": {
+        "steam": "1057090"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1057090/capsule_231x87.jpg?t=1759530749",
+      "slug": "ori-and-the-will-of-the-wisps",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-25",
-  "totalGames": 3761
+  "totalGames": 3764
 }
