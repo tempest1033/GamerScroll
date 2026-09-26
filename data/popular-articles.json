@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-25T02:52:42.142Z",
+  "updatedAt": "2026-09-26T00:19:13.794Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 19,
+      "views": 25,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
@@ -23,7 +23,7 @@
     {
       "type": "issue",
       "slug": "lol-league-next-2027-overhaul",
-      "views": 5,
+      "views": 6,
       "path": "/magazine/issue/lol-league-next-2027-overhaul/"
     },
     {
@@ -31,12 +31,6 @@
       "slug": "sol-enchant-ranking-streak",
       "views": 4,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-market-revival",
-      "views": 3,
-      "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
       "type": "insight",
@@ -57,10 +51,10 @@
       "path": "/magazine/insight/cookierun-crumble-performance/"
     },
     {
-      "type": "ranking",
-      "slug": "mobile-february-2026-kr",
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
       "views": 2,
-      "path": "/magazine/ranking/mobile-february-2026-kr/"
+      "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
       "type": "hotpick",
@@ -106,21 +100,15 @@
     },
     {
       "type": "issue",
-      "slug": "atelier-karia-night-kingdom",
-      "views": 1,
-      "path": "/magazine/issue/atelier-karia-night-kingdom/"
-    },
-    {
-      "type": "issue",
       "slug": "gabe-newell-steam-adult-content-debate",
       "views": 1,
       "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "ranking",
-      "slug": "lunar-new-year-2026-kr",
+      "slug": "mobile-february-2026-kr",
       "views": 1,
-      "path": "/magazine/ranking/lunar-new-year-2026-kr/"
+      "path": "/magazine/ranking/mobile-february-2026-kr/"
     },
     {
       "type": "ranking",
@@ -136,9 +124,9 @@
     },
     {
       "type": "ranking",
-      "slug": "steam-february-2026",
+      "slug": "steam-april-2026",
       "views": 1,
-      "path": "/magazine/ranking/steam-february-2026/"
+      "path": "/magazine/ranking/steam-april-2026/"
     }
   ]
 }
