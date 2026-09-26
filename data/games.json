@@ -49163,8 +49163,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "귀만 가지고 수사선 - 논리 퍼즐 게임": {
+      "appIds": {
+        "ios": 6754370732
+      },
+      "aliases": [],
+      "developer": "FTY LLC.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/0a/63/c90a630a-b840-1f50-2065-5fea3d1bd08c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "귀만-가지고-수사선-논리-퍼즐-게임",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-26",
-  "totalGames": 3769
+  "totalGames": 3770
 }
