@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-25T08:26:14.216Z",
+  "updatedAt": "2026-09-26T10:02:39.926Z",
   "period": "30days",
   "games": [
     {
@@ -12,7 +12,7 @@
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 17
+      "views": 18
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
@@ -47,6 +47,14 @@
       "views": 5
     },
     {
+      "slug": "블루-프로토콜-스타-레조넌스",
+      "views": 5
+    },
+    {
+      "slug": "에이지-오브-엠파이어-모바일",
+      "views": 5
+    },
+    {
       "slug": "킹샷kingshot",
       "views": 5
     },
@@ -68,14 +76,6 @@
     },
     {
       "slug": "arrow-pro-3d",
-      "views": 4
-    },
-    {
-      "slug": "barotrauma",
-      "views": 4
-    },
-    {
-      "slug": "geometry-dash-lite",
       "views": 4
     }
   ]
