@@ -49151,8 +49151,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Stranded with You": {
+      "appIds": {
+        "steam": "4260270"
+      },
+      "aliases": [],
+      "developer": "Kumada Gaon",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4260270/312829cb0664fdc426b1c59e34e3b2419d592464/capsule_231x87.jpg?t=1790391557",
+      "slug": "stranded-with-you",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-26",
-  "totalGames": 3768
+  "totalGames": 3769
 }
