@@ -39846,14 +39846,16 @@
     },
     "블레이드 워: 삼국": {
       "appIds": {
-        "ios": 6769617371
+        "ios": 6769617371,
+        "android": "com.starutopia.global"
       },
       "aliases": [],
       "developer": "EVISTA PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/94/fc/8394fc13-2f84-5f2b-e982-c010afbdae42/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
       "slug": "블레이드-워-삼국",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "스도쿠 플러스: 매일 스도쿠 보상": {
@@ -49253,8 +49255,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "Car Driving & Parking Academy": {
+      "appIds": {
+        "android": "com.zdb.car.parking.simulator"
+      },
+      "aliases": [],
+      "developer": "Safari MMS",
+      "icon": "https://play-lh.googleusercontent.com/_CmfMwZk7WkX-B-vV663jdPY1UsATcvtsCdAldlVyTuXHxIXQeWl1ISS-pza2biSd9Z_J0cCa1rpAc33JTPZkQ",
+      "slug": "car-driving-parking-academy",
+      "platforms": [
+        "android"
+      ]
     }
   },
-  "lastUpdated": "2026-09-27",
-  "totalGames": 3776
+  "lastUpdated": "2026-09-28",
+  "totalGames": 3777
 }

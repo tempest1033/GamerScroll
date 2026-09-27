@@ -27888,13 +27888,23 @@
     },
     {
       "title": "블레이드 워: 삼국",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6769617371
+        "ios": 6769617371,
+        "android": "com.starutopia.global"
       },
       "developer": "EVISTA PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/94/fc/8394fc13-2f84-5f2b-e982-c010afbdae42/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "블레이드 워: 삼국",
+          "appId": 6769617371
+        },
+        {
+          "title": "삼국지워:에픽 킹덤",
+          "appId": 1597932167
+        }
+      ],
       "addedAt": "2026-07-09T05:54:08.068Z"
     },
     {
@@ -35435,6 +35445,30 @@
         }
       ],
       "addedAt": "2026-09-27T14:46:42.167Z"
+    },
+    {
+      "title": "Car Driving & Parking Academy",
+      "status": "single",
+      "appIds": {
+        "android": "com.zdb.car.parking.simulator"
+      },
+      "developer": "Safari MMS",
+      "icon": "https://play-lh.googleusercontent.com/_CmfMwZk7WkX-B-vV663jdPY1UsATcvtsCdAldlVyTuXHxIXQeWl1ISS-pza2biSd9Z_J0cCa1rpAc33JTPZkQ",
+      "searchResults": [
+        {
+          "title": "Car Parking Driving Academy 2",
+          "appId": 1439759880
+        },
+        {
+          "title": "Driving Academy: Car Games",
+          "appId": 1187205113
+        },
+        {
+          "title": "Car Driving 2026 : School Game",
+          "appId": 6443994440
+        }
+      ],
+      "addedAt": "2026-09-27T18:59:01.107Z"
     }
   ],
   "approved": [
