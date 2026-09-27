@@ -35353,6 +35353,22 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/57/94/cf5794b1-9962-2fb5-fe4c-401fa5a4387d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-26T23:49:05.676Z"
+    },
+    {
+      "title": "Goddess Gloss: Anime TCG",
+      "status": "single",
+      "appIds": {
+        "android": "com.goddessgloss.tcg.rpg.gp"
+      },
+      "developer": "SickBay",
+      "icon": "https://play-lh.googleusercontent.com/Ma8Rbm1tpYLVM0WFAAxtdhDQd-_Q-9hMBPlRYRbWK_txM1bjzVZGAoWzs40l4MF-xBM1_Yqzi2QWFpcqHwIv1g",
+      "searchResults": [
+        {
+          "title": "Goddess Gloss: Everlasting",
+          "appId": 6798575354
+        }
+      ],
+      "addedAt": "2026-09-27T03:06:58.210Z"
     }
   ],
   "approved": [

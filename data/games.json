@@ -49199,8 +49199,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Goddess Gloss: Anime TCG": {
+      "appIds": {
+        "android": "com.goddessgloss.tcg.rpg.gp"
+      },
+      "aliases": [],
+      "developer": "SickBay",
+      "icon": "https://play-lh.googleusercontent.com/Ma8Rbm1tpYLVM0WFAAxtdhDQd-_Q-9hMBPlRYRbWK_txM1bjzVZGAoWzs40l4MF-xBM1_Yqzi2QWFpcqHwIv1g",
+      "slug": "goddess-gloss-anime-tcg",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-27",
-  "totalGames": 3772
+  "totalGames": 3773
 }
