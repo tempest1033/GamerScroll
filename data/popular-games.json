@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-26T10:02:39.926Z",
+  "updatedAt": "2026-09-27T14:36:59.698Z",
   "period": "30days",
   "games": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 24
+      "views": 25
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
@@ -28,14 +28,6 @@
     },
     {
       "slug": "where-winds-meet",
-      "views": 6
-    },
-    {
-      "slug": "palworld",
-      "views": 5
-    },
-    {
-      "slug": "vpet",
       "views": 5
     },
     {
@@ -43,27 +35,11 @@
       "views": 5
     },
     {
-      "slug": "로드러쉬",
-      "views": 5
-    },
-    {
       "slug": "블루-프로토콜-스타-레조넌스",
       "views": 5
     },
     {
-      "slug": "에이지-오브-엠파이어-모바일",
-      "views": 5
-    },
-    {
       "slug": "킹샷kingshot",
-      "views": 5
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
-      "views": 5
-    },
-    {
-      "slug": "탑-히어로즈-영웅의-시대",
       "views": 5
     },
     {
@@ -75,7 +51,31 @@
       "views": 4
     },
     {
-      "slug": "arrow-pro-3d",
+      "slug": "barotrauma",
+      "views": 4
+    },
+    {
+      "slug": "geometry-dash-lite",
+      "views": 4
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 4
+    },
+    {
+      "slug": "hero-siege",
+      "views": 4
+    },
+    {
+      "slug": "loop-master-컬러-정렬-퍼즐",
+      "views": 4
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 4
+    },
+    {
+      "slug": "palworld",
       "views": 4
     }
   ]

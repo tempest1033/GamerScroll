@@ -49108,14 +49108,16 @@
     },
     "Castlevania: 40th Anniversary": {
       "appIds": {
-        "ios": 1498019884
+        "ios": 1498019884,
+        "android": "jp.konami.epjCastlevania1"
       },
       "aliases": [],
       "developer": "KONAMI",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/27/af/ed27afe5-3d3a-2033-a2f0-2f5b42e15baa/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "castlevania-40th-anniversary",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Rotate Rings": {
@@ -49227,8 +49229,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Doll Dress Up: Fashion Star": {
+      "appIds": {
+        "android": "com.fashion.dress.up"
+      },
+      "aliases": [],
+      "developer": "CozyTap Studio",
+      "icon": "https://play-lh.googleusercontent.com/hkj1Tlo1wVkAbF7Jb_94rhQ5rgBtdTe_kZKVZmxNxBqGteLMaFxzXdmvrxQPxiD7dUNKPK8cvvFUCYBs5U3ifzk",
+      "slug": "doll-dress-up-fashion-star",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Viral Streamer: Idle Clicker": {
+      "appIds": {
+        "android": "com.cscmobi.livestream.idle.clicker"
+      },
+      "aliases": [],
+      "developer": "CSCMobi Studios",
+      "icon": "https://play-lh.googleusercontent.com/mUs5ZpIQikSoxg6U2Uug6NdB7P86jI_Fv8v7MXHQYiNj2D-LFMX8CvxCssTInzuiX1yT3_jgW4SVwV3NhtGk",
+      "slug": "viral-streamer-idle-clicker",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-27",
-  "totalGames": 3774
+  "totalGames": 3776
 }

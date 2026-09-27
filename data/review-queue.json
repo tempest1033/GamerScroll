@@ -35307,13 +35307,19 @@
     },
     {
       "title": "Castlevania: 40th Anniversary",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 1498019884
+        "ios": 1498019884,
+        "android": "jp.konami.epjCastlevania1"
       },
       "developer": "KONAMI",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/27/af/ed27afe5-3d3a-2033-a2f0-2f5b42e15baa/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Castlevania: 40th Anniversary",
+          "appId": 1498019884
+        }
+      ],
       "addedAt": "2026-09-25T14:11:48.915Z"
     },
     {
@@ -35381,6 +35387,54 @@
         }
       ],
       "addedAt": "2026-09-27T03:06:58.210Z"
+    },
+    {
+      "title": "Doll Dress Up: Fashion Star",
+      "status": "single",
+      "appIds": {
+        "android": "com.fashion.dress.up"
+      },
+      "developer": "CozyTap Studio",
+      "icon": "https://play-lh.googleusercontent.com/hkj1Tlo1wVkAbF7Jb_94rhQ5rgBtdTe_kZKVZmxNxBqGteLMaFxzXdmvrxQPxiD7dUNKPK8cvvFUCYBs5U3ifzk",
+      "searchResults": [
+        {
+          "title": "슈퍼 스타일리스트",
+          "appId": 1441648201
+        },
+        {
+          "title": "Vlinder Dolls-재미있는 패션 스타일링 게임",
+          "appId": 1528455487
+        },
+        {
+          "title": "Momo Dress up game",
+          "appId": 6767464801
+        }
+      ],
+      "addedAt": "2026-09-27T14:46:41.822Z"
+    },
+    {
+      "title": "Viral Streamer: Idle Clicker",
+      "status": "single",
+      "appIds": {
+        "android": "com.cscmobi.livestream.idle.clicker"
+      },
+      "developer": "CSCMobi Studios",
+      "icon": "https://play-lh.googleusercontent.com/mUs5ZpIQikSoxg6U2Uug6NdB7P86jI_Fv8v7MXHQYiNj2D-LFMX8CvxCssTInzuiX1yT3_jgW4SVwV3NhtGk",
+      "searchResults": [
+        {
+          "title": "라마 - 게으른 브이로거",
+          "appId": 1595314851
+        },
+        {
+          "title": "Vlogger Go Viral: 크리에이터 거물",
+          "appId": 1045165396
+        },
+        {
+          "title": "Idle Streamer!",
+          "appId": 1499715635
+        }
+      ],
+      "addedAt": "2026-09-27T14:46:42.167Z"
     }
   ],
   "approved": [
