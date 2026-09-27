@@ -34990,13 +34990,19 @@
     },
     {
       "title": "뿌요뿌요!! 퀘스트",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6448901492
+        "ios": 6448901492,
+        "android": "com.sesisoft.PuyoQuest"
       },
       "developer": "Sesisoft",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/47/98/6d4798b0-3483-ba46-dc1e-5f89a8a76665/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "뿌요뿌요!! 퀘스트",
+          "appId": 6448901492
+        }
+      ],
       "addedAt": "2026-09-21T11:05:44.670Z"
     },
     {
@@ -35312,13 +35318,19 @@
     },
     {
       "title": "Rotate Rings",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6793924927
+        "ios": 6793924927,
+        "android": "com.nebula.rotaterings"
       },
       "developer": "Nebula Studio",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/d2/28/a0d2287e-3406-6134-6080-0676f7e9608f/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Rotate Rings",
+          "appId": 6793924927
+        }
+      ],
       "addedAt": "2026-09-25T14:11:49.247Z"
     },
     {
