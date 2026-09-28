@@ -18,7 +18,8 @@ const routes = [
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
   const failures = [];
   try {
-    for (const width of [1440, 1024, 390]) {
+    // 화면 폭마다 독립된 페이지라 동시에 실행한다.
+    await Promise.all([1440, 1024, 390].map(async (width) => {
       const page = await browser.newPage({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
       await page.route('**/*', route => /googleads|doubleclick|googlesyndication|google-analytics/.test(route.request().url()) ? route.abort() : route.continue());
       for (const url of routes) {
@@ -67,7 +68,7 @@ const routes = [
         }
       }
       await page.close();
-    }
+    }));
   } finally {
     await browser.close();
   }

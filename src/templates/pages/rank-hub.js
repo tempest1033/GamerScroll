@@ -50,9 +50,15 @@ function makeCtx(S) {
 
 // 한국 매출 순위는 /rankings/, 다른 국가는 /rankings/{cc}/. 홈(/)은 별도 요약 페이지(home.js).
 const countryHref = (c, chart = 'grossing') => (chart === 'free' ? (c === 'kr' ? '/rankings/free/' : `/rankings/free/${c}/`) : (c === 'kr' ? '/rankings/' : `/rankings/${c}/`));
+// 한 줄 가로 스크롤 메뉴(.rk-hscroll) 바로 뒤에 붙이는 스크립트: 선택한 항목이 가려져 있을 때만 필요한 만큼 스크롤하고,
+// 양 끝 도달 여부(rk-scroll-start / rk-scroll-end)로 가장자리 흐림을 켜고 끈다.
+const HSCROLL_SCRIPT = `<script>(function(){var n=document.currentScript.previousElementSibling,a=n.querySelector('.active');function e(){n.classList.toggle('rk-scroll-start',n.scrollLeft<=2);n.classList.toggle('rk-scroll-end',n.scrollLeft+n.clientWidth>=n.scrollWidth-2);}var r=a?a.offsetLeft+a.offsetWidth-n.clientWidth+40:0;if(r>0)n.scrollLeft=r;e();n.addEventListener('scroll',e,{passive:true});window.addEventListener('resize',e);})();</script>`;
+// 순위 종류: 한 줄 칩 메뉴.
+// '산출 방법'은 순위 종류가 아니라 설명 페이지라 메뉴에서 뺐다 (2026-09-28). 푸터·사이트 소개에서 연결된다.
 function subnav(S, active) {
-  const item = (id, href, label, cls = '') => `<a class="${[active === id ? 'active' : '', cls].filter(Boolean).join(' ')}" href="${href}">${label}</a>`;
-  return `<nav class="rk-subnav" aria-label="순위 종류">${item('rank', '/rankings/', '매출')}${item('free', '/rankings/free/', '인기(무료)')}${item('genres', '/rankings/genres/', '장르별 순위')}${item('monthly', `/rankings/monthly/${S.latestMonth}/`, '월간')}${item('global', '/rankings/global/', '글로벌')}${item('records', '/rankings/records/', '연간 기록')}${item('pub', '/rankings/publishers/', '개발사')}${item('about', '/rankings/about/', '산출 방법 ›', 'right')}</nav>`;
+  const item = (id, href, label) => `<a class="${active === id ? 'active' : ''}"${active === id ? ' aria-current="page"' : ''} href="${href}">${label}</a>`;
+  return `<nav class="rk-subnav rk-kinds rk-hscroll" aria-label="순위 종류">${item('rank', '/rankings/', '매출')}${item('free', '/rankings/free/', '인기(무료)')}${item('genres', '/rankings/genres/', '장르별 순위')}${item('monthly', `/rankings/monthly/${S.latestMonth}/`, '월간')}${item('global', '/rankings/global/', '글로벌')}${item('records', '/rankings/records/', '연간 기록')}${item('pub', '/rankings/publishers/', '개발사')}</nav>
+${HSCROLL_SCRIPT}`;
 }
 // 개발사 이름 정규화 (스토어·games.json 표기 차이 흡수): 법인 접미어 제거, 기호 제거, 소문자
 const pubKey = (name) => String(name || '').toLowerCase().replace(/\b(corp|corporation|co|ltd|inc|pte|limited|company|llc|gmbh|sa|ag)\b\.?/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -89,10 +95,10 @@ function publisherIndex(S, country = 'kr') {
   list.forEach((p, i) => (p.rank = i + 1));
   return list;
 }
-const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs" role="navigation" aria-label="국가">${Object.entries(COUNTRIES).map(([c, n]) => `<a class="${c === active ? 'active' : ''}" href="${countryHref(c, chart)}">${n}</a>`).join('')}</div>`;
+const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs rk-country-tabs" role="navigation" aria-label="국가">${Object.entries(COUNTRIES).map(([c, n]) => `<a class="${c === active ? 'active' : ''}" href="${countryHref(c, chart)}">${n}</a>`).join('')}</div>`;
 
 // 두 스토어 리스트 한 열 (매출/인기 공용). 최대 200위까지 접지 않고 표시한다.
-function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit = 200, preview = null, withinCategory = false } = {}) {
+function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit = 200, preview = null, withinCategory = false, defaultKey = null, listClass = '' } = {}) {
   const { today, yday, days } = S;
   const isFree = chart === 'free';
   const rows = (isFree ? today.rowsFree : today.rows)[country][s] || [];
@@ -109,17 +115,18 @@ function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit 
       extra = (streak > 1 ? `<span class="rk-streak">1위 ${streak}일째</span>` : '') + (isNew30 ? '<span class="rk-tagnew">신작</span>' : '');
     }
     const g = S.gameOf(s, r);
-    const name = preview ? `<button type="button" data-rk-preview="${esc(preview(r, rank, g))}" aria-controls="rk-home-preview" aria-pressed="false">${esc(S.nameOf(s, r))}</button>` : C.nameLink(s, r);
+    const key = preview ? preview(r, rank, g) : null;
+    const name = preview ? `<button type="button" data-rk-preview="${esc(key)}"${defaultKey != null && key === defaultKey ? ' data-rk-default' : ''} aria-controls="rk-home-preview" aria-pressed="false">${esc(S.nameOf(s, r))}</button>` : C.nameLink(s, r);
     const detail = preview ? ` · <a href="${C.hrefOf(g) || countryHref(country)}">상세 ›</a>` : '';
     const displayRank = withinCategory ? categoryIndex + 1 : rank;
     return `<li><span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">전체 ${rank}위</span> · ` : ''}${esc(r.developer || (g && g.developer) || '')}${extra}${detail}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}</li>`;
   };
-  return `<ol class="rk-list">${items.map(li).join('') || '<li class="rk-empty">해당 게임이 없습니다</li>'}</ol>`;
+  return `<ol class="rk-list${listClass ? ` ${esc(listClass)}` : ''}">${items.map(li).join('') || '<li class="rk-empty">해당 게임이 없습니다</li>'}</ol>`;
 }
 const storeCols = (S, C, country, chart, opts, stores) => {
   const hasAnd = stores.includes('android');
   const limit = opts && opts.limit ? opts.limit : 200;
-  const colH = (s, n) => `<div class="rk-colh"><h2>${STORES[s]}</h2><small>${chart === 'free' ? '인기(무료)' : '매출'} TOP ${n} · 변동은 전일 대비</small></div>`;
+  const colH = (s, n) => `<div class="rk-colh"><h2>${STORES[s]}</h2><small>${chart === 'free' ? '인기(무료)' : '매출'} TOP ${n} · 전일 대비</small></div>`;
   return `${hasAnd ? '<input type="radio" name="rk-store" id="rk-st-and" class="rk-control" checked><input type="radio" name="rk-store" id="rk-st-ios" class="rk-control"><div class="rk-storeseg"><label for="rk-st-and">구글플레이</label><label for="rk-st-ios">앱스토어</label></div>' : ''}
 <div class="rk-cols${hasAnd ? '' : ' single'}" id="rk-list">${stores.map((s) => `<div class="rk-col ${s === 'ios' ? 'ios' : 'and'}">${colH(s, Math.min(limit, ((chart === 'free' ? S.today.rowsFree : S.today.rows)[country][s] || []).length))}${storeList(S, C, country, s, chart, opts)}</div>`).join('')}</div>`;
 };
@@ -271,7 +278,7 @@ function renderMonthly(month, country = 'kr') {
   const pub = new Map();
   for (const a of cur.list.slice(0, 100)) { const d = a.row.developer || (a.game && a.game.developer) || '기타'; const p = pub.get(d) || { n: 0, best: 999 }; p.n++; p.best = Math.min(p.best, a.rank); pub.set(d, p); }
   const pubTop = [...pub.entries()].sort((a, b) => b[1].n - a[1].n || a[1].best - b[1].best).slice(0, 10);
-  const pubCard = `<div class="rk-card rk-month-publishers"><h2>개발사별 집계 <small>스토어 등록명 · TOP 100 기준</small></h2><table class="rk-table"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th></tr></thead><tbody>${pubTop.map(([d, p], i) => `<tr><td class="rk-rank">${i + 1}</td><td>${publisherMark(d)}</td><td class="c">${p.n}</td><td class="c">${p.best}위</td></tr>`).join('')}</tbody></table></div>`;
+  const pubCard = `<div class="rk-card rk-month-publishers"><h2>개발사별 집계 <small>TOP 100 기준</small></h2><table class="rk-table"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th></tr></thead><tbody>${pubTop.map(([d, p], i) => `<tr><td class="rk-rank">${i + 1}</td><td>${publisherMark(d)}</td><td class="c">${p.n}</td><td class="c">${p.best}위</td></tr>`).join('')}</tbody></table></div>`;
 
   const top = cur.list[0];
   const faq = `<aside class="rk-card rk-month-brief"><h2>${m}월 순위 요약 <small>${cur.n}일 집계</small></h2><dl>
@@ -285,8 +292,8 @@ function renderMonthly(month, country = 'kr') {
   const lead = `${y}년 ${m}월 ${COUNTRIES[country]} 앱스토어·구글플레이 매출 순위를 일 평균으로 합산한 월간 통합 순위. 1위 ${nameA(top)}, 2위 ${cur.list[1] ? nameA(cur.list[1]) : '-'}, 3위 ${cur.list[2] ? nameA(cur.list[2]) : '-'}. 집계 ${cur.n}일, 신규 진입 ${cur.list.filter((a) => a.rank <= 100 && !prevRank.has(a.key)).length}개.`;
   const body = `<div class="rk-head"><h1>${y}년 ${m}월 게임 매출 순위</h1></div>
 ${subnav(S, 'monthly')}
-<div class="rk-toolbar"><div class="rk-tabs months">${monthLinks.map((mo) => `<a class="${mo === month ? 'active' : ''}" href="/rankings/monthly/${mo}/">${mo}</a>`).join('')}</div></div>
-<div class="rk-colh"><h2>월간 통합 TOP 100</h2><small>두 스토어 일 평균 순위 합산 · 추이는 월별 평균 ${S.months[0]}~</small></div>
+<div class="rk-toolbar"><div class="rk-tabs months rk-hscroll">${monthLinks.map((mo) => `<a class="${mo === month ? 'active' : ''}" href="/rankings/monthly/${mo}/">${mo}</a>`).join('')}</div>${HSCROLL_SCRIPT}</div>
+<div class="rk-colh rk-listh"><h2>월간 통합 TOP 100</h2><small>두 스토어 일 평균</small></div>
 ${monthList}
 <div class="rk-note">차트 밖(200위 밖)인 날은 201위로 계산합니다. 스토어별 평균은 해당 스토어 차트에 있던 날의 평균입니다.</div>
 <div class="rk-grid2 rk-month-summary">${pubCard}${faq}</div>`;
@@ -315,8 +322,8 @@ function renderGlobal() {
   const body = `<div class="rk-head"><h1>글로벌 차트 지수</h1></div>
 ${subnav(S, 'global')}
 <section class="rk-card rk-global-index" aria-label="글로벌 차트 지수 TOP 200">
-<h2>글로벌 차트 지수 TOP 200</h2>
-<div class="rk-scroll"><table class="rk-table"><thead><tr><th class="rank">지수 순서</th><th>게임</th><th class="c">변동</th><th class="r">포인트</th><th class="c">국가 수</th>${Object.entries(COUNTRIES).map(([c, n]) => `<th class="c"><a href="${countryHref(c)}">${n}</a></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
+<div class="rk-colh rk-listh"><h2>글로벌 차트 지수 TOP 200</h2></div>
+<div class="rk-scroll"><table class="rk-table rk-mh-5 rk-mh-from6"><thead><tr><th class="rank">#</th><th>게임</th><th class="c">변동</th><th class="r">포인트</th><th class="c">국가 수</th>${Object.entries(COUNTRIES).map(([c, n]) => `<th class="c"><a href="${countryHref(c)}">${n}</a></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>
 </section>${require('../../rank/monthly-estimates').renderMonthlyEstimates()}`;
   const canonical = `${siteBaseUrl}/rankings/global/`;
   return shell(S, {
@@ -338,18 +345,19 @@ function renderRecords(country = 'kr') {
   const { annualRecords } = require('../../rank/annual-records');
   const { all, crown, days } = annualRecords(S.days, country, 'ios', year);
   const cname = COUNTRIES[country];
-  const t = (title, sub, head, body) => `<div class="rk-card"><h2>${title} <small>${sub}</small></h2><table class="rk-table"><thead><tr><th class="rank">#</th><th>게임</th>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+  // mh: 모바일에서 숨길 보조 열 (예: 'rk-mh-5') — 표가 화면 폭을 넘지 않게 한다
+  const t = (title, sub, head, body, mh = '') => `<div class="rk-card"><h2>${title} <small>${sub}</small></h2><table class="rk-table ${mh}"><thead><tr><th class="rank">#</th><th>게임</th>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
   const ones = all.filter((a) => a.ones).sort((x, y) => y.ones - x.ones).slice(0, 10);
-  const onesT = t('1위 누적 일수', `${cname} 앱스토어 · ${days.length}일 중`, '<th class="c">1위 일수</th><th class="c">최장 연속</th><th class="c">점유</th>', ones.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, 'ios')}</td><td class="c"><b>${a.ones}</b>일</td><td class="c">${a.bestStreak}일 <span class="rk-dim sm">~${(a.bestStreakEnd || '').slice(5)}</span></td><td class="c">${Math.round((a.ones / days.length) * 100)}%</td></tr>`).join(''));
+  const onesT = t('1위 누적 일수', `${cname} 앱스토어 · ${days.length}일 중`, '<th class="c">1위 일수</th><th class="c">최장 연속</th><th class="c">점유</th>', ones.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, 'ios')}</td><td class="c"><b>${a.ones}</b>일</td><td class="c">${a.bestStreak}일 <span class="rk-dim sm">~${(a.bestStreakEnd || '').slice(5)}</span></td><td class="c">${Math.round((a.ones / days.length) * 100)}%</td></tr>`).join(''), 'rk-mh-5 rk-ones');
   const pts = all.slice().sort((x, y) => y.pts - x.pts).slice(0, 10);
-  const ptsT = t('누적 순위 포인트', '일별 (201 − 순위) 합산', '<th class="r">포인트</th><th class="c">진입 일수</th><th class="c">평균 순위</th>', pts.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, 'ios')}</td><td class="r"><b>${a.pts.toLocaleString()}</b></td><td class="c">${a.days}일</td><td class="c">${fmt1(avg(a.ranks))}위</td></tr>`).join(''));
+  const ptsT = t('누적 순위 포인트', '일별 (201 − 순위) 합산', '<th class="r">포인트</th><th class="c">진입 일수</th><th class="c">평균 순위</th>', pts.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, 'ios')}</td><td class="r"><b>${a.pts.toLocaleString()}</b></td><td class="c">${a.days}일</td><td class="c">${fmt1(avg(a.ranks))}위</td></tr>`).join(''), 'rk-mh-4');
   const top10Tables = ['ios', 'android'].filter(s => country !== 'cn' || s === 'ios').map(s => {
     const records = (s === 'ios' ? all : annualRecords(S.days, country, s, year).all).filter(a => a.bestTop10).sort((a, b) => b.bestTop10 - a.bestTop10 || b.pts - a.pts).slice(0, 10);
-    return t('최장 TOP 10 유지', `${year}년 · ${STORES[s]} · 연속 일수`, '<th class="c">연속 유지</th><th class="c">기간</th>', records.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, s)}</td><td class="c"><b>${a.bestTop10}일</b></td><td class="c">${a.bestTop10Start.slice(5)}<br>~${a.bestTop10End.slice(5)}</td></tr>`).join('') || '<tr><td colspan="4">수집된 기록이 없습니다.</td></tr>');
+    return t('최장 TOP 10 유지', STORES[s], '<th class="c">연속 유지</th><th class="c">기간</th>', records.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, s)}</td><td class="c"><b>${a.bestTop10}일</b></td><td class="c">${a.bestTop10Start.slice(5)}<br>~${a.bestTop10End.slice(5)}</td></tr>`).join('') || '<tr><td colspan="4">수집된 기록이 없습니다.</td></tr>');
   }).join('');
   const debuts = all.filter((a) => a.debut != null).sort((x, y) => x.debut - y.debut).slice(0, 8);
-  const debutsT = debuts.length ? t('연내 첫 기록 순위', '앱스토어 · 해당 연도 첫 수집 순위 · 신규 출시 순위가 아님', '<th class="c">첫 순위</th><th class="c">첫 기록일</th><th class="c">현재 순위</th>', debuts.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, 'ios')}</td><td class="c"><b>${a.debut}위</b></td><td class="c">${a.debutDay}</td><td class="c">${S.rankOf(today, country, 'ios', a.row.appId) ?? '차트 밖'}</td></tr>`).join('')) : '';
-  const crownT = `<div class="rk-card"><h2>월별 TOP 3 <small>${year}년 앱스토어 · 월간 누적 순위 포인트 · 진행 중인 달은 수집일까지</small></h2><div class="rk-record-scroll"><table class="rk-table rk-month-top3"><thead><tr><th>월</th><th>1위</th><th>2위</th><th>3위</th></tr></thead><tbody>${crown.slice().reverse().map(mo => `<tr><td><a href="/rankings/monthly/${mo.mo}/">${mo.mo}</a></td>${[0, 1, 2].map(i => `<td>${mo.top[i] ? `${C.appCell(mo.top[i].row, 'ios')}<small class="rk-dim">${mo.top[i].pts.toLocaleString()} 포인트</small>` : '기록 없음'}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`;
+  const debutsT = debuts.length ? t('연내 첫 기록 순위', '앱스토어 · 올해 첫 수집 기준', '<th class="c">첫 순위</th><th class="c">첫 기록일</th><th class="c">현재 순위</th>', debuts.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, 'ios')}</td><td class="c"><b>${a.debut}위</b></td><td class="c">${a.debutDay}</td><td class="c">${S.rankOf(today, country, 'ios', a.row.appId) ?? '차트 밖'}</td></tr>`).join(''), 'rk-mh-4') : '';
+  const crownT = `<div class="rk-card"><h2>월별 TOP 3 <small>앱스토어 · 누적 포인트</small></h2><div class="rk-record-scroll"><table class="rk-table rk-month-top3"><thead><tr><th>월</th><th>1위</th><th>2위</th><th>3위</th></tr></thead><tbody>${crown.slice().reverse().map(mo => `<tr><td><a href="/rankings/monthly/${mo.mo}/">${mo.mo}</a></td>${[0, 1, 2].map(i => `<td>${mo.top[i] ? `${C.appCell(mo.top[i].row, 'ios')}<small class="rk-dim">${mo.top[i].pts.toLocaleString()} 포인트</small>` : '기록 없음'}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`;
   const longest = all.slice().sort((x, y) => y.bestStreak - x.bestStreak)[0];
   const rec = (label, a, val) => (a ? C.tick(label, a.row, 'ios', val) : '');
   const ticker = `<div class="rk-ticker">${rec('1위 최다', ones[0], `<span class="rk-chg same">${ones[0] ? ones[0].ones : 0}일</span>`)}${rec('최장 연속 1위', longest, `<span class="rk-chg same">${longest ? longest.bestStreak : 0}일</span>`)}${rec('누적 포인트 1위', pts[0], `<span class="rk-chg same">${pts[0] ? pts[0].pts.toLocaleString() : ''}</span>`)}</div>`;
@@ -388,7 +396,7 @@ function renderPublishers(country = 'kr') {
   const lead = `${cname} 앱스토어·구글플레이 매출 TOP 200 에 든 게임을 개발사별로 묶은 순위. 포인트 1위 ${list[0] ? `${list[0].name}(${list[0].games.size}개 게임)` : '-'}, 2위 ${list[1] ? list[1].name : '-'}, 3위 ${list[2] ? list[2].name : '-'}. ${tsText(today.ts)} 기준, 매일 갱신.`;
   const body = `<div class="rk-head"><h1>게임 개발사 순위</h1></div>
 ${subnav(S, 'pub')}
-<div class="rk-card"><h2>개발사 TOP ${Math.min(100, list.length)} <small>${list.length}개 개발사 · ${cname} 매출 TOP 200 기준</small></h2><table class="rk-table rk-pubtable"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th><th class="c">TOP 10</th><th class="r">포인트</th></tr></thead><tbody>${rows}</tbody></table>
+<div class="rk-card"><div class="rk-colh rk-listh"><h2>개발사 TOP ${Math.min(100, list.length)}</h2><small>${cname} 매출 TOP 200 기준</small></div><table class="rk-table rk-pubtable rk-mh-5"><thead><tr><th class="rank">#</th><th>개발사</th><th class="c">게임 수</th><th class="c">최고 순위</th><th class="c">TOP 10</th><th class="r">포인트</th></tr></thead><tbody>${rows}</tbody></table>
 </div>`;
   const canonical = `${siteBaseUrl}/rankings/publishers/`;
   return shell(S, {
@@ -406,7 +414,7 @@ function renderPublisher(pub, country = 'kr') {
   const { today, days, rankOf, seriesOf } = S;
   const cname = COUNTRIES[country];
   const cell = (e, s) => { const v = e.ranks[s]; if (v == null) return '<td class="c"><span class="rk-dim">·</span></td><td class="c"></td>'; return `<td class="c"><b>${v}</b></td><td class="c">${chg(v, e.prev[s])}</td>`; };
-  const rows = pub.gameList.map((e) => { const s = e.ranks.ios ? 'ios' : 'android'; const id = e.row.appId; const ser = seriesOf(country, s, id); return `<tr><td>${C.appCell(e.row, e.store)}</td>${cell(e, 'ios')}${cell(e, 'android')}<td class="spk">${sparkline(ser.slice(-30), { cap: 200, color: trendColor(ser.slice(-30)) })}</td><td class="c">${S.util.min(ser) ?? '-'}</td><td class="c">${S.daysOnChart(country, s, id)}일</td></tr>`; }).join('');
+  const rows = pub.gameList.map((e) => { const s = e.ranks.ios ? 'ios' : 'android'; const id = e.row.appId; const ser = seriesOf(country, s, id); return `<tr><td>${C.appCell(e.row, e.store)}</td>${cell(e, 'ios')}${cell(e, 'android')}<td class="spk">${sparkline(ser.slice(-30), { cap: 200, color: trendColor(ser.slice(-30)) })}</td><td class="c rk-m-hide">${S.util.min(ser) ?? '-'}</td><td class="c">${S.daysOnChart(country, s, id)}일</td></tr>`; }).join('');
   // 30일 추이: 두 스토어 TOP 200 내 게임 수 · 포인트
   const hist = days.slice(-30).map((d) => { let n = 0, pts = 0; for (const s of Object.keys(STORES)) (d.rows[country][s] || []).forEach((r, i) => { const g = S.gameOf(s, r); if (pubKey((g && g.developer) || r.developer) === pub.key) { n++; pts += 200 - i; } }); return { n, pts }; });
   const kpi = `<div class="rk-stats">
@@ -419,7 +427,7 @@ function renderPublisher(pub, country = 'kr') {
   const body = `<div class="rk-head"><h1>${esc(pub.name)} 게임 매출 순위</h1></div>
 ${subnav(S, 'pub')}
 ${kpi}
-<div class="rk-card"><h2>오늘 순위 <small>앱스토어 · 구글플레이 · 30일 추이 · 역대 최고 · 체류일</small></h2><div class="rk-scroll"><table class="rk-table"><thead><tr><th>게임</th><th class="c" colspan="2">앱스토어</th><th class="c" colspan="2">구글플레이</th><th class="spk">30일</th><th class="c">역대 최고</th><th class="c">체류</th></tr></thead><tbody>${rows}</tbody></table></div></div>
+<div class="rk-card"><h2>오늘 순위 <small>앱스토어 · 구글플레이</small></h2><div class="rk-scroll"><table class="rk-table rk-mh-spk rk-mh-last"><thead><tr><th>게임</th><th class="c" colspan="2">앱스토어</th><th class="c" colspan="2">구글플레이</th><th class="spk">30일</th><th class="c rk-m-hide">역대 최고</th><th class="c">체류</th></tr></thead><tbody>${rows}</tbody></table></div></div>
 <div class="rk-links rk-links-row"><a href="/rankings/publishers/">개발사 순위 전체</a><a href="${countryHref(country)}">${cname} 매출 순위 TOP 200</a><a href="/rankings/monthly/${S.latestMonth}/">${S.latestMonth} 월간 순위</a></div>`;
   const canonical = `${siteBaseUrl}/rankings/publishers/${encodeURIComponent(pub.slug)}/`;
   return shell(S, {
@@ -582,4 +590,4 @@ ${countryCard}
   return { html, text, cur, baseStore, days: present.length };
 }
 
-module.exports = { renderRankingsHub, renderSubculture: () => require('./genres').renderGenre('subculture'), renderGenre: id => require('./genres').renderGenre(id), renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, makeCtx, storeList, subnav, chg, sparkline, trendColor };
+module.exports = { renderRankingsHub, renderSubculture: () => require('./genres').renderGenre('subculture'), renderGenre: id => require('./genres').renderGenre(id), renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };

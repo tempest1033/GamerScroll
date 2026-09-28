@@ -22,9 +22,15 @@ const routes = ['/', '/games/', '/rankings/', '/rankings/monthly/2026-08/', '/st
             const style = getComputedStyle(el);
             return { width: box.width, height: box.height, padding: style.padding, font: getComputedStyle(el.querySelector('input')).fontSize };
           });
+          // 모바일 상단 바는 평소 로고·검색 아이콘만 보이고(접힘), 아이콘을 누르면 검색창이 펼쳐진다 (2026-09-28).
           assert.deepEqual(geometry, width > 768
             ? { width: 240, height: 34, padding: '0px 12px', font: '12px' }
-            : { width: width - 32, height: 48, padding: '0px 4px 0px 8px', font: '16px' });
+            : { width: width - 32, height: 48, padding: '0px 0px 0px 4px', font: '16px' });
+          if (width <= 768) {
+            await page.locator('body > .search-container .search-btn').click();
+            assert.equal(await page.locator('body > .search-container .search-input').isVisible(), true, '아이콘을 누르면 검색창 펼침');
+            assert.equal(await search.evaluate(el => getComputedStyle(el).padding), '0px 4px 0px 8px', '펼친 검색창 여백');
+          }
           if (route === '/games/') assert.equal(await page.locator('#games input[type="search"]').count(), 0, '본문 중복 검색 제거');
           console.log(`PASS ${width}px 공통 검색 크기 ${route}`);
         } catch (error) {

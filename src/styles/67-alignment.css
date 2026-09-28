@@ -156,13 +156,6 @@ body .site-container .rk .rk-pubtable .rk-pubname { overflow-wrap: anywhere; whi
   grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: var(--layout-gap);
 }
-.site-container .rk-home .rk-hcards {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--layout-gap);
-}
-.site-container .rk-home .rk-hcards .one { min-width: 0; flex: 1; }
-.site-container .rk-home .rk-hcards .one > div { min-width: 0; }
-.site-container .rk-home .rk-hcards .one .n { max-width: 100%; }
 .site-container .rk-home .rk-month-section {
   padding: 0;
   margin-left: 0;
@@ -246,12 +239,10 @@ body .site-container .rk .rk-pubtable .rk-pubname { overflow-wrap: anywhere; whi
   body .site-container .rk .rk-hmovers,
   body .site-container .rk .rk-feat,
   body .site-container .rk .rk-hmonth,
-  .site-container .rk-home .rk-workspace,
-  .site-container .rk-home .rk-hcards {
+  .site-container .rk-home .rk-workspace {
     grid-template-columns: minmax(0, 1fr);
   }
   .site-container .rk-home .rk-workspace { column-gap: 0; }
-  .site-container .rk-home .rk-hcards .one { flex-direction: column; }
   .site-container .rk .rk-colh { flex-wrap: wrap; }
   .site-container .rk .rk-colh small { text-align: left; }
   .site-container .rk-home .rk-hmonth .rk-card > h2 { padding-bottom: 16px; }

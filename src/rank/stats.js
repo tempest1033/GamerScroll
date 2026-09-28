@@ -131,6 +131,12 @@ function loadRankStats(options = {}) {
   function daysOnChart(c, s, appId) { let n = 0; for (const d of days) if (rankOf(d, c, s, appId) != null) n++; return n; }
   function streakAtOne(c, s, appId) { let n = 0; for (let i = days.length - 1; i >= 0; i--) { if (rankOf(days[i], c, s, appId) === 1) n++; else break; } return n; }
   function firstSeen(c, s, appId) { for (const d of days) if (rankOf(d, c, s, appId) != null) return d.date; return null; }
+  // 게임 단위 첫 등장일: 같은 게임의 다른 스토어 기록까지 본다 (한 스토어에서만 늦게 잡힌 오래된 게임을 신작으로 오판하지 않도록)
+  function gameFirstSeen(c, s, r) {
+    const g = gameOf(s, r);
+    const ids = [[s, r.appId], ...Object.keys(STORES).filter((o) => o !== s && g && g.appIds).map((o) => [o, g.appIds[`${o}_${c}`] || g.appIds[o]]).filter(([, id]) => id)];
+    return ids.map(([st, id]) => firstSeen(c, st, id)).filter(Boolean).sort()[0] || null;
+  }
 
   // 급등·급락·신규·역대 최고 경신 (전일 대비). chart='free' 면 인기 차트 기준 (역대 최고 경신은 매출만)
   function movers(country, s, chart = 'grossing') {
@@ -149,7 +155,8 @@ function loadRankStats(options = {}) {
     if (days.length < 8) return [];
     const cutoff = new Date(days[7].date);
     return today.rows[country][s].slice(0, 200).map((r) => {
-      const seen = firstSeen(country, s, r.appId);
+      if (!r || !r.appId) return null;
+      const seen = gameFirstSeen(country, s, r);
       if (!seen || new Date(seen) < cutoff) return null;
       const age = Math.round((new Date(today.date) - new Date(seen)) / 864e5);
       if (age > 45) return null;
@@ -237,7 +244,7 @@ function loadRankStats(options = {}) {
     COUNTRIES, STORES, games, byApp, bySlug, byTitle, isSub,
     days, today, yday, months, latestMonth, daysIn, hourly, hourlyRanks,
     rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf,
-    allTimeBest, daysOnChart, streakAtOne, firstSeen,
+    allTimeBest, daysOnChart, streakAtOne, firstSeen, gameFirstSeen,
     movers, debutRows, monthStats, monthlyAvg, aggregateGlobal, allTimeStats,
     util: { nums, min, avg, std, fmt1, esc, tsText },
   };

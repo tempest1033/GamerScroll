@@ -140,11 +140,14 @@ const searchBarHtml = `
       <a href="/" class="search-home-icon search-logo" aria-label="게이머스크롤 홈">
         ${MOBILE_LOGO_SVG}
       </a>
-      <input type="text" class="search-input" placeholder="게임 순위 검색" autocomplete="off">
+      <input type="text" class="search-input" aria-label="게임 순위 검색" placeholder="게임 순위 검색" autocomplete="off">
       <button class="search-btn" type="button" aria-label="검색">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
+      </button>
+      <button class="search-close" type="button" aria-label="검색 닫기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
     <div class="search-dropdown"></div>
@@ -406,10 +409,30 @@ const searchBarHtml = `
 	    }
 	  });
 
+  // 모바일 상단 바: 검색 아이콘을 누르면 검색창이 펼쳐지고, 닫기·Esc·빈 검색창 바깥 클릭으로 접힌다.
+  const isMobileBar = searchRoot.matches('body > .search-container');
+  function setSearchOpen(open) {
+    searchRoot.classList.toggle('search-open', open);
+    if (open) {
+      searchInput.focus();
+    } else {
+      searchDropdown.classList.remove('active');
+      searchInput.blur();
+    }
+  }
+  const searchClose = searchRoot.querySelector('.search-close');
+  if (searchClose) {
+    searchClose.addEventListener('click', function() {
+      searchInput.value = '';
+      setSearchOpen(false);
+    });
+  }
+
   // 외부 클릭 시 닫기
   document.addEventListener('click', (e) => {
     if (!searchRoot.contains(e.target)) {
       searchDropdown.classList.remove('active');
+      if (isMobileBar && !searchInput.value.trim()) searchRoot.classList.remove('search-open');
     }
   });
 
@@ -451,6 +474,7 @@ const searchBarHtml = `
 	  searchInput.addEventListener('keydown', (e) => {
 	    if (e.key === 'Escape') {
 	      searchInput.value = '';
+	      if (isMobileBar) setSearchOpen(false);
 	      searchDropdown.classList.remove('active');
 	      searchInput.blur();
 	    } else if (e.key === 'Enter') {
@@ -461,7 +485,13 @@ const searchBarHtml = `
   // 검색 버튼 클릭
   const searchBtn = searchRoot.querySelector('.search-btn');
   if (searchBtn) {
-    searchBtn.addEventListener('click', executeSearch);
+    searchBtn.addEventListener('click', function() {
+      if (isMobileBar && !searchRoot.classList.contains('search-open')) {
+        setSearchOpen(true);
+        return;
+      }
+      executeSearch();
+    });
   }
   });
 })();
@@ -1711,7 +1741,7 @@ const swipeScript = `
 
     const t = e.target;
     // 가로 스크롤 컨테이너(표 등) 위에서 시작한 터치는 페이지 스와이프가 가로채지 않도록 제외 — 표가 네이티브로 가로 스크롤되게 한다
-    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle, .mobile-fab, .mobile-side-panel, .mobile-side-overlay, .blog-table, .blog-table-wrapper')) return;
+    if (t && t.closest && t.closest('.nav, .nav-inner, .search-dropdown, .modal-overlay, input, textarea, .ad-card, .adsbygoogle, .mobile-fab, .mobile-side-panel, .mobile-side-overlay, .blog-table, .blog-table-wrapper, .rk-carousel')) return;
 
     // 검색 드롭다운 닫기 (스와이프 시작 시)
     const searchDropdown = document.querySelector('.search-dropdown');

@@ -10,20 +10,11 @@
 .rk .rk-home-sec .rk-table td { height: 52px; }
 .rk .rk-home-sec .rk-app img { width: 36px; height: 36px; border-radius: 9px; }
 
-/* 1. 요약 카드 4장 */
-.rk .rk-hcards { display: grid; grid-template-columns: 1.15fr 1fr 1fr 1fr; gap: 16px; margin: 20px 0 0; }
+/* 1. 변동 카드 (오늘의 변동 열) */
 .rk .rk-hcard { border: 1px solid var(--rk-line); border-radius: 12px; padding: 16px 18px 14px; min-width: 0; display: flex; flex-direction: column; }
 .rk .rk-hcard h3 { font-size: 13px; font-weight: 700; color: var(--rk-muted); margin: 0 0 10px; display: flex; align-items: baseline; gap: 6px; letter-spacing: -.01em; }
 .rk .rk-hcard h3 small { font-size: 11.5px; font-weight: 500; color: var(--rk-dim); }
 .rk .rk-hcard .none { margin: 0; padding: 12px 0; font-size: 13px; color: var(--rk-dim); }
-.rk .rk-hcard .ones { display: flex; flex-direction: column; gap: 0; }
-.rk .rk-hcard .one { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-top: 1px solid var(--rk-line); min-width: 0; }
-.rk .rk-hcard .one:first-child { border-top: 0; padding-top: 2px; }
-.rk .rk-hcard .one img { width: 44px; height: 44px; border-radius: 12px; background: var(--rk-bg2); flex: none; box-shadow: 0 0 0 .5px rgba(0, 0, 0, .08); }
-.rk .rk-hcard .one > div { min-width: 0; flex: 1; }
-.rk .rk-hcard .one .l { display: block; font-size: 11.5px; color: var(--rk-muted); font-weight: 600; }
-.rk .rk-hcard .one .n { display: block; font-size: 15px; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
-.rk .rk-hcard .one .rk-chg { font-size: 12.5px; }
 .rk .rk-hcard .mrow { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto auto; align-items: center; gap: 10px; height: 38px; border-top: 1px solid var(--rk-line); font-size: 14px; }
 .rk .rk-hcard .mrow:first-of-type { border-top: 0; }
 .rk .rk-hcard .mrow img { width: 28px; height: 28px; border-radius: 8px; background: var(--rk-bg2); }
@@ -31,11 +22,6 @@
 .rk .rk-hcard .mrow .r { font-size: 12px; color: var(--rk-dim); font-variant-numeric: tabular-nums; }
 @media (max-width: 1200px) { .rk .rk-hcard .mrow .r { display: none; } }
 .rk .rk-hcard .mrow .rk-chg { font-size: 14px; min-width: 40px; text-align: right; }
-.rk .rk-hcard.steam .big { font-size: 30px; font-weight: 800; letter-spacing: -.03em; line-height: 1; margin-top: 2px; }
-.rk .rk-hcard.steam .sub { font-size: 12.5px; color: var(--rk-muted); margin-top: 8px; }
-.rk .rk-hcard.steam .sub .rk-chg { font-size: 13px; margin-right: 4px; }
-.rk .rk-hcard.steam .rk-spark { width: 100%; height: 56px; margin-top: 10px; }
-.rk .rk-hcard.steam .foot { margin-top: auto; padding-top: 10px; font-size: 12.5px; color: var(--rk-muted); font-weight: 600; }
 
 /* 2. 표 하나 + 탭 */
 .rk .rk-htabs-sec { margin-top: 36px; }
@@ -89,13 +75,10 @@
 .rk .rk-cards.four .rk-cardl .s { display: none; }
 
 @media (max-width: 1024px) {
-  .rk .rk-hcards { grid-template-columns: 1fr 1fr; }
   .rk .rk-cards.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rk .rk-hmonth { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  .rk .rk-hcards { grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
-  .rk .rk-hcards .rk-hcard { padding: 14px 14px 12px; }
   .rk .rk-htabs { gap: 0; overflow-x: auto; scrollbar-width: none; margin: 0 -14px; padding: 0 8px; }
   .rk .rk-htabs::-webkit-scrollbar { display: none; }
   .rk .rk-htabs label { padding: 11px 10px; font-size: 14px; }
@@ -108,7 +91,6 @@
   .rk .rk-hmonth, .rk .rk-cards.four { grid-template-columns: 1fr; }
   .rk .rk-home-sec > h2 { font-size: 17px; }
 }
-.rk .rk-subnav a.right { margin-left: auto; font-weight: 500; font-size: 13px; align-self: center; border-bottom: 0; padding-right: 0; }
 .rk .rk-section { margin: 44px 0 0; min-width: 0; }
 .rk .rk-section > h2 { font-size: 17px; font-weight: 700; letter-spacing: -.02em; margin: 0; padding-bottom: 12px; border-bottom: 1px solid var(--rk-line); display: flex; align-items: baseline; gap: 10px; color: var(--rk-text); }
 .rk .rk-section > h2 small { font-size: 12px; color: var(--rk-muted); font-weight: 500; }

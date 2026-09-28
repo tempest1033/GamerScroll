@@ -90,12 +90,13 @@ body { background: var(--bg); color: var(--text); }
 
 /* 고정 메뉴와 검색도 본문과 같은 밝은 표면을 사용한다. */
 .gs-header .gs-header-inner { max-width: var(--site-max-width); height: 64px; }
-.gs-header .gs-logo .logo-svg { width: 208px; height: 26px; transform: none; transition: none; }
+/* 로고 viewBox 560→570 (2026-09-28 막대 마크 좌우대칭): 글자 크기가 그대로 유지되도록 폭을 같은 비율로 늘린다 */
+.gs-header .gs-logo .logo-svg { width: 212px; height: 26px; transform: none; transition: none; }
 .gs-header .gs-nav { height: 100%; align-items: stretch; }
 .gs-header .gs-nav a { display: flex; align-items: center; padding: 0; font-size: 13px; font-weight: 500; }
 .gs-header .gs-nav a.active::after { bottom: 0; background: var(--text); height: 2px; }
 @media (min-width: 769px) and (max-width: 1000px) {
-  .gs-header .gs-logo .logo-svg { width: 180px; height: 23px; }
+  .gs-header .gs-logo .logo-svg { width: 183px; height: 23px; }
   .gs-header .gs-header-inner { gap: 20px; }
   .gs-header .gs-nav { gap: 16px; }
 }
@@ -115,10 +116,19 @@ body .nav { background: #fff !important; }
   .games-hub-intro h1 { font-size: 24px; }
   body > .search-container .search-input { font-size: 16px !important; }
   body > .search-container .search-home-icon { display: flex; align-items: center; justify-content: center; flex: 0 0 44px; width: 44px; height: 44px; color: var(--text); }
-  /* 모바일 상단 바: 홈 아이콘 대신 워드마크 (2026-09-09) */
-  body > .search-container .search-home-icon.search-logo { flex: 0 0 auto; width: auto; padding: 0 6px 0 12px; }
-  body > .search-container .search-home-icon .logo-svg { display: block; width: 124px; height: 16px; }
+  /* 모바일 상단 바: 평소에는 워드마크와 검색 아이콘만, 아이콘을 누르면 검색창이 펼쳐진다 (2026-09-28) */
+  body > .search-container .search-home-icon.search-logo { flex: 0 0 auto; width: auto; padding: 0; }
+  body > .search-container .search-home-icon .logo-svg { display: block; width: 175px; height: 20px; }
+  body > .search-container:not(.search-open) .search-box { background: transparent !important; padding: 0 0 0 4px; }
+  body > .search-container:not(.search-open) .search-input { display: none; }
+  body > .search-container:not(.search-open) .search-btn { margin-left: auto; color: var(--text); }
+  body > .search-container.search-open .search-home-icon { display: none; }
+  body > .search-container.search-open .search-input { text-align: left; padding-left: 12px; outline: none; }
+  body > .search-container.search-open .search-input:focus::placeholder { opacity: .8; }
+  body > .search-container.search-open .search-close { display: flex; align-items: center; justify-content: center; flex: 0 0 36px; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text-muted); cursor: pointer; }
+  body > .search-container .search-close svg { width: 18px; height: 18px; }
 }
+.search-close { display: none; }
 
 /* 기사 사이드바 인기·최신 탭: 다른 곳의 회색 필 탭과 같은 모양 (2026-09-09) */
 body .article-sidebar .tab-btn { background: var(--bg-secondary); color: var(--text-secondary); border: 0; border-radius: 999px; padding: 8px 14px; font-size: 13px; }

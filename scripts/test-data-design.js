@@ -16,7 +16,8 @@ const homeOnly = process.env.HOME_ONLY === '1';
     catch (error) { failures.push(`${label}: ${error.message}`); console.error(`FAIL ${label}: ${error.message}`); }
   };
   try {
-    for (const width of (process.env.VIEWPORT_WIDTHS || '1280,1440,1920,390').split(',').map(Number)) {
+    // 화면 폭마다 독립된 브라우저 컨텍스트라 동시에 실행한다 (순차 실행 대비 약 3~4배 빠름).
+    await Promise.all((process.env.VIEWPORT_WIDTHS || '1280,1440,1920,390').split(',').map(Number).map(async (width) => {
       const context = await browser.newContext({ viewport: { width, height: 1000 }, colorScheme: 'light', reducedMotion: 'reduce' });
       const page = await context.newPage();
       // 외부 광고·분석·이미지는 로컬 레이아웃과 기능 검증의 대상이 아니다.
@@ -33,11 +34,13 @@ const homeOnly = process.env.HOME_ONLY === '1';
         await visit('/');
         const firstTitle = await page.locator('#rk-home-preview h2').textContent();
         const buttons = page.locator('.rk-hpanel [data-rk-preview]:visible');
-        const secondName = await buttons.nth(1).textContent();
-        await buttons.nth(1).click();
+        // 처음 선택은 30일 순위 폭이 가장 큰 게임이므로, 선택되지 않은 다른 게임을 고른다.
+        const index = await buttons.evaluateAll(els => els.findIndex(el => el.getAttribute('aria-pressed') === 'false'));
+        const secondName = await buttons.nth(index).textContent();
+        await buttons.nth(index).click();
         assert.equal(await page.locator('#rk-home-preview h2').textContent(), secondName);
         assert.notEqual(secondName, firstTitle);
-        assert.equal(await buttons.nth(1).getAttribute('aria-pressed'), 'true');
+        assert.equal(await buttons.nth(index).getAttribute('aria-pressed'), 'true');
         await page.locator('label[for="ht-ccu"]').click();
         assert.equal(await page.locator('.rk-hpanel.ccu .rk-list').isVisible(), true);
         assert.match(await page.locator('#rk-home-preview').textContent(), /스팀 동접자/);
@@ -46,12 +49,12 @@ const homeOnly = process.env.HOME_ONLY === '1';
         assert.ok(await page.locator('h1').isVisible());
         assert.equal(await page.locator('.rk-chartsvg').count() > 0, true);
       });
-      await run(`${width}px 모바일 순위·전체 펼치기`, async () => {
+      await run(`${width}px 모바일 순위 전체 표시·스토어 전환`, async () => {
         await visit('/rankings/');
         const column = page.locator('.rk-col.and');
-        assert.equal(await column.locator('.rk-list li:visible').count(), 20);
-        await column.locator('.rk-more').click();
-        assert.ok(await column.locator('.rk-list li:visible').count() > 20);
+        // 2026-09-15부터 순위 목록은 200위까지 접지 않고 표시한다 (펼치기 버튼 없음).
+        assert.ok(await column.locator('.rk-list li:visible').count() > 20, '20위 이후도 표시');
+        assert.equal(await column.locator('.rk-more').count(), 0, '펼치기 버튼 없음');
         if (width <= 768) {
           await page.locator('label[for="rk-st-ios"]').click();
           assert.equal(await column.isVisible(), false);
@@ -78,6 +81,90 @@ const homeOnly = process.env.HOME_ONLY === '1';
         await page.waitForURL(new URL(href, baseURL).href);
         assert.ok(await page.locator('h1').isVisible());
       });
+      await run(`${width}px 홈 국가 탭·10위 표시`, async () => {
+        await visit('/');
+        assert.equal(await page.locator('.rk-kpis .rk-kpi').count(), 4, '플랫폼별 1위 4칸');
+        await page.locator('label[for="hc-jp"]').click();
+        const list = page.locator('.rk-hpanel.and .rk-list.rk-c-jp');
+        assert.equal(await list.isVisible(), true);
+        assert.equal(await page.locator('.rk-hpanel.and .rk-list.rk-c-kr').isVisible(), false);
+        assert.match(await page.locator('#rk-home-preview .rk-preview-label').textContent(), /일본 구글플레이 매출/);
+        const pressed = list.locator('[data-rk-preview][aria-pressed="true"]');
+        assert.equal(await pressed.count(), 1, '국가를 바꾸면 그 목록의 게임이 선택됨');
+        assert.equal(await page.locator('#rk-home-preview h2').textContent(), await pressed.textContent());
+        assert.equal(await list.locator('li').nth(9).isVisible(), true, '10위까지 바로 표시');
+        assert.equal(await page.locator('#hx-more, .rk-hx-more').count(), 0, '더 보기 버튼 없음');
+        assert.equal(await page.locator('.rk-brief').count(), 0, '순위 앞 설명 문단 없음');
+        await page.locator('label[for="ht-ccu"]').click();
+        assert.equal(await page.locator('.rk-hcountry').isVisible(), false, '스팀 탭에서는 국가 탭 숨김');
+      });
+      await run(`${width}px 홈 모바일 상단 바·메뉴·카드 넘기기`, async () => {
+        if (width > 768) return;
+        await visit('/');
+        const bar = page.locator('body > .search-container');
+        assert.equal(await bar.locator('.search-input').isVisible(), false, '평소에는 검색창 접힘');
+        assert.ok((await bar.locator('.logo-svg').boundingBox()).width >= 170, '로고 크기');
+        await bar.locator('.search-btn').click();
+        assert.equal(await bar.locator('.search-input').isVisible(), true, '아이콘을 누르면 검색창 펼침');
+        assert.equal(await bar.locator('.logo-svg').isVisible(), false);
+        await bar.locator('.search-close').click();
+        assert.equal(await bar.locator('.search-input').isVisible(), false, '닫기');
+        assert.equal(await page.locator('.nav .nav-item').first().isVisible(), true, '메뉴 표시');
+        const rows = page.locator('.rk-hmovers .rk-hcard').first().locator('.mrow .i');
+        assert.equal(await rows.first().textContent(), '1', '변동 목록 순번');
+        const track = page.locator('#rk-hreports');
+        const next = page.locator('[data-rk-scroll="rk-hreports"][data-dir="1"]');
+        assert.equal(await page.locator('[data-rk-scroll="rk-hreports"][data-dir="-1"]').isDisabled(), true);
+        await next.click();
+        // 스크롤 이벤트 뒤에 버튼 상태가 갱신되므로, 이전 버튼이 활성화될 때까지 기다린다.
+        await page.waitForFunction(() => !document.querySelector('[data-rk-scroll="rk-hreports"][data-dir="-1"]').disabled, null, { timeout: 3000 });
+        assert.ok(await track.evaluate(el => el.scrollLeft) > 0, '다음 카드로 이동');
+        assert.match(await page.locator('#rk-hreports').locator('xpath=preceding-sibling::div[contains(@class,"rk-carousel-nav")]').locator('.c').textContent(), /^2 \/ \d+$/, '현재 위치 표시');
+        const peek = await track.evaluate(el => { const box = el.getBoundingClientRect(); return [...el.children].filter(c => { const r = c.getBoundingClientRect(); return r.right > box.left + 1 && r.left < box.right - 1; }).length; });
+        assert.equal(peek, 1, '옆 카드가 잘려 보이지 않음');
+      });
+      await run(`${width}px 순위 메뉴 위계·한 줄`, async () => {
+        for (const [route, label] of [['/rankings/', '매출'], ['/rankings/publishers/', '개발사']]) {
+          await visit(route);
+          const nav = page.locator('.rk-subnav.rk-kinds');
+          const links = nav.locator('a');
+          const tops = await links.evaluateAll(els => els.map(el => Math.round(el.getBoundingClientRect().top)));
+          assert.equal(new Set(tops).size, 1, `${route} 순위 종류 한 줄`);
+          assert.equal(await links.filter({ hasText: '산출 방법' }).count(), 0, '산출 방법은 메뉴에서 분리');
+          const active = nav.locator('a.active');
+          assert.equal(await active.textContent(), label);
+          assert.equal(await active.evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(29, 29, 31)', '선택 항목 검정 칩');
+          const [navBox, activeBox] = [await nav.boundingBox(), await active.boundingBox()];
+          assert.ok(activeBox.x >= navBox.x - 1 && activeBox.x + activeBox.width <= navBox.x + navBox.width + 1, `${route} 선택 항목이 보이는 위치`);
+        }
+      });
+      await run(`${width}px 순위 표 가로 스크롤 없음·제목 한 줄`, async () => {
+        if (width > 768) return;
+        for (const route of ['/', '/rankings/', '/rankings/genres/', '/rankings/monthly/2026-09/', '/rankings/global/', '/rankings/records/', '/rankings/publishers/', '/rankings/publishers/nexon-company/', '/games/']) {
+          await visit(route);
+          const result = await page.evaluate(() => {
+            const over = [...document.querySelectorAll('.site-container table')].map(t => t.closest('.rk-scroll, .rk-card, .rk-record-scroll') || t.parentElement)
+              .filter(el => el.scrollWidth > el.clientWidth + 1).map(el => el.className);
+            const h1 = document.querySelector('h1');
+            const titles = [...document.querySelectorAll('.games-hub-section-title')].filter(e => e.getBoundingClientRect().width > 0).map(e => Math.round(e.getBoundingClientRect().left));
+            // 설명 줄·섹션 제목이 한 줄에 들어가는지: 글자 조각이 세로로 겹치지 않는 줄의 수를 센다.
+            const lineCount = (el) => {
+              const range = document.createRange(); range.selectNodeContents(el);
+              const rects = [...range.getClientRects()].filter(r => r.width > 1 && r.height > 1).sort((a, b) => a.top - b.top);
+              let count = 0, bottom = -Infinity;
+              for (const r of rects) { if (r.top >= bottom - 2) { count++; bottom = r.bottom; } else bottom = Math.max(bottom, r.bottom); }
+              return count;
+            };
+            const wrapped = [...document.querySelectorAll('.rk-listh, .rk-colh small, .rk-home .rk-section > h2, .rk-card > h2')]
+              .filter(e => e.getBoundingClientRect().height > 0 && lineCount(e) > 1).map(e => e.textContent.trim().replace(/\s+/g, ' ').slice(0, 40));
+            return { over, wrapped, lines: Math.round(h1.getBoundingClientRect().height / parseFloat(getComputedStyle(h1).lineHeight)), h1Left: Math.round(h1.getBoundingClientRect().left), titles };
+          });
+          assert.deepEqual(result.over, [], `${route} 표 가로 넘침`);
+          assert.deepEqual(result.wrapped, [], `${route} 설명 줄바꿈`);
+          assert.equal(result.lines, 1, `${route} 제목 한 줄`);
+          for (const left of result.titles) assert.ok(Math.abs(left - result.h1Left) <= 2, `${route} 섹션 제목 시작선 ${left} / ${result.h1Left}`);
+        }
+      });
       await run(`${width}px 홈 이미지 제거·소개 가독성`, async () => {
         await visit('/');
         assert.equal(await page.locator('.rk-home-heading img').count(), 0, '소개 이미지 제거');
@@ -94,6 +181,8 @@ const homeOnly = process.env.HOME_ONLY === '1';
       });
       await run(`${width}px 게임 DB 검색·빈 결과`, async () => {
         await visit('/games/');
+        // 모바일 상단 바는 검색 아이콘을 눌러야 검색창이 펼쳐진다.
+        if (width <= 768) await page.locator('.search-btn:visible').click();
         await page.locator('.search-input:visible').fill('메이플');
         if (width <= 768) await page.locator('.search-btn:visible').click();
         else await page.locator('.search-input:visible').press('Enter');
@@ -110,7 +199,8 @@ const homeOnly = process.env.HOME_ONLY === '1';
         assert.equal(await page.locator('.rk-home-heading a').count(), 0);
         for (const id of ['and', 'ios', 'ccu', 'sell']) {
           await page.locator(`label[for="ht-${id}"]`).click();
-          const rows = page.locator(`.rk-hpanel.${id} .rk-list li`);
+          // 모바일 스토어 탭은 국가별 목록 중 선택한 국가(기본 한국) 하나만 보인다.
+          const rows = page.locator(`.rk-hpanel.${id} .rk-list:visible li`);
           assert.equal(await rows.count(), 10);
           if (width <= 768) continue;
           const first = await rows.first().boundingBox();
@@ -178,7 +268,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
         });
         const adBox = await slot.boundingBox();
         const hero = await page.locator('.rk-home-heading').boundingBox();
-        const summary = await page.locator('.rk-hcards').boundingBox();
+        const summary = await page.locator('.rk-kpis').boundingBox();
         assert.ok(adBox.height >= (width > 768 ? 90 : 100), '광고 규격 높이 확보');
         assert.ok(adBox.y + adBox.height <= hero.y, '광고 아래 소개 배너');
         assert.ok(hero.y + hero.height <= summary.y + 1, '소개 아래 요약 지표');
@@ -216,6 +306,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
         assert.equal(colors.text, 'rgb(29, 29, 31)');
         assert.equal(await page.locator('.rk-workspace').evaluate(el => getComputedStyle(el).display), 'grid');
         if (width <= 768) {
+          await page.locator('body > .search-container .search-btn').click();
           const bounds = await page.evaluate(() => ({
             title: document.querySelector('h1').getBoundingClientRect().top,
             nav: document.querySelector('.nav').getBoundingClientRect().bottom,
@@ -231,7 +322,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
         await page.screenshot({ path: path.resolve(__dirname, `../mockups/white-home-${width}.png`), fullPage: false });
       }
       await context.close();
-    }
+    }));
     if (!process.env.VIEWPORT_WIDTHS) {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -240,7 +331,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
       await page.locator('#ht-and').focus();
       await page.keyboard.press('ArrowRight');
       assert.equal(await page.locator('#ht-ios').isChecked(), true);
-      assert.equal(await page.locator('.rk-hpanel.ios .rk-list').isVisible(), true);
+      assert.equal(await page.locator('.rk-hpanel.ios .rk-list.rk-c-kr').isVisible(), true);
     });
     await context.close();
     }

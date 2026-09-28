@@ -38,7 +38,8 @@ body:not(.page-home) .rk .rk-stat .l,
 body:not(.page-home) .rk .rk-stat .s { font-size: 11px; color: var(--text-muted); font-weight: 400; }
 body:not(.page-home) .rk .rk-stat .rk-spark { opacity: .65; }
 body:not(.page-home) .rk .rk-table { font-size: 13px; }
-body:not(.page-home) .rk .rk-table thead th { background: var(--bg-secondary); color: var(--text-muted); font-weight: 400; }
+/* 표 머리글: 회색 띠 대신 목록 페이지의 설명 줄처럼 작은 글자와 가는 선 (2026-09-28) */
+body:not(.page-home) .rk .rk-table thead th { background: transparent; color: var(--text-muted); font-weight: 400; font-size: 12px; padding-top: 0; padding-bottom: 10px; border-bottom: 1px solid var(--border-subtle); }
 body:not(.page-home) .rk .rk-table .rk-app .t { font-weight: 550; }
 body:not(.page-home) .rk .rk-table td.rk-rank { color: var(--text-muted); font-weight: 500; }
 body:not(.page-home) .rk .rk-table tbody tr:hover { background: #fafafa; }
@@ -193,8 +194,6 @@ body:not(.page-home) .rk .rk-gold { color: var(--text); font-weight: 700; }
   body:not(.page-home) .blog-summary { padding: 20px; }
   .page-reports .rk .rk-feat { gap: 24px; }
   /* 가독성 (2026-09-09) */
-  /* 순위 하위탭: 가로 스크롤 대신 두 줄로 접어 잘림 없이 전부 보이게 */
-  body:not(.page-home) .rk .rk-subnav { flex-wrap: wrap; gap: 0 20px; overflow: visible; }
   /* 표: 6열 표(국가별 순위·월별 기록)가 화면 밖으로 나가지 않게 여백·글자 축소, 헤더 줄바꿈 허용 */
   body:not(.page-home) .rk .rk-table td, body:not(.page-home) .rk .rk-table th { padding-left: 4px !important; padding-right: 4px !important; font-size: 12.5px; }
   /* 스팀 상세 월별 기록: 7열 중 보조 열(기록일)은 모바일에서 숨겨 화면 폭 안에 맞춘다 */

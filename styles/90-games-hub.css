@@ -395,17 +395,7 @@
 
 /* 모바일 반응형 */
 @media (max-width: 768px) {
-  /* 좌우 12px 패딩 통일 (홈 피드와 동일) */
-  .games-hub-section-title {
-    padding: 0 12px;
-  }
-
-  .games-hub-recent-grid,
-  .games-hub-popular-grid,
-  .games-hub-groups {
-    padding: 0 12px;
-  }
-
+  /* 섹션 제목·목록은 페이지 제목과 같은 시작선을 쓴다 (2026-09-28: 옛 홈 피드용 12px 들여쓰기 제거) */
   .games-hub-title {
     font-size: var(--font-xl-size);
   }
