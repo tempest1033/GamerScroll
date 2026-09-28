@@ -49279,8 +49279,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "헌팅 라이벌즈: 동물 사냥 스나이퍼 사격 게임": {
+      "appIds": {
+        "ios": 6751531911
+      },
+      "aliases": [],
+      "developer": "MYGAMES MENA FZ LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d2/46/00/d24600a7-b1a3-8f19-5955-0c0860edf7fe/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "헌팅-라이벌즈-동물-사냥-스나이퍼-사격-게임",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "DYNASTY WARRIORS 3: Complete Edition Remastered": {
+      "appIds": {
+        "steam": "3841510"
+      },
+      "aliases": [],
+      "developer": "KOEI TECMO GAMES CO., LTD.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3841510/138dca4c3b486c7a9449388bb007c9056737d6af/capsule_231x87.jpg?t=1790211647",
+      "slug": "dynasty-warriors-3-complete-edition-remastered",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-28",
-  "totalGames": 3778
+  "totalGames": 3780
 }
