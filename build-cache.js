@@ -305,6 +305,7 @@ module.exports = {
   computeHash,
   computeFileHash,
   computeSourceCssHash,
+  computeTemplateJsHash,
   loadCache,
   saveCache,
   createEmptyCache,

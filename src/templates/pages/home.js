@@ -173,7 +173,10 @@ ${Object.keys(HOME_COUNTRIES).map((c, i) => `<input type="radio" name="rk-hc" id
   const initial = previews[initialKey];
   const firstPreview = initial ? previewHtml({ ...initial, dates: dates[initial.d] }) : '<p class="rk-empty">표시할 순위 기록이 없습니다.</p>';
   const workspace = `<div class="rk-workspace">${tabs}<aside class="rk-preview" id="rk-home-preview" aria-label="선택한 게임 분석" aria-live="polite" data-key="${esc(initialKey)}">${firstPreview}</aside></div>`;
-  const pageScripts = `<script type="application/json" id="rk-home-data">${JSON.stringify({ dates, items: previews }).replace(/</g, '\\u003c')}</script>
+  // 미리보기 데이터는 홈 HTML의 약 20%라 첫 다운로드에서 뺀다: id가 *DeferredData이고 배열이면
+  // 빌드(externalizeDeferredJsonFromHtml)가 /assets/feed/ 파일로 옮기고 data-src를 남긴다.
+  // 페이지 load 뒤 미리 받아 두고, 그 전에 누르면 그때 받는다.
+  const pageScripts = `<script type="application/json" id="rkHomeDeferredData">${JSON.stringify([{ dates, items: previews }]).replace(/</g, '\\u003c')}</script>
 <script>
 (function() {
   const esc = ${esc};
@@ -181,17 +184,35 @@ ${Object.keys(HOME_COUNTRIES).map((c, i) => `<input type="radio" name="rk-hc" id
   const fmt1 = ${fmt1};
   ${rankChart}
   ${previewHtml}
-  const data = JSON.parse(document.getElementById('rk-home-data').textContent);
+  const source = document.getElementById('rkHomeDeferredData');
   const preview = document.getElementById('rk-home-preview');
   const workspace = document.querySelector('.rk-workspace');
-  function select(button, announce) {
-    const item = button && data.items[button.dataset.rkPreview];
-    if (!item) return;
-    workspace.querySelectorAll('[data-rk-preview]').forEach(function(b) { b.setAttribute('aria-pressed', String(b === button)); });
-    preview.innerHTML = previewHtml(Object.assign({ dates: data.dates[item.d] }, item));
-    if (announce && window.matchMedia('(max-width: 768px)').matches) {
-      preview.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+  let loading = null;
+  function loadData() {
+    if (!loading) {
+      const url = source.getAttribute('data-src');
+      loading = (url
+        ? fetch(url).then(function(response) { if (!response.ok) throw new Error(String(response.status)); return response.json(); })
+        : Promise.resolve(JSON.parse(source.textContent)))
+        .then(function(list) { return list[0]; })
+        .catch(function() { loading = null; return null; });
     }
+    return loading;
+  }
+  window.addEventListener('load', function() { loadData(); });
+  let selected = null;
+  function select(button, announce) {
+    if (!button || !button.dataset.rkPreview) return;
+    selected = button;
+    workspace.querySelectorAll('[data-rk-preview]').forEach(function(b) { b.setAttribute('aria-pressed', String(b === button)); });
+    loadData().then(function(data) {
+      const item = data && data.items[button.dataset.rkPreview];
+      if (!item || selected !== button) return;
+      preview.innerHTML = previewHtml(Object.assign({ dates: data.dates[item.d] }, item));
+      if (announce && window.matchMedia('(max-width: 768px)').matches) {
+        preview.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+      }
+    });
   }
   // 탭·국가를 바꾸면 지금 보이는 목록의 기본 게임을 고른다.
   function visibleDefault() {

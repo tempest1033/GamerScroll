@@ -112,7 +112,6 @@ function serviceWorkerRuntime(config, eligible) {
     const isStatic = url.pathname.startsWith('/assets/') || url.pathname.startsWith('/rankings/') || STATIC_EXT_RE.test(url.pathname);
     if (isStatic) {
       const immutable = /^[a-f0-9]{8,}$/i.test(url.searchParams.get('v') || '') || /\.[a-f0-9]{8,}\./i.test(url.pathname) ||
-        /\/assets\/fonts\/pretendard-[\d.]+\//.test(url.pathname) ||
         /\/assets\/apexcharts-[\d.]+\.min\.js$/.test(url.pathname) ||
         /\/assets\/feed\/[^/]+-[a-f0-9]{12}\.json$/.test(url.pathname);
       if (immutable) {

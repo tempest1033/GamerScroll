@@ -1,11 +1,12 @@
 ﻿/**
  * HTML <head> 컴포넌트
- * SEO 메타, 스타일, 폰트, Firebase Analytics 등
+ * SEO 메타, 스타일, Firebase Analytics 등
  */
 
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const { renderCssLinks } = require('../../build/css-links');
+const { lazyImageLoaderScript } = require('../../build/lazy-images');
 
 function generateHead(options = {}) {
   const {
@@ -22,7 +23,9 @@ function generateHead(options = {}) {
     ogImage = '',
     preloadImage = null,  // LCP 이미지 preload {src, srcset, sizes} 또는 URL 문자열
     cssFilename = '/styles-core.css',  // 기본 CSS 파일명 (하위 호환)
-    cssFilenames = null  // 다중 CSS 파일명
+    cssFilenames = null,  // 다중 CSS 파일명
+    usesWsrv = false,  // 본문이 wsrv.nl 이미지를 쓸 때만 사전 연결
+    steamImageHost = ''  // 본문 스팀 이미지 CDN 호스트 (크롤 시점마다 akamai·fastly 등으로 바뀜)
   } = options;
 
   const normalizeMeta = (value) => String(value ?? '').replace(/[\r\n]+/g, ' ').trim();
@@ -108,39 +111,6 @@ function generateHead(options = {}) {
       animation:none !important;
     }
   </style>` : '';
-  const deferredCssGuardScript = deferredCssFiles.length > 0 ? `<script>
-    (function() {
-      var root = document.documentElement;
-      if (!root || !root.classList || !root.classList.contains('deferred-css-pending')) return;
-      var links = document.querySelectorAll('link[data-deferred-css="1"]');
-      var pending = links.length;
-      if (!pending) {
-        root.classList.remove('deferred-css-pending');
-        return;
-      }
-      var done = false;
-      function completeOne() {
-        if (done) return;
-        pending -= 1;
-        if (pending <= 0) {
-          done = true;
-          root.classList.remove('deferred-css-pending');
-        }
-      }
-      links.forEach(function(link) {
-        link.addEventListener('load', completeOne, { once: true });
-        link.addEventListener('error', completeOne, { once: true });
-      });
-      setTimeout(function() {
-        if (done) return;
-        done = true;
-        links.forEach(function(link) {
-          if (link.rel === 'preload') link.rel = 'stylesheet';
-        });
-        root.classList.remove('deferred-css-pending');
-      }, 3200);
-    })();
-  </script>` : '';
   const articleOgMeta = articleSchema ? [
     articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.datePublished))}">` : '',
     (articleSchema.dateModified || articleSchema.datePublished) ? `<meta property="article:modified_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.dateModified || articleSchema.datePublished))}">` : '',
@@ -225,11 +195,11 @@ function generateHead(options = {}) {
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">${noindex ? `
 	  <meta name="robots" content="noindex, follow">` : `
 	  <meta name="robots" content="max-image-preview:large">`}
-	  <!-- preconnect: AdSense / 광고 서빙 / 폰트 CDN — preload·async script보다 먼저 연결 핸드셰이크 시작 -->${ADS_ENABLED ? `
+	  <!-- preconnect: AdSense / 광고 서빙 — preload·async script보다 먼저 연결 핸드셰이크 시작 -->${ADS_ENABLED ? `
 	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
 	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
-	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}
-	  <link rel="preconnect" href="https://wsrv.nl">
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>` : ''}${usesWsrv ? `
+	  <link rel="preconnect" href="https://wsrv.nl">` : ''}
 	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
 	  <style>
 	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
@@ -360,16 +330,13 @@ function generateHead(options = {}) {
   <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
   <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
   <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
-  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
-  <link rel="dns-prefetch" href="https://cdn.cloudflare.steamstatic.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">${steamImageHost ? `
+  <link rel="dns-prefetch" href="https://${steamImageHost}">` : ''}
 	  ${deferredCssInitScript}
 	  ${deferredCssGuardStyle}
-	  <!-- 폰트 CSS: Pretendard Variable dynamic subset 셀프호스팅 (서드파티 CDN 핸드셰이크 제거, SW 캐시 가능) -->
-	  <link rel="preload" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	  <noscript><link rel="stylesheet" href="/assets/fonts/pretendard-1.3.9/pretendardvariable-dynamic-subset.css"></noscript>
 	  <!-- 메인 CSS -->
 	  ${cssLinksHtml}
-	  ${deferredCssGuardScript}
+	  ${lazyImageLoaderScript}
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script>
 	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
@@ -429,11 +396,28 @@ function generateHead(options = {}) {
 	          } catch (e) {}
 	        })();
 	      }
-	      // 페이지 로드 완료 후 실행
+	      // 페이지 로드 후 상단 광고 결과(filled/unfilled)가 나오면 실행 (최대 3초 대기):
+	      // 분석 스크립트(gtag 포함 약 190KB)가 광고 소재와 대역폭·CPU를 나눠 쓰지 않게 한다.
+	      function afterTopAd() {
+	        var ad = document.querySelector('ins.adsbygoogle[data-gs-ad-pushed="1"]');
+	        if (!ad || ad.getAttribute('data-ad-status')) return initFirebase();
+	        var started = false;
+	        var observer = new MutationObserver(function() {
+	          if (ad.getAttribute('data-ad-status')) start();
+	        });
+	        function start() {
+	          if (started) return;
+	          started = true;
+	          observer.disconnect();
+	          initFirebase();
+	        }
+	        observer.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
+	        setTimeout(start, 3000);
+	      }
 	      if (document.readyState === 'complete') {
-	        setTimeout(initFirebase, 0);
+	        setTimeout(afterTopAd, 0);
 	      } else {
-	        window.addEventListener('load', initFirebase);
+	        window.addEventListener('load', afterTopAd);
 	      }
 	    })();
 	  </script>`;

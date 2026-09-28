@@ -284,8 +284,8 @@ function generateGamesHubPage(options = {}) {
   // 텍스트와 링크는 정적 HTML로 유지하고, 펼친 그룹의 아이콘만 불러온다.
   function resizeIconUrl(url) {
     if (!url) return '';
-    if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
-    if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+    if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\.[a-z]+/, '/100x100bb.webp');
+    if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100-rw';
     return url;
   }
 

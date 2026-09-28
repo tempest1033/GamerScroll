@@ -95,11 +95,44 @@ function pageCss(source, tokens) {
   return css;
 }
 
+// 전체 CSS 파일은 첫 화면을 인라인 CSS로 그린 뒤, 광고 스크립트와 대역폭을 나눠 쓰지 않도록
+// 페이지 load 또는 첫 조작(터치·키 입력·포커스) 중 먼저 오는 때에 받는다.
+// 각 인라인 CSS 바로 뒤에 넣어 지금과 같은 캐스케이드 순서를 지킨다.
+// deferred-css-pending(전환 효과 잠금)은 CSS가 다 오거나 3.2초가 지나면 푼다.
+// 인라인 CSS와 한 묶음으로 출력해, 다시 생성되지 않은 docs 페이지도 CSS 링크 재작성 때 로더를 함께 받는다.
+const deferredCssLoaderScript = `<script data-css-loader>
+    (function() {
+      var root = document.documentElement;
+      var started = false;
+      function unlock() { root.classList.remove('deferred-css-pending'); }
+      setTimeout(unlock, 3200);
+      function start() {
+        if (started) return;
+        started = true;
+        var styles = document.querySelectorAll('style[data-layout-css]');
+        var pending = styles.length;
+        if (!pending) return unlock();
+        [].forEach.call(styles, function(style) {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = style.getAttribute('data-layout-css');
+          link.onload = link.onerror = function() { if (--pending === 0) unlock(); };
+          style.parentNode.insertBefore(link, style.nextSibling);
+        });
+      }
+      window.addEventListener('load', start);
+      ['pointerdown', 'keydown', 'focusin'].forEach(function(type) {
+        window.addEventListener(type, start, { capture: true, once: true, passive: true });
+      });
+    })();
+  </script>`;
+
 function renderCssLinks(cssFiles, assetDir = null, html = '') {
   const files = [...new Set(cssFiles.map(file => String(file || '').trim()).filter(Boolean))];
   if (!files.length) files.push('/styles-core.css');
   const tokens = html ? pageTokens(html) : null;
-  return files.map((file) => {
+  let inlined = false;
+  const links = files.map((file) => {
     const href = escapeAttr(file);
     const link = `<link rel="stylesheet" href="${href}">`;
     if (!tokens) return link;
@@ -114,9 +147,12 @@ function renderCssLinks(cssFiles, assetDir = null, html = '') {
       if (error.code === 'ENOENT') return link;
       throw error;
     }
+    inlined = true;
     return `<style data-layout-css="${href}">${pageCss(source, tokens)}</style>
-  <link rel="preload" href="${href}" as="style" onload="this.onload=null;this.rel='stylesheet'" data-deferred-css="1"><noscript>${link}</noscript>`;
-  }).join('\n  ');
+  <noscript>${link}</noscript>`;
+  });
+  if (inlined) links.push(deferredCssLoaderScript);
+  return links.join('\n  ');
 }
 
 function applyPageCss(html, cssFiles, assetDir = null) {
@@ -125,6 +161,7 @@ function applyPageCss(html, cssFiles, assetDir = null) {
   const links = renderCssLinks(cssFiles, assetDir, html);
   const head = html.slice(0, end)
     .replace(/<style\b[^>]*\bdata-layout-css="[^"]*"[^>]*>[\s\S]*?<\/style>\s*/gi, '')
+    .replace(/<script data-css-loader>[\s\S]*?<\/script>\s*/gi, '')
     .replace(/<link\b[^>]*\bhref="\/styles(?:[.-][a-z0-9-]+)*\.css"[^>]*>\s*/gi, '')
     .replace(/<noscript>\s*<\/noscript>\s*/gi, '');
   const marker = '<!-- 메인 CSS -->';

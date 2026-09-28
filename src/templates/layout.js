@@ -83,7 +83,8 @@ const {
   renderNativeAd,
   renderMultiplexAd
 } = require('./components/ads');
-const { generateHeader } = require('./components/header');
+const { generateHeader, LOGO_SVG } = require('./components/header');
+const { deferLazyImages } = require('../build/lazy-images');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
 const {
@@ -131,7 +132,7 @@ const LAYOUT_CORE_ASSET = 'layout-core.js';
 const LAYOUT_RUNTIME_ASSET = 'layout-runtime.js';
 
 // 모바일 상단 바에도 데스크톱과 같은 워드마크를 쓴다 (2026-09-09: 홈 아이콘 → 로고).
-const MOBILE_LOGO_SVG = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../assets/logo-wordmark-outlined.svg'), 'utf8');
+const MOBILE_LOGO_SVG = LOGO_SVG;
 
 // 상단 검색바 (홈/일반 페이지용)
 const searchBarHtml = `
@@ -590,8 +591,8 @@ const lazyCardHydrationScript = `
   if (typeof window.GSUtils.resizeStoreIconUrl !== 'function') {
     window.GSUtils.resizeStoreIconUrl = function(url) {
       if (!url) return '';
-      if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\./, '/100x100bb.');
-      if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100';
+      if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\.[a-z]+/, '/100x100bb.webp');
+      if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100-rw';
       return url;
     };
   }
@@ -2542,10 +2543,15 @@ const imageFallbackScript = `
 
   function initImageLoadHandlers() {
     document.querySelectorAll('.home-trend-card-image img, .category-list-thumb img, .home-popular-thumb img, .weekly-hot-thumb img, .metric-thumb img, .industry-thumb img').forEach(function(img) {
-      if (img.complete && img.naturalWidth > 0) {
+      if (img.complete && img.naturalWidth > 0 && !img.hasAttribute('data-gs-src')) {
         markImageLoaded(img);
       } else {
-        img.addEventListener('load', function() { markImageLoaded(img); }, { once: true });
+        // 지연 로딩 대기 중(data-gs-src)이면 자리표시 GIF 말고 실제 이미지가 로드될 때 표시한다.
+        img.addEventListener('load', function onLoad() {
+          if (img.hasAttribute('data-gs-src')) return;
+          img.removeEventListener('load', onLoad);
+          markImageLoaded(img);
+        });
       }
     });
   }
@@ -2889,10 +2895,14 @@ function wrapWithLayout(content, options = {}) {
     return '게임';
   })();
 
+  // 본문이 실제로 쓰는 외부 이미지 호스트만 연결 힌트로 둔다.
+  const pageSource = content + pageScripts;
+  const steamImageHost = (pageSource.match(/https:\/\/([a-z]+\.[a-z]+\.steamstatic\.com)\//) || [])[1];
+
   const html = `<!DOCTYPE html>
 <html lang="ko">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex: noindex || /\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(canonical || ''), breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex: noindex || /\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(canonical || ''), breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage, usesWsrv: /wsrv\.nl/.test(pageSource), steamImageHost })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
@@ -2925,7 +2935,7 @@ function wrapWithLayout(content, options = {}) {
   <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
 </body>
 </html>`;
-  return require('../build/css-links').applyPageCss(html, resolvedCssFiles);
+  return deferLazyImages(require('../build/css-links').applyPageCss(html, resolvedCssFiles));
 }
 
 /**

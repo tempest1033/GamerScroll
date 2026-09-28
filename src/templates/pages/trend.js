@@ -14,6 +14,7 @@ const { renderTextBlock, parseMarkdownTable: parseMarkdownTableShared, tableStac
 const { buildWsrvSrcsetAttrs } = require('../helpers/thumbnail');
 const { createArticleToc } = require('../helpers/article-toc');
 const { buildMetaDescription } = require('../../build/meta-description');
+const { resizeIcon } = require('../../utils/resize-icon');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -758,7 +759,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${resizeIcon(game.icon)}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -779,7 +780,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${resizeIcon(game.icon)}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -811,7 +812,7 @@ function generateNewsDetailPage(type, { post, nav = {}, parsedRelatedDocs = null
       <div class="blog-related-grid">
         ${relatedGames.map(g => `
           <a href="/games/${g.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" width="40" height="40" src="${g.icon || '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" width="40" height="40" src="${g.icon ? resizeIcon(g.icon) : '/favicon.svg'}" alt="${g.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${g.name}</span>
           </a>
         `).join('')}
@@ -1166,7 +1167,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               const gameSlug = link.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${resizeIcon(game.icon)}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -1185,7 +1186,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
               const gameSlug = block.url.replace('/games/', '').replace(/\/$/, '');
               for (const [name, game] of Object.entries(gamesMap)) {
                 if (game.slug === gameSlug && game.icon) {
-                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${game.icon}" alt="${game.name}" loading="lazy">`;
+                  iconHtml = `<img class="blog-link-icon" width="40" height="40" src="${resizeIcon(game.icon)}" alt="${game.name}" loading="lazy">`;
                   break;
                 }
               }
@@ -1584,7 +1585,7 @@ function generateRankingDetailPage({ post, nav = {}, parsedRelatedDocs = null, r
       <div class="blog-related-grid">
         ${relatedGames.map(game => `
           <a href="/games/${game.slug}/" class="blog-related-card">
-            <img class="blog-related-icon" width="40" height="40" src="${game.icon || '/favicon.svg'}" alt="${game.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
+            <img class="blog-related-icon" width="40" height="40" src="${game.icon ? resizeIcon(game.icon) : '/favicon.svg'}" alt="${game.name}" loading="lazy" data-img-fallback-src="/favicon.svg">
             <span class="blog-related-name">${game.name}</span>
           </a>
         `).join('')}

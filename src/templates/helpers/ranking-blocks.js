@@ -15,6 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { resizeIcon } = require('../../utils/resize-icon');
 
 const DEFAULT_SNAPSHOTS_DIR = path.join(__dirname, '..', '..', '..', 'snapshots', 'rankings');
 const DEFAULT_HISTORY_DIR = path.join(__dirname, '..', '..', '..', 'history');
@@ -304,7 +305,7 @@ function renderRankingBar(block, ctx) {
     const isLast = idx === barItems.length - 1;
     return `
       <div class="ranking-bar-row" style="display:flex; align-items:center; ${isLast ? '' : 'margin-bottom:8px;'} gap:10px;">
-        <img src="${icon}" alt="${escapeHtmlAttr(item.name)}" title="${escapeHtmlAttr(item.name)}" style="width:36px; height:36px; border-radius:8px; object-fit:cover; flex-shrink:0;">
+        <img src="${resizeIcon(icon)}" alt="${escapeHtmlAttr(item.name)}" title="${escapeHtmlAttr(item.name)}" loading="lazy" style="width:36px; height:36px; border-radius:8px; object-fit:cover; flex-shrink:0;">
         <div class="ranking-bar-track" style="flex:1; height:32px; background:var(--hover-bg); border-radius:6px; position:relative;">
           <div class="ranking-bar-fill" style="width:${pct}%; height:100%; background:${color}; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px;">
             <span style="font-size:12px; font-weight:600; color:#333;">${item.score.toLocaleString()}${block.unit !== undefined ? block.unit : '점'}</span>
@@ -341,7 +342,7 @@ function renderRankingCard(block, ctx) {
 
   return `
     <div class="ranking-card ${cardItem.highlight ? 'ranking-card-highlight' : ''}">
-      <img class="ranking-card-icon" src="${cardIcon}" alt="${escapeHtmlAttr(cardItem.name || '')}" loading="lazy">
+      <img class="ranking-card-icon" src="${resizeIcon(cardIcon)}" alt="${escapeHtmlAttr(cardItem.name || '')}" loading="lazy">
       <div class="ranking-card-info">
         <div class="ranking-card-name">${escapeHtmlAttr(cardItem.name || '')}</div>
         <div class="ranking-card-score">${cardItem.score?.toLocaleString() || ''}${cardUnit}</div>

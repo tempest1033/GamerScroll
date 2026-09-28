@@ -1383,6 +1383,15 @@ if (cssAssetVersion && incrementalCache.meta.gamePagesCssVersion !== cssAssetVer
   incrementalCache.meta.gamePagesCssVersion = cssAssetVersion;
 }
 
+// 템플릿 JS(src/templates) 변경 시 전체 재빌드. 메인 생성기가 먼저 meta.templateJsHash를 갱신하므로
+// 게임 페이지는 별도 키로 판단한다 (같은 키를 쓰면 템플릿을 바꿔도 게임 HTML은 옛 마크업으로 남는다).
+const templateJsHash = buildCache.computeTemplateJsHash();
+if (incrementalCache.meta.gamePagesTemplateJsHash !== templateJsHash) {
+  forceFullRebuild = true;
+  console.log(`  📝 템플릿 JS 변경 감지(${incrementalCache.meta.gamePagesTemplateJsHash || '(none)'} → ${templateJsHash}) → 전체 재빌드`);
+  incrementalCache.meta.gamePagesTemplateJsHash = templateJsHash;
+}
+
 // 순위에 있거나 데이터가 있는 게임만 페이지 생성
 let generatedCount = 0;
 let skippedCount = 0;

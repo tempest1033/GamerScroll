@@ -9,7 +9,9 @@ let headerStatus = '';
 function setHeaderStatus(text) { headerStatus = String(text || ''); }
 
 // 로고 글자를 도형으로 고정해 웹폰트 로딩 전후에도 모양이 바뀌지 않는다.
-const LOGO_SVG = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../../assets/logo-wordmark-outlined.svg'), 'utf8');
+// 모든 페이지에 두 번(헤더·모바일 검색바) 들어가므로 좌표를 소수 첫째 자리로 줄인다: 11.9KB → 3.9KB, 오차 0.02px 미만.
+const LOGO_SVG = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../../assets/logo-wordmark-outlined.svg'), 'utf8')
+  .replace(/-?\d+\.\d{2,}/g, (n) => String(+Number(n).toFixed(1)));
 
 function generateHeader(currentPage = 'home') {
   const activeId = navIdOf(currentPage);

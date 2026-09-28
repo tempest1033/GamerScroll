@@ -39,7 +39,10 @@ const { renderCssLinks } = require('../src/build/css-links');
           assert.equal(before.adReady, true, '페이지별 CSS 응답 전에 상단 인라인 스크립트 실행');
           assert.equal(before.color, 'rgb(0, 0, 255)', '공통·페이지 CSS 응답 전에도 최종 색상 적용');
           release();
-          await page.waitForFunction(() => [...document.querySelectorAll('link[as="style"]')].every(link => link.rel === 'stylesheet'));
+          await page.waitForFunction(() => {
+            const links = [...document.querySelectorAll('link[rel="stylesheet"]')];
+            return links.length === 3 && links.every(link => link.sheet);
+          });
           const after = await read();
           assert.deepEqual(after.boxes, before.boxes, '장식 적용 전후 배치 유지');
           assert.equal(after.color, before.color, '전체 CSS 적용 후 색상 깜빡임 없음');
