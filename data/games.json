@@ -49303,8 +49303,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "라스트걸 : 코어이브": {
+      "appIds": {
+        "ios": 6803883995
+      },
+      "aliases": [],
+      "developer": "YNH GamesCo., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/b3/0d/59b30d59-72dc-30a5-efbb-1217f16dc1d1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "라스트걸-코어이브",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "We Are Cooking": {
+      "appIds": {
+        "ios": 6498920694
+      },
+      "aliases": [],
+      "developer": "Matryoshka Games (CY) LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/10/4b/35/104b3525-265d-7b76-24fd-3c798a8ec392/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "we-are-cooking",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Where Winds Meet-Cicada Requiem Pack": {
+      "appIds": {
+        "steam": "5246160"
+      },
+      "aliases": [],
+      "developer": "Everstone Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5246160/db173f507583f3c4790abb7f4b37aa73b8cfa889/capsule_231x87.jpg?t=1790514761",
+      "slug": "where-winds-meet-cicada-requiem-pack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-28",
-  "totalGames": 3780
+  "totalGames": 3783
 }

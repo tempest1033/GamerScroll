@@ -35480,6 +35480,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d2/46/00/d24600a7-b1a3-8f19-5955-0c0860edf7fe/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-28T09:11:21.005Z"
+    },
+    {
+      "title": "라스트걸 : 코어이브",
+      "status": "single",
+      "appIds": {
+        "ios": 6803883995
+      },
+      "developer": "YNH GamesCo., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/b3/0d/59b30d59-72dc-30a5-efbb-1217f16dc1d1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-28T12:04:04.710Z"
+    },
+    {
+      "title": "We Are Cooking",
+      "status": "single",
+      "appIds": {
+        "ios": 6498920694
+      },
+      "developer": "Matryoshka Games (CY) LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/10/4b/35/104b3525-265d-7b76-24fd-3c798a8ec392/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-28T12:04:04.919Z"
     }
   ],
   "approved": [
