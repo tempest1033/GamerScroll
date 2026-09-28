@@ -49351,8 +49351,22 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Fork N Sausage": {
+      "appIds": {
+        "android": "com.kadka.forknsausage",
+        "ios": 1448360185
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/_7agAcm29a7mzp4yvNuHigs72fCdPyAXfYiqKJKIqytWDV6rO8c_lfiiBDbRBo8YbXohICugd1gRzmifFZbGeA",
+      "slug": "fork-n-sausage",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
-  "lastUpdated": "2026-09-28",
-  "totalGames": 3784
+  "lastUpdated": "2026-09-29",
+  "totalGames": 3785
 }
