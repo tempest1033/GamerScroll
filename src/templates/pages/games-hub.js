@@ -285,7 +285,7 @@ function generateGamesHubPage(options = {}) {
   function resizeIconUrl(url) {
     if (!url) return '';
     if (url.indexOf('mzstatic.com/') !== -1) return url.replace(/\\/\\d+x\\d+bb\\.[a-z]+/, '/100x100bb.webp');
-    if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100-rw';
+    if (url.indexOf('googleusercontent.com/') !== -1) return url.split('=')[0] + '=s100-rw-lo';
     return url;
   }
 
