@@ -1,0 +1,54 @@
+/* ==========================================================================
+   광고 자리 (AdSense). <ins> 크기는 components/ads.js의 인라인 <style>이 화면 폭별로 정하고,
+   여기서는 카드의 간격과 빈 광고 처리만 다룬다.
+   ========================================================================== */
+.ad-card { position: relative; box-sizing: border-box; touch-action: pan-x pan-y; }
+.ad-card > ins.adsbygoogle,
+.ad-card > ins.adsbygoogle > iframe { max-width: 100%; }
+
+/* 상단: PC 빌보드(970×250 · 728×90 · 468×60) / 모바일 300×250.
+   크기용 인라인 <style>이 margin:0 auto를 주므로 위 여백은 한 단계 높은 선택자로 준다. */
+.page-wrap > .ad-card-responsive-home,
+.page-wrap > .ad-card-mobile-top { margin-top: 16px; }
+.ad-card-responsive-home > ins.adsbygoogle,
+.ad-card-mobile-top > ins.adsbygoogle { position: relative; line-height: 0; }
+.ad-card-responsive-home > ins.adsbygoogle > iframe { vertical-align: middle; }
+/* PC에서 채워지지 않으면 자리를 접는다 */
+.ad-card-responsive-home:has(ins[data-ad-status="unfilled"]) { display: none !important; }
+/* 모바일 상단은 자리를 지키고(CLS 방지) 가운데 파비콘만 보인다 */
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) { border-radius: 8px; background: var(--gray); }
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle { visibility: hidden; }
+.ad-card-mobile-top:has(ins[data-ad-status="unfilled"])::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  margin: auto;
+  background: url('/favicon.svg') center / contain no-repeat;
+}
+
+/* 본문 중간(in-article)·모바일 피드 광고: 채워지기 전에도 높이를 잡아 둔다 */
+.ad-card-scroll { width: 100%; min-height: 308px !important; }
+.ad-card-scroll > ins.adsbygoogle { min-height: 284px !important; }
+.ad-card-scroll.gs-ad-compact,
+.ad-card-scroll.gs-ad-compact > ins.adsbygoogle { min-height: 0 !important; }
+.blog-in-article-ad { margin: 36px 0; }
+
+/* 기사 사이드바 300×250 (1200px 이상에서만 요청) */
+.ad-card-sidebar-rectangle { margin: 24px 0; }
+@media (max-width: 1199px) {
+  .ad-card-sidebar-rectangle { display: none; }
+}
+
+/* 채워지지 않은 중간·사이드바 광고는 자리까지 접는다 */
+.ad-card-scroll:has(ins[data-ad-status="unfilled"]),
+.ad-card-scroll:has(ins[data-gs-ad-empty="1"]),
+.ad-card-scroll.gs-ad-empty,
+.ad-card-sidebar-rectangle:has(ins[data-ad-status="unfilled"]) {
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+}

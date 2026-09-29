@@ -1,19 +1,4 @@
-/* Shared core styles for all pages */
+/* 모든 페이지 공통: 토큰·틀(헤더·메뉴·검색·푸터) · 홈·목록·검색·404 · 광고 자리 */
 @import url("./00-base.css");
-@import url("./05-ads.css");
-@import url("./06-tabs.css");
-@import url("./07-home-subtabs.css");
-@import url("./10-home.css");
-@import url("./11-footer-modal.css");
-@import url("./12-not-found.css");
-@import url("./20-upcoming.css");
-@import url("./30-responsive.css");
-@import url("./31-tablet.css");
-@import url("./61-stocks.css");
-@import url("./70-search.css");
-@import url("./90-games-hub.css");
-@import url("./90-popular-banner.css");
-@import url("./91-trends-hub-feed.css");
-@import url("./92-wiki.css");
-@import url("./99-edge-to-edge.css");
-@import url("./95-light-renewal.css");
+@import url("./10-lists.css");
+@import url("./20-ads.css");

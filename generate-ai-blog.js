@@ -11,8 +11,9 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const sharp = require('sharp');
-const { PurgeCSS } = require('purgecss');
 const { guardHoverRules } = require('./src/aiscroll-build/css-hover-guard');
+const { applyPageCss } = require('./src/aiscroll-build/css-links');
+const { deferLazyImages } = require('./src/aiscroll-build/lazy-images');
 
 // 로컬 빌드 시 draft 포함 (CI 환경이 아니거나 --draft/-d 플래그)
 const includeDrafts = !process.env.CI || process.argv.includes('--draft') || process.argv.includes('-d');
@@ -21,7 +22,7 @@ const includeDrafts = !process.env.CI || process.argv.includes('--draft') || pro
 const buildCache = require('./ai-build-cache');
 
 // 템플릿
-const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, generateTopicPage, setGlobalSidebarCounts, setGlobalSidebarArticles, I18N, langPrefixOf } = require('./src/templates/ai-blog/index');
+const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, generateTopicPage } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 const { generateAboutPage } = require('./src/templates/ai-blog/about');
 // 분류 체계: 카테고리 5개(news/reviews/guides/benchmarks/hot) + 주제 태그. 옛 회사 기준 카테고리는 301.
@@ -105,12 +106,14 @@ const AI_CSS_BUNDLES = [
 
 function removeStaleDocsFiles() {
   const staleFiles = [
-    'styles.css'
+    'styles.css',
+    // 2026-09-29 웹 글꼴(Pretendard·Inter)을 시스템 글꼴로 바꿔 더는 참조하지 않는다 (배포 시드에 남은 사본 정리)
+    'assets/fonts'
   ];
   staleFiles.forEach((file) => {
     const filePath = path.join(DOCS_DIR, file);
     if (fs.existsSync(filePath)) {
-      fs.rmSync(filePath, { force: true });
+      fs.rmSync(filePath, { recursive: true, force: true });
       console.log(`  stale 파일 제거: ${file}`);
     }
   });
@@ -462,12 +465,6 @@ async function copyAssets(faviconChanged = false) {
     }
   }
 
-  // Inter 폰트 셀프호스팅 (assets/fonts/inter → ai-docs/assets/fonts/inter). 참조 경로는 ai-blog/index.js 의 <link>와 일치.
-  const interSrcDir = path.join(__dirname, 'assets', 'fonts', 'inter');
-  if (fs.existsSync(interSrcDir)) {
-    copyDirRecursive(interSrcDir, path.join(DOCS_DIR, 'assets', 'fonts', 'inter'));
-  }
-
   // manifest.json 복사
   const manifestSrc = path.join(__dirname, 'ai-docs', 'manifest.json');
   if (fs.existsSync(manifestSrc)) {
@@ -575,23 +572,6 @@ async function copyAssets(faviconChanged = false) {
     console.log('기사 폴더 이미지 복사 완료');
   }
 
-  // Pretendard Variable dynamic subset 셀프호스팅 (GamerScroll docs/assets/fonts 와 같은 버전 경로).
-  // 버전 경로라 존재하면 스킵 — 참조 경로는 ai-blog/index.js(wrapWithLayout)의 폰트 <link>와 일치해야 한다.
-  const fontSrcDir = path.join(__dirname, 'node_modules', 'pretendard', 'dist', 'web', 'variable');
-  const fontDestDir = path.join(DOCS_DIR, 'assets', 'fonts', 'pretendard-1.3.9');
-  if (!fs.existsSync(fontDestDir) && fs.existsSync(fontSrcDir)) {
-    fs.mkdirSync(path.join(fontDestDir, 'woff2-dynamic-subset'), { recursive: true });
-    fs.copyFileSync(
-      path.join(fontSrcDir, 'pretendardvariable-dynamic-subset.css'),
-      path.join(fontDestDir, 'pretendardvariable-dynamic-subset.css')
-    );
-    const subsetSrc = path.join(fontSrcDir, 'woff2-dynamic-subset');
-    for (const f of fs.readdirSync(subsetSrc)) {
-      fs.copyFileSync(path.join(subsetSrc, f), path.join(fontDestDir, 'woff2-dynamic-subset', f));
-    }
-    console.log('Pretendard 폰트 셀프호스팅 동기화 완료 (assets/fonts/pretendard-1.3.9)');
-  }
-
   console.log('에셋 복사 완료');
 }
 
@@ -656,20 +636,22 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     }
 
     const langArticles = mapArticles(articles, lang);
-    setGlobalSidebarCounts({ ...countCategories(langArticles), topics: countTopics(langArticles) });
 
-    let popularArticles = [];
-    if (popularArticlesData.articles && popularArticlesData.articles.length > 0) {
-      popularArticles = popularArticlesData.articles
-        .map(pa => {
-          // GA4 인기 데이터의 category는 수집 시점 값(옛 카테고리일 수 있음) → slug만으로 맞춘다
-          const article = langArticles.find(a => a.slug === pa.slug);
-          if (article) return { ...article, views: pa.views };
-          return null;
-        })
-        .filter(Boolean)
-        .slice(0, 10);
+    // GA4 인기 데이터는 경로 단위라, 카테고리를 옮긴 글은 옛·새 경로로 두 번 온다(수집 시점 category가 옛 값일 수 있음).
+    // slug로 조회수를 합쳐 한 번만 세고 순서를 다시 매긴다.
+    const viewsBySlug = new Map();
+    for (const pa of popularArticlesData.articles || []) {
+      if (!pa || !pa.slug) continue;
+      viewsBySlug.set(pa.slug, (viewsBySlug.get(pa.slug) || 0) + (Number(pa.views) || 0));
     }
+    let popularArticles = [...viewsBySlug]
+      .map(([slug, views]) => {
+        const article = langArticles.find(a => a.slug === slug);
+        return article ? { ...article, views } : null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.views - a.views)
+      .slice(0, 10);
     if (popularArticles.length === 0) {
       popularArticles = [...langArticles].slice(0, 10);
     }
@@ -677,8 +659,6 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
     const latestArticles = [...langArticles]
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .slice(0, 10);
-
-    setGlobalSidebarArticles(popularArticles, latestArticles);
 
     const indexHtml = generateAIBlogIndex({
       articles: langArticles,
@@ -781,15 +761,12 @@ function generatePrivacyPage(lang = 'en') {
   const isKo = lang === 'ko';
 
   const privacyContentEn = `
-    <section class="home-section active" id="privacy">
-      <article class="page-container issue-container">
-        <div class="blog-card">
-          <header class="blog-header">
-            <h1 class="blog-title">Privacy Policy</h1>
-            <div class="blog-meta">
-              <time class="blog-date">Last updated: January 2026</time>
-            </div>
-          </header>
+    <div class="page-wrap" id="privacy">
+      <article class="prose-page">
+        <header class="prose-head">
+          <h1 class="blog-title">Privacy Policy</h1>
+          <p class="byline"><span class="blog-date">Last updated: January 2026</span></p>
+        </header>
           <div class="blog-content">
             <h2 class="blog-heading">1. Information We Collect</h2>
             <p class="blog-paragraph">AI Scroll collects minimal information to provide and improve our services:</p>
@@ -810,21 +787,17 @@ function generatePrivacyPage(lang = 'en') {
             <h2 class="blog-heading">7. Changes to This Policy</h2>
             <p class="blog-paragraph">We may update this Privacy Policy from time to time. We will notify users of any material changes by posting the new policy on this page.</p>
           </div>
-        </div>
       </article>
-    </section>
+    </div>
   `;
 
   const privacyContentKo = `
-    <section class="home-section active" id="privacy">
-      <article class="page-container issue-container">
-        <div class="blog-card">
-          <header class="blog-header">
-            <h1 class="blog-title">개인정보처리방침</h1>
-            <div class="blog-meta">
-              <time class="blog-date">최종 업데이트: 2026년 1월</time>
-            </div>
-          </header>
+    <div class="page-wrap" id="privacy">
+      <article class="prose-page">
+        <header class="prose-head">
+          <h1 class="blog-title">개인정보처리방침</h1>
+          <p class="byline"><span class="blog-date">최종 업데이트: 2026년 1월</span></p>
+        </header>
           <div class="blog-content">
             <h2 class="blog-heading">1. 수집하는 정보</h2>
             <p class="blog-paragraph">AIScroll은 서비스 제공과 개선을 위해 최소한의 정보만 수집합니다:</p>
@@ -845,9 +818,8 @@ function generatePrivacyPage(lang = 'en') {
             <h2 class="blog-heading">7. 정책 변경</h2>
             <p class="blog-paragraph">본 개인정보처리방침은 수시로 업데이트될 수 있습니다. 중대한 변경 사항은 이 페이지에 새 정책을 게시하여 사용자에게 알립니다.</p>
           </div>
-        </div>
       </article>
-    </section>
+    </div>
   `;
 
   const privacyHtml = wrapWithLayout(isKo ? privacyContentKo : privacyContentEn, {
@@ -855,6 +827,8 @@ function generatePrivacyPage(lang = 'en') {
     description: isKo ? 'AIScroll 개인정보처리방침 - 데이터 수집, 사용, 사용자 권리에 관한 안내.' : 'AI Scroll Privacy Policy - Information about data collection, usage, and your rights.',
     keywords: isKo ? '개인정보처리방침, 데이터 보호, AIScroll' : 'privacy policy, data protection, AI Scroll',
     canonical: isKo ? 'https://aiscroll.io/ko/privacy/' : 'https://aiscroll.io/privacy/',
+    currentPage: 'privacy',
+    cssFilenames: ['/styles-core.css', '/styles-article.css'],
     lang,
     alternates: getAlternates('/privacy/')
   });
@@ -877,12 +851,12 @@ function generate404Page(lang = 'en') {
   const homePath = isKo ? '/ko/' : '/';
   const searchPath = isKo ? '/ko/search/' : '/search/';
   const content = `
-    <section class="not-found-container" style="max-width:720px;margin:64px auto;padding:0 16px;text-align:center;">
-      <h1 style="font-size:2.5rem;margin:0 0 16px;">${t.heading}</h1>
-      <p style="font-size:1.05rem;color:var(--text-secondary,#94a3b8);margin:0 0 32px;">${t.body}</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="${homePath}" style="padding:10px 24px;background:#4f46e5;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;">${t.home}</a>
-        <a href="${searchPath}" style="padding:10px 24px;border:1px solid var(--border-color,#475569);color:inherit;text-decoration:none;border-radius:8px;font-weight:600;">${t.search}</a>
+    <section class="notfound">
+      <h1>${t.heading}</h1>
+      <p>${t.body}</p>
+      <div class="notfound-actions">
+        <a class="btn btn-dark" href="${homePath}">${t.home}</a>
+        <a class="btn btn-gray" href="${searchPath}">${t.search}</a>
       </div>
     </section>
   `;
@@ -968,80 +942,17 @@ function validateImages(articles) {
   }
 }
 
-// PurgeCSS 동적 클래스 safelist (런타임 JS에서 classList.add/toggle/className으로 추가되는 클래스)
-const PURGECSS_SAFELIST = {
-  standard: [
-    'active', 'loaded', 'open', 'hidden', 'expanded', 'collapsed',
-    'fonts-loaded', 'nav-ready', 'thumb-fallback',
-    'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
-    'ads-disabled', 'deferred-css-pending', 'realtime',
-    'search-hidden', 'is-open', 'is-hidden',
-  ],
-  deep: [/^search-/, /^is-/, /^has-/, /^ad-/],
-  greedy: [],
-  // 타이포 토큰(--font-*)은 core 번들(00-base)에 정의되고 article 번들에서 참조된다.
-  // PurgeCSS variables 정리는 파일 단위라 core 쪽에서 미사용으로 오인해 지우므로 보호한다.
-  variables: [/^--font-/],
-};
-
-// PurgeCSS: ai-docs/ 내 CSS 번들에서 미사용 CSS 제거
-function toPurgeGlobPath(filePath) {
-  return filePath.split(path.sep).join('/');
-}
-
-async function purgeCssInDocs(docsDir) {
-  const bundles = [
-    {
-      css: path.join(docsDir, 'styles-core.css'),
-      purgeCss: toPurgeGlobPath(path.join(docsDir, 'styles-core.css')),
-      content: [toPurgeGlobPath(path.join(docsDir, '**', '*.html'))],
-      label: 'styles-core.css',
-    },
-    {
-      css: path.join(docsDir, 'styles-article.css'),
-      purgeCss: toPurgeGlobPath(path.join(docsDir, 'styles-article.css')),
-      content: [toPurgeGlobPath(path.join(docsDir, 'article', '**', '*.html'))],
-      label: 'styles-article.css',
-    },
-  ];
-
-  console.log('\n🧹 PurgeCSS 실행 중...');
-  for (const bundle of bundles) {
-    if (!fs.existsSync(bundle.css)) continue;
-    const originalSize = Buffer.byteLength(fs.readFileSync(bundle.css), 'utf8');
-    if (originalSize === 0) continue;
-
-    try {
-      const result = await new PurgeCSS().purge({
-        content: bundle.content,
-        css: [bundle.purgeCss],
-        safelist: PURGECSS_SAFELIST,
-        fontFace: true,
-        keyframes: true,
-        variables: true,
-      });
-
-      if (result.length > 0 && result[0].css) {
-        fs.writeFileSync(bundle.css, result[0].css, 'utf8');
-        const purgedSize = Buffer.byteLength(result[0].css, 'utf8');
-        const reduction = ((1 - purgedSize / originalSize) * 100).toFixed(1);
-        console.log(`  ✅ ${bundle.label}: ${(originalSize / 1024).toFixed(0)}KB → ${(purgedSize / 1024).toFixed(0)}KB (${reduction}% 감소)`);
-      }
-    } catch (e) {
-      console.warn(`  ⚠️ PurgeCSS 실패 (${bundle.label}): ${e.message}`);
-    }
-  }
-}
-
-// CSS 해시 파일명 적용 (purge 완료본 기준).
-// styles-*.<hash>.css 사본을 만들고 ai-docs 안 모든 HTML의 CSS 링크를 해시 파일명으로 바꾼다.
-// 증분 빌드라 이번에 다시 만들지 않은 페이지(이전 배포본 시드)도 함께 재작성해야 모든 페이지가
-// 같은 파일 하나를 가리킨다. 고정 파일명(/styles-core.css)은 서비스워커 프리캐시용으로 남긴다.
+// 페이지 자산 마무리 (CSS 번들이 확정된 뒤):
+// 1) styles-*.<hash>.css 사본을 만들고, 각 HTML의 CSS 링크를 그 페이지에 쓰이는 규칙만 담은 인라인 CSS로 바꾼다.
+//    전체 CSS(해시 파일명)는 페이지 load 또는 첫 조작 때 받는다 — 첫 화면이 CSS 파일을 기다리지 않는다.
+// 2) loading="lazy" 이미지를 화면 근처에서만 받도록 data-gs-src로 옮긴다 (광고 요청 전 대역폭 확보).
+// 증분 빌드라 이번에 다시 만들지 않은 페이지(이전 배포본 시드)도 함께 적용해야 모든 페이지가 같은 파일을 가리킨다.
+// 여러 번 적용해도 결과가 같다. 고정 파일명(/styles-core.css)은 서비스워커 프리캐시용으로 남긴다.
 // 배경: 고정 파일명은 Cloudflare 기본 브라우저 캐시(4시간)에 잡혀, 배포 직후 새 HTML + 옛 CSS 조합으로
 // 화면이 깨졌다. 해시 파일명은 내용이 바뀌면 URL이 바뀌어 즉시 새 CSS를 받는다.
-const AI_CSS_LINK_RE = /(<link\b[^>]*\bhref=")\/(styles-core|styles-article)(?:\.[a-f0-9]{8})?\.css(?:\?[^"]*)?(")/gi;
+const AI_CSS_REF_RE = /(?:href|data-layout-css)="\/(styles-core|styles-article)(?:\.[a-f0-9]{8})?\.css"/g;
 
-function applyCssAssetVersion(docsDir) {
+function applyPageAssets(docsDir) {
   const version = computeCssAssetVersion(docsDir);
   if (!version) {
     console.warn('  ⚠️ CSS 해시 산출 실패: 번들이 없어 고정 파일명을 유지합니다');
@@ -1059,13 +970,15 @@ function applyCssAssetVersion(docsDir) {
     } catch (_) {
       continue;
     }
-    const next = html.replace(AI_CSS_LINK_RE, (m, before, name, after) => `${before}/${name}.${version}.css${after}`);
+    const names = [...new Set([...html.matchAll(AI_CSS_REF_RE)].map(match => match[1]))];
+    if (names.length === 0 || !html.includes('</head>')) continue;
+    const next = deferLazyImages(applyPageCss(html, names.map(name => `/${name}.${version}.css`), docsDir));
     if (next !== html) {
       fs.writeFileSync(filePath, next, 'utf8');
       rewritten++;
     }
   }
-  console.log(`CSS 해시 적용 완료: ${version} (HTML ${rewritten}/${htmlFiles.length}개 링크 재작성)`);
+  console.log(`페이지 CSS·이미지 지연 적용 완료: ${version} (HTML ${rewritten}/${htmlFiles.length}개 갱신)`);
   return version;
 }
 
@@ -1121,7 +1034,6 @@ async function main() {
   // 카테고리·주제별 카운트 (사이드바·모바일 메뉴용). 미등록 category는 news로 정규화
   const countByCategory = countCategories(articles);
   const countByTopic = countTopics(articles);
-  setGlobalSidebarCounts({ ...countByCategory, topics: countByTopic });
   console.log(`   카테고리별: ${CATEGORY_IDS.map(id => `${CATEGORY_LABELS.en[id]}(${countByCategory[id]})`).join(', ')}`);
   console.log(`   주제별: ${Object.keys(countByTopic).map(id => `${id}(${countByTopic[id]})`).join(', ') || '없음'}`);
 
@@ -1131,9 +1043,9 @@ async function main() {
 
   if (!needFullRebuild && !hasArticleChanges && !faviconChanged) {
     console.log(`\n⚡ 변경 없음 - 빌드 스킵 (${articleChanges.unchanged.length}개 기사 캐시됨)`);
-    // 스킵해도 CSS 해시 링크와 _headers 는 산출물과 맞춰 둔다 (CI가 시드한 이전 배포본이 옛 형식일 수 있음).
-    // 이미 같은 해시면 아무 파일도 다시 쓰지 않는다.
-    writeCloudflareHeaders(applyCssAssetVersion(DOCS_DIR));
+    // 스킵해도 페이지 CSS·이미지 지연과 _headers 는 산출물과 맞춰 둔다 (CI가 시드한 이전 배포본이 옛 형식일 수 있음).
+    // 이미 같은 결과면 아무 파일도 다시 쓰지 않는다.
+    writeCloudflareHeaders(applyPageAssets(DOCS_DIR));
     buildCache.saveCache(cache);
     return;
   }
@@ -1171,12 +1083,9 @@ async function main() {
   console.log('\n5. SEO 파일 생성 중...');
   generateSEOFiles(articles);
 
-  // 6. PurgeCSS: 미사용 CSS 제거
-  await purgeCssInDocs(DOCS_DIR);
-
-  // 6-1. CSS 해시 파일명 적용 + Cloudflare _headers (purge 완료본 기준이어야 해시가 배포본과 일치)
-  console.log('\n6-1. CSS 해시 적용 중...');
-  const cssVersion = applyCssAssetVersion(DOCS_DIR);
+  // 6. 페이지별 인라인 CSS·CSS 해시·이미지 지연 + Cloudflare _headers (CSS 번들이 확정된 뒤여야 해시가 배포본과 일치)
+  console.log('\n6. 페이지 자산 마무리 중...');
+  const cssVersion = applyPageAssets(DOCS_DIR);
   writeCloudflareHeaders(cssVersion);
 
   // 캐시 저장
@@ -1561,7 +1470,7 @@ self.addEventListener('fetch', (event) => {
   console.log('Service Worker 생성 완료');
 }
 
-// Cloudflare Pages _headers. PurgeCSS·CSS 해시 적용이 끝난 뒤(main 6단계) 호출해야 해시 파일명이 확정돼 있다.
+// Cloudflare Pages _headers. CSS 해시 적용이 끝난 뒤(main 6단계) 호출해야 해시 파일명이 확정돼 있다.
 function writeCloudflareHeaders(cssVersion) {
   try {
     const headerLines = [];
@@ -1580,8 +1489,6 @@ function writeCloudflareHeaders(cssVersion) {
     // feed JSON은 파일명에 해시가 박혀 있어 immutable 안전. layout-core.js는 SW precache가
     // 쿼리 없는 경로를 쓰므로 여기서는 immutable을 걸지 않는다 (stale 고정 방지).
     headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
-    // 폰트는 버전 디렉터리(pretendard-1.3.9)라 immutable 안전.
-    headerLines.push('/assets/fonts/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     fs.writeFileSync(path.join(DOCS_DIR, '_headers'), headerLines.join('\n') + '\n', 'utf8');
     console.log('_headers 생성 완료');
   } catch (err) {

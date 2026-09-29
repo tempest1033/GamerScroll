@@ -33,7 +33,8 @@ const server = http.createServer((req, res) => {
           await page.locator('.search-input:visible').count().then(async count => {
             if (!count) await page.locator('.search-toggle:visible').click();
           });
-          await page.locator('.search-input:visible').fill('Claude');
+          // 한국어 제목은 'Claude'를 '클로드'로 적어 결과가 없다 — 두 언어 제목에 모두 있는 검색어를 쓴다
+          await page.locator('.search-input:visible').fill('AI');
           await page.locator('.search-input:visible').press('Enter');
           await page.waitForURL(/search/);
           assert.ok((await page.locator('body').innerText()).length > 100);

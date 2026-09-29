@@ -18,6 +18,7 @@
 
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const ADSENSE_CLIENT = 'ca-pub-9477874183990825';
+const { earlyTopAdScript } = require('./ad-request');
 
 // 고유 ID 생성용 카운터
 let adStyleCounter = 0;
@@ -164,13 +165,14 @@ function renderMobileOnlyHomeAd(slotId) {
 
 /**
  * 홈/상단 광고 페어
- * PC는 auto-responsive, 모바일은 320x100 고정 슬롯으로 분리
+ * PC는 빌보드(화면 폭별 고정 규격), 모바일은 300x250 슬롯으로 분리. 광고 자리 바로 뒤에서 요청한다.
  */
 function renderHomeAdPair(pcSlotId, mobileSlotId, opts) {
   if (!ADS_ENABLED) return '';
   return [
     renderDesktopOnlyHomeAd(pcSlotId, opts),
-    renderMobileOnlyHomeAd(mobileSlotId || pcSlotId)
+    renderMobileOnlyHomeAd(mobileSlotId || pcSlotId),
+    earlyTopAdScript
   ].filter(Boolean).join('\n');
 }
 

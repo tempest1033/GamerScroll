@@ -1,6 +1,6 @@
 /**
  * AIScroll 글 상세 페이지 템플릿
- * GamerScroll tech-article.js 스타일 적용
+ * 본문 780px + 사이드바 300px(목차 · 광고 · 인기/최신). 1099px 이하는 한 단, 목차는 본문 위 접이식.
  */
 
 const fs = require('fs');
@@ -11,8 +11,8 @@ const {
   formatDateLong,
   escapeHtml,
   getThumbUrl,
+  thumbAttrs,
   I18N,
-  AI_CATEGORY_IDS,
   articleHref,
   categoryHref,
   topicHref,
@@ -477,59 +477,24 @@ function generateAIBlogArticle(article, data = {}) {
     return result.join('\n');
   }
 
-  // 카테고리 메뉴
-  function generateCategoryMenu() {
-    const categories = AI_CATEGORY_IDS.map(id => ({ id, label: _t.categoryLabels[id] }));
-    // 카테고리별 기사 개수 계산
-    const countByCategory = {};
-    allArticles.forEach(a => {
-      const cat = normalizeCategory(a.category);
-      countByCategory[cat] = (countByCategory[cat] || 0) + 1;
-    });
-    return `
-      <div class="home-card" id="sidebar-categories">
-        <div class="sidebar-category-group">
-          <div class="home-card-header">
-            <h3 class="home-card-title">${_t.categories}</h3>
-          </div>
-          <div class="sidebar-category-list">
-            ${categories.filter(cat => (countByCategory[cat.id] || 0) > 0).map(cat => `
-              <a href="${categoryHref(cat.id, _lang)}" class="sidebar-category-item">
-                <span class="sidebar-category-name">${cat.label}</span><span class="sidebar-category-count">${countByCategory[cat.id] || 0}</span>
-              </a>
-            `).join('')}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  // 사이드바: 인기/최신 토글
+  // 사이드바: 인기/최신 탭 (지금 읽는 글은 뺀다). 최신 목록은 탭을 누르거나 한가해질 때 붙인다(런타임).
   function generateSidebarArticles() {
-    const renderList = (items) => items.slice(0, 10).map((item, i) => `
-      <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="sidebar-article-item">
-        <span class="sidebar-article-rank">${i + 1}</span>
-        <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
-      </a>
-    `).join('');
-    const latestListHtml = renderList(latestArticles);
-
-    // 라이트 리뉴얼: 카테고리 목록 카드는 상단 내비와 겹쳐 뺐다. 인기/최신 순위만.
+    const renderList = (items) => items.filter(item => item.slug !== article.slug).slice(0, 5).map((item, i) => `
+          <li><a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="sidebar-article-item">
+            <span class="sidebar-article-rank">${i + 1}</span>
+            <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
+          </a></li>`).join('');
     return `
-      <div class="home-card" id="sidebar-articles">
-        <div class="home-card-header">
-          <div class="home-chart-toggle sidebar-full-toggle" id="sidebarArticleTab">
-            <button class="tab-btn small active" data-sidebar-tab="popular">${_t.popular}</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">${_t.latest}</button>
+        <div class="side-block" id="sidebar-articles">
+          <div class="side-tabs" id="sidebarArticleTab">
+            <button class="tab-btn active" type="button" data-sidebar-tab="popular">${_t.popular}</button>
+            <button class="tab-btn" type="button" data-sidebar-tab="latest">${_t.latest}</button>
           </div>
-        </div>
-        <div class="home-card-body">
-          <div class="sidebar-article-list active" id="sidebar-popular">${renderList(popularArticles)}</div>
-          <div class="sidebar-article-list" id="sidebar-latest"></div>
-          <template id="sidebar-latest-template">${latestListHtml}</template>
-        </div>
-      </div>
-    `;
+          <ol class="sidebar-article-list active" id="sidebar-popular">${renderList(popularArticles)}
+          </ol>
+          <ol class="sidebar-article-list" id="sidebar-latest"></ol>
+          <template id="sidebar-latest-template">${renderList(latestArticles)}</template>
+        </div>`;
   }
 
   // 관련 문서 (AIScroll에 포함된 기사만 표시)
@@ -564,58 +529,54 @@ function generateAIBlogArticle(article, data = {}) {
 
     if (filteredRelated.length === 0) return '';
 
+    // PC 3칸 카드 / 모바일 왼쪽 썸네일 목록 (피드 카드와 같은 문법)
     return `
-      <div class="blog-related-issues">
-        <div class="blog-related-title">${_t.related}</div>
-        <div class="blog-related-issues-list">
-          ${filteredRelated.map(item => `
-            <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="blog-related-issue-card">
-              ${item.thumbnail ? `<img class="blog-related-issue-thumb" src="${getThumbUrl(item.thumbnail, 480)}" width="480" height="270" alt="${escapeHtml(item.title)}" loading="lazy">` : ''}
-              <span class="blog-related-issue-title"><span class="blog-related-issue-title-text">${escapeHtml(item.title)}</span></span>
-            </a>
-          `).join('')}
-        </div>
-      </div>
-    `;
+          <section class="article-after related">
+            <h2 class="article-after-title">${_t.related}</h2>
+            <div class="related-grid">
+              ${filteredRelated.map(item => `
+              <a href="${articleHref(item.category || 'news', item.slug, _lang)}" class="related-card">
+                <div class="related-thumb">${item.thumbnail ? `<img ${thumbAttrs(item.thumbnail, [320, 640], '(max-width: 768px) 96px, 246px')} width="640" height="360" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}</div>
+                <h3 class="related-title">${escapeHtml(item.title)}</h3>
+              </a>`).join('')}
+            </div>
+          </section>`;
   }
 
-  // Sources 섹션
+  // 출처
   const sourcesHTML = article.sources && article.sources.length > 0
     ? `
-      <div class="blog-sources">
-        <div class="blog-sources-title">${_t.sources}</div>
-        <ul class="blog-sources-list">
-          ${article.sources.map(src => {
-            const label = src.title ? `${src.name} - ${src.title}` : src.name;
-            return `<li><a href="${src.url}" target="_blank" rel="noopener">${label}</a></li>`;
-          }).join('')}
-        </ul>
-      </div>
-    `
+          <section class="article-after blog-sources">
+            <h2 class="article-after-title">${_t.sources}</h2>
+            <ul class="blog-sources-list">
+              ${article.sources.map(src => {
+                const label = src.title ? `${src.name} - ${src.title}` : src.name;
+                return `<li><a href="${escapeHtml(src.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a></li>`;
+              }).join('')}
+            </ul>
+          </section>`
     : '';
 
-  // 네비게이션 (이전/목록/다음)
+  // 이전 · 목록 · 다음 (전체 기사 날짜순)
   const sortedArticles = [...allArticles].sort((a, b) => new Date(b.date) - new Date(a.date));
   const currentCategory = article.category || 'news';
   const currentIndex = sortedArticles.findIndex(a => a.slug === article.slug && (a.category || 'news') === currentCategory);
   const prevArticle = currentIndex >= 0 ? sortedArticles[currentIndex + 1] : null;
   const nextArticle = currentIndex > 0 ? sortedArticles[currentIndex - 1] : null;
   const navHTML = `
-    <div class="trend-detail-nav">
-      ${prevArticle ? `<a href="${articleHref(prevArticle.category || 'news', prevArticle.slug, _lang)}" class="trend-nav-btn prev">‹ ${_t.previous}</a>` : `<span class="trend-nav-btn disabled">‹ ${_t.previous}</span>`}
-      <a href="${homeHref(_lang)}" class="trend-nav-btn list">${_t.list}</a>
-      ${nextArticle ? `<a href="${articleHref(nextArticle.category || 'news', nextArticle.slug, _lang)}" class="trend-nav-btn next">${_t.next} ›</a>` : `<span class="trend-nav-btn disabled">${_t.next} ›</span>`}
-    </div>
-  `;
+          <nav class="article-pager" aria-label="${_t.previous} · ${_t.next}">
+            ${prevArticle ? `<a class="btn btn-gray" href="${articleHref(prevArticle.category || 'news', prevArticle.slug, _lang)}" rel="prev">‹ ${_t.previous}</a>` : ''}
+            <a class="btn btn-gray" href="${homeHref(_lang)}">${_t.list}</a>
+            ${nextArticle ? `<a class="btn btn-gray" href="${articleHref(nextArticle.category || 'news', nextArticle.slug, _lang)}" rel="next">${_t.next} ›</a>` : ''}
+          </nav>`;
 
   // 공유 — eesel 방식: 라벨 + 둥근 아이콘 버튼(X · LinkedIn · Facebook · 링크 복사). 독자용이라 사이트 계정과 무관.
   const shareUrl = `${SITE_CONFIG.baseUrl}${_langPrefix}/article/${normalizeCategory(article.category)}/${article.slug}/`;
   const shareUrlEnc = encodeURIComponent(shareUrl);
   const shareTextEnc = encodeURIComponent(article.title || '');
-  const shareLabel = _lang === 'ko' ? '이 글 공유' : 'Share this article';
+  const shareLabel = _t.share;
   const shareHTML = `
-    <div class="blog-share" aria-label="${shareLabel}">
-      <p class="blog-share-label">${shareLabel}</p>
+    <div class="blog-share" role="group" aria-label="${shareLabel}">
       <div class="blog-share-buttons">
         <a class="blog-share-btn" href="https://x.com/intent/post?text=${shareTextEnc}&url=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.2 8.2L23.3 22h-6.6l-5.2-6.8L5.6 22H2.4l7.7-8.8L1 2h6.8l4.7 6.2L18.9 2zm-1.2 18.1h1.8L6.4 3.8H4.5l13.2 16.3z"/></svg></a>
         <a class="blog-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
@@ -624,13 +585,11 @@ function generateAIBlogArticle(article, data = {}) {
       </div>
     </div>`;
 
-  // PC는 고정 사이드바(공유 → 목차 → 300×250 → 인기/최신), 모바일은 본문 시작의 접이식 목차를 사용한다.
+  // PC는 고정 사이드바(목차 → 300×250 → 인기/최신), 1099px 이하는 본문 시작의 접이식 목차를 사용한다.
   const sidebarHTML = `
-    ${shareHTML}
-    ${toc.sidebarHTML}
-    ${generateRectangleAdSlot(AD_SLOTS.RectanglePC001)}
-    ${generateSidebarArticles()}
-  `;
+        ${toc.sidebarHTML}
+        ${generateRectangleAdSlot(AD_SLOTS.RectanglePC001)}
+        ${generateSidebarArticles()}`;
 
   // 글쓴이 소개 — eesel 'Article by' 블록. 모든 글에 Editor J 로 통일.
   const authorBoxHTML = (() => {
@@ -657,112 +616,60 @@ function generateAIBlogArticle(article, data = {}) {
     ? `<div class="blog-topics" aria-label="${_t.topics}">${articleTopics.map(id => `<a class="blog-topic-chip" href="${topicHref(id, _lang)}">${escapeHtml(topicLabel(id, _lang))}</a>`).join('')}</div>`
     : '';
 
-  // 상단 광고
-  // 상단 광고: 홈과 같은 풀폭 970 반응형 슬롯. 본문 컬럼(760px) 안에 두면 728×90 고정으로 줄어들어 레이아웃 바깥에 둔다.
+  // 상단 광고: 홈과 같은 빌보드 슬롯. 본문 컬럼 안에 두면 728×90으로 줄어들어 레이아웃 바깥에 둔다.
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { billboard: true });
 
-  // 메인 콘텐츠 (GamerScroll 스타일 + 사이드바 레이아웃)
+  const categoryId = normalizeCategory(article.category);
+  const datesHTML = (() => {
+    const dispModified = article.modifiedAt ? String(article.modifiedAt).slice(0, 10) : null;
+    const pubDate = (article.date || '').slice(0, 10);
+    if (dispModified && dispModified !== pubDate) {
+      return `<time class="blog-date" datetime="${escapeHtml(pubDate)}">${_t.published} ${formatDateLong(article.date, _lang)}</time><time class="blog-date" datetime="${escapeHtml(dispModified)}">${_t.updated} ${formatDateLong(dispModified, _lang)}</time>`;
+    }
+    return `<time class="blog-date" datetime="${escapeHtml(pubDate)}">${formatDateLong(article.date, _lang)}</time>`;
+  })();
+  // 대표 이미지: 모든 화면에서 보이는 LCP 후보라 바로, 높은 우선순위로 받는다 (wrapWithLayout이 preload도 넣는다).
+  // validate-seo가 첫 figure.blog-figure를 캡션 없는 대표 이미지로 본다.
+  const leadFigureHTML = article.thumbnail ? `
+          <figure class="blog-figure blog-lead-figure">
+            <img ${thumbAttrs(socialThumbnail || article.thumbnail, [640, 960, 1200], '(max-width: 768px) calc(100vw - 32px), 780px')} class="blog-image" width="1200" height="675" alt="${escapeHtml(article.title)}" loading="eager" fetchpriority="high" decoding="async">
+          </figure>` : '';
+
   const content = `
-    <section class="section active" id="issue">
-      <article class="page-container issue-container">
-        ${topAds}
-        <div class="article-layout">
-          <div class="article-main">
-            <div class="blog-card">
-              <header class="blog-header">
-                <nav class="blog-crumb" aria-label="${_lang === 'ko' ? '현재 위치' : 'Breadcrumb'}"><a href="${homeHref(_lang)}">${_lang === 'ko' ? '홈' : 'Home'}</a><span class="blog-crumb-sep">/</span><a href="${categoryHref(normalizeCategory(article.category), _lang)}">${escapeHtml(_t.categoryLabels[normalizeCategory(article.category)] || '')}</a></nav>
-                <h1 class="blog-title">${escapeHtml(article.title)}</h1>
-                <div class="blog-meta">
-                  ${bylineHTML}
-                  ${(() => {
-                    const dispModified = article.modifiedAt ? String(article.modifiedAt).slice(0, 10) : null;
-                    const pubDate = (article.date || '').slice(0, 10);
-                    if (dispModified && dispModified !== pubDate) {
-                      return `<time class="blog-date">${_t.published}: ${formatDateLong(article.date, _lang)}</time><time class="blog-date">${_t.updated}: ${formatDateLong(dispModified, _lang)}</time>`;
-                    }
-                    return `<time class="blog-date">${formatDateLong(article.date, _lang)}</time>`;
-                  })()}
-                </div>
-              </header>
-
-              ${article.thumbnail ? `
-              <figure class="blog-figure blog-lead-figure">
-                <img src="${getThumbUrl(socialThumbnail || article.thumbnail, 1200)}" class="blog-image" width="1200" height="675" alt="${escapeHtml(article.title)}" loading="eager" fetchpriority="high">
-              </figure>
-              ` : ''}
-
-              ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
-              ${topicsHTML}
-
-              ${toc.mobileHTML}
-              <div class="blog-content">
-                ${renderContent(article.content)}
-              </div>
-
-              ${generateRelatedArticles()}
-              ${sourcesHTML}
-              ${authorBoxHTML}
+    <div class="page-wrap article-page" id="article">
+      ${topAds}
+      <div class="article-layout">
+        <article class="article-main">
+          <header class="article-head">
+            <a class="article-kicker" href="${categoryHref(categoryId, _lang)}">${escapeHtml(_t.categoryLabels[categoryId] || '')}</a>
+            <h1 class="blog-title">${escapeHtml(article.title)}</h1>
+            <div class="article-meta">
+              <div class="byline">${bylineHTML}${datesHTML}</div>
+              ${shareHTML}
             </div>
-
-            ${navHTML}
+          </header>
+          ${leadFigureHTML}
+          ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
+          ${topicsHTML}
+          ${toc.mobileHTML}
+          <div class="blog-content">
+            ${renderContent(article.content)}
           </div>
-          <aside class="article-sidebar">
-            <div class="article-sidebar-sticky">
-              ${sidebarHTML}
-            </div>
-          </aside>
-        </div>
-      </article>
-    </section>
+          ${generateRelatedArticles()}
+          ${sourcesHTML}
+          ${authorBoxHTML}
+          ${navHTML}
+        </article>
+        <aside class="article-sidebar">
+          <div class="article-sidebar-sticky">${sidebarHTML}
+          </div>
+        </aside>
+      </div>
+    </div>
   `;
 
-  // 페이지 스크립트
-  const pageScripts = `<script>
-    (function() {
-      var init = function() {
-        if (!window.GSUtils) return;
-        if (typeof window.GSUtils.toggleSidebarArticleTab === 'function') {
-          window.GSUtils.toggleSidebarArticleTab('sidebarArticleTab');
-        }
-        if (typeof window.GSUtils.initSidebarLatestDefer === 'function') {
-          window.GSUtils.initSidebarLatestDefer({
-            tabId: 'sidebarArticleTab',
-            latestListId: 'sidebar-latest',
-            templateId: 'sidebar-latest-template',
-            idleTimeout: 3200,
-            fallbackDelay: 1600
-          });
-        }
-      };
-      if (window.GSUtils && window.GSUtils.__ready === true) {
-        init();
-      } else if (typeof window.__gsOnReady === 'function') {
-        window.__gsOnReady(init);
-      } else if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init, { once: true });
-      } else {
-        init();
-      }
-    })();
-  </script>${toc.scriptHTML}<script>
-    (function() {
-      var btn = document.querySelector('.blog-share-copy');
-      if (!btn) return;
-      btn.addEventListener('click', function() {
-        var url = btn.getAttribute('data-share-url') || location.href;
-        var done = function() {
-          btn.classList.add('is-copied');
-          btn.setAttribute('data-tip', btn.getAttribute('data-copied-label') || 'Copied');
-          setTimeout(function() { btn.classList.remove('is-copied'); }, 1500);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(url).then(done, function() { window.prompt('URL', url); });
-        } else {
-          window.prompt('URL', url);
-        }
-      });
-    })();
-  </script>`;
+  // 페이지 스크립트: 목차 현재 위치 표시만 인라인. 사이드바 탭·링크 복사는 공통 런타임(layout-core.js)이 맡는다.
+  const pageScripts = toc.scriptHTML;
 
   // 카테고리 라벨 매핑
   const categoryLabels = _t.categoryLabels;
@@ -909,6 +816,8 @@ function generateAIBlogArticle(article, data = {}) {
     noindex: article.noindex === true,  // 검색 성과 없는 기사 정리용 (JSON 플래그, 사이트맵·RSS도 제외)
     articleMeta: articleMeta,
     currentPage: article.category || 'news',
+    navCurrent: 'true',
+    cssFilenames: ['/styles-core.css', '/styles-article.css'],
     lang,
     alternates: articlePublicationUrls(article, SITE_CONFIG.baseUrl)
   });

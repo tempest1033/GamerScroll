@@ -2668,8 +2668,10 @@ function minifyRuntimeBundle(code, label) {
   }
 }
 
+// AIScroll layout-core.js: 피드 페이저 등 GSUtils + 사이트 공통 런타임(검색·광고·스와이프, site-runtime.js)
 function buildLayoutCoreBundle() {
-  return minifyRuntimeBundle(`${unwrapScriptTag(lazyCardHydrationScript)}\n`, 'layout-core');
+  const { siteRuntimeScript } = require('./site-runtime');
+  return minifyRuntimeBundle(`${unwrapScriptTag(lazyCardHydrationScript)}\n${siteRuntimeScript}\n`, 'layout-core');
 }
 
 function buildLayoutRuntimeBundle(options = {}) {

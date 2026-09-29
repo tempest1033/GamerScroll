@@ -16,7 +16,8 @@ async function imageHotlinkCheck($, pageUrl) {
   const urls = new Set();
   for (const src of [
     $('meta[property="og:image"]').attr('content'),
-    ...$('img.blog-image').map((_i, el) => $(el).attr('src')).get()
+    // 화면 밖 지연 이미지는 실제 주소가 data-gs-src에 있다 (src는 1px 자리 표시)
+    ...$('img.blog-image').map((_i, el) => $(el).attr('data-gs-src') || $(el).attr('src')).get()
   ]) {
     if (!src) continue;
     const url = new URL(src, page);

@@ -69,25 +69,21 @@ function generateAboutPage(lang = 'en') {
   ).join('\n              ');
 
   const content = `
-    <section class="home-section active" id="about">
-      <article class="page-container issue-container">
-        <div class="blog-card">
-          <header class="blog-header">
-            <h1 class="blog-title">${escapeHtml(t.title)}</h1>
-            <div class="blog-meta">
-              <time class="blog-date">${escapeHtml(t.updated)}</time>
-            </div>
-          </header>
-          <div class="blog-content">
+    <div class="page-wrap" id="about">
+      <article class="prose-page">
+        <header class="prose-head">
+          <h1 class="blog-title">${escapeHtml(t.title)}</h1>
+          <p class="byline"><span class="blog-date">${escapeHtml(t.updated)}</span></p>
+        </header>
+        <div class="blog-content">
 ${sectionsHtml}
-            <h2 class="blog-heading">${escapeHtml(t.sectionsHeading)}</h2>
-            <ul class="blog-list about-category-list">
-              ${categoryListHtml}
-            </ul>
-          </div>
+          <h2 class="blog-heading">${escapeHtml(t.sectionsHeading)}</h2>
+          <ul class="blog-list about-category-list">
+            ${categoryListHtml}
+          </ul>
         </div>
       </article>
-    </section>
+    </div>
   `;
 
   const personId = `${SITE_CONFIG.baseUrl}${PERSON_AUTHOR.path}#editor`;
@@ -132,6 +128,8 @@ ${sectionsHtml}
     keywords: _lang === 'ko' ? 'AIScroll 소개, Editor J, 제작 기준, 코딩 에이전트 후기' : `About AIScroll, Editor J, editorial policy, coding agent reviews, ${_t.categories}`,
     canonical: pageUrl,
     jsonLd,
+    currentPage: 'about',
+    cssFilenames: ['/styles-core.css', '/styles-article.css'],
     lang: _lang,
     alternates: { en: `${SITE_CONFIG.baseUrl}${PERSON_AUTHOR.path}`, ko: `${SITE_CONFIG.baseUrl}/ko${PERSON_AUTHOR.path}` }
   });

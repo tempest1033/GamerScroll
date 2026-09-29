@@ -1,4 +1,2 @@
-/* Article detail pages (issue/wiki/tech/ai article) */
-@import url("./90-blog-article.css");
-@import url("./91-article-action.css");
-@import url("./96-light-renewal-article.css");
+/* 기사 · 소개 · 개인정보 페이지 (본문 글꼴 크기와 콘텐츠 블록) */
+@import url("./30-article.css");

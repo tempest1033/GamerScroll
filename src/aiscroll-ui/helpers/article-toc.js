@@ -121,8 +121,8 @@ function createArticleToc(content = [], { title = '목차', slugify = slugifyHea
   const nav = `<nav class="article-toc" aria-label="${label}"><ol class="article-toc-list">${items}
     </ol></nav>`;
   result.sidebarHTML = `
-    <div class="home-card article-toc-card" id="sidebar-toc">
-      <div class="home-card-header"><h3 class="home-card-title">${label}</h3></div>
+    <div class="side-block side-toc" id="sidebar-toc">
+      <p class="side-head">${label}</p>
       ${nav}
     </div>`;
   result.mobileHTML = `

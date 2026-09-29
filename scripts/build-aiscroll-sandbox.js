@@ -8,7 +8,8 @@ const sandbox = fs.mkdtempSync(path.join(root, 'mockups', 'aiscroll-isolation-bu
 for (const relative of [
   'generate-ai-blog.js', 'ai-build-cache.js', 'package.json',
   'src/aiscroll-ui', 'src/aiscroll-styles', 'src/aiscroll-build',
-  'src/templates/ai-blog', 'src/ai-blog', 'data', 'reports'
+  'src/templates/ai-blog', 'src/ai-blog', 'data', 'reports',
+  'assets/aiscroll-logo.svg', 'assets/aiscroll-favicon.svg'
 ]) {
   fs.cpSync(path.join(root, relative), path.join(sandbox, relative), { recursive: true });
 }
