@@ -49425,8 +49425,20 @@
       "platforms": [
         "android"
       ]
+    },
+    "클럽스토리:야구 매니저": {
+      "appIds": {
+        "ios": 6806143798
+      },
+      "aliases": [],
+      "developer": "ILWOONG JUNG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/4c/fc/514cfc1f-fd22-6260-ba43-f368e55c900a/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "클럽스토리야구-매니저",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-09-29",
-  "totalGames": 3790
+  "totalGames": 3791
 }
