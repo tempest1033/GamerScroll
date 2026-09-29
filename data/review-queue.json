@@ -35560,6 +35560,41 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/4c/fc/514cfc1f-fd22-6260-ba43-f368e55c900a/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-29T12:12:54.168Z"
+    },
+    {
+      "title": "Liquid Vial",
+      "status": "single",
+      "appIds": {
+        "android": "com.liquid.vial.game"
+      },
+      "developer": "juyi",
+      "icon": "https://play-lh.googleusercontent.com/d5GjJXswtKuRJ7c8j8ClImBKp38OPxAQ06WhI75c3gOtjapR9j0SvCfxcsHfMfPDH7T7tqdI9XrPrKEo73Oy6w",
+      "searchResults": [
+        {
+          "title": "Water Sort Puzzle",
+          "appId": 1514542157
+        },
+        {
+          "title": "Bottle Fill: Sort Water Color",
+          "appId": 1591286129
+        },
+        {
+          "title": "Color Sort: Liquid Puzzle",
+          "appId": 6762514759
+        }
+      ],
+      "addedAt": "2026-09-29T18:13:58.076Z"
+    },
+    {
+      "title": "쿵푸 할매: 서바이버",
+      "status": "single",
+      "appIds": {
+        "android": "com.kungpowgranny.rogue"
+      },
+      "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/hveMrFS5Oh2ybzxzuNeUpJmEYkGyTkYpSpVoxKhSUF9rdrXZHRUghxAooYVQwT3mK6JwSZxcA0UTwfCovVY",
+      "searchResults": [],
+      "addedAt": "2026-09-29T18:13:58.347Z"
     }
   ],
   "approved": [

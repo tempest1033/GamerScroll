@@ -49437,8 +49437,68 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Liquid Vial": {
+      "appIds": {
+        "android": "com.liquid.vial.game"
+      },
+      "aliases": [],
+      "developer": "juyi",
+      "icon": "https://play-lh.googleusercontent.com/d5GjJXswtKuRJ7c8j8ClImBKp38OPxAQ06WhI75c3gOtjapR9j0SvCfxcsHfMfPDH7T7tqdI9XrPrKEo73Oy6w",
+      "slug": "liquid-vial",
+      "platforms": [
+        "android"
+      ]
+    },
+    "쿵푸 할매: 서바이버": {
+      "appIds": {
+        "android": "com.kungpowgranny.rogue"
+      },
+      "aliases": [],
+      "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/hveMrFS5Oh2ybzxzuNeUpJmEYkGyTkYpSpVoxKhSUF9rdrXZHRUghxAooYVQwT3mK6JwSZxcA0UTwfCovVY",
+      "slug": "쿵푸-할매-서바이버",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Nivalis Nights": {
+      "appIds": {
+        "steam": "1488490"
+      },
+      "aliases": [],
+      "developer": "ION LANDS",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1488490/7e483ece1117906b11bd6959a16e1f77f5a6e4d5/capsule_231x87.jpg?t=1790694813",
+      "slug": "nivalis-nights",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "American Truck Simulator - Road Trip: Ford": {
+      "appIds": {
+        "steam": "3793200"
+      },
+      "aliases": [],
+      "developer": "SCS Software",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3793200/1454b438972a00dfa254fa59f91d7bf94404e548/capsule_231x87.jpg?t=1790697689",
+      "slug": "american-truck-simulator-road-trip-ford",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Jagged Alliance 3": {
+      "appIds": {
+        "steam": "1084160"
+      },
+      "aliases": [],
+      "developer": "Haemimont Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1084160/capsule_231x87.jpg?t=1725000793",
+      "slug": "jagged-alliance-3",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-09-29",
-  "totalGames": 3791
+  "lastUpdated": "2026-09-30",
+  "totalGames": 3796
 }
