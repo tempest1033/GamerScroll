@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-28T00:13:58.709Z",
+  "updatedAt": "2026-09-29T00:09:55.499Z",
   "period": "7days",
   "articles": [
     {
@@ -11,8 +11,14 @@
     {
       "type": "ranking",
       "slug": "subculture-august-2026-kr",
-      "views": 9,
+      "views": 8,
       "path": "/magazine/ranking/subculture-august-2026-kr/"
+    },
+    {
+      "type": "ranking",
+      "slug": "subculture-july-2026-kr",
+      "views": 8,
+      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "issue",
@@ -23,20 +29,20 @@
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 6,
+      "views": 5,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-july-2026-kr",
-      "views": 6,
-      "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
       "views": 3,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-market-revival",
+      "views": 2,
+      "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
       "type": "ranking",
@@ -61,30 +67,6 @@
       "slug": "nioh3-hotpick-soulslike-masterpiece",
       "views": 1,
       "path": "/magazine/hotpick/nioh3-hotpick-soulslike-masterpiece/"
-    },
-    {
-      "type": "hotpick",
-      "slug": "version-control-system",
-      "views": 1,
-      "path": "/magazine/hotpick/version-control-system/"
-    },
-    {
-      "type": "insight",
-      "slug": "2026-game-trends",
-      "views": 1,
-      "path": "/magazine/insight/2026-game-trends/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-market-revival",
-      "views": 1,
-      "path": "/magazine/insight/lineage-like-market-revival/"
-    },
-    {
-      "type": "issue",
-      "slug": "gabe-newell-steam-adult-content-debate",
-      "views": 1,
-      "path": "/magazine/issue/gabe-newell-steam-adult-content-debate/"
     },
     {
       "type": "issue",

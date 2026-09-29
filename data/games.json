@@ -49365,8 +49365,44 @@
         "android",
         "ios"
       ]
+    },
+    "Dog Man: Mission Impawsible": {
+      "appIds": {
+        "steam": "3112730"
+      },
+      "aliases": [],
+      "developer": "Floor 84 Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3112730/capsule_231x87.jpg?t=1775725640",
+      "slug": "dog-man-mission-impawsible",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Destroyer: The U-Boat Hunter": {
+      "appIds": {
+        "steam": "1272010"
+      },
+      "aliases": [],
+      "developer": "Iron Wolf Studio S.A.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1272010/capsule_231x87.jpg?t=1789478196",
+      "slug": "destroyer-the-u-boat-hunter",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Umamusume: Pretty Derby - Party Dash": {
+      "appIds": {
+        "steam": "2313020"
+      },
+      "aliases": [],
+      "developer": "Cygames, Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2313020/capsule_231x87.jpg?t=1759219347",
+      "slug": "umamusume-pretty-derby-party-dash",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-29",
-  "totalGames": 3785
+  "totalGames": 3788
 }
