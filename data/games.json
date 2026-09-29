@@ -49401,8 +49401,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Zombie Frontier 4 - 스나이퍼 서바이벌": {
+      "appIds": {
+        "ios": "1469492048"
+      },
+      "aliases": [],
+      "developer": "Feelingtouch Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/1d/d8/7a1dd83a-573d-3109-ff95-81aa1fcb2847/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "zombie-frontier-4-스나이퍼-서바이벌",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "프루츠 로맨스": {
+      "appIds": {
+        "android": "com.samw.gp.fruitromance"
+      },
+      "aliases": [],
+      "developer": "Validus Labs",
+      "icon": "https://play-lh.googleusercontent.com/YfzOgB6ZoiP7uSldEEZk28J8aMkTyKenGCFN_sIz1KximuodSKqCAF4nBhrfiDmVVdkZFqQEY6donv9LUAFYQDQ",
+      "slug": "프루츠-로맨스",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-09-29",
-  "totalGames": 3788
+  "totalGames": 3790
 }

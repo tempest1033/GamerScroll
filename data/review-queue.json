@@ -35527,6 +35527,28 @@
         }
       ],
       "addedAt": "2026-09-28T19:59:19.643Z"
+    },
+    {
+      "title": "Zombie Frontier 4 - 스나이퍼 서바이벌",
+      "status": "single",
+      "appIds": {
+        "ios": "1469492048"
+      },
+      "developer": "Feelingtouch Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/1d/d8/7a1dd83a-573d-3109-ff95-81aa1fcb2847/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-09-29T05:59:56.994Z"
+    },
+    {
+      "title": "프루츠 로맨스",
+      "status": "single",
+      "appIds": {
+        "android": "com.samw.gp.fruitromance"
+      },
+      "developer": "Validus Labs",
+      "icon": "https://play-lh.googleusercontent.com/YfzOgB6ZoiP7uSldEEZk28J8aMkTyKenGCFN_sIz1KximuodSKqCAF4nBhrfiDmVVdkZFqQEY6donv9LUAFYQDQ",
+      "searchResults": [],
+      "addedAt": "2026-09-29T05:59:57.308Z"
     }
   ],
   "approved": [
