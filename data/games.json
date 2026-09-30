@@ -49521,8 +49521,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Tempest Rising": {
+      "appIds": {
+        "steam": "1486920"
+      },
+      "aliases": [],
+      "developer": "Slipgate Ironworks™",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1486920/61152e1aadbd25acbfe7678498488f0a617457ca/capsule_231x87_alt_assets_5.jpg?t=1790705131",
+      "slug": "tempest-rising",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-09-30",
-  "totalGames": 3798
+  "totalGames": 3799
 }
