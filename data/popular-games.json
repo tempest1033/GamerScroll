@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-09-29T22:29:14.294Z",
+  "updatedAt": "2026-09-30T23:22:35.472Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 35
+      "views": 34
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 29
+      "views": 30
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
@@ -27,6 +27,14 @@
       "views": 7
     },
     {
+      "slug": "킹샷kingshot",
+      "views": 7
+    },
+    {
+      "slug": "where-winds-meet",
+      "views": 6
+    },
+    {
       "slug": "단어-찾기-단어-게임",
       "views": 6
     },
@@ -35,11 +43,15 @@
       "views": 6
     },
     {
-      "slug": "킹샷kingshot",
+      "slug": "세포-특공대-전략형-타워-디펜스",
       "views": 6
     },
     {
       "slug": "1-하트-윌-우들-스크류-온",
+      "views": 5
+    },
+    {
+      "slug": "3d운전교실",
       "views": 5
     },
     {
@@ -55,27 +67,15 @@
       "views": 5
     },
     {
+      "slug": "loop-master-컬러-정렬-퍼즐",
+      "views": 5
+    },
+    {
       "slug": "my-hero-ultra-rumble",
       "views": 5
     },
     {
-      "slug": "pixel-flow",
-      "views": 5
-    },
-    {
-      "slug": "sakura-school-simulator",
-      "views": 5
-    },
-    {
-      "slug": "skate",
-      "views": 5
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
-      "views": 5
-    },
-    {
-      "slug": "where-winds-meet",
+      "slug": "palworld",
       "views": 5
     }
   ]
