@@ -1,24 +1,30 @@
 {
-  "updatedAt": "2026-09-29T00:09:55.499Z",
+  "updatedAt": "2026-09-30T01:26:38.411Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 26,
+      "views": 27,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-august-2026-kr",
-      "views": 8,
+      "views": 10,
       "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 8,
+      "views": 9,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
+    },
+    {
+      "type": "insight",
+      "slug": "lineage-like-revenue-decline-2026",
+      "views": 7,
+      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
       "type": "issue",
@@ -28,21 +34,15 @@
     },
     {
       "type": "insight",
-      "slug": "lineage-like-revenue-decline-2026",
-      "views": 5,
-      "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
+      "slug": "lineage-like-market-revival",
+      "views": 2,
+      "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 3,
-      "path": "/magazine/insight/sol-enchant-ranking-streak/"
-    },
-    {
-      "type": "insight",
-      "slug": "lineage-like-market-revival",
       "views": 2,
-      "path": "/magazine/insight/lineage-like-market-revival/"
+      "path": "/magazine/insight/sol-enchant-ranking-streak/"
     },
     {
       "type": "ranking",
