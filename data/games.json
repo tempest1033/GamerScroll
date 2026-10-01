@@ -49174,14 +49174,16 @@
     },
     "귀만 가지고 수사선 - 논리 퍼즐 게임": {
       "appIds": {
-        "ios": 6754370732
+        "ios": 6754370732,
+        "android": "com.fty.earpolice"
       },
       "aliases": [],
       "developer": "FTY LLC.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/0a/63/c90a630a-b840-1f50-2065-5fea3d1bd08c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "귀만-가지고-수사선-논리-퍼즐-게임",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "타일 빌더 (Land Builder)": {
@@ -49641,8 +49643,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "식물 운빨 디펜스 : 농장 디펜스 게임": {
+      "appIds": {
+        "ios": 6792624695
+      },
+      "aliases": [],
+      "developer": "GoldFlowGames Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/72/48/42/724842bc-5f46-67d7-046f-a6290bd860f0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "식물-운빨-디펜스-농장-디펜스-게임",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "매치 아쿠아리움": {
+      "appIds": {
+        "ios": 6761245567
+      },
+      "aliases": [],
+      "developer": "JustLuck",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d3/6d/6b/d36d6b8a-a465-0d41-cfe9-e5ae1982b283/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "매치-아쿠아리움",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-10-02",
-  "totalGames": 3808
+  "totalGames": 3810
 }
