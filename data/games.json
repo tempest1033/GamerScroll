@@ -49593,8 +49593,56 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Ball of Ages": {
+      "appIds": {
+        "ios": 6759306715
+      },
+      "aliases": [],
+      "developer": "Rollic Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/77/44/3277444a-af04-72ba-bdcb-a994fe00afeb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ball-of-ages",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "오목코드": {
+      "appIds": {
+        "ios": 6808859163
+      },
+      "aliases": [],
+      "developer": "Vidya Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/03/cf/b7/03cfb7ef-a149-2925-9f41-1c4683e0553d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "오목코드",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "아토즈 포커": {
+      "appIds": {
+        "ios": 6761007561
+      },
+      "aliases": [],
+      "developer": "CAPYBARA Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/e9/5b/20e95bbf-f75a-dc21-80ef-3a73d3b17aec/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "아토즈-포커",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Last Epoch - Enraged Legend Supporter Pack": {
+      "appIds": {
+        "steam": "5009590"
+      },
+      "aliases": [],
+      "developer": "Eleventh Hour Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5009590/852ef716b44e78da107920d76bf59afa8f2357b3/capsule_231x87.jpg?t=1790870428",
+      "slug": "last-epoch-enraged-legend-supporter-pack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-01",
-  "totalGames": 3804
+  "lastUpdated": "2026-10-02",
+  "totalGames": 3808
 }
