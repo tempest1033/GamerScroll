@@ -35606,6 +35606,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/42/d7/3b/42d73bb6-a8d8-4d31-87f8-2388f1c45ca8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-29T22:31:12.195Z"
+    },
+    {
+      "title": "와르르비버",
+      "status": "single",
+      "appIds": {
+        "ios": 6798071755
+      },
+      "developer": "Neptune Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/62/76/fb6276e6-7eb1-433f-ae4d-100b1abb1c33/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-01T09:15:13.449Z"
+    },
+    {
+      "title": "Top Eleven 2027: 축구 감독 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 459035295
+      },
+      "developer": "Nordeus",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c2/dc/82/c2dc827e-2c31-e3a8-7aca-c16b448f978e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-01T09:15:13.640Z"
     }
   ],
   "approved": [

@@ -49569,8 +49569,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "와르르비버": {
+      "appIds": {
+        "ios": 6798071755
+      },
+      "aliases": [],
+      "developer": "Neptune Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/62/76/fb6276e6-7eb1-433f-ae4d-100b1abb1c33/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "와르르비버",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Top Eleven 2027: 축구 감독 게임": {
+      "appIds": {
+        "ios": 459035295
+      },
+      "aliases": [],
+      "developer": "Nordeus",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c2/dc/82/c2dc827e-2c31-e3a8-7aca-c16b448f978e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "top-eleven-2027-축구-감독-게임",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-10-01",
-  "totalGames": 3802
+  "totalGames": 3804
 }
