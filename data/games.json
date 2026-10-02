@@ -49731,8 +49731,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Color Link": {
+      "appIds": {
+        "android": "com.rayole.games.color.link"
+      },
+      "aliases": [],
+      "developer": "Rayole Games",
+      "icon": "https://play-lh.googleusercontent.com/ta52U7QKwzb0KsBS5GDn-lPGnKfB2ZU1Ss5qUBRKeMAG1VyRqmaGtFMKApsTZvE3voM5UomGRUyiKSUWIvDT2Q",
+      "slug": "color-link",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Sengoku Rance": {
+      "appIds": {
+        "steam": "3867170"
+      },
+      "aliases": [],
+      "developer": "Alicesoft",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3867170/b93c26e6cb14b3bdc4c83d32b9c2b2bcabd6b108/capsule_231x87.jpg?t=1790913603",
+      "slug": "sengoku-rance",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-03",
-  "totalGames": 3815
+  "totalGames": 3817
 }
