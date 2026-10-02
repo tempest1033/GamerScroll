@@ -35717,6 +35717,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ea/e3/18/eae3185f-5c24-a496-ce7b-f0bcc8447bb5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-02T07:14:51.721Z"
+    },
+    {
+      "title": "온더훅 (어장 관리 시뮬레이션)",
+      "status": "single",
+      "appIds": {
+        "ios": 1445466436
+      },
+      "developer": "Yohan Song",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/53/6c/c4/536cc473-6283-4f10-cc6c-0dd6e5cefda0/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-02T14:01:17.538Z"
     }
   ],
   "approved": [

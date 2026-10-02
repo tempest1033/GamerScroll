@@ -49695,8 +49695,44 @@
       "platforms": [
         "ios"
       ]
+    },
+    "온더훅 (어장 관리 시뮬레이션)": {
+      "appIds": {
+        "ios": 1445466436
+      },
+      "aliases": [],
+      "developer": "Yohan Song",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/53/6c/c4/536cc473-6283-4f10-cc6c-0dd6e5cefda0/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "온더훅-어장-관리-시뮬레이션",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Project Hunt": {
+      "appIds": {
+        "steam": "2451010"
+      },
+      "aliases": [],
+      "developer": "Mind Mythic",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2451010/75c33a50f2d50d71e129d3c98438390f64928555/capsule_231x87.jpg?t=1790240610",
+      "slug": "project-hunt",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Eternal Return Beginner Pack": {
+      "appIds": {
+        "steam": "4692290"
+      },
+      "aliases": [],
+      "developer": "Nimble Neuron",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4692290/04f4fd5b14c4eda60e8cce0e4c0acb16926bf3f2/capsule_231x87.jpg?t=1790906439",
+      "slug": "eternal-return-beginner-pack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-02",
-  "totalGames": 3812
+  "totalGames": 3815
 }
