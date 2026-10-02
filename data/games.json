@@ -48708,14 +48708,18 @@
     },
     "포트블록스: 이동요새 GO!": {
       "appIds": {
-        "ios": 6761804867
+        "ios": 6761804867,
+        "android": "global.hyperrise.wl"
       },
-      "aliases": [],
+      "aliases": [
+        "포트블록스: 이동요새GO!"
+      ],
       "developer": "HYPERRISE",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/cc/50/53cc5011-08c2-a513-aabb-3f33c4122132/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "포트블록스-이동요새-go",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "브라 메이커 (Bra Maker)": {
@@ -49667,8 +49671,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Real Survival: Not Fake": {
+      "appIds": {
+        "ios": 6777072156
+      },
+      "aliases": [],
+      "developer": "Dan Lespect",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3a/f2/2e/3af22e2e-b853-6b4f-0cca-89ed847ef5b4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "real-survival-not-fake",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-10-02",
-  "totalGames": 3810
+  "totalGames": 3811
 }

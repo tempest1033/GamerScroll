@@ -35017,13 +35017,19 @@
     },
     {
       "title": "포트블록스: 이동요새 GO!",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6761804867
+        "ios": 6761804867,
+        "android": "global.hyperrise.wl"
       },
       "developer": "HYPERRISE",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/cc/50/53cc5011-08c2-a513-aabb-3f33c4122132/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "포트블록스: 이동요새 GO!",
+          "appId": 6761804867
+        }
+      ],
       "addedAt": "2026-09-21T20:53:20.007Z"
     },
     {
@@ -35689,6 +35695,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d3/6d/6b/d36d6b8a-a465-0d41-cfe9-e5ae1982b283/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-01T21:33:27.522Z"
+    },
+    {
+      "title": "Real Survival: Not Fake",
+      "status": "single",
+      "appIds": {
+        "ios": 6777072156
+      },
+      "developer": "Dan Lespect",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3a/f2/2e/3af22e2e-b853-6b4f-0cca-89ed847ef5b4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-02T01:16:00.563Z"
     }
   ],
   "approved": [
