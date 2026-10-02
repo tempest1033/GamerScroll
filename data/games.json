@@ -49683,8 +49683,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "Mahjong Master-Fun Puzzle Game": {
+      "appIds": {
+        "ios": 6760089163
+      },
+      "aliases": [],
+      "developer": "PANDAS OF CARIBBEAN LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ea/e3/18/eae3185f-5c24-a496-ce7b-f0bcc8447bb5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mahjong-master-fun-puzzle-game",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-10-02",
-  "totalGames": 3811
+  "totalGames": 3812
 }
