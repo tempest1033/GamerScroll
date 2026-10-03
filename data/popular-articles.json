@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-10-02T01:14:14.413Z",
+  "updatedAt": "2026-10-03T02:10:54.972Z",
   "period": "7days",
   "articles": [
     {
       "type": "ranking",
       "slug": "subculture-june-2026-kr",
-      "views": 23,
+      "views": 20,
       "path": "/magazine/ranking/subculture-june-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-august-2026-kr",
-      "views": 11,
+      "views": 10,
       "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
       "type": "ranking",
       "slug": "subculture-july-2026-kr",
-      "views": 8,
+      "views": 7,
       "path": "/magazine/ranking/subculture-july-2026-kr/"
     },
     {
@@ -29,20 +29,14 @@
     {
       "type": "insight",
       "slug": "sol-enchant-ranking-streak",
-      "views": 4,
+      "views": 3,
       "path": "/magazine/insight/sol-enchant-ranking-streak/"
     },
     {
       "type": "ranking",
       "slug": "subculture-january-2026-kr",
-      "views": 3,
-      "path": "/magazine/ranking/subculture-january-2026-kr/"
-    },
-    {
-      "type": "issue",
-      "slug": "lol-league-next-2027-overhaul",
       "views": 2,
-      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+      "path": "/magazine/ranking/subculture-january-2026-kr/"
     },
     {
       "type": "hotpick",
@@ -75,10 +69,28 @@
       "path": "/magazine/insight/lineage-like-market-revival/"
     },
     {
-      "type": "issue",
-      "slug": "pocketpair-gamers-dont-want-ai",
+      "type": "insight",
+      "slug": "subculture-market-crisis-winner-takes-all",
       "views": 1,
-      "path": "/magazine/issue/pocketpair-gamers-dont-want-ai/"
+      "path": "/magazine/insight/subculture-market-crisis-winner-takes-all/"
+    },
+    {
+      "type": "issue",
+      "slug": "dragon-sword-launch-report",
+      "views": 1,
+      "path": "/magazine/issue/dragon-sword-launch-report/"
+    },
+    {
+      "type": "issue",
+      "slug": "lol-league-next-2027-overhaul",
+      "views": 1,
+      "path": "/magazine/issue/lol-league-next-2027-overhaul/"
+    },
+    {
+      "type": "issue",
+      "slug": "mangwol-offline-playtest-recruitment",
+      "views": 1,
+      "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
     },
     {
       "type": "ranking",
@@ -91,18 +103,6 @@
       "slug": "mobile-july-2026-kr",
       "views": 1,
       "path": "/magazine/ranking/mobile-july-2026-kr/"
-    },
-    {
-      "type": "ranking",
-      "slug": "steam-april-2026",
-      "views": 1,
-      "path": "/magazine/ranking/steam-april-2026/"
-    },
-    {
-      "type": "ranking",
-      "slug": "subculture-february-2026-kr",
-      "views": 1,
-      "path": "/magazine/ranking/subculture-february-2026-kr/"
     }
   ]
 }

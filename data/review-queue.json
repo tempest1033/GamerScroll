@@ -35752,6 +35752,42 @@
         }
       ],
       "addedAt": "2026-10-02T23:09:49.985Z"
+    },
+    {
+      "title": "오프사이드",
+      "status": "single",
+      "appIds": {
+        "ios": 6817463687
+      },
+      "developer": "SUYOUNG YANG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/8b/f5/8e8bf56c-32d3-d548-2752-45361dd71124/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-03T02:13:00.543Z"
+    },
+    {
+      "title": "Picture Blast Solitaire",
+      "status": "matched",
+      "appIds": {
+        "android": "com.pic.blast.solitaire",
+        "ios": 6758704957
+      },
+      "developer": "Gismart",
+      "icon": "https://play-lh.googleusercontent.com/ZZa1tEg9Mj3yzBTKcbhg0tcgVW64GaN3B9xZfCNNtNC_rIu0XToIpth3VmvItrwgu1070pAnO_K9mKAZM5XM",
+      "searchResults": [
+        {
+          "title": "Picture Blast Solitaire",
+          "appId": 6758704957
+        },
+        {
+          "title": "데이터 필요없는 게임 - 와이파이 필요없는 게임",
+          "appId": 6448104157
+        },
+        {
+          "title": "워드스케이프 (Wordscapes)",
+          "appId": 1207472156
+        }
+      ],
+      "addedAt": "2026-10-03T02:13:00.898Z"
     }
   ],
   "approved": [

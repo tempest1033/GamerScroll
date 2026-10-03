@@ -49755,8 +49755,34 @@
       "platforms": [
         "steam"
       ]
+    },
+    "오프사이드": {
+      "appIds": {
+        "ios": 6817463687
+      },
+      "aliases": [],
+      "developer": "SUYOUNG YANG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/8b/f5/8e8bf56c-32d3-d548-2752-45361dd71124/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "오프사이드",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Picture Blast Solitaire": {
+      "appIds": {
+        "android": "com.pic.blast.solitaire",
+        "ios": 6758704957
+      },
+      "aliases": [],
+      "developer": "Gismart",
+      "icon": "https://play-lh.googleusercontent.com/ZZa1tEg9Mj3yzBTKcbhg0tcgVW64GaN3B9xZfCNNtNC_rIu0XToIpth3VmvItrwgu1070pAnO_K9mKAZM5XM",
+      "slug": "picture-blast-solitaire",
+      "platforms": [
+        "android",
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-10-03",
-  "totalGames": 3817
+  "totalGames": 3819
 }
