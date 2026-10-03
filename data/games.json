@@ -49821,8 +49821,20 @@
       "platforms": [
         "ios"
       ]
+    },
+    "악마와 춤추는 자": {
+      "appIds": {
+        "android": "com.emwccn.zanm"
+      },
+      "aliases": [],
+      "developer": "Atinatan",
+      "icon": "https://play-lh.googleusercontent.com/QQx4eCL8XwYeK9T-6MLZsWbM8wRIMQLdvonl_mSmmH-XYiMFMlqTyXrBpMd-X74ScADCIob_qSy_c6t-Z1dN",
+      "slug": "악마와-춤추는-자",
+      "platforms": [
+        "android"
+      ]
     }
   },
   "lastUpdated": "2026-10-04",
-  "totalGames": 3822
+  "totalGames": 3823
 }
