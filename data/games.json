@@ -49626,14 +49626,16 @@
     },
     "아토즈 포커": {
       "appIds": {
-        "ios": 6761007561
+        "ios": 6761007561,
+        "android": "com.atoz.poker.game"
       },
       "aliases": [],
       "developer": "CAPYBARA Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/e9/5b/20e95bbf-f75a-dc21-80ef-3a73d3b17aec/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "아토즈-포커",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Last Epoch - Enraged Legend Supporter Pack": {
@@ -49674,14 +49676,16 @@
     },
     "Real Survival: Not Fake": {
       "appIds": {
-        "ios": 6777072156
+        "ios": 6777072156,
+        "android": "com.devdop.realsurvivalnotfake"
       },
       "aliases": [],
       "developer": "Dan Lespect",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3a/f2/2e/3af22e2e-b853-6b4f-0cca-89ed847ef5b4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "real-survival-not-fake",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ]
     },
     "Mahjong Master-Fun Puzzle Game": {
@@ -49781,8 +49785,32 @@
         "android",
         "ios"
       ]
+    },
+    "헝그리 샤크 월드 (Hungry Shark World)": {
+      "appIds": {
+        "ios": 1046846443
+      },
+      "aliases": [],
+      "developer": "Ubisoft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/cc/d6/c4ccd6fd-440f-e929-cb90-0efc36ea3f84/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "헝그리-샤크-월드-hungry-shark-world",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "드림 초밥집": {
+      "appIds": {
+        "ios": 6444689949
+      },
+      "aliases": [],
+      "developer": "净 邹",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/ab/38/69ab3812-d9a9-5b17-3fe3-27a639859f96/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "드림-초밥집",
+      "platforms": [
+        "ios"
+      ]
     }
   },
   "lastUpdated": "2026-10-03",
-  "totalGames": 3819
+  "totalGames": 3821
 }
