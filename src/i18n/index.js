@@ -20,7 +20,7 @@ const EDITIONS = [
   { code: 'en', prefix: '', htmlLang: 'en', hreflang: 'en', country: 'us', label: 'United States', ogLocale: 'en_US', intl: 'en-US', flag: 'us' },
   { code: 'ja', prefix: '/ja', htmlLang: 'ja', hreflang: 'ja', country: 'jp', label: '日本', ogLocale: 'ja_JP', intl: 'ja-JP', flag: 'jp' },
   { code: 'zh-cn', prefix: '/zh-cn', htmlLang: 'zh-Hans', hreflang: 'zh-CN', country: 'cn', label: '中国', ogLocale: 'zh_CN', intl: 'zh-CN', flag: 'cn' },
-  { code: 'ko', prefix: '/ko', htmlLang: 'ko', hreflang: 'ko', country: 'kr', label: '한국', ogLocale: 'ko_KR', intl: 'ko-KR', flag: 'kr' },
+  { code: 'ko', prefix: '/ko', htmlLang: 'ko', hreflang: 'ko', country: 'kr', label: '대한민국', ogLocale: 'ko_KR', intl: 'ko-KR', flag: 'kr' },
   { code: 'zh-tw', prefix: '/zh-tw', htmlLang: 'zh-Hant', hreflang: 'zh-TW', country: 'tw', label: '台灣', ogLocale: 'zh_TW', intl: 'zh-TW', flag: 'tw' },
 ];
 const EDITION_BY_CODE = new Map(EDITIONS.map((e) => [e.code, e]));

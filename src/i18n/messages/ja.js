@@ -583,4 +583,5 @@ module.exports = {
   "trend.new_sub": "初ランクインから45日以内",
   "trend.out": "圏外",
   "trend.none": "該当するゲームはありません",
+  "trend.rank_one": "1位",
 };

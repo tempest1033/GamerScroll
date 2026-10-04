@@ -583,4 +583,5 @@ module.exports = {
   "trend.new_sub": "首次上榜 45 天內",
   "trend.out": "榜外",
   "trend.none": "暫無符合的遊戲",
+  "trend.rank_one": "第 1 名",
 };

@@ -583,4 +583,5 @@ module.exports = {
   "trend.new_sub": "첫 진입 후 45일 이내",
   "trend.out": "순위 밖",
   "trend.none": "해당하는 게임이 없습니다",
+  "trend.rank_one": "1위",
 };

@@ -173,9 +173,15 @@ function renderRankingsHub(country = homeCountry(), chart = 'grossing') {
   const hlCard = (label, o, val) => { if (!o) return ''; const g = S.gameOf(o.s, o.x.r); const href = C.hrefOf(g); const tag = href ? 'a' : 'div';
     return `<${tag} class="rk-hl-card"${href ? ` href="${href}"` : ''}><img src="${esc(C.iconOf(o.x.r, g))}" alt="" loading="lazy" decoding="async"><div class="tx"><span class="lb">${label} · ${STORES[o.s]}</span><span class="nm" data-name>${esc(S.nameOf(o.s, o.x.r))}</span></div><div class="vl">${val(o.x)}</div></${tag}>`; };
   const upO = pickMv('up', (x) => x.prev - x.rank), frO = pickMv('fresh', (x) => -x.rank), rcO = isFree ? null : pickMv('record', (x) => -x.rank);
+  // 항상 3장(같은 크기): 급등 · 신규 진입 · 역대 최고가 없으면 급락, 스토어별 1위 순으로 채운다
+  const dnO = pickMv('down', (x) => x.rank - x.prev);
+  const oneCard = (st) => { const r = rows(st)[0]; if (!r) return ''; const n = isFree ? 0 : S.streakAtOne(country, st, r.appId);
+    return hlCard(tt('trend.rank_one'), { s: st, x: { r, rank: 1 } }, () => (n > 1 ? `<b>${tt('rank.days_9', { p0: n })}</b>` : '<b>1</b>')); };
   const highlights = [hlCard(tt('rank.rises'), upO, (x) => `<b>${x.prev} → ${x.rank}</b><span class="rk-chg up">▲${x.prev - x.rank}</span>`),
     hlCard(tt('rank.new_entries'), frO, (x) => `<b>${x.rank}</b><span class="rk-chg new">NEW</span>`),
-    hlCard(tt('rank.all_time_best'), rcO, (x) => `<b>${x.rank}</b>${chg(x.rank, x.prev)}`)].filter(Boolean).join('');
+    hlCard(tt('rank.all_time_best'), rcO, (x) => `<b>${x.rank}</b>${chg(x.rank, x.prev)}`),
+    hlCard(tt('rank.falls'), dnO, (x) => `<b>${x.prev} → ${x.rank}</b><span class="rk-chg down">▼${x.rank - x.prev}</span>`),
+    ...stores.map(oneCard)].filter(Boolean).slice(0, 3).join('');
   const hl = highlights ? `<div class="rk-hl">${highlights}</div>` : '';
   const top3 = ios.slice(0, 3).map((r) => S.nameOf('ios', r));
   const lead = `${tt('rank.app_store_1_2_3', { cname, chartName, p2: top3[0] || '-', p3: top3[1] || '-', p4: top3[2] || '-', p5: hasAnd && and[0] ? `${tt('genres.google_play_1', { p0: S.nameOf('android', and[0]) })}` : '', p6: tsText(today.ts) })}`;

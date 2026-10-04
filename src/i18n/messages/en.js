@@ -583,4 +583,5 @@ module.exports = {
   "trend.new_sub": "Within 45 days of first charting",
   "trend.out": "Unranked",
   "trend.none": "No matching games",
+  "trend.rank_one": "#1",
 };
