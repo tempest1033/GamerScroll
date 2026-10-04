@@ -83,6 +83,7 @@ body .site-container .rk.rk-trend .rk-trend-list li { height: auto; min-height: 
 .rk.rk-trend .rk-bump-col.r .rk-bump-row { flex-direction: row-reverse; }
 .rk.rk-trend .rk-bump-col.r .rk-bump-row .t { text-align: right; }
 .rk.rk-trend .rk-heat td.c { padding: 4px; }
+.rk.rk-trend .rk-heat th { white-space: nowrap; }
 .rk.rk-trend .rk-heat-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px; border-radius: 10px; line-height: 1.2; background: var(--rk-bg2); color: var(--rk-dim); }
 .rk.rk-trend .rk-heat-cell b { font-size: 15px; }
 .rk.rk-trend .rk-heat-cell small { font-size: 11px; opacity: .8; white-space: nowrap; }
