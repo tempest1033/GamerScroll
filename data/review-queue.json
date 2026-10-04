@@ -41929,6 +41929,17 @@
         }
       ],
       "addedAt": "2026-10-04T14:34:17.311Z"
+    },
+    {
+      "title": "マーラッシュ",
+      "status": "single",
+      "appIds": {
+        "ios": 6792188317
+      },
+      "developer": "kodai koga",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/c8/b5/5fc8b559-bd51-9fe7-b0e5-ec1951070e9e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-04T17:03:03.012Z"
     }
   ],
   "approved": [

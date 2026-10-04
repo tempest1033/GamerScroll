@@ -146300,8 +146300,39 @@
         "ko": "Mukbang Scoop ASMR",
         "zh-tw": "Mukbang Scoop ASMR"
       }
+    },
+    "マーラッシュ": {
+      "appIds": {
+        "ios": 6792188317
+      },
+      "aliases": [],
+      "developer": "kodai koga",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/c8/b5/5fc8b559-bd51-9fe7-b0e5-ec1951070e9e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "マーラッシュ",
+        "ja": "マーラッシュ"
+      }
+    },
+    "朝までそれ正解！オンライン": {
+      "appIds": {
+        "ios_jp": 6605924995
+      },
+      "aliases": [],
+      "developer": "HENN Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/50/25/5a50253f-f1dd-6aa8-c3b9-9bad76e4b67e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "朝までそれ正解オンライン",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "朝までそれ正解！オンライン"
+      }
     }
   },
   "lastUpdated": "2026-10-05",
-  "totalGames": 8468
+  "totalGames": 8470
 }
