@@ -146366,8 +146366,55 @@
         "ja": "Nut Sort: Color Sort Master",
         "zh-tw": "Nut Sort: Color Sort Master"
       }
+    },
+    "식물 운빨 디펜스": {
+      "appIds": {
+        "android": "com.goldflowgames.luckyplantdefenseggl"
+      },
+      "aliases": [],
+      "developer": "GoldFlowGames",
+      "icon": "https://play-lh.googleusercontent.com/hl4NEKexnpdMzcWfIHvc-fZEDQd3fEZs7h8eZwlrF71m0SXABA2umxURg1rXzikJUpb6Ax-pq4VRMA5GzYmc4A",
+      "slug": "식물-운빨-디펜스",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "식물 운빨 디펜스"
+      }
+    },
+    "Steal Animal: Egg Escape": {
+      "appIds": {
+        "android": "com.lava.run.escape2026"
+      },
+      "aliases": [],
+      "developer": "T.Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/ZR5HuGAr8I_xzTsSiXY8W61r3sqaU0R1hscXRHRe0dXAJAN33VHtH0QrLIpn6hOU0UZmQWHrSZU70-TjpQ8c",
+      "slug": "steal-animal-egg-escape",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Steal Animal: Egg Escape",
+        "zh-tw": "Steal Animal: Egg Escape"
+      }
+    },
+    "ScrewShift Puzzle": {
+      "appIds": {
+        "android": "com.robot.assembly.line.game"
+      },
+      "aliases": [],
+      "developer": "james88",
+      "icon": "https://play-lh.googleusercontent.com/nG-cafFmklsUW56S8p1BSsNYknpv2e0eiH1dW2BbjAftoluJZo36ABPNXrG5AFDVtmJBYVlKq6mCeFqge2Ny4A",
+      "slug": "screwshift-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ScrewShift Puzzle",
+        "zh-tw": "ScrewShift Puzzle"
+      }
     }
   },
   "lastUpdated": "2026-10-05",
-  "totalGames": 8472
+  "totalGames": 8475
 }

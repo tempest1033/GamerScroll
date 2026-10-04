@@ -41989,6 +41989,62 @@
         }
       ],
       "addedAt": "2026-10-04T18:32:04.774Z"
+    },
+    {
+      "title": "식물 운빨 디펜스",
+      "status": "single",
+      "appIds": {
+        "android": "com.goldflowgames.luckyplantdefenseggl"
+      },
+      "developer": "GoldFlowGames",
+      "icon": "https://play-lh.googleusercontent.com/hl4NEKexnpdMzcWfIHvc-fZEDQd3fEZs7h8eZwlrF71m0SXABA2umxURg1rXzikJUpb6Ax-pq4VRMA5GzYmc4A",
+      "searchResults": [
+        {
+          "title": "식물 운빨 디펜스 : 농장 디펜스 게임",
+          "appId": 6792624695
+        }
+      ],
+      "addedAt": "2026-10-04T21:50:42.130Z"
+    },
+    {
+      "title": "Steal Animal: Egg Escape",
+      "status": "single",
+      "appIds": {
+        "android": "com.lava.run.escape2026"
+      },
+      "developer": "T.Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/ZR5HuGAr8I_xzTsSiXY8W61r3sqaU0R1hscXRHRe0dXAJAN33VHtH0QrLIpn6hOU0UZmQWHrSZU70-TjpQ8c",
+      "searchResults": [
+        {
+          "title": "Steal Egg Run Escape",
+          "appId": 6762119300
+        },
+        {
+          "title": "Escape Animal Steal Egg",
+          "appId": 6754623012
+        },
+        {
+          "title": "Laser Speed: Steal Egg",
+          "appId": 6769253032
+        }
+      ],
+      "addedAt": "2026-10-04T21:50:42.834Z"
+    },
+    {
+      "title": "ScrewShift Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.robot.assembly.line.game"
+      },
+      "developer": "james88",
+      "icon": "https://play-lh.googleusercontent.com/nG-cafFmklsUW56S8p1BSsNYknpv2e0eiH1dW2BbjAftoluJZo36ABPNXrG5AFDVtmJBYVlKq6mCeFqge2Ny4A",
+      "searchResults": [
+        {
+          "title": "Screw Shift",
+          "appId": 6742127090
+        }
+      ],
+      "addedAt": "2026-10-04T21:50:43.275Z"
     }
   ],
   "approved": [
