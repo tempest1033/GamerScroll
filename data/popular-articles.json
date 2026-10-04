@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T02:10:54.972Z",
+  "updatedAt": "2026-10-04T02:48:30.156Z",
   "period": "7days",
   "articles": [
     {
@@ -11,7 +11,7 @@
     {
       "type": "ranking",
       "slug": "subculture-august-2026-kr",
-      "views": 10,
+      "views": 9,
       "path": "/magazine/ranking/subculture-august-2026-kr/"
     },
     {
@@ -23,7 +23,7 @@
     {
       "type": "insight",
       "slug": "lineage-like-revenue-decline-2026",
-      "views": 5,
+      "views": 3,
       "path": "/magazine/insight/lineage-like-revenue-decline-2026/"
     },
     {
@@ -76,6 +76,12 @@
     },
     {
       "type": "issue",
+      "slug": "chzzk-lck-naver-viewer-complaints",
+      "views": 1,
+      "path": "/magazine/issue/chzzk-lck-naver-viewer-complaints/"
+    },
+    {
+      "type": "issue",
       "slug": "dragon-sword-launch-report",
       "views": 1,
       "path": "/magazine/issue/dragon-sword-launch-report/"
@@ -91,6 +97,12 @@
       "slug": "mangwol-offline-playtest-recruitment",
       "views": 1,
       "path": "/magazine/issue/mangwol-offline-playtest-recruitment/"
+    },
+    {
+      "type": "issue",
+      "slug": "nvidia-dlss5-controversy",
+      "views": 1,
+      "path": "/magazine/issue/nvidia-dlss5-controversy/"
     },
     {
       "type": "ranking",
