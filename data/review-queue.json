@@ -35711,12 +35711,13 @@
     },
     {
       "title": "鬼討ち剣士：日の呼吸",
-      "status": "lookup-failed",
+      "status": "single",
       "appIds": {
-        "android_jp": "com.ewhsdhz.wufrjka"
+        "android_jp": "com.ewhsdhz.wufrjka",
+        "android": "com.afjhftmd.pejsjznc"
       },
-      "developer": "",
-      "icon": "",
+      "developer": "Dugu Jiubai",
+      "icon": "https://play-lh.googleusercontent.com/oZSMoVAHg_m4OSbA7EvNjgm3HnwRbTtbITdfMYMzc-ySeay4ibQ8hBLOgts-e0zTHt-65jXLumFdshGl8t4kKA",
       "searchResults": [],
       "addedAt": "2026-10-03T14:54:51.053Z"
     },
@@ -41328,7 +41329,7 @@
       "title": "포트블록스: 이동요새 GO!",
       "status": "matched",
       "appIds": {
-        "ios": 6761804867,
+        "ios": "6761804867",
         "android": "global.hyperrise.wl"
       },
       "developer": "HYPERRISE",
@@ -41336,7 +41337,7 @@
       "searchResults": [
         {
           "title": "포트블록스: 이동요새 GO!",
-          "appId": 6761804867
+          "appId": "6761804867"
         }
       ],
       "addedAt": "2026-09-21T20:53:20.007Z"
@@ -41561,6 +41562,373 @@
       "icon": "https://play-lh.googleusercontent.com/QQx4eCL8XwYeK9T-6MLZsWbM8wRIMQLdvonl_mSmmH-XYiMFMlqTyXrBpMd-X74ScADCIob_qSy_c6t-Z1dN",
       "searchResults": [],
       "addedAt": "2026-10-03T20:28:38.875Z"
+    },
+    {
+      "title": "Maze Out! - Tap Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": "6762192889"
+      },
+      "developer": "Grand Games A.Ş.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/8e/52/a08e5238-8770-cbd6-d53b-b46518b6b3cb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-04T14:34:05.046Z"
+    },
+    {
+      "title": "MemeMix Challenge: Funny Party",
+      "status": "single",
+      "appIds": {
+        "android": "com.mimik.challenge.fun"
+      },
+      "developer": "Amobear VN Game Global",
+      "icon": "https://play-lh.googleusercontent.com/d1oFm_zSgVYvivEYUzET7oihvO2PgwIcRvJXkAgvDox72gKsEG33xKWc3j3hRp_88lFALwZlmsK1S2YqAuCotw",
+      "searchResults": [],
+      "addedAt": "2026-10-04T14:34:06.273Z"
+    },
+    {
+      "title": "Tiki Smash!",
+      "status": "matched",
+      "appIds": {
+        "android": "com.thrivegames.bashbest",
+        "ios": 6790866671
+      },
+      "developer": "PeopleFun",
+      "icon": "https://play-lh.googleusercontent.com/wrL6_KaT0gzj3fdSmXCZ8JTFGZEsawfEubff2OglqIZSWxKm2WaIi481qokmQ-n2e7mCsQeGPpDSsSaAoW6mCJI",
+      "searchResults": [
+        {
+          "title": "Tiki Smash!",
+          "appId": 6790866671
+        },
+        {
+          "title": "Google",
+          "appId": 284815942
+        },
+        {
+          "title": "Snapchat: 친구와 채팅하세요",
+          "appId": 447188370
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:06.708Z"
+    },
+    {
+      "title": "Bloons Blitz",
+      "status": "matched",
+      "appIds": {
+        "ios": 6741921686,
+        "android": "com.ninjakiwi.bloonsblitz"
+      },
+      "developer": "Ninja Kiwi Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9e/7c/36/9e7c3672-20ce-8201-5510-2a4f26d95340/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Bloons Blitz",
+          "appId": 6741921686
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:06.929Z"
+    },
+    {
+      "title": "Light Ignite - Laser Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.vzcreations.lightignite"
+      },
+      "developer": "Branching Factor",
+      "icon": "https://play-lh.googleusercontent.com/nOgq7u2EK-L1qSQU3q8t6ra0CmM28rVknlr07bkuLEJL1_YODeyNj3vOUxQapWpvIb1KxvEUbpU91w4pKPOWFxg",
+      "searchResults": [
+        {
+          "title": "Light Ignite",
+          "appId": 1487518293
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:07.429Z"
+    },
+    {
+      "title": "Easy Go: Arrow Puzzle Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.game.puzzle.arrows.easygo"
+      },
+      "developer": "Wood Puzzle Sudoku Games",
+      "icon": "https://play-lh.googleusercontent.com/KFrlBtj5uPpsOTRxKhAXMzJqG2rJ71Gg8geZ29pGqUi8KNnDgDpTUUDt2ZXpZt46HS1eqbyvrCNdhvzb7IsW2g",
+      "searchResults": [
+        {
+          "title": "Arrows – Puzzle Escape",
+          "appId": 6748397500
+        },
+        {
+          "title": "Arrow Puzzle - 화살퍼즐게임",
+          "appId": 6755482314
+        },
+        {
+          "title": "Between Arrow: 요즘 유행하는 화살 쏘기",
+          "appId": 1412264484
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:08.139Z"
+    },
+    {
+      "title": "체스",
+      "status": "single",
+      "appIds": {
+        "android": "com.bigcake.android.chess.offline"
+      },
+      "developer": "Big Cake",
+      "icon": "https://play-lh.googleusercontent.com/YB95qU5ODhCk54Rh9tqMFQD-woPYlctgAeChTEN8smSWCqx7K3oOYTSIgC1QjYFhlDS6t4jmLgv_M0H8WUOmGw",
+      "searchResults": [
+        {
+          "title": "체스 · 플레이 및 배우기 온라인",
+          "appId": 329218549
+        },
+        {
+          "title": "체스 - 채스 온라인",
+          "appId": 1547549647
+        },
+        {
+          "title": "체스의 달인",
+          "appId": 909211603
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:08.601Z"
+    },
+    {
+      "title": "Генератор номеров",
+      "status": "single",
+      "appIds": {
+        "android": "com.AksiCo.NumGen"
+      },
+      "developer": "Mitrofan Games",
+      "icon": "https://play-lh.googleusercontent.com/fYqc3gdqchNgO4AOKBE9BPdVahrTlqGfqvwG28AZNVibWN_ze2EnIXGmb5-503Oq_4FVunUG_vBzeBh4gBDbIQ",
+      "searchResults": [
+        {
+          "title": "모든 것을 무작위로",
+          "appId": 1368388321
+        },
+        {
+          "title": "스핀 휠 결정",
+          "appId": 1482510249
+        },
+        {
+          "title": "Random Generator: Teams & Dice",
+          "appId": 548006118
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:09.276Z"
+    },
+    {
+      "title": "Retro Bowl",
+      "status": "matched",
+      "appIds": {
+        "ios": 1478902583,
+        "android": "com.newstargames.retrobowl"
+      },
+      "developer": "New Star Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/7d/d8/197dd8db-93d4-f20b-b99b-fd809f070698/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Retro Bowl",
+          "appId": 1478902583
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:11.382Z"
+    },
+    {
+      "title": "麻辣湯ものがたり（マーラータン）",
+      "status": "single",
+      "appIds": {
+        "ios": 6816625266
+      },
+      "developer": "Ryusei Okamoto",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/bb/bd/33bbbd19-0ce1-000e-908c-7a684bcf5f6a/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-04T14:34:11.665Z"
+    },
+    {
+      "title": "Water Challenge - Spell & Pour",
+      "status": "single",
+      "appIds": {
+        "ios": 6752240647
+      },
+      "developer": "Pradnya Rane",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/e0/36/9ae03650-bbf1-e027-14db-62903a4ad191/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-04T14:34:11.885Z"
+    },
+    {
+      "title": "Arrow Escape – Clear The Path",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrow.escape.clear.the.path"
+      },
+      "developer": "Appslite Studio",
+      "icon": "https://play-lh.googleusercontent.com/rMEYEXNEFmvC6jLz_34aisQtcIGgdkTvEpIJ_bumslPdGVyetTUoAYYA-qxIbrz7K64mQNOHYpxcm-RFdWz3",
+      "searchResults": [
+        {
+          "title": "Arrow Tap Out - Escape Puzzle",
+          "appId": 1641904583
+        },
+        {
+          "title": "패스고: 탈출 퍼즐",
+          "appId": 6768285042
+        },
+        {
+          "title": "Maze Clear: Tap Away Puzzle",
+          "appId": 6768880286
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:12.297Z"
+    },
+    {
+      "title": "Neon Unthread",
+      "status": "single",
+      "appIds": {
+        "android": "com.play.neon.unthread.game"
+      },
+      "developer": "MD NABIL MIAH",
+      "icon": "https://play-lh.googleusercontent.com/eVOT-6kiygPRcMqEnhIlBPtXoXs7-uegwM48UI_uhTi-0k1DYZSEPTL2sD7tm9JGrwrZR4MnDJWBlILOJA9mUQ",
+      "searchResults": [],
+      "addedAt": "2026-10-04T14:34:12.622Z"
+    },
+    {
+      "title": "惡鬼狩獵：終夜",
+      "status": "single",
+      "appIds": {
+        "android": "com.egsl.zhy.gp1"
+      },
+      "developer": "Altyn Bim Innovations",
+      "icon": "https://play-lh.googleusercontent.com/JSpvcscyK62XqZjUVgZedyFasdOMbaQg-s4flDCrGVHZoVi1pr1dZPYtGR7SM7sm2aRjzIhtejD4ii9_DQXhSQ",
+      "searchResults": [],
+      "addedAt": "2026-10-04T14:34:14.641Z"
+    },
+    {
+      "title": "零課英雄譚",
+      "status": "single",
+      "appIds": {
+        "android": "com.mini.chero"
+      },
+      "developer": "INLINK",
+      "icon": "https://play-lh.googleusercontent.com/0B0sPvhmsDUuG7zSji8mlTDPe-2RfxaxhhDbXlvFFSrksbkUWtToGGdxQtBveaBwqSA2poZ4Xf4m2BflSKRK2g",
+      "searchResults": [],
+      "addedAt": "2026-10-04T14:34:15.001Z"
+    },
+    {
+      "title": "Draw Bridge Puzzle: Brain Game",
+      "status": "single",
+      "appIds": {
+        "android": "com.bravestars.draw.bridge.drawgame"
+      },
+      "developer": "Brave Labs",
+      "icon": "https://play-lh.googleusercontent.com/oSs7FOmskADHMrCpvsFk-kH5JKWgZgBsFfJ3SVceJxfy3GQEsJsTJvdeFmIY-csYF_m2G9Vt85npcjkQNkNM",
+      "searchResults": [
+        {
+          "title": "Draw Bridge Puzzle - Draw Game",
+          "appId": 6443484884
+        },
+        {
+          "title": "드로우 브리지: 그림 퍼즐 게임",
+          "appId": 1664325526
+        },
+        {
+          "title": "Draw Bridge - Puzzle Game",
+          "appId": 1558771114
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:15.549Z"
+    },
+    {
+      "title": "ガチ素因数分解",
+      "status": "matched",
+      "appIds": {
+        "ios": 1480561747,
+        "android": "com.Enjapma.GatiPrime"
+      },
+      "developer": "Chikai Ito",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/66/99/3b6699e8-dad9-38b5-64d8-d4402e991ae1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "ガチ素因数分解",
+          "appId": 1480561747
+        },
+        {
+          "title": "簡約マスター",
+          "appId": 6602889397
+        },
+        {
+          "title": "BUNKAI -素因数分解で頭の体操-",
+          "appId": 1518757863
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:16.003Z"
+    },
+    {
+      "title": "The Operator",
+      "status": "matched",
+      "appIds": {
+        "android": "com.Bureau81.OPERATOR",
+        "ios": 6779664500
+      },
+      "developer": "Bureau 81",
+      "icon": "https://play-lh.googleusercontent.com/klDpPmfiq7TCmpyw5FY4pEHsAiQgNMjscnYySSPdcFzqSdCZWkjLur7NgNepjDQ6j9R701nQZY1WlVrDF66pGA",
+      "searchResults": [
+        {
+          "title": "The Operator",
+          "appId": 6779664500
+        },
+        {
+          "title": "911 Operator Lite",
+          "appId": 1317766412
+        },
+        {
+          "title": "Operate Now: Hospital",
+          "appId": 1136678102
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:16.508Z"
+    },
+    {
+      "title": "Sprunki Playground: Sandbox",
+      "status": "single",
+      "appIds": {
+        "android": "com.playground.sprunki.sandbox"
+      },
+      "developer": "Logic Apz",
+      "icon": "https://play-lh.googleusercontent.com/2HqcGs80r0WIn9VAYZaiOEUOhcc6hlC9Z2dh4Wv7SBLcgaoHVzGcnr8s0i-DRMi1W7yPG_8OvNKHU2C9j__wJg",
+      "searchResults": [
+        {
+          "title": "Minecraft 온라인으로 친구들과 함께 플레이하세요",
+          "appId": 479516143
+        },
+        {
+          "title": "Melon: Sandbox",
+          "appId": 1610874732
+        },
+        {
+          "title": "Addons for Sandbox Playground",
+          "appId": 6472606888
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:16.962Z"
+    },
+    {
+      "title": "Mukbang Scoop ASMR",
+      "status": "matched",
+      "appIds": {
+        "android": "com.wgm.mukbang.scoop.asmr",
+        "ios": 6791533156
+      },
+      "developer": "WingsMob",
+      "icon": "https://play-lh.googleusercontent.com/YbvtzRnYvDxHWYvCszC0MhLHXZWoQD2z0EjvjwoGkG4TOif5qs-qsI9wDORsiHbgEvG8sSaUOyIlFVioazu1qg",
+      "searchResults": [
+        {
+          "title": "Mukbang Scoop ASMR",
+          "appId": 6791533156
+        },
+        {
+          "title": "탕후루의 달인 - 두쫀쿠, 급식, 배달 먹방 ASMR",
+          "appId": 6466620626
+        }
+      ],
+      "addedAt": "2026-10-04T14:34:17.311Z"
     }
   ],
   "approved": [

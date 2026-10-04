@@ -63241,14 +63241,18 @@
     },
     "포트블록스: 이동요새 GO!": {
       "appIds": {
-        "ios": 6761804867
+        "ios": "6761804867",
+        "android": "global.hyperrise.wl"
       },
-      "aliases": [],
+      "aliases": [
+        "포트블록스: 이동요새GO!"
+      ],
       "developer": "HYPERRISE",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/cc/50/53cc5011-08c2-a513-aabb-3f33c4122132/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "포트블록스-이동요새-go",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "포트블록스: 이동요새 GO!",
@@ -65065,14 +65069,16 @@
     },
     "Retro Bowl": {
       "appIds": {
-        "ios": "1478902583"
+        "ios": 1478902583,
+        "android": "com.newstargames.retrobowl"
       },
       "aliases": [],
       "developer": "New Star Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/7d/d8/197dd8db-93d4-f20b-b99b-fd809f070698/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "retro-bowl",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Retro Bowl",
@@ -65106,14 +65112,16 @@
     },
     "ガチ素因数分解": {
       "appIds": {
-        "ios": "1480561747"
+        "ios": 1480561747,
+        "android": "com.Enjapma.GatiPrime"
       },
       "aliases": [],
       "developer": "Chikai Ito",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/66/99/3b6699e8-dad9-38b5-64d8-d4402e991ae1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "ガチ素因数分解",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "ガチ素因数分解",
@@ -66187,14 +66195,16 @@
     },
     "Bloons Blitz": {
       "appIds": {
-        "ios": "6741921686"
+        "ios": 6741921686,
+        "android": "com.ninjakiwi.bloonsblitz"
       },
       "aliases": [],
       "developer": "Ninja Kiwi Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9e/7c/36/9e7c3672-20ce-8201-5510-2a4f26d95340/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "bloons-blitz",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Bloons Blitz",
@@ -66461,14 +66471,16 @@
     },
     "Picture Blast Solitaire": {
       "appIds": {
-        "ios": "6758704957"
+        "ios": 6758704957,
+        "android": "com.pic.blast.solitaire"
       },
       "aliases": [],
       "developer": "Joyteractive Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e6/08/24/e6082498-f9cc-1955-9ab3-86252a01fea0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "picture-blast-solitaire",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Picture Blast Solitaire",
@@ -108793,7 +108805,8 @@
     },
     "鈔能力成仙：開局紅包一百億": {
       "appIds": {
-        "android": "com.dreamv2.gptw"
+        "android": "com.dreamv2.gptw",
+        "ios_tw": 6504841121
       },
       "aliases": [
         "深淵：不滅者"
@@ -108802,7 +108815,8 @@
       "icon": "https://play-lh.googleusercontent.com/XdHcyJY91FER6WI7z5601kDSnPEz_qVQAgTj4EtxodDrbXlPWeSc_sFg6xcKJzIFG08J2f80tkIqbXx7qYBIgbs",
       "slug": "鈔能力成仙開局紅包一百億",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "鈔能力成仙：開局紅包一百億",
@@ -118446,16 +118460,19 @@
     },
     "天上碑K": {
       "appIds": {
-        "ios_tw": "6786564242"
+        "ios_tw": "6786564242",
+        "android": "com.mangot5.stk"
       },
       "aliases": [],
       "developer": "HAPPYTUK CO.,LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f2/db/c6/f2dbc6cc-7406-6115-c45f-b2bed212a994/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "天上碑k",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "天上碑K",
         "zh-tw": "天上碑K"
       }
     },
@@ -124461,16 +124478,18 @@
     },
     "鬼討ち剣士：日の呼吸": {
       "appIds": {
-        "android_jp": "com.ewhsdhz.wufrjka"
+        "android_jp": "com.ewhsdhz.wufrjka",
+        "android": "com.afjhftmd.pejsjznc"
       },
       "aliases": [],
-      "developer": "",
-      "icon": "",
+      "developer": "Dugu Jiubai",
+      "icon": "https://play-lh.googleusercontent.com/oZSMoVAHg_m4OSbA7EvNjgm3HnwRbTtbITdfMYMzc-ySeay4ibQ8hBLOgts-e0zTHt-65jXLumFdshGl8t4kKA",
       "slug": "鬼討ち剣士日の呼吸",
       "platforms": [
         "android"
       ],
       "names": {
+        "ko": "鬼討ち剣士：日の呼吸",
         "ja": "鬼討ち剣士：日の呼吸"
       }
     },
@@ -145938,8 +145957,351 @@
       "platforms": [
         "android"
       ]
+    },
+    "Maze Out! - Tap Puzzle": {
+      "appIds": {
+        "ios": "6762192889"
+      },
+      "aliases": [],
+      "developer": "Grand Games A.Ş.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/8e/52/a08e5238-8770-cbd6-d53b-b46518b6b3cb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "maze-out-tap-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Maze Out! - Tap Puzzle",
+        "en": "Maze Out! - Tap Puzzle"
+      }
+    },
+    "小蝦米闖江湖：開局野球拳到天下第一": {
+      "appIds": {
+        "ios_tw": "6787008543",
+        "android": "com.gtwx.gp"
+      },
+      "aliases": [],
+      "developer": "THUNDER GAME COMPANY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2d/b8/9f/2db89f24-687c-7a26-17e8-eb9135233ffb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "小蝦米闖江湖開局野球拳到天下第一",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "小蝦米闖江湖：開局野球拳到天下第一",
+        "zh-tw": "小蝦米闖江湖：開局野球拳到天下第一"
+      }
+    },
+    "MemeMix Challenge: Funny Party": {
+      "appIds": {
+        "android": "com.mimik.challenge.fun"
+      },
+      "aliases": [],
+      "developer": "Amobear VN Game Global",
+      "icon": "https://play-lh.googleusercontent.com/d1oFm_zSgVYvivEYUzET7oihvO2PgwIcRvJXkAgvDox72gKsEG33xKWc3j3hRp_88lFALwZlmsK1S2YqAuCotw",
+      "slug": "mememix-challenge-funny-party",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "MemeMix Challenge: Funny Party",
+        "en": "MemeMix Challenge: Funny Party",
+        "zh-tw": "MemeMix Challenge: Funny Party"
+      }
+    },
+    "Tiki Smash!": {
+      "appIds": {
+        "android": "com.thrivegames.bashbest",
+        "ios": 6790866671
+      },
+      "aliases": [],
+      "developer": "PeopleFun",
+      "icon": "https://play-lh.googleusercontent.com/wrL6_KaT0gzj3fdSmXCZ8JTFGZEsawfEubff2OglqIZSWxKm2WaIi481qokmQ-n2e7mCsQeGPpDSsSaAoW6mCJI",
+      "slug": "tiki-smash",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Tiki Smash!",
+        "en": "Tiki Smash!"
+      }
+    },
+    "Light Ignite - Laser Puzzle": {
+      "appIds": {
+        "android": "com.vzcreations.lightignite"
+      },
+      "aliases": [],
+      "developer": "Branching Factor",
+      "icon": "https://play-lh.googleusercontent.com/nOgq7u2EK-L1qSQU3q8t6ra0CmM28rVknlr07bkuLEJL1_YODeyNj3vOUxQapWpvIb1KxvEUbpU91w4pKPOWFxg",
+      "slug": "light-ignite-laser-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Light Ignite - Laser Puzzle",
+        "en": "Light Ignite - Laser Puzzle"
+      }
+    },
+    "OverPeak : Action Game": {
+      "appIds": {
+        "android_us": "com.rusergames.overpeak"
+      },
+      "aliases": [],
+      "developer": "R-USER Games",
+      "icon": "https://play-lh.googleusercontent.com/v-dQV2cAH0UmxBrjM-xZbX6RKRh2iEnfuQA0Ksy2GEbssF54FCP8uj7zSQKtalqtZDzbM0yAUrUsDSNW50fj",
+      "slug": "overpeak-action-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "OverPeak : Action Game"
+      }
+    },
+    "Easy Go: Arrow Puzzle Games": {
+      "appIds": {
+        "android": "com.game.puzzle.arrows.easygo"
+      },
+      "aliases": [],
+      "developer": "Wood Puzzle Sudoku Games",
+      "icon": "https://play-lh.googleusercontent.com/KFrlBtj5uPpsOTRxKhAXMzJqG2rJ71Gg8geZ29pGqUi8KNnDgDpTUUDt2ZXpZt46HS1eqbyvrCNdhvzb7IsW2g",
+      "slug": "easy-go-arrow-puzzle-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Easy Go: Arrow Puzzle Games",
+        "en": "Easy Go: Arrow Puzzle Games"
+      }
+    },
+    "체스": {
+      "appIds": {
+        "android": "com.bigcake.android.chess.offline"
+      },
+      "aliases": [],
+      "developer": "Big Cake",
+      "icon": "https://play-lh.googleusercontent.com/YB95qU5ODhCk54Rh9tqMFQD-woPYlctgAeChTEN8smSWCqx7K3oOYTSIgC1QjYFhlDS6t4jmLgv_M0H8WUOmGw",
+      "slug": "체스",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "체스",
+        "en": "Chess"
+      }
+    },
+    "Генератор номеров": {
+      "appIds": {
+        "android": "com.AksiCo.NumGen"
+      },
+      "aliases": [],
+      "developer": "Mitrofan Games",
+      "icon": "https://play-lh.googleusercontent.com/fYqc3gdqchNgO4AOKBE9BPdVahrTlqGfqvwG28AZNVibWN_ze2EnIXGmb5-503Oq_4FVunUG_vBzeBh4gBDbIQ",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Генератор номеров",
+        "en": "Генератор номеров"
+      }
+    },
+    "麻辣湯ものがたり（マーラータン）": {
+      "appIds": {
+        "ios": 6816625266
+      },
+      "aliases": [],
+      "developer": "Ryusei Okamoto",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/bb/bd/33bbbd19-0ce1-000e-908c-7a684bcf5f6a/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "麻辣湯ものがたり（マーラータン）",
+        "ja": "麻辣湯ものがたり（マーラータン）"
+      }
+    },
+    "Water Challenge - Spell & Pour": {
+      "appIds": {
+        "ios": 6752240647
+      },
+      "aliases": [],
+      "developer": "Pradnya Rane",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/e0/36/9ae03650-bbf1-e027-14db-62903a4ad191/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "water-challenge-spell-pour",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Water Challenge - Spell & Pour",
+        "ja": "Water Challenge - Spell & Pour"
+      }
+    },
+    "Arrow Escape – Clear The Path": {
+      "appIds": {
+        "android": "com.arrow.escape.clear.the.path"
+      },
+      "aliases": [],
+      "developer": "Appslite Studio",
+      "icon": "https://play-lh.googleusercontent.com/rMEYEXNEFmvC6jLz_34aisQtcIGgdkTvEpIJ_bumslPdGVyetTUoAYYA-qxIbrz7K64mQNOHYpxcm-RFdWz3",
+      "slug": "arrow-escape-clear-the-path",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Escape – Clear The Path",
+        "ja": "Arrow Escape – Clear The Path"
+      }
+    },
+    "Neon Unthread": {
+      "appIds": {
+        "android": "com.play.neon.unthread.game"
+      },
+      "aliases": [],
+      "developer": "MD NABIL MIAH",
+      "icon": "https://play-lh.googleusercontent.com/eVOT-6kiygPRcMqEnhIlBPtXoXs7-uegwM48UI_uhTi-0k1DYZSEPTL2sD7tm9JGrwrZR4MnDJWBlILOJA9mUQ",
+      "slug": "neon-unthread",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Neon Unthread",
+        "ja": "Neon Unthread"
+      }
+    },
+    "[スロスピ]マジカルハロウィン8": {
+      "appIds": {
+        "android_jp": "com.spiridge.ss.kon0033"
+      },
+      "aliases": [],
+      "developer": "スピリッジ株式会社",
+      "icon": "https://play-lh.googleusercontent.com/u9ReALiMGPxYl0Y0wNAJmdoguGDn13Cj-jbBCG2iOPJZy309QH4iFbAbNQ7z9IxFlZ9j_TWozGgDqjekIqWi",
+      "slug": "スロスピマジカルハロウィン8",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "[スロスピ]マジカルハロウィン8",
+        "ja": "[スロスピ]マジカルハロウィン8"
+      }
+    },
+    "奇幻果园": {
+      "appIds": {
+        "ios_cn": 6787906105
+      },
+      "aliases": [],
+      "developer": "Hangzhou Qiongxiao Network Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/eb/d4/baebd40e-8dfa-7496-5d8f-082933993341/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "奇幻果园",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "奇幻果园"
+      }
+    },
+    "惡鬼狩獵：終夜": {
+      "appIds": {
+        "android": "com.egsl.zhy.gp1"
+      },
+      "aliases": [],
+      "developer": "Altyn Bim Innovations",
+      "icon": "https://play-lh.googleusercontent.com/JSpvcscyK62XqZjUVgZedyFasdOMbaQg-s4flDCrGVHZoVi1pr1dZPYtGR7SM7sm2aRjzIhtejD4ii9_DQXhSQ",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "惡鬼狩獵：終夜",
+        "zh-tw": "惡鬼狩獵：終夜"
+      }
+    },
+    "零課英雄譚": {
+      "appIds": {
+        "android": "com.mini.chero"
+      },
+      "aliases": [],
+      "developer": "INLINK",
+      "icon": "https://play-lh.googleusercontent.com/0B0sPvhmsDUuG7zSji8mlTDPe-2RfxaxhhDbXlvFFSrksbkUWtToGGdxQtBveaBwqSA2poZ4Xf4m2BflSKRK2g",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "零課英雄譚",
+        "zh-tw": "零課英雄譚"
+      }
+    },
+    "Draw Bridge Puzzle: Brain Game": {
+      "appIds": {
+        "android": "com.bravestars.draw.bridge.drawgame"
+      },
+      "aliases": [],
+      "developer": "Brave Labs",
+      "icon": "https://play-lh.googleusercontent.com/oSs7FOmskADHMrCpvsFk-kH5JKWgZgBsFfJ3SVceJxfy3GQEsJsTJvdeFmIY-csYF_m2G9Vt85npcjkQNkNM",
+      "slug": "draw-bridge-puzzle-brain-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Draw Bridge Puzzle: Brain Game",
+        "zh-tw": "Draw Bridge Puzzle: Brain Game"
+      }
+    },
+    "The Operator": {
+      "appIds": {
+        "android": "com.Bureau81.OPERATOR",
+        "ios": 6779664500
+      },
+      "aliases": [],
+      "developer": "Bureau 81",
+      "icon": "https://play-lh.googleusercontent.com/klDpPmfiq7TCmpyw5FY4pEHsAiQgNMjscnYySSPdcFzqSdCZWkjLur7NgNepjDQ6j9R701nQZY1WlVrDF66pGA",
+      "slug": "the-operator",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "The Operator",
+        "zh-tw": "接線疑雲"
+      }
+    },
+    "Sprunki Playground: Sandbox": {
+      "appIds": {
+        "android": "com.playground.sprunki.sandbox"
+      },
+      "aliases": [],
+      "developer": "Logic Apz",
+      "icon": "https://play-lh.googleusercontent.com/2HqcGs80r0WIn9VAYZaiOEUOhcc6hlC9Z2dh4Wv7SBLcgaoHVzGcnr8s0i-DRMi1W7yPG_8OvNKHU2C9j__wJg",
+      "slug": "sprunki-playground-sandbox",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sprunki Playground: Sandbox",
+        "zh-tw": "Sprunki Playground: Sandbox"
+      }
+    },
+    "Mukbang Scoop ASMR": {
+      "appIds": {
+        "android": "com.wgm.mukbang.scoop.asmr",
+        "ios": 6791533156
+      },
+      "aliases": [],
+      "developer": "WingsMob",
+      "icon": "https://play-lh.googleusercontent.com/YbvtzRnYvDxHWYvCszC0MhLHXZWoQD2z0EjvjwoGkG4TOif5qs-qsI9wDORsiHbgEvG8sSaUOyIlFVioazu1qg",
+      "slug": "mukbang-scoop-asmr",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Mukbang Scoop ASMR",
+        "zh-tw": "Mukbang Scoop ASMR"
+      }
     }
   },
   "lastUpdated": "2026-10-04",
-  "totalGames": 8447
+  "totalGames": 8468
 }
