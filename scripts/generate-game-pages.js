@@ -33,7 +33,7 @@ const normalize = (name) => name.toLowerCase().trim().replace(/\s+/g, ' ');
 function createSlug(name, appIds = null) {
   if (appIds) {
     if (appIds.android) return String(appIds.android).toLowerCase().replace(/\./g, '-');
-    if (appIds.ios && appIds.ios.startsWith('com.')) return String(appIds.ios).toLowerCase().replace(/\./g, '-');
+    if (appIds.ios && String(appIds.ios).startsWith('com.')) return String(appIds.ios).toLowerCase().replace(/\./g, '-');
   }
   let slug = name
     .toLowerCase()
