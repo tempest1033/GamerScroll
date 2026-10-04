@@ -41940,6 +41940,55 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/c8/b5/5fc8b559-bd51-9fe7-b0e5-ec1951070e9e/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-04T17:03:03.012Z"
+    },
+    {
+      "title": "Bus Fever - 주차 정체",
+      "status": "single",
+      "appIds": {
+        "android": "com.bus.fever.car.parking.jam.color.match3d.puzzle.games"
+      },
+      "developer": "Microjoy Games",
+      "icon": "https://play-lh.googleusercontent.com/54M3vdw2kykJyItNN2Vv9SEFOj5VTmx7LS2AMjNzo5iMKPKg83gKY1WBzNSCqJDkZMZ8LMBVmkjQ5CuyKmo4ig",
+      "searchResults": [
+        {
+          "title": "Bus Fever Party!",
+          "appId": 6746743297
+        },
+        {
+          "title": "Bus Craze – 교통 체증",
+          "appId": 6738109547
+        },
+        {
+          "title": "버스 주차: 브레인 티저",
+          "appId": 6793954676
+        }
+      ],
+      "addedAt": "2026-10-04T18:32:04.256Z"
+    },
+    {
+      "title": "Nut Sort: Color Sort Master",
+      "status": "matched",
+      "appIds": {
+        "android": "com.sd.nutsort.colorsort.puzzle",
+        "ios": 6748904864
+      },
+      "developer": "Arcade Game Maker",
+      "icon": "https://play-lh.googleusercontent.com/xK627Kt8KXvc3scOWWTCLB97Ag26oVynOiLQDH0nW9swfbnxe1WheQHl-EYchJjeDuG331cG332fNM4xxbflXA",
+      "searchResults": [
+        {
+          "title": "Nut Sort: Color Sort Master",
+          "appId": 6748904864
+        },
+        {
+          "title": "Nut Sort: Color Sorting Game",
+          "appId": 6476144780
+        },
+        {
+          "title": "나사 매치 - 볼트업 퍼즐게임",
+          "appId": 6499293031
+        }
+      ],
+      "addedAt": "2026-10-04T18:32:04.774Z"
     }
   ],
   "approved": [

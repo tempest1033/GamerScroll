@@ -146331,8 +146331,43 @@
       "names": {
         "ja": "朝までそれ正解！オンライン"
       }
+    },
+    "Bus Fever - 주차 정체": {
+      "appIds": {
+        "android": "com.bus.fever.car.parking.jam.color.match3d.puzzle.games"
+      },
+      "aliases": [],
+      "developer": "Microjoy Games",
+      "icon": "https://play-lh.googleusercontent.com/54M3vdw2kykJyItNN2Vv9SEFOj5VTmx7LS2AMjNzo5iMKPKg83gKY1WBzNSCqJDkZMZ8LMBVmkjQ5CuyKmo4ig",
+      "slug": "bus-fever-주차-정체",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Bus Fever - 주차 정체",
+        "en": "Bus Fever - Car Parking Jam"
+      }
+    },
+    "Nut Sort: Color Sort Master": {
+      "appIds": {
+        "android": "com.sd.nutsort.colorsort.puzzle",
+        "ios": 6748904864
+      },
+      "aliases": [],
+      "developer": "Arcade Game Maker",
+      "icon": "https://play-lh.googleusercontent.com/xK627Kt8KXvc3scOWWTCLB97Ag26oVynOiLQDH0nW9swfbnxe1WheQHl-EYchJjeDuG331cG332fNM4xxbflXA",
+      "slug": "nut-sort-color-sort-master",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Nut Sort: Color Sort Master",
+        "ja": "Nut Sort: Color Sort Master",
+        "zh-tw": "Nut Sort: Color Sort Master"
+      }
     }
   },
   "lastUpdated": "2026-10-05",
-  "totalGames": 8470
+  "totalGames": 8472
 }
