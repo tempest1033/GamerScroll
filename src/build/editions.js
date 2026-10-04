@@ -179,6 +179,11 @@ function buildEditions(ctx) {
     if (rankingsHtml) write('rankings/index.html', rankingsHtml, '0.8');
     const trendingHtml = rankStats ? attempt('trending', () => m.rankHub.renderTrending(home)) : null;
     if (trendingHtml) write('trending/index.html', trendingHtml, '0.8');
+    if (trendingHtml) attempt('trending subpages', () => {
+      // /trending/<cc>/ for every country (the home country's page canonicalizes to /trending/ → not in the sitemap) + /trending/global/
+      for (const c of Object.keys(rankStats.COUNTRIES)) write(`trending/${c}/index.html`, m.rankHub.renderTrending(c), c === home ? null : '0.7');
+      write('trending/global/index.html', m.rankHub.renderTrending('global'), '0.7');
+    });
     const steamHtml = attempt('steam', () => m.steamHub.renderSteamHub())
       || attempt('steam (legacy)', () => m.steam.generateSteamPage({ ...data, cacheVersion: ctx.steamCacheVersion }));
     if (steamHtml) write('steam/index.html', steamHtml, '0.8');

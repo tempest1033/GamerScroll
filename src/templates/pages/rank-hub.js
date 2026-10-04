@@ -465,56 +465,66 @@ ${kpi}
 }
 
 // ---------- 4c. 산출 방법 ----------
-// ---------- 트렌딩 (/trending/) ----------
-// 일주일 전과 오늘을 비교한다: 급상승 · TOP 10 변화 · 급하락 · 여러 나라 동시 상승 · 신작.
-// 모든 목록을 빌드 시 HTML 로 넣는다(검색엔진이 그대로 읽는다). 자바스크립트는 쓰지 않는다.
-function renderTrending(country = homeCountry()) {
+// ---------- 트렌딩 (/trending/ · /trending/{cc}/ · /trending/global/) ----------
+// 일주일 전과 오늘을 비교한다. view = 나라 코드 또는 'global'(5개국 통합).
+// 모든 내용을 빌드 시 HTML 로 넣는다(검색엔진이 그대로 읽는다). 스토어 전환은 라디오 버튼 + CSS.
+const trendHref = (v) => (v === 'global' ? '/trending/global/' : v === homeCountry() ? '/trending/' : `/trending/${v}/`);
+function renderTrending(view = homeCountry()) {
   const S = loadRankStats();
   const { today, days, rankOf } = S;
   const C = makeCtx(S);
   if (days.length < 8) return null;
   const week = days[days.length - 8];
-  const cname = COUNTRIES[country];
+  const isGlobal = view === 'global';
+  const countries = isGlobal ? orderedCountries() : [view];
+  const label = isGlobal ? tt('trend.global') : COUNTRIES[view];
   const OUT = 201;
-  const stores = Object.keys(STORES).filter((s) => ((today.rows[country] || {})[s] || []).length);
+  const storesOf = (c) => Object.keys(STORES).filter((s) => ((today.rows[c] || {})[s] || []).length);
   const rowsOf = (d, c, s) => ((d.rows[c] || {})[s] || []).slice(0, 200);
   const uniq = (list) => { const seen = new Set(); return list.filter((x) => !seen.has(x.key) && seen.add(x.key)); };
   const entry = (c, s, r, rank) => ({ c, s, r, rank, g: S.gameOf(s, r), key: S.keyOf(s, r) });
-  const storeTag = (x) => (stores.length > 1 ? STORES[x.s] : '');
   const none = `<p class="rk-empty">${tt('trend.none')}</p>`;
-  const rankText = (n) => (n == null || n >= OUT ? tt('trend.out') : String(n));
+  const rankText = (n) => (n == null || n >= OUT ? tt('trend.out') : tt('rank.rank_number', { p0: n }));
+  const where = (x) => (isGlobal ? `${COUNTRIES[x.c]} · ${STORES[x.s]}` : STORES[x.s]);
+  const nameOf = (x) => esc(S.nameOf(x.s, x.r));
+  const iconOf = (x) => esc(C.iconOf(x.r, x.g));
+  const linkOpen = (x, cls) => { const href = C.hrefOf(x.g); return href ? `<a class="${cls}" href="${href}">` : `<div class="${cls}">`; };
+  const linkClose = (x) => (C.hrefOf(x.g) ? '</a>' : '</div>');
+  // 14일 순위 면 그래프 (차트 밖은 201위로 보고 바닥에 그린다)
+  const area = (series, h) => { const v = series.map((r) => (r == null || r > 200 ? OUT : r)), w = 100; if (v.length < 2) return '';
+    const lo = Math.min(...v), hi = Math.max(...v), sp = Math.log(hi) - Math.log(lo) || 1;
+    const pts = v.map((r, i) => `${(i * w / (v.length - 1)).toFixed(1)},${(hi === lo ? h / 2 : 4 + ((Math.log(r) - Math.log(lo)) / sp) * (h - 8)).toFixed(1)}`).join('L');
+    return `<svg class="rk-tr-area" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" aria-hidden="true"><path d="M${pts}L${w},${h}L0,${h}Z" fill="var(--rk-up)" opacity=".12"/><path d="M${pts}" fill="none" stroke="var(--rk-up)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`; };
 
-  // 급상승: 오늘 TOP 100 중 일주일 전보다 10계단 넘게 오른 게임
-  const risers = uniq(stores.flatMap((s) => rowsOf(today, country, s).slice(0, 100).map((r, i) => {
+  // 급상승: 오늘 TOP 100 중 일주일 전보다 10계단 넘게 오른 게임 (같은 게임은 가장 많이 오른 곳 하나)
+  const risers = uniq(countries.flatMap((c) => storesOf(c).flatMap((s) => rowsOf(today, c, s).slice(0, 100).map((r, i) => {
     if (!r || !r.appId) return null;
-    const from = rankOf(week, country, s, r.appId) ?? OUT;
-    return from - (i + 1) >= 10 ? { ...entry(country, s, r, i + 1), from } : null;
-  }).filter(Boolean)).sort((a, b) => (b.from - b.rank) - (a.from - a.rank))).slice(0, 10);
-  // 급하락: 일주일 전 TOP 100 중 10계단 넘게 내린 게임
-  const fallers = uniq(stores.flatMap((s) => rowsOf(week, country, s).slice(0, 100).map((r, i) => {
-    if (!r || !r.appId) return null;
-    const to = rankOf(today, country, s, r.appId) ?? OUT;
-    return to - (i + 1) >= 10 ? { ...entry(country, s, r, to), from: i + 1 } : null;
-  }).filter(Boolean)).sort((a, b) => (b.rank - b.from) - (a.rank - a.from))).slice(0, 10);
-  const moveRow = (x, i, up) => {
-    const series = S.seriesOf(x.c, x.s, x.r.appId).slice(-14);
-    const href = C.hrefOf(x.g);
-    const name = esc(S.nameOf(x.s, x.r));
-    return `<li><span class="rk-rk ${i < 3 ? 'top' : ''}">${i + 1}</span><img src="${esc(C.iconOf(x.r, x.g))}" alt="" loading="lazy" decoding="async"><div class="nm">${href ? `<a data-name href="${href}">${name}</a>` : `<span data-name>${name}</span>`}<span class="dv">${storeTag(x) ? storeTag(x) + ' · ' : ''}<span data-name>${esc(x.r.developer || (x.g && x.g.developer) || '')}</span></span></div><div class="rt"><b>${rankText(x.from)} → ${rankText(x.rank)}</b>${up && x.from >= OUT ? '<span class="rk-chg new">NEW</span>' : `<span class="rk-chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'}${Math.abs(x.from - x.rank)}</span>`}</div>${sparkline(series, { cap: 200, color: up ? 'var(--rk-up)' : 'var(--rk-down)' })}</li>`;
-  };
-  const moveList = (list, up) => (list.length ? `<ol class="rk-list rk-trend-list">${list.map((x, i) => moveRow(x, i, up)).join('')}</ol>` : none);
+    const from = rankOf(week, c, s, r.appId) ?? OUT;
+    return from - (i + 1) >= 10 ? { ...entry(c, s, r, i + 1), from } : null;
+  }).filter(Boolean))).sort((a, b) => (b.from - b.rank) - (a.from - a.rank))).slice(0, 5);
+  const gainTag = (x) => (x.from >= OUT ? '<span class="rk-chg new">NEW</span>' : `<span class="rk-chg up">▲${x.from - x.rank}</span>`);
+  const riserCards = risers.length ? `<div class="rk-tr-rise">${risers.map((x, i) => `${linkOpen(x, 'rk-tr-card')}<span class="top"><img src="${iconOf(x)}" alt="" loading="lazy" decoding="async"><span class="no${i === 0 ? ' first' : ''}">${i + 1}</span></span><span class="nm" data-name>${nameOf(x)}</span><span class="dv">${where(x)}</span>${area(S.seriesOf(x.c, x.s, x.r.appId).slice(-14), 56)}<span class="v"><b>${rankText(x.from)} → ${rankText(x.rank)}</b>${gainTag(x)}</span>${linkClose(x)}`).join('')}</div>` : none;
 
-  // TOP 10 변화: 일주일 사이 TOP 10에 들어온 게임 / 밀려난 게임 (두 스토어)
-  const entered = uniq(stores.flatMap((s) => rowsOf(today, country, s).slice(0, 10).map((r, i) => {
-    if (!r || !r.appId) return null; const from = rankOf(week, country, s, r.appId) ?? OUT;
-    return from > 10 ? { ...entry(country, s, r, i + 1), from } : null; }).filter(Boolean)).sort((a, b) => a.rank - b.rank));
-  const left10 = uniq(stores.flatMap((s) => rowsOf(week, country, s).slice(0, 10).map((r, i) => {
-    if (!r || !r.appId) return null; const to = rankOf(today, country, s, r.appId) ?? OUT;
-    return to > 10 ? { ...entry(country, s, r, to), from: i + 1 } : null; }).filter(Boolean)).sort((a, b) => a.from - b.from));
-  const col10 = (title, list, up) => `<div class="rk-trend-col"><h3>${title} <small>${list.length}</small></h3>${list.length ? `<ol class="rk-list rk-trend-list one">${list.map((x, i) => moveRow(x, i, up)).join('')}</ol>` : none}</div>`;
-  const bump = `<div class="rk-trend-cols">${col10(tt('trend.in10'), entered, true)}${col10(tt('trend.out10'), left10, false)}</div>`;
+  // TOP 10 변화 (나라 보기에서만): 오늘 TOP 10 한 줄, 새로 들어온 게임 강조, 밀려난 게임
+  let top10Sec = '', enteredAll = [];
+  if (!isGlobal) {
+    const c = view, stores = storesOf(c);
+    const panel = (s) => {
+      const now = rowsOf(today, c, s).slice(0, 10).filter((r) => r && r.appId).map((r, i) => ({ ...entry(c, s, r, i + 1), from: rankOf(week, c, s, r.appId) }));
+      const outs = rowsOf(week, c, s).slice(0, 10).filter((r) => r && r.appId).map((r, i) => ({ ...entry(c, s, r, rankOf(today, c, s, r.appId)), from: i + 1 })).filter((x) => x.rank == null || x.rank > 10);
+      now.filter((x) => x.from == null || x.from > 10).forEach((x) => enteredAll.push(x));
+      const cell = (x) => { const inn = x.from == null || x.from > 10;
+        return `${linkOpen(x, `rk-tr-t${inn ? ' in' : ''}`)}${inn ? `<span class="tag">${tt('trend.entered')}</span>` : ''}<span class="no">${x.rank}</span><img src="${iconOf(x)}" alt="" loading="lazy" decoding="async"><span class="nm" data-name>${nameOf(x)}</span>${chg(x.rank, x.from)}${linkClose(x)}`; };
+      const out = outs.length ? `<div class="rk-tr-outs"><span class="l">${tt('trend.left')}</span>${outs.map((x) => `${linkOpen(x, 'o')}<img src="${iconOf(x)}" alt="" loading="lazy" decoding="async"><span data-name>${nameOf(x)}</span><span class="rk-chg down">${x.from} → ${x.rank == null ? tt('trend.out') : x.rank}</span>${linkClose(x)}`).join('')}</div>` : '';
+      return `<div class="rk-tr-panel rk-tr-p-${s}"><div class="rk-tr-t10">${now.map(cell).join('')}</div>${out}</div>`;
+    };
+    const panels = stores.map(panel).join('');
+    const toggle = stores.length > 1 ? `${stores.map((s, i) => `<input type="radio" name="rk-tr-s" id="rk-tr-s-${s}" class="rk-tr-input"${i === 0 ? ' checked' : ''}>`).join('')}<div class="rk-tr-seg" role="group" aria-label="${tt('rank.store')}">${stores.map((s) => `<label for="rk-tr-s-${s}">${STORES[s]}</label>`).join('')}</div>` : '';
+    top10Sec = `<section class="rk-section"><h2>${tt('trend.top10')} <small>${tt('trend.top10_sub')}</small></h2><div class="rk-tr-stores">${toggle}${panels}</div></section>`;
+    enteredAll = uniq(enteredAll);
+  }
 
-  // 여러 나라에서 함께 오른 게임: 나라마다 더 많이 오른 스토어 하나를 쓴다
+  // 글로벌 급상승 게임: 2개국 이상에서 10계단 넘게 오른 게임 (나라마다 더 많이 오른 스토어 하나)
   const cross = new Map();
   for (const c of orderedCountries()) for (const s of Object.keys(STORES)) rowsOf(today, c, s).slice(0, 100).forEach((r, i) => {
     if (!r || !r.appId) return;
@@ -524,36 +534,49 @@ function renderTrending(country = homeCountry()) {
     let e = cross.get(g.slug); if (!e) { e = { g, r, s, m: {} }; cross.set(g.slug, e); }
     if (!e.m[c] || gain > e.m[c].gain) e.m[c] = { rank: i + 1, from, gain };
   });
-  const crossList = [...cross.values()].filter((e) => Object.keys(e.m).length >= 2)
-    .sort((a, b) => Object.keys(b.m).length - Object.keys(a.m).length || Object.values(b.m).reduce((x, y) => x + y.gain, 0) - Object.values(a.m).reduce((x, y) => x + y.gain, 0)).slice(0, 8);
-  const crossTable = crossList.length ? `<div class="rk-scroll"><table class="rk-table rk-heat"><thead><tr><th></th>${orderedCountries().map((c) => `<th class="c">${COUNTRIES[c]}</th>`).join('')}</tr></thead><tbody>${crossList.map((e) => `<tr><td>${C.appCell(e.r, e.s)}</td>${orderedCountries().map((c) => { const m = e.m[c]; return `<td class="c">${m ? `<b>${m.rank}</b> ${m.from >= OUT ? '<span class="rk-chg new">NEW</span>' : `<span class="rk-chg up">▲${m.gain}</span>`}` : '<span class="rk-chg same">-</span>'}</td>`; }).join('')}</tr>`).join('')}</tbody></table></div>` : none;
+  const crossAll = [...cross.values()].filter((e) => Object.keys(e.m).length >= 2)
+    .sort((a, b) => Object.keys(b.m).length - Object.keys(a.m).length || Object.values(b.m).reduce((x, y) => x + y.gain, 0) - Object.values(a.m).reduce((x, y) => x + y.gain, 0));
+  const crossList = crossAll.slice(0, isGlobal ? 12 : 6);
+  const cols = isGlobal ? orderedCountries() : [view, ...orderedCountries().filter((c) => c !== view)];
+  const crossCell = (m) => (m ? `<span class="rk-tr-cell${m.gain >= 80 ? ' l' : ''}"><b>${m.rank}</b>${m.from >= OUT ? '<span class="rk-chg new">NEW</span>' : `<span class="rk-chg up">▲${m.gain}</span>`}</span>` : '<span class="rk-chg same">-</span>');
+  const crossTable = crossList.length ? `<div class="rk-scroll"><table class="rk-table rk-tr-cross"><thead><tr><th></th>${cols.map((c) => `<th class="c"><span class="f">${COUNTRIES[c]}</span><span class="s" aria-hidden="true">${c.toUpperCase()}</span></th>`).join('')}</tr></thead><tbody>${crossList.map((e) => `<tr><td>${C.appCell(e.r, e.s)}</td>${cols.map((c) => `<td class="c">${crossCell(e.m[c])}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : none;
 
-  // 신작
-  const debuts = uniq(stores.flatMap((s) => S.debutRows(country, s).map((x) => ({ ...x, ...entry(country, s, x.r, x.cur) })))).sort((a, b) => a.cur - b.cur).slice(0, 8);
-  const debutList = debuts.length ? `<ol class="rk-list rk-trend-list">${debuts.map((x, i) => { const href = C.hrefOf(x.g); const name = esc(S.nameOf(x.s, x.r));
-    return `<li><span class="rk-rk">${i + 1}</span><img src="${esc(C.iconOf(x.r, x.g))}" alt="" loading="lazy" decoding="async"><div class="nm">${href ? `<a data-name href="${href}">${name}</a>` : `<span data-name>${name}</span>`}<span class="dv">${storeTag(x) ? storeTag(x) + ' · ' : ''}<span data-name>${esc(x.r.developer || (x.g && x.g.developer) || '')}</span></span></div><div class="rt"><b>${x.cur}</b><span class="sub">${tt('home.day', { age: x.age })} · ${tt('home.best', { best: x.best })}</span></div>${sparkline(S.seriesOf(x.c, x.s, x.r.appId).slice(-14), { cap: 200 })}</li>`; }).join('')}</ol>` : none;
+  // 신작: 첫 진입 45일 이내
+  const debuts = uniq(countries.flatMap((c) => storesOf(c).flatMap((s) => S.debutRows(c, s).map((x) => ({ ...x, ...entry(c, s, x.r, x.cur) }))))).sort((a, b) => a.cur - b.cur).slice(0, 8);
+  const debutCards = debuts.length ? `<div class="rk-tr-new">${debuts.map((x) => `${linkOpen(x, 'rk-tr-nc')}<img src="${iconOf(x)}" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name>${nameOf(x)}</span><span class="dv">${where(x)}</span></span><span class="d"><b>${rankText(x.cur)}</b><i>${tt('home.day', { age: x.age })}</i></span>${linkClose(x)}`).join('')}</div>` : none;
 
+  // 요약 카드 4장
+  const kpi = (l, v, x, nm) => `<div class="rk-tr-kpi"><span class="l">${l}</span><b>${v}</b>${x ? `<span class="g"><img src="${esc(x.icon)}" alt="" loading="lazy" decoding="async"><span data-name>${nm}</span></span>` : ''}</div>`;
+  const pick = (x) => (x ? { icon: C.iconOf(x.r, x.g) } : null);
+  const kpis = `<div class="rk-tr-kpis">${kpi(tt('trend.kpi_top'), risers[0] ? (risers[0].from >= OUT ? 'NEW' : `▲${risers[0].from - risers[0].rank}`) : '-', pick(risers[0]), risers[0] ? nameOf(risers[0]) : '')}${
+    isGlobal ? kpi(tt('home.biggest_gains'), tt('trend.count', { n: risers.length }), pick(risers[1]), risers[1] ? nameOf(risers[1]) : '') : kpi(tt('trend.kpi_in'), tt('trend.count', { n: enteredAll.length }), pick(enteredAll[0]), enteredAll[0] ? nameOf(enteredAll[0]) : '')}${
+    kpi(tt('trend.cross'), tt('trend.count', { n: crossAll.length }), crossAll[0] ? { icon: C.iconOf(crossAll[0].r, crossAll[0].g) } : null, crossAll[0] ? esc(S.nameOf(crossAll[0].s, crossAll[0].r)) : '')}${
+    kpi(tt('trend.new'), tt('trend.count', { n: debuts.length }), pick(debuts[0]), debuts[0] ? nameOf(debuts[0]) : '')}</div>`;
+
+  const tabs = `<div class="rk-tabs rk-country-tabs" role="navigation" aria-label="${tt('rank.country')}">${[...orderedCountries(), 'global'].map((v) => `<a class="${v === view ? 'active' : ''}"${v === view ? ' aria-current="page"' : ''} href="${trendHref(v)}">${v === 'global' ? tt('trend.global') : COUNTRIES[v]}</a>`).join('')}</div>`;
   const section = (title, sub, body) => `<section class="rk-section"><h2>${title} <small>${sub}</small></h2>${body}</section>`;
-  const body = `<div class="rk-head"><h1>${tt('trend.title')}</h1><p class="rk-trend-sub">${tt('trend.sub', { date: formatDay(today.date), country: cname })}</p></div>
-${section(tt('home.biggest_gains'), tt('trend.risers_sub'), moveList(risers, true))}
-${section(tt('trend.top10'), tt('trend.top10_sub'), bump)}
-${section(tt('home.biggest_drops'), tt('trend.fallers_sub'), moveList(fallers, false))}
+  const isHome = view === homeCountry();
+  const body = `<div class="rk-head"><h1>${tt('trend.title')}${isHome ? '' : ` · ${label}`}</h1></div>
+<div class="rk-toolbar">${tabs}</div>
+${kpis}
+${section(tt('home.biggest_gains'), `${isGlobal ? tt('trend.risers_all') : tt('trend.risers_sub')} · ${formatDay(today.date)}`, riserCards)}
+${top10Sec}
 ${section(tt('trend.cross'), tt('trend.cross_sub'), crossTable)}
-${section(tt('trend.new'), tt('trend.new_sub'), debutList)}`;
+${section(tt('trend.new'), tt('trend.new_sub'), debutCards)}`;
   const content = `
     <section class="section active" id="trending">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container rk rk-trend">${body}
       </div>
     </section>`;
-  const canonical = `${siteBaseUrl}/trending/`;
+  const canonical = `${siteBaseUrl}${trendHref(view)}`;
   return wrapWithLayout(content, {
     currentPage: 'trending',
-    title: tt('trend.meta_title', { date: formatDay(today.date) }),
-    description: tt('trend.lead', { date: formatDay(today.date), country: cname, p1: risers[0] ? ` (${S.nameOf(risers[0].s, risers[0].r)})` : '' }),
+    title: `${isHome ? '' : `${label} `}${tt('trend.meta_title', { date: formatDay(today.date) })}`,
+    description: tt('trend.lead', { date: formatDay(today.date), country: label, p1: risers[0] ? ` (${S.nameOf(risers[0].s, risers[0].r)})` : '' }),
     keywords: tt('trend.keywords'),
     canonical,
-    breadcrumbs: [{ name: tt('about.home'), url: `${siteBaseUrl}/` }, { name: tt('nav.trending'), url: canonical }],
+    breadcrumbs: [{ name: tt('about.home'), url: `${siteBaseUrl}/` }, { name: tt('nav.trending'), url: `${siteBaseUrl}/trending/` }, ...(isHome ? [] : [{ name: label, url: canonical }])],
   });
 }
 

@@ -59,7 +59,7 @@ function buildRoutes() {
   const genre = first('rankings/genres');
   const publisher = first('rankings/publishers');
   const steamGame = listDirs(path.join(docs, 'steam')).filter(n => /^\d+$/.test(n)).sort()[0];
-  const routes = ['/', '/trending/', '/rankings/', ...countries.map(c => `/rankings/${c}/`), '/rankings/free/', '/rankings/genres/', `/rankings/genres/${genre}/`,
+  const routes = ['/', '/trending/', '/trending/global/', '/trending/jp/', '/rankings/', ...countries.map(c => `/rankings/${c}/`), '/rankings/free/', '/rankings/genres/', `/rankings/genres/${genre}/`,
     `/rankings/monthly/${monthly}/`, '/rankings/global/', '/rankings/records/', '/rankings/publishers/', `/rankings/publishers/${publisher}/`,
     '/rankings/about/', '/steam/', `/steam/${steamGame}/`, '/games/', ...pickGames().map(s => `/games/${encodeURI(s)}/`),
     '/about/', '/privacy/', '/404.html'];
