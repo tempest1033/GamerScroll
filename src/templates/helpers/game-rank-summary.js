@@ -196,7 +196,10 @@ ${comparisonCard}
 ${countryCard}
 <div class="rk-grid2">${monthlyCard}${recordCard}</div>
 </div>`;
-  return { html, text, cur, baseStore, days: present.length };
+  // 머리말 오른쪽: 기준 차트의 현재 순위와 전일 대비
+  const diff = prev != null && cur != null ? prev - cur : null;
+  const hero = cur == null ? '' : `<div class="game-hero-now"><span class="l">${tt('game.sum_revenue', { c })} · ${stores[baseStore]}</span><span class="v"><b>${cur}</b><small>${tt('chart.rank_unit')}</small>${diff == null ? '' : `<span class="rk-chg ${diff > 0 ? 'up' : diff < 0 ? 'down' : 'same'}">${diff > 0 ? '▲' + diff : diff < 0 ? '▼' + -diff : '='}</span>`}</span><span class="s">${tt('rank.30_day_best_average')} ${min(last30) ?? '-'} / ${fmt1(avg(last30))}</span></div>`;
+  return { html, text, cur, baseStore, days: present.length, hero };
 }
 
 module.exports = { renderGameRankSummary, summaryDays, pickCountry, expand, INDEXABLE_DAYS };

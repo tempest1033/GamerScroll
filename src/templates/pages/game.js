@@ -217,6 +217,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
               ${developer ? `<div class="game-hero-developer" data-name>${esc(developer)}</div>` : ''}
               ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
             </div>
+            ${summary && summary.hero ? summary.hero : ''}
           </div>
         </div>
             ${isSteamOnly && steam ? `
