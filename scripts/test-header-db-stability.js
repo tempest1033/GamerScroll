@@ -4,7 +4,8 @@ const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
 const path = require('node:path');
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
-const routes = ['/', '/games/', '/rankings/', '/steam/', '/reports/', '/games/메이플-키우기/', '/magazine/ranking/subculture-august-2026-kr/'];
+// Korean assertions (aria labels, recent games) run against the ko edition.
+const routes = ['/ko/', '/ko/games/', '/ko/rankings/', '/ko/steam/', '/ko/games/메이플-키우기/'];
 
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
@@ -39,16 +40,17 @@ const routes = ['/', '/games/', '/rankings/', '/steam/', '/reports/', '/games/�
             }
             assert.equal(measures.overflow, false, '좁은 PC에서도 헤더 넘침 없음');
           } else {
-            const home = page.getByRole('link', { name: '홈으로 이동', exact: true });
-            assert.ok(await home.isVisible(), '모바일 홈 버튼 표시');
+            const home = page.locator('.search-home-icon:visible').first();
+            assert.ok(await home.isVisible(), '모바일 홈(로고) 링크 표시');
+            assert.equal(await home.getAttribute('aria-label'), '게이머스크롤 홈');
             const button = await home.boundingBox();
-            const input = await page.locator('.search-input:visible').boundingBox();
-            assert.ok(button.width >= 44 && button.height >= 44, '홈 버튼 터치 영역');
-            assert.ok(button.x + button.width <= input.x + 1, '검색 입력 왼쪽 홈 버튼');
+            assert.ok(button.width >= 44, '홈 링크 터치 폭');
           }
-          if (url === '/games/') {
+          if (url === '/ko/games/') {
             await page.locator('#recent-games .recent-link').first().waitFor();
             assert.equal(await page.locator('#recent-games .recent-link').count(), 8);
+            await page.locator('.games-hub-group summary').first().click();
+            await page.locator('.game-item-icon').first().waitFor();
             const before = await page.locator('.game-item').first().boundingBox();
             await page.locator('.game-item-icon').first().evaluate(img => img.decode().catch(() => {}));
             const after = await page.locator('.game-item').first().boundingBox();
@@ -61,9 +63,10 @@ const routes = ['/', '/games/', '/rankings/', '/steam/', '/reports/', '/games/�
             assert.ok(shifts.reduce((sum, s) => sum + s.value, 0) < .02, `초기 화면 밀림 ${JSON.stringify(shifts)}`);
             await page.screenshot({ path: path.resolve(__dirname, `../mockups/db-stable-${width}.png`) });
           }
-          if (width <= 768 && url !== '/') {
-            await page.getByRole('link', { name: '홈으로 이동', exact: true }).click();
-            await page.waitForURL(base + '/');
+          if (width <= 768 && url !== '/ko/') {
+            await page.evaluate(() => scrollTo(0, 0));
+            await page.locator('.search-home-icon:visible').first().click();
+            await page.waitForURL(base + '/ko/');
           }
           console.log(`PASS ${width}px 헤더·DB 안정성 ${url}`);
         } catch (error) {

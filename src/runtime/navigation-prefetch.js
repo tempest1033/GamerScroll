@@ -3,7 +3,8 @@ function prefetchUrl(raw, origin) {
   try {
     const url = new URL(raw, origin);
     if (url.origin !== origin || url.username || url.password || url.search || url.hash) return null;
-    if (!/^\/(?:$|(?:games|rankings|steam|reports|magazine|about|privacy)\/)/.test(url.pathname)) return null;
+    // Edition prefixes (/ja, /zh-cn, /ko, /zh-tw) are optional; the English edition lives at the root.
+    if (!/^(?:\/(?:ja|zh-cn|ko|zh-tw))?\/(?:$|(?:games|rankings|trending|steam|reports|magazine|about|privacy)\/)/.test(url.pathname)) return null;
     if (!url.pathname.endsWith('/')) return null;
     return url.href;
   } catch {
@@ -47,10 +48,11 @@ function installNavigationPrefetch(eligible) {
   document.addEventListener('touchstart', event => prefetch(event.target.closest && event.target.closest('a[href]')), { passive: true });
   // Prepare only nearby ranking menus, not every game link or every country.
   function warmMenus() {
-    if (document.visibilityState === 'hidden' || !location.pathname.startsWith('/rankings/')) return;
+    const path = location.pathname.replace(/^\/(?:ja|zh-cn|ko|zh-tw)(?=\/)/, '');
+    if (document.visibilityState === 'hidden' || !path.startsWith('/rankings/')) return;
     const primary = [...document.querySelectorAll('.rk-subnav a[href]')];
     const secondary = [...document.querySelectorAll('.rk-tabs a[href]')];
-    const groups = location.pathname.startsWith('/rankings/genres/')
+    const groups = path.startsWith('/rankings/genres/')
       ? [secondary, primary] : [primary, secondary];
     const candidates = groups.flatMap(links => {
       const current = links.findIndex(a => a.classList.contains('active'));

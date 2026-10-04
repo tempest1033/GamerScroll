@@ -5,21 +5,12 @@ const crypto = require('crypto');
 const { execFileSync } = require('child_process');
 const { PurgeCSS } = require('purgecss');
 const { guardHoverRules } = require('./src/build/css-hover-guard');
-const { generateRSS } = require('./src/rss/generate-rss');
-const { removeLegacyWeeklyPages } = require('./src/build/legacy-weekly-remove');
 const buildCache = require('./build-cache');
 
 // 커맨드라인 인자 파싱
 let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
-// CI 환경(GitHub Actions)에서는 draft 제외, 로컬에서는 기본 포함
-const includeDrafts = !process.env.CI || process.argv.includes('--draft') || process.argv.includes('-d');
 
 // 통합 반응형 빌드 (PC/모바일 단일 빌드)
-
-// 드래프트 포함 모드 안내
-if (includeDrafts) {
-  console.log('📝 드래프트 모드: draft 상태 이슈 리포트 포함\n');
-}
 
 // CI 환경에서 캐시가 최근 것이면 자동으로 퀵 모드 (크롤링 스킵)
 const CACHE_FRESHNESS_MINUTES = 30; // 30분 주기 - 캐시 최신이면 스킵
@@ -42,83 +33,18 @@ if (!isQuickMode && process.env.CI && fs.existsSync('./data-cache.json')) {
 const CACHE_FILE = './data-cache.json';
 const HISTORY_DIR = './history';
 const SNAPSHOTS_DIR = './snapshots';
-const REPORTS_DIR = './reports';
 const WIKI_DIR = './data/wiki';
 const FEED_ASSETS_DIR = './assets/feed';
-const { ensureDir, collectHtmlFilesUnderDir, externalizeDeferredJsonFromHtml } = require('./src/build/utils');
+const { ensureDir, collectHtmlFilesUnderDir } = require('./src/build/utils');
+const i18n = require('./src/i18n');
+const { buildEditions, writeSitemaps } = require('./src/build/editions');
 const { CSS_ASSET_FILES, computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
 const { buildServiceWorker } = require('./src/build/service-worker');
 let currentCssAssetVersion = '';
 
-/**
- * 발행시간 자동 기록: date가 비어있고 status === 'approved'인 기사에 현재 시각 기록
- * @param {object} article - 기사 데이터
- * @param {string} jsonFilePath - JSON 파일 경로 (write back용)
- * @param {'KST'|'UTC'} timezone - 시간대
- */
-function ensurePublishDate(article, jsonFilePath, timezone) {
-  if (article.date || article.status !== 'approved') return;
-  const now = new Date();
-  if (timezone === 'KST') {
-    now.setTime(now.getTime() + 9 * 60 * 60 * 1000);
-  }
-  // 30분 단위 반올림
-  const minutes = now.getUTCMinutes();
-  const roundedMinutes = minutes < 15 ? 0 : minutes < 45 ? 30 : 60;
-  if (roundedMinutes === 60) {
-    now.setUTCHours(now.getUTCHours() + 1);
-    now.setUTCMinutes(0);
-  } else {
-    now.setUTCMinutes(roundedMinutes);
-  }
-  const yyyy = now.getUTCFullYear();
-  const mm = String(now.getUTCMonth() + 1).padStart(2, '0');
-  const dd = String(now.getUTCDate()).padStart(2, '0');
-  const hh = String(now.getUTCHours()).padStart(2, '0');
-  const min = String(now.getUTCMinutes()).padStart(2, '0');
-  article.date = `${yyyy}-${mm}-${dd}T${hh}:${min}${timezone === 'KST' ? '+09:00' : 'Z'}`;
-  // JSON 파일에 write back
-  try {
-    const raw = fs.readFileSync(jsonFilePath, 'utf8').replace(/^\uFEFF/, '');
-    const fileData = JSON.parse(raw);
-    fileData.date = article.date;
-    fs.writeFileSync(jsonFilePath, JSON.stringify(fileData, null, 2), 'utf8');
-    console.log(`  📅 발행시간 자동 기록: ${jsonFilePath} → ${article.date}`);
-  } catch (e) {
-    console.warn(`  ⚠️ 발행시간 write back 실패: ${jsonFilePath}`, e.message);
-  }
-}
-
-function externalizeDeferredJsonPayloads() {
-  ensureDir('./assets');
-  if (fs.existsSync(FEED_ASSETS_DIR)) {
-    fs.rmSync(FEED_ASSETS_DIR, { recursive: true, force: true });
-  }
-  ensureDir(FEED_ASSETS_DIR);
-
-  const rootHtmlFiles = ['index.html', '404.html', 'rankings.html', 'steam.html']
-    .filter((file) => fs.existsSync(file))
-    .map((file) => `./${file}`);
-  const nestedHtmlFiles = [];
-  ['games', 'tech', 'magazine'].forEach((dir) => collectHtmlFilesUnderDir(`./${dir}`, nestedHtmlFiles));
-  const allHtmlFiles = [...rootHtmlFiles, ...nestedHtmlFiles];
-
-  allHtmlFiles.forEach((filePath) => {
-    try {
-      const originalHtml = fs.readFileSync(filePath, 'utf8');
-      const relPath = path.relative('.', filePath);
-      const transformedHtml = externalizeDeferredJsonFromHtml(originalHtml, relPath, FEED_ASSETS_DIR);
-      if (transformedHtml !== originalHtml) {
-        fs.writeFileSync(filePath, transformedHtml, 'utf8');
-      }
-    } catch (e) {
-      console.warn(`  ⚠️ deferred JSON 외부화 실패 (${filePath}): ${e.message}`);
-    }
-  });
-}
-
 function getCssBundlesForDocPath(relativePath) {
-  const normalized = String(relativePath || '').replace(/\\/g, '/').replace(/^\/+/, '');
+  // Edition pages live under /ja/, /zh-cn/, /ko/, /zh-tw/ and use the same bundles as the English root pages.
+  const normalized = String(relativePath || '').replace(/\\/g, '/').replace(/^\/+/, '').replace(/^(?:ja|zh-cn|ko|zh-tw)\//, '');
   const bundles = ['/styles-core.css'];
   const needsGameCss =
     normalized === 'index.html' || // 홈 상단 순위 요약(.rk)
@@ -126,14 +52,12 @@ function getCssBundlesForDocPath(relativePath) {
     normalized === 'steam.html' ||
     normalized.startsWith('games/') ||
     normalized.startsWith('rankings/') ||
+    normalized.startsWith('trending/') || // 트렌딩 (.rk)
     normalized.startsWith('steam/') ||
-    normalized.startsWith('reports/') || // 리포트 허브 (.rk)
     normalized.startsWith('about/') || // 사이트 소개 (.rk)
     normalized.startsWith('privacy/'); // 개인정보처리방침 (.rk, 2026-09-09 템플릿화)
 
-  if (normalized.startsWith('magazine/')) {
-    bundles.push('/styles-report.css', '/styles-article.css');
-  } else if (normalized === 'games/index.html') {
+  if (normalized === 'games/index.html') {
     bundles.push('/styles-catalog.css');
   } else if (needsGameCss) {
     bundles.push('/styles-game.css');
@@ -243,175 +167,6 @@ function stripTechSidebarFromNonTechDocs(docsDir, includePrefixes = null) {
   }
 
   console.log(`  🧹 비테크 페이지 테크 사이드바 제거: ${changedCount}개 HTML`);
-}
-
-/**
- * relatedDocs 통합 파싱 함수
- * 형식: ["wiki:slug", "wiki:category/slug", "issue:slug", "tech:category/slug",
- *        "insight:slug", "hotpick:slug", "ranking:slug"]
- * 프리픽스 없이 slug만 넣어도 자동 검색 (issue → insight → hotpick → ranking → wiki → tech 순)
- * 하위 호환: relatedArticles, relatedIssues, relatedInsights, relatedHotpicks,
- *            relatedWiki("cat/slug"), relatedTech("cat/slug"|"slug")가 있으면 폴백
- *            (레거시 폴백의 단일 경로 — 렌더러 측 폴백은 2026-08-02 제거됨)
- */
-function parseRelatedDocs(article, currentCategory, wikiData, techData, issueReports, insightReports = [], hotpickReports = [], rankingReports = []) {
-  const result = [];
-
-  // 슬러그로 각 컬렉션 검색하는 헬퍼
-  function findBySlugAuto(slug) {
-    // issue → insight → hotpick → ranking → wiki → tech 순서
-    let found = issueReports.find(r => r.slug === slug);
-    if (found) return { type: 'issue', ...found };
-
-    found = insightReports.find(r => r.slug === slug);
-    if (found) return { type: 'insight', ...found };
-
-    found = hotpickReports.find(r => r.slug === slug);
-    if (found) return { type: 'hotpick', ...found };
-
-    found = rankingReports.find(r => r.slug === slug);
-    if (found) return { type: 'ranking', ...found };
-
-    for (const [cat, catArticles] of Object.entries(wikiData)) {
-      found = catArticles.find(a => a.slug === slug);
-      if (found) return { type: 'wiki', ...found, category: cat };
-    }
-
-    for (const [cat, catArticles] of Object.entries(techData)) {
-      found = catArticles.find(a => a.slug === slug);
-      if (found) return { type: 'tech', ...found, category: cat };
-    }
-
-    return null;
-  }
-
-  // 1. relatedDocs가 있으면 우선 처리
-  if (article.relatedDocs && article.relatedDocs.length > 0) {
-    for (const doc of article.relatedDocs) {
-      const colonIdx = doc.indexOf(':');
-
-      // 프리픽스 없이 slug만 넣은 경우 → 자동 검색
-      if (colonIdx === -1) {
-        const found = findBySlugAuto(doc);
-        if (found) result.push(found);
-        continue;
-      }
-
-      const type = doc.substring(0, colonIdx);
-      const pathPart = doc.substring(colonIdx + 1);
-      if (!pathPart) continue;
-
-      const parts = pathPart.split('/');
-      const slug = parts.pop();
-      const category = parts.length > 0 ? parts.join('/') : null;
-
-      if (type === 'wiki') {
-        if (category && wikiData[category]) {
-          const found = wikiData[category].find(a => a.slug === slug);
-          if (found) result.push({ type: 'wiki', ...found, category });
-        } else {
-          for (const [cat, catArticles] of Object.entries(wikiData)) {
-            const found = catArticles.find(a => a.slug === slug);
-            if (found) { result.push({ type: 'wiki', ...found, category: cat }); break; }
-          }
-        }
-      } else if (type === 'issue') {
-        const found = issueReports.find(r => r.slug === slug);
-        if (found) result.push({ type: 'issue', ...found });
-      } else if (type === 'tech') {
-        if (category && techData[category]) {
-          const found = techData[category].find(a => a.slug === slug);
-          if (found) result.push({ type: 'tech', ...found, category });
-        } else {
-          for (const [cat, catArticles] of Object.entries(techData)) {
-            const found = catArticles.find(a => a.slug === slug);
-            if (found) { result.push({ type: 'tech', ...found, category: cat }); break; }
-          }
-        }
-      } else if (type === 'insight') {
-        const found = insightReports.find(r => r.slug === slug);
-        if (found) result.push({ type: 'insight', ...found });
-      } else if (type === 'hotpick') {
-        const found = hotpickReports.find(r => r.slug === slug);
-        if (found) result.push({ type: 'hotpick', ...found });
-      } else if (type === 'ranking') {
-        const found = rankingReports.find(r => r.slug === slug);
-        if (found) result.push({ type: 'ranking', ...found });
-      }
-    }
-    return result.filter(item => item.type !== 'issue' && item.type !== 'hotpick');
-  }
-
-  // 2. 레거시 폴백: relatedArticles (위키/테크)
-  if (article.relatedArticles && article.relatedArticles.length > 0) {
-    for (const item of article.relatedArticles) {
-      const itemSlug = typeof item === 'string' ? item : item.slug;
-      const itemCat = typeof item === 'string' ? null : (item.category || currentCategory);
-
-      // 위키에서 검색
-      if (itemCat && wikiData[itemCat]) {
-        const found = wikiData[itemCat].find(a => a.slug === itemSlug);
-        if (found) { result.push({ type: 'wiki', ...found, category: itemCat }); continue; }
-      }
-      for (const [cat, catArticles] of Object.entries(wikiData)) {
-        const found = catArticles.find(a => a.slug === itemSlug);
-        if (found) { result.push({ type: 'wiki', ...found, category: cat }); break; }
-      }
-      // 테크에서도 검색
-      for (const [cat, catArticles] of Object.entries(techData)) {
-        const found = catArticles.find(a => a.slug === itemSlug);
-        if (found) { result.push({ type: 'tech', ...found, category: cat }); break; }
-      }
-    }
-  }
-
-  // 3. 레거시 폴백: relatedIssues
-  if (article.relatedIssues && article.relatedIssues.length > 0) {
-    for (const slug of article.relatedIssues) {
-      const found = issueReports.find(r => r.slug === slug);
-      if (found) result.push({ type: 'issue', ...found });
-    }
-  }
-
-  // 4. 레거시 폴백: relatedInsights
-  if (article.relatedInsights && article.relatedInsights.length > 0) {
-    for (const slug of article.relatedInsights) {
-      const found = insightReports.find(r => r.slug === slug);
-      if (found) result.push({ type: 'insight', ...found });
-    }
-  }
-
-  // 5. 레거시 폴백: relatedHotpicks
-  if (article.relatedHotpicks && article.relatedHotpicks.length > 0) {
-    for (const slug of article.relatedHotpicks) {
-      const found = hotpickReports.find(r => r.slug === slug);
-      if (found) result.push({ type: 'hotpick', ...found });
-    }
-  }
-
-  // 6. 레거시 폴백: relatedWiki ("category/slug")
-  if (article.relatedWiki && article.relatedWiki.length > 0) {
-    for (const ref of article.relatedWiki) {
-      if (typeof ref !== 'string' || !ref.trim()) continue;
-      const [cat, slug] = ref.split('/');
-      const found = (wikiData[cat] || []).find(a => a.slug === slug);
-      if (found) result.push({ type: 'wiki', ...found, category: cat });
-    }
-  }
-
-  // 7. 레거시 폴백: relatedTech ("category/slug" 또는 "slug")
-  if (article.relatedTech && article.relatedTech.length > 0) {
-    for (const ref of article.relatedTech) {
-      if (typeof ref !== 'string' || !ref.trim()) continue;
-      const parts = ref.split('/');
-      const cat = parts.length > 1 ? parts[0] : 'ai';
-      const slug = parts.length > 1 ? parts[1] : parts[0];
-      const found = (techData[cat] || []).find(a => a.slug === slug);
-      if (found) result.push({ type: 'tech', ...found, category: cat });
-    }
-  }
-
-  return result.filter(item => item.type !== 'issue' && item.type !== 'hotpick');
 }
 
 // CSV 스냅샷에서 일 최고순위 계산
@@ -607,24 +362,6 @@ function updateHistoryRankingsFromCSV(date) {
   }
 }
 
-// 위키 데이터 로드 함수 — 위키 섹션은 2026-09-09 폐기 (/wiki/* 는 미들웨어에서 /reports/ 로 301).
-// data/wiki/ 원고는 AI스크롤 빌드(ai-build.yml)가 공유하므로 파일은 남기고, 게이머스크롤 빌드에서는
-// 빈 목록을 돌려 관련 문서·홈 최신 기사·사이드바 카운트·RSS 어디에도 섞이지 않게 한다.
-function loadWikiData() {
-  return { business: [], history: [], knowledge: [] };
-}
-
-// 옛 매거진 허브·카테고리 목록(/magazine/, /magazine/{issue,insight,hotpick,ranking}/)은 2026-09-09부터
-// /reports/ 로 301(functions/_middleware.js). 생성을 멈추고 산출물의 옛 index.html 도 정리한다. 기사 URL은 유지.
-const LEGACY_MAGAZINE_HUBS = false;
-
-// 테크 데이터 로드 함수 (Stage 3: GamerScroll에서 tech 제거)
-const TECH_DIR = './data/tech';
-function loadTechData() {
-  // Disabled in Stage 3 — tech 콘텐츠는 AIScroll로 이관됨.
-  return { normal: [], ai: [], vibecoding: [] };  return techData;
-}
-
 // 퀵 모드가 아닐 때만 무거운 모듈 로드
 let gplay, store, axios, cheerio, FirecrawlClient;
 if (!isQuickMode) {
@@ -650,171 +387,7 @@ const {
   fetchMetacriticGames
 } = require('./src/crawlers');
 
-// 페이지별 템플릿 import
-const { generateIndexPage } = require('./src/templates/pages/index');
-const { generateIssueDetailPage, generateInsightDetailPage, generateHotpickDetailPage, generateRankingDetailPage } = require('./src/templates/pages/trend');
-const { generateTrendsHubPage, generateIssueListPage, generateInsightListPage, generateHotpickListPage, generateRankingListPage } = require('./src/templates/pages/trends-hub');
-// 뉴스/커뮤니티/영상 페이지 제거됨 (크롤링 데이터는 유지)
-const { generateRankingsPage } = require('./src/templates/pages/rankings');
-// 순위 허브 리뉴얼(정적 HTML): /rankings/ 본문 + 국가별·월간·글로벌·역대 하위 페이지
-const rankHub = require('./src/templates/pages/rank-hub');
-const steamHub = require('./src/templates/pages/steam-hub');
-const { renderReportsHub } = require('./src/templates/pages/reports-hub');
-const { setHeaderStatus } = require('./src/templates/components/header');
-let rankHubFailed = false;
-let steamHubFailed = false;
-// 스팀 허브(정적) — 실패하면 구 스팀 페이지로 대체
-function generateSteamHome(d, cacheVersion) {
-  if (!steamHubFailed) {
-    try {
-      return steamHub.renderSteamHub();
-    } catch (e) {
-      steamHubFailed = true;
-      console.warn(`  ⚠️ 스팀 허브(정적) 생성 실패 → 구 스팀 페이지로 대체: ${e.message}`);
-    }
-  }
-  return generateSteamPage({ ...d, cacheVersion });
-}
-function generateRankingsHome(d, gamesData, cacheVersion) {
-  if (!rankHubFailed) {
-    try {
-      return rankHub.renderRankingsHub('kr');
-    } catch (e) {
-      rankHubFailed = true;
-      console.warn(`  ⚠️ 순위 허브(정적) 생성 실패 → 구 순위 페이지로 대체: ${e.message}`);
-    }
-  }
-  return generateRankingsPage({ ...d, games: gamesData, cacheVersion });
-}
-// 정적 하위 페이지 고아 정리: 이번 빌드에서 생성되지 않은 하위 디렉터리를 지운다 (deploy 브랜치 seed로 되살아나는 옛 페이지 방지).
-function removeOrphanDirs(parentDir, keep, match, label) {
-  if (!fs.existsSync(parentDir)) return;
-  for (const entry of fs.readdirSync(parentDir, { withFileTypes: true })) {
-    if (!entry.isDirectory() || keep.has(entry.name) || !match(entry.name)) continue;
-    fs.rmSync(path.join(parentDir, entry.name), { recursive: true, force: true });
-    console.log(`  🧹 고아 페이지 제거: ${label}/${entry.name}`);
-  }
-}
-// /rankings/ 하위 페이지를 docs 에 직접 쓴다 (CSS 해시 링크는 이후 rewriteDocsStylesheetLinks 가 정규화). 사이트맵 항목을 돌려준다.
-function writeRankHubSubpages(docsDir) {
-  const entries = [];
-  if (rankHubFailed) return entries;
-  const write = (rel, html) => {
-    const dir = path.join(docsDir, 'rankings', rel);
-    fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
-    if (rel !== 'subculture' && !/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(html)) {
-      entries.push({ loc: `https://gamerscroll.com/rankings/${rel}/`, priority: '0.7' });
-    }
-  };
-  let n = 0;
-  try {
-    const S = require('./src/rank/stats').loadRankStats();
-    for (const c of Object.keys(S.COUNTRIES)) {
-      if (c !== 'kr') { write(c, rankHub.renderRankingsHub(c)); n++; }
-      write(c === 'kr' ? 'free' : `free/${c}`, rankHub.renderRankingsHub(c, 'free')); n++;
-    }
-    write('subculture', rankHub.renderSubculture('kr')); n++;
-    write('genres', rankHub.renderGenre('all')); n++;
-    for (const category of require('./src/rank/genres').loadGenres().categories) {
-      write(`genres/${category.id}`, rankHub.renderGenre(category.id)); n++;
-    }
-    write('global', rankHub.renderGlobal()); n++;
-    write('about', rankHub.renderAbout()); n++;
-    // 개발사: 목록 + TOP 200 에 게임이 2개 이상인 개발사 (최대 80개)
-    write('publishers', rankHub.renderPublishers('kr')); n++;
-    const pubs = rankHub.publisherPages(rankHub.publisherIndex(S, 'kr'));
-    for (const p of pubs) { write(`publishers/${p.slug}`, rankHub.renderPublisher(p, 'kr')); n++; }
-    // 고아 정리: 목록에서 빠진 개발사·분류가 바뀐 장르의 옛 페이지 제거 (2026-09-09)
-    removeOrphanDirs(path.join(docsDir, 'rankings', 'publishers'), new Set(pubs.map((p) => p.slug)), () => true, 'rankings/publishers');
-    removeOrphanDirs(path.join(docsDir, 'rankings', 'genres'), new Set(require('./src/rank/genres').loadGenres().categories.map((c) => c.id)), () => true, 'rankings/genres');
-    write('records', rankHub.renderRecords('kr')); n++;
-    for (const mo of S.months) {
-      if (S.daysIn(mo).length < 7) continue;
-      const html = rankHub.renderMonthly(mo, 'kr');
-      if (html) { write(`monthly/${mo}`, html); n++; }
-    }
-    // /rankings/monthly/ 직접 접근은 404였음 → 최신 달로 보내는 리다이렉트 페이지 (noindex, 사이트맵 제외) (2026-09-09)
-    if (S.latestMonth) {
-      const latestHref = `/rankings/monthly/${S.latestMonth}/`;
-      write('monthly', `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex, follow"><meta http-equiv="refresh" content="0; url=${latestHref}"><link rel="canonical" href="https://gamerscroll.com${latestHref}"><title>월간 게임 순위 - 게이머스크롤</title></head><body><p>최신 월간 순위로 이동합니다. <a href="${latestHref}">${S.latestMonth} 월간 순위</a></p></body></html>`);
-    }
-    console.log(`  ✅ 순위 허브 하위 페이지 ${n}개 (국가 · 인기 · 서브컬처 · 글로벌 · 역대 · 산출 방법 · 개발사 ${pubs.length + 1} · 월간 ${S.months.length}개월)`);
-  } catch (e) {
-    console.warn(`  ⚠️ 순위 허브 하위 페이지 생성 실패: ${e.message}`);
-  }
-  // 스팀 게임 상세 (docs/steam/{appid}/): 동접 TOP 100 에 14일 이상 있었거나 오늘 차트에 있는 게임
-  if (!steamHubFailed) {
-    try {
-      let sn = 0;
-      const steamIds = new Set(steamHub.steamGameIds());
-      for (const id of steamIds) {
-        const dir = path.join(docsDir, 'steam', id);
-        fs.mkdirSync(dir, { recursive: true });
-        fs.writeFileSync(path.join(dir, 'index.html'), steamHub.renderSteamGame(id), 'utf8');
-        entries.push({ loc: `https://gamerscroll.com/steam/${id}/`, priority: '0.6' });
-        sn++;
-      }
-      console.log(`  ✅ 스팀 게임 페이지 ${sn}개`);
-      // 고아 정리: TOP 100 에서 빠져 더 이상 생성되지 않는 게임의 옛 상세 페이지는 사이트맵에 없는 채로
-      // 낡아 가며 색인되므로 제거한다 (2026-09-09). 숫자 디렉터리만 대상.
-      removeOrphanDirs(path.join(docsDir, 'steam'), steamIds, (name) => /^\d+$/.test(name), 'steam');
-    } catch (e) {
-      console.warn(`  ⚠️ 스팀 게임 페이지 생성 실패: ${e.message}`);
-    }
-  }
-  // 리포트 허브 (docs/reports/)
-  try {
-    const html = renderReportsHub();
-    if (html) {
-      const dir = path.join(docsDir, 'reports');
-      fs.mkdirSync(dir, { recursive: true });
-      fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf8');
-      entries.push({ loc: 'https://gamerscroll.com/reports/', priority: '0.8' });
-      console.log('  ✅ 리포트 허브 /reports/');
-    }
-  } catch (e) {
-    console.warn(`  ⚠️ 리포트 허브 생성 실패: ${e.message}`);
-  }
-  // 사이트 소개 (docs/about/) — 푸터 '소개' 링크
-  try {
-    const { renderAboutPage } = require('./src/templates/pages/about');
-    const dir = path.join(docsDir, 'about');
-    fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'), renderAboutPage(), 'utf8');
-    entries.push({ loc: 'https://gamerscroll.com/about/', priority: '0.5' });
-    console.log('  ✅ 사이트 소개 /about/');
-  } catch (e) {
-    console.warn(`  ⚠️ 사이트 소개 생성 실패: ${e.message}`);
-  }
-  // 개인정보처리방침 (docs/privacy/) — 2026-09-09 루트 정적 HTML 복사에서 템플릿 페이지로 교체
-  try {
-    const { renderPrivacyPage } = require('./src/templates/pages/privacy');
-    const dir = path.join(docsDir, 'privacy');
-    fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, 'index.html'), renderPrivacyPage(), 'utf8');
-    entries.push({ loc: 'https://gamerscroll.com/privacy/', priority: '0.3' });
-    console.log('  ✅ 개인정보처리방침 /privacy/');
-  } catch (e) {
-    console.warn(`  ⚠️ 개인정보처리방침 생성 실패: ${e.message}`);
-  }
-  return entries;
-}
-const { generateSteamPage } = require('./src/templates/pages/steam');
-const { generateGamesHubPage } = require('./src/templates/pages/games-hub');
-const { generate404Page } = require('./src/templates/pages/404');
-const {
-  setCssFilename,
-  setCssAssetVersion,
-  setSearchIndexVersion,
-  setRuntimeAssetVersion,
-  setGlobalSidebarCounts,
-  buildLayoutCoreBundle,
-  buildLayoutRuntimeBundle,
-  LAYOUT_CORE_ASSET,
-  LAYOUT_RUNTIME_ASSET
-} = require('./src/templates/layout');
-const { loadPopularGames, savePopularGames, shouldFetchPopularGames, loadPopularArticles, savePopularArticles, shouldFetchPopularArticles } = require('./src/crawlers/analytics');
+const { loadPopularGames, savePopularGames, shouldFetchPopularGames } = require('./src/crawlers/analytics');
 
 function stripBom(text) {
   if (!text) return '';
@@ -896,6 +469,7 @@ function minifyCss(css) {
     .trim();
 }
 
+const EDITION_PREFIXES = i18n.EDITIONS.map((e) => e.prefix).filter(Boolean);
 // PurgeCSS 동적 클래스 safelist (런타임 JS에서 classList.add/toggle/className으로 추가되는 클래스)
 const PURGECSS_SAFELIST = require('./src/build/css-safelist');
 
@@ -904,16 +478,9 @@ async function purgeCssInDocs(docsDir) {
   const bundles = [
     {
       css: `${docsDir}/styles-core.css`,
-      content: [`${docsDir}/**/*.html`],
+      // 게임 상세는 정적 HTML 이 없고 요청 시 렌더링되므로 템플릿 원본에서 클래스를 보존한다.
+      content: [`${docsDir}/**/*.html`, './src/templates/pages/game.js', './src/templates/helpers/game-rank-summary.js'],
       label: 'styles-core.css',
-    },
-    {
-      css: `${docsDir}/styles-report.css`,
-      // magazine 페이지는 루트 ./magazine 에 생성된 뒤 빌드 후반에 docs 로 복사되므로,
-      // purge 시점에는 docs/magazine 이 비어/오래될 수 있다. 루트 생성본도 함께 스캔해
-      // #insight·#hotpick 등 섹션 id 셀렉터가 살아남도록 한다.
-      content: [`${docsDir}/magazine/**/*.html`, './magazine/**/*.html'],
-      label: 'styles-report.css',
     },
     {
       css: `${docsDir}/styles-game.css`,
@@ -922,27 +489,18 @@ async function purgeCssInDocs(docsDir) {
         `${docsDir}/games/**/*.html`,
         // 게임 상세는 CSS 정리 이후 생성되므로 새 클래스도 원본에서 보존한다.
         './src/templates/pages/game.js',
+        './src/templates/helpers/game-rank-summary.js',
         `${docsDir}/rankings/**/*.html`,
         `${docsDir}/steam/**/*.html`,
-        `${docsDir}/reports/**/*.html`,
         `${docsDir}/about/**/*.html`,
+        ...EDITION_PREFIXES.flatMap((p) => [`${docsDir}${p}/index.html`, `${docsDir}${p}/games/**/*.html`, `${docsDir}${p}/rankings/**/*.html`, `${docsDir}${p}/steam/**/*.html`, `${docsDir}${p}/about/**/*.html`]),
       ],
       label: 'styles-game.css',
     },
     {
       css: `${docsDir}/styles-catalog.css`,
-      content: [`${docsDir}/games/index.html`, './games/index.html'],
+      content: [`${docsDir}/games/index.html`, ...EDITION_PREFIXES.map((p) => `${docsDir}${p}/games/index.html`), './games/index.html'],
       label: 'styles-catalog.css',
-    },
-    {
-      css: `${docsDir}/styles-article.css`,
-      content: [
-        `${docsDir}/magazine/**/*.html`,
-        `${docsDir}/tech/**/*.html`,
-        // 루트 생성본(아직 docs 로 복사 전)도 스캔 — magazine 섹션 id 보존
-        './magazine/**/*.html',
-      ],
-      label: 'styles-article.css',
     },
   ];
 
@@ -1150,83 +708,7 @@ async function main() {
   // HTML 생성
   console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
 
-  // 이슈 리포트 데이터 로드 (홈페이지용, 승인된 것만)
-  const ISSUE_REPORTS_DIR_HOME = './reports/issue';
-  let issueReportsForHome = [];
-  if (fs.existsSync(ISSUE_REPORTS_DIR_HOME)) {
-    const files = fs.readdirSync(ISSUE_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
-    issueReportsForHome = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${ISSUE_REPORTS_DIR_HOME}/${f}`, 'KST');
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && p.site !== 'aiscroll' && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  // 인사이트 리포트 데이터 로드 (홈페이지용, 승인된 것만)
-  const INSIGHT_REPORTS_DIR_HOME = './reports/insight';
-  let insightReportsForHome = [];
-  if (fs.existsSync(INSIGHT_REPORTS_DIR_HOME)) {
-    const files = fs.readdirSync(INSIGHT_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
-    insightReportsForHome = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${INSIGHT_REPORTS_DIR_HOME}/${f}`, 'KST');
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  // 핫픽 리포트 데이터 로드 (홈페이지용, 승인된 것만)
-  const HOTPICK_REPORTS_DIR_HOME = './reports/hotpick';
-  let hotpickReportsForHome = [];
-  if (fs.existsSync(HOTPICK_REPORTS_DIR_HOME)) {
-    const files = fs.readdirSync(HOTPICK_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
-    hotpickReportsForHome = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${HOTPICK_REPORTS_DIR_HOME}/${f}`, 'KST');
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  // 순위 분석 리포트 데이터 로드 (홈페이지용, 승인된 것만)
-  const RANKING_REPORTS_DIR_HOME = './reports/ranking';
-  let rankingReportsForHome = [];
-  if (fs.existsSync(RANKING_REPORTS_DIR_HOME)) {
-    const files = fs.readdirSync(RANKING_REPORTS_DIR_HOME).filter(f => f.endsWith('.json'));
-    rankingReportsForHome = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR_HOME}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${RANKING_REPORTS_DIR_HOME}/${f}`, 'KST');
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  const issueReportsCount = issueReportsForHome.length;
-  const insightReportsCount = insightReportsForHome.length;
-  const hotpickReportsCount = hotpickReportsForHome.length;
-  const rankingReportsCount = rankingReportsForHome.length;
-  const data = { rankings, news, steam, youtube, chzzk, community, issueReports: issueReportsForHome, insightReports: insightReportsForHome, hotpickReports: hotpickReportsForHome, rankingReports: rankingReportsForHome, issueReportsCount, insightReportsCount, hotpickReportsCount, rankingReportsCount };
+  const data = { rankings, news, steam, youtube, chzzk, community };
 
   // games.json 로드 (게임 허브용)
   let gamesData = {};
@@ -1249,34 +731,11 @@ async function main() {
     }
   }
 
-  // GA4 인기 기사 데이터 수집 (24시간 쿨타임, 독립 실행)
-  if (process.env.GA4_SERVICE_ACCOUNT && shouldFetchPopularArticles()) {
-    console.log('  📰 GA4 인기 기사 데이터 수집 중...');
-    try {
-      await savePopularArticles();
-      console.log('  ✅ 인기 기사 데이터 갱신 완료');
-    } catch (err) {
-      console.warn('  ⚠️ GA4 인기 기사 수집 실패:', err.message);
-    }
-  }
-
   // 인기 게임 데이터 로드
   const popularGamesData = loadPopularGames();
   if (popularGamesData.games && popularGamesData.games.length > 0) {
     console.log(`  📊 인기 게임 데이터 로드: TOP ${popularGamesData.games.length}`);
   }
-
-  // 인기 기사 데이터 로드
-  const popularArticlesData = loadPopularArticles();
-  if (popularArticlesData.articles && popularArticlesData.articles.length > 0) {
-    console.log(`  📰 인기 기사 데이터 로드: TOP ${popularArticlesData.articles.length}`);
-  }
-
-  // 위키 데이터 로드 (홈페이지용)
-  const homeWikiData = loadWikiData();
-
-  // 테크 데이터 로드 (홈페이지용)
-  const homeTechData = loadTechData();
 
   // CSS 파일 번들링 + 압축 (코어/페이지군 분리)
   let didBundleCss = false;
@@ -1381,77 +840,12 @@ async function main() {
   }
 
   // 전역 CSS 파일명 설정 (템플릿에서 사용)
-  setCssAssetVersion(currentCssAssetVersion);
-  setCssFilename(cssFilename);
-
-  // 글로벌 사이드바 카운트 초기 설정 (위키/테크만, 매거진 counts는 나중에 업데이트)
-  setGlobalSidebarCounts({
-    issue: 0,
-    insight: 0,
-    hotpick: 0,
-    ranking: 0,
-    history: (homeWikiData.history || []).length,
-    knowledge: (homeWikiData.knowledge || []).length,
-    business: (homeWikiData.business || []).length,
-    normal: (homeTechData?.normal || []).length,
-    ai: (homeTechData?.ai || []).length,
-    vibecoding: (homeTechData?.vibecoding || []).length
-  });
 
   // 캐시 버전 해시 (데이터 변경 시 브라우저 캐시 자동 무효화)
   const searchVersionPath = path.join('./docs', 'games', '.search-version');
   const searchIndexVersion = fs.existsSync(searchVersionPath) ? fs.readFileSync(searchVersionPath, 'utf8').trim() : '';
-  if (searchIndexVersion) setSearchIndexVersion(searchIndexVersion);
-
-  // 공통 런타임 번들 생성 (HTML 인라인 스크립트 분리)
-  const WEB_ASSETS_DIR = './assets';
-  if (!fs.existsSync(WEB_ASSETS_DIR)) {
-    fs.mkdirSync(WEB_ASSETS_DIR, { recursive: true });
-  }
-  const layoutCoreBundle = buildLayoutCoreBundle();
-  const layoutRuntimeBundle = buildLayoutRuntimeBundle({ searchIndexVersion });
-  const runtimeAssetVersion = crypto
-    .createHash('md5')
-    .update(layoutCoreBundle)
-    .update(layoutRuntimeBundle)
-    .digest('hex')
-    .slice(0, 8);
-  setRuntimeAssetVersion(runtimeAssetVersion);
-
-  fs.writeFileSync(`${WEB_ASSETS_DIR}/${LAYOUT_CORE_ASSET}`, layoutCoreBundle, 'utf8');
-  fs.writeFileSync(
-    `${WEB_ASSETS_DIR}/${LAYOUT_RUNTIME_ASSET}`,
-    layoutRuntimeBundle,
-    'utf8'
-  );
-
   const rankingsCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.rankings || {})).digest('hex').slice(0, 8);
   const steamCacheVersion = crypto.createHash('md5').update(JSON.stringify(data.steam || {})).digest('hex').slice(0, 8);
-
-  // 상단 바 오른쪽 "갱신" 시각 (마지막 수집 시각)
-  try { if (data.timestamp) setHeaderStatus(`${require('./src/rank/stats').util.tsText(data.timestamp)} 갱신`); } catch {}
-
-  const pages = [
-    { filename: 'rankings.html', generator: (d) => generateRankingsHome(d, gamesData, rankingsCacheVersion) },
-    { filename: 'steam.html', generator: (d) => generateSteamHome(d, steamCacheVersion) },
-    { filename: 'games/index.html', generator: () => generateGamesHubPage({ games: gamesData, popularGames: popularGamesData.games || [], searchIndexVersion }) },
-      { filename: '404.html', generator: generate404Page }
-  ];
-
-  for (const page of pages) {
-    try {
-      const html = page.generator(data);
-      // 디렉토리가 있으면 생성
-      const dir = require('path').dirname(page.filename);
-      if (dir !== '.' && !fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-      }
-      fs.writeFileSync(page.filename, html, 'utf8');
-      console.log(`  ✅ ${page.filename}`);
-    } catch (err) {
-      console.error(`  ❌ ${page.filename}: ${err.message}`);
-    }
-  }
 
   // 루트 디렉토리의 이전 해시 CSS 파일 정리
   if (!isCssFrozen) try {
@@ -1473,16 +867,6 @@ async function main() {
   // 계속 서빙되는 화석 페이지를 방지한다. 사이트맵에는 원래 없던 페이지들이다.
   try {
     const orphanTargets = [
-      { pagesDir: './docs/magazine/issue', sourceDir: path.join(__dirname, 'reports', 'issue') },
-      { pagesDir: './docs/magazine/hotpick', sourceDir: path.join(__dirname, 'reports', 'hotpick') },
-      { pagesDir: './docs/magazine/insight', sourceDir: path.join(__dirname, 'reports', 'insight') },
-      { pagesDir: './docs/magazine/ranking', sourceDir: path.join(__dirname, 'reports', 'ranking') },
-      // 루트 magazine/은 docs/로 통째 복사되는 중간 산출물이라, 여기 남은 고아 페이지가
-      // 위 docs/ 정리 직후 다시 복사돼 되살아난다 (2026-09-09). 같은 기준으로 함께 정리한다.
-      { pagesDir: './magazine/issue', sourceDir: path.join(__dirname, 'reports', 'issue') },
-      { pagesDir: './magazine/hotpick', sourceDir: path.join(__dirname, 'reports', 'hotpick') },
-      { pagesDir: './magazine/insight', sourceDir: path.join(__dirname, 'reports', 'insight') },
-      { pagesDir: './magazine/ranking', sourceDir: path.join(__dirname, 'reports', 'ranking') },
       { pagesDir: './docs/wiki/business', sourceDir: path.join(__dirname, 'data', 'wiki', 'business') },
       { pagesDir: './docs/wiki/history', sourceDir: path.join(__dirname, 'data', 'wiki', 'history') },
       { pagesDir: './docs/wiki/knowledge', sourceDir: path.join(__dirname, 'data', 'wiki', 'knowledge') },
@@ -1500,15 +884,6 @@ async function main() {
         if (!entry.isDirectory() || validSlugs.has(entry.name)) continue;
         fs.rmSync(path.join(target.pagesDir, entry.name), { recursive: true, force: true });
         console.log(`  🧹 고아 페이지 제거: ${target.pagesDir.replace('./docs/', '')}/${entry.name}`);
-      }
-    }
-    // 옛 매거진 허브·목록 index.html 제거 (생성 중단, 미들웨어 301) — 루트 중간 산출물과 docs/ 양쪽 (2026-09-09)
-    if (!LEGACY_MAGAZINE_HUBS) {
-      for (const base of ['./magazine', './docs/magazine']) {
-        for (const rel of ['index.html', 'issue/index.html', 'insight/index.html', 'hotpick/index.html', 'ranking/index.html']) {
-          const file = path.join(base, rel);
-          if (fs.existsSync(file)) { fs.unlinkSync(file); console.log(`  🧹 옛 매거진 허브 제거: ${file}`); }
-        }
       }
     }
     // tech/normal 허브 화석 완전 제거 (매거진 재배치 완료 — deploy 브랜치 seed로 되살아나는 index.html 포함)
@@ -1570,561 +945,47 @@ async function main() {
     }
   }
 
-  // ============================================
-  // 트렌드 리포트 페이지 생성 (목록 + 상세)
-  // ============================================
-  console.log('\n📊 트렌드 리포트 페이지 생성 중...');
-
-  // 3. 목록 페이지 생성 (magazine/index.html)
-  const magazineDir = './magazine';
-  if (!fs.existsSync(magazineDir)) {
-    fs.mkdirSync(magazineDir, { recursive: true });
-  }
-
-  // 이슈 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
-  const ISSUE_REPORTS_DIR = './reports/issue';
-  let issueReports = [];
-  if (fs.existsSync(ISSUE_REPORTS_DIR)) {
-    const files = fs.readdirSync(ISSUE_REPORTS_DIR).filter(f => f.endsWith('.json'));
-    issueReports = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${ISSUE_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${ISSUE_REPORTS_DIR}/${f}`, 'KST');
-        data._jsonFilePath = `${ISSUE_REPORTS_DIR}/${f}`;
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && p.site !== 'aiscroll' && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  // 인사이트 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
-  const INSIGHT_REPORTS_DIR = './reports/insight';
-  let insightReports = [];
-  if (fs.existsSync(INSIGHT_REPORTS_DIR)) {
-    const files = fs.readdirSync(INSIGHT_REPORTS_DIR).filter(f => f.endsWith('.json'));
-    insightReports = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${INSIGHT_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${INSIGHT_REPORTS_DIR}/${f}`, 'KST');
-        data._jsonFilePath = `${INSIGHT_REPORTS_DIR}/${f}`;
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  // 핫픽 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
-  const HOTPICK_REPORTS_DIR = './reports/hotpick';
-  let hotpickReports = [];
-  if (fs.existsSync(HOTPICK_REPORTS_DIR)) {
-    const files = fs.readdirSync(HOTPICK_REPORTS_DIR).filter(f => f.endsWith('.json'));
-    hotpickReports = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${HOTPICK_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${HOTPICK_REPORTS_DIR}/${f}`, 'KST');
-        data._jsonFilePath = `${HOTPICK_REPORTS_DIR}/${f}`;
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  // 순위 분석 리포트 데이터 로드 (허브/상세에서 사용, 승인된 것만 노출)
-  const RANKING_REPORTS_DIR = './reports/ranking';
-  let rankingReports = [];
-  if (fs.existsSync(RANKING_REPORTS_DIR)) {
-    const files = fs.readdirSync(RANKING_REPORTS_DIR).filter(f => f.endsWith('.json'));
-    rankingReports = files.map(f => {
-      try {
-        const data = JSON.parse(fs.readFileSync(`${RANKING_REPORTS_DIR}/${f}`, 'utf8').replace(/^\uFEFF/, ''));
-        ensurePublishDate(data, `${RANKING_REPORTS_DIR}/${f}`, 'KST');
-        data._jsonFilePath = `${RANKING_REPORTS_DIR}/${f}`;
-        return data;
-      } catch (e) {
-        return null;
-      }
-    })
-      .filter(p => p && (p.status === 'approved' || (includeDrafts && p.status === 'draft')))
-      .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99'));
-  }
-
-  // 공통 인기글/최신글 리스트 생성 (홈, 매거진, 위키에서 공유)
-  const categoryNames = { history: '히스토리', knowledge: '지식', business: '비즈니스' };
-  const techCategoryNames = { normal: '일반', ai: 'AI', vibecoding: '바이브코딩' };
-  const wikiDataForSidebar = loadWikiData();
-  const techDataForSidebar = loadTechData();
-  const allSidebarArticles = [];
-  // 이슈 리포트 추가
-  issueReports.forEach(issue => {
-    allSidebarArticles.push({ title: issue.title, link: `/magazine/issue/${issue.slug}/`, badge: '이슈', date: issue.date || '' });
-  });
-  // 인사이트 리포트 추가
-  insightReports.forEach(insight => {
-    allSidebarArticles.push({ title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트', date: insight.date || '' });
-  });
-  // 핫픽 리포트 추가
-  hotpickReports.forEach(hotpick => {
-    allSidebarArticles.push({ title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽', date: hotpick.date || '' });
-  });
-  // 순위 분석 리포트 추가
-  rankingReports.forEach(ranking => {
-    allSidebarArticles.push({ title: ranking.title, link: `/magazine/ranking/${ranking.slug}/`, badge: '순위 분석', date: ranking.date || '' });
-  });
-  // 위키 추가
-  for (const cat of Object.keys(wikiDataForSidebar)) {
-    for (const article of (wikiDataForSidebar[cat] || [])) {
-      allSidebarArticles.push({ title: article.title, link: `/wiki/${cat}/${article.slug}/`, badge: categoryNames[cat] || cat, date: article.date || '' });
-    }
-  }
-  // 테크 추가
-  for (const cat of Object.keys(techDataForSidebar)) {
-    for (const article of (techDataForSidebar[cat] || [])) {
-      allSidebarArticles.push({ title: article.title, link: `/tech/${cat}/${article.slug}/`, badge: techCategoryNames[cat] || '테크', date: article.date || '' });
-    }
-  }
-  // 인기글: GA4 데이터 기반 (썸네일, 요약 포함) - 카테고리별 10위 확보 위해 200개 조회
-  let sidebarPopularArticles = (popularArticlesData.articles || []).slice(0, 200).map(article => {
-    if (article.type === 'issue') {
-      const issue = issueReports.find(i => i.slug === article.slug);
-      if (issue) return { title: issue.title, link: `/magazine/issue/${issue.slug}/`, badge: '이슈', thumbnail: issue.thumbnail || '', summary: issue.summary || '', type: 'issue', slug: issue.slug };
-    } else if (article.type === 'insight') {
-      const insight = insightReports.find(i => i.slug === article.slug);
-      if (insight) return { title: insight.title, link: `/magazine/insight/${insight.slug}/`, badge: '인사이트', thumbnail: insight.thumbnail || '', summary: insight.summary || '', type: 'insight', slug: insight.slug };
-    } else if (article.type === 'hotpick') {
-      const hotpick = hotpickReports.find(h => h.slug === article.slug);
-      if (hotpick) return { title: hotpick.title, link: `/magazine/hotpick/${hotpick.slug}/`, badge: '핫픽', thumbnail: hotpick.thumbnail || '', summary: hotpick.summary || '', type: 'hotpick', slug: hotpick.slug };
-    } else if (article.type === 'ranking') {
-      const ranking = rankingReports.find(r => r.slug === article.slug);
-      if (ranking) return { title: ranking.title, link: `/magazine/ranking/${ranking.slug}/`, badge: '순위 분석', thumbnail: ranking.thumbnail || '', summary: ranking.summary || '', type: 'ranking', slug: ranking.slug };
-    } else if (article.type === 'wiki' && article.category) {
-      const wikiList = wikiDataForSidebar[article.category] || [];
-      const wiki = wikiList.find(w => w.slug === article.slug);
-      if (wiki) return { title: wiki.title, link: `/wiki/${article.category}/${article.slug}/`, badge: categoryNames[article.category], thumbnail: wiki.thumbnail || '', summary: wiki.summary || '', type: 'wiki', category: article.category, slug: wiki.slug };
-    } else if (article.type === 'tech' && article.category) {
-      const techList = techDataForSidebar[article.category] || [];
-      const tech = techList.find(t => t.slug === article.slug);
-      if (tech) return { title: tech.title, link: `/tech/${article.category}/${article.slug}/`, badge: techCategoryNames[article.category] || '테크', thumbnail: tech.thumbnail || '', summary: tech.summary || '', type: 'tech', category: article.category, slug: tech.slug };
-    }
-    return null;
-  }).filter(Boolean);
-
-  // === 인기글: GA4 기반 카테고리별 10위 ===
-  const sidebarPopularAll = sidebarPopularArticles.slice(0, 10);
-  const sidebarPopularMagazine = sidebarPopularArticles
-    .filter(a => ['issue', 'insight', 'hotpick', 'ranking'].includes(a.type)).slice(0, 10);
-  const sidebarPopularWiki = sidebarPopularArticles
-    .filter(a => a.type === 'wiki').slice(0, 10);
-  const sidebarPopularTech = sidebarPopularArticles
-    .filter(a => a.type === 'tech').slice(0, 10);
-
-  // === 최신글: 날짜순 카테고리별 10개 ===
-  const sidebarLatestAll = [...allSidebarArticles]
-    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
-  const sidebarLatestMagazine = allSidebarArticles
-    .filter(a => ['이슈', '인사이트', '핫픽', '순위 분석'].includes(a.badge))
-    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
-  const sidebarLatestWiki = allSidebarArticles
-    .filter(a => ['히스토리', '지식', '비즈니스'].includes(a.badge))
-    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
-  const sidebarLatestTech = allSidebarArticles
-    .filter(a => ['일반', 'AI', '바이브코딩'].includes(a.badge))
-    .sort((a, b) => (b.date || '9999-99-99').localeCompare(a.date || '9999-99-99')).slice(0, 10);
-
-  console.log(`  📰 사이드바 인기글: 전체 ${sidebarPopularAll.length}개, 매거진 ${sidebarPopularMagazine.length}개, 위키 ${sidebarPopularWiki.length}개, 테크 ${sidebarPopularTech.length}개`);
-  console.log(`  📰 사이드바 최신글: 전체 ${sidebarLatestAll.length}개, 매거진 ${sidebarLatestMagazine.length}개, 위키 ${sidebarLatestWiki.length}개, 테크 ${sidebarLatestTech.length}개`);
-
-  if (LEGACY_MAGAZINE_HUBS) try {
-    const hubHtml = generateTrendsHubPage({
-      issueReports: issueReports.map(p => ({
-        slug: p.slug,
-        title: p.title,
-        date: p.date,
-        thumbnail: p.thumbnail,
-        summary: p.summary
-      })),
-      insightReports: insightReports.map(p => ({
-        slug: p.slug,
-        title: p.title,
-        date: p.date,
-        thumbnail: p.thumbnail,
-        summary: p.summary
-      })),
-      hotpickReports: hotpickReports.map(p => ({
-        slug: p.slug,
-        title: p.title,
-        date: p.date,
-        thumbnail: p.thumbnail,
-        summary: p.summary
-      })),
-      rankingReports: rankingReports.map(p => ({
-        slug: p.slug,
-        title: p.title,
-        date: p.date,
-        thumbnail: p.thumbnail,
-        summary: p.summary
-      })),
-      news: news,
-      wikiData: loadWikiData(),
-      techData: loadTechData(),
-      sidebarPopularArticles: sidebarPopularMagazine,
-      sidebarLatestArticles: sidebarLatestMagazine
-    });
-    fs.writeFileSync(`${magazineDir}/index.html`, hubHtml, 'utf8');
-    console.log(`  ✅ magazine/index.html`);
-  } catch (err) {
-    console.error(`  ❌ magazine/index.html: ${err.message}`);
-  }
-
-  // 4. 카테고리 목록 페이지 생성 (issue/index.html 등)
-  const categoryPageData = {
-    issueReports: issueReports.map(p => ({
-      slug: p.slug,
-      title: p.title,
-      date: p.date,
-      thumbnail: p.thumbnail,
-      summary: p.summary
-    })),
-    insightReports: insightReports.map(p => ({
-      slug: p.slug,
-      title: p.title,
-      date: p.date,
-      thumbnail: p.thumbnail,
-      summary: p.summary
-    })),
-    hotpickReports: hotpickReports.map(p => ({
-      slug: p.slug,
-      title: p.title,
-      date: p.date,
-      thumbnail: p.thumbnail,
-      summary: p.summary
-    })),
-    rankingReports: rankingReports.map(p => ({
-      slug: p.slug,
-      title: p.title,
-      date: p.date,
-      thumbnail: p.thumbnail,
-      summary: p.summary
-    })),
-    wikiData: loadWikiData(),
-    techData: loadTechData(),
-    sidebarPopularArticles: sidebarPopularMagazine,
-    sidebarLatestArticles: sidebarLatestMagazine
-  };
-
-  // Issue 목록 페이지
-  const issueDir = `${magazineDir}/issue`;
-  if (!fs.existsSync(issueDir)) {
-    fs.mkdirSync(issueDir, { recursive: true });
-  }
-  if (LEGACY_MAGAZINE_HUBS) try {
-    const issueListHtml = generateIssueListPage(categoryPageData);
-    fs.writeFileSync(`${issueDir}/index.html`, issueListHtml, 'utf8');
-    console.log(`  ✅ magazine/issue/index.html`);
-  } catch (err) {
-    console.error(`  ❌ magazine/issue/index.html: ${err.message}`);
-  }
-
-  // Insight 목록 페이지
-  const insightDir = `${magazineDir}/insight`;
-  if (!fs.existsSync(insightDir)) {
-    fs.mkdirSync(insightDir, { recursive: true });
-  }
-  if (LEGACY_MAGAZINE_HUBS) try {
-    const insightListHtml = generateInsightListPage({ ...categoryPageData, insightReports });
-    fs.writeFileSync(`${insightDir}/index.html`, insightListHtml, 'utf8');
-    console.log(`  ✅ magazine/insight/index.html`);
-  } catch (err) {
-    console.error(`  ❌ magazine/insight/index.html: ${err.message}`);
-  }
-
-  // Hotpick 목록 페이지
-  const hotpickDir = `${magazineDir}/hotpick`;
-  if (!fs.existsSync(hotpickDir)) {
-    fs.mkdirSync(hotpickDir, { recursive: true });
-  }
-  if (LEGACY_MAGAZINE_HUBS) try {
-    const hotpickListHtml = generateHotpickListPage({ ...categoryPageData, hotpickReports });
-    fs.writeFileSync(`${hotpickDir}/index.html`, hotpickListHtml, 'utf8');
-    console.log(`  ✅ magazine/hotpick/index.html`);
-  } catch (err) {
-    console.error(`  ❌ magazine/hotpick/index.html: ${err.message}`);
-  }
-
-  // Ranking 목록 페이지
-  const rankingDir = `${magazineDir}/ranking`;
-  if (!fs.existsSync(rankingDir)) {
-    fs.mkdirSync(rankingDir, { recursive: true });
-  }
-  if (LEGACY_MAGAZINE_HUBS) try {
-    const rankingListHtml = generateRankingListPage({ ...categoryPageData, rankingReports });
-    fs.writeFileSync(`${rankingDir}/index.html`, rankingListHtml, 'utf8');
-    console.log(`  ✅ magazine/ranking/index.html`);
-  } catch (err) {
-    console.error(`  ❌ magazine/ranking/index.html: ${err.message}`);
-  }
-
-  // 글로벌 사이드바 카운트 설정 (상세 페이지 생성 전 필요)
-  setGlobalSidebarCounts({
-    issue: issueReports.length,
-    insight: insightReports.length,
-    hotpick: hotpickReports.length,
-    ranking: rankingReports.length,
-    history: (homeWikiData.history || []).length,
-    knowledge: (homeWikiData.knowledge || []).length,
-    business: (homeWikiData.business || []).length,
-    normal: (homeTechData?.normal || []).length,
-    ai: (homeTechData?.ai || []).length,
-    vibecoding: (homeTechData?.vibecoding || []).length
-  });
-
-  // 7. 이슈 리포트 페이지 생성 (magazine/issue/{slug}/index.html)
-  const wikiDataForIssue = loadWikiData(); // 이슈 리포트에서 관련 위키 참조용
-  const techDataForIssue = loadTechData(); // 이슈 리포트 사이드바 카운트용
-  const wikiCounts = {
-    history: (wikiDataForIssue.history || []).length,
-    knowledge: (wikiDataForIssue.knowledge || []).length,
-    business: (wikiDataForIssue.business || []).length
-  };
-  const techCounts = {
-    normal: (techDataForIssue.normal || []).length,
-    ai: (techDataForIssue.ai || []).length,
-    vibecoding: (techDataForIssue.vibecoding || []).length
-  };
-  const magazineCounts = {
-    issue: issueReports.length,
-    insight: insightReports.length,
-    hotpick: hotpickReports.length,
-    ranking: rankingReports.length
-  };
-
-  if (issueReports.length > 0) {
-    let issueBuilt = 0, issueSkipped = 0;
-
-    for (let i = 0; i < issueReports.length; i++) {
-      const post = issueReports[i];
-      const pageDir = `${issueDir}/${post.slug}`;
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-
-      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
-      const cacheKey = post.slug;
-      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
-      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.issues, cacheKey, post)) {
-        issueSkipped++;
-        continue;
-      }
-
-      try {
-        const nav = {
-          prev: issueReports[i + 1] ? { slug: issueReports[i + 1].slug, title: issueReports[i + 1].title } : null,
-          next: issueReports[i - 1] ? { slug: issueReports[i - 1].slug, title: issueReports[i - 1].title } : null
-        };
-        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
-        const html = generateIssueDetailPage({ post, nav, parsedRelatedDocs, issueReports, insightReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
-        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-        buildCache.updateCacheSection(incrementalCache.issues, cacheKey, post);
-        issueBuilt++;
-      } catch (err) {
-        console.error(`  ❌ magazine/issue/${post.slug}: ${err.message}`);
-      }
-    }
-    buildCache.printBuildStats({ total: issueReports.length, built: issueBuilt, skipped: issueSkipped, type: '이슈 리포트 페이지' });
-  }
-
-  // 9. 인사이트 리포트 페이지 생성 (magazine/insight/{slug}/index.html)
-  if (insightReports.length > 0) {
-    let insightBuilt = 0, insightSkipped = 0;
-
-    for (let i = 0; i < insightReports.length; i++) {
-      const post = insightReports[i];
-      const pageDir = `${insightDir}/${post.slug}`;
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-
-      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
-      const cacheKey = post.slug;
-      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
-      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.insights, cacheKey, post)) {
-        insightSkipped++;
-        continue;
-      }
-
-      try {
-        const nav = {
-          prev: insightReports[i + 1] ? { slug: insightReports[i + 1].slug, title: insightReports[i + 1].title } : null,
-          next: insightReports[i - 1] ? { slug: insightReports[i - 1].slug, title: insightReports[i - 1].title } : null
-        };
-        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
-        const html = generateInsightDetailPage({ post, nav, parsedRelatedDocs, insightReports, issueReports, hotpickReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
-        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-        buildCache.updateCacheSection(incrementalCache.insights, cacheKey, post);
-        insightBuilt++;
-      } catch (err) {
-        console.error(`  ❌ magazine/insight/${post.slug}: ${err.message}`);
-      }
-    }
-    buildCache.printBuildStats({ total: insightReports.length, built: insightBuilt, skipped: insightSkipped, type: '인사이트 리포트 페이지' });
-  }
-
-  // 10. 핫픽 리포트 페이지 생성 (magazine/hotpick/{slug}/index.html)
-  if (hotpickReports.length > 0) {
-    let hotpickBuilt = 0, hotpickSkipped = 0;
-
-    for (let i = 0; i < hotpickReports.length; i++) {
-      const post = hotpickReports[i];
-      const pageDir = `${hotpickDir}/${post.slug}`;
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-
-      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
-      const cacheKey = post.slug;
-      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
-      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.hotpicks, cacheKey, post)) {
-        hotpickSkipped++;
-        continue;
-      }
-
-      try {
-        const nav = {
-          prev: hotpickReports[i + 1] ? { slug: hotpickReports[i + 1].slug, title: hotpickReports[i + 1].title } : null,
-          next: hotpickReports[i - 1] ? { slug: hotpickReports[i - 1].slug, title: hotpickReports[i - 1].title } : null
-        };
-        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
-        const html = generateHotpickDetailPage({ post, nav, parsedRelatedDocs, hotpickReports, issueReports, insightReports, rankingReports, wikiData: wikiDataForIssue, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
-        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-        buildCache.updateCacheSection(incrementalCache.hotpicks, cacheKey, post);
-        hotpickBuilt++;
-      } catch (err) {
-        console.error(`  ❌ magazine/hotpick/${post.slug}: ${err.message}`);
-      }
-    }
-    buildCache.printBuildStats({ total: hotpickReports.length, built: hotpickBuilt, skipped: hotpickSkipped, type: '핫픽 리포트 페이지' });
-  }
-
-  // 11. 순위 분석 리포트 페이지 생성 (magazine/ranking/{slug}/index.html)
-  if (rankingReports.length > 0) {
-    let rankingBuilt = 0, rankingSkipped = 0;
-
-    for (let i = 0; i < rankingReports.length; i++) {
-      const post = rankingReports[i];
-      const pageDir = `${rankingDir}/${post.slug}`;
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-
-      // 증분 빌드: 캐시 체크 (HTML 파일 존재 여부도 확인)
-      const cacheKey = post.slug;
-      const htmlExists = fs.existsSync(path.join(pageDir, 'index.html'));
-      if (!forceFullRebuild && htmlExists && !buildCache.checkItemChanged(incrementalCache.rankings, cacheKey, post)) {
-        rankingSkipped++;
-        continue;
-      }
-
-      try {
-        const nav = {
-          prev: rankingReports[i + 1] ? { slug: rankingReports[i + 1].slug, title: rankingReports[i + 1].title } : null,
-          next: rankingReports[i - 1] ? { slug: rankingReports[i - 1].slug, title: rankingReports[i - 1].title } : null
-        };
-        const parsedRelatedDocs = parseRelatedDocs(post, null, wikiDataForIssue, techDataForSidebar, issueReports, insightReports, hotpickReports, rankingReports);
-        const html = generateRankingDetailPage({ post, nav, parsedRelatedDocs, rankingReports, issueReports, insightReports, hotpickReports, wikiData: wikiDataForIssue, techData: techDataForSidebar, wikiCounts, techCounts, magazineCounts, sidebarPopularArticles: sidebarPopularMagazine, sidebarLatestArticles: sidebarLatestMagazine });
-        fs.writeFileSync(`${pageDir}/index.html`, html, 'utf8');
-        buildCache.updateCacheSection(incrementalCache.rankings, cacheKey, post);
-        rankingBuilt++;
-      } catch (err) {
-        console.error(`  ❌ magazine/ranking/${post.slug}: ${err.message}`);
-      }
-    }
-    buildCache.printBuildStats({ total: rankingReports.length, built: rankingBuilt, skipped: rankingSkipped, type: '순위 분석 리포트 페이지' });
-  }
-
-  // 글로벌 사이드바 카운트 설정 (모든 페이지에서 사용)
-  setGlobalSidebarCounts({
-    issue: issueReports.length,
-    insight: insightReports.length,
-    hotpick: hotpickReports.length,
-    ranking: rankingReports.length,
-    history: (homeWikiData.history || []).length,
-    knowledge: (homeWikiData.knowledge || []).length,
-    business: (homeWikiData.business || []).length,
-    normal: (homeTechData?.normal || []).length,
-    ai: (homeTechData?.ai || []).length,
-    vibecoding: (homeTechData?.vibecoding || []).length
-  });
-
-  // 기타 페이지 재생성 (정확한 매거진 counts 반영)
-  const latePages = [
-    { filename: 'rankings.html', generator: (d) => generateRankingsHome(d, gamesData, rankingsCacheVersion) },
-    { filename: 'steam.html', generator: (d) => generateSteamHome(d, steamCacheVersion) },
-    { filename: '404.html', generator: generate404Page }
-  ];
-  for (const page of latePages) {
-    try {
-      const html = page.generator(data);
-      fs.writeFileSync(page.filename, html, 'utf8');
-    } catch (err) {
-      console.error(`  ❌ ${page.filename} 재생성: ${err.message}`);
-    }
-  }
-
-  // 홈 페이지 생성 (매거진 로드 후, 정확한 개수 반영)
-  try {
-    const homeData = { ...data, issueReportsCount: issueReports.length, insightReports, hotpickReports, rankingReports };
-    const indexHtml = generateIndexPage({ ...homeData, popularGames: popularGamesData.games || [], popularArticles: popularArticlesData.articles || [], games: gamesData, wikiData: homeWikiData, techData: homeTechData, sidebarPopularArticles: sidebarPopularAll, sidebarLatestArticles: sidebarLatestAll });
-    fs.writeFileSync('./index.html', indexHtml, 'utf8');
-    console.log(`  ✅ index.html`);
-  } catch (err) {
-    console.error(`  ❌ index.html: ${err.message}`);
-  }
-
-  // 위키 페이지 생성은 2026-09-09 폐기 (loadWikiData 주석 참고). 테크 빌드가 참조하는 빈 데이터만 유지한다.
-  const wikiData = loadWikiData();
-  const techData = loadTechData();
-
-  // 테크 페이지 빌드는 2026-09-09 제거 (Stage 3에서 AI스크롤로 이관된 뒤 빈 카테고리 루프만 남아 있었음).
-  // /tech/* 는 functions/_middleware.js 가 301 처리한다.
-
-  // 카드 deferred JSON을 외부 정적 파일로 분리 (초기 HTML 경량화)
-  externalizeDeferredJsonPayloads();
-
   // docs 폴더 동기화 (로컬 개발 환경용)
   // 통합 반응형 빌드: 단일 docs/ 폴더에 출력
   const DOCS_DIR = './docs';
   if (!fs.existsSync(DOCS_DIR)) {
     fs.mkdirSync(DOCS_DIR, { recursive: true });
   }
-  fs.copyFileSync('./index.html', `${DOCS_DIR}/index.html`);
-  fs.copyFileSync('./404.html', `${DOCS_DIR}/404.html`);
   require('./src/build/publisher-marks').copyPublisherMarks(__dirname, path.resolve(DOCS_DIR));
-  const subPages = ['rankings', 'steam'];
-  for (const page of subPages) {
-    const pageDir = `${DOCS_DIR}/${page}`;
-    if (!fs.existsSync(pageDir)) {
-      fs.mkdirSync(pageDir, { recursive: true });
-    }
-    fs.copyFileSync(`./${page}.html`, `${pageDir}/index.html`);
-  }
-  // 순위 허브 하위 페이지 (docs/rankings/{jp,us,cn,tw,global,records,monthly/YYYY-MM}/)
-  const rankSitemapEntries = writeRankHubSubpages(DOCS_DIR);
-
-  // privacy 페이지는 writeRankHubSubpages 에서 템플릿으로 생성한다 (2026-09-09, 루트 정적 HTML 복사 폐기)
+  // Edition build: every static page (home, rankings + sub pages, steam, games hub, about, privacy, 404, client data)
+  // is rendered once per edition: en → docs/, others → docs/<prefix>/.
+  fs.rmSync(FEED_ASSETS_DIR, { recursive: true, force: true });
+  ensureDir(FEED_ASSETS_DIR);
+  const editionResults = buildEditions({
+    docsDir: DOCS_DIR,
+    feedDir: FEED_ASSETS_DIR,
+    cssFilename,
+    cssVersion: currentCssAssetVersion,
+    gamesData,
+    popularGames: popularGamesData.games || [],
+    data,
+    rankingsCacheVersion,
+    steamCacheVersion
+  });
+  const runtimeAssetVersion = crypto.createHash('md5').update(editionResults.map((r) => r.assets.version).join('|')).digest('hex').slice(0, 8);
+  const englishAssets = editionResults.find((r) => r.code === 'en').assets;
 
   // 위키 폴더(./wiki → docs/wiki) 복사는 2026-09-09 폐기. 배포본에 남은 docs/wiki 잔재는 매 빌드 제거한다.
   try {
     if (fs.existsSync(`${DOCS_DIR}/wiki`)) {
       fs.rmSync(`${DOCS_DIR}/wiki`, { recursive: true, force: true });
       console.log('  🧹 docs/wiki 잔재 제거 (위키 폐기)');
+    }
+    // 매거진·리포트 섹션 폐기: deploy 브랜치 seed 로 되살아나는 docs/magazine, docs/reports 제거
+    for (const dead of ['magazine', 'reports']) {
+      if (fs.existsSync(`${DOCS_DIR}/${dead}`)) {
+        fs.rmSync(`${DOCS_DIR}/${dead}`, { recursive: true, force: true });
+        console.log(`  🧹 docs/${dead} 잔재 제거 (매거진·리포트 폐기)`);
+      }
+    }
+    if (fs.existsSync(`${DOCS_DIR}/rss.xml`)) {
+      fs.rmSync(`${DOCS_DIR}/rss.xml`, { force: true });
+      console.log('  🧹 docs/rss.xml 잔재 제거 (RSS 폐기)');
     }
     if (fs.existsSync(`${DOCS_DIR}/upcoming`)) {
       fs.rmSync(`${DOCS_DIR}/upcoming`, { recursive: true, force: true });
@@ -2155,131 +1016,6 @@ async function main() {
     }
   } catch (err) {
     console.warn('  ⚠️ tech 폴더 복사 실패:', err.message);
-  }
-
-  // steam 탭 전환용 데이터(JSON) 생성 (초기 HTML/DOM 부하 줄이기)
-  try {
-    const steamDir = `${DOCS_DIR}/steam`;
-    if (!fs.existsSync(steamDir)) {
-      fs.mkdirSync(steamDir, { recursive: true });
-    }
-
-    const topSellers = Array.isArray(steam?.topSellers) ? steam.topSellers.map(g => ({
-      name: g?.name || '',
-      developer: g?.developer || '',
-      img: g?.img || '',
-      price: g?.price || '',
-      discount: g?.discount || ''
-    })) : [];
-
-    const mostPlayed = Array.isArray(steam?.mostPlayed) ? steam.mostPlayed.map(g => ({
-      name: g?.name || '',
-      developer: g?.developer || '',
-      img: g?.img || '',
-      ccu: g?.ccu ?? 0
-    })) : [];
-
-    fs.writeFileSync(`${steamDir}/data.json`, JSON.stringify({ topSellers, mostPlayed }), 'utf8');
-  } catch (err) {
-    console.warn('  ⚠️ steam/data.json 생성 실패:', err.message);
-  }
-
-  // rankings 탭 전환용 데이터(JSON) 생성 (초기 HTML/DOM 부하 줄이기)
-  try {
-    const rankingsDir = `${DOCS_DIR}/rankings`;
-    if (!fs.existsSync(rankingsDir)) {
-      fs.mkdirSync(rankingsDir, { recursive: true });
-    }
-
-    const iosSlugMap = {};
-    const androidSlugMap = {};
-    const regions = ['kr', 'jp', 'us', 'cn', 'tw'];
-    Object.values(gamesData || {}).forEach(g => {
-      if (!g || !g.slug || !g.appIds) return;
-      // 기본 iOS/Android
-      if (g.appIds.ios) iosSlugMap[String(g.appIds.ios)] = g.slug;
-      if (g.appIds.android) androidSlugMap[String(g.appIds.android)] = g.slug;
-      // 지역별 앱 ID (ios_cn, ios_jp, android_jp 등)
-      regions.forEach(r => {
-        if (g.appIds[`ios_${r}`]) iosSlugMap[String(g.appIds[`ios_${r}`])] = g.slug;
-        if (g.appIds[`android_${r}`]) androidSlugMap[String(g.appIds[`android_${r}`])] = g.slug;
-      });
-    });
-
-	    function buildChart(chartData) {
-	      const out = {};
-	      const entries = Object.entries(chartData || {});
-	      for (const [countryCode, perCountry] of entries) {
-	        const iosList = Array.isArray(perCountry?.ios) ? perCountry.ios : [];
-	        const androidList = Array.isArray(perCountry?.android) ? perCountry.android : [];
-	        out[countryCode] = {
-	          ios: iosList.map(app => ({ ...app, slug: iosSlugMap[String(app?.appId)] || null })),
-	          android: androidList.map(app => ({ ...app, slug: androidSlugMap[String(app?.appId)] || null }))
-	        };
-	      }
-	      return out;
-	    }
-
-	    function buildChartStore(chartData, store) {
-	      const out = {};
-	      const entries = Object.entries(chartData || {});
-	      const slugMap = store === 'ios' ? iosSlugMap : androidSlugMap;
-	      for (const [countryCode, perCountry] of entries) {
-	        const list = Array.isArray(perCountry?.[store]) ? perCountry[store] : [];
-	        out[countryCode] = list.map(app => ({ ...app, slug: slugMap[String(app?.appId)] || null }));
-	      }
-	      return out;
-	    }
-
-	    const rankingsClientData = {
-	      grossing: buildChart(rankings?.grossing),
-	      free: buildChart(rankings?.free)
-	    };
-
-	    fs.writeFileSync(`${rankingsDir}/data.json`, JSON.stringify(rankingsClientData), 'utf8');
-
-	    // 화면별/탭별 부분 로드용 (payload 절감)
-	    fs.writeFileSync(`${rankingsDir}/grossing-ios.json`, JSON.stringify(buildChartStore(rankings?.grossing, 'ios')), 'utf8');
-	    fs.writeFileSync(`${rankingsDir}/grossing-android.json`, JSON.stringify(buildChartStore(rankings?.grossing, 'android')), 'utf8');
-	    fs.writeFileSync(`${rankingsDir}/free-ios.json`, JSON.stringify(buildChartStore(rankings?.free, 'ios')), 'utf8');
-	    fs.writeFileSync(`${rankingsDir}/free-android.json`, JSON.stringify(buildChartStore(rankings?.free, 'android')), 'utf8');
-	  } catch (err) {
-	    console.warn('  ⚠️ rankings/data.json 생성 실패:', err.message);
-	  }
-  // games 허브 페이지 복사 (기존 게임 개별 페이지와 별도)
-  if (fs.existsSync('./games/index.html')) {
-    const gamesDir = `${DOCS_DIR}/games`;
-    if (!fs.existsSync(gamesDir)) {
-      fs.mkdirSync(gamesDir, { recursive: true });
-    }
-    fs.copyFileSync('./games/index.html', `${gamesDir}/index.html`);
-    console.log('  ✅ games/index.html → docs/games/index.html');
-  }
-
-  // magazine 폴더 복사
-  const srcBriefingDir = './magazine';
-  const destBriefingDir = `${DOCS_DIR}/magazine`;
-  if (fs.existsSync(srcBriefingDir)) {
-    // 덮어쓰기 방식 (incremental build 호환 - 삭제하면 스킵된 파일이 사라짐)
-
-    // magazine 디렉토리 재귀 복사
-    const copyDirRecursive = (src, dest) => {
-      if (!fs.existsSync(dest)) {
-        fs.mkdirSync(dest, { recursive: true });
-      }
-      const entries = fs.readdirSync(src, { withFileTypes: true });
-      for (const entry of entries) {
-        const srcPath = `${src}/${entry.name}`;
-        const destPath = `${dest}/${entry.name}`;
-        if (entry.isDirectory()) {
-          copyDirRecursive(srcPath, destPath);
-        } else {
-          fs.copyFileSync(srcPath, destPath);
-        }
-      }
-    };
-    copyDirRecursive(srcBriefingDir, destBriefingDir);
-    console.log('  ✅ magazine/ → docs/magazine/');
   }
 
   if (!isCssFrozen) try {
@@ -2327,15 +1063,6 @@ async function main() {
     if (!fs.existsSync(docsAssetsDir)) {
       fs.mkdirSync(docsAssetsDir, { recursive: true });
     }
-    const runtimeAssets = [LAYOUT_CORE_ASSET, LAYOUT_RUNTIME_ASSET];
-    for (const file of runtimeAssets) {
-      const srcPath = `./assets/${file}`;
-      const destPath = `${docsAssetsDir}/${file}`;
-      if (fs.existsSync(srcPath)) {
-        fs.copyFileSync(srcPath, destPath);
-      }
-    }
-
     // deferred 카드 데이터 JSON 동기화 (assets/feed/*.json)
     const srcFeedDir = './assets/feed';
     const destFeedDir = `${docsAssetsDir}/feed`;
@@ -2389,10 +1116,10 @@ async function main() {
     rewriteDocsStylesheetLinks(DOCS_DIR);
     stripTechSidebarFromNonTechDocs(DOCS_DIR);
   } else {
-    // 동결 모드: 스테이징 트리(magazine/·wiki/·tech/)에서 복사돼 들어온 페이지만
+    // 동결 모드: 스테이징 트리(tech/)에서 복사돼 들어온 페이지만
     // 정규화한다. 증분 스킵으로 스테이징에 남은 구버전 해시 링크를 동결 해시로
     // 교정하기 위함이며, games/ 등 배포본 페이지는 건드리지 않아 churn이 없다.
-    const copiedTrees = ['magazine/', 'tech/'];
+    const copiedTrees = ['tech/'];
     rewriteDocsStylesheetLinks(DOCS_DIR, copiedTrees);
     stripTechSidebarFromNonTechDocs(DOCS_DIR, copiedTrees);
   }
@@ -2410,128 +1137,14 @@ async function main() {
       console.log(`  🔁 CSS 해시 재산출(purge 후): ${currentCssAssetVersion || '(none)'} → ${purgedCssVersion}`);
     }
     currentCssAssetVersion = purgedCssVersion;
-    setCssAssetVersion(currentCssAssetVersion);
     ensureDocsCssAssetCopies(DOCS_DIR, currentCssAssetVersion);
     rewriteDocsStylesheetLinks(DOCS_DIR);
   }
 
-  // sitemap.xml 동적 생성 (lastmod 자동 업데이트 + 게임 페이지 포함)
+  // Sitemaps: a sitemap index (docs/sitemap.xml) with one sitemap per edition (docs/sitemap-<code>.xml)
   const sitemapDate = new Date().toISOString().split('T')[0];
-  const siteBaseUrl = 'https://gamerscroll.com'; // 통합 반응형 빌드 - 단일 도메인
-
-  const normalizeLastmodDate = (value) => {
-    if (!value) return sitemapDate;
-    const text = String(value).trim();
-    const match = text.match(/\d{4}-\d{2}-\d{2}/);
-    return match ? match[0] : sitemapDate;
-  };
-
-  // 메인 페이지 URL 목록 (priority: 홈 1.0, 카테고리 0.8, 기사 0.6, 기타 0.4)
-  const mainPages = [
-    // 홈
-    { loc: `${siteBaseUrl}/`, lastmod: sitemapDate, priority: '1.0' },
-    // 매거진 (허브 + 목록)
-    // 매거진 허브·카테고리 목록(/magazine/, /magazine/{type}/)은 2026-09-09부터 /reports/ 로 301 → sitemap 제외
-    // /magazine/weekly/ 허브는 구 주간 페이지와 함께 noindex (legacy-weekly-noindex) → sitemap 제외
-    // 순위/데이터
-    { loc: `${siteBaseUrl}/rankings/`, lastmod: sitemapDate, priority: '0.8' },
-    ...rankSitemapEntries.map((e) => ({ ...e, lastmod: sitemapDate })),
-    { loc: `${siteBaseUrl}/steam/`, lastmod: sitemapDate, priority: '0.8' },
-    { loc: `${siteBaseUrl}/games/`, lastmod: sitemapDate, priority: '0.8' },
-    // 위키·출시 게임은 2026-09-09 폐기 (미들웨어 301), 테크 카테고리는 AIScroll로 이관됨 (Stage 3)
-  ];
-
-  // 테크 페이지 자동 스캔
-  const techSitemapData = loadTechData();
-  const techSitemapCategories = ['normal', 'ai', 'vibecoding'];
-  let techPages = [];
-  for (const category of techSitemapCategories) {
-    const articles = techSitemapData[category] || [];
-    techPages.push(...articles.map(article => ({
-      loc: `${siteBaseUrl}/tech/${category}/${article.slug}/`,
-      lastmod: normalizeLastmodDate(article.date),
-      priority: '0.6'
-    })));
-  }
-
-  // 매거진 sitemap 항목: JSON date → lastmod. noindex 플래그 기사와
-  // 소스 JSON이 사라진 유령 폴더(deploy seed 잔존물)는 제외한다.
-  const magazineSitemapEntry = (reportsDir, type, slug) => {
-    const jsonPath = `${reportsDir}/${slug}.json`;
-    if (!fs.existsSync(jsonPath)) return null;
-    let lastmod = sitemapDate;
-    try {
-      const json = JSON.parse(fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, ''));
-      if (json.noindex === true) return null;
-      if (json.date) lastmod = normalizeLastmodDate(json.date);
-    } catch (e) {}
-    return { loc: `${siteBaseUrl}/magazine/${type}/${slug}/`, lastmod, priority: '0.6' };
-  };
-
-  // 브리핑 페이지 자동 스캔
-  let magazinePages = [];
-  if (fs.existsSync(destBriefingDir)) {
-    // 이슈 페이지 (JSON의 date 필드 사용)
-    const issueBriefingDir = `${destBriefingDir}/issue`;
-    if (fs.existsSync(issueBriefingDir)) {
-      const issueFolders = fs.readdirSync(issueBriefingDir).filter(f =>
-        fs.statSync(`${issueBriefingDir}/${f}`).isDirectory()
-      );
-      magazinePages.push(...issueFolders.map(slug => magazineSitemapEntry(ISSUE_REPORTS_DIR, 'issue', slug)).filter(Boolean));
-    }
-
-    // 인사이트 페이지
-    const insightBriefingDir = `${destBriefingDir}/insight`;
-    if (fs.existsSync(insightBriefingDir)) {
-      const insightFolders = fs.readdirSync(insightBriefingDir).filter(f =>
-        fs.statSync(`${insightBriefingDir}/${f}`).isDirectory()
-      );
-      magazinePages.push(...insightFolders.map(slug => magazineSitemapEntry(INSIGHT_REPORTS_DIR, 'insight', slug)).filter(Boolean));
-    }
-
-    // 핫픽 페이지
-    const hotpickBriefingDir = `${destBriefingDir}/hotpick`;
-    if (fs.existsSync(hotpickBriefingDir)) {
-      const hotpickFolders = fs.readdirSync(hotpickBriefingDir).filter(f =>
-        fs.statSync(`${hotpickBriefingDir}/${f}`).isDirectory()
-      );
-      magazinePages.push(...hotpickFolders.map(slug => magazineSitemapEntry(HOTPICK_REPORTS_DIR, 'hotpick', slug)).filter(Boolean));
-    }
-
-    // 순위 분석 페이지
-    const rankingBriefingDir = `${destBriefingDir}/ranking`;
-    if (fs.existsSync(rankingBriefingDir)) {
-      const rankingFolders = fs.readdirSync(rankingBriefingDir).filter(f =>
-        fs.statSync(`${rankingBriefingDir}/${f}`).isDirectory()
-      );
-      magazinePages.push(...rankingFolders.map(slug => magazineSitemapEntry(RANKING_REPORTS_DIR, 'ranking', slug)).filter(Boolean));
-    }
-
-    // 구 주간 페이지(2025년 자동 생성물, 생성기 없음)는 deploy seed로만 남는 얇은 콘텐츠 → 매 빌드 제거 (2026-09-07 아카이브 결정).
-    // 사이드바 '주간' 링크도 함께 뺐으므로 옛 URL은 404로 닫힌다.
-    const weeklyRemoved = removeLegacyWeeklyPages(`${destBriefingDir}/weekly`);
-    if (weeklyRemoved > 0) console.log(`🧹 구 주간 페이지 제거: ${weeklyRemoved}개`);
-  }
-
-  // 게임 개별 페이지는 sitemap에서 제외 (thin content)
-
-  // Sitemap XML 생성 (PC URL만 - 중복 신호 최소화로 색인 효율 향상)
-  require('./src/build/archive-legacy-reports').archiveLegacyReports(DOCS_DIR);
-  const allPages = [...mainPages, ...techPages, ...magazinePages].filter(page => !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(page.loc));
-  const sitemapEntries = allPages.map(page => {
-    return `  <url>
-    <loc>${page.loc}</loc>
-    <lastmod>${page.lastmod || sitemapDate}</lastmod>${page.priority ? `
-    <priority>${page.priority}</priority>` : ''}
-  </url>`;
-  }).join('\n');
-
-  const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${sitemapEntries}
-</urlset>`;
-  fs.writeFileSync(`${DOCS_DIR}/sitemap.xml`, sitemapXml, 'utf8');
-  console.log(`📍 Sitemap 생성: 메인 ${mainPages.length}개 + 테크 ${techPages.length}개 + 매거진 ${magazinePages.length}개 = 총 ${allPages.length}개 URL`);
+  const sitemapNames = writeSitemaps(DOCS_DIR, editionResults, sitemapDate);
+  console.log(`📍 Sitemap index: ${sitemapNames.length} sitemaps, ${editionResults.reduce((n, r) => n + r.sitemap.length, 0)} URLs`);
 
   // robots.txt 생성
   // 주의: /games/ 페이지는 <meta robots="noindex,follow">이므로 Disallow 금지.
@@ -2567,13 +1180,13 @@ Sitemap: https://gamerscroll.com/sitemap.xml
       headerLines.push(hashedPath, '  Cache-Control: public, max-age=31536000, immutable', '');
     }
     headerLines.push('/assets/images/*', '  Cache-Control: public, max-age=604800', '');
-    headerLines.push('/magazine/issue/*', '  X-Robots-Tag: noindex, follow', '');
-    headerLines.push('/magazine/hotpick/*', '  X-Robots-Tag: noindex, follow', '');
     headerLines.push('/icon-*.png', '  Cache-Control: public, max-age=2592000', '');
     headerLines.push('/favicon*', '  Cache-Control: public, max-age=2592000', '');
     // 런타임 JS는 ?v=<content-hash>로 버전되고, feed JSON은 파일명에 해시가 박혀 있어 immutable 안전.
-    headerLines.push('/assets/layout-core.js', '  Cache-Control: public, max-age=31536000, immutable', '');
-    headerLines.push('/assets/layout-runtime.js', '  Cache-Control: public, max-age=31536000, immutable', '');
+    for (const r of editionResults) {
+      headerLines.push(`/assets/${r.assets.core}`, '  Cache-Control: public, max-age=31536000, immutable', '');
+      headerLines.push(`/assets/${r.assets.runtime}`, '  Cache-Control: public, max-age=31536000, immutable', '');
+    }
     headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     // 벤더 에셋은 경로에 버전이 박혀 있어 immutable 안전
     headerLines.push('/assets/apexcharts-*.min.js', '  Cache-Control: public, max-age=31536000, immutable', '');
@@ -2581,14 +1194,6 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     console.log('🧾 _headers 생성 완료');
   } catch (err) {
     console.warn('⚠️ _headers 생성 실패:', err.message);
-  }
-
-  // RSS 피드 생성
-  try {
-    const rssCount = generateRSS('./reports', `${DOCS_DIR}/rss.xml`);
-    console.log(`📡 RSS 피드 생성: ${rssCount}개 항목`);
-  } catch (err) {
-    console.warn('⚠️ RSS 생성 실패:', err.message);
   }
 
   // Service Worker 전체 생성 (template literal)
@@ -2599,8 +1204,8 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     '/manifest.json',
     '/icon-192.png',
     '/icon-512.png',
-    `/assets/${LAYOUT_CORE_ASSET}?v=${runtimeAssetVersion}`,
-    `/assets/${LAYOUT_RUNTIME_ASSET}?v=${runtimeAssetVersion}`
+    `/assets/${englishAssets.core}?v=${englishAssets.version}`,
+    `/assets/${englishAssets.runtime}?v=${englishAssets.version}`
   ];
   const swContent = buildServiceWorker({ version: swCacheVersion, precache: swPrecacheUrls });
   fs.writeFileSync(`${DOCS_DIR}/service-worker.js`, swContent, 'utf8');

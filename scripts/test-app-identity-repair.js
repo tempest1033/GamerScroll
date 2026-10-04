@@ -19,14 +19,22 @@ assert.equal(S.byTitle.get('AFK: 새로운 여정').slug, 'afk-새로운-여정-
 assert.equal(S.byTitle.get('천만여신: 가장 치명적인 AFK').slug, '천만여신-가장-치명적인-afk');
 for (const key of Object.keys(old)) {
   if (['킹 오브 파이터 AFK', 'Alter Ego', 'AFK: 새로운 여정 - 힐링 농장'].includes(key)) continue;
-  assert.deepEqual(db[key], old[key], `무관한 DB 항목 보존: ${key}`);
+  // 다국가 확장으로 names/지역 appId/alias 가 추가될 수 있으나 기존 값은 그대로 보존
+  const { names, appIds, aliases, platforms, ...rest } = db[key];
+  const { appIds: oldIds, aliases: oldAliases, platforms: oldPlatforms, ...oldRest } = old[key];
+  for (const p of oldPlatforms || []) assert.ok(platforms.includes(p), `기존 platform 보존: ${key}`);
+  for (const [field, value] of Object.entries(oldRest)) {
+    if (value) assert.deepEqual(rest[field], value, `무관한 DB 항목 보존: ${key}.${field}`); // 빈 developer/icon 은 채워질 수 있음
+  }
+  for (const [slot, id] of Object.entries(oldIds || {})) assert.equal(String(appIds[slot]), String(id), `기존 appId 보존: ${key}.${slot}`);
+  for (const a of oldAliases || []) assert.ok(aliases.includes(a), `기존 alias 보존: ${key}`);
 }
 for (const game of [kof, profile, caramel]) {
   const entry = survey.games[game.slug];
   assert.deepEqual(entry.appIds, game.appIds);
   for (const [store, source] of Object.entries(entry.stores)) assert.equal(String(source.id), String(game.appIds[store]));
-  const $ = cheerio.load(fs.readFileSync(path.join(root, 'docs/games', game.slug, 'index.html'), 'utf8'));
-  assert.ok($('.game-hero-title').length);
+  // 게임 상세는 요청 시 함수가 그린다: 빌드 산출물은 docs/games-data/<slug>.json
+  assert.ok(fs.existsSync(path.join(root, 'docs/games-data', game.slug + '.json')), '게임 상세 데이터 파일: ' + game.slug);
   for (const store of ['ios', 'android']) {
     const expected = S.days.map(d => {
       if (!game.appIds[store]) return null;

@@ -3,7 +3,7 @@
 const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
-const routes = ['/', '/games/', '/rankings/', '/rankings/monthly/2026-08/', '/steam/', '/steam/730/', '/games/메이플-키우기/', '/reports/', '/magazine/', '/magazine/ranking/subculture-august-2026-kr/'];
+const routes = ['/', '/games/', '/ko/games/', '/rankings/', '/rankings/monthly/2026-08/', '/steam/', '/steam/730/', '/ko/games/메이플-키우기/'];
 
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
@@ -31,7 +31,7 @@ const routes = ['/', '/games/', '/rankings/', '/rankings/monthly/2026-08/', '/st
             assert.equal(await page.locator('body > .search-container .search-input').isVisible(), true, '아이콘을 누르면 검색창 펼침');
             assert.equal(await search.evaluate(el => getComputedStyle(el).padding), '0px 4px 0px 8px', '펼친 검색창 여백');
           }
-          if (route === '/games/') assert.equal(await page.locator('#games input[type="search"]').count(), 0, '본문 중복 검색 제거');
+          if (route.endsWith('/games/')) assert.equal(await page.locator('#games input[type="search"]').count(), 0, '본문 중복 검색 제거');
           console.log(`PASS ${width}px 공통 검색 크기 ${route}`);
         } catch (error) {
           failures.push(`${width}px ${route}: ${error.message}`);

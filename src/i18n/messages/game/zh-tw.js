@@ -1,0 +1,37 @@
+'use strict';
+
+// Game detail page messages (Traditional Chinese, Taiwan). {c} = country name.
+module.exports = {
+  "game.home": "首頁",
+  "game.games_db": "遊戲資料庫",
+  "game.steam_analysis": "Steam 排行分析",
+  "game.stat_ccu_rank": "同時在線排名",
+  "game.stat_sales_rank": "銷售排名",
+  "game.stat_current_players": "目前在線人數",
+  "game.revenue_analysis": "營收排行分析",
+  "game.no_analysis_records": "排行紀錄不足，無法進行分析。",
+  "game.no_data": "尚無資料",
+  "game.no_data_short": "無資料",
+  "game.period_day": "日",
+  "game.period_week": "週",
+  "game.period_month": "月",
+  "game.chart_note": "各期間內所蒐集紀錄中的最佳名次 · 數字越小排名越高",
+  "game.seo_title_mobile": "{name} 營收排行趨勢：App Store 與 Google Play 歷史排名",
+  "game.seo_title_steam": "{name} Steam 排行趨勢：同時在線與銷售歷史排名",
+  "game.seo_desc_mobile": "查看 {name} 在 App Store 與 Google Play 的營收排行趨勢及歷來排名紀錄。",
+  "game.seo_desc_steam": "查看 {name} 的 Steam 同時在線人數與銷售排行趨勢，以及歷來排名紀錄。",
+  "game.seo_keywords_mobile": "{name}, {name} 營收, {name} 排行, {name} 營收排行, {name} App Store 排行, {name} Google Play 排行, 手機遊戲營收排行",
+  "game.seo_keywords_steam": "{name}, {name} 排行, {name} Steam 排行, {name} 同時在線, {name} 銷售排行, Steam 遊戲排行",
+  "game.sum_text": "{name} 於 {date}：{c} {p2} 營收排名 {p3}{p4}，{p5} {p6}。{p7}",
+  "game.sum_chart_aria": "{c}近 {N} 天營收排行趨勢。可用左右方向鍵切換日期，按 Esc 關閉",
+  "game.sum_hourly_sub": "{date} · {c} · App Store 蒐集 {length} 次 · Google Play 蒐集 {length2} 次",
+  "game.sum_as_of": "{c}營收 · 截至 {date}",
+  "game.sum_avg_sub": "{c} · 平均排名",
+  "game.sum_cum_days": "{c} {p0} · 近 30 天累計天數",
+  "game.sum_first_entered": "{c} {p0} 首次進入營收前 200 名{p1}",
+  "game.sum_revenue": "{c} · 營收",
+  "game.sum_store": "{c} {p0}",
+  "game.sum_store_prev": "{c} {p0}{p1}",
+  "game.sum_none": "<div class=\"game-empty\">此期間沒有{c}營收排行紀錄。</div>",
+  "game.sum_no_history": "沒有{c}營收排行歷史紀錄。"
+};

@@ -30,7 +30,7 @@ function serviceWorkerRuntime(config, eligible) {
       const response = await fetch(request);
       // Cache a clone in the background; do not hold streamed HTML behind cache.put.
       event.waitUntil(cachePut(cacheName, request, response).catch(() => undefined));
-      if (request.cache !== 'no-store' && request.url && new URL(request.url).pathname.startsWith('/rankings/') &&
+      if (request.cache !== 'no-store' && request.url && new URL(request.url).pathname.replace(/^\/(?:ja|zh-cn|ko|zh-tw)(?=\/)/, '').startsWith('/rankings/') &&
           eligible(request.url, self.location.origin) && cacheName === RUNTIME_CACHE) {
         event.waitUntil(storeDocument(request.url, response).catch(() => undefined));
       }
@@ -109,7 +109,8 @@ function serviceWorkerRuntime(config, eligible) {
       event.respondWith(navigate(request, event));
       return;
     }
-    const isStatic = url.pathname.startsWith('/assets/') || url.pathname.startsWith('/rankings/') || STATIC_EXT_RE.test(url.pathname);
+    const editionPath = url.pathname.replace(/^\/(?:ja|zh-cn|ko|zh-tw)(?=\/)/, '');
+    const isStatic = editionPath.startsWith('/assets/') || editionPath.startsWith('/rankings/') || STATIC_EXT_RE.test(url.pathname);
     if (isStatic) {
       const immutable = /^[a-f0-9]{8,}$/i.test(url.searchParams.get('v') || '') || /\.[a-f0-9]{8,}\./i.test(url.pathname) ||
         /\/assets\/apexcharts-[\d.]+\.min\.js$/.test(url.pathname) ||

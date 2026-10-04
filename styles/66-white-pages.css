@@ -59,10 +59,10 @@ body .site-container #steam .rk-steam-summary .rk-stat { display: flex; flex-dir
 body .site-container #steam .rk-steam-summary .l { font-size: 14px; font-weight: 500; line-height: 1.5; color: var(--text-secondary); }
 body .site-container #steam .rk-steam-summary .v { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; margin: 0; font-size: clamp(24px, 2.5vw, 36px); font-weight: 600; line-height: 1.2; color: var(--text); font-variant-numeric: tabular-nums; }
 body .site-container #steam .rk-steam-summary .v small { font-size: 16px; font-weight: 400; margin: 0; }
-body .site-container #steam .rk-steam-summary .s { margin: auto 0 0; font-size: 13px; line-height: 1.7; color: var(--text-muted); overflow-wrap: anywhere; }
+body .site-container #steam .rk-steam-summary .s { margin: auto 0 0; font-size: 13px; line-height: 1.7; color: var(--text-muted); overflow-wrap: break-word; }
 body .site-container #steam .rk-steam-card-game { display: flex; align-items: center; gap: 12px; min-width: 0; color: var(--text) !important; text-decoration: none; margin: 4px 0 10px; }
 body .site-container #steam .rk-steam-card-game img { width: 68px; height: 44px; object-fit: cover; border-radius: 8px; flex: none; }
-body .site-container #steam .rk-steam-card-game span { font-size: 20px; font-weight: 600; line-height: 1.4; min-width: 0; overflow-wrap: anywhere; }
+body .site-container #steam .rk-steam-card-game span { font-size: 20px; font-weight: 600; line-height: 1.4; min-width: 0; overflow-wrap: break-word; }
 body .site-container #steam .rk-steam-card-game:hover span { text-decoration: underline; text-underline-offset: 3px; }
 body .site-container #steam .rk-steam-game-card .s strong { font-size: 15px; font-weight: 500; color: var(--text-secondary); }
 body .site-container #steam .rk-list .nm > a { font-size: 15px; font-weight: 600; color: var(--text) !important; }
@@ -153,7 +153,7 @@ body:not(.page-home) .rk .rk-gold { color: var(--text); font-weight: 700; }
   .article-layout { column-gap: 40px; }
   /* 본문 읽기 폭도 열과 같은 780px (90-blog-article의 720px 개별 규칙을 한 번에 덮음). 17px 기준 한 줄 약 50자. */
   .site-container .article-main .blog-card > *, .site-container .article-main .blog-content > * { max-width: 780px; }
-  .article-layout .blog-title { word-break: keep-all; overflow-wrap: anywhere; }
+  .article-layout .blog-title { word-break: keep-all; overflow-wrap: break-word; }
   .page-games .group-games { grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 8px 16px; }
   .page-games .game-item { min-width: 0; padding: 10px 8px; }
   .page-games .game-item::before { width: 36px; height: 36px; }

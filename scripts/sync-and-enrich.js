@@ -18,6 +18,20 @@ const dataDir = path.join(__dirname, '../data');
 // 유틸리티 함수
 // ============================================
 
+// 추적 시장: names 키 / google-play 조회 로캘 (cn은 안드로이드 차트 없음)
+const MARKETS = {
+  kr: { name: 'ko', gp: { country: 'kr', lang: 'ko' } },
+  us: { name: 'en', gp: { country: 'us', lang: 'en' } },
+  jp: { name: 'ja', gp: { country: 'jp', lang: 'ja' } },
+  cn: { name: 'zh-cn', gp: null },
+  tw: { name: 'zh-tw', gp: { country: 'tw', lang: 'zh-TW' } }
+};
+const NAME_KEYS = ['ko', 'en', 'ja', 'zh-cn', 'zh-tw'];
+// 지역 전용 appId(ios_<cc>/android_<cc>)에 쓸 시장 우선순위
+const REGION_PREF = ['us', 'jp', 'tw', 'cn', 'kr'];
+// CI 1회 실행당 처리할 비-KR 신규 앱 상한
+const MAX_NON_KR_PER_RUN = Number(process.env.GS_MAX_NON_KR_PER_RUN) || 60;
+
 function isKoreanName(name) {
   return /[가-힣]/.test(name);
 }
@@ -201,23 +215,28 @@ function extractTodayGames(dateStr, overrideFile) {
     return [];
   }
 
-  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  return rowsFromHistory(JSON.parse(fs.readFileSync(filePath, 'utf8')));
+}
+
+// 히스토리 1일치 → 신규 감지용 행 (5개 시장의 매출/인기, ios/android + steam)
+function rowsFromHistory(data) {
   const games = [];
 
-  // 모바일 랭킹 (KR만 대상)
   for (const category of ['grossing', 'free']) {
-    for (const platform of ['ios', 'android']) {
-      const list = data.rankings?.[category]?.kr?.[platform] || [];
-      for (const game of list) {
-        if (game.appId && game.title) {
-          games.push({
-            platform,
-            region: 'kr',
-            appId: game.appId,
-            title: game.title,
-            developer: game.developer || '',
-            icon: game.icon || ''
-          });
+    for (const cc of Object.keys(MARKETS)) {
+      for (const platform of ['ios', 'android']) {
+        const list = data.rankings?.[category]?.[cc]?.[platform] || [];
+        for (const game of list) {
+          if (game.appId && game.title) {
+            games.push({
+              platform,
+              region: cc,
+              appId: game.appId,
+              title: game.title,
+              developer: game.developer || '',
+              icon: game.icon || ''
+            });
+          }
         }
       }
     }
@@ -321,6 +340,366 @@ function isNameMatch(name1, name2) {
 // 메인 처리
 // ============================================
 
+// ============================================
+// 다국가: 이름(names) / 스토어 조회 / 신규 등록
+// ============================================
+
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+const cleanName = (t) => String(t == null ? '' : t).trim();
+
+// names: 비어 있는 키만 채운다 (기존 값은 유지), 키 순서 고정
+function mergeNames(existing, patch) {
+  const out = {};
+  for (const k of NAME_KEYS) {
+    const v = cleanName(existing?.[k]) || cleanName(patch?.[k]);
+    if (v) out[k] = v;
+  }
+  return out;
+}
+
+function namesFromCharts(charts) {
+  const out = {};
+  for (const [cc, row] of Object.entries(charts || {})) {
+    if (MARKETS[cc] && cleanName(row?.title)) out[MARKETS[cc].name] = cleanName(row.title);
+  }
+  return out;
+}
+
+async function pool(items, size, fn) {
+  let i = 0;
+  await Promise.all(Array.from({ length: Math.min(size, items.length) }, async () => {
+    while (i < items.length) await fn(items[i++]);
+  }));
+}
+
+// iTunes lookup 배치 (콤마 구분 최대 200개) → Map(appId -> {title, developer, icon})
+async function lookupIosBatch(ids, cc) {
+  const out = new Map();
+  for (let i = 0; i < ids.length; i += 200) {
+    const chunk = ids.slice(i, i + 200);
+    for (let attempt = 0; attempt < 4; attempt++) {
+      try {
+        const { data } = await axios.get('https://itunes.apple.com/lookup', {
+          params: { id: chunk.join(','), country: cc },
+          headers: { 'User-Agent': 'Mozilla/5.0' },
+          timeout: 30000
+        });
+        for (const r of data?.results || []) {
+          if (r.trackId && r.trackName) {
+            out.set(String(r.trackId), {
+              title: r.trackName,
+              developer: r.sellerName || r.artistName || '',
+              icon: r.artworkUrl512 || r.artworkUrl100 || ''
+            });
+          }
+        }
+        break;
+      } catch (e) {
+        await sleep(2000 * (attempt + 1) * (attempt + 1));
+      }
+    }
+  }
+  return out;
+}
+
+async function lookupAndroid(appId, cc) {
+  const gp = MARKETS[cc]?.gp;
+  if (!gp) return null;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const r = await gplay.app({ appId, ...gp });
+      return r?.title ? { title: r.title, developer: r.developer || '', icon: r.icon || '' } : null;
+    } catch (e) {
+      if (e?.status === 404 || /not found/i.test(e?.message || '')) return null;
+      await sleep(1500);
+    }
+  }
+  return null;
+}
+
+async function lookupOne(platform, appId, cc) {
+  if (platform === 'ios') return (await lookupIosBatch([String(appId)], cc)).get(String(appId)) || null;
+  return lookupAndroid(appId, cc);
+}
+
+// 게임 키 + alias + names 의 정규화 키 → 게임명 (복수 게임에 걸리면 false = 모호)
+function addAliases(index, name, list) {
+  for (const t of list) {
+    const k = normalizeNameKey(t);
+    if (k.length < 3) continue;
+    if (!index.has(k)) index.set(k, name);
+    else if (index.get(k) !== name) index.set(k, false);
+  }
+}
+
+function buildAliasIndex(games) {
+  const index = new Map();
+  for (const [name, g] of Object.entries(games)) {
+    addAliases(index, name, [name, ...(g.aliases || []), ...Object.values(g.names || {})]);
+  }
+  return index;
+}
+
+// 신규 게임 슬러그: 라틴/숫자/한글/한자/가나 유지 (기존 한글 슬러그 방식과 동일하게 구두점 제거, 공백→-)
+function slugifyTitle(text) {
+  return cleanName(text)
+    .normalize('NFKC')
+    .replace(/[\u00C0-\u024F]/g, c => c.normalize('NFD').replace(/\p{M}/gu, ''))
+    .toLowerCase()
+    .replace(/[:'’&!?.]+/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9\-\u30FC\p{Script=Hangul}\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/gu, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const SLUG_MARKETS = ['tw', 'jp', 'cn', 'us'];
+const NAME_KEY_MARKET = { en: 'us', ja: 'jp', 'zh-cn': 'cn', 'zh-tw': 'tw' };
+
+// names.en 우선, 없으면 원제. 충돌 시 -tw/-jp/-cn/-us(자국 시장 우선) → -2, -3. 비면 app-<id>
+function uniqueSlug(key, names, markets, appId, used) {
+  let slug = slugifyTitle(names?.en) || slugifyTitle(key);
+  if (!slug) slug = `app-${String(appId).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+  if (!used.has(slug)) return slug;
+  const order = Array.from(new Set([...(markets || []), ...SLUG_MARKETS])).filter(m => SLUG_MARKETS.includes(m));
+  for (const m of order) if (!used.has(`${slug}-${m}`)) return `${slug}-${m}`;
+  for (let n = 2; ; n++) if (!used.has(`${slug}-${n}`)) return `${slug}-${n}`;
+}
+
+// 게임 항목에서 시장 추정 (지역 appId 슬롯 → names 언어)
+function marketsOfGame(g) {
+  const fromIds = Object.keys(g.appIds || {}).map(k => k.split('_')[1]).filter(Boolean);
+  const fromNames = Object.keys(g.names || {}).map(k => NAME_KEY_MARKET[k]).filter(Boolean);
+  return [...fromIds, ...fromNames];
+}
+
+const regCtxCache = new WeakMap();
+function getRegCtx(gamesData, appIdIndex) {
+  const size = Object.keys(gamesData.games).length;
+  let ctx = regCtxCache.get(gamesData);
+  if (!ctx || ctx.size !== size) {
+    ctx = {
+      gamesData,
+      aliasIndex: buildAliasIndex(gamesData.games),
+      slugs: new Set(Object.values(gamesData.games).map(g => g.slug).filter(Boolean)),
+      size
+    };
+    regCtxCache.set(gamesData, ctx);
+  }
+  ctx.appIdIndex = appIdIndex;
+  return ctx;
+}
+
+/**
+ * 후보 1건 등록 (조회 결과는 호출자가 채워 전달; 네트워크 없음)
+ * cand: { platform, appId, region, charts:{cc:{title,developer,icon}}, kr, us, chart }
+ *   kr/us/chart = 각 스토어 조회 결과 {title, developer, icon} 또는 null (chart = 차트 진입 국가 스토어)
+ * 반환: { status: existing|attached|new|skipped, key, origin, slotKey, pending }
+ */
+function registerCandidate(cand, ctx) {
+  const { platform, appId } = cand;
+  const idStr = String(appId);
+  const games = ctx.gamesData.games;
+  if (ctx.appIdIndex.has(idStr)) return { status: 'existing' };
+
+  const charts = cand.charts || {};
+  const cc = REGION_PREF.find(c => charts[c]) || cand.region;
+  const chartRow = charts[cc] || { title: cand.title, developer: cand.developer, icon: cand.icon };
+  const names = namesFromCharts(charts);
+  if (cand.kr) names.ko = cleanName(cand.kr.title);
+  if (cand.us) names.en = cleanName(cand.us.title);
+
+  const info = cand.kr || cand.us || cand.chart || null;
+  const key0 = cand.kr ? names.ko : cand.us ? names.en : cleanName(chartRow.title);
+  if (!key0) return { status: 'skipped' };
+
+  const developer = info?.developer || chartRow.developer || '';
+  const icon = chartRow.icon || info?.icon || '';
+  const slotKey = cand.kr ? platform : `${platform}_${cc}`;
+  const nameList = Array.from(new Set([key0, ...Object.values(names)].filter(Boolean)));
+
+  // 동일 게임 판별: 키/alias/names 정규화 일치 (유일 후보일 때만)
+  const targets = new Set();
+  let ambiguous = false;
+  for (const n of nameList) {
+    if (games[n]) targets.add(n);
+    const k = normalizeNameKey(n);
+    if (k.length < 3) continue;
+    const t = ctx.aliasIndex.get(k);
+    if (t === false) ambiguous = true;
+    else if (t) targets.add(t);
+  }
+
+  let key;
+  let status;
+  if (!ambiguous && targets.size === 1 && !games[[...targets][0]].appIds?.[slotKey]) {
+    key = [...targets][0];
+    const g = games[key];
+    g.appIds = { ...(g.appIds || {}), [slotKey]: appId };
+    g.platforms = Array.from(new Set([...(g.platforms || []), platform]));
+    g.aliases = Array.from(new Set([...(g.aliases || []), ...nameList].filter(a => a && a !== key)));
+    g.names = mergeNames(g.names, names);
+    g.developer = g.developer || developer;
+    g.icon = g.icon || icon;
+    status = 'attached';
+  } else {
+    key = key0;
+    for (let n = 1; games[key]; n++) key = `${key0} (${cc.toUpperCase()}${n > 1 ? ` ${n}` : ''})`;
+    const aliases = nameList.filter(a => a !== key);
+    games[key] = {
+      appIds: { [slotKey]: appId },
+      aliases,
+      developer,
+      icon,
+      slug: uniqueSlug(key, names, [cc], appId, ctx.slugs),
+      platforms: [platform],
+      names: mergeNames({}, names)
+    };
+    ctx.slugs.add(games[key].slug);
+    ctx.size++;
+    status = 'new';
+  }
+
+  addAliases(ctx.aliasIndex, key, nameList);
+  ctx.appIdIndex.set(idStr, key);
+
+  const pending = info ? null : {
+    title: key,
+    status: 'lookup-failed',
+    appIds: { [slotKey]: appId },
+    developer,
+    icon,
+    searchResults: [],
+    addedAt: new Date().toISOString()
+  };
+  return { status, key, origin: cc, krFound: !!cand.kr, slotKey, pending };
+}
+
+// KR 스토어에 없는 앱: US → (필요 시) 차트 진입 국가 스토어 조회 후 등록
+async function registerNonKr(game, gamesData, appIdIndex, nameKeyIndex, stats) {
+  const { platform, appId, region } = game;
+  const charts = game.charts || { [region]: { title: game.title, developer: game.developer, icon: game.icon } };
+  const cc = REGION_PREF.find(c => charts[c]) || region;
+  stats.apiCalled = true;
+  const us = await lookupOne(platform, appId, 'us');
+  const chart = us || cc === 'us' ? null : await lookupOne(platform, appId, cc);
+  const res = registerCandidate({ platform, appId, region, charts, us, chart }, getRegCtx(gamesData, appIdIndex));
+  if (res.key) updateNameKeyIndex(nameKeyIndex, res.key);
+  if (res.status === 'new' || res.status === 'attached') {
+    stats.nonKr = (stats.nonKr || 0) + 1;
+    console.log(`  [${platform.toUpperCase()}/${cc}] 비-KR ${res.status === 'new' ? '신규' : '연결'}: "${res.key}"`);
+  }
+  return res.pending || null;
+}
+
+// pending 큐에 반영 (제목 단위 1건 유지)
+function upsertPending(reviewQueue, items) {
+  const indexByTitle = new Map();
+  for (let i = 0; i < reviewQueue.pending.length; i++) {
+    const title = reviewQueue.pending[i]?.title;
+    if (title) indexByTitle.set(title, i);
+  }
+  for (const item of items) {
+    if (!item?.title) continue;
+    const existingIndex = indexByTitle.get(item.title);
+    if (existingIndex === undefined) {
+      reviewQueue.pending.push(item);
+      indexByTitle.set(item.title, reviewQueue.pending.length - 1);
+      continue;
+    }
+    const existing = reviewQueue.pending[existingIndex] || {};
+    const mergedSearchResults = [...(existing.searchResults || []), ...(item.searchResults || [])];
+    const uniqueSearchResults = Array.from(
+      new Map(mergedSearchResults.map(r => [String(r?.appId ?? ''), r])).values()
+    ).filter(r => r?.appId);
+    reviewQueue.pending[existingIndex] = {
+      ...existing,
+      ...item,
+      appIds: { ...(existing.appIds || {}), ...(item.appIds || {}) },
+      searchResults: uniqueSearchResults.slice(0, 3),
+      status: mergePendingStatus(existing.status, item.status),
+      addedAt: existing.addedAt || item.addedAt,
+      developer: existing.developer || item.developer,
+      icon: existing.icon || item.icon
+    };
+  }
+}
+
+// 히스토리 전체 → Map("<ios|android>|<appId>|<cc>" -> 가장 최근 행 {title, developer, icon, date})
+function loadLatestChartRows(dir = historyDir) {
+  const latest = new Map();
+  const files = fs.readdirSync(dir).filter(f => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort();
+  for (const f of files) {
+    let h;
+    try { h = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8').replace(/^\uFEFF/, '')); } catch { continue; }
+    const date = f.slice(0, 10);
+    for (const cat of ['grossing', 'free']) {
+      for (const cc of Object.keys(MARKETS)) {
+        for (const store of ['ios', 'android']) {
+          for (const r of h.rankings?.[cat]?.[cc]?.[store] || []) {
+            if (!r?.appId || !r.title) continue;
+            latest.set(`${store}|${r.appId}|${cc}`, { title: r.title, developer: r.developer || '', icon: r.icon || '', date });
+          }
+        }
+      }
+    }
+  }
+  return latest;
+}
+
+// 기존 게임 names 백필 (오프라인): 국가별로 appId가 매핑되는 가장 최근 차트 행 제목 (동일 날짜면 ios 우선)
+function backfillNames(gamesData, latest) {
+  const appIdIndex = buildAppIdIndex(gamesData.games);
+  const best = new Map(); // `${game}|${cc}` -> {title, date, store}
+  for (const store of ['ios', 'android']) {
+    for (const [k, row] of latest) {
+      const [s, appId, cc] = k.split('|');
+      if (s !== store) continue;
+      const game = appIdIndex.get(appId);
+      if (!game) continue;
+      const bk = `${game}|${cc}`;
+      const cur = best.get(bk);
+      if (!cur || row.date > cur.date) best.set(bk, { title: row.title, date: row.date });
+    }
+  }
+  const patches = {};
+  for (const [bk, v] of best) {
+    const i = bk.lastIndexOf('|');
+    (patches[bk.slice(0, i)] ||= {})[MARKETS[bk.slice(i + 1)].name] = v.title;
+  }
+  let changed = 0;
+  for (const [name, g] of Object.entries(gamesData.games)) {
+    const next = mergeNames(g.names, patches[name]);
+    if (JSON.stringify(next) !== JSON.stringify(g.names)) changed++;
+    g.names = next;
+  }
+  return changed;
+}
+
+// 같은 appId 중복 제거 + 진입한 모든 국가의 차트 행 수집 (KR 진입 앱은 region=kr 우선)
+function dedupeRows(rows) {
+  const map = new Map();
+  for (const g of rows) {
+    const id = String(g.appId || '');
+    if (!id) continue;
+    let e = map.get(id);
+    if (!e) {
+      e = { ...g, charts: {} };
+      map.set(id, e);
+    } else if (g.region === 'kr' && e.region !== 'kr' && g.platform !== 'steam') {
+      Object.assign(e, { region: 'kr', title: g.title, developer: g.developer || e.developer, icon: g.icon || e.icon });
+    }
+    if (g.platform !== 'steam' && !e.charts[g.region]) {
+      e.charts[g.region] = { title: g.title, developer: g.developer, icon: g.icon };
+    }
+  }
+  return Array.from(map.values());
+}
+
+// ============================================
+// 메인 처리
+// ============================================
+
 async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pairs) {
   const { platform, region, appId, title, developer, icon } = game;
   const appIdStr = String(appId || '');
@@ -365,20 +744,13 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
   // kr이 아닌 region이면 kr 마켓에서 한국어 이름 조회
   if (region !== 'kr') {
     stats.apiCalled = true;  // API 호출 플래그
-    if (platform === 'ios') {
-      const krName = await getIosKrTitle(appId);
-      if (krName) {
-        krTitle = krName;
-        console.log(`  kr 이름 조회: "${title}" → "${krTitle}"`);
-      }
-    } else {
-      const krName = await getAndroidKrTitle(appId);
-      if (krName) {
-        krTitle = krName;
-        console.log(`  kr 이름 조회: "${title}" → "${krTitle}"`);
-      }
-    }
+    const krName = platform === 'ios' ? await getIosKrTitle(appId) : await getAndroidKrTitle(appId);
+    // KR 스토어에 없는 앱 → 차트 진입 국가 스토어 기준으로 등록
+    if (!krName) return registerNonKr(game, gamesData, appIdIndex, nameKeyIndex, stats);
+    krTitle = krName;
+    console.log(`  kr 이름 조회: "${title}" → "${krTitle}"`);
   }
+  const namesPatch = { ...namesFromCharts(game.charts || { [region]: { title } }), ko: krTitle };
 
   // 반대 플랫폼 검색 (kr 마켓에서)
   const oppositePlatform = platform === 'ios' ? 'android' : 'ios';
@@ -492,7 +864,8 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
       developer: existing.developer || developer || matched.developer || '',
       icon: existing.icon || icon,
       slug: existing.slug || generateSlug(targetName, aliases),
-      platforms
+      platforms,
+      names: mergeNames(existing.names, namesPatch)
     };
 
     gamesData.games[targetName] = merged;
@@ -528,7 +901,8 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
     developer: existing.developer || developer,
     icon: existing.icon || icon,
     slug: existing.slug || generateSlug(targetName, aliases),
-    platforms
+    platforms,
+    names: mergeNames(existing.names, namesPatch)
   };
   updateNameKeyIndex(nameKeyIndex, targetName);
   appIdIndex.set(appIdStr, targetName);
@@ -570,16 +944,7 @@ async function main() {
   console.log('오늘 크롤링 게임:', todayGames.length, overrideFile ? `(from ${overrideFile})` : '');
 
   // 중복 제거 (같은 appId, 타입 차이 방지 위해 문자열 통일)
-  const uniqueGames = [];
-  const seenAppIds = new Set();
-  for (const game of todayGames) {
-    const appId = String(game.appId || '');
-    if (!appId) continue;
-    if (!seenAppIds.has(appId)) {
-      seenAppIds.add(appId);
-      uniqueGames.push(game);
-    }
-  }
+  const uniqueGames = dedupeRows(todayGames);
   console.log('고유 게임:', uniqueGames.length);
 
   const stats = { existing: 0, steam: 0, matched: 0, single: 0, conflict: 0, pending: 0, apiCalled: false };
@@ -588,11 +953,19 @@ async function main() {
   const globalPairs = buildGlobalPairs(uniqueGames);
 
   // 각 게임 처리
+  let nonKrProcessed = 0;
+  let nonKrDeferred = 0;
   for (let i = 0; i < uniqueGames.length; i++) {
     const game = uniqueGames[i];
 
     if ((i + 1) % 50 === 0) {
       console.log(`\n진행: ${i + 1}/${uniqueGames.length}`);
+    }
+
+    // 비-KR 신규 앱은 1회 실행당 상한 (남은 앱은 다음 실행 또는 bulk 스크립트가 처리)
+    if (game.region !== 'kr' && game.platform !== 'steam' && !appIdIndex.has(String(game.appId))) {
+      if (nonKrProcessed >= MAX_NON_KR_PER_RUN) { nonKrDeferred++; continue; }
+      nonKrProcessed++;
     }
 
     const pendingItem = await processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, globalPairs);
@@ -633,46 +1006,7 @@ async function main() {
   }
 
   // pending 추가/업데이트 (targetName 단위 1건만 유지)
-  const newPending = Array.from(pendingMap.values());
-  const pendingIndexByTitle = new Map();
-  for (let i = 0; i < reviewQueue.pending.length; i++) {
-    const title = reviewQueue.pending[i]?.title;
-    if (title) pendingIndexByTitle.set(title, i);
-  }
-
-  for (const item of newPending) {
-    if (!item?.title) continue;
-
-    const existingIndex = pendingIndexByTitle.get(item.title);
-    if (existingIndex === undefined) {
-      reviewQueue.pending.push(item);
-      pendingIndexByTitle.set(item.title, reviewQueue.pending.length - 1);
-      continue;
-    }
-
-    const existing = reviewQueue.pending[existingIndex] || {};
-    const mergedAppIds = { ...(existing.appIds || {}), ...(item.appIds || {}) };
-    const mergedSearchResults = [
-      ...(existing.searchResults || []),
-      ...(item.searchResults || [])
-    ];
-    const uniqueSearchResults = Array.from(
-      new Map(
-        mergedSearchResults.map(r => [String(r?.appId ?? ''), r])
-      ).values()
-    ).filter(r => r?.appId);
-
-    reviewQueue.pending[existingIndex] = {
-      ...existing,
-      ...item,
-      appIds: mergedAppIds,
-      searchResults: uniqueSearchResults.slice(0, 3),
-      status: mergePendingStatus(existing.status, item.status),
-      addedAt: existing.addedAt || item.addedAt,
-      developer: existing.developer || item.developer,
-      icon: existing.icon || item.icon
-    };
-  }
+  upsertPending(reviewQueue, Array.from(pendingMap.values()));
 
   // 저장
   gamesData.lastUpdated = dateStr;
@@ -686,13 +1020,22 @@ async function main() {
   console.log('양쪽 통합 등록:', stats.matched);
   console.log('단독 등록:', stats.single);
   console.log('충돌 보류:', stats.conflict);
+  console.log('비-KR 신규/연결:', stats.nonKr || 0, `(상한 ${MAX_NON_KR_PER_RUN}, 이월 ${nonKrDeferred})`);
   console.log('pending 추가:', stats.pending);
   console.log('최종 게임 수:', gamesData.totalGames);
   console.log('pending 큐:', reviewQueue.pending.length);
   console.log('\n저장 완료!');
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+module.exports = {
+  MARKETS, NAME_KEYS, REGION_PREF, rowsFromHistory, dedupeRows, mergeNames, buildAppIdIndex,
+  buildAliasIndex, addAliases, normalizeNameKey, slugifyTitle, uniqueSlug, marketsOfGame, lookupOne, getRegCtx, registerCandidate, lookupIosBatch, lookupAndroid, upsertPending,
+  loadLatestChartRows, backfillNames, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool
+};
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

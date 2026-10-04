@@ -28,7 +28,8 @@ fs.writeFileSync(path.join(root, 'mockups/genre-classification-audit.json'), JSO
 console.log(`Classification: ${coverage.classified}/${coverage.total}; pending ${coverage.unclassified.length}`);
 for (const category of [{ id: 'all' }, ...taxonomy.categories]) {
   const route = `/rankings/genres/${category.id === 'all' ? '' : category.id + '/'}`;
-  const $ = cheerio.load(fs.readFileSync(path.join(root, 'docs', route, 'index.html'), 'utf8'));
+  // Korean wording assertions run against the ko edition.
+  const $ = cheerio.load(fs.readFileSync(path.join(root, 'docs', 'ko', route, 'index.html'), 'utf8'));
   for (const [store, css] of [['android', 'and'], ['ios', 'ios']]) {
     const expected = S.today.rows.kr[store].slice(0, 200).map((r, i) => ({ r, rank: i + 1 })).filter(x => taxonomy.matches(S.gameOf(store, x.r), category.id));
     const rows = $(`.rk-col.${css} .rk-list li`).filter((_, e) => !$(e).hasClass('rk-empty'));
@@ -52,7 +53,7 @@ console.log('PASS 장르·태그·중복 분류·미분류·현재 전체 순위
       await page.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort());
       for (const category of ['rpg', 'subculture', 'idle']) {
         try {
-          await page.goto(`${base}/rankings/genres/${category}/`, { waitUntil: 'networkidle' });
+          await page.goto(`${base}/ko/rankings/genres/${category}/`, { waitUntil: 'networkidle' });
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
           assert.equal(await page.locator('.rk-genre-filters a.active').count(), 1);
           if (width === 390) {
@@ -63,7 +64,7 @@ console.log('PASS 장르·태그·중복 분류·미분류·현재 전체 순위
           console.log(`PASS ${width}px ${category}`);
         } catch (e) { failures.push(`${width} ${category}: ${e.message}`); }
       }
-      await page.goto(`${base}/rankings/genres/`, { waitUntil: 'networkidle' });
+      await page.goto(`${base}/ko/rankings/genres/`, { waitUntil: 'networkidle' });
       await page.screenshot({ path: path.join(root, `mockups/genres-${width}.png`) });
       await page.close();
     }

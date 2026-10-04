@@ -1,0 +1,37 @@
+'use strict';
+
+// Game detail page messages (src/templates/pages/game.js, src/templates/helpers/game-rank-summary.js). {c} = country name.
+module.exports = {
+  "game.home": "ホーム",
+  "game.games_db": "ゲームDB",
+  "game.steam_analysis": "Steamランキング分析",
+  "game.stat_ccu_rank": "同時接続者数ランキング",
+  "game.stat_sales_rank": "販売ランキング",
+  "game.stat_current_players": "現在のプレイヤー数",
+  "game.revenue_analysis": "売上ランキング分析",
+  "game.no_analysis_records": "分析に必要なランキング記録が不足しています。",
+  "game.no_data": "データがありません",
+  "game.no_data_short": "データなし",
+  "game.period_day": "日",
+  "game.period_week": "週",
+  "game.period_month": "月",
+  "game.chart_note": "各期間に収集した記録のうち最高順位 · 数字が小さいほど上位",
+  "game.seo_title_mobile": "{name}の売上ランキング推移 — App Store・Google Playの履歴",
+  "game.seo_title_steam": "{name}のSteamランキング推移 — 同時接続者数・販売履歴",
+  "game.seo_desc_mobile": "{name}のApp StoreとGoogle Playの売上ランキング推移と、過去のランキング記録を掲載しています。",
+  "game.seo_desc_steam": "{name}のSteam同時接続者数と販売ランキングの推移、過去のランキング記録を掲載しています。",
+  "game.seo_keywords_mobile": "{name}, {name} 売上, {name} ランキング, {name} 売上ランキング, {name} App Store ランキング, {name} Google Play ランキング, モバイルゲーム売上ランキング",
+  "game.seo_keywords_steam": "{name}, {name} ランキング, {name} Steamランキング, {name} 同時接続, {name} 販売ランキング, Steamゲームランキング",
+  "game.sum_text": "{date}時点の{name}：{c} {p2}売上{p3}{p4}、{p5} {p6}。{p7}",
+  "game.sum_chart_aria": "{c}の直近{N}日間の売上ランキング推移。左右の矢印キーで日付を移動、Escキーで閉じます",
+  "game.sum_hourly_sub": "{date} · {c} · App Store {length}回収集 · Google Play {length2}回収集",
+  "game.sum_as_of": "{c}売上 · {date}時点",
+  "game.sum_avg_sub": "{c} · 平均順位",
+  "game.sum_cum_days": "{c} {p0} · 直近30日間の累計日数",
+  "game.sum_first_entered": "{c} {p0}で売上TOP 200に初ランクイン{p1}",
+  "game.sum_revenue": "{c} · 売上",
+  "game.sum_store": "{c} {p0}",
+  "game.sum_store_prev": "{c} {p0}{p1}",
+  "game.sum_none": "<div class=\"game-empty\">この期間の{c}売上ランキング記録はありません。</div>",
+  "game.sum_no_history": "{c}の売上ランキング履歴がありません。"
+};

@@ -1,0 +1,27 @@
+name: Translation check
+
+# 화면 문구(src/i18n)나 템플릿을 고친 push에서만 돈다. 실패하면 커밋에 빨간 X가 붙고
+# GitHub가 push한 계정으로 실패 메일을 보낸다. 사이트 빌드·배포(build.yml)는 막지 않는다.
+on:
+  push:
+    paths:
+      - 'src/i18n/**'
+      - 'src/templates/**'
+      - 'src/rank/**'
+      - 'src/build/**'
+      - 'scripts/test-i18n-messages.js'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check translations (all 5 editions)
+        run: node scripts/test-i18n-messages.js

@@ -24,7 +24,6 @@ const outputFilename = lang === 'en' ? 'x-card-article-en.png' : 'x-card-article
 // 기사 JSON 탐색 경로 (우선순위 순)
 const SEARCH_DIRS = [
   { dir: './reports/issue', type: 'issue' },
-  { dir: './reports/ranking', type: 'ranking' },
   { dir: './data/wiki', type: 'wiki', nested: true },
   { dir: './data/tech', type: 'tech', nested: true }
 ];
@@ -73,7 +72,7 @@ async function generateXArticleCard(slug) {
   const found = findArticleBySlug(slug);
   if (!found) {
     console.error(`기사를 찾을 수 없습니다: ${slug}`);
-    console.error('탐색 경로: reports/issue/, reports/ranking/, data/wiki/*/, data/tech/*/');
+    console.error('탐색 경로: reports/issue/,data/wiki/*/, data/tech/*/');
     process.exit(1);
   }
 

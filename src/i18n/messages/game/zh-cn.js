@@ -1,0 +1,37 @@
+'use strict';
+
+// 游戏详情页文案（简体中文）。{c} = 国家名。
+module.exports = {
+  "game.home": "首页",
+  "game.games_db": "游戏数据库",
+  "game.steam_analysis": "Steam 排行分析",
+  "game.stat_ccu_rank": "同时在线排名",
+  "game.stat_sales_rank": "销量排名",
+  "game.stat_current_players": "当前在线",
+  "game.revenue_analysis": "畅销榜排名分析",
+  "game.no_analysis_records": "排名记录不足，暂无法分析。",
+  "game.no_data": "暂无数据",
+  "game.no_data_short": "无数据",
+  "game.period_day": "日",
+  "game.period_week": "周",
+  "game.period_month": "月",
+  "game.chart_note": "各时段已收录记录中的最高排名 · 数字越小排名越靠前",
+  "game.seo_title_mobile": "{name} 畅销榜排名走势 — App Store 与 Google Play 历史排名",
+  "game.seo_title_steam": "{name} Steam 排名走势 — 同时在线与销量历史",
+  "game.seo_desc_mobile": "查看 {name} 在 App Store 和 Google Play 的畅销榜排名走势及历史最高排名记录。",
+  "game.seo_desc_steam": "查看 {name} 的 Steam 同时在线人数与销量排名走势及历史排名记录。",
+  "game.seo_keywords_mobile": "{name}, {name} 流水, {name} 排名, {name} 畅销榜, {name} App Store 排名, {name} Google Play 排名, 手游畅销榜",
+  "game.seo_keywords_steam": "{name}, {name} 排名, {name} Steam 排名, {name} 同时在线, {name} 销量排名, Steam 游戏排行榜",
+  "game.sum_text": "{name} 于 {date} 在{c} {p2} 畅销榜排名{p3}{p4}，{p5} {p6}。{p7}",
+  "game.sum_chart_aria": "{c}畅销榜近 {N} 天排名走势。使用左右方向键切换日期，按 Esc 键关闭",
+  "game.sum_hourly_sub": "{date} · {c} · App Store 收录 {length} 次 · Google Play 收录 {length2} 次",
+  "game.sum_as_of": "{c}畅销榜 · 截至 {date}",
+  "game.sum_avg_sub": "{c} · 平均排名",
+  "game.sum_cum_days": "{c} {p0} · 近 30 天累计天数",
+  "game.sum_first_entered": "{c} {p0} 首次进入畅销榜前 200 名{p1}",
+  "game.sum_revenue": "{c} · 畅销榜",
+  "game.sum_store": "{c} {p0}",
+  "game.sum_store_prev": "{c} {p0}{p1}",
+  "game.sum_none": "<div class=\"game-empty\">该时段暂无{c}畅销榜排名记录。</div>",
+  "game.sum_no_history": "暂无{c}畅销榜排名历史。"
+};

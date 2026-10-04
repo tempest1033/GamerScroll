@@ -4,15 +4,17 @@
  */
 
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
+const i18n = require('../../i18n');
+const { t } = i18n;
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const { renderCssLinks } = require('../../build/css-links');
 const { lazyImageLoaderScript } = require('../../build/lazy-images');
 
 function generateHead(options = {}) {
   const {
-    title = '게이머스크롤 — 게임 순위 데이터·분석',
-    description = '앱스토어·구글플레이·스팀 게임 순위를 매일 기록하고 분석합니다. 매출 순위, 동접자, 월간·글로벌 통합 순위와 게임별 순위 추이.',
-    keywords = '게임 순위, 모바일 게임 매출 순위, 앱스토어 순위, 구글플레이 순위, 스팀 순위, 게임 순위 분석, 게이머스크롤',
+    title = t('head.gamerscroll_game_ranking_data_analysis'),
+    description = t('head.daily_records_and_analysis_of'),
+    keywords = t('head.game_rankings_mobile_game_revenue'),
     canonical = 'https://gamerscroll.com',
     pageData = {},
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
@@ -56,8 +58,8 @@ function generateHead(options = {}) {
 
   const safeTitle = escapeHtmlText(title);
   // <title> 태그용: 사이트명이 없으면 "| 게이머스크롤" 추가 (og:title은 원본 유지)
-  const SITE_SUFFIX = ' | 게이머스크롤';
-  const needsSuffix = !/게이머스크롤/.test(title);
+  const SITE_SUFFIX = t('head.gamerscroll_2');
+  const needsSuffix = !title.includes(t('head.gamerscroll'));
   const pageTitleText = needsSuffix ? escapeHtmlText(title + SITE_SUFFIX) : safeTitle;
   // Description 155자 제한
   const trimmedDescription = description.length > 155
@@ -68,14 +70,20 @@ function generateHead(options = {}) {
   const keywordTags = articleSchema && keywords
     ? String(keywords).split(',').map(tag => normalizeMeta(tag)).filter(Boolean).slice(0, 6)
     : [];
-  const canonicalText = normalizeMeta(canonical);
+  // Edition builds: the canonical is self-referencing (edition prefix) and every edition is announced via hreflang.
+  const editionMode = i18n.isEditionMode();
+  const edition = i18n.currentEdition();
+  const pagePath = editionMode ? i18n.stripEditionPrefix(new URL(normalizeMeta(canonical), i18n.SITE_ORIGIN).pathname) : '';
+  const canonicalText = editionMode ? i18n.absoluteUrl(edition.code, pagePath) : normalizeMeta(canonical);
   const safeCanonical = escapeHtmlAttr(canonicalText);
   const normalizeToCanonical = (value) => normalizeMeta(value || '');
   const schemaCanonical = normalizeToCanonical(canonicalText);
   const schemaBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
     ? breadcrumbs.map(item => ({ ...item, url: normalizeToCanonical(item.url) }))
     : null;
-  const alternateLink = '';
+  const alternateLink = editionMode && !noindex
+    ? [...i18n.EDITIONS.map((e) => `<link rel="alternate" hreflang="${e.hreflang}" href="${i18n.absoluteUrl(e.code, pagePath)}">`), `<link rel="alternate" hreflang="x-default" href="${i18n.absoluteUrl('en', pagePath)}">`].join('\n  ')
+    : '';
   const resolvedOgImage = escapeHtmlAttr(
     (typeof ogImage === 'string' && ogImage) ||
     (articleSchema && typeof articleSchema.image === 'string' && articleSchema.image) ||
@@ -114,8 +122,8 @@ function generateHead(options = {}) {
   const articleOgMeta = articleSchema ? [
     articleSchema.datePublished ? `<meta property="article:published_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.datePublished))}">` : '',
     (articleSchema.dateModified || articleSchema.datePublished) ? `<meta property="article:modified_time" content="${escapeHtmlAttr(ensureTimezone(articleSchema.dateModified || articleSchema.datePublished))}">` : '',
-    `<meta property="article:section" content="${escapeHtmlAttr(articleSection || '게임')}">`,
-    `<meta property="article:author" content="게이머스크롤">`,
+    `<meta property="article:section" content="${escapeHtmlAttr(articleSection || t('est.game'))}">`,
+    `<meta property="article:author" content="${t('head.gamerscroll')}">`,
     ...keywordTags.map(tag => `<meta property="article:tag" content="${escapeHtmlAttr(tag)}">`)
   ].filter(Boolean).join('\n  ') : '';
 
@@ -135,7 +143,7 @@ function generateHead(options = {}) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "게이머스크롤",
+      "name": "${t('head.gamerscroll')}",
       "url": "https://gamerscroll.com/",
       "logo": {
         "@type": "ImageObject",
@@ -258,25 +266,24 @@ function generateHead(options = {}) {
   <!-- SEO -->
   <meta name="description" content="${safeDescription}">
   <meta name="keywords" content="${safeKeywords}">
-  <meta name="application-name" content="게이머스크롤">
-  <meta name="apple-mobile-web-app-title" content="게이머스크롤">
+  <meta name="application-name" content="${t('head.gamerscroll')}">
+  <meta name="apple-mobile-web-app-title" content="${t('head.gamerscroll')}">
   ${noindex ? '' : `<link rel="canonical" href="${safeCanonical}">`}
-  ${alternateLink}
-  <link rel="alternate" type="application/rss+xml" title="게이머스크롤 RSS" href="https://gamerscroll.com/rss.xml">${
+  ${alternateLink}${
     // WebSite 스키마는 홈페이지에서만 출력 (구글 권장사항)
-    (canonicalText === 'https://gamerscroll.com' || canonicalText === 'https://gamerscroll.com/') ? `
+    (editionMode ? pagePath === '/' : (canonicalText === 'https://gamerscroll.com' || canonicalText === 'https://gamerscroll.com/')) ? `
   <!-- JSON-LD 구조화 데이터: WebSite (홈페이지 전용) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "게이머스크롤",
-    "alternateName": ["게이머스크롤", "게이머 스크롤"],
+    "name": "${t('head.gamerscroll')}",
+    "alternateName": ["${t('head.gamerscroll')}", "${t('head.gamer_scroll')}"],
     "url": "https://gamerscroll.com/",
     "description": ${jsonString(description)},
     "publisher": {
       "@type": "Organization",
-      "name": "게이머스크롤",
+      "name": "${t('head.gamerscroll')}",
       "url": "https://gamerscroll.com/",
       "logo": {
         "@type": "ImageObject",
@@ -289,7 +296,7 @@ function generateHead(options = {}) {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://gamerscroll.com/games/?q={search_term_string}"
+        "urlTemplate": "${editionMode ? i18n.absoluteUrl(edition.code, '/games/') : 'https://gamerscroll.com/games/'}?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -305,8 +312,9 @@ function generateHead(options = {}) {
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${safeImageAlt}">
   <meta property="og:url" content="${safeCanonical}">
-  <meta property="og:site_name" content="게이머스크롤">
-  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="${t('head.gamerscroll')}">
+  <meta property="og:locale" content="${edition.ogLocale}">${editionMode ? i18n.EDITIONS.filter((e) => e.code !== edition.code).map((e) => `
+  <meta property="og:locale:alternate" content="${e.ogLocale}">`).join('') : ''}
   ${articleOgMeta ? `${articleOgMeta}\n  ` : ''}
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">

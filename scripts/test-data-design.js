@@ -27,7 +27,8 @@ const homeOnly = process.env.HOME_ONLY === '1';
         return url.startsWith(baseURL) || url.startsWith('data:') ? route.continue() : route.abort();
       });
       const visit = async (route) => {
-        const response = await page.goto(new URL(route, baseURL).href, { waitUntil: 'networkidle' });
+        // Korean assertions: every route runs against the ko edition.
+        const response = await page.goto(new URL(route.startsWith('/') && !route.startsWith('/ko/') ? `/ko${route}` : route, baseURL).href, { waitUntil: 'networkidle' });
         assert.equal(response.status(), 200, route);
       };
       await run(`${width}px 홈 선택·탭·상세 링크`, async () => {
@@ -112,16 +113,6 @@ const homeOnly = process.env.HOME_ONLY === '1';
         assert.equal(await page.locator('.nav .nav-item').first().isVisible(), true, '메뉴 표시');
         const rows = page.locator('.rk-hmovers .rk-hcard').first().locator('.mrow .i');
         assert.equal(await rows.first().textContent(), '1', '변동 목록 순번');
-        const track = page.locator('#rk-hreports');
-        const next = page.locator('[data-rk-scroll="rk-hreports"][data-dir="1"]');
-        assert.equal(await page.locator('[data-rk-scroll="rk-hreports"][data-dir="-1"]').isDisabled(), true);
-        await next.click();
-        // 스크롤 이벤트 뒤에 버튼 상태가 갱신되므로, 이전 버튼이 활성화될 때까지 기다린다.
-        await page.waitForFunction(() => !document.querySelector('[data-rk-scroll="rk-hreports"][data-dir="-1"]').disabled, null, { timeout: 3000 });
-        assert.ok(await track.evaluate(el => el.scrollLeft) > 0, '다음 카드로 이동');
-        assert.match(await page.locator('#rk-hreports').locator('xpath=preceding-sibling::div[contains(@class,"rk-carousel-nav")]').locator('.c').textContent(), /^2 \/ \d+$/, '현재 위치 표시');
-        const peek = await track.evaluate(el => { const box = el.getBoundingClientRect(); return [...el.children].filter(c => { const r = c.getBoundingClientRect(); return r.right > box.left + 1 && r.left < box.right - 1; }).length; });
-        assert.equal(peek, 1, '옆 카드가 잘려 보이지 않음');
       });
       await run(`${width}px 순위 메뉴 위계·한 줄`, async () => {
         for (const [route, label] of [['/rankings/', '매출'], ['/rankings/publishers/', '개발사']]) {
@@ -194,7 +185,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
         await page.getByText('일치하는 게임이 없습니다.', { exact: false }).waitFor();
       });
       await visit('/');
-      const monthly = await page.locator('a[href^="/rankings/monthly/"]').first().getAttribute('href');
+      const monthly = await page.locator('a[href^="/ko/rankings/monthly/"]').first().getAttribute('href');
       await run(`${width}px 홈 1~10위와 분석 박스 정렬`, async () => {
         assert.equal(await page.locator('.rk-home-heading a').count(), 0);
         for (const id of ['and', 'ios', 'ccu', 'sell']) {
@@ -217,7 +208,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
         }
       });
       await page.emulateMedia({ colorScheme: 'dark' });
-      for (const route of (homeOnly ? ['/'] : ['/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/', monthly, '/rankings/global/', '/rankings/records/', '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/', '/games/', '/games/메이플-키우기/', '/reports/', '/magazine/ranking/subculture-august-2026-kr/'])) {
+      for (const route of (homeOnly ? ['/'] : ['/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/', monthly, '/rankings/global/', '/rankings/records/', '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/', '/games/', '/games/메이플-키우기/', ])) {
         await run(`${width}px ${route === '/' ? '홈 ' : ''}가로 넘침·제목 ${route}`, async () => {
           await visit(route);
           const geometry = await page.evaluate(() => ({
@@ -238,7 +229,8 @@ const homeOnly = process.env.HOME_ONLY === '1';
                 left: mainRect.left + parseFloat(mainStyle.paddingLeft),
                 right: mainRect.right - parseFloat(mainStyle.paddingRight),
                 logo: document.querySelector('.gs-logo').getBoundingClientRect().left,
-                search: document.querySelector('.gs-search').getBoundingClientRect().right,
+                // the edition selector is the header's trailing control, after the search box
+                search: document.querySelector('.gs-header-inner .gs-lang').getBoundingClientRect().right,
                 title: (document.querySelector('h1').closest('.rk-hero') || document.querySelector('h1')).getBoundingClientRect().left,
                 footer: footer.getBoundingClientRect().left + parseFloat(footerStyle.paddingLeft),
               };
@@ -280,10 +272,6 @@ const homeOnly = process.env.HOME_ONLY === '1';
         assert.equal(await page.locator('.rk-market-heading p').count(), 0, '순위 제목 옆 수집 안내 제거');
         assert.equal(await page.locator('.rk-hmovers .rk-hcard').nth(1).locator('h3 small').count(), 0, '신규 진입 보조 문구 제거');
         assert.equal(await page.locator('.rk-home > .rk-section > h2 a').count(), 0, '전체 보기 링크는 제목에서 분리');
-        const reports = page.locator('.rk-section-footer').locator('..');
-        const cards = await reports.locator('.rk-cards').boundingBox();
-        const footer = await reports.locator('.rk-section-footer').boundingBox();
-        assert.ok(footer.y >= cards.y + cards.height, '리포트 목록 아래 전체 보기');
         if (width > 768) {
           const podium = page.locator('.rk-hmonth .rk-podium');
           const bounds = await podium.boundingBox();
@@ -327,7 +315,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
     const context = await browser.newContext();
     const page = await context.newPage();
     await run('네이티브 홈 탭 키보드 전환', async () => {
-      await page.goto(baseURL, { waitUntil: 'domcontentloaded' });
+      await page.goto(`${baseURL}/ko/`, { waitUntil: 'domcontentloaded' });
       await page.locator('#ht-and').focus();
       await page.keyboard.press('ArrowRight');
       assert.equal(await page.locator('#ht-ios').isChecked(), true);

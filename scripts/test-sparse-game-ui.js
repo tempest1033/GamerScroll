@@ -10,7 +10,7 @@ const empty = renderGameRankSummary({ name: '기록 없는 게임', appIds: { io
 assert.ok(empty && empty.html.includes('해당 기간의 한국 매출 순위 기록이 없습니다.'));
 assert.equal(empty.days, 0);
 assert.ok(!/null|undefined/.test(empty.text));
-const fallback = cheerio.load(generateGamePage({ name: '기록 없는 게임', slug: 'test-no-record', platforms: ['ios'], rankSummaryHtml: '' }));
+const fallback = cheerio.load(generateGamePage({ name: '기록 없는 게임', slug: 'test-no-record', platforms: ['ios'] }));
 assert.ok(fallback('h2').text().includes('매출 순위 분석'));
 assert.equal(fallback('.realtime-rank-section, .rank-trend-section').length, 0);
 console.log('PASS 기록 없음·분석 미생성 상태도 신형 UI 유지');
@@ -23,7 +23,7 @@ console.log('PASS 기록 없음·분석 미생성 상태도 신형 UI 유지');
     for (const width of [1440, 390]) {
       const page = await browser.newPage({ viewport: { width, height: 1000 } });
       await page.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort());
-      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/rankings/', '/rankings/cn/', '/rankings/free/', '/rankings/subculture/', '/rankings/monthly/2026-08/', '/rankings/records/', '/games/픽셀-테이머즈/'])) {
+      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/rankings/', '/rankings/cn/', '/rankings/free/', '/rankings/subculture/', '/rankings/monthly/2026-08/', '/rankings/records/', '/ko/games/픽셀-테이머즈/'])) {
         try {
           assert.equal((await page.goto(base + route, { waitUntil: 'networkidle' })).status(), 200);
           assert.equal(await page.locator('.rk-ticker').count(), 0, '메뉴 아래 요약 띠 제거');

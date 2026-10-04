@@ -24,7 +24,7 @@ const { chromium } = require('playwright');
         }));
         assert.ok(layout.every(c => c.number > c.label && c.fits), '게임명 우선 위계·카드 내부 표시');
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
-        await page.goto(base + '/rankings/records/', { waitUntil: 'networkidle' });
+        await page.goto(base + '/ko/rankings/records/', { waitUntil: 'networkidle' }); // Korean wording: ko edition
         assert.equal(await page.locator('.rk-head p').count(), 0);
         assert.ok((await page.locator('h1').innerText()).includes('연간 기록'));
         console.log(`PASS ${width}px 스팀 카드·연간 안내 제거`);

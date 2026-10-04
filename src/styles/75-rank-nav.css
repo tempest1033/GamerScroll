@@ -50,7 +50,7 @@ body .site-container .rk .rk-genre-filter-row > span { flex: 0 0 64px; font-size
   /* 목록 제목(월간·글로벌·개발사): 매출·인기 순위처럼 큰 제목 없이 작은 설명 한 줄로 */
   body .site-container .rk .rk-listh { display: block; padding: 10px 0 8px; border-bottom-width: 1px; }
   body .site-container .rk .rk-card:has(> .rk-listh:first-child) { margin-top: 8px; }
-  body .site-container .rk .rk-listh h2 { display: inline; font-size: 11px; font-weight: 600; letter-spacing: 0; line-height: 1.6; color: var(--text-secondary); }
+  body .site-container .rk .rk-listh h2 { display: inline; padding: 0; font-size: 11px; font-weight: 600; letter-spacing: 0; line-height: 1.6; color: var(--text-secondary); }
   body .site-container .rk .rk-listh small { display: inline; text-align: left; }
   body .site-container .rk .rk-listh small::before { content: ' · '; }
 

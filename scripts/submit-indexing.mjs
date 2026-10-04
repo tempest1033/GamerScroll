@@ -50,10 +50,9 @@ const SITE_BY_PREFIX = [
   { prefix: 'data/wiki/business/',   build: ({ slug })          => [`https://gamerscroll.com/wiki/business/${slug}/`] },
   { prefix: 'data/wiki/history/',    build: ({ slug })          => [`https://gamerscroll.com/wiki/history/${slug}/`] },
   { prefix: 'data/wiki/knowledge/',  build: ({ slug })          => [`https://gamerscroll.com/wiki/knowledge/${slug}/`] },
-  { prefix: 'reports/issue/',        build: ({ slug })          => [`https://gamerscroll.com/magazine/issue/${slug}/`] },
-  { prefix: 'reports/hotpick/',      build: ({ slug })          => [`https://gamerscroll.com/magazine/hotpick/${slug}/`] },
-  { prefix: 'reports/insight/',      build: ({ slug })          => [`https://gamerscroll.com/magazine/insight/${slug}/`] },
-  { prefix: 'reports/ranking/',      build: ({ slug })          => [`https://gamerscroll.com/magazine/ranking/${slug}/`] },
+  // GamerScroll 매거진 폐기: reports/issue·hotpick 은 AIScroll 발행분(site: aiscroll)만 핑한다
+  { prefix: 'reports/issue/',        build: () => [] },
+  { prefix: 'reports/hotpick/',      build: () => [] },
 ]
 
 export function urlsForArticle(file, json) {

@@ -1,0 +1,101 @@
+/* v3 리뉴얼 구성 요소 (2026-10-04): 1~3위 카드, 오늘의 요약 카드.
+   원칙: 흰 바탕 + 가는 테두리, 그림자·그라데이션 없음, 색은 상승/하락과 1~3위 숫자에만. */
+
+/* 1~3위: 테두리 카드. 1위만 검은 테두리, 순위 숫자는 금·은·동 */
+body .site-container .rk .rk-list.rk-pods > li.rk-pod { border: 1px solid var(--rk-line); border-radius: 14px; padding: 0 14px 0 6px; margin-bottom: 8px; height: 84px; }
+body .site-container .rk .rk-list.rk-pods > li.rk-pod1 { border-color: var(--rk-text); height: 92px; }
+body .site-container .rk .rk-list.rk-pods > li.rk-pod .rk-rk.top { font-size: 22px; font-weight: 800; }
+body .site-container .rk .rk-list.rk-pods > li.rk-pod1 .rk-rk.top { color: #c99700; }
+body .site-container .rk .rk-list.rk-pods > li.rk-pod2 .rk-rk.top { color: #8a93a6; }
+body .site-container .rk .rk-list.rk-pods > li.rk-pod3 .rk-rk.top { color: #c0784a; }
+body .site-container .rk .rk-list.rk-pods > li.rk-pod1 .nm > a,
+body .site-container .rk .rk-list.rk-pods > li.rk-pod1 .nm > span:first-child,
+body .site-container .rk .rk-list.rk-pods > li.rk-pod1 .nm > button { font-size: 17px; font-weight: 700; }
+
+/* 스팀 상세의 1위 표시: 파란 글자 대신 중립색 (68-neutral-text 원칙) */
+body .site-container .rk .rk-pills span.one { background: var(--rk-bg2); color: var(--rk-text); }
+
+/* 오늘의 요약 카드 줄: PC 3칸, 휴대폰은 첫 장만 */
+.rk .rk-hl { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 380px)); gap: 8px; margin: 16px 0 4px; }
+.rk .rk-hl-card { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border: 1px solid var(--rk-line); border-radius: 12px; min-width: 0; color: inherit; text-decoration: none; background: var(--rk-bg, #fff); }
+.rk a.rk-hl-card:hover { border-color: var(--rk-dim); }
+.rk .rk-hl-card img { width: 40px; height: 40px; border-radius: 10px; flex: none; background: var(--rk-bg2); }
+.rk .rk-hl-card .tx { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.rk .rk-hl-card .lb { font-size: 11px; font-weight: 700; color: var(--rk-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rk .rk-hl-card .nm { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rk .rk-hl-card .vl { flex: none; display: flex; flex-direction: column; align-items: flex-end; font-size: 13px; white-space: nowrap; }
+@media (max-width: 768px) {
+  .rk .rk-hl { grid-template-columns: minmax(0, 1fr); margin-top: 12px; }
+  .rk .rk-hl > .rk-hl-card:nth-child(n+2) { display: none; }
+}
+
+/* 게임 DB: 수치 줄 + 지금 차트에 오른 게임 카드 */
+.games-hub-stats { display: flex; gap: 28px; margin: 4px 0 20px; }
+.games-hub-stats b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -.03em; line-height: 1.2; }
+.games-hub-stats span { font-size: 12px; color: var(--text-muted, #6f747d); }
+.games-hub-charting { margin-bottom: 32px; }
+.games-hub-charting-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.games-hub-chart-card { display: flex; flex-direction: column; gap: 4px; padding: 14px; border: 1px solid var(--border, #e6e7eb); border-radius: 14px; min-width: 0; color: inherit; text-decoration: none; }
+.games-hub-chart-card:hover { border-color: #b9bcc4; }
+.games-hub-chart-card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+.games-hub-chart-card img { width: 56px; height: 56px; border-radius: 14px; flex: none; }
+.games-hub-chart-card .rk { text-align: right; white-space: nowrap; }
+.games-hub-chart-card .rk b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
+.games-hub-chart-card .rk { min-width: 0; }
+.games-hub-chart-card .rk small { display: block; font-size: 11px; color: var(--text-muted, #6f747d); white-space: normal; text-align: right; line-height: 1.2; }
+.games-hub-chart-card .nm { font-size: 14px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.games-hub-chart-card .dv { font-size: 12px; color: var(--text-muted, #6f747d); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 1023px) { .games-hub-charting-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .games-hub-stats { gap: 20px; } .games-hub-stats b { font-size: 19px; } .games-hub-chart-card { padding: 12px; } }
+
+/* 게임 상세: 순위 추이 차트의 나라 전환(라디오 버튼, 자바스크립트 없이) */
+.rk .rk-gc-input { position: absolute; opacity: 0; pointer-events: none; }
+.rk .rk-gc-tabs { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; margin-bottom: 12px; }
+.rk .rk-gc-tabs label { display: flex; align-items: center; justify-content: space-between; gap: 8px; height: 48px; padding: 0 14px; border: 1px solid var(--rk-line); border-radius: 10px; background: var(--rk-bg, #fff); cursor: pointer; min-width: 0; font-size: 13px; color: var(--rk-muted); }
+.rk .rk-gc-tabs label span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.rk .rk-gc-tabs label b { font-size: 15px; color: var(--rk-text); white-space: nowrap; }
+.rk .rk-gc-panel { display: none; }
+.rk #rk-gc-kr:checked ~ .rk-gc-kr, .rk #rk-gc-jp:checked ~ .rk-gc-jp, .rk #rk-gc-us:checked ~ .rk-gc-us, .rk #rk-gc-cn:checked ~ .rk-gc-cn, .rk #rk-gc-tw:checked ~ .rk-gc-tw { display: block; }
+.rk #rk-gc-kr:checked ~ .rk-gc-tabs label[for="rk-gc-kr"], .rk #rk-gc-jp:checked ~ .rk-gc-tabs label[for="rk-gc-jp"], .rk #rk-gc-us:checked ~ .rk-gc-tabs label[for="rk-gc-us"], .rk #rk-gc-cn:checked ~ .rk-gc-tabs label[for="rk-gc-cn"], .rk #rk-gc-tw:checked ~ .rk-gc-tabs label[for="rk-gc-tw"] { border-color: var(--rk-text); box-shadow: inset 0 0 0 1px var(--rk-text); color: var(--rk-text); }
+.rk .rk-gc-input:focus-visible ~ .rk-gc-tabs { outline: 2px solid var(--rk-text); outline-offset: 2px; border-radius: 10px; }
+@media (max-width: 768px) {
+  .rk .rk-gc-tabs { gap: 4px; }
+  .rk .rk-gc-tabs label { flex-direction: column; justify-content: center; gap: 1px; height: 50px; padding: 0 2px; font-size: 11px; }
+  .rk .rk-gc-tabs label b { font-size: 14px; }
+}
+
+/* 트렌딩 페이지 */
+.rk.rk-trend .rk-trend-sub { margin: 6px 0 0; font-size: 13px; color: var(--rk-muted); }
+.rk.rk-trend .rk-trend-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.rk.rk-trend .rk-trend-list .rt b { font-size: 14px; }
+/* 오른쪽 값이 두 줄(순위 변화 + 증감)이라 줄 높이를 고정하지 않는다 */
+body .site-container .rk.rk-trend .rk-trend-list li { height: auto; min-height: 66px; padding-top: 8px; padding-bottom: 8px; }
+.rk.rk-trend .rk-bump { display: grid; grid-template-columns: minmax(0, 1fr) 96px minmax(0, 1fr); max-width: 860px; }
+.rk.rk-trend .rk-bump-h { height: 28px; font-size: 12px; font-weight: 700; color: var(--rk-muted); }
+.rk.rk-trend .rk-bump-col.r .rk-bump-h { text-align: right; }
+.rk.rk-trend .rk-bump svg { display: block; width: 100%; height: 440px; margin-top: 28px; }
+.rk.rk-trend .rk-bump-row { display: flex; align-items: center; gap: 8px; height: 44px; min-width: 0; font-size: 14px; color: inherit; text-decoration: none; }
+.rk.rk-trend .rk-bump-row .no { flex: none; width: 20px; text-align: center; font-weight: 800; }
+.rk.rk-trend .rk-bump-row img { width: 30px; height: 30px; border-radius: 8px; flex: none; background: var(--rk-bg2); }
+.rk.rk-trend .rk-bump-row .t { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+.rk.rk-trend .rk-bump-row.out { opacity: .5; }
+.rk.rk-trend .rk-bump-row.in .t { font-weight: 800; }
+.rk.rk-trend .rk-bump-col.r .rk-bump-row { flex-direction: row-reverse; }
+.rk.rk-trend .rk-bump-col.r .rk-bump-row .t { text-align: right; }
+.rk.rk-trend .rk-heat td.c { padding: 4px; }
+.rk.rk-trend .rk-heat-cell { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 48px; border-radius: 10px; line-height: 1.2; background: var(--rk-bg2); color: var(--rk-dim); }
+.rk.rk-trend .rk-heat-cell b { font-size: 15px; }
+.rk.rk-trend .rk-heat-cell small { font-size: 11px; opacity: .8; white-space: nowrap; }
+.rk.rk-trend .rk-heat-cell.h1 { background: #ffe9e6; color: #b42318; }
+.rk.rk-trend .rk-heat-cell.h2 { background: #ffc9c2; color: #a01b10; }
+.rk.rk-trend .rk-heat-cell.h3 { background: #ff8f80; color: #fff; }
+.rk.rk-trend .rk-heat-cell.h4 { background: #e5484d; color: #fff; }
+@media (max-width: 768px) {
+  .rk.rk-trend .rk-trend-list { grid-template-columns: minmax(0, 1fr); }
+  .rk.rk-trend .rk-bump { grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr); }
+  .rk.rk-trend .rk-bump-row { gap: 5px; font-size: 12px; }
+  .rk.rk-trend .rk-bump-row .no { width: 16px; }
+  .rk.rk-trend .rk-bump-row img { width: 26px; height: 26px; border-radius: 7px; }
+  .rk.rk-trend .rk-heat .rk-app img { display: none; }
+  .rk.rk-trend .rk-heat-cell { height: 44px; }
+}

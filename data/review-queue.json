@@ -824,7 +824,8 @@
       "status": "matched",
       "appIds": {
         "ios": 1617391485,
-        "android": "com.block.juggle"
+        "android": "com.block.juggle",
+        "ios_tw": "6479229672"
       },
       "developer": "Hungry Studio",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/fa/af/6dfaaf89-9b64-4bfb-8d85-7199300524a2/AppIcon-0-0-1x_U007emarketing-0-11-0-sRGB-85-220.png/100x100bb.png",
@@ -10716,7 +10717,8 @@
       "title": "사이어인 폭발 100% Z",
       "status": "single",
       "appIds": {
-        "android": "com.weugizf.qwifduj"
+        "android": "com.weugizf.qwifduj",
+        "android_kr": "com.esdxcnm.agfhioej"
       },
       "developer": "pinkgenie",
       "icon": "https://play-lh.googleusercontent.com/Hdt6EZhMcbZ97c-DXlF8CHWl9vxN8boagYEMBC626bwgIwWZoW0G2uuOgajnKI14uC0BWkqwON7Pu69o5xK-_w",
@@ -23257,7 +23259,8 @@
       "title": "꽥꽥 구조대-CBT",
       "status": "single",
       "appIds": {
-        "android": "com.haoplay.game.gp.duck.cbt"
+        "android": "com.haoplay.game.gp.duck.cbt",
+        "android_tw": "com.yzlmcbt.tw.and"
       },
       "developer": "HaoPlay Limited",
       "icon": "https://play-lh.googleusercontent.com/8S2aiKAdJVFmabqM0l3lmDuTNKMKqmWza4rCCZm3E-cCYDlLOJBAzGVspnKpU4kog1Q",
@@ -35628,6 +35631,5720 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c2/dc/82/c2dc827e-2c31-e3a8-7aca-c16b448f978e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-01T09:15:13.640Z"
+    },
+    {
+      "title": "接小人上车-逃出孤岛",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6795026537"
+      },
+      "developer": "天嘉 赵",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e1/fd/25/e1fd2509-999a-dabc-ac5a-459f50f322d5/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.048Z"
+    },
+    {
+      "title": "終焉の楔：アポカリプス・ノヴァ",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6775121055"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.049Z"
+    },
+    {
+      "title": "滅亡の未来：ラスト・スタンド",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6799583064"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.049Z"
+    },
+    {
+      "title": "キズナ進化",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.zcnfkjwa.qerjfnhn"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.049Z"
+    },
+    {
+      "title": "万箭归宗：蛇影迷阵",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6762199388"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.052Z"
+    },
+    {
+      "title": "小镇花店：梦想词语铺",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6762340834"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.052Z"
+    },
+    {
+      "title": "我的种田时光",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6796171001"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.052Z"
+    },
+    {
+      "title": "富贵小羊-锦线牧灵羊",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6800314521"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "轻松快解压-鸭鸭觅途",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6803478700"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "鬼討ち剣士：日の呼吸",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.ewhsdhz.wufrjka"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "コップころがし",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6807693044"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "航海冒險：我和女帝同船的日子",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "app.pirate.one1.cn"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "Amaze Belle: Escape Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.arrow.belle.escapepuzzle"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "Scarlet Mask Casino Slots",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.aurlixo.trevuno"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "Shadow Raccoon Fortune Slots",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.koyomist.cedarveil"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "我要开饭店",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761251314"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "超世代激鬥：極意覺醒",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6795457716"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "黑白馬：冠之王",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6755875070"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "羊群的科学管理：解救羊群",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761821860"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "解压流沙",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6778393009"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "解压螺丝馆-螺母找螺丝的奇幻之旅",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6783668121"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "解压台球",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6789514713"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "找了个茬",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6794182747"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "一眼找到底",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6797497714"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "阿斗我扶你",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6805868531"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "Crystal Water Sort",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6756043185"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "Word Crush:Secret Album",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6792734869"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "飛升-文字修仙",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6447511815"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "新三國志曹操傳",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6755760260"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "呼吸法修練",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6797761628"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "舌尖上的中国-联动季",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6744996137"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "荒野保衛戰",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.gyst.gptw"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "Lover Jigsaw",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6787067800"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "New World: Sea Quest",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6796953637"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "Amaze Romantic Goddess",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.arrow.romantic.puzzle.goddess"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "香香饭店",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6772152925"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "刀霊契約",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6764276892"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "猛鬼三國",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6774434587"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "家電特攻隊",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6787870428"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "屍控戰姬",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6767836587"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "森の骰子道",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6799696395"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "海盜航路：啟程",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6746032856"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "せいれいたいり",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6761741056"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "命运代码：侵入",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6775344525"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Realmwalker !",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6783188556"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Card Match: Memory Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6794623880"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "名羊四海：机智的小羊",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6791149420"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "霊界大作戦",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6769683163"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Bamboo Breeze Mahjong",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.bamboobreeze.mahjonggame"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "黎明前夜",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.game.magicfusion"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Doozy Urban Life Simulator",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758587244"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Romantic Nuts & Bolts Sorting",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6779478739",
+        "android_us": "com.nutsbolts.zgsn"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "一路顺风:链路征途",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6763041124"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "TowerVerse: Infinite Defense",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6766898181"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "我的养老时光 - 慢生活",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6775828743"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Magrolip",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6794603438"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "美食大连连",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6796241379"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "消个毛线",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756003879"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "暖暖猫咪",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6785838322"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "变色龙躲猫猫",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6795596691"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Alchemix TubeGlow",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6783367332"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "清珩傳",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6773755607"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Aphelion Escape",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6762113903"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "千年血戦 -禍進譚-",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.ydhzxn.bdjjksw"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "花团锦绣",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6755369758"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "真香大饭店-小镇生活",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761162076"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "我是大善人",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6762707687"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "猫猫日记-青坪伴小猫",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6768621462"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "美食高手：我在大饭店里学厨技",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6769363223"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "幸运小萌宠-逃跑小羊",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6780451901"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "合个鸭子",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6782840954"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "疯狂找一找-百景觅异",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6786208802"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "攀爬动物",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760543624"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "継承なき冠：エンペラーズ・エンド",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6768243341"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Bubble Farmer: Win Real Cash",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6749885032"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Quizy Fortune",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6760834078"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "长途旅行",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "1610863047"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "龙将猎词记",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6790720134"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "OUBVXN",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.viftyinnoriabrand.colorzap"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "Fantasy Card",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.cardgame.cardex"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "筑梦事务所",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6741700768"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "幻獸競技場",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.vbttr.gbveu.kgbdy"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "我要當食神",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6480405264"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "糕点流水线",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6789902777"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "火の神",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6773568958"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "ネオ・ストリーム：運命の終着点",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6779219030"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "有趣的超市模拟器游戏",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6754966114"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "萌果奇境：果树星愿",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6772173414"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "致富我最强：挖矿夺宝当大王",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6763240378"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "SpeedOn",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6779525101"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "魔法迴路",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.shimmergames.idlehero"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "聖杯神諭",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6778656959"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "冠位王座",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.egytec.atlas_learn"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "梦幻足球-竞逐世界之巅",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6763226916"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "变色龙躲猫猫:涂鸦躲猫猫逃脱派对",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6787818276"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "诛仙2：一念如初",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.psgame.zx2.sg"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "呪術覚醒：呪いの力",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.wehdshj.qweydhe"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "逆袭快递员",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756400237"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "あざ覚醒",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6772081060"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "晶石狂潮",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6783649550"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Mahjong Journey Relax",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.mahjong.mjrelax"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Glowvial Sortzenpour",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6774166480"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Norevo",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6776491893"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "脱出ゲーム 高級ホテルエスケープ",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6780127533"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Mahjong Slide Crush",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.crushmj.mahjongslide"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Genie Magic 777 Slots",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.wizvuq.lampyq"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "魔卡之耀-后宫",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6754636431"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "细水长流",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6754755741"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "災厄之主: 解",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6770485197"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Camo Party: Paint & Hide",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6785941633"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Vivi Dash",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6759905666"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "SkyBlitz",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.survival.aceee"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "巔峰進化：羈絆覺醒聯盟",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6776997554"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "八方来雀-麻雀小屋",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760631515"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "心灵手巧：起航解谜",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6762610691"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "一起来发财",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6767847866"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "ArrowLogicPuzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6770442236"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "亀仙島ファーム",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6774503197"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "一箭如故-记忆与反应的终极挑战",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6780773724"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "サイヤZ戦士",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.sadjhgf.zxhhws"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Arrow Escape: Survival Run",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6761997653"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Screw Sort - Save Dog Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6742681250"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "LoopArrowEscape",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6764724401"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "倒水我最强-碰碰杯",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6751788506"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "福盈满门",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6754668353"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "鲜花盛开",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6754878014"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "怀旧小农院-蔬果大师",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756659026"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "箭头挪对了",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757208615"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "小小羊圈-羊趣乐园",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6759963349"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "螺丝飞起来",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761261827"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "水果大丰收：超级解压",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761525689"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "幸福小院-我的儿时旧时光",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761587279"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "黄金发财:鎏金挑战",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6762805531"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "怡然时光 - 臂力大作战",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6767788142"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "治愈猪猪 - 猪猪致富经",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6770466433"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "箭头大师-引矢寻方",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6771287738"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "疯狂来挪车：指尖妙移挪车",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6776135868"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "cipher_cascade",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6779630350"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "富贵小羊：马年宝藏大冒险",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758927339"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Paint Splash Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6776570363"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "神龍の願い",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6759699576"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "赵云与阿斗：抵御汹涌来袭敌军！",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6783727604"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "神聖計劃：最終對決",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.ssjh.zzdj"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "我和猫猫：猫猫逆袭记",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6772113112"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "赵云救阿斗策略塔防肉鸽游戏",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6777888452"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "超級全明星",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6751221730"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "SuperHeadsTog",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6768304229"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.055Z"
+    },
+    {
+      "title": "Island Defense Fight",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6769760670"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "丰收乐园",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756044590"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "創界守護者",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6761472215"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "捞了个菜",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6766814846"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Arrow Trace",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6772920493"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Billiard Master: Perfect Aim",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6752340200"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "HER TREES : PUZZLE DREAM",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6769748675"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "猫猫物语 - 喵喵运输队",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6768234032"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "一掷千金疯狂买买买店铺经营模拟器",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6775158866"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "MECCHA CHAMELEON",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.aliae.carnivore"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "航海紀元:偉大航路",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6757224660"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "搬砖添财",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6755016061"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Her Trees",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6764754318"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "伊甸之魂《Soul of Eden》",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.rayark.rush"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "福满家园-收纳巧搭",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758719229"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "PrimeGrid",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758422797"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "風與龍之歌",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6760646737"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Color Logic Gates",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6760657880"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "動物歷險記",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.vutimes.app.dwlxj6"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "羁绊进化觉醒",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758004676"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "我是大酋長:抓寵版 寵物捕捉休閒養成遊戲",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6767219112"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "最強石器：重返尼斯",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6768351049"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Mecha Chameleon",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6774990170"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Bow Wow Battle Dog",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6769058088"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Snake Hero: Food Hunt Battle",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.jusihf.snake.io.food.hunt.battle"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "魔王刷刷刷！(ShadowLord Quest)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.appguru.ShadowLordQuest"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "一个箭头：箭序次元",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757894463"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "サイヤバースト100％ Z",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.dsfujewu.dkzujdc"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "逍遙蜀山",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.xfdgglobal.google"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Romantic Screw Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.samudera.romantic.screw"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "縛咒迴聲：斷裂",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6761003793"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "別將我的軍",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.p8jgsgtwcb.an"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Fortivale Defenders",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.dl.defender"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "BBQ Kitchen: Match 3",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.elqrhe.restruant.triple"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "格闘チャンピオン",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.qdjfgxk.jndfhjzjk"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "无限斗士",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756995200"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Amset Match",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760386733"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "Rec Room: Play with Friends",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "1450306065"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "ドット異世界",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6744966279"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "怪獸：進化對決",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6760745608"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "召喚龍神",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6761415344"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "桃源好生活",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6768874174"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "登龍劍訣：必殺",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6760385281"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "超越領域：アセンション・コード",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6771792437"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "御剑灵域-仙魔",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6743071814"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "街角服装店",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757994167"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "矿穴钩客",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6773403375"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "BarbecueSort",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6761610567"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "進擊的殭屍",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.x.aoz.gl"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "荷叶弹跳蛙",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6772748730"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "幻獸大冒險",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.fcve.grfv.xwyh"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.056Z"
+    },
+    {
+      "title": "回村开饭店：食趣团团转",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757910796"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Word Solitaire Puzzle Game",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6762594771"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "解压笑一笑：箭头棋绘",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757919971"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "万箭归宗-彩蛇猎蛙寻径",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761452303"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "怡然时光：萌宠小陪伴",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761604165"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "福运水果：果蔬大探险",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6762168610"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "海岛好时光",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6764482729"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "画个箭头：释放箭头的艺术",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757187987"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "ピクセル大乱闘",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6759782281"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "時空極域：戰至終焉",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6761673025"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "神への叛逆者：ロスト・オリジン",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6764796283"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Eternal Girls : Battle Card",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.queencardbattle.ipyh.an"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "田园休闲时光",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6767120948"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "蔚藍星球：國王很忙",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6749769179"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "斗破苍穹：少年崛起-动画正版授权",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757746366"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "猪猪往前冲-智慧冒险之旅",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758294044"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "無邪気な 少年 が 恐ろしい 森の中で",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6480269106"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "春风得意-引球进洞",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760344903"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "ピクセル英雄伝",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6760453153"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "豪车合不停-极速画线",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760539927"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "我要下西洋",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6476483076"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "上弦鬼月:通透異界",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6761411916"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "脱出ゲーム Mother’s Day",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.newlocal.mothersday"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Best Guess Live",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.netflix.NGP.BestGuess",
+        "ios_us": "6741133499"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "魔導少年：激鬥",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.skymoons.ftsm.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "跑了只羊-指尖上的羊",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6759816113"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "数独推演",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6766488589"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Boxloop",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6755084102"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "石器懷舊服 - 1:1移植版",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6752563564"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "治愈猫咪：猫咪要回家",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6754262483"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "花开好时光：花朵王国",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6755174914"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "心灵手巧:激光艺术",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758451373"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Spin Arena Cash:Casino Slot",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6747098015"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "得亿羊羊-探索思考",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756718550"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "富贵台球:精心益智",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761531877"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "ピクセルヒーロー",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.sjweyuz.erkgso"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "大俠刷刷刷",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.djcty.twgp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Brain Tile Battle",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6757803555"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "十二宫荣耀之战",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6759818039"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "凡人修真錄：文字放置版",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6761984934"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "不滅意志：レゾナンス・コア",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6762448294"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Pepp Heroes: Relic Quest",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6740507490"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "猪猪来财",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6751274630"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Jackpot Heist Slot",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6748330232"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "田园好时光-绘梦画境",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6759152132"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "脱出ゲーム コテージで過ごす休日",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6761754529"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Cash Carnival - Win Real Money",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6745258320"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "MyVoiceZoo Game",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6760120612"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Slots Bandito Wilds",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.calaverash.swkullbrationvr"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "殭屍英雄大亂鬥",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.zombie.yhcn"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "砖块搬不停",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758291496"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Nile Riches Reelst：Real Cash",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6747421212"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "解压放松器-解压不是问题",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757347130"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "马上发财-富联智算，策略大比拼",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758831439"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "約定之日",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.huanchou.card.qooapp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "LINE 大亨向前衝",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.linecorp.LGGRGTW",
+        "ios_tw": "6751628074"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Pirate Spin Clash:Slots Casino",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6755424212"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Hyper Cash Storm:Big Win Rush",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6756691610"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "風之國世界",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.rolike.twgp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "JUMP 全明星亂鬥(CBT)",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6754686102"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "熊猫日记：智趣围园",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756878777"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "我推的浴姬 泉糖QQ浴",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6759076965"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "屍速改裝車",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6745877105",
+        "android_tw": "com.onemt.and.tk"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "Masterpiece Mahjong",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.masterpiece.puzzlemahjong"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "風遁忍唄",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6759907262"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "财神好运来-吉祥挑战",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6748343779"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "仲間の伝説",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6760285144"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "点点高手",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6479404677"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Borderlands Mobile",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6756075968"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "LINE: ガンダム ウォーズ",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.linecorp.LGSDG",
+        "ios_jp": "1044503337"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Torvax Card",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760633642"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "三國冰河時代",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6743214731"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "一路顺风：萌宠救援计划",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756400456"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Lucky777 Slots-Real Vegas Game",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.imperialevo.dragontemple"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "三國冰河時代-輕三國生存社交",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.starlight.sg.oversea.global"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Goddess Card Arena - TCG",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.goddesscardarena.tcg.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "哥布林戰車：GO！",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.supermagic.aos.dheroes"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "刷子来刷墙",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6745439258"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "冒險歸來",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.mxtest.and"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "草木皆兵",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "net.pixelrabbit.huayuan"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "山海来财",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758910904"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "我的花园小院-花香满庭院",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760117896"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Arrow Master - Maze Escape Out",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6760633183"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Cursed Animal Voices",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.mandcatgames.thecursedvoicezoo"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "爷爷的后花园-生机盎然",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760339390"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Bump Comsa: Monsters",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6756910033"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "云境物语：起源",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6498887125"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "圣剑之刃：虚域终章",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756401740"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "The Brainiest",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6746205735"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "箭头传说",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758036926"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "忍者大戰：世界",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "net.gameduo.nb2",
+        "ios_tw": "6749236618"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "瞬眸礁记",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761092324"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "ScorpiCraft",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6761304964"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "咒術: 澀谷事變",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.k10.tw3gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Pair Pop: Solitaire Match",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.paxiegames.pairpop",
+        "ios_us": "6755598466"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "漢字でGO! 集英社マンガ祭",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6737794706"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Kid-E-Cats Hockey Elo",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.edujoy.cats.hockey.elo",
+        "ios_us": "6761052086"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "脱出ゲーム Graduation Ceremony",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.newlocal.graduationceremony",
+        "ios_jp": "6760704403"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "江南人家",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6755983861"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "爷爷的农院：幸福如此简单",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758373409"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Bump Comla: Rope",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6757381713"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "天元：結界之術",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6760701726"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Kid-E-Cats. Educational Games",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.edujoy.kidecats",
+        "ios_us": "1496920432"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "翡翠大师",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.xhgame.jademaster"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "萌宠乐翻天-萌宠乐园",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757598010"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "超限進化：界域崩解",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6758048294"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "元气唤灵师-盲盒放置卡牌",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6746525277"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Golem Rise: Craft Arena",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.golemrise.craftarena"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "恐龍吞噬進化",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.speed.dinosaur.twa",
+        "ios_tw": "6759696721"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "钢铁之躯 武士 中世纪 格斗游戏 & 格斗动作游戏",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6749807062"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "螺丝工厂",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6745248057"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "眾神の契約：光之幻想紀元",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6755166055"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "打了个螺丝",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756771555"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "靈妖奇緣",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.lyqy.jstwgp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "結界覺醒：咒力激鬥",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6756638990"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "奶奶的小农院-发酵的魔法",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757509550"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Mutant Craft: War of Titans",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.craft.mutantcraft.shin.titans"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "忍界：羈絆之路",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.nrfs.dbtt"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "战姬女神前线-送2026抽",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "zhanj.girl.line"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "趣味快门连线",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6760375886"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "FFBE幻影戦争 戦略RPG/シミュレーションゲーム",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "1443703517"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "一字千金",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6502285060"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Spin Orb Cyclone：Win Real Cash",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6746156453"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "忍術対決：木ノ葉試練",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6757210126"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Rod Master: Happy Sort",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.rodmasterhappysort.game"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "螺丝风暴",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756704552"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Screw Master: Lovely Sort",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.screwmasterlovelysoet.game"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "永恆漩渦",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6757455670"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "Air Shooter",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.game.air.shooter"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Wool Sort: Art Game",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.woolsortartgame.game"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "BLACKPINK THE GAME",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6444351044"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "碎玉傳說",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6756484464"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Achievement Slot Game",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.games.facepoker.us.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Daily Classic Solitaire",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.solitairecard.relaxgame.classiccard"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "欢乐小院：寻找小动物",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6749226072"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "熱血啟示錄",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6757466819"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "荣耀奇迹：龙神降临",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6752496348"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Solitaire Word Fun!",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6755984478",
+        "android_us": "com.oakever.solitaire.associations.master"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "脱出ゲーム 桜咲く古民家",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6759100962"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "釣魚新境界",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.racoondigi.dyhw"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "地下城傳說 - 尋寶獵人",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6755118800"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "破神激戰!登入搶極限達",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6758011693"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Music Piano 2: KPop Star",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.adventure.piano.kpopstar"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Screw Match Jam",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.screwjam.ase"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "九天诛魔-国风仙侠旗舰大世界修仙冒险游戏!",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6751492638"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "SwimTracer",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758905871"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Jigmerge™ Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6757518670"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "聚寶Online",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.jixi.android.gbao888",
+        "ios_tw": "1563757256"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "鋼煉：真理之門",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.wehgshj.zoeuja"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Lucky Duel",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6742445632"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "TastyLetters",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6748882380"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Cash Spin Mania",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.cash.spin.mania"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Goddess Gallery - Tiles Casual",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.girlvideo.goddessgallery"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Black.Red",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6759737572"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Beauty Screw Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.lofunev.screwen.lettary"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "脱出ゲーム Sushi",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.newlocal.sushi"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Slots Jackpot world",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.worldadvent.tropicalbay"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "煉金戰爭：真理之门",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6758083220"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "小羊最开心-暖星救援",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758993768"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Sasuke Craft: Ninja Hero",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.craftworld.craft.ninja.hero"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "世界生存",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "net.craftgame.minigame"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Water Sort:Romance Puzzle Game",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "water.sort.romance.puzzle.aqua"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "僕のヒーローアカデミア ULTRA IMPACT",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "1547368590"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "神聖計劃：究極覺醒",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6756649635"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Mahjong Trip:Relax Tile Games",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.tilegames.mahjongtrip"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Yarn Art: Color Sort",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.yarnartcolorsort.com"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "森びより - のんびり田舎暮らし",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6755132962"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Blaze Heros: Verse",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6757220765"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "洗衣机乐算游戏",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758579320"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Golem Craft: Shin World",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.golem.shin.battle.craftworld"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "忍者ヒーロー：意志を継ぐ者",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.ewydfjx.leugdfuj"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "無間行者：劍客",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6757471619"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "劍士物語-呼吸奧義",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6752481184"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "超能訓練家：進化",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6757210438"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Classic Solitaire Pro",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.classic.solitaire.mitlp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Sonic the Hedgehog™ Classic",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.sega.sonic1px",
+        "ios_us": "316025912"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Sonic The Hedgehog 2 Classic",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.sega.sonic2.runner",
+        "ios_us": "347411942"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.059Z"
+    },
+    {
+      "title": "Jigsaw: Relax & Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.jigsawgame.relaxpuzzle"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "うたわれるもの ロストフラグ",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "jp.aquaplus.utawarelf",
+        "ios_jp": "1482215375"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "創世紀戰M：阿修羅計畫",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6503430688"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "归墟战纪-正版授权动漫手游",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6749287143"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "忍道の魂：終極決鬥",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6756409398"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "呪術強運",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6757071394"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "輸贏",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.mangot5.bum",
+        "ios_tw": "6746186696"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "最遊幻想",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.zyhx.taiwan.gp",
+        "ios_tw": "6756843293"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "DualBrainAwakening",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758518202"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Pet Champion",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.FangLaiLu.game"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "指點兵兵",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6744519586"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "疯狂小羊-摇摆闯关",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756055079"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "财运熊猫：绳索空降",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756394349"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "菇勇者：新世界",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.yxbjcs.tw.and"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "半隐花仙谷：花院迷踪",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757181761"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "龍裔使命：決戰神鳥",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6758124462"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "喵喵特工隊",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "cc.jasfun.cat.android"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Royal Slot",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.emojiricheshappy.cute"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "君ノ隣ニ座ル星。-DaysThatSparkle-",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "jp.co.nowpro.str",
+        "ios_jp": "6752647561"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Bullet Train Driving Simulator",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.igames.trainsimulatorgames"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "财运天天发：箭头探险家",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758038012"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "果林拾趣",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758600845"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "FPS突击队3D枪战游戏",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.milliongames.fpscommando"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "花语迷踪",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6753888127"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "姬不可失：據點不設防",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6754364750"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Kettle-Cup Count",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6758731235"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Ball Cleaner X",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "bc.ball.cleanerx"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "バウンティハンターズ",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6739280497"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "かいじゅうパレット",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6744874102"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "全明星觉醒",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6748631908"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Legendary Valley",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754753942"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Building World: Pixel Craft",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.buildingworld.pixel"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "游戏大全-小游戏大全",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6744312777"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "追放者食堂へようこそ！ オーダーラッシュ",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754670632",
+        "android_jp": "com.avex.tsuihosha"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "偉大航程：紀元",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.hzw.hkhf"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Myth Black Monkey: Return",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6754679488"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "FFBE幻影戦争 WAR OF THE VISIONS",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.square_enix.WOTVffbejp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "羈絆覺醒：終極之戰",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6756636117"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "脱出ゲーム Treasure Hunt",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6758138596"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Slot Fortune Cash",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.explosivefire.winsdaily"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "呪術契約",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6756988489"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "ポケモンメガシンカ",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6757459790"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "如意满满：矩阵永恒",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757470953"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "彈跳軍團",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.and.ballmrg",
+        "ios_tw": "6755102798"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "最後的進化：數碼",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.fm.smxsj"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Pigeon Pop: Bird Life Pet Shop",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.happy.robot.inc.pigeonpop"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "宮廷暖暖",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.huadu.gp.gat"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Phone Merge Master",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "pmm.phone.merge.master"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "彈道英雄：深淵危機",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6478578315",
+        "android_tw": "com.ygtech.ddyx"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Bitty World",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6756585892"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "仙逆長生",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.nine.gp.tw"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "メガシンカ覚醒",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.wehash.weqyus"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "熔岩迷城",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.madfun.dxtw.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "バースト三国～美人の計",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6756481143"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "迷你部落",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.tinymonster.sfgame"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Urban Bus Driving 3D",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "ubd.urban.bus.driving"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "ポケモンワールド",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6757144292"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "覺醒紀元：英雄新生",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.ggjxjy.yxxs"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "Merge Cafe-relax game",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.playunlimited.casual.mergecafe"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.060Z"
+    },
+    {
+      "title": "挪猪大挑战",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6753196500"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "钱程似锦",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6755133394"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "咒術: 百鬼夜行",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.k10.kktw2gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "最強トレーナー DX",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.uehgfc.peuxcn"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Happy Pizza Shop",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "hps.happy.pizza.shop"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "斗羅大陸：逆轉時空",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6740516191"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "ドラゴン召喚",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6745545428"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "屍控特攻隊",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6746787176"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "BirdSort",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6755419097"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "ベビーワールド",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754450878"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "ドット覇道",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754501253"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "脱出ゲーム 2026",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.newlocal.twentytwentysix",
+        "ios_jp": "6757080324"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "无名骑士团",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6479868901"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "福满人家",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6757005672"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Liquid Layer: Bar Master Sort",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754601218"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "小镇幸福生活",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6754828454"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Ayakashi Rise: 妖怪狩獵 AFK",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.clovergames.ayakashirise"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "星空大救援",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6753131869"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "次元鋼彈兵團",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6754685346"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "呪術大戦",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6755674478"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Top King",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.gamespark.mykingdom.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "GolemCraft: World Battle",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.golem.battle.iron.copper.tnt"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Blend Maker",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756997480"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "最強トレーナー",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6752276297"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "一念山海：幻兽修仙传",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.ynsh.sea.google",
+        "ios_tw": "6752993695"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "奇跡冒險隊",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.blue.gp.tw",
+        "ios_tw": "6752689897"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "猪猪多福：吃大席",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6749604548"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Isekai Drifters: Survivor",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.kkts.ts.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "鋼魂機戰",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6755179251"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Beauty Mahjong",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.gcgp.girlgame.mahjong"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "云境物语",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.ysqy.sea.google"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "摆花齐放-乐趣无限",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6745921775"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Beats Playground",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.cdt.spronki.playground"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "術式革命：都市降魔",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.k10.zonetwgp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "超サイヤ人極限激戦",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.weufguiqw.peucn"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "スイカゲームフルーツトリプルブロッサムマージ25",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6749440978"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Build Master: Bridge Race",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.readygo.aps.gp",
+        "ios_us": "1614358511"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "ブロックブラスト(NEW!)",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6749438021"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Fruit World Collision",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6756201931"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "至上權力",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.king.power.tduw"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "呪術高専",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6755141113"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "顺心如意：图形绘制大师",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6755528188"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "勇敢的亞諾",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.dhfyp8.an"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Supermarket 3D: Retail Empire",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.market.shop.simulation.act.fml"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Meme Merge：Sahur Battle Royale",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.quwanhuyu.MemeMerge"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "サクサク疾行団",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754243384"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "錢來啦娛樂城",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.cayenne.st"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "百鬼夜行",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.imcul.xhst"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "特級呪術師",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754864076"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Cyber Parkour 電馭跑酷",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.fanimax.cyberparkour"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Ayakashi Rise: AFK Demon Hunt",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6741898318"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "鋼鐵革新",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6751998208"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Slime Art simulator: Slime DIY",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.slime.art.simulator.antistress"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "契約吧！精靈少女",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.contract.elf.maiden"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "二之國：交錯世界",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.netmarble.ennt"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "小さな戦士たち - 複数の形態",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6754960420"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Real World Gangster Prison",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.gangster.mafia.hero.act.city.rope"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "King Fortune Slot",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.majesticrule.palace"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "終境シンフォニー",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6749037023"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Stra Z：屍落太空",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.bx.hmt.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Cooking Dash: Crazy Kitchen",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.cooking.chef.food.res.crazy.kitchen.dash"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "麻吉對戰",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.percent.aos.inventoryhero"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Doki Doki Literature Club!",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_us": "com.serenityforge.dokidokiliteratureclub"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Card Sort Jam",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "solitaire.word.sort.card.brainteaser"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "福运开车",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_cn": "6755187083"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "脱出ゲーム Ryokan",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.newlocal.ryokanmystery",
+        "ios_jp": "6756181955"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "刀劍同心",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.percent.aos.karldouble"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "勇者たちの大暴れ！！",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.yubare.az"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Jigblock™ Puzzle",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6747734279"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Ming: Rivers of Blood",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6751226769"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Bump Comma:MyFood",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_us": "6754923710"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "開局一座島 - 女神守衛戰",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_tw": "com.madfun.oceantw.gp"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "Minesweeper v1.0",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_kr": "6738613938"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "脱出ゲーム クリスマスエスケープ",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_jp": "6755484815"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "表情包暴走大戰-忘掉不開心，超級歡樂爆笑RPG遊戲",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6754697830"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "鬼討ち剣士：日の呼吸 (JP)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.akxhjrcq.jdkzhjd"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.053Z"
+    },
+    {
+      "title": "キズナ進化 (JP)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.wejsigf.lrfuisz"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "千年血戦 -禍進譚- (JP)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.kzqwmfk.ngurkwq"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.054Z"
+    },
+    {
+      "title": "爆走摸魚君 (TW)",
+      "status": "lookup-failed",
+      "appIds": {
+        "ios_tw": "6744019585"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.057Z"
+    },
+    {
+      "title": "サイヤバースト100％ Z (JP)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.msohrekz.yhekjflx"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.058Z"
+    },
+    {
+      "title": "呪術覚醒：呪いの力 (JP)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.weugfjsx.wugkzq"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "最強トレーナー DX (JP)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.wehdfsh.qwyxnhj"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "超サイヤ人極限激戦 (JP)",
+      "status": "lookup-failed",
+      "appIds": {
+        "android_jp": "com.cxhdjgr.pweacnmd"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-10-03T14:54:51.061Z"
     }
   ],
   "approved": [

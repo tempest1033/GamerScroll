@@ -85,7 +85,7 @@ function fixture() {
 
 test('prefetch only admits canonical public same-origin documents', () => {
   const origin = 'https://gamerscroll.com';
-  for (const path of ['/', '/games/', '/rankings/jp/', '/steam/730/', '/reports/', '/magazine/ranking/example/']) {
+  for (const path of ['/', '/games/', '/rankings/jp/', '/steam/730/']) {
     assert.equal(prefetchUrl(path, origin), origin + path);
   }
   for (const path of ['/games/?q=test', '/games/#initial-A', '/assets/image.png', '/account/', 'https://outside.test/games/', 'https://user:pass@gamerscroll.com/games/']) {

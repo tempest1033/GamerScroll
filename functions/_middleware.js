@@ -41,7 +41,40 @@ function goneResponse() {
   });
 }
 
-async function handleGamerScrollLegacyRedirect(url, path) {
+const GS_LOCALE_PREFIXES = ["ko", "ja", "zh-cn", "zh-tw"];
+const GS_LOCALES = ["en", ...GS_LOCALE_PREFIXES];
+const GS_COUNTRY_LOCALE = { KR: "ko", JP: "ja", CN: "zh-cn", TW: "zh-tw" };
+// Path prefixes that never get the edition redirect (none: game pages are localized since they render per edition).
+const GS_LOCALE_EXCLUDED_PREFIXES = [];
+const BOT_UA_RE = /(?:^|[^a-z])(?:googlebot|bingbot|baiduspider|duckduckbot|yandexbot|naverbot|yeti|facebookexternalhit|twitterbot|whatsapp|slackbot|applebot|petalbot|sogou|seznambot|ahrefsbot|semrushbot|mj12bot|crawler|spider|scrapy|wget|curl)/;
+
+function gsLocalePrefixOf(path) {
+  return GS_LOCALE_PREFIXES.find((p) => path === "/" + p || path.startsWith("/" + p + "/")) || null;
+}
+
+function gsIsStaticPath(path) {
+  return (
+    path.startsWith("/assets/") ||
+    path.startsWith("/favicon") ||
+    path === "/manifest.json" ||
+    path === "/robots.txt" ||
+    /^\/sitemap[^/]*\.xml$/.test(path) ||
+    path === "/rss.xml" ||
+    path === "/service-worker.js" ||
+    path === "/ads.txt" ||
+    /\.(?!html$)[a-z0-9]+$/i.test(path.split("/").pop())
+  );
+}
+
+async function handleGamerScrollLegacyRedirect(url, fullPath) {
+  // Removed-section rules apply at the root and under any locale prefix.
+  const prefix = gsLocalePrefixOf(fullPath);
+  const path = prefix ? fullPath.slice(prefix.length + 1) || "/" : fullPath;
+
+  if (path === "/magazine" || path.startsWith("/magazine/")) return goneResponse();
+  if (path === "/reports" || path.startsWith("/reports/")) return goneResponse();
+  if (/^\/tech\/normal\/[^/]+\/?$/.test(path)) return goneResponse();
+
   // 구 /tech/ai|vibecoding/<slug> → AIScroll 기사 (인덱스로 현재 카테고리 확인).
   const match = path.match(/^\/tech\/(ai|vibecoding)\/([^/]+)(\/.*)?$/);
   if (match) {
@@ -56,18 +89,6 @@ async function handleGamerScrollLegacyRedirect(url, path) {
     return Response.redirect(target + url.search, 301);
   }
 
-  // 구 /tech/normal/<slug> → 게이머스크롤 매거진 재배치 (2026-08-02): 소스 JSON은 reports/issue·hotpick으로 이동됨.
-  // 맵에 없는 슬러그는 삭제된 기사 → 410.
-  const normalMatch = path.match(/^\/tech\/normal\/([^/]+)\/?$/);
-  if (normalMatch) {
-    const slug = decodeURIComponent(normalMatch[1] || "");
-    const type = TECH_NORMAL_MOVED[slug];
-    if (type) {
-      return Response.redirect(`${url.origin}/magazine/${type}/${encodeURIComponent(slug)}/` + url.search, 301);
-    }
-    return goneResponse();
-  }
-
   // 잔여 /tech/* (허브 페이지) → AIScroll 홈.
   // 과거 docs/_redirects의 /tech/* 캐치올은 동적 룰 상한으로 항상 죽어 있었음 — 여기서 의도 복원.
   if (path === "/tech" || path.startsWith("/tech/")) {
@@ -76,35 +97,14 @@ async function handleGamerScrollLegacyRedirect(url, path) {
 
   // 2026-09-09 위키·출시 게임 섹션 폐기: 옛 URL은 가장 가까운 허브(리포트·게임 DB)로 301.
   if (path === "/wiki" || path.startsWith("/wiki/")) {
-    return Response.redirect(`${url.origin}/reports/`, 301);
+    return Response.redirect(`${url.origin}/rankings/`, 301);
   }
   if (path === "/upcoming" || path === "/upcoming/" || path === "/upcoming.html") {
     return Response.redirect(`${url.origin}/games/`, 301);
   }
-  // 옛 매거진 허브·카테고리 목록은 리포트 허브로 통합 (기사 URL /magazine/<type>/<slug>/ 은 유지).
-  if (/^\/magazine\/?$/.test(path) || /^\/magazine\/(issue|insight|hotpick|ranking)\/?$/.test(path)) {
-    return Response.redirect(`${url.origin}/reports/`, 301);
-  }
 
   return null;
 }
-
-// 2026-08-02 매거진 재배치 슬러그 맵 (구 /tech/normal/<slug> → /magazine/<type>/<slug>/)
-const TECH_NORMAL_MOVED = {
-  "intel-arc-g3-handheld-gaming": "issue",
-  "intel-core-ultra-200s-plus": "issue",
-  "macbook-neo-reviews": "issue",
-  "nakwon-last-paradise-cbt": "issue",
-  "nvidia-dlss5-controversy": "issue",
-  "rewinding-cadence-technical-test": "issue",
-  "2d-animation-tech": "hotpick",
-  "agile-jira-confluence-game-dev": "hotpick",
-  "firebase-serverless-game-backend": "hotpick",
-  "game-engine": "hotpick",
-  "gantt-chart": "hotpick",
-  "python-pandas-data-analysis": "hotpick",
-  "version-control-system": "hotpick"
-};
 
 export async function onRequest(context) {
   const { request, next } = context;
@@ -133,7 +133,36 @@ export async function onRequest(context) {
         return response;
       }
     }
-    return next();
+    if (gsLocalePrefixOf(path)) return next();
+    if (gsIsStaticPath(path)) return next();
+    const gsUa = (request.headers.get("User-Agent") || "").toLowerCase();
+    if (BOT_UA_RE.test(gsUa)) return next();
+    if (GS_LOCALE_EXCLUDED_PREFIXES.some((p) => path.startsWith(p))) return next();
+
+    const queryLocale = url.searchParams.get("locale");
+    const hasQuery = GS_LOCALES.includes(queryLocale);
+    const cookieMatch = (request.headers.get("Cookie") || "").match(/(?:^|;\s*)gs_locale=([a-z-]+)(?:;|$)/);
+    const cookieLocale = cookieMatch && GS_LOCALES.includes(cookieMatch[1]) ? cookieMatch[1] : null;
+    const preferred = (hasQuery && queryLocale) || cookieLocale || GS_COUNTRY_LOCALE[country] || "en";
+    const setCookie = `gs_locale=${queryLocale}; Max-Age=31536000; Path=/; SameSite=Lax; Secure`;
+
+    if (preferred !== "en") {
+      const headers = new Headers({
+        Location: `/${preferred}${path}${url.search}`,
+        "Cache-Control": "private, no-store"
+      });
+      if (hasQuery) headers.append("Set-Cookie", setCookie);
+      return new Response(null, { status: 302, headers });
+    }
+    const response = await next();
+    if (!hasQuery) return response;
+    try {
+      const cloned = new Response(response.body, response);
+      cloned.headers.append("Set-Cookie", setCookie);
+      return cloned;
+    } catch {
+      return response;
+    }
   }
 
   // HARD INVARIANT: KR auto-routing applies only to aiscroll.io.

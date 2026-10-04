@@ -9,7 +9,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
     for (const width of (process.env.TEST_WIDTHS || '1440,390').split(',').map(Number)) {
       const page = await browser.newPage({ viewport: { width, height: 1000 }, hasTouch: width === 390 });
       await page.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort());
-      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/', '/rankings/', '/rankings/records/', '/rankings/publishers/', '/steam/', '/games/로얄-매치-royal-match/', '/games/where-winds-meet/'])) {
+      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/ko/', '/ko/rankings/', '/ko/rankings/records/', '/ko/rankings/publishers/', '/ko/steam/', '/ko/games/로얄-매치-royal-match/', '/ko/games/where-winds-meet/'])) {
         try {
           await page.goto(base + route, { waitUntil: 'networkidle' });
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), '가로 넘침 없음');
@@ -19,8 +19,8 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
               const t = range.getBoundingClientRect();
               return { width: r.width, y: r.y, center: r.x + r.width / 2, textCenter: t.x + t.width / 2 };
             }));
-            assert.equal(nav.length, 4);
-            assert.ok(nav.every(n => Math.abs(n.width - nav[0].width) < 1 && Math.abs(n.center - n.textCenter) < 1 && Math.abs(n.y - nav[0].y) < 1), '모바일 4칸 중앙 정렬');
+            assert.equal(nav.length, 4); // 모바일 · 트렌딩 · 스팀 · 게임 DB
+            assert.ok(nav.every(n => Math.abs(n.width - nav[0].width) < 1 && Math.abs(n.center - n.textCenter) < 1 && Math.abs(n.y - nav[0].y) < 1), '모바일 3칸 중앙 정렬');
           }
           const sparkOffsets = await page.locator('td.spk .rk-spark:visible').evaluateAll(es => es.map(e => {
             const a = e.getBoundingClientRect(), b = e.closest('td').getBoundingClientRect();
@@ -38,7 +38,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
               await svg.press('Home');
               await svg.press('ArrowRight');
               const text = await root.locator('.rk-chart-tooltip').innerText();
-              assert.ok(text.includes(data.labels[1]));
+              assert.ok(text.includes((data.display || data.labels)[1]));
               for (const series of data.series) assert.ok(text.includes(series.name + ' ' + (series.values[1] == null ? '기록 없음' : series.values[1] + '위')));
               await svg.press('Enter');
               assert.ok(!(await root.locator('.rk-chart-tooltip').innerText()).includes('고정'));

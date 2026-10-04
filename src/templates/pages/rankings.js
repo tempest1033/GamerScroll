@@ -2,6 +2,7 @@
  * 모바일 순위 페이지 템플릿
  */
 
+const { t } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { countries } = require('../../crawlers/rankings');
 const { resizeIcon } = require('../../utils/resize-icon');
@@ -42,7 +43,7 @@ function generateRankingsPage(data) {
     const rows = Array.from({length: maxItems}, (_, i) =>
       `<div class="rank-row rank-only"><span class="rank-num ${i < 3 ? 'top' + (i + 1) : ''}">${i + 1}</span></div>`
     ).join('');
-    return `<div class="country-column rank-column" data-country="rank"><div class="column-header"><span class="country-name">순위</span></div><div class="rank-list">${rows}</div></div>`;
+    return `<div class="country-column rank-column" data-country="rank"><div class="column-header"><span class="country-name">${t('layout.rankings')}</span></div><div class="rank-list">${rows}</div></div>`;
   }
 
   // iOS 국가별 컬럼 생성 (200위까지)
@@ -56,7 +57,7 @@ function generateRankingsPage(data) {
         return slug
           ? `<a class="rank-row rank-row-link" href="/games/${slug}/">${rowContent}</a>`
           : `<div class="rank-row">${rowContent}</div>`;
-      }).join('') : '<div class="no-data">데이터 없음</div>';
+      }).join('') : t('rankings.no_data');
       return `<div class="country-column" data-country="${c.code}"><div class="column-header"><span class="flag">${c.flag}</span><span class="country-name">${c.name}</span></div><div class="rank-list">${rows}</div></div>`;
     }).join('');
     return rankCol + countryCols;
@@ -79,7 +80,7 @@ function generateRankingsPage(data) {
             : `<div class="rank-row">${rowContent}</div>`;
         }).join('');
       } else {
-        rows = '<div class="no-data">데이터 없음</div>';
+        rows = t('rankings.no_data');
       }
       return `<div class="country-column" data-country="${c.code}"><div class="column-header"><span class="flag">${c.flag}</span><span class="country-name">${c.name}</span></div><div class="rank-list">${rows}</div></div>`;
     }).join('');
@@ -90,15 +91,15 @@ function generateRankingsPage(data) {
     <section class="section active" id="rankings">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container">
-        <h1 class="visually-hidden">모바일 게임 순위</h1>
+        <h1 class="visually-hidden">${t('rankings.mobile_game_rankings')}</h1>
         <div class="rankings-card home-card">
           <div class="home-card-header">
-            <h2 class="visually-hidden">앱스토어 게임 순위, 플레이스토어 게임 순위</h2>
-            <span class="home-card-title">모바일 게임 순위</span>
+            <h2 class="visually-hidden">${t('rankings.app_store_game_rankings_play')}</h2>
+            <span class="home-card-title">${t('rankings.mobile_game_rankings')}</span>
             <div class="home-card-controls">
               <div class="tab-group" id="chartTab">
-                <button class="tab-btn grossing-btn active" data-chart="grossing">매출</button>
-                <button class="tab-btn free-btn" data-chart="free">인기</button>
+                <button class="tab-btn grossing-btn active" data-chart="grossing">${t('est.revenue')}</button>
+                <button class="tab-btn free-btn" data-chart="free">${t('sidebar.popular')}</button>
               </div>
             </div>
           </div>
@@ -360,7 +361,7 @@ function generateRankingsPage(data) {
 
 	    function generateRankColumn(count) {
 	      const rows = generateRankRows(0, count);
-	      return '<div class="country-column rank-column" data-country="rank"><div class="column-header"><span class="country-name">순위</span></div><div class="rank-list">' + rows + '</div></div>';
+	      return '<div class="country-column rank-column" data-country="rank"><div class="column-header"><span class="country-name">${t('layout.rankings')}</span></div><div class="rank-list">' + rows + '</div></div>';
 	    }
 
 	    function buildRow(app) {
@@ -389,7 +390,7 @@ function generateRankingsPage(data) {
 	        } else if (items.length > 0) {
 	          rows = items.slice(0, count).map(buildRow).join('');
 	        } else {
-	          rows = '<div class="no-data">데이터 없음</div>';
+	          rows = '<div class="no-data">${t('blocks.no_data')}</div>';
 	        }
 
 	        return '<div class="country-column" data-country="' + c.code + '"><div class="column-header"><span class="flag">' + c.flag + '</span><span class="country-name">' + c.name + '</span></div><div class="rank-list">' + rows + '</div></div>';
@@ -539,7 +540,7 @@ function generateRankingsPage(data) {
 	        iconPrefetcher.observe(grid);
 	        scheduleFill(grid, chartData, store, chart);
 	      } catch (e) {
-	        grid.innerHTML = '<div class="no-data">데이터 로드 실패</div>';
+	        grid.innerHTML = '<div class="no-data">${t('rankings.failed_to_load_data')}</div>';
 	      }
 	    }
 
@@ -579,14 +580,14 @@ function generateRankingsPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'rankings',
-    title: '모바일 게임 순위 - 앱스토어, 플레이스토어 매출 순위',
-    description: '한국, 일본, 미국, 중국, 대만 앱스토어·플레이스토어 게임 매출 순위 TOP 200. 실시간 모바일 게임 인기 차트를 국가별로 비교하세요.',
-    keywords: '모바일 게임 순위, 앱스토어 순위, 플레이스토어 순위, 앱스토어 매출 순위, 플레이스토어 매출 순위, 게임 순위, 모바일 게임 매출',
+    title: t('rankings.mobile_game_rankings_app_store_2'),
+    description: t('rankings.revenue_rankings_top_200_of'),
+    keywords: t('rankings.mobile_game_rankings_app_store'),
     canonical: `${siteBaseUrl}/rankings/`,
     pageScripts,
     breadcrumbs: [
-      { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '모바일 게임 순위', url: `${siteBaseUrl}/rankings/` }
+      { name: t('about.home'), url: `${siteBaseUrl}/` },
+      { name: t('rankings.mobile_game_rankings'), url: `${siteBaseUrl}/rankings/` }
     ]
   });
 }

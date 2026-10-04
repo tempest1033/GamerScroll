@@ -1,4 +1,5 @@
 'use strict';
+const { t } = require('../i18n');
 /**
  * 스팀 일별 이력 통계 — history/YYYY-MM-DD.json 의 steam.mostPlayed(동접자 TOP 100) · steam.topSellers(한국 스토어 판매 TOP 100)
  * 초기 이력(2025-12)은 appid·rank·ccu 만 있어 이름·이미지·개발사는 가장 최근에 본 행에서 가져온다.
@@ -22,7 +23,7 @@ function loadSteamStats(options = {}) {
       days.push({ date: f.slice(0, 10), ts: h.timestamp, mp, sellers: ts, mpIdx: new Map(mp.map((r) => [String(r.appid), r])), tsIdx: new Map(ts.map((r) => [String(r.appid), r])) });
     } catch {}
   }
-  if (days.length < 2) throw new Error('스팀 이력이 2일 미만이라 통계를 만들 수 없습니다');
+  if (days.length < 2) throw new Error(t('steam.statistics_cannot_be_built_because'));
   const today = days[days.length - 1];
   const yday = days[days.length - 2];
 

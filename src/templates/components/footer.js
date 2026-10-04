@@ -5,19 +5,20 @@
  * 생성되지 않아 "내용을 불러올 수 없습니다"만 떴다. 링크는 템플릿 페이지 /privacy/ 로 바로 간다.
  */
 
+const { t } = require('../../i18n');
 function generateFooter() {
   const year = new Date().getFullYear();
 
   return `
 	  <!-- Footer -->
 	  <footer class="site-footer">
-	    <span>© ${year} 게이머스크롤</span>
+	    <span>${t('footer.gamerscroll', { year })}</span>
 	    <span class="footer-divider">|</span>
-	    <a href="/about/" class="footer-about-link">소개</a>
+	    <a href="/about/" class="footer-about-link">${t('footer.about')}</a>
 	    <span class="footer-divider">|</span>
 	    <a href="https://x.com/gamerscroll" class="footer-x-link" rel="me noopener" target="_blank">X</a>
 	    <span class="footer-divider">|</span>
-	    <a href="/privacy/" class="footer-privacy-link">개인정보처리방침</a>
+	    <a href="/privacy/" class="footer-privacy-link">${t('footer.privacy_policy')}</a>
 	  </footer>
 `;
 }

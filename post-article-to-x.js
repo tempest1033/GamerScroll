@@ -23,7 +23,6 @@ const META_FILE = lang === 'en' ? './x-post-article-en-meta.json' : './x-post-ar
 // 기사 JSON 탐색 경로 (우선순위 순)
 const SEARCH_DIRS = [
   { dir: './reports/issue', type: 'issue' },
-  { dir: './reports/ranking', type: 'ranking' },
   { dir: './data/wiki', type: 'wiki', nested: true },
   { dir: './data/tech', type: 'tech', nested: true }
 ];
@@ -59,8 +58,6 @@ function buildArticleUrl(found, slug) {
     switch (found.type) {
       case 'issue':
         return `${base}/trend/issue/${slug}/`;
-      case 'ranking':
-        return `${base}/trend/ranking/${slug}/`;
       case 'wiki':
         return `${base}/wiki/${found.category}/${slug}/`;
       case 'tech':
@@ -73,8 +70,6 @@ function buildArticleUrl(found, slug) {
   switch (found.type) {
     case 'issue':
       return `${base}/trend/issue/${slug}/`;
-    case 'ranking':
-      return `${base}/trend/ranking/${slug}/`;
     case 'wiki':
       return `${base}/wiki/${found.category}/${slug}/`;
     case 'tech':

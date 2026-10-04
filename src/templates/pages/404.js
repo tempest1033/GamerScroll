@@ -4,6 +4,7 @@
  * - "홈으로" / "게임 DB" 링크 제공
  */
 
+const { t } = require('../../i18n');
 const { wrapWithLayout } = require('../layout');
 
 function generate404Page() {
@@ -16,19 +17,19 @@ function generate404Page() {
             <path d="M12 8v4M12 16h.01"/>
           </svg>
         </div>
-        <h1 class="not-found-title">페이지를 찾을 수 없습니다</h1>
-        <p class="not-found-desc">요청하신 페이지가 존재하지 않거나 삭제되었습니다.</p>
+        <h1 class="not-found-title">${t('notfound.page_not_found')}</h1>
+        <p class="not-found-desc">${t('notfound.the_page_you_requested_does_2')}</p>
         <div class="not-found-links">
-          <a href="/" class="not-found-link">홈으로</a>
-          <a href="/games/" class="not-found-link">게임 DB</a>
+          <a href="/" class="not-found-link">${t('notfound.back_to_home')}</a>
+          <a href="/games/" class="not-found-link">${t('layout.game_db')}</a>
         </div>
       </div>
     </div>
   `;
 
   return wrapWithLayout(content, {
-    title: '페이지를 찾을 수 없습니다 | 게이머스크롤',
-    description: '요청하신 페이지가 존재하지 않습니다.',
+    title: t('notfound.page_not_found_gamerscroll'),
+    description: t('notfound.the_page_you_requested_does'),
     currentPage: '',
     showSearchBar: true,
     noindex: true

@@ -18,8 +18,6 @@ on:
       - 'data/wiki/**.json'
       - 'reports/issue/**.json'
       - 'reports/hotpick/**.json'
-      - 'reports/insight/**.json'
-      - 'reports/ranking/**.json'
   workflow_dispatch:
     inputs:
       urls:

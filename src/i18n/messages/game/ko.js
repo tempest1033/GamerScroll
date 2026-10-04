@@ -1,0 +1,37 @@
+'use strict';
+
+// Game detail page messages (src/templates/pages/game.js, src/templates/helpers/game-rank-summary.js). {c} = country name.
+module.exports = {
+  "game.home": "홈",
+  "game.games_db": "게임 DB",
+  "game.steam_analysis": "스팀 순위 분석",
+  "game.stat_ccu_rank": "동시접속자 순위",
+  "game.stat_sales_rank": "판매 순위",
+  "game.stat_current_players": "현재 접속자",
+  "game.revenue_analysis": "매출 순위 분석",
+  "game.no_analysis_records": "분석에 필요한 순위 기록이 없습니다.",
+  "game.no_data": "데이터가 없습니다",
+  "game.no_data_short": "데이터 없음",
+  "game.period_day": "일",
+  "game.period_week": "주",
+  "game.period_month": "월",
+  "game.chart_note": "기간별 수집 기록 중 최고 순위 · 숫자가 작을수록 상위",
+  "game.seo_title_mobile": "{name} 매출 순위 추이 — 앱스토어·구글플레이 기록",
+  "game.seo_title_steam": "{name} 스팀 순위 추이 — 동접·판매 기록",
+  "game.seo_desc_mobile": "{name}의 앱스토어·구글플레이 매출 순위 추이와 역대 순위 기록.",
+  "game.seo_desc_steam": "{name}의 스팀 동접자·판매 순위 추이와 역대 순위 기록.",
+  "game.seo_keywords_mobile": "{name}, {name} 매출, {name} 순위, {name} 매출 순위, {name} 앱스토어 순위, {name} 구글플레이 순위, 모바일 게임 매출 순위",
+  "game.seo_keywords_steam": "{name}, {name} 순위, {name} 스팀 순위, {name} 동접자, {name} 판매 순위, 스팀 게임 순위",
+  "game.sum_text": "{name}의 {date} {c} {p2} 매출 순위 {p3}{p4}, {p5} {p6}. {p7}",
+  "game.sum_chart_aria": "최근 {N}일 {c} 매출 순위 추이. 좌우 방향키로 날짜 이동, Escape로 닫기",
+  "game.sum_hourly_sub": "{date} · {c} · 앱스토어 {length}회 · 구글플레이 {length2}회 수집",
+  "game.sum_as_of": "{c} 매출 · {date} 기준",
+  "game.sum_avg_sub": "{c} · 평균 순위",
+  "game.sum_cum_days": "{c} {p0} · 30일 중 누적 일수",
+  "game.sum_first_entered": "{c} {p0} 매출 200위 안 첫 진입{p1}",
+  "game.sum_revenue": "{c} · 매출",
+  "game.sum_store": "{c} {p0}",
+  "game.sum_store_prev": "{c} {p0}{p1}",
+  "game.sum_none": "<div class=\"game-empty\">해당 기간의 {c} 매출 순위 기록이 없습니다.</div>",
+  "game.sum_no_history": "{c} 매출 순위 이력이 없습니다."
+};

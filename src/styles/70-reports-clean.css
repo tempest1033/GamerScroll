@@ -6,7 +6,7 @@ body.page-reports .site-container .rk .rk-report-list .rk-rep[hidden] { display:
 body.page-reports .site-container .rk .rk-report-list img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; background: var(--bg-secondary); }
 body.page-reports .site-container .rk-report-copy { min-width: 0; }
 body.page-reports .site-container .rk .rk-report-list .k { display: flex; gap: 12px; font-size: 12px; line-height: 1.5; color: var(--text-muted); }
-body.page-reports .site-container .rk .rk-report-list h2.t { font-size: 20px; font-weight: 600; line-height: 1.5; margin: 8px 0; color: var(--text); overflow-wrap: anywhere; }
+body.page-reports .site-container .rk .rk-report-list h2.t { font-size: 20px; font-weight: 600; line-height: 1.5; margin: 8px 0; color: var(--text); overflow-wrap: break-word; }
 body.page-reports .site-container .rk .rk-report-list p.s { font-size: 14px; line-height: 1.7; margin: 0; color: var(--text-muted); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 body.page-reports .rk-report-list .rk-rep:hover h2.t { text-decoration: underline; text-underline-offset: 4px; }
 body.page-reports .rk-subnav a:focus-visible { outline: 2px solid var(--text-secondary); outline-offset: 4px; }
@@ -18,7 +18,7 @@ body.page-reports .site-container .rk .rk-news-layout .rk-news-lead img { aspect
 body.page-reports .site-container .rk .rk-news-layout .rk-news-lead h2.t { font-size: 30px; line-height: 1.35; margin: 10px 0 12px; }
 body.page-reports .site-container .rk .rk-news-layout .rk-news-lead p.s { font-size: 15px; }
 body.page-reports .site-container .rk .rk-news-layout .rk-news-card { display: flex; flex-direction: column; align-items: stretch; padding: 0 0 24px; gap: 16px; }
-body.page-reports .site-container .rk .rk-news-layout h2.t { word-break: keep-all; overflow-wrap: anywhere; }
+body.page-reports .site-container .rk .rk-news-layout h2.t { word-break: keep-all; overflow-wrap: break-word; }
 body.page-reports .site-container .rk .rk-news-layout .rk-news-card h2.t { font-size: 20px; min-height: 3em; }
 body.page-reports .site-container .rk .rk-news-layout .rk-news-card p.s { font-size: 13px; }
 body.page-reports .site-container .rk .rk-news-layout .rk-news-card .rk-report-copy { display: flex; flex-direction: column; flex: 1; }

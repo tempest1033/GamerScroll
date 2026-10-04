@@ -2,6 +2,8 @@
  * 헤더 컴포넌트 (로고)
  */
 
+const { t } = require('../../i18n');
+const { renderEditionSelector, editionSelectorStyle } = require('./edition-selector');
 const { navItems, navIdOf } = require('./nav');
 
 // 상단 바 오른쪽 상태 문구 (마지막 수집 시각). 빌드 스크립트가 데이터 로드 후 넣는다.
@@ -13,7 +15,7 @@ function setHeaderStatus(text) { headerStatus = String(text || ''); }
 const LOGO_SVG = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../../assets/logo-wordmark-outlined.svg'), 'utf8')
   .replace(/-?\d+\.\d{2,}/g, (n) => String(+Number(n).toFixed(1)));
 
-function generateHeader(currentPage = 'home') {
+function generateHeader(currentPage = 'home', pagePath = '/') {
   const activeId = navIdOf(currentPage);
   return `
   <style>
@@ -93,21 +95,21 @@ function generateHeader(currentPage = 'home') {
     }
     @media (max-width: 768px) {
       .gs-header { display: none !important; }
-    }
+    }${editionSelectorStyle}
   </style>
   <header class="header gs-header">
     <div class="header-inner gs-header-inner">
       <div class="header-title gs-logo">
         <a href="/">
-          <span class="visually-hidden">게이머스크롤</span>
+          <span class="visually-hidden">${t('head.gamerscroll')}</span>
           ${LOGO_SVG}
         </a>
       </div>
-      <nav class="gs-nav" aria-label="주 메뉴">${navItems.map((it) => `<a class="${it.id === activeId ? 'active' : ''}" href="${it.href}">${it.label}</a>`).join('')}</nav>
+      <nav class="gs-nav" aria-label="${t('header.main_menu')}">${navItems.map((it) => `<a class="${it.id === activeId ? 'active' : ''}" href="${it.href}">${it.label}</a>`).join('')}</nav>
       <div class="gs-search">
         <div class="search-box">
-          <input type="text" class="search-input" aria-label="게임 검색" placeholder="게임 검색" autocomplete="off">
-          <button class="search-btn" type="button" aria-label="검색">
+          <input type="text" class="search-input" aria-label="${t('header.search_games')}" placeholder="${t('header.search_games')}" autocomplete="off">
+          <button class="search-btn" type="button" aria-label="${t('layout.search')}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
             </svg>
@@ -116,6 +118,7 @@ function generateHeader(currentPage = 'home') {
         <div class="search-dropdown"></div>
       </div>
       ${headerStatus ? `<span class="gs-status">${headerStatus}</span>` : ''}
+      ${renderEditionSelector({ path: pagePath })}
     </div>
   </header>`;
 }

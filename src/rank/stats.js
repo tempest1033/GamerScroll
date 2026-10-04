@@ -1,4 +1,5 @@
 'use strict';
+const { t: tt } = require('../i18n');
 /**
  * 순위 통계 데이터 계층
  * history/*.json(일별 매출 순위) + data/games.json 을 한 번 읽어 순위 허브·월간·글로벌·역대·게임 요약에
@@ -8,8 +9,11 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..', '..');
-const COUNTRIES = { kr: '한국', jp: '일본', us: '미국', cn: '중국', tw: '대만' };
-const STORES = { ios: '앱스토어', android: '구글플레이' };
+// Labels are resolved at read time so the cached statistics can serve every edition.
+const labelMap = (entries) => Object.defineProperties({}, Object.fromEntries(entries.map(([code, key]) => [code, { enumerable: true, get: () => tt(key) }])));
+const COUNTRIES = labelMap([['kr', 'stats.korea'], ['jp', 'stats.japan'], ['us', 'stats.united_states'], ['cn', 'stats.china'], ['tw', 'stats.taiwan']]);
+const STORES = labelMap([['ios', 'stats.app_store'], ['android', 'stats.google_play']]);
+const { currentEdition, formatDateTime, formatTime } = require('../i18n');
 
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, ''));
 const nums = (arr) => arr.filter((x) => x != null);
@@ -19,14 +23,8 @@ const std = (arr) => { const v = nums(arr); if (v.length < 2) return null; const
 const fmt1 = (n) => (n == null || Number.isNaN(n) ? '-' : Number(n).toFixed(1));
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // 수집 시각은 KST 로 고정 표기 (CI 는 UTC)
-const tsText = (ts) => {
-  if (!ts) return '';
-  const d = new Date(ts);
-  if (Number.isNaN(d.getTime())) return '';
-  const parts = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(d);
-  const g = (t) => (parts.find((p) => p.type === t) || {}).value || '';
-  return `${g('year')}-${g('month')}-${g('day')} ${g('hour')}:${g('minute')}`;
-};
+const tsText = (ts) => formatDateTime(ts);
+const tsTime = (ts) => formatTime(ts);
 
 let cached = null;
 
@@ -87,7 +85,7 @@ function loadRankStats(options = {}) {
       days.push({ date: f.slice(0, 10), ts: h.timestamp, idx: gr.idx, rows: gr.rows, idxFree: fr.idx, rowsFree: fr.rows });
     } catch {}
   }
-  if (days.length < 2) throw new Error('순위 이력이 2일 미만이라 순위 통계를 만들 수 없습니다');
+  if (days.length < 2) throw new Error(tt('stats.ranking_statistics_cannot_be_built'));
   const today = days[days.length - 1];
   const yday = days[days.length - 2];
   const rankOf = (d, c, s, appId) => (d && appId ? d.idx[c][s].get(String(appId)) : undefined) ?? null;
@@ -97,7 +95,27 @@ function loadRankStats(options = {}) {
   const freeSeriesOf = (c, s, appId) => days.map((d) => freeRankOf(d, c, s, appId));
   const gameOf = (s, r) => (r ? byApp.get(s + ':' + r.appId) : undefined);
   const keyOf = (s, r) => { const g = gameOf(s, r); return g ? g.slug || g.key : s + ':' + r.appId; };
-  const nameOf = (s, r) => { const g = gameOf(s, r); return g ? g.key : r.title; };
+  // Edition-local game name: names[edition] → title of the game's row in the edition's home-country chart → DB name.
+  const homeTitles = new Map();
+  const homeTitleOf = (g, country) => {
+    if (!homeTitles.has(country)) {
+      const titles = new Map();
+      for (const s of Object.keys(STORES)) {
+        for (const r of (today.rows[country] && today.rows[country][s]) || []) {
+          const gm = r && r.title ? gameOf(s, r) : null;
+          if (gm && !titles.has(gm)) titles.set(gm, r.title);
+        }
+      }
+      homeTitles.set(country, titles);
+    }
+    return homeTitles.get(country).get(g) || null;
+  };
+  const displayName = (g, fallback) => {
+    if (!g) return fallback;
+    const edition = currentEdition();
+    return (g.names && g.names[edition.code]) || homeTitleOf(g, edition.country) || g.key;
+  };
+  const nameOf = (s, r) => { const g = gameOf(s, r); return g ? displayName(g) : r.title; };
   const months = [...new Set(days.map((d) => d.date.slice(0, 7)))];
   const daysIn = (mo) => days.filter((d) => d.date.startsWith(mo));
   // 최신 "완성" 월: 15일 이상 집계된 마지막 달 (월초에는 전월)
@@ -243,12 +261,12 @@ function loadRankStats(options = {}) {
   cached = {
     COUNTRIES, STORES, games, byApp, bySlug, byTitle, isSub,
     days, today, yday, months, latestMonth, daysIn, hourly, hourlyRanks,
-    rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf,
+    rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf, displayName,
     allTimeBest, daysOnChart, streakAtOne, firstSeen, gameFirstSeen,
     movers, debutRows, monthStats, monthlyAvg, aggregateGlobal, allTimeStats,
-    util: { nums, min, avg, std, fmt1, esc, tsText },
+    util: { nums, min, avg, std, fmt1, esc, tsText, tsTime },
   };
   return cached;
 }
 
-module.exports = { loadRankStats, COUNTRIES, STORES, util: { nums, min, avg, std, fmt1, esc, tsText } };
+module.exports = { loadRankStats, COUNTRIES, STORES, util: { nums, min, avg, std, fmt1, esc, tsText, tsTime } };

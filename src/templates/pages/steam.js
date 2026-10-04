@@ -2,6 +2,7 @@
  * 스팀 순위 페이지 템플릿
  */
 
+const { t } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
 // 통합 반응형 빌드 - 단일 도메인
@@ -16,15 +17,15 @@ function generateSteamPage(data) {
   // 최고 판매 테이블 생성
   function generateTopSellersTable() {
     if (!steam?.topSellers || steam.topSellers.length === 0) {
-      return '<div class="steam-empty">데이터를 불러올 수 없습니다</div>';
+      return t('steam.unable_to_load_data_2');
     }
 
     return `
       <div class="steam-table">
         <div class="steam-table-header">
-          <div>순위</div>
-          <div>게임</div>
-          <div>가격</div>
+          <div>${t('layout.rankings')}</div>
+          <div>${t('est.game')}</div>
+          <div>${t('steam.price')}</div>
         </div>
         ${steam.topSellers.map((game, i) => `
           <div class="steam-table-row">
@@ -49,15 +50,15 @@ function generateSteamPage(data) {
     <section class="section active" id="steam">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container">
-        <h1 class="visually-hidden">스팀 게임 순위</h1>
+        <h1 class="visually-hidden">${t('steam.steam_game_rankings')}</h1>
         <div class="steam-card home-card">
           <div class="home-card-header">
-            <h2 class="visually-hidden">스팀 순위, 스팀 매출, 스팀 동접자</h2>
-            <span class="home-card-title">스팀 게임 순위</span>
+            <h2 class="visually-hidden">${t('steam.steam_rankings_steam_revenue_steam')}</h2>
+            <span class="home-card-title">${t('steam.steam_game_rankings')}</span>
             <div class="home-card-controls">
               <div class="tab-group" id="steamTab">
-                <button class="tab-btn steam-btn active" data-steam="topsellers">매출</button>
-                <button class="tab-btn steam-btn" data-steam="mostplayed">인기</button>
+                <button class="tab-btn steam-btn active" data-steam="topsellers">${t('est.revenue')}</button>
+                <button class="tab-btn steam-btn" data-steam="mostplayed">${t('sidebar.popular')}</button>
               </div>
             </div>
           </div>
@@ -66,7 +67,7 @@ function generateSteamPage(data) {
               ${generateTopSellersTable()}
             </div>
             <div class="steam-section" id="steam-mostplayed" data-steam-loaded="0">
-              <div class="steam-empty">"인기" 탭을 선택하면 불러옵니다</div>
+              <div class="steam-empty">"${t('sidebar.popular')}" ${t('steam.select_a_tab_to_load')}</div>
             </div>
           </div>
         </div>
@@ -130,15 +131,15 @@ function generateSteamPage(data) {
 
 	      function renderMostPlayedTable(list) {
 	        if (!Array.isArray(list) || list.length === 0) {
-	          return '<div class="steam-empty">데이터를 불러올 수 없습니다</div>';
+	          return '<div class="steam-empty">${t('steam.unable_to_load_data')}</div>';
 	        }
 
 	        return (
 	          '<div class="steam-table">' +
 	            '<div class="steam-table-header">' +
-	              '<div>순위</div>' +
-	              '<div>게임</div>' +
-	              '<div>접속자수</div>' +
+	              '<div>${t('layout.rankings')}</div>' +
+	              '<div>${t('est.game')}</div>' +
+	              '<div>${t('steam.players_online')}</div>' +
 	            '</div>' +
 	            list.map((game, i) => (
 	              '<div class="steam-table-row">' +
@@ -165,13 +166,13 @@ function generateSteamPage(data) {
 	        if (section.dataset.steamLoaded === '1') return Promise.resolve();
 	        if (mostPlayedRenderPromise) return mostPlayedRenderPromise;
 
-	        section.innerHTML = '<div class="steam-empty">불러오는 중...</div>';
+	        section.innerHTML = '<div class="steam-empty">${t('steam.loading')}</div>';
 
 	        mostPlayedRenderPromise = (async () => {
 	          const data = await loadSteamDataOnce();
 	          const list = data && Array.isArray(data.mostPlayed) ? data.mostPlayed : [];
 	          if (!list || list.length === 0) {
-	            section.innerHTML = '<div class="steam-empty">데이터를 불러올 수 없습니다</div>';
+	            section.innerHTML = '<div class="steam-empty">${t('steam.unable_to_load_data')}</div>';
 	            section.dataset.steamLoaded = '0';
 	            mostPlayedRenderPromise = null;
 	            return;
@@ -202,14 +203,14 @@ function generateSteamPage(data) {
 
   return wrapWithLayout(content, {
     currentPage: 'steam',
-    title: '스팀 게임 순위 - 스팀 매출, 스팀 동접자',
-    description: '스팀 게임 순위 TOP 100. 스팀 매출 순위와 동접자 인기 순위를 실시간으로 확인하세요.',
-    keywords: '스팀 게임 순위, 스팀 순위, 스팀 매출, 스팀 동접자, 게임 순위',
+    title: t('steam.steam_game_rankings_steam_sales'),
+    description: t('steam.steam_game_rankings_top_100'),
+    keywords: t('steam.steam_game_rankings_steam_rankings'),
     canonical: `${siteBaseUrl}/steam/`,
     pageScripts,
     breadcrumbs: [
-      { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '스팀 게임 순위', url: `${siteBaseUrl}/steam/` }
+      { name: t('about.home'), url: `${siteBaseUrl}/` },
+      { name: t('steam.steam_game_rankings'), url: `${siteBaseUrl}/steam/` }
     ]
   });
 }

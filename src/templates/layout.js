@@ -4,6 +4,7 @@
  */
 
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
+const { t: tt } = require('../i18n');
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 
 // 전역 CSS 파일명 (기본 코어 번들)
@@ -31,8 +32,7 @@ function withCssAssetVersion(filename) {
 function getPageExtraCssFiles(currentPage = '') {
   const page = String(currentPage || '').toLowerCase();
   let files = [];
-  if (page === 'magazine') files = ['/styles-report.css', '/styles-article.css'];
-  if (['home', 'game', 'rankings', 'steam', 'reports', 'about'].includes(page)) files = ['/styles-game.css'];
+  if (['home', 'game', 'rankings', 'steam', 'about'].includes(page)) files = ['/styles-game.css'];
   if (page === 'games') files = ['/styles-catalog.css'];
   if (page === 'tech') files = ['/styles-article.css'];
   return files.map(withCssAssetVersion);
@@ -84,6 +84,8 @@ const {
   renderMultiplexAd
 } = require('./components/ads');
 const { generateHeader, LOGO_SVG } = require('./components/header');
+const { renderEditionSelector, editionSelectorScript } = require('./components/edition-selector');
+const { currentEdition, isEditionMode, localizeHtml, searchIndexPath } = require('../i18n');
 const { deferLazyImages } = require('../build/lazy-images');
 const { generateNav } = require('./components/nav');
 const { generateFooter } = require('./components/footer');
@@ -128,26 +130,29 @@ const AD_SLOTS = {
 };
 
 // 공통 런타임 스크립트 파일명
-const LAYOUT_CORE_ASSET = 'layout-core.js';
-const LAYOUT_RUNTIME_ASSET = 'layout-runtime.js';
+// Edition bundles carry the edition's strings: en lives at /assets/, the others at /assets/<code>/.
+const ASSET_DIR = isEditionMode() && currentEdition().prefix ? `${currentEdition().code}/` : '';
+const LAYOUT_CORE_ASSET = `${ASSET_DIR}layout-core.js`;
+const LAYOUT_RUNTIME_ASSET = `${ASSET_DIR}layout-runtime.js`;
 
 // 모바일 상단 바에도 데스크톱과 같은 워드마크를 쓴다 (2026-09-09: 홈 아이콘 → 로고).
 const MOBILE_LOGO_SVG = LOGO_SVG;
 
 // 상단 검색바 (홈/일반 페이지용)
-const searchBarHtml = `
+const searchBarHtml = (pagePath) => `
   <div class="search-container">
     <div class="search-box">
-      <a href="/" class="search-home-icon search-logo" aria-label="게이머스크롤 홈">
+      <a href="/" class="search-home-icon search-logo" aria-label="${tt('layout.gamerscroll_home')}">
         ${MOBILE_LOGO_SVG}
       </a>
-      <input type="text" class="search-input" aria-label="게임 순위 검색" placeholder="게임 순위 검색" autocomplete="off">
-      <button class="search-btn" type="button" aria-label="검색">
+      <input type="text" class="search-input" aria-label="${tt('layout.search_game_rankings')}" placeholder="${tt('layout.search_game_rankings')}" autocomplete="off">
+      ${renderEditionSelector({ path: pagePath, variant: 'mobile' })}
+      <button class="search-btn" type="button" aria-label="${tt('layout.search')}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
       </button>
-      <button class="search-close" type="button" aria-label="검색 닫기">
+      <button class="search-close" type="button" aria-label="${tt('layout.close_search')}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
@@ -174,7 +179,7 @@ const searchBarHtml = `
 	(function() {
 	  const RECENT_STORAGE_KEY = 'gamerscroll_recent_searches';
 	  const MAX_RECENT = 8;
-	  const SEARCH_INDEX_URL = '/games/search-index.json';
+	  const SEARCH_INDEX_URL = '${searchIndexPath()}';
 	  const SEARCH_INDEX_CACHE_KEY = 'gamerscroll_search_index_v1';
 	  let gamesData = [];
 	  let gamesDataLoaded = false;
@@ -230,7 +235,7 @@ const searchBarHtml = `
 	          sessionStorage.setItem(SEARCH_INDEX_CACHE_KEY, JSON.stringify(gamesData));
 	        } catch {}
 	      } catch (e) {
-	        console.warn('검색 인덱스 로드 실패:', e);
+	        console.warn('${tt('layout.failed_to_load_the_search')}', e);
 	        gamesData = [];
 	      } finally {
 	        gamesDataLoaded = true;
@@ -251,9 +256,9 @@ const searchBarHtml = `
 	  function renderRecentSearches() {
 	    const recent = getRecentSearches();
 	    if (recent.length === 0) {
-	      searchDropdown.innerHTML = '<div class="search-no-results">최근 본 게임이 없습니다</div>';
+	      searchDropdown.innerHTML = '<div class="search-no-results">${tt('layout.no_recently_viewed_games')}</div>';
     } else {
-      const header = '<div class="search-recent-header"><span class="search-recent-title">최근 본 게임</span><button class="search-clear-all" type="button">전체 삭제</button></div>';
+      const header = '<div class="search-recent-header"><span class="search-recent-title">${tt('layout.recently_viewed_games')}</span><button class="search-clear-all" type="button">${tt('layout.clear_all')}</button></div>';
       const items = recent.map(game => {
         const name = game.name || '';
         const slug = game.slug || '';
@@ -267,6 +272,7 @@ const searchBarHtml = `
         );
       }).join('');
       searchDropdown.innerHTML = header + items;
+      searchDropdown.querySelectorAll('.search-result-title').forEach(function(t) { t.title = t.textContent; t.setAttribute('data-name', ''); });
 
       // 전체 삭제 이벤트
       const clearAllBtn = searchDropdown.querySelector('.search-clear-all');
@@ -331,7 +337,7 @@ const searchBarHtml = `
 	    }
 
 	    if (!gamesDataLoaded) {
-	      searchDropdown.innerHTML = '<div class="search-no-results">검색 데이터를 불러오는 중...</div>';
+	      searchDropdown.innerHTML = '<div class="search-no-results">${tt('layout.loading_search_data')}</div>';
 	      searchDropdown.classList.add('active');
 	      loadGamesDataOnce().then(() => performSearch(query));
 	      return;
@@ -340,7 +346,7 @@ const searchBarHtml = `
     currentResults = filterGames(query);
 
     if (currentResults.length === 0) {
-      searchDropdown.innerHTML = '<div class="search-no-results">검색 결과가 없습니다</div>';
+      searchDropdown.innerHTML = '<div class="search-no-results">${tt('layout.no_search_results')}</div>';
     } else {
       searchDropdown.innerHTML = currentResults.map(game => {
         const icon = game.icon || game.iconUrl || '';
@@ -355,6 +361,7 @@ const searchBarHtml = `
           '</a>'
         );
       }).join('');
+      searchDropdown.querySelectorAll('.search-result-title').forEach(function(t) { t.title = t.textContent; t.setAttribute('data-name', ''); });
 
       // 검색 결과 클릭 시 페이지 이동
       searchDropdown.querySelectorAll('.search-result-item[data-game]').forEach(item => {
@@ -1614,7 +1621,7 @@ const swipeScript = `
     (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   if (!isTouchDevice) return;
 
-  const navSections = ['magazine', 'tech', 'games', 'rankings', 'steam'];
+  const navSections = ['tech', 'games', 'rankings', 'steam'];
 
   const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
@@ -2179,7 +2186,7 @@ ${adRequestBootstrap}
 
   function centerTopAdCreative(ad, wrap, iframe) {
     // 크리에이티브가 카드보다 작게 오는 경우 상하좌우 중앙 정렬.
-    // aswift host div가 iframe을 감싸면 스타일시트의 '> iframe' 규칙이 안 걸리므로
+    // aswift host div가 iframe을 감싸면 스타일시트의 '> iframe' ${tt('layout.because_no_rule_matches')}
     // 인라인 important로 원본 크기를 고정하고 flex 센터링 클래스를 부여한다.
     var natWidth = parseInt(iframe.getAttribute('width'), 10) || 0;
     var natHeight = parseInt(iframe.getAttribute('height'), 10) || 0;
@@ -2380,12 +2387,12 @@ const footerModalScript = `
           fetch('/assets/privacy-content.html')
             .then(function(r) { return r.ok ? r.text() : ''; })
             .then(function(html) {
-              body.innerHTML = html || '<p>내용을 불러올 수 없습니다.</p>';
+              body.innerHTML = html || '<p>${tt('layout.unable_to_load_the_content')}</p>';
               privacyLoaded = true;
               openModal(modal);
             })
             .catch(function() {
-              body.innerHTML = '<p>내용을 불러올 수 없습니다.</p>';
+              body.innerHTML = '<p>${tt('layout.unable_to_load_the_content')}</p>';
               openModal(modal);
             });
           return;
@@ -2568,13 +2575,12 @@ const imageFallbackScript = `
 // 모바일 메뉴(사이드 패널) 기본 내용: 순위 데이터 사이트 구조 그대로 (매거진·위키 카테고리 목록은 쓰지 않는다)
 function generateDefaultSidebarContent() {
   const groups = [
-    ['순위', [['/rankings/', '매출 순위'], ['/rankings/free/', '인기(무료)'], ['/rankings/genres/', '장르별 순위'], ['/rankings/global/', '글로벌'], ['/rankings/records/', '연간 기록'], ['/rankings/publishers/', '개발사']]],
-    ['스팀', [['/steam/', '동접·판매 순위']]],
-    ['리포트', [['/reports/', '순위 분석 · 인사이트']]],
-    ['게임', [['/games/', '게임 DB']]],
-    ['', [['/rankings/about/', '산출 방법']]]
+    [tt('layout.rankings'), [['/rankings/', tt('layout.revenue_rankings')], ['/rankings/free/', tt('layout.popular_free')], ['/rankings/genres/', tt('layout.rankings_by_genre')], ['/rankings/global/', tt('layout.global')], ['/rankings/records/', tt('layout.annual_records')], ['/rankings/publishers/', tt('layout.publishers')]]],
+    [tt('layout.steam'), [['/steam/', tt('layout.concurrent_players_sales_rankings')]]],
+    [tt('est.game'), [['/games/', tt('layout.game_db')]]],
+    ['', [['/rankings/about/', tt('layout.methodology')]]]
   ];
-  return `<nav class="gs-menu" aria-label="전체 메뉴">${groups.map(([t, items]) => `<div class="gs-menu-group">${t ? `<div class="gs-menu-title">${t}</div>` : ''}${items.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</div>`).join('')}</nav>`;
+  return `<nav class="gs-menu" aria-label="${tt('layout.full_menu')}">${groups.map(([t, items]) => `<div class="gs-menu-group">${t ? `<div class="gs-menu-title">${t}</div>` : ''}${items.map(([h, l]) => `<a href="${h}">${l}</a>`).join('')}</div>`).join('')}</nav>`;
 }
 
 // 모바일 사이드 패널 HTML 생성
@@ -2584,8 +2590,8 @@ function generateMobileSidePanel(sidebarContent = '') {
     <div class="mobile-side-overlay" id="mobileSideOverlay"></div>
     <div class="mobile-side-panel" id="mobileSidePanel">
       <div class="mobile-side-panel-header">
-        <span class="mobile-side-panel-title">메뉴</span>
-        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="닫기">
+        <span class="mobile-side-panel-title">${tt('layout.menu')}</span>
+        <button class="mobile-side-panel-close" id="mobileSidePanelClose" aria-label="${tt('layout.close')}">
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12"/>
           </svg>
@@ -2679,7 +2685,7 @@ function minifyRuntimeBundle(code, label) {
 }
 
 function buildLayoutCoreBundle() {
-  return minifyRuntimeBundle(`${unwrapScriptTag(lazyCardHydrationScript)}\n`, 'layout-core');
+  return minifyRuntimeBundle(localizeHtml(`${unwrapScriptTag(lazyCardHydrationScript)}\n`), 'layout-core');
 }
 
 function buildLayoutRuntimeBundle(options = {}) {
@@ -2694,9 +2700,10 @@ function buildLayoutRuntimeBundle(options = {}) {
     searchBarScript.replace(/gamerscroll_search_index_v1/g, searchCacheKey),
     swipeScript,
     mobileScrollHideScript,
-    mobileSidePanelScript
+    mobileSidePanelScript,
+    editionSelectorScript
   ];
-  return minifyRuntimeBundle(`${scripts.map(unwrapScriptTag).join('\n\n')}\n`, 'layout-runtime');
+  return minifyRuntimeBundle(localizeHtml(`${scripts.map(unwrapScriptTag).join('\n\n')}\n`), 'layout-runtime');
 }
 
 function buildCardFeedPagerScript(options = {}) {
@@ -2816,8 +2823,8 @@ const coreReadyBootstrapScript = `
 function wrapWithLayout(content, options = {}) {
   const {
     currentPage = 'home',
-    title = '게이머스크롤 | 게임 데이터 & 아티클',
-    description = '게임 데이터 & 아티클 – 랭킹·뉴스·커뮤니티 반응까지, 모든 게임 정보를 한 눈에',
+    title = tt('layout.gamerscroll_game_data_articles'),
+    description = tt('layout.game_data_articles_rankings_news'),
     keywords,
     canonical = 'https://gamerscroll.com',
     pageScripts = '',
@@ -2840,6 +2847,7 @@ function wrapWithLayout(content, options = {}) {
   } = options;
 
   // 실제 사용할 counts (페이지별 > 글로벌 순으로 폴백)
+  const pagePath = (() => { try { return new URL(canonical, 'https://gamerscroll.com').pathname; } catch (e) { return '/'; } })();
   const effectiveCounts = Object.keys(sidebarCounts).length > 0 ? sidebarCounts : globalSidebarCounts;
   const runtimeScriptVersion = encodeURIComponent(globalRuntimeAssetVersion || 'v1');
   const coreScriptUrl = `/assets/${LAYOUT_CORE_ASSET}?v=${runtimeScriptVersion}`;
@@ -2884,15 +2892,10 @@ function wrapWithLayout(content, options = {}) {
     if (!articleSchema) return '';
     const url = String(canonical || '');
     if (url.includes('/tech/ai/')) return 'AI';
-    if (url.includes('/tech/vibecoding/')) return '바이브코딩';
-    if (url.includes('/tech/normal/') || url.includes('/tech/')) return '테크';
-    if (url.includes('/wiki/')) return '위키';
-    if (url.includes('/magazine/issue/')) return '이슈';
-    if (url.includes('/magazine/insight/')) return '인사이트';
-    if (url.includes('/magazine/hotpick/')) return '핫픽';
-    if (url.includes('/magazine/ranking/')) return '순위 분석';
-    if (url.includes('/magazine/')) return '매거진';
-    return '게임';
+    if (url.includes('/tech/vibecoding/')) return tt('layout.vibe_coding');
+    if (url.includes('/tech/normal/') || url.includes('/tech/')) return tt('layout.tech');
+    if (url.includes('/wiki/')) return tt('layout.wiki');
+    return tt('est.game');
   })();
 
   // 본문이 실제로 쓰는 외부 이미지 호스트만 연결 힌트로 둔다.
@@ -2900,14 +2903,14 @@ function wrapWithLayout(content, options = {}) {
   const steamImageHost = (pageSource.match(/https:\/\/([a-z]+\.[a-z]+\.steamstatic\.com)\//) || [])[1];
 
   const html = `<!DOCTYPE html>
-<html lang="ko">
+<html lang="${currentEdition().htmlLang}">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex: noindex || /\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(canonical || ''), breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage, usesWsrv: /wsrv\.nl/.test(pageSource), steamImageHost })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage, usesWsrv: /wsrv\.nl/.test(pageSource), steamImageHost })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
-  ${generateHeader(currentPage)}
-  ${showSearchBar ? searchBarHtml : ''}
+  ${generateHeader(currentPage, pagePath)}
+  ${showSearchBar ? searchBarHtml(pagePath) : ''}
   ${generateNav(currentPage)}
   <main class="site-container">
     ${coreReadyBootstrapScript}
@@ -2935,7 +2938,12 @@ function wrapWithLayout(content, options = {}) {
   <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
 </body>
 </html>`;
-  return deferLazyImages(require('../build/css-links').applyPageCss(html, resolvedCssFiles));
+  return localizeHtml(titleDataNames(deferLazyImages(require('../build/css-links').applyPageCss(html, resolvedCssFiles))));
+}
+
+// Game/publisher names are ellipsized in tight rows; keep the full text reachable through title.
+function titleDataNames(html) {
+  return html.replace(/<(a|span|div|b|p|h1|h2|button)(\s[^>]*?\bdata-name(?=[\s=/>])[^>]*)>([^<]+)<\/\1>/g, (match, tag, attrs, text) => (/\stitle=/.test(attrs) ? match : `<${tag}${attrs} title="${text.replace(/"/g, '&quot;')}">${text}</${tag}>`));
 }
 
 /**

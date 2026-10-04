@@ -7,17 +7,9 @@ const cheerio = require('cheerio');
 const { chromium } = require('playwright');
 const esbuild = require('esbuild');
 const { PurgeCSS } = require('purgecss');
-const {
-  generateIssueDetailPage, generateInsightDetailPage,
-  generateHotpickDetailPage, generateRankingDetailPage
-} = require('../src/templates/pages/trend');
 const { generateAIBlogArticle } = require('../src/templates/ai-blog/article');
 
 const renderers = [
-  ['이슈', article => generateIssueDetailPage({ post: article })],
-  ['인사이트', article => generateInsightDetailPage({ post: article })],
-  ['핫픽', article => generateHotpickDetailPage({ post: article })],
-  ['순위 분석', article => generateRankingDetailPage({ post: article })],
   ['AI 한국어', article => generateAIBlogArticle(article, { lang: 'ko' })],
   ['AI 영어', article => generateAIBlogArticle(article, { lang: 'en' })]
 ];

@@ -1,9 +1,10 @@
-﻿/**
+/**
  * 게임 허브 페이지 템플릿
  * - 인기 게임 TOP 10 (GA4 조회수 기반)
  * - 전체 게임 목록 (초성/알파벳순)
  */
 
+const { t } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 
@@ -19,8 +20,8 @@ function getInitial(str) {
   const first = str.charAt(0);
   const code = first.charCodeAt(0);
 
-  // 한글
-  if (code >= 0xAC00 && code <= 0xD7A3) {
+  // Hangul initials only exist in the ko edition; other editions group such names under '#'.
+  if (code >= 0xAC00 && code <= 0xD7A3 && require('../../i18n').currentEdition().code === 'ko') {
     const cho = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
     const index = Math.floor((code - 0xAC00) / 588);
     return cho[index] || '#';
@@ -55,7 +56,7 @@ function groupGamesByInitial(games) {
 
   // 각 그룹 내에서 이름순 정렬
   Object.keys(groups).forEach(key => {
-    groups[key].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+    groups[key].sort((a, b) => a.name.localeCompare(b.name, require('../../i18n').currentEdition().intl));
   });
 
   return groups;
@@ -83,8 +84,11 @@ function generateGamesHubPage(options = {}) {
   const { games = [], popularGames = [], searchIndexVersion = '' } = options;
 
   // 게임 데이터를 배열로 변환
-  const gamesList = Object.entries(games).map(([name, data]) => ({
-    name,
+  // Edition-local game names (names[edition] → home-country chart title → DB name)
+  let rankStats = null;
+  try { rankStats = require('../../rank/stats').loadRankStats(); } catch (e) { /* history unavailable: DB names */ }
+  const gamesList = Object.entries(games).map(([key, data]) => ({
+    name: (() => { const g = rankStats && data.slug ? rankStats.bySlug.get(data.slug) : null; return g ? rankStats.displayName(g) : key; })(),
     slug: data.slug,
     icon: data.icon,
     developer: data.developer,
@@ -121,18 +125,49 @@ function generateGamesHubPage(options = {}) {
     });
   }
 
+  // 수치 줄: 모바일 게임 · 스팀 게임 · 개발사 수
+  const intl = require('../../i18n').currentEdition().intl;
+  const num = (n) => n.toLocaleString(intl);
+  const statsRow = `<div class="games-hub-stats">${[
+    [gamesList.filter((g) => g.appIds.ios || g.appIds.android).length, t('games.stat_mobile')],
+    [gamesList.filter((g) => g.appIds.steam).length, t('games.stat_steam')],
+    [new Set(gamesList.map((g) => g.developer).filter(Boolean)).size, t('games.stat_developers')],
+  ].map(([v, l]) => `<div><b>${num(v)}</b><span>${l}</span></div>`).join('')}</div>`;
+
+  // 지금 차트에 오른 게임: 이 언어판 나라의 오늘 매출 순위 상위(두 스토어 중 높은 순위), 게임 페이지가 있는 것만 10개
+  let chartingSection = '';
+  if (rankStats) {
+    const { COUNTRIES } = require('../../rank/stats');
+    const country = require('../../i18n').currentEdition().country;
+    const best = new Map();
+    for (const store of ['android', 'ios']) ((rankStats.today.rows[country] || {})[store] || []).slice(0, 60).forEach((row, i) => {
+      const g = row && rankStats.gameOf(store, row);
+      if (!g || !g.slug) return;
+      const cur = best.get(g.slug);
+      if (!cur || i + 1 < cur.rank) best.set(g.slug, { slug: g.slug, rank: i + 1, name: rankStats.nameOf(store, row), icon: row.icon || g.icon, developer: row.developer || g.developer || '' });
+    });
+    const top = [...best.values()].sort((a, b) => a.rank - b.rank).slice(0, 10);
+    if (top.length) chartingSection = `
+    <section class="games-hub-charting">
+      <h2 class="games-hub-section-title">${t('games.charting_now')}</h2>
+      <div class="games-hub-charting-grid">
+        ${top.map((g, index) => `<a href="/games/${escapeAttribute(g.slug)}/" class="games-hub-chart-card"><span class="top"><img src="${escapeAttribute(resizeIcon(g.icon))}" alt="" width="56" height="56" loading="${index < 5 ? 'eager' : 'lazy'}" decoding="async" data-img-fallback-src="/icon-192.png"><span class="rk"><b>${g.rank}</b><small>${t('games.revenue_rank_label', { country: COUNTRIES[country] })}</small></span></span><span class="nm" data-name>${escapeAttribute(g.name)}</span><span class="dv" data-name>${escapeAttribute(g.developer)}</span></a>`).join('')}
+      </div>
+    </section>`;
+  }
+
   // 인기 게임 섹션 HTML
   const popularSection = popularGamesWithInfo.length > 0 ? `
     <section class="games-hub-popular">
-      <h2 class="games-hub-section-title">인기 게임</h2>
+      <h2 class="games-hub-section-title">${t('games.popular_games')}</h2>
       <div class="games-hub-popular-grid">
         ${popularGamesWithInfo.map((game, index) => `
           <a href="/games/${game.slug}/" class="games-hub-popular-card">
             <span class="popular-rank">${game.rank}</span>
             <img src="${escapeAttribute(resizeIcon(game.icon))}" alt="${escapeAttribute(game.name)}" class="popular-icon" width="64" height="64" loading="${index < 4 ? 'eager' : 'lazy'}" decoding="async" data-img-fallback-src="/icon-192.png">
             <div class="popular-info">
-              <span class="popular-name">${game.name}</span>
-              <span class="popular-views">${game.views.toLocaleString()}회 조회</span>
+              <span class="popular-name" data-name>${game.name}</span>
+              <span class="popular-views">${t('games.views', { p0: game.views.toLocaleString(require('../../i18n').currentEdition().intl) })}</span>
             </div>
           </a>
         `).join('')}
@@ -147,7 +182,7 @@ function generateGamesHubPage(options = {}) {
       ${existingInitials.map(initial => `
         <a href="#initial-${initial}" class="index-link">${initial}</a>
       `).join('')}
-      <a href="#top" class="index-link index-link-back" title="맨 위로">
+      <a href="#top" class="index-link index-link-back" title="${t('games.back_to_top')}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
@@ -158,14 +193,14 @@ function generateGamesHubPage(options = {}) {
   // 전체 게임 목록 섹션
   const allGamesSection = `
     <section class="games-hub-all">
-      <h2 class="games-hub-section-title">전체 게임 (${gamesList.length}개)</h2>
+      <h2 class="games-hub-section-title">${t('games.all_games', { length: gamesList.length })}</h2>
       ${initialNav}
       <div class="games-hub-groups">
         ${existingInitials.map((initial, groupIndex) => `
           <details class="games-hub-group" id="initial-${initial}">
 	            <summary class="group-title"><h3>${initial} <span class="group-count">(${grouped[initial].length})</span></h3></summary>
 	            <div class="group-games">
-	              ${grouped[initial].map(game => `<a href="/games/${escapeAttribute(game.slug)}/" class="game-item"><span class="game-name">${escapeAttribute(game.name)}</span></a>`).join('')}
+	              ${grouped[initial].map(game => `<a href="/games/${escapeAttribute(game.slug)}/" class="game-item"><span class="game-name" data-name>${escapeAttribute(game.name)}</span></a>`).join('')}
 	            </div>
               <script type="application/json" id="gamesIcons${groupIndex}DeferredData">${JSON.stringify(grouped[initial].map(game => resizeIcon(game.icon) || '/icon-192.png')).replace(/</g, '\\u003c')}</script>
 	          </details>
@@ -178,8 +213,8 @@ function generateGamesHubPage(options = {}) {
   const searchResultsSection = `
     <section class="games-hub-search-results is-hidden" id="search-results">
       <h2 class="games-hub-section-title">
-        <span id="search-results-title">검색 결과</span>
-        <button class="search-results-close" id="search-close" title="닫기">
+        <span id="search-results-title">${t('games.search_results_2')}</span>
+        <button class="search-results-close" id="search-close" title="${t('layout.close')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
             <path d="M18 6L6 18M6 6l12 12"/>
           </svg>
@@ -192,7 +227,7 @@ function generateGamesHubPage(options = {}) {
   // 최근 본 게임 섹션 (JS에서 동적 표시)
   const recentGamesSection = `
     <section class="games-hub-recent is-hidden" id="recent-games">
-      <h2 class="games-hub-section-title">최근 본 게임</h2>
+      <h2 class="games-hub-section-title">${t('layout.recently_viewed_games')}</h2>
       <div class="games-hub-recent-grid" id="recent-games-grid"></div>
     </section>
     <script>
@@ -213,9 +248,11 @@ function generateGamesHubPage(options = {}) {
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container" id="top">
         <div class="games-hub-intro">
-          <div><h1>게임 데이터베이스</h1><p>모바일·스팀 게임 검색 및 게임별 순위 기록</p></div>
+          <div><h1>${t('games.game_database')}</h1><p>${t('games.mobile_and_steam_game_search')}</p></div>
         </div>
+        ${statsRow}
         ${searchResultsSection}
+        ${chartingSection}
         ${recentGamesSection}
         ${popularSection}
         ${allGamesSection}
@@ -228,7 +265,7 @@ function generateGamesHubPage(options = {}) {
 <script>
 (function() {
   const RECENT_KEY = 'gamerscroll_recent_searches';
-  const SEARCH_INDEX_URL = '/games/search-index.json';
+  const SEARCH_INDEX_URL = '${require('../../i18n').searchIndexPath()}';
   const SEARCH_INDEX_CACHE_KEY = 'gs_si_${searchIndexVersion || "v1"}';
   const getGsUtils = () => window.GSUtils || {};
   const requestIdle = (fn, timeout, fallbackDelay) => {
@@ -345,14 +382,14 @@ function generateGamesHubPage(options = {}) {
       const needsIcon = (!game.icon || game.icon.length < 5) ? ' data-needs-icon="1"' : '';
       return \`
         <div class="games-hub-recent-card">
-          <button class="recent-remove" data-slug="\${game.slug}" title="삭제">
+          <button class="recent-remove" data-slug="\${game.slug}" title="${t('games.remove')}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
               <path d="M18 6L6 18M6 6l12 12"/>
             </svg>
           </button>
           <a href="/games/\${game.slug}/" class="recent-link">
             <img src="\${resizeIconUrl(iconUrl)}" alt="\${game.name}" class="recent-icon" loading="lazy" data-slug="\${game.slug}"\${needsIcon} data-img-fallback-src="/icon-192.png">
-            <span class="recent-name">\${game.name}</span>
+            <span class="recent-name" data-name>\${game.name}</span>
           </a>
         </div>
       \`;
@@ -402,7 +439,7 @@ function generateGamesHubPage(options = {}) {
     const grid = document.getElementById('search-results-grid');
 
     section.classList.remove('is-hidden');
-    title.textContent = '검색 중...';
+    title.textContent = '${t('games.searching')}';
 
     try {
       const searchIndex = await loadSearchIndexOnce();
@@ -415,7 +452,7 @@ function generateGamesHubPage(options = {}) {
         return nameMatch || aliasMatch || devMatch;
       });
 
-      // 정렬 (정확 매칭 > 시작 일치 > 이름순)
+      // sort: exact match > starts with > by name
       results.sort((a, b) => {
         const aExact = a.name.toLowerCase() === q;
         const bExact = b.name.toLowerCase() === q;
@@ -425,24 +462,24 @@ function generateGamesHubPage(options = {}) {
         if (!aExact && bExact) return 1;
         if (aStarts && !bStarts) return -1;
         if (!aStarts && bStarts) return 1;
-        return a.name.localeCompare(b.name, 'ko');
+        return a.name.localeCompare(b.name, '${require('../../i18n').currentEdition().intl}');
       });
 
-      title.textContent = \`"\${query}" 검색 결과 (\${results.length}개)\`;
+      title.textContent = \`"\${query}" ${t('games.search_results', { count: '\${results.length}' })}\`;
 
       if (results.length === 0) {
-        grid.innerHTML = '<p class="search-no-results">일치하는 게임이 없습니다. 다른 이름이나 개발사명으로 검색해 보세요.</p>';
+        grid.innerHTML = '<p class="search-no-results">${t('games.no_matching_games_try_another')}</p>';
       } else {
         grid.innerHTML = results.slice(0, 50).map(game => \`
           <a href="/games/\${game.slug}/" class="games-hub-recent-card">
             <img src="\${resizeIconUrl(game.icon) || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
-            <span class="recent-name">\${game.name}</span>
+            <span class="recent-name" data-name>\${game.name}</span>
           </a>
         \`).join('');
       }
     } catch (err) {
-      title.textContent = '검색 오류';
-      grid.innerHTML = '<p class="search-no-results">검색 인덱스를 불러올 수 없습니다.</p>';
+      title.textContent = '${t('games.search_error')}';
+      grid.innerHTML = '<p class="search-no-results">${t('games.unable_to_load_the_search')}</p>';
     }
   }
 
@@ -539,16 +576,16 @@ function generateGamesHubPage(options = {}) {
   `;
 
   return wrapWithLayout(content, {
-    title: '게임 DB - 모바일·스팀 게임 검색, 게임별 순위 추이 | 게이머스크롤',
-    description: '모바일·스팀 게임 검색과 앱스토어·구글플레이 매출 순위 추이, 게임별 역대 기록을 제공합니다.',
-    keywords: '게임 DB, 게임 검색, 모바일 게임 순위 추이, 게임 매출 순위 기록',
+    title: t('games.game_db_search_mobile_and'),
+    description: t('games.search_mobile_and_steam_games'),
+    keywords: t('games.game_db_game_search_mobile'),
     canonical: `${siteBaseUrl}/games/`,
     currentPage: 'games',
     showSearchBar: true,
     pageScripts: pageScript,
     breadcrumbs: [
-      { name: '홈', url: `${siteBaseUrl}/` },
-      { name: '게임 DB', url: `${siteBaseUrl}/games/` }
+      { name: t('about.home'), url: `${siteBaseUrl}/` },
+      { name: t('layout.game_db'), url: `${siteBaseUrl}/games/` }
     ]
   });
 }

@@ -1,0 +1,37 @@
+'use strict';
+
+// Game detail page messages (src/templates/pages/game.js, src/templates/helpers/game-rank-summary.js). {c} = country name.
+module.exports = {
+  "game.home": "Home",
+  "game.games_db": "Game DB",
+  "game.steam_analysis": "Steam ranking analysis",
+  "game.stat_ccu_rank": "Concurrent players rank",
+  "game.stat_sales_rank": "Sales rank",
+  "game.stat_current_players": "Players now",
+  "game.revenue_analysis": "Revenue ranking analysis",
+  "game.no_analysis_records": "There are not enough ranking records to analyze.",
+  "game.no_data": "No data available",
+  "game.no_data_short": "No data",
+  "game.period_day": "D",
+  "game.period_week": "W",
+  "game.period_month": "M",
+  "game.chart_note": "Best rank among the records collected in each period · lower numbers rank higher",
+  "game.seo_title_mobile": "{name} revenue ranking trend — App Store & Google Play history",
+  "game.seo_title_steam": "{name} Steam ranking trend — players & sales history",
+  "game.seo_desc_mobile": "{name} App Store and Google Play revenue ranking trend and all-time ranking records.",
+  "game.seo_desc_steam": "{name} Steam concurrent players and sales ranking trend with all-time ranking records.",
+  "game.seo_keywords_mobile": "{name}, {name} revenue, {name} ranking, {name} revenue ranking, {name} App Store ranking, {name} Google Play ranking, mobile game revenue rankings",
+  "game.seo_keywords_steam": "{name}, {name} ranking, {name} Steam ranking, {name} concurrent players, {name} sales ranking, Steam game rankings",
+  "game.sum_text": "{name} on {date}: {c} {p2} revenue rank {p3}{p4}, {p5} {p6}. {p7}",
+  "game.sum_chart_aria": "{c} revenue ranking trend for the last {N} days. Use the left and right arrow keys to move between dates and Escape to close",
+  "game.sum_hourly_sub": "{date} · {c} · App Store {length} collections · Google Play {length2} collections",
+  "game.sum_as_of": "{c} revenue · as of {date}",
+  "game.sum_avg_sub": "{c} · average rank",
+  "game.sum_cum_days": "{c} {p0} · cumulative days in the last 30",
+  "game.sum_first_entered": "{c} {p0} first entered the top 200 by revenue{p1}",
+  "game.sum_revenue": "{c} · Revenue",
+  "game.sum_store": "{c} {p0}",
+  "game.sum_store_prev": "{c} {p0}{p1}",
+  "game.sum_none": "<div class=\"game-empty\">There are no {c} revenue ranking records for this period.</div>",
+  "game.sum_no_history": "There is no {c} revenue ranking history."
+};

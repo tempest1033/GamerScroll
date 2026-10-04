@@ -24,7 +24,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
       });
       await page.goto(base + '/games/', { waitUntil: 'domcontentloaded' });
       // 일반 스크린샷의 폰트 대기를 피하고 로딩 전 픽셀을 직접 캡처한다.
-      const logo = page.locator('.logo-svg');
+      const logo = page.locator('.gs-logo .logo-svg');
       const beforeBox = await logo.boundingBox();
       const before = await capture(beforeBox);
       release();

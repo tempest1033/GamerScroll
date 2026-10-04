@@ -5,6 +5,8 @@ module.exports = {
     'fonts-loaded', 'nav-ready', 'thumb-fallback', 'search-hidden',
     'feed-top-spacer', 'ad-card', 'ad-card-scroll', 'adsbygoogle',
     'ads-disabled', 'deferred-css-pending', 'realtime', 'rk',
+    // body class is built as `page-${currentPage}` for game pages (rendered on request), so the literal never appears in scanned sources
+    'page-game',
   ],
   deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/, /^rk-/],
   greedy: [/^gs-ad-/, /^rk-/],

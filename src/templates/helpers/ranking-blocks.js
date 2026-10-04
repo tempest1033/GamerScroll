@@ -1,4 +1,5 @@
 'use strict';
+const { t } = require('../../i18n');
 
 /**
  * Shared renderer for ranking-style content blocks.
@@ -171,7 +172,7 @@ function generateComparisonChart(chartBlock, ctx) {
   const { games = [], category = 'grossing', market = 'ios', startDate, endDate, title } = chartBlock;
 
   if (!games.length || !startDate || !endDate) {
-    return '<div class="chart-error">차트 데이터가 부족합니다</div>';
+    return t('blocks.not_enough_chart_data');
   }
 
   const gameDataList = games.map(slug => {
@@ -186,7 +187,7 @@ function generateComparisonChart(chartBlock, ctx) {
   }).filter(g => g.history.length > 0);
 
   if (gameDataList.length === 0) {
-    return '<div class="chart-error">순위 데이터가 없습니다</div>';
+    return t('blocks.no_ranking_data');
   }
 
   const allDates = [];
@@ -209,7 +210,7 @@ function generateComparisonChart(chartBlock, ctx) {
   });
 
   if (rawSeries.length === 0) {
-    return '<div class="chart-error">순위 데이터가 없습니다</div>';
+    return t('blocks.no_ranking_data');
   }
 
   let trimStart = allDates.length;
@@ -226,9 +227,9 @@ function generateComparisonChart(chartBlock, ctx) {
   const labels = allDates.slice(trimStart, trimEnd + 1);
   const series = rawSeries.map(s => ({ name: s.name, data: s.data.slice(trimStart, trimEnd + 1) }));
 
-  const categoryLabel = category === 'grossing' ? '매출' : '인기';
+  const categoryLabel = category === 'grossing' ? t('est.revenue') : t('sidebar.popular');
   const marketLabel = market === 'ios' ? 'iOS' : 'Android';
-  const chartTitle = title || `${marketLabel} ${categoryLabel} 순위 비교 (한국)`;
+  const chartTitle = title || `${t('blocks.ranking_comparison_korea', { marketLabel, categoryLabel })}`;
 
   const chartId = `comp-chart-${Date.now()}-${Math.random().toString(36).substr(2, 6)}`;
 
@@ -253,9 +254,9 @@ function generateComparisonChart(chartBlock, ctx) {
               stroke: { width: 3, curve: 'straight' },
               markers: { size: 4, hover: { size: 6 } },
               xaxis: { categories: ${JSON.stringify(labels)}, labels: { rotate: -45, style: { fontSize: '11px', colors: labelColor } }, tickAmount: 10 },
-              yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '위'; } } },
+              yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '${t('chart.rank_unit')}'; } } },
               legend: { position: 'top', horizontalAlign: 'center', labels: { colors: labelColor } },
-              tooltip: { y: { formatter: function(v) { return v ? v + '위' : '데이터 없음'; } } },
+              tooltip: { y: { formatter: function(v) { return v ? v + '${t('chart.rank_unit')}' : '${t('blocks.no_data')}'; } } },
               grid: { borderColor: gridColor, strokeDashArray: 4 }
             }).render();
           }
@@ -308,7 +309,7 @@ function renderRankingBar(block, ctx) {
         <img src="${resizeIcon(icon)}" alt="${escapeHtmlAttr(item.name)}" title="${escapeHtmlAttr(item.name)}" loading="lazy" style="width:36px; height:36px; border-radius:8px; object-fit:cover; flex-shrink:0;">
         <div class="ranking-bar-track" style="flex:1; height:32px; background:var(--hover-bg); border-radius:6px; position:relative;">
           <div class="ranking-bar-fill" style="width:${pct}%; height:100%; background:${color}; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px;">
-            <span style="font-size:12px; font-weight:600; color:#333;">${item.score.toLocaleString()}${block.unit !== undefined ? block.unit : '점'}</span>
+            <span style="font-size:12px; font-weight:600; color:#333;">${item.score.toLocaleString()}${block.unit !== undefined ? block.unit : t('blocks.pts')}</span>
           </div>
         </div>
       </div>
@@ -335,7 +336,7 @@ function renderRankingCard(block, ctx) {
       if (game.slug === cardItem.slug && game.icon) { cardIcon = game.icon; break; }
     }
   }
-  const cardUnit = cardItem.unit || block.unit || '점';
+  const cardUnit = cardItem.unit || block.unit || t('blocks.pts');
   // 원고에 값이 "최고 5위"처럼 라벨을 포함해 들어오면 라벨이 두 번 찍히므로("최고 최고 5위") 앞의 라벨을 떼어낸다 (2026-09-09)
   const statValue = (value, label) => { const s = String(value ?? '').trim(); return label && s.startsWith(label) ? s.slice(label.length).trim() : s; };
   const iosLabel = cardItem.iosLabel || 'iOS', aosLabel = cardItem.androidLabel || 'AOS';
@@ -426,9 +427,9 @@ function renderRankingCompare(block, ctx) {
               stroke: { width: 3, curve: 'straight' },
               markers: { size: 4, hover: { size: 6 } },
               xaxis: { categories: ${JSON.stringify(compLabels)}, labels: { rotate: -45, style: { fontSize: '10px', colors: labelColor } }, tickAmount: Math.min(10, ${compLabels.length}) },
-              yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '위'; } } },
+              yaxis: { reversed: true, min: 1, max: 200, labels: { style: { colors: labelColor }, formatter: function(v) { return Math.round(v) + '${t('chart.rank_unit')}'; } } },
               legend: { position: 'top', horizontalAlign: 'center', fontSize: '13px', labels: { colors: labelColor } },
-              tooltip: { y: { formatter: function(v) { return v ? v + '위' : '데이터 없음'; } } },
+              tooltip: { y: { formatter: function(v) { return v ? v + '${t('chart.rank_unit')}' : '${t('blocks.no_data')}'; } } },
               grid: { borderColor: gridColor, strokeDashArray: 4 },
               forecastDataPoints: { count: 0, fillOpacity: 0.5 }
             }).render();

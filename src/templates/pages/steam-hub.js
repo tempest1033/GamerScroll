@@ -1,4 +1,5 @@
 'use strict';
+const { t, formatDay, formatMonthDay, formatYearMonth } = require('../../i18n');
 /**
  * 스팀 허브 · 스팀 게임 상세 (정적 HTML)
  *   /steam/            동접자 TOP 100 · 한국 스토어 판매 TOP 100 · 월간 평균 동접 · 역대 최고 동접
@@ -7,11 +8,10 @@
  */
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { loadSteamStats } = require('../../rank/steam-stats');
-const { loadReports, reportsFor } = require('../../rank/reports');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const fmt = (n) => (n == null ? '-' : Math.round(n).toLocaleString('ko-KR'));
+const fmt = (n) => (n == null ? '-' : Math.round(n).toLocaleString(require('../../i18n').currentEdition().intl));
 const avg = (a) => { const v = a.filter((x) => x != null); return v.length ? v.reduce((x, y) => x + y, 0) / v.length : null; };
 const pct = (a, b) => (a != null && b ? ((a - b) / b) * 100 : null);
 const pctChg = (p) => (p == null ? '<span class="rk-chg new">NEW</span>' : `<span class="rk-chg ${p >= 0 ? 'up' : 'down'}">${p >= 0 ? '▲' : '▼'}${Math.abs(p).toFixed(0)}%</span>`);
@@ -39,17 +39,17 @@ function lineChart(vals, dates, { w = 1040, h = 260, mobile = false } = {}) {
   const fs = mobile ? 12 : 11, xTicks = mobile ? 4 : 8;
   const x = (i) => L + (i / Math.max(n - 1, 1)) * (w - L - R);
   const y = (v) => T + (1 - v / hi) * (h - T - B);
-  const fmtAxis = (v) => (mobile && v >= 10000 ? `${Math.round(v / 10000)}만` : fmt(v));
+  const fmtAxis = (v) => (mobile && v >= 10000 ? `${t('home.0k', { p0: Math.round(v / 10000) })}` : fmt(v));
   let grid = '';
   for (let k = 0; k <= 4; k++) { const v = (hi * k) / 4; grid += `<line x1="${L}" x2="${w - R}" y1="${y(v).toFixed(1)}" y2="${y(v).toFixed(1)}" stroke="var(--rk-line)"/><text x="${L - 8}" y="${(y(v) + 4).toFixed(1)}" text-anchor="end" font-size="${fs}" fill="var(--rk-dim)">${fmtAxis(v)}</text>`; }
   let lab = '';
-  for (let i = 0; i < n; i += Math.max(1, Math.ceil(n / xTicks))) lab += `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="middle">${dates[i].slice(5)}</text>`;
+  for (let i = 0; i < n; i += Math.max(1, Math.ceil(n / xTicks))) lab += `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="middle">${formatMonthDay(dates[i])}</text>`;
   let d = '', pen = false;
   vals.forEach((v, i) => { if (v == null) { pen = false; return; } d += (pen ? 'L' : 'M') + `${x(i).toFixed(1)},${y(v).toFixed(1)}`; pen = true; });
-  return `<svg class="rk-chartsvg${mobile ? ' rk-chartsvg-m' : ''}" viewBox="0 0 ${w} ${h}" role="img" aria-label="일별 동접자 추이">${grid}${lab}<path d="${d}" fill="none" stroke="var(--rk-accent)" stroke-width="2" stroke-linejoin="round"/></svg>`;
+  return `<svg class="rk-chartsvg${mobile ? ' rk-chartsvg-m' : ''}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${t('steam.daily_concurrent_player_trend')}">${grid}${lab}<path d="${d}" fill="none" stroke="var(--rk-accent)" stroke-width="2" stroke-linejoin="round"/></svg>`;
 }
-const subnav = (active) => { const item = (id, href, label, cls = '') => `<a class="${[active === id ? 'active' : '', cls].filter(Boolean).join(' ')}" href="${href}">${label}</a>`; return `<nav class="rk-subnav" aria-label="스팀 순위 종류">${item('ccu', '/steam/', '동접')}${item('sell', '/steam/#sell', '판매')}${item('monthly', '/steam/#monthly', '월간')}${item('records', '/steam/#records', '역대 기록')}${item('about', '/rankings/about/', '산출 방법 ›', 'right')}</nav>`; };
-const appCell = (m, href) => `<div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t"><a href="${href}">${esc(m.name)}</a></div><div class="d">${esc(m.developer)}</div></div></div>`;
+const subnav = (active) => { const item = (id, href, label, cls = '') => `<a class="${[active === id ? 'active' : '', cls].filter(Boolean).join(' ')}" href="${href}">${label}</a>`; return `<nav class="rk-subnav" aria-label="${t('steam.steam_ranking_types')}">${item('ccu', '/steam/', t('steam.concurrent_2'))}${item('sell', '/steam/#sell', t('steam.sales_2'))}${item('monthly', '/steam/#monthly', t('rank.monthly'))}${item('records', '/steam/#records', t('steam.all_time_records'))}${item('about', '/rankings/about/', t('steam.methodology'), 'right')}</nav>`; };
+const appCell = (m, href) => `<div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t"><a data-name href="${href}">${esc(m.name)}</a></div><div class="d" data-name>${esc(m.developer)}</div></div></div>`;
 
 function shell(ST, { body, title, description, canonical, crumbs, keywords }) {
   const content = `
@@ -62,7 +62,7 @@ function shell(ST, { body, title, description, canonical, crumbs, keywords }) {
     currentPage: 'steam',
     pageScripts: `<script>(function(){function sync(){if(location.hash==='#sell'){const tab=document.getElementById('rk-st-ios');if(tab)tab.checked=true;}else if(location.hash==='#rk-list'){const tab=document.getElementById('rk-st-and');if(tab)tab.checked=true;}}window.addEventListener('hashchange',sync);sync();})();</script>`,
     title, description, keywords, canonical,
-    breadcrumbs: [{ name: '홈', url: `${siteBaseUrl}/` }, { name: '스팀', url: `${siteBaseUrl}/steam/` }, ...(crumbs || [])].filter((c, i, a) => a.findIndex((d) => d.url === c.url) === i),
+    breadcrumbs: [{ name: t('about.home'), url: `${siteBaseUrl}/` }, { name: t('layout.steam'), url: `${siteBaseUrl}/steam/` }, ...(crumbs || [])].filter((c, i, a) => a.findIndex((d) => d.url === c.url) === i),
   });
 }
 
@@ -80,36 +80,36 @@ function renderSteamHub() {
   const top = T.mp[0];
   const gameSummary = (label, row, value, detail) => {
     const info = row ? ST.info(row.appid) : null;
-    return `<div class="rk-stat rk-steam-game-card"><div class="l">${label}</div>${info ? `<a class="rk-steam-card-game" href="${gameHref(row.appid)}"><img src="${esc(info.img)}" alt="" width="68" height="44"><span>${esc(info.name)}</span></a>` : '<div class="rk-steam-card-game">기록 없음</div>'}<div class="s"><strong>${value}</strong>${detail ? `<br>${detail}` : ''}</div></div>`;
+    return `<div class="rk-stat rk-steam-game-card"><div class="l">${label}</div>${info ? `<a class="rk-steam-card-game" href="${gameHref(row.appid)}"><img src="${esc(info.img)}" alt="" width="68" height="44"><span>${esc(info.name)}</span></a>` : t('steam.no_record')}<div class="s"><strong>${value}</strong>${detail ? `<br>${detail}` : ''}</div></div>`;
   };
   const kpi = `<div class="rk-stats four rk-steam-summary">
-<div class="rk-stat"><div class="l">TOP 100 동시접속자</div><div class="v"><span>${fmt(total)}</span><small>명</small></div><div class="s">7일 평균 대비 ${total7 ? `<span class="rk-chg ${total >= total7 ? 'up' : 'down'}">${total >= total7 ? '▲' : '▼'}${Math.abs(pct(total, total7)).toFixed(1)}%</span>` : '-'}</div></div>
-${gameSummary('동시접속자 1위', top, `${fmt(top.ccu)}명`, '현재 동시접속자')}
-${gameSummary('7일 최대 증가율', up && up.r, up ? `▲${up.p.toFixed(0)}%` : '-', up ? `현재 ${fmt(up.r.ccu)}명` : '비교 기록 없음')}
-${gameSummary('최근 신규 진입', fresh, fresh ? `${fmt(fresh.ccu)}명` : '-', fresh ? `현재 ${fresh.rank}위` : '최근 2주 신규 없음')}</div>`;
+<div class="rk-stat"><div class="l">${t('steam.top_100_concurrent_players')}</div><div class="v"><span>${fmt(total)}</span><small>${t('home.players')}</small></div><div class="s">${t('steam.vs_7_day_average', { p0: total7 ? `<span class="rk-chg ${total >= total7 ? 'up' : 'down'}">${total >= total7 ? '▲' : '▼'}${Math.abs(pct(total, total7)).toFixed(1)}%</span>` : '-' })}</div></div>
+${gameSummary(t('steam.concurrent_players_1'), top, `${t('steam.players', { p0: fmt(top.ccu) })}`, t('steam.current_concurrent_players_2'))}
+${gameSummary(t('steam.biggest_7_day_increase'), up && up.r, up ? `▲${up.p.toFixed(0)}%` : '-', up ? `${t('steam.now_players', { p0: fmt(up.r.ccu) })}` : t('steam.no_comparison_record'))}
+${gameSummary(t('steam.recent_new_entry'), fresh, fresh ? `${t('steam.players', { p0: fmt(fresh.ccu) })}` : '-', fresh ? `${t('steam.now', { rank: fresh.rank })}` : t('steam.no_new_entries_in_the'))}</div>`;
 
   const VISIBLE = 20;
-  const mpRows = T.mp.map((r, i) => { const m = ST.info(r.appid); const p = pct(r.ccu, ST.ccuOf(wk, r.appid)); const pr = ST.rankOf(Y, r.appid); return `<li${i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${i < 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm"><a href="${gameHref(r.appid)}">${esc(m.name)}</a><span class="dv">${esc(m.developer)}</span></div><div class="num"><b>${fmt(r.ccu)}</b><i>${pr == null ? 'NEW' : pr === r.rank ? '=' : pr > r.rank ? `▲${pr - r.rank}` : `▼${r.rank - pr}`} · 순위</i></div><div class="pct">${pctChg(p)}</div>${spark(ST.series(r.appid).slice(-30))}</li>`; }).join('');
-  const sellRows = T.sellers.map((r, i) => { const m = ST.info(r.appid); const pr = ST.sellOf(Y, r.appid); return `<li${i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${i < 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm"><a href="${gameHref(r.appid)}">${esc(m.name)}</a><span class="dv">${esc(m.developer)}</span></div><div class="rk-price">${r.discount ? `<span class="rk-disc">${esc(r.discount)}</span>` : ''}<span>${esc(r.price || '')}</span></div><div class="rt">${rankChg(r.rank, pr)}</div></li>`; }).join('');
-  const col = (id, s, title, sub, rows, n) => `<div class="rk-col ${s}"${s === 'ios' ? ' id="sell"' : ''}><div class="rk-colh"><h2>${title}</h2><small>${sub}</small></div><input type="checkbox" id="${id}" class="rk-more-toggle rk-control" aria-label="${title} 전체 순위 표시"><ol class="rk-list steam${s === 'ios' ? ' sell' : ''}">${rows}</ol>${n > VISIBLE ? expandLabel(id, n, VISIBLE) : ''}</div>`;
-  const cols = `<input type="radio" name="rk-store" id="rk-st-and" class="rk-control" checked><input type="radio" name="rk-store" id="rk-st-ios" class="rk-control"><div class="rk-storeseg"><label for="rk-st-and">동접</label><label for="rk-st-ios">판매</label></div>
-<div class="rk-cols" id="rk-list">${col('rk-more-ccu', 'and', '동시접속자 순위', '수집 시점 접속자 수 · 7일 대비 · 30일 추이', mpRows, T.mp.length)}${col('rk-more-sell', 'ios', '판매 순위', '한국 스토어 · 가격 · 할인율', sellRows, T.sellers.length)}</div>`;
+  const mpRows = T.mp.map((r, i) => { const m = ST.info(r.appid); const p = pct(r.ccu, ST.ccuOf(wk, r.appid)); const pr = ST.rankOf(Y, r.appid); return `<li${i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${i < 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm"><a data-name href="${gameHref(r.appid)}">${esc(m.name)}</a><span class="dv" data-name>${esc(m.developer)}</span></div><div class="num"><b>${fmt(r.ccu)}</b><i>${t('steam.rank', { p0: pr == null ? 'NEW' : pr === r.rank ? '=' : pr > r.rank ? `▲${pr - r.rank}` : `▼${r.rank - pr}` })}</i></div><div class="pct">${pctChg(p)}</div>${spark(ST.series(r.appid).slice(-30))}</li>`; }).join('');
+  const sellRows = T.sellers.map((r, i) => { const m = ST.info(r.appid); const pr = ST.sellOf(Y, r.appid); return `<li${i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${i < 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm"><a data-name href="${gameHref(r.appid)}">${esc(m.name)}</a><span class="dv" data-name>${esc(m.developer)}</span></div><div class="rk-price">${r.discount ? `<span class="rk-disc">${esc(r.discount)}</span>` : ''}<span>${esc(r.price || '')}</span></div><div class="rt">${rankChg(r.rank, pr)}</div></li>`; }).join('');
+  const col = (id, s, title, sub, rows, n) => `<div class="rk-col ${s}"${s === 'ios' ? ' id="sell"' : ''}><div class="rk-colh"><h2>${title}</h2><small>${sub}</small></div><input type="checkbox" id="${id}" class="rk-more-toggle rk-control" aria-label="${t('steam.show_full_ranking', { title })}"><ol class="rk-list steam${s === 'ios' ? ' sell' : ''}">${rows}</ol>${n > VISIBLE ? expandLabel(id, n, VISIBLE) : ''}</div>`;
+  const cols = `<input type="radio" name="rk-store" id="rk-st-and" class="rk-control" checked><input type="radio" name="rk-store" id="rk-st-ios" class="rk-control"><div class="rk-storeseg"><label for="rk-st-and">${t('steam.concurrent_2')}</label><label for="rk-st-ios">${t('steam.sales_2')}</label></div>
+<div class="rk-cols" id="rk-list">${col('rk-more-ccu', 'and', t('steam.concurrent_player_rankings'), t('steam.players_at_collection_time_vs'), mpRows, T.mp.length)}${col('rk-more-sell', 'ios', t('steam.sales_rankings'), t('steam.korea_store_price_discount_rate'), sellRows, T.sellers.length)}</div>`;
 
   const mo = ST.latestMonth;
-  const monthly = ST.monthlyTop(mo, 10).map((a) => `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${appCell(ST.info(a.appid), gameHref(a.appid))}</td><td class="v">${fmt(a.avg)}<small>월 평균 동접</small></td></tr>`).join('');
-  const peaks = ST.allTimePeaks(10).map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${appCell(ST.info(a.appid), gameHref(a.appid))}</td><td class="v">${fmt(a.ccu)}<small>${a.date}</small></td></tr>`).join('');
-  const lead = `스팀 동접자 1위 ${ST.info(top.appid).name}(${fmt(top.ccu)}명), 2위 ${T.mp[1] ? ST.info(T.mp[1].appid).name : '-'}, 3위 ${T.mp[2] ? ST.info(T.mp[2].appid).name : '-'}. 한국 스토어 최고 판매 1위 ${T.sellers[0] ? ST.info(T.sellers[0].appid).name : '-'}. ${T.date} 기준, 매일 갱신.`;
+  const monthly = ST.monthlyTop(mo, 10).map((a) => `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${appCell(ST.info(a.appid), gameHref(a.appid))}</td><td class="v">${fmt(a.avg)}<small>${t('home.monthly_avg_concurrent_players')}</small></td></tr>`).join('');
+  const peaks = ST.allTimePeaks(10).map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${appCell(ST.info(a.appid), gameHref(a.appid))}</td><td class="v">${fmt(a.ccu)}<small>${formatDay(a.date)}</small></td></tr>`).join('');
+  const lead = `${t('steam.steam_concurrent_players_1_players', { name: ST.info(top.appid).name, p1: fmt(top.ccu), p2: T.mp[1] ? ST.info(T.mp[1].appid).name : '-', p3: T.mp[2] ? ST.info(T.mp[2].appid).name : '-', p4: T.sellers[0] ? ST.info(T.sellers[0].appid).name : '-', date: formatDay(T.date) })}`;
   // 화면 h1은 '스팀'을 뺀다 — 상단 탭이 이미 '스팀' (2026-09-09). <title>·메타는 유지.
-  const body = `<div class="rk-head"><h1>게임 순위</h1></div>
+  const body = `<div class="rk-head"><h1>${t('steam.game_rankings')}</h1></div>
 ${kpi}
 ${cols}
-<div class="rk-grid2 home" id="monthly"><div class="rk-card"><h2>월간 동시접속자 순위 <small>${mo} · 일별 기록 평균 TOP 10</small></h2><table class="rk-table"><tbody>${monthly}</tbody></table></div><div class="rk-card" id="records"><h2>최고 동시접속자 기록 <small>${days[0].date} 이후 TOP 10</small></h2><table class="rk-table"><tbody>${peaks}</tbody></table></div></div>`;
+<div class="rk-grid2 home" id="monthly"><div class="rk-card"><h2>${t('steam.monthly_concurrent_player_rankings')} <small>${t('steam.average_of_daily_records_top', { mo: formatYearMonth(mo) })}</small></h2><table class="rk-table"><tbody>${monthly}</tbody></table></div><div class="rk-card" id="records"><h2>${t('steam.peak_concurrent_player_records')} <small>${t('steam.top_10_since', { date: formatDay(days[0].date) })}</small></h2><table class="rk-table"><tbody>${peaks}</tbody></table></div></div>`;
   const canonical = `${siteBaseUrl}/steam/`;
   return shell(ST, {
     body,
-    title: `스팀 게임 순위 — 동접자·판매 TOP 100 (${T.date}) | 게이머스크롤`,
+    title: `${t('steam.steam_game_rankings_concurrent_players', { date: formatDay(T.date) })}`,
     description: lead,
-    keywords: '스팀 순위, 스팀 동접자 순위, 스팀 동시접속자, 스팀 판매 순위, 스팀 인기 게임, 스팀 매출 순위, 스팀 차트',
+    keywords: t('steam.steam_rankings_steam_concurrent_player'),
     canonical,
     crumbs: [],
   });
@@ -137,26 +137,24 @@ function renderSteamGame(appid) {
     const sl = dd.map((d) => ST.sellOf(d, id)).filter((x) => x != null);
     return { mo, avg: avg(v), max: v.length ? Math.max(...v) : null, rank: avg(rk), bestRank: rk.length ? Math.min(...rk) : null, sell: sl.length ? Math.min(...sl) : null, n: v.length };
   }).reverse();
-  const related = reportsFor(loadReports(), { name: m.name }, 3);
-  const text = `${m.name}의 ${T.date} 스팀 동접자 ${cur != null ? `${fmt(cur)}명(동접 ${rank}위)` : '동접 TOP 100 밖'}${sell ? `, 한국 스토어 판매 ${sell}위` : ''}. 30일 평균 ${fmt(avg(last30))}명, 역대 최고 ${fmt(pk.ccu)}명(${pk.date || '-'}), 동접 TOP 100 체류 ${onChart}일.`;
-  const body = `<div class="rk-crumb"><a href="/steam/">스팀</a><span>›</span><span>${esc(m.name)}</span></div>
-<div class="rk-hero"><img src="${esc(m.img)}" alt="" fetchpriority="high"><div><h1>${esc(m.name)}</h1><div class="meta"><b>${esc(m.developer)}</b><span>·</span><span>Steam</span>${first ? `<span>·</span><span>${first} 첫 기록</span>` : ''}</div><div class="rk-pills">${rank ? `<span class="${rank === 1 ? 'one' : ''}">동접 ${rank}위</span>` : ''}${sell ? `<span class="${sell === 1 ? 'one' : ''}">판매 ${sell}위</span>` : ''}${sellRow && sellRow.discount ? `<span>${esc(sellRow.discount)} 할인 · ${esc(sellRow.price || '')}</span>` : sellRow && sellRow.price ? `<span>${esc(sellRow.price)}</span>` : ''}</div></div><div class="actions"><a class="rk-btn primary" href="https://store.steampowered.com/app/${id}/" target="_blank" rel="noopener">Steam 스토어</a></div></div>
+  const text = `${t('steam.on_steam_concurrent_players_30', { name: m.name, date: formatDay(T.date), p2: cur != null ? `${t('steam.players_concurrent', { p0: fmt(cur), rank })}` : t('steam.outside_concurrent_top_100'), p3: sell ? `${t('steam.korea_store_sales', { sell })}` : '', p4: fmt(avg(last30)), p5: fmt(pk.ccu), p6: pk.date ? formatDay(pk.date) : '-', onChart })}`;
+  const body = `<div class="rk-crumb"><a href="/steam/">${t('layout.steam')}</a><span>›</span><span data-name>${esc(m.name)}</span></div>
+<div class="rk-hero"><img src="${esc(m.img)}" alt="" fetchpriority="high"><div><h1 data-name>${esc(m.name)}</h1><div class="meta"><b data-name>${esc(m.developer)}</b><span>·</span><span>Steam</span>${first ? `<span>·</span><span>${t('steam.first_recorded', { first: formatDay(first) })}</span>` : ''}</div><div class="rk-pills">${rank ? `<span class="${rank === 1 ? 'one' : ''}">${t('steam.concurrent', { rank })}</span>` : ''}${sell ? `<span class="${sell === 1 ? 'one' : ''}">${t('steam.sales', { sell })}</span>` : ''}${sellRow && sellRow.discount ? `<span>${t('steam.off', { p0: esc(sellRow.discount), p1: esc(sellRow.price || '') })}</span>` : sellRow && sellRow.price ? `<span>${esc(sellRow.price)}</span>` : ''}</div></div><div class="actions"><a class="rk-btn primary" href="https://store.steampowered.com/app/${id}/" target="_blank" rel="noopener">${t('steam.steam_store')}</a></div></div>
 <p class="rk-lead">${esc(text)}</p>
 <div class="rk-stats four">
-<div class="rk-stat"><div class="l">현재 동접자</div><div class="v">${cur == null ? '기록 없음' : fmt(cur)}${cur != null && prev ? `<span class="rk-chg ${cur >= prev ? 'up' : 'down'}">${cur >= prev ? '▲' : '▼'}${Math.abs(pct(cur, prev)).toFixed(1)}%</span>` : ''}</div><div class="s">${cur == null ? '현재 수집 범위 밖' : '전일 대비'}</div></div>
-<div class="rk-stat"><div class="l">30일 평균 동접</div><div class="v">${last30.length ? fmt(avg(last30)) : '기록 없음'}</div><div class="s">최근 ${last30.length}일 기록</div></div>
-<div class="rk-stat"><div class="l">역대 최고 동접</div><div class="v">${fmt(pk.ccu)}</div><div class="s">${pk.date || '-'}</div></div>
-<div class="rk-stat"><div class="l">동접 TOP 100 체류</div><div class="v">${onChart}<small>일</small></div><div class="s">${days.length}일 중</div></div></div>
-${ser.filter((v) => v != null).length >= 2 ? `<div class="rk-card"><h2>동접자 추이 <small>일별 · ${days[0].date} ~ ${T.date}</small></h2><div class="rk-chart rk-chart-dual">${lineChart(ser, dates)}${lineChart(ser, dates, { w: 360, h: 220, mobile: true })}</div></div>` : ''}
-<div class="rk-card"><h2>월별 기록</h2><table class="rk-table"><thead><tr><th>월</th><th class="r">평균 동접</th><th class="r">최고 동접</th><th class="c">평균 순위</th><th class="c">최고 순위</th><th class="c">판매 최고</th><th class="c">기록일</th></tr></thead><tbody>${monthly.map((r) => `<tr><td><b>${r.mo}</b></td><td class="r">${fmt(r.avg)}</td><td class="r">${fmt(r.max)}</td><td class="c">${r.rank != null ? r.rank.toFixed(1) : '-'}</td><td class="c">${r.bestRank != null ? r.bestRank + '위' : '-'}</td><td class="c">${r.sell != null ? r.sell + '위' : '-'}</td><td class="c">${r.n}</td></tr>`).join('')}</tbody></table></div>
-${related.length ? `<section class="rk-section"><h2>관련 리포트</h2><div class="rk-cards">${related.map((a) => `<a class="rk-cardl" href="${a.href}"><img src="${esc(a.thumbnail)}" alt="" loading="lazy"><div class="b"><div class="k">${a.catName}<span>${a.date}</span></div><div class="t">${esc(a.title)}</div></div></a>`).join('')}</div>${listLink('/reports/', '리포트 전체 보기')}</section>` : ''}`;
+<div class="rk-stat"><div class="l">${t('steam.current_concurrent_players')}</div><div class="v">${cur == null ? t('chart.no_record') : fmt(cur)}${cur != null && prev ? `<span class="rk-chg ${cur >= prev ? 'up' : 'down'}">${cur >= prev ? '▲' : '▼'}${Math.abs(pct(cur, prev)).toFixed(1)}%</span>` : ''}</div><div class="s">${cur == null ? t('steam.currently_outside_the_collection_range') : t('steam.vs_previous_day')}</div></div>
+<div class="rk-stat"><div class="l">${t('steam.30_day_avg_concurrent_players')}</div><div class="v">${last30.length ? fmt(avg(last30)) : t('chart.no_record')}</div><div class="s">${t('steam.last_days_of_records', { length: last30.length })}</div></div>
+<div class="rk-stat"><div class="l">${t('steam.all_time_peak_concurrent_players')}</div><div class="v">${fmt(pk.ccu)}</div><div class="s">${pk.date ? formatDay(pk.date) : '-'}</div></div>
+<div class="rk-stat"><div class="l">${t('steam.days_in_concurrent_top_100')}</div><div class="v">${onChart}<small>${t('rank.days')}</small></div><div class="s">${t('steam.of_days', { length: days.length })}</div></div></div>
+${ser.filter((v) => v != null).length >= 2 ? `<div class="rk-card"><h2>${t('steam.concurrent_player_trend')} <small>${t('steam.daily', { date: formatDay(days[0].date), date2: formatDay(T.date) })}</small></h2><div class="rk-chart rk-chart-dual">${lineChart(ser, dates)}${lineChart(ser, dates, { w: 360, h: 220, mobile: true })}</div></div>` : ''}
+<div class="rk-card rk-month-records"><h2>${t('steam.monthly_records')}</h2><table class="rk-table"><thead><tr><th>${t('rank.month')}</th><th class="r">${t('steam.avg_concurrent_players')}</th><th class="r">${t('home.peak_concurrent_players')}</th><th class="c">${t('rank.avg_rank')}</th><th class="c">${t('home.best_rank')}</th><th class="c">${t('steam.best_sales_rank')}</th><th class="c">${t('steam.recorded_on')}</th></tr></thead><tbody>${monthly.map((r) => `<tr><td><b>${formatYearMonth(r.mo)}</b></td><td class="r">${fmt(r.avg)}</td><td class="r">${fmt(r.max)}</td><td class="c">${r.rank != null ? r.rank.toFixed(1) : '-'}</td><td class="c">${r.bestRank != null ? r.bestRank + t('chart.rank_unit') : '-'}</td><td class="c">${r.sell != null ? r.sell + t('chart.rank_unit') : '-'}</td><td class="c">${r.n}</td></tr>`).join('')}</tbody></table></div>`;
   const canonical = `${siteBaseUrl}/steam/${id}/`;
   return shell(ST, {
     body,
     // 상세 페이지는 날짜 없이 짧게 (2026-09-09 title 정책)
-    title: `${m.name} 스팀 동접자·판매 순위 | 게이머스크롤`,
+    title: `${t('steam.steam_concurrent_players_and_sales', { name: m.name })}`,
     description: text,
-    keywords: `${m.name} 동접자, ${m.name} 스팀 순위, ${m.name} 동시접속자, ${m.name} 판매 순위`,
+    keywords: `${t('steam.concurrent_players_steam_ranking_concurrent', { name: m.name, name2: m.name, name3: m.name, name4: m.name })}`,
     canonical,
     crumbs: [{ name: m.name, url: canonical }],
   });

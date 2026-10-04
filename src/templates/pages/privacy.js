@@ -1,4 +1,5 @@
 'use strict';
+const { t } = require('../../i18n');
 /**
  * 개인정보처리방침 (/privacy/) — 푸터 링크의 착지점.
  * 2026-09-09: 루트 정적 privacy/index.html(옛 테마, 깃 미추적) 복사 방식을 템플릿 페이지로 교체.
@@ -10,17 +11,17 @@ const siteBaseUrl = 'https://gamerscroll.com';
 
 function renderPrivacyPage() {
   const section = (title, html) => `<div class="rk-card"><h2>${title}</h2><div class="rk-faq">${html}</div></div>`;
-  const body = `<div class="rk-head"><h1>개인정보처리방침</h1></div>
-<div class="rk-faq"><p>게이머스크롤(이하 "본 사이트")은 「개인정보 보호법」 및 관련 법령에 따라 이용자의 개인정보를 보호하고, 이와 관련된 고충을 신속하게 처리하기 위해 다음과 같은 개인정보처리방침을 수립·공개합니다.</p></div>
-${section('1. 개인정보의 수집 항목 및 방법', '<p>본 사이트는 별도의 회원가입 절차 없이 모든 서비스를 이용할 수 있으며, 이용자로부터 이름, 이메일, 연락처 등의 개인정보를 직접 수집하지 않습니다.</p>')}
-${section('2. 자동으로 수집되는 정보', `<p>서비스 이용 과정에서 아래와 같은 정보가 자동으로 생성되어 수집될 수 있습니다:</p>
-<ul><li>접속 기기 정보 (기기 유형, 운영체제, 브라우저 종류)</li><li>접속 로그 (접속 일시, 방문 페이지, 체류 시간)</li><li>IP 주소 (익명화 처리됨)</li></ul>
-<p>이 정보는 Google Analytics를 통해 수집되며, 개인을 식별할 수 없는 통계 형태로만 활용됩니다.</p>`)}
-${section('3. 개인정보의 보유 및 이용 기간', '<p>자동 수집된 정보는 수집일로부터 최대 26개월간 보관되며, 이후 자동으로 파기됩니다.</p>')}
-${section('4. 쿠키(Cookie)의 사용', '<p>본 사이트는 이용자의 편의를 위해 쿠키를 사용합니다. 쿠키는 웹사이트 운영에 필요한 기술적 정보를 저장하며, 이용자는 브라우저 설정을 통해 쿠키 저장을 거부할 수 있습니다.</p>')}
-${section('5. 개인정보의 제3자 제공', '<p>본 사이트는 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, Google Analytics 서비스 이용을 위해 익명화된 통계 데이터가 Google에 전송될 수 있습니다.</p>')}
-${section('6. 정책 변경', '<p>본 개인정보처리방침은 법령 또는 서비스 변경에 따라 수정될 수 있으며, 변경 시 본 페이지를 통해 공지합니다.</p>')}
-<div class="rk-note">시행일자: 2025년 12월 4일</div>`;
+  const body = `<div class="rk-head"><h1>${t('footer.privacy_policy')}</h1></div>
+<div class="rk-faq"><p>${t('privacy.gamerscroll_hereinafter')} "${t('privacy.this_site')}"${t('privacy.protects_users_personal_information_in')}</p></div>
+${section(t('privacy.1_items_and_methods_of'), t('privacy.all_services_on_this_site'))}
+${section(t('privacy.2_information_collected_automatically'), `<p>${t('privacy.the_following_information_may_be')}</p>
+<ul><li>${t('privacy.device_information_device_type_operating')}</li><li>${t('privacy.access_logs_date_and_time')}</li><li>${t('privacy.ip_address_anonymized')}</li></ul>
+<p>${t('privacy.this_information_is_collected_through')}</p>`)}
+${section(t('privacy.3_retention_and_use_period'), t('privacy.automatically_collected_information_is_kept'))}
+${section(t('privacy.4_use_of_cookies'), t('privacy.this_site_uses_cookies_for'))}
+${section(t('privacy.5_provision_of_personal_information'), t('privacy.this_site_does_not_provide'))}
+${section(t('privacy.6_policy_changes'), t('privacy.this_privacy_policy_may_be'))}
+<div class="rk-note">${t('privacy.effective_date_december_4_2025')}</div>`;
 
   const content = `
     <section class="section active" id="privacy">
@@ -31,11 +32,11 @@ ${body}
 
   return wrapWithLayout(content, {
     currentPage: 'privacy',
-    title: '개인정보처리방침 | 게이머스크롤',
-    description: '게이머스크롤의 개인정보처리방침. 직접 수집하는 개인정보는 없으며, Google Analytics를 통한 익명 통계만 수집합니다.',
-    keywords: '개인정보처리방침, 게이머스크롤',
+    title: t('privacy.privacy_policy_gamerscroll_2'),
+    description: t('privacy.gamerscroll_privacy_policy_we_do'),
+    keywords: t('privacy.privacy_policy_gamerscroll'),
     canonical: `${siteBaseUrl}/privacy/`,
-    breadcrumbs: [{ name: '홈', url: `${siteBaseUrl}/` }, { name: '개인정보처리방침', url: `${siteBaseUrl}/privacy/` }],
+    breadcrumbs: [{ name: t('about.home'), url: `${siteBaseUrl}/` }, { name: t('footer.privacy_policy'), url: `${siteBaseUrl}/privacy/` }],
   });
 }
 

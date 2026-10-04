@@ -1,4 +1,5 @@
 'use strict';
+const { t } = require('../../i18n');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
 function initRankChart() {
@@ -18,7 +19,7 @@ function initRankChart() {
     tip.replaceChildren();
     guide.replaceChildren();
     const date = document.createElement('strong');
-    date.textContent = data.labels[index];
+    date.textContent = (data.display || data.labels)[index];
     tip.append(date);
     const selectedX = data.x[index];
     const view = svg.viewBox.baseVal;
@@ -32,7 +33,7 @@ function initRankChart() {
       if (buttons[i].getAttribute('aria-pressed') !== 'true') return;
       const line = document.createElement('span');
       const dot = document.createElement('i'); dot.style.backgroundColor = s.color;
-      line.append(dot, document.createTextNode(`${s.name} ${s.values[index] == null ? '기록 없음' : s.values[index] + '위'}`));
+      line.append(dot, document.createTextNode(`${s.name} ${s.values[index] == null ? data.text.none : s.values[index] + data.text.unit}`));
       tip.append(line);
       if (s.values[index] == null) return;
       const circle = [...svg.querySelectorAll(`circle[data-rank-series="${i}"]`)].find(e => Math.abs(Number(e.getAttribute('cx')) - selectedX) < 1);
@@ -93,8 +94,8 @@ function initRankChart() {
   }));
 }
 
-function interactiveRankChart(svg, labels, series, x) {
-  const payload = JSON.stringify({ labels, series, x }).replace(/</g, '\\u003c');
+function interactiveRankChart(svg, labels, series, x, display) {
+  const payload = JSON.stringify({ labels, display, series, x, text: { none: t('chart.no_record'), unit: t('chart.rank_unit') } }).replace(/</g, '\\u003c');
   const accessibleSvg = svg.replace('<svg ', '<svg tabindex="0" ');
   return `<div class="rk-interactive-chart">${accessibleSvg}<div class="rk-chart-tooltip" role="status" aria-live="polite" hidden></div><div class="rk-chart-legend">${series.map((s, i) => `<button type="button" data-chart-series="${i}" aria-pressed="true"><i style="background:${esc(s.color)}"></i>${esc(s.name)}</button>`).join('')}</div><script type="application/json">${payload}</script></div><script>(${initRankChart.toString()})();</script>`;
 }

@@ -106,9 +106,9 @@ body .site-container .rk .rk-table td.spk { text-align: center; }
 body .site-container .rk .rk-table td.spk .rk-spark { margin-left: auto; margin-right: auto; }
 body .site-container .rk .rk-card > h2,
 body .site-container .rk .rk-colh { align-items: center; }
-body .site-container .rk .rk-card > h2 small { max-width: 100%; overflow-wrap: anywhere; }
+body .site-container .rk .rk-card > h2 small { max-width: 100%; overflow-wrap: break-word; }
 @media (max-width: 768px) {
-  body .nav .nav-inner { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: none; padding: 0 16px; gap: 0; overflow: visible; box-sizing: border-box; }
+  body .nav .nav-inner { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); width: 100%; max-width: none; padding: 0 16px; gap: 0; overflow: visible; box-sizing: border-box; }
   body .nav .nav-inner .nav-item { display: flex; align-items: center; justify-content: center; min-width: 0; width: auto; margin: 0; padding: 0 4px; height: 48px; flex: none; text-align: center; }
   body .nav .nav-inner .nav-item::after { left: 50%; right: auto; bottom: 0; width: 32px; transform: translateX(-50%); background: var(--text); }
   body .site-container .rk .rk-table th,
@@ -135,12 +135,12 @@ body .site-container .rk .rk-pubtable th:nth-child(n+3),
 body .site-container .rk .rk-pubtable td:nth-child(n+3) { width: 88px; white-space: nowrap; }
 body .site-container .rk .rk-pubtable th:last-child,
 body .site-container .rk .rk-pubtable td:last-child { width: 104px; padding-right: 16px; }
-body .site-container .rk .rk-pubtable .rk-pubname { overflow-wrap: anywhere; white-space: normal; }
+body .site-container .rk .rk-pubtable .rk-pubname { overflow-wrap: break-word; white-space: normal; }
 .rk .rk-record-scroll { overflow-x: auto; }
 .rk .rk-month-top3 { min-width: 720px; table-layout: fixed; }
 .rk .rk-month-top3 th:first-child { width: 96px; }
 .rk .rk-month-top3 .rk-app > div { min-width: 0; }
-.rk .rk-month-top3 .rk-app .t { white-space: normal; overflow-wrap: anywhere; }
+.rk .rk-month-top3 .rk-app .t { white-space: normal; overflow-wrap: break-word; }
 @media (max-width: 768px) {
   body .site-container .rk .rk-pubtable th,
   body .site-container .rk .rk-pubtable td { padding-left: 4px; padding-right: 4px; }

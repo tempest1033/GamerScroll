@@ -2,38 +2,34 @@
 // Single source of truth for the sidebar markup used by home, hub, and article pages.
 // Unified to the homepage design: separate count badges, lists capped at 10.
 
+const { t } = require('../../i18n');
 const escapeHtml = (str) => String(str || '')
   .replace(/&/g, '&amp;')
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
-const REPORT_ITEMS = [
-  { id: 'ranking', name: '순위 분석', link: '/reports/#ranking' },
-  { id: 'insight', name: '인사이트', link: '/reports/#insight' }
-];
-
 const TECH_ITEMS = [
-  { id: 'normal', name: '일반', link: '/tech/normal/' },
+  { id: 'normal', name: t('sidebar.general'), link: '/tech/normal/' },
   { id: 'ai', name: 'AI', link: '/tech/ai/' },
-  { id: 'vibecoding', name: '바이브코딩', link: '/tech/vibecoding/' }
+  { id: 'vibecoding', name: t('layout.vibe_coding'), link: '/tech/vibecoding/' }
 ];
 
 // 테크 그룹은 테크 페이지 전용 (generate-html-report.js의
 // stripTechSidebarFromNonTechDocs 규칙과 동일한 노출 정책)
-// 위키 그룹은 2026-09-09 폐기 (/wiki/* → /reports/ 301)
-const DEFAULT_GROUPS = [
-  { title: '리포트', link: '/reports/', items: REPORT_ITEMS }
-];
+// 리포트·위키 그룹은 폐기됨 — 기본 그룹 없음
+const DEFAULT_GROUPS = [];
 
-const TECH_GROUP = { title: '테크', link: '/tech/', items: TECH_ITEMS };
+const TECH_GROUP = { title: t('layout.tech'), link: '/tech/', items: TECH_ITEMS };
 
 // counts: { issue, insight, hotpick, ranking, history, knowledge, business, normal, ai, vibecoding }
-// options.groups: custom [{ title, link, items: [{ id?, name, link, count? }] }] (defaults to 리포트+위키)
+// options.groups: custom [{ title, link, items: [{ id?, name, link, count? }] }] (defaults to none)
 // options.includeTech: append the 테크 group (tech pages only)
 function generateSidebarCategories(counts = {}, options = {}) {
   const groups = options.groups
     || (options.includeTech ? [...DEFAULT_GROUPS, TECH_GROUP] : DEFAULT_GROUPS);
+
+  if (groups.length === 0) return '';
 
   const renderItems = (items) => items.map((cat) => {
     const count = cat.count !== undefined ? cat.count : counts[cat.id];
@@ -64,7 +60,7 @@ function generateSidebarArticles(popular = [], latest = [], options = {}) {
   const latestId = options.latestId || 'sidebar-latest';
   const activeLink = options.activeLink || null;
 
-  const visible = (items) => (items || []).filter(item => item && item.title && !/\/magazine\/(?:issue|hotpick)(?:\/|$)/.test(item.link || item.url || item.path || '')).slice(0, cap);
+  const visible = (items) => (items || []).filter(item => item && item.title).slice(0, cap);
   const renderList = (items) => visible(items).map((item, i) => {
     const link = item.link || item.url || item.path || '#';
     return `
@@ -81,8 +77,8 @@ function generateSidebarArticles(popular = [], latest = [], options = {}) {
       <div class="home-card" id="sidebar-articles">
         <div class="home-card-header">
           <div class="home-chart-toggle sidebar-full-toggle" id="${tabId}">
-            <button class="tab-btn small active" data-sidebar-tab="popular">인기</button>
-            <button class="tab-btn small" data-sidebar-tab="latest">최신</button>
+            <button class="tab-btn small active" data-sidebar-tab="popular">${t('sidebar.popular')}</button>
+            <button class="tab-btn small" data-sidebar-tab="latest">${t('sidebar.latest')}</button>
           </div>
         </div>
         <div class="home-card-body">

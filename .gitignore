@@ -48,3 +48,7 @@ mockups/
 /themed-*.html
 /docs/themed-*.html
 /ai-docs/themed-*.html
+
+# wrangler local state / generated Workers bundle
+.wrangler/
+functions/_lib/game-ssr.js

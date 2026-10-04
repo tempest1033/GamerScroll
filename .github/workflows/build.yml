@@ -83,6 +83,11 @@ jobs:
         if: steps.puppeteer-cache.outputs.cache-hit != 'true'
         run: npx puppeteer browsers install chrome
 
+      - name: Check translations (all 5 editions)
+        # 배포는 막지 않는다: 누락 문구는 영어로 표시된다. 실패는 경고로만 남기고, 코드 push 시점 검사는 i18n-check.yml이 담당.
+        continue-on-error: true
+        run: node scripts/test-i18n-messages.js || { echo "::warning::번역 검사 실패 — 누락 문구는 영어로 표시됩니다. i18n-check 워크플로 결과를 확인하세요."; exit 1; }
+
       - name: Download all images (wiki, tech, issue, insight, hotpick)
         run: node scripts/download-images.js
 
@@ -105,6 +110,13 @@ jobs:
         env:
           ADS_ENABLED: 'true'  # 광고 활성화
         run: node scripts/generate-game-pages.js
+
+      - name: Bundle game page renderer for Pages Functions
+        # 게임 상세(/games/<slug>/)는 요청 시 Pages Function 이 렌더링한다. 위 단계가 docs/games-data/ 를 만들고,
+        # 여기서 같은 템플릿을 functions/_lib/game-ssr.js 로 번들한다 (게시 단계가 functions/ 를 deploy 브랜치에 함께 올린다).
+        env:
+          ADS_ENABLED: 'true'
+        run: node scripts/build-game-ssr.js
 
       - name: Archive hourly snapshots (permanent, compressed; runs before prune)
         # snapshots/rankings/*.csv 를 날짜별 snapshots/archive/*.json.br 로 영구 보관.
@@ -200,7 +212,10 @@ jobs:
           rm -rf /tmp/deploy-gs
           mkdir -p /tmp/deploy-gs
           cp -a docs /tmp/deploy-gs/docs
+          # functions/ (routes + _lib/game-ssr.js bundle) must ship with docs/: game pages exist only as Pages Functions.
+          test -f functions/_lib/game-ssr.js || { echo "::error::functions/_lib/game-ssr.js missing — game pages would 404"; exit 1; }
           cp -a functions /tmp/deploy-gs/functions
+          echo "docs files: $(find docs -type f | wc -l) (Cloudflare Pages Free limit 20000)"
           cd /tmp/deploy-gs
           git init -q -b deploy-gamerscroll
           git config user.name "GitHub Actions"

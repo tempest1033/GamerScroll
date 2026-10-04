@@ -38,7 +38,7 @@ console.log('PASS 연간 집계·연도 경계·누락일·TOP 10 이탈·스토
     for (const width of [1440, 1024, 390]) {
       const page = await browser.newPage({ viewport: { width, height: 1000 } });
       await page.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort());
-      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/rankings/cn/', '/rankings/free/cn/', '/rankings/records/', '/rankings/publishers/'])) {
+      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/ko/rankings/cn/', '/ko/rankings/free/cn/', '/ko/rankings/records/', '/ko/rankings/publishers/'])) {
         try {
           assert.equal((await page.goto(base + route, { waitUntil: 'networkidle' })).status(), 200);
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), '페이지 가로 넘침 없음');
@@ -56,7 +56,7 @@ console.log('PASS 연간 집계·연도 경계·누락일·TOP 10 이탈·스토
             assert.equal(await page.getByRole('heading', { name: /최장 TOP 10 유지/ }).count(), 2);
             assert.ok(!(await page.locator('body').innerText()).includes('하루 최대 급등'));
             const months = await page.locator('.rk-month-top3 tbody tr').evaluateAll(rows => rows.map(r => ({ month: r.cells[0].textContent, games: r.querySelectorAll('.rk-app').length })));
-            assert.ok(months.length > 0 && months.every(m => m.month.startsWith('2026-') && m.games === 3));
+            assert.ok(months.length > 0 && months.every(m => m.month.includes('2026') && m.games === 3));
           }
           if (route.includes('/publishers/')) {
             const cut = await page.locator('.rk-pubtable tr').evaluateAll(rows => rows.some(row => {

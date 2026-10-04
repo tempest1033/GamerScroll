@@ -2,15 +2,16 @@
  * 네비게이션 컴포넌트
  */
 
-// 순위 데이터 사이트 내비 4개: 모바일 · 스팀 · 리포트 · 게임 DB. 홈(/)은 로고로 간다.
+// 순위 데이터 사이트 내비 4개: 모바일 · 트렌딩 · 스팀 · 게임 DB. 홈(/)은 로고로 간다.
+const { t: tt } = require('../../i18n');
 const navItems = [
-  { id: 'rankings', label: '모바일', href: '/rankings/' },
-  { id: 'steam', label: '스팀', href: '/steam/' },
-  { id: 'reports', label: '리포트', href: '/reports/' },
-  { id: 'games', label: '게임 DB', href: '/games/' }
+  { id: 'rankings', label: tt('nav.mobile'), href: '/rankings/' },
+  { id: 'trending', label: tt('nav.trending'), href: '/trending/' },
+  { id: 'steam', label: tt('layout.steam'), href: '/steam/' },
+  { id: 'games', label: tt('layout.game_db'), href: '/games/' }
 ];
-// 페이지 ID → 내비 항목 (게임 상세는 게임 DB, 매거진·테크는 리포트를 활성화. 홈은 활성 항목 없음)
-const NAV_ALIAS = { game: 'games', magazine: 'reports', tech: 'reports' };
+// 페이지 ID → 내비 항목 (게임 상세는 게임 DB를 활성화. 홈은 활성 항목 없음)
+const NAV_ALIAS = { game: 'games' };
 const navIdOf = (currentPage) => NAV_ALIAS[currentPage] || currentPage;
 
 function generateNav(currentPage = 'home') {

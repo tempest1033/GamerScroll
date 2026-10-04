@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const path = require('node:path');
 const { chromium } = require('playwright');
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
-const routes = process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/games/', '/games/where-winds-meet/', '/games/메이플-키우기/', '/steam/730/', '/rankings/', '/steam/'];
+const routes = process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/ko/games/', '/ko/games/where-winds-meet/', '/ko/games/메이플-키우기/', '/ko/steam/730/', '/ko/rankings/', '/ko/steam/'];
 
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
@@ -18,7 +18,7 @@ const routes = process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['
             const response = await page.goto(base + route, { waitUntil: 'networkidle' });
             assert.equal(response.status(), 200);
             assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), '가로 넘침 없음');
-            if (route.startsWith('/games/') && route !== '/games/') {
+            if (route.startsWith('/ko/games/') && route !== '/ko/games/') {
               const result = await page.evaluate(() => {
                 const grid = document.querySelector('.game-page-grid');
                 const cards = [...grid.children].map(e => e.getBoundingClientRect());
@@ -42,8 +42,8 @@ const routes = process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['
                 }
               }
             }
-            if (route === '/rankings/' || route === '/steam/') {
-              // 2026-09-09 리뉴얼: 허브는 상위 20개만 기본 표시하고 '전체 보기'로 펼친다
+            // '전체 보기' 접기 버튼이 있는 허브만 확인한다 (매출 순위는 TOP 200을 접지 않고 모두 보여준다 — test-rank-summary)
+            if ((route === '/ko/rankings/' || route === '/ko/steam/') && await page.locator('.rk-more-toggle').count()) {
               const controls = page.locator('.rk-more-toggle');
               for (let i = 0; i < await controls.count(); i++) assert.ok(!(await controls.nth(i).isChecked()), '기본 상위 20 접힘');
               const control = controls.first();

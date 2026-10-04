@@ -1,4 +1,5 @@
 'use strict';
+const { t } = require('../../i18n');
 
 // 시각 간격을 보존하고 미수집 구간은 선으로 연결하지 않는다.
 function hourlyRankChart(samples, androidSamples) {
@@ -7,12 +8,12 @@ function hourlyRankChart(samples, androidSamples) {
     return { ...h, minute: match ? Number(match[1]) * 60 + Number(match[2]) : null };
   }).filter(h => h.minute != null && h.minute >= 0 && h.minute < 1440).sort((a, b) => a.minute - b.minute);
   const series = [
-    { name: androidSamples === undefined ? '매출 순위' : '앱스토어', color: '#0071e3', points: normalize(samples) },
-    ...(androidSamples === undefined ? [] : [{ name: '구글플레이', color: '#00a067', points: normalize(androidSamples) }])
+    { name: androidSamples === undefined ? t('layout.revenue_rankings') : t('stats.app_store'), color: '#0071e3', points: normalize(samples) },
+    ...(androidSamples === undefined ? [] : [{ name: t('stats.google_play'), color: '#00a067', points: normalize(androidSamples) }])
   ];
   const points = [...new Map(series.flatMap(s => s.points).map(p => [p.minute, p])).values()].sort((a, b) => a.minute - b.minute);
   const ranks = series.flatMap(s => s.points.map(h => h.rank)).filter(r => Number.isFinite(r) && r > 0);
-  if (!ranks.length) return '<div class="game-empty">수집된 순위가 없습니다.</div>';
+  if (!ranks.length) return t('chart.no_rankings_were_collected');
   const W = 800, H = 220, L = 40, R = 30, T = 24, B = 36;
   const low = Math.max(1, Math.min(...ranks) - 1), high = Math.max(low + 4, ...ranks) + 1;
   const start = points[0].minute, span = Math.max(1, points.at(-1).minute - start);
@@ -42,7 +43,7 @@ function hourlyRankChart(samples, androidSamples) {
       return Number.isFinite(rank) && rank > 0 ? rank : null;
     }) };
   });
-  return `<div class="rk-hour-scroll">${require('./interactive-rank-chart').interactiveRankChart(`<svg class="rk-hour-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="수집 시각별 매출 순위, 숫자가 작을수록 상위">${grid}${lines}${labels}</svg>`, points.map(p => p.time), chartSeries, points.map(x))}</div>`;
+  return `<div class="rk-hour-scroll">${require('./interactive-rank-chart').interactiveRankChart(`<svg class="rk-hour-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('chart.revenue_rank_by_collection_time')}">${grid}${lines}${labels}</svg>`, points.map(p => p.time), chartSeries, points.map(x))}</div>`;
 }
 
 module.exports = { hourlyRankChart };

@@ -1,4 +1,5 @@
 'use strict';
+const { t } = require('../i18n');
 
 // Service data adapter. Public rendering is opt-in AND requires every gate.
 // The private preview never upgrades a research artifact into public evidence.
@@ -74,9 +75,9 @@ function loadMonthlyEstimates({ directory = path.join(ROOT, 'reports/rank-models
 }
 
 function formatRange(row, metric) {
-  if (row.status !== 'available') return '추정 보류';
-  const fmt = (n, round) => round(n / 1e4).toLocaleString('ko-KR');
-  const unit = metric === 'consumer_spend' ? '만 달러' : '만 회';
+  if (row.status !== 'available') return t('est.estimate_withheld');
+  const fmt = (n, round) => round(n / 1e4).toLocaleString(require('../i18n').currentEdition().intl);
+  const unit = metric === 'consumer_spend' ? t('est.10k_usd') : t('est.10k_downloads');
   // Round bounds outward; formatting must not narrow the measured interval.
   return `${fmt(row.lower, Math.floor)}~${fmt(row.upper, Math.ceil)}${unit}`;
 }
@@ -84,15 +85,15 @@ function formatRange(row, metric) {
 function renderMonthlyEstimates(options = {}) {
   const data = loadMonthlyEstimates(options);
   if (!data) return '';
-  return `<section class="rk-card" aria-label="월간 글로벌 추정">
-<h2>월간 글로벌 추정${data.preview ? ' · 내부 미리보기' : ''}</h2>
-<p>순위 기반 추정치이며 실제 매출·설치 집계가 아닙니다. 기준일 ${escape(data.asOf)}.
-매출은 App Store·Google Play의 수수료 차감 전 인앱 결제액이며 광고·웹 상점·대체 마켓은 제외합니다.
-범위는 과거 오차로 보정한 90% 목표 구간이며 개별 게임의 정확도를 보장하지 않습니다.</p>
-${data.preview ? '<p><strong>검증 미완료 · 공개 금지. 이미 알려진 달을 재계산한 미리보기이며 독립 검증 결과가 아닙니다.</strong></p>' : ''}
-${data.metrics.map((m) => `<h3>${escape(m.month)} ${m.metric === 'consumer_spend' ? '매출' : '다운로드'}</h3>
-<p>표시 가능 ${m.rows.filter((r) => r.status === 'available').length}/${m.rows.length}개 게임</p>
-<div class="rk-scroll"><table class="rk-table"><thead><tr><th>게임</th><th>추정 범위</th></tr></thead><tbody>
+  return `<section class="rk-card" aria-label="${t('est.monthly_global_estimates')}">
+<h2>${t('est.monthly_global_estimates_2', { p0: data.preview ? t('est.internal_preview') : '' })}</h2>
+<p>${t('est.rank_based_estimates_not_actual', { p0: escape(data.asOf) })}
+${t('est.revenue_is_in_app_spending')}
+${t('est.ranges_are_90_target_intervals')}</p>
+${data.preview ? t('est.not_yet_verified_do_not') : ''}
+${data.metrics.map((m) => `<h3>${escape(m.month)} ${m.metric === 'consumer_spend' ? t('est.revenue') : t('est.downloads')}</h3>
+<p>${t('est.games_shown', { length: m.rows.filter((r) => r.status === 'available').length, length2: m.rows.length })}</p>
+<div class="rk-scroll"><table class="rk-table"><thead><tr><th>${t('est.game')}</th><th>${t('est.estimate_range')}</th></tr></thead><tbody>
 ${m.rows.map((row) => `<tr><td>${escape(row.family)}</td><td>${escape(formatRange(row, m.metric))}</td></tr>`).join('')}
 </tbody></table></div>`).join('')}
 </section>`;

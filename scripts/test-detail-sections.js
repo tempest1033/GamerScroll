@@ -17,7 +17,7 @@ console.log('PASS 시간대별 순위 좌표·누락·빈 기록');
   const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
   const failures = [];
-  const routes = ['/games/쿠키런-키우기-쿠키런-크럼블/', '/games/메이플-키우기/', '/games/where-winds-meet/'];
+  const routes = ['/ko/games/쿠키런-키우기-쿠키런-크럼블/', '/ko/games/메이플-키우기/', '/ko/games/where-winds-meet/'];
   try {
     for (const width of [1440, 1024, 390]) {
       const page = await browser.newPage({ viewport: { width, height: 1000 }, colorScheme: 'dark' });
