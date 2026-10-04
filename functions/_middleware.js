@@ -99,6 +99,10 @@ async function handleGamerScrollLegacyRedirect(url, fullPath) {
   if (path === "/wiki" || path.startsWith("/wiki/")) {
     return Response.redirect(`${url.origin}/rankings/`, 301);
   }
+  // 2026-10 구 트렌드 섹션(/trend/, /trends/) → 새 트렌딩 페이지 (언어판 접두사 유지)
+  if (/^\/trends?(\/|$)/.test(path)) {
+    return Response.redirect(`${url.origin}${prefix ? "/" + prefix : ""}/trending/`, 301);
+  }
   if (path === "/upcoming" || path === "/upcoming/" || path === "/upcoming.html") {
     return Response.redirect(`${url.origin}/games/`, 301);
   }

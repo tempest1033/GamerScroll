@@ -504,27 +504,15 @@ function renderTrending(country = homeCountry()) {
   };
   const moveList = (list, up) => (list.length ? `<ol class="rk-list rk-trend-list">${list.map((x, i) => moveRow(x, i, up)).join('')}</ol>` : none);
 
-  // TOP 10 변화: 바뀐 자리가 더 많은 스토어를 고른다
-  const top10 = (s) => {
-    const prev = rowsOf(week, country, s).slice(0, 10).filter((r) => r && r.appId), now = rowsOf(today, country, s).slice(0, 10).filter((r) => r && r.appId);
-    const moved = now.filter((r) => { const p = rankOf(week, country, s, r.appId); return p == null || p > 10; }).length;
-    return { s, prev, now, moved };
-  };
-  const board = stores.map(top10).sort((a, b) => b.moved - a.moved)[0];
-  let bump = none;
-  if (board && board.now.length) {
-    const s = board.s, RH = 44;
-    const cell = (r, rank, tail, cls) => { const g = S.gameOf(s, r); const href = C.hrefOf(g); const tag = href ? 'a' : 'div';
-      return `<${tag} class="rk-bump-row${cls}"${href ? ` href="${href}"` : ''}><span class="no">${rank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><span class="t" data-name>${esc(S.nameOf(s, r))}</span>${tail}</${tag}>`; };
-    const left = board.prev.map((r, i) => { const to = rankOf(today, country, s, r.appId); const out = to == null || to > 10;
-      return cell(r, i + 1, out ? `<span class="rk-chg down">${rankText(to)}</span>` : '', out ? ' out' : ''); }).join('');
-    const right = board.now.map((r, i) => { const from = rankOf(week, country, s, r.appId); const inn = from == null || from > 10;
-      return cell(r, i + 1, chg(i + 1, from), inn ? ' in' : ''); }).join('');
-    const lines = board.prev.map((r, i) => { const to = rankOf(today, country, s, r.appId); if (to == null || to > 10) return '';
-      const y1 = (i + 0.5) * RH, y2 = (to - 0.5) * RH, col = y2 < y1 ? 'var(--rk-up)' : y2 > y1 ? 'var(--rk-down)' : 'var(--rk-line)';
-      return `<path d="M0,${y1}C50,${y1} 50,${y2} 100,${y2}" fill="none" stroke="${col}" stroke-width="2" vector-effect="non-scaling-stroke"/>`; }).join('');
-    bump = `<div class="rk-bump"><div class="rk-bump-col"><div class="rk-bump-h">${tt('trend.week_ago')} · ${formatMonthDay(week.date)}</div>${left}</div><svg viewBox="0 0 100 ${RH * 10}" preserveAspectRatio="none" aria-hidden="true">${lines}</svg><div class="rk-bump-col r"><div class="rk-bump-h">${tt('trend.today')} · ${formatMonthDay(today.date)}</div>${right}</div></div>`;
-  }
+  // TOP 10 변화: 일주일 사이 TOP 10에 들어온 게임 / 밀려난 게임 (두 스토어)
+  const entered = uniq(stores.flatMap((s) => rowsOf(today, country, s).slice(0, 10).map((r, i) => {
+    if (!r || !r.appId) return null; const from = rankOf(week, country, s, r.appId) ?? OUT;
+    return from > 10 ? { ...entry(country, s, r, i + 1), from } : null; }).filter(Boolean)).sort((a, b) => a.rank - b.rank));
+  const left10 = uniq(stores.flatMap((s) => rowsOf(week, country, s).slice(0, 10).map((r, i) => {
+    if (!r || !r.appId) return null; const to = rankOf(today, country, s, r.appId) ?? OUT;
+    return to > 10 ? { ...entry(country, s, r, to), from: i + 1 } : null; }).filter(Boolean)).sort((a, b) => a.from - b.from));
+  const col10 = (title, list, up) => `<div class="rk-trend-col"><h3>${title} <small>${list.length}</small></h3>${list.length ? `<ol class="rk-list rk-trend-list one">${list.map((x, i) => moveRow(x, i, up)).join('')}</ol>` : none}</div>`;
+  const bump = `<div class="rk-trend-cols">${col10(tt('trend.in10'), entered, true)}${col10(tt('trend.out10'), left10, false)}</div>`;
 
   // 여러 나라에서 함께 오른 게임: 나라마다 더 많이 오른 스토어 하나를 쓴다
   const cross = new Map();
@@ -538,8 +526,7 @@ function renderTrending(country = homeCountry()) {
   });
   const crossList = [...cross.values()].filter((e) => Object.keys(e.m).length >= 2)
     .sort((a, b) => Object.keys(b.m).length - Object.keys(a.m).length || Object.values(b.m).reduce((x, y) => x + y.gain, 0) - Object.values(a.m).reduce((x, y) => x + y.gain, 0)).slice(0, 8);
-  const heat = (m) => (!m ? 'h0' : m.gain >= 100 ? 'h4' : m.gain >= 50 ? 'h3' : m.gain >= 20 ? 'h2' : 'h1');
-  const crossTable = crossList.length ? `<div class="rk-scroll"><table class="rk-table rk-heat"><thead><tr><th></th>${orderedCountries().map((c) => `<th class="c">${COUNTRIES[c]}</th>`).join('')}</tr></thead><tbody>${crossList.map((e) => `<tr><td>${C.appCell(e.r, e.s)}</td>${orderedCountries().map((c) => { const m = e.m[c]; return `<td class="c"><span class="rk-heat-cell ${heat(m)}">${m ? `<b>${m.rank}</b><small>${rankText(m.from)} →</small>` : '-'}</span></td>`; }).join('')}</tr>`).join('')}</tbody></table></div>` : none;
+  const crossTable = crossList.length ? `<div class="rk-scroll"><table class="rk-table rk-heat"><thead><tr><th></th>${orderedCountries().map((c) => `<th class="c">${COUNTRIES[c]}</th>`).join('')}</tr></thead><tbody>${crossList.map((e) => `<tr><td>${C.appCell(e.r, e.s)}</td>${orderedCountries().map((c) => { const m = e.m[c]; return `<td class="c">${m ? `<b>${m.rank}</b> ${m.from >= OUT ? '<span class="rk-chg new">NEW</span>' : `<span class="rk-chg up">▲${m.gain}</span>`}` : '<span class="rk-chg same">-</span>'}</td>`; }).join('')}</tr>`).join('')}</tbody></table></div>` : none;
 
   // 신작
   const debuts = uniq(stores.flatMap((s) => S.debutRows(country, s).map((x) => ({ ...x, ...entry(country, s, x.r, x.cur) })))).sort((a, b) => a.cur - b.cur).slice(0, 8);
@@ -549,7 +536,7 @@ function renderTrending(country = homeCountry()) {
   const section = (title, sub, body) => `<section class="rk-section"><h2>${title} <small>${sub}</small></h2>${body}</section>`;
   const body = `<div class="rk-head"><h1>${tt('trend.title')}</h1><p class="rk-trend-sub">${tt('trend.sub', { date: formatDay(today.date), country: cname })}</p></div>
 ${section(tt('home.biggest_gains'), tt('trend.risers_sub'), moveList(risers, true))}
-${section(tt('trend.top10'), `${tt('trend.top10_sub')} · ${cname} ${board ? STORES[board.s] : ''}`, bump)}
+${section(tt('trend.top10'), tt('trend.top10_sub'), bump)}
 ${section(tt('home.biggest_drops'), tt('trend.fallers_sub'), moveList(fallers, false))}
 ${section(tt('trend.cross'), tt('trend.cross_sub'), crossTable)}
 ${section(tt('trend.new'), tt('trend.new_sub'), debutList)}`;

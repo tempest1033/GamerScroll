@@ -130,3 +130,16 @@ body.page-game #game .rk-gc-tabs label b { font-size: 17px; }
   .page-game #game .game-hero-now { margin-left: 0; flex-basis: 100%; flex-direction: row; align-items: baseline; justify-content: flex-start; gap: 10px; text-align: left; flex-wrap: wrap; }
   .page-game #game .game-hero-now .v b { font-size: 30px; }
 }
+
+/* 트렌딩 v2: TOP 10 진입/이탈 두 목록, 여러 나라 표는 글자만 */
+.rk.rk-trend .rk-trend-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.rk.rk-trend .rk-trend-col h3 { margin: 8px 0 4px; font-size: 15px; font-weight: 700; }
+.rk.rk-trend .rk-trend-col h3 small { font-size: 13px; font-weight: 500; color: var(--rk-muted); margin-left: 4px; }
+.rk.rk-trend .rk-trend-list.one { grid-template-columns: minmax(0, 1fr); }
+.rk.rk-trend .rk-heat td.c { padding: 12px 8px; white-space: nowrap; font-size: 14px; }
+.rk.rk-trend .rk-heat td.c b { font-size: 15px; margin-right: 2px; }
+@media (max-width: 768px) {
+  .rk.rk-trend .rk-trend-cols { grid-template-columns: minmax(0, 1fr); }
+  .rk.rk-trend .rk-heat td.c { padding: 10px 4px; font-size: 12px; }
+  .rk.rk-trend .rk-heat td.c .rk-chg { display: block; }
+}
