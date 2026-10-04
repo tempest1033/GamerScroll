@@ -30,7 +30,6 @@ body .site-container .rk .rk-pills span.one { background: var(--rk-bg2); color: 
 }
 
 /* 게임 DB: 수치 줄 + 지금 차트에 오른 게임 카드 */
-.games-hub-stats { display: flex; gap: 28px; margin: 4px 0 20px; }
 .games-hub-stats b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -.03em; line-height: 1.2; }
 .games-hub-stats span { font-size: 12px; color: var(--text-muted, #6f747d); }
 .games-hub-charting { margin-bottom: 32px; }
@@ -43,10 +42,10 @@ body .site-container .rk .rk-pills span.one { background: var(--rk-bg2); color: 
 .games-hub-chart-card .rk b { display: block; font-size: 22px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; }
 .games-hub-chart-card .rk { min-width: 0; }
 .games-hub-chart-card .rk small { display: block; font-size: 11px; color: var(--text-muted, #6f747d); white-space: normal; text-align: right; line-height: 1.2; }
-.games-hub-chart-card .nm { font-size: 14px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
+.games-hub-chart-card .nm { font-size: 14px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: break-word; }
 .games-hub-chart-card .dv { font-size: 12px; color: var(--text-muted, #6f747d); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 @media (max-width: 1023px) { .games-hub-charting-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .games-hub-stats { gap: 20px; } .games-hub-stats b { font-size: 19px; } .games-hub-chart-card { padding: 12px; } }
+@media (max-width: 480px) { .games-hub-chart-card { padding: 12px; } }
 
 /* 게임 상세: 순위 추이 차트의 나라 전환(라디오 버튼, 자바스크립트 없이) */
 .rk .rk-gc-input { position: absolute; opacity: 0; pointer-events: none; }
@@ -142,4 +141,35 @@ body.page-game #game .rk-gc-tabs label b { font-size: 17px; }
   .rk.rk-trend .rk-trend-cols { grid-template-columns: minmax(0, 1fr); }
   .rk.rk-trend .rk-heat td.c { padding: 10px 4px; font-size: 12px; }
   .rk.rk-trend .rk-heat td.c .rk-chg { display: block; }
+}
+
+/* ===== 게임 이름 가독성 (2026-10-05): 이름은 잘리지 않게 두 줄까지, 13px 이하로 쓰지 않는다 ===== */
+html body .site-container .rk .rk-podium .n { font-size: 14px; font-weight: 600; white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3; overflow-wrap: break-word; }
+html body .site-container .rk-home .rk-hmovers .rk-hcard .mrow { font-size: 14px; }
+html body.page-games .popular-name { font-size: 15px; }
+html body.page-games .game-name { font-size: 14px; white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: break-word; line-height: 1.35; }
+html body.page-games .game-item { height: auto; min-height: 44px; }
+@media (max-width: 768px) {
+  html body .site-container .rk .rk-list li { height: auto; min-height: 62px; padding-top: 8px; padding-bottom: 8px; }
+  html body .site-container .rk .rk-list .nm > a,
+  html body .site-container .rk .rk-list .nm > span:first-child,
+  html body .site-container .rk .rk-list .nm > button { font-size: 15px; white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3; overflow-wrap: break-word; }
+  html body .site-container .rk .rk-table .rk-app .t { white-space: normal; overflow: visible; text-overflow: clip; max-width: none; overflow-wrap: break-word; line-height: 1.3; }
+  html body .site-container .rk .rk-hcard .mrow { height: auto; min-height: 48px; padding: 6px 0; }
+  html body .site-container .rk .rk-hcard .mrow .n { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.3; overflow-wrap: break-word; }
+}
+
+/* 게임 DB: 제목 아래 수치 카드 */
+.games-hub-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 4px 0 28px; }
+.games-hub-stats > div { border: 1px solid var(--border, #e6e7eb); border-radius: 14px; padding: 14px 16px; min-width: 0; }
+.games-hub-stats b { font-size: 24px; }
+@media (max-width: 768px) { .games-hub-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .games-hub-stats b { font-size: 20px; } }
+html body .site-container .rk .rk-hcard .mrow { height: auto; min-height: 48px; }
+html body .site-container .rk .rk-hcard .mrow .n { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.3; overflow-wrap: break-word; }
+/* 게임 DB 최근 본 게임: 이름 두 줄까지 */
+html body.page-games #recent-games-grid .recent-name { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.3; overflow-wrap: break-word; font-size: 13px; }
+html body.page-games #recent-games-grid .games-hub-recent-card { height: auto; min-height: 128px; }
+/* 휴대폰 표의 스팀 게임 칸: 가로 이미지 옆에 이름을 두면 너무 좁아 단어가 끊긴다 → 이미지 아래에 이름 */
+@media (max-width: 768px) {
+  html body .site-container .rk .rk-table .rk-app.cap { flex-direction: column; align-items: flex-start; gap: 4px; }
 }

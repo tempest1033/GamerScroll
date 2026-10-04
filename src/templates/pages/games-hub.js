@@ -129,6 +129,7 @@ function generateGamesHubPage(options = {}) {
   const intl = require('../../i18n').currentEdition().intl;
   const num = (n) => n.toLocaleString(intl);
   const statsRow = `<div class="games-hub-stats">${[
+    [gamesList.length, t('games.stat_total')],
     [gamesList.filter((g) => g.appIds.ios || g.appIds.android).length, t('games.stat_mobile')],
     [gamesList.filter((g) => g.appIds.steam).length, t('games.stat_steam')],
     [new Set(gamesList.map((g) => g.developer).filter(Boolean)).size, t('games.stat_developers')],
@@ -140,7 +141,9 @@ function generateGamesHubPage(options = {}) {
     const { COUNTRIES } = require('../../rank/stats');
     const country = require('../../i18n').currentEdition().country;
     const best = new Map();
-    for (const store of ['android', 'ios']) ((rankStats.today.rows[country] || {})[store] || []).slice(0, 60).forEach((row, i) => {
+    const chartStore = (((rankStats.today.rows[country] || {}).android) || []).length ? 'android' : 'ios';
+    const { STORES: STORE_NAMES } = require('../../rank/stats');
+    for (const store of [chartStore]) ((rankStats.today.rows[country] || {})[store] || []).slice(0, 30).forEach((row, i) => {
       const g = row && rankStats.gameOf(store, row);
       if (!g || !g.slug) return;
       const cur = best.get(g.slug);
@@ -151,7 +154,7 @@ function generateGamesHubPage(options = {}) {
     <section class="games-hub-charting">
       <h2 class="games-hub-section-title">${t('games.charting_now')}</h2>
       <div class="games-hub-charting-grid">
-        ${top.map((g, index) => `<a href="/games/${escapeAttribute(g.slug)}/" class="games-hub-chart-card"><span class="top"><img src="${escapeAttribute(resizeIcon(g.icon))}" alt="" width="56" height="56" loading="${index < 5 ? 'eager' : 'lazy'}" decoding="async" data-img-fallback-src="/icon-192.png"><span class="rk"><b>${g.rank}</b><small>${t('games.revenue_rank_label', { country: COUNTRIES[country] })}</small></span></span><span class="nm" data-name>${escapeAttribute(g.name)}</span><span class="dv" data-name>${escapeAttribute(g.developer)}</span></a>`).join('')}
+        ${top.map((g, index) => `<a href="/games/${escapeAttribute(g.slug)}/" class="games-hub-chart-card"><span class="top"><img src="${escapeAttribute(resizeIcon(g.icon))}" alt="" width="56" height="56" loading="${index < 5 ? 'eager' : 'lazy'}" decoding="async" data-img-fallback-src="/icon-192.png"><span class="rk"><b>${g.rank}</b><small>${STORE_NAMES[chartStore]}</small></span></span><span class="nm" data-name>${escapeAttribute(g.name)}</span><span class="dv" data-name>${escapeAttribute(g.developer)}</span></a>`).join('')}
       </div>
     </section>`;
   }
@@ -248,7 +251,7 @@ function generateGamesHubPage(options = {}) {
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container" id="top">
         <div class="games-hub-intro">
-          <div><h1>${t('games.game_database')}</h1><p>${t('games.mobile_and_steam_game_search')}</p></div>
+          <div><h1>${t('games.game_database')}</h1></div>
         </div>
         ${statsRow}
         ${searchResultsSection}

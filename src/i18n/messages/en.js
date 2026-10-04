@@ -586,4 +586,5 @@ module.exports = {
   "trend.rank_one": "#1",
   "trend.in10": "Entered the TOP 10",
   "trend.out10": "Left the TOP 10",
+  "games.stat_total": "All games",
 };

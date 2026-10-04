@@ -586,4 +586,5 @@ module.exports = {
   "trend.rank_one": "第 1 名",
   "trend.in10": "進入 TOP 10",
   "trend.out10": "跌出 TOP 10",
+  "games.stat_total": "全部遊戲",
 };
