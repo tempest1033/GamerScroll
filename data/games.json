@@ -145754,8 +145754,192 @@
         "ja": "スマスロ ゴッドイーターリザレクション",
         "zh-tw": "スマスロ ゴッドイーターリザレクション"
       }
+    },
+    "Ball of Ages": {
+      "appIds": {
+        "ios": 6759306715
+      },
+      "aliases": [],
+      "developer": "Rollic Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/77/44/3277444a-af04-72ba-bdcb-a994fe00afeb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ball-of-ages",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "오목코드": {
+      "appIds": {
+        "ios": 6808859163
+      },
+      "aliases": [],
+      "developer": "Vidya Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/03/cf/b7/03cfb7ef-a149-2925-9f41-1c4683e0553d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "오목코드",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "아토즈 포커": {
+      "appIds": {
+        "ios": 6761007561,
+        "android": "com.atoz.poker.game"
+      },
+      "aliases": [],
+      "developer": "CAPYBARA Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/e9/5b/20e95bbf-f75a-dc21-80ef-3a73d3b17aec/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "아토즈-포커",
+      "platforms": [
+        "ios",
+        "android"
+      ]
+    },
+    "Last Epoch - Enraged Legend Supporter Pack": {
+      "appIds": {
+        "steam": "5009590"
+      },
+      "aliases": [],
+      "developer": "Eleventh Hour Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5009590/852ef716b44e78da107920d76bf59afa8f2357b3/capsule_231x87.jpg?t=1790870428",
+      "slug": "last-epoch-enraged-legend-supporter-pack",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "식물 운빨 디펜스 : 농장 디펜스 게임": {
+      "appIds": {
+        "ios": 6792624695
+      },
+      "aliases": [],
+      "developer": "GoldFlowGames Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/72/48/42/724842bc-5f46-67d7-046f-a6290bd860f0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "식물-운빨-디펜스-농장-디펜스-게임",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "매치 아쿠아리움": {
+      "appIds": {
+        "ios": 6761245567
+      },
+      "aliases": [],
+      "developer": "JustLuck",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d3/6d/6b/d36d6b8a-a465-0d41-cfe9-e5ae1982b283/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "매치-아쿠아리움",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Real Survival: Not Fake": {
+      "appIds": {
+        "ios": 6777072156,
+        "android": "com.devdop.realsurvivalnotfake"
+      },
+      "aliases": [],
+      "developer": "Dan Lespect",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3a/f2/2e/3af22e2e-b853-6b4f-0cca-89ed847ef5b4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "real-survival-not-fake",
+      "platforms": [
+        "ios",
+        "android"
+      ]
+    },
+    "온더훅 (어장 관리 시뮬레이션)": {
+      "appIds": {
+        "ios": 1445466436
+      },
+      "aliases": [],
+      "developer": "Yohan Song",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/53/6c/c4/536cc473-6283-4f10-cc6c-0dd6e5cefda0/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "온더훅-어장-관리-시뮬레이션",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "Project Hunt": {
+      "appIds": {
+        "steam": "2451010"
+      },
+      "aliases": [],
+      "developer": "Mind Mythic",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2451010/75c33a50f2d50d71e129d3c98438390f64928555/capsule_231x87.jpg?t=1790240610",
+      "slug": "project-hunt",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Eternal Return Beginner Pack": {
+      "appIds": {
+        "steam": "4692290"
+      },
+      "aliases": [],
+      "developer": "Nimble Neuron",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4692290/04f4fd5b14c4eda60e8cce0e4c0acb16926bf3f2/capsule_231x87.jpg?t=1790906439",
+      "slug": "eternal-return-beginner-pack",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Color Link": {
+      "appIds": {
+        "android": "com.rayole.games.color.link"
+      },
+      "aliases": [],
+      "developer": "Rayole Games",
+      "icon": "https://play-lh.googleusercontent.com/ta52U7QKwzb0KsBS5GDn-lPGnKfB2ZU1Ss5qUBRKeMAG1VyRqmaGtFMKApsTZvE3voM5UomGRUyiKSUWIvDT2Q",
+      "slug": "color-link",
+      "platforms": [
+        "android"
+      ]
+    },
+    "Sengoku Rance": {
+      "appIds": {
+        "steam": "3867170"
+      },
+      "aliases": [],
+      "developer": "Alicesoft",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3867170/b93c26e6cb14b3bdc4c83d32b9c2b2bcabd6b108/capsule_231x87.jpg?t=1790913603",
+      "slug": "sengoku-rance",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "오프사이드": {
+      "appIds": {
+        "ios": 6817463687
+      },
+      "aliases": [],
+      "developer": "SUYOUNG YANG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/8b/f5/8e8bf56c-32d3-d548-2752-45361dd71124/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "오프사이드",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "노노그램 갤럭시 - 클래식 네모 로직": {
+      "appIds": {
+        "ios": 1273891658
+      },
+      "aliases": [],
+      "developer": "dongwon cho",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/1d/cb/621dcb52-b4b8-f46f-be31-49a55f652d82/AppIcon-0-0-1x_U007emarketing-0-8-85-220.png/512x512bb.jpg",
+      "slug": "노노그램-갤럭시-클래식-네모-로직",
+      "platforms": [
+        "ios"
+      ]
+    },
+    "악마와 춤추는 자": {
+      "appIds": {
+        "android": "com.emwccn.zanm"
+      },
+      "aliases": [],
+      "developer": "Atinatan",
+      "icon": "https://play-lh.googleusercontent.com/QQx4eCL8XwYeK9T-6MLZsWbM8wRIMQLdvonl_mSmmH-XYiMFMlqTyXrBpMd-X74ScADCIob_qSy_c6t-Z1dN",
+      "slug": "악마와-춤추는-자",
+      "platforms": [
+        "android"
+      ]
     }
   },
-  "lastUpdated": "2026-10-01",
-  "totalGames": 8432
+  "lastUpdated": "2026-10-04",
+  "totalGames": 8447
 }

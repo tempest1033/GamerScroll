@@ -35019,17 +35019,6 @@
       "addedAt": "2026-09-21T11:05:44.670Z"
     },
     {
-      "title": "포트블록스: 이동요새 GO!",
-      "status": "single",
-      "appIds": {
-        "ios": 6761804867
-      },
-      "developer": "HYPERRISE",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/cc/50/53cc5011-08c2-a513-aabb-3f33c4122132/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
-      "addedAt": "2026-09-21T20:53:20.007Z"
-    },
-    {
       "title": "브라 메이커 (Bra Maker)",
       "status": "matched",
       "appIds": {
@@ -35362,17 +35351,6 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/24/78/3c247842-8a54-ed19-9d4f-8cd1e721a600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-09-25T22:03:50.813Z"
-    },
-    {
-      "title": "귀만 가지고 수사선 - 논리 퍼즐 게임",
-      "status": "single",
-      "appIds": {
-        "ios": 6754370732
-      },
-      "developer": "FTY LLC.",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/0a/63/c90a630a-b840-1f50-2065-5fea3d1bd08c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
-      "addedAt": "2026-09-26T14:48:10.607Z"
     },
     {
       "title": "타일 빌더 (Land Builder)",
@@ -41345,6 +41323,244 @@
       "icon": "",
       "searchResults": [],
       "addedAt": "2026-10-03T14:54:51.061Z"
+    },
+    {
+      "title": "포트블록스: 이동요새 GO!",
+      "status": "matched",
+      "appIds": {
+        "ios": 6761804867,
+        "android": "global.hyperrise.wl"
+      },
+      "developer": "HYPERRISE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/cc/50/53cc5011-08c2-a513-aabb-3f33c4122132/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "포트블록스: 이동요새 GO!",
+          "appId": 6761804867
+        }
+      ],
+      "addedAt": "2026-09-21T20:53:20.007Z"
+    },
+    {
+      "title": "귀만 가지고 수사선 - 논리 퍼즐 게임",
+      "status": "matched",
+      "appIds": {
+        "ios": 6754370732,
+        "android": "com.fty.earpolice"
+      },
+      "developer": "FTY LLC.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/0a/63/c90a630a-b840-1f50-2065-5fea3d1bd08c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "귀만 가지고 수사선 - 논리 퍼즐 게임",
+          "appId": 6754370732
+        }
+      ],
+      "addedAt": "2026-09-26T14:48:10.607Z"
+    },
+    {
+      "title": "Ball of Ages",
+      "status": "single",
+      "appIds": {
+        "ios": 6759306715
+      },
+      "developer": "Rollic Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/77/44/3277444a-af04-72ba-bdcb-a994fe00afeb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-01T16:38:58.154Z"
+    },
+    {
+      "title": "오목코드",
+      "status": "single",
+      "appIds": {
+        "ios": 6808859163
+      },
+      "developer": "Vidya Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/03/cf/b7/03cfb7ef-a149-2925-9f41-1c4683e0553d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-01T16:38:58.405Z"
+    },
+    {
+      "title": "아토즈 포커",
+      "status": "matched",
+      "appIds": {
+        "ios": 6761007561,
+        "android": "com.atoz.poker.game"
+      },
+      "developer": "CAPYBARA Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/20/e9/5b/20e95bbf-f75a-dc21-80ef-3a73d3b17aec/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "아토즈 포커",
+          "appId": 6761007561
+        }
+      ],
+      "addedAt": "2026-10-01T16:38:58.617Z"
+    },
+    {
+      "title": "식물 운빨 디펜스 : 농장 디펜스 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6792624695
+      },
+      "developer": "GoldFlowGames Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/72/48/42/724842bc-5f46-67d7-046f-a6290bd860f0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-01T21:33:27.325Z"
+    },
+    {
+      "title": "매치 아쿠아리움",
+      "status": "single",
+      "appIds": {
+        "ios": 6761245567
+      },
+      "developer": "JustLuck",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d3/6d/6b/d36d6b8a-a465-0d41-cfe9-e5ae1982b283/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-01T21:33:27.522Z"
+    },
+    {
+      "title": "Real Survival: Not Fake",
+      "status": "matched",
+      "appIds": {
+        "ios": 6777072156,
+        "android": "com.devdop.realsurvivalnotfake"
+      },
+      "developer": "Dan Lespect",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3a/f2/2e/3af22e2e-b853-6b4f-0cca-89ed847ef5b4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Real Survival: Not Fake",
+          "appId": 6777072156
+        }
+      ],
+      "addedAt": "2026-10-02T01:16:00.563Z"
+    },
+    {
+      "title": "Mahjong Master-Fun Puzzle Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6760089163
+      },
+      "developer": "PANDAS OF CARIBBEAN LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ea/e3/18/eae3185f-5c24-a496-ce7b-f0bcc8447bb5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-02T07:14:51.721Z"
+    },
+    {
+      "title": "온더훅 (어장 관리 시뮬레이션)",
+      "status": "single",
+      "appIds": {
+        "ios": 1445466436
+      },
+      "developer": "Yohan Song",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/53/6c/c4/536cc473-6283-4f10-cc6c-0dd6e5cefda0/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-02T14:01:17.538Z"
+    },
+    {
+      "title": "Color Link",
+      "status": "single",
+      "appIds": {
+        "android": "com.rayole.games.color.link"
+      },
+      "developer": "Rayole Games",
+      "icon": "https://play-lh.googleusercontent.com/ta52U7QKwzb0KsBS5GDn-lPGnKfB2ZU1Ss5qUBRKeMAG1VyRqmaGtFMKApsTZvE3voM5UomGRUyiKSUWIvDT2Q",
+      "searchResults": [
+        {
+          "title": "Color Link - Connect the Dots",
+          "appId": 6449602615
+        },
+        {
+          "title": "Connect Balls - Line Puzzle -",
+          "appId": 1626781939
+        },
+        {
+          "title": "Flow Free",
+          "appId": 526641427
+        }
+      ],
+      "addedAt": "2026-10-02T23:09:49.985Z"
+    },
+    {
+      "title": "오프사이드",
+      "status": "single",
+      "appIds": {
+        "ios": 6817463687
+      },
+      "developer": "SUYOUNG YANG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8e/8b/f5/8e8bf56c-32d3-d548-2752-45361dd71124/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-03T02:13:00.543Z"
+    },
+    {
+      "title": "Picture Blast Solitaire",
+      "status": "matched",
+      "appIds": {
+        "android": "com.pic.blast.solitaire",
+        "ios": 6758704957
+      },
+      "developer": "Gismart",
+      "icon": "https://play-lh.googleusercontent.com/ZZa1tEg9Mj3yzBTKcbhg0tcgVW64GaN3B9xZfCNNtNC_rIu0XToIpth3VmvItrwgu1070pAnO_K9mKAZM5XM",
+      "searchResults": [
+        {
+          "title": "Picture Blast Solitaire",
+          "appId": 6758704957
+        },
+        {
+          "title": "데이터 필요없는 게임 - 와이파이 필요없는 게임",
+          "appId": 6448104157
+        },
+        {
+          "title": "워드스케이프 (Wordscapes)",
+          "appId": 1207472156
+        }
+      ],
+      "addedAt": "2026-10-03T02:13:00.898Z"
+    },
+    {
+      "title": "헝그리 샤크 월드 (Hungry Shark World)",
+      "status": "single",
+      "appIds": {
+        "ios": 1046846443
+      },
+      "developer": "Ubisoft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/cc/d6/c4ccd6fd-440f-e929-cb90-0efc36ea3f84/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-03T08:25:32.261Z"
+    },
+    {
+      "title": "드림 초밥집",
+      "status": "single",
+      "appIds": {
+        "ios": 6444689949
+      },
+      "developer": "净 邹",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/ab/38/69ab3812-d9a9-5b17-3fe3-27a639859f96/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-03T08:25:32.607Z"
+    },
+    {
+      "title": "노노그램 갤럭시 - 클래식 네모 로직",
+      "status": "single",
+      "appIds": {
+        "ios": 1273891658
+      },
+      "developer": "dongwon cho",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/1d/cb/621dcb52-b4b8-f46f-be31-49a55f652d82/AppIcon-0-0-1x_U007emarketing-0-8-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-03T17:44:49.178Z"
+    },
+    {
+      "title": "악마와 춤추는 자",
+      "status": "single",
+      "appIds": {
+        "android": "com.emwccn.zanm"
+      },
+      "developer": "Atinatan",
+      "icon": "https://play-lh.googleusercontent.com/QQx4eCL8XwYeK9T-6MLZsWbM8wRIMQLdvonl_mSmmH-XYiMFMlqTyXrBpMd-X74ScADCIob_qSy_c6t-Z1dN",
+      "searchResults": [],
+      "addedAt": "2026-10-03T20:28:38.875Z"
     }
   ],
   "approved": [
