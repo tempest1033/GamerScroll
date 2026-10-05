@@ -146460,8 +146460,24 @@
       "names": {
         "ko": "SortFluids"
       }
+    },
+    "Phygitals: Rip TCG Packs": {
+      "appIds": {
+        "ios": 6760307397
+      },
+      "aliases": [],
+      "developer": "Phygitals Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8a/b9/74/8ab974ad-4e18-a235-a5cd-51b737c2db84/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "slug": "phygitals-rip-tcg-packs",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Phygitals: Rip TCG Packs",
+        "en": "Phygitals: Rip TCG Packs"
+      }
     }
   },
   "lastUpdated": "2026-10-05",
-  "totalGames": 8478
+  "totalGames": 8479
 }

@@ -42091,6 +42091,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/78/cc/77/78cc77a5-c527-d0fb-00cc-af8a52269706/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-05T06:01:44.524Z"
+    },
+    {
+      "title": "Phygitals: Rip TCG Packs",
+      "status": "single",
+      "appIds": {
+        "ios": 6760307397
+      },
+      "developer": "Phygitals Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8a/b9/74/8ab974ad-4e18-a235-a5cd-51b737c2db84/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-05T08:51:12.518Z"
     }
   ],
   "approved": [
