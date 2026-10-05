@@ -201,8 +201,15 @@
   .notfound h1 { font-size: 24px; }
 }
 
-/* 홈: 글이 서너 건뿐이면 줄을 판 높이에 맞춰 늘리지 않는다 */
-.pop-list.is-short li { flex: 0 0 auto; }
+/* 홈: 글이 서너 건뿐일 때의 큰 카드 줄 — 한두 건이면 칸 수를 글 수에 맞춘다 (PC·태블릿) */
+@media (min-width: 769px) {
+  .feed-grid.cols-1 { grid-template-columns: minmax(0, 560px); }
+  .feed-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 32px; }
+  .feed-grid.cols-1 .feed-title,
+  .feed-grid.cols-2 .feed-title { font-size: 22px; line-height: 1.4; }
+  .feed-grid.cols-1 .feed-sum,
+  .feed-grid.cols-2 .feed-sum { font-size: 14px; }
+}
 
 /* 홈: 썸네일 없는 줄(개발일지 등) · 구역 머리의 '전체 보기' */
 .pop-item.no-thumb { grid-template-columns: 24px minmax(0, 1fr); }

@@ -430,7 +430,9 @@ function generateAIBlogIndex(data) {
 
   // PC 미리보기 판: 가장 최근 글. 모바일은 판을 숨기고 <picture>의 빈 source로 큰 이미지를 아예 받지 않는다.
   // 목록 1행과 같은 글이라 보조 기술에는 숨긴다.
-  const leadImage = lead && lead.thumbnail
+  // 글이 서너 건뿐일 때는 순위 목록 + 큰 미리보기 판 대신 큰 카드로 나란히 보여 준다 (목록이 짧으면 판 옆이 텅 빈다)
+  const fewPosts = sorted.length < 4;
+  const leadImage = !fewPosts && lead && lead.thumbnail
     ? { attrs: thumbAttrs(lead.thumbnail, [640, 960], PANEL_IMAGE_SIZES) }
     : null;
   const panelHtml = lead ? `
@@ -443,14 +445,19 @@ function generateAIBlogIndex(data) {
           <span class="btn btn-dark">${_t.readArticle} →</span>
         </a>` : '';
 
-  const recentSection = top.length ? `
+  const recentSection = !top.length ? '' : fewPosts ? `
+      <section class="home-sec" id="home-recent">
+        <div class="sec-head"><h2>${_t.recent}</h2></div>
+        <div class="feed-grid cols-${top.length}">${top.map((item, i) => renderFeedCard(item, i, _lang, { eagerCount: 3, highPriorityIndex: 0 })).join('')}
+        </div>
+      </section>` : `
       <section class="home-sec" id="home-recent">
         <div class="sec-head"><h2>${_t.recent}</h2></div>
         <div class="pop-grid">
-          <ol class="pop-list${top.length < 4 ? ' is-short' : ''}">${popularRows}
+          <ol class="pop-list">${popularRows}
           </ol>${panelHtml}
         </div>
-      </section>` : '';
+      </section>`;
 
   // 개발일지: 썸네일 없이 쓰는 글이라 회차 · 제목 · 한 줄 설명 · 날짜만 있는 줄 목록
   const devlogs = byCategory('devlog');
