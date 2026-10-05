@@ -146476,8 +146476,39 @@
         "ko": "Phygitals: Rip TCG Packs",
         "en": "Phygitals: Rip TCG Packs"
       }
+    },
+    "マビノギモバイル": {
+      "appIds": {
+        "ios_jp": 6775403879
+      },
+      "aliases": [],
+      "developer": "NEXON Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/1f/e4/5f1fe486-2d98-8633-ae4f-bd4cb4339b93/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "マビノギモバイル",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "マビノギモバイル"
+      }
+    },
+    "Mini Match!": {
+      "appIds": {
+        "ios": 6450015517
+      },
+      "aliases": [],
+      "developer": "Alex St Peter",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/84/8b/ea/848bea59-281f-0dfa-2c63-da3481cb5b78/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "mini-match",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Mini Match!",
+        "zh-cn": "Mini Match!"
+      }
     }
   },
   "lastUpdated": "2026-10-05",
-  "totalGames": 8479
+  "totalGames": 8481
 }

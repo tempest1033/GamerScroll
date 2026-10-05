@@ -42102,6 +42102,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8a/b9/74/8ab974ad-4e18-a235-a5cd-51b737c2db84/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-05T08:51:12.518Z"
+    },
+    {
+      "title": "Mini Match!",
+      "status": "single",
+      "appIds": {
+        "ios": 6450015517
+      },
+      "developer": "Alex St Peter",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/84/8b/ea/848bea59-281f-0dfa-2c63-da3481cb5b78/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-05T14:11:18.327Z"
     }
   ],
   "approved": [
