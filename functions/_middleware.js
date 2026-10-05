@@ -138,6 +138,8 @@ export async function onRequest(context) {
       }
     }
     if (gsLocalePrefixOf(path)) return next();
+    // RSS 피드는 리포트 섹션과 함께 없어졌다 (2026-10): 404 대신 410
+    if (path === "/rss.xml" || path === "/feed" || path === "/feed/") return goneResponse();
     if (gsIsStaticPath(path)) return next();
     const gsUa = (request.headers.get("User-Agent") || "").toLowerCase();
     if (BOT_UA_RE.test(gsUa)) return next();

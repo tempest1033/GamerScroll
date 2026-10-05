@@ -265,3 +265,20 @@ html body.page-games #recent-games-grid .games-hub-recent-card { height: auto; m
 @media (min-width: 769px) and (max-width: 1199px) { .rk.rk-trend .rk-tr-new { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 /* 좁은 변동 카드에서는 긴 한 단어를 중간에서 끊지 않는다 */
 html body .site-container .rk .rk-hcard .mrow .n { overflow-wrap: normal; word-break: normal; }
+
+/* ===== 스타일 통일 (2026-10-05): 카드는 흰 바탕 + 가는 테두리 + 모서리 14px 한 가지 =====
+   예전 회색 바탕 카드(홈 1위 카드·게임별 추이 패널·수치 카드·차트 패널·게임 DB 인기/최근 카드)를 같은 모양으로 맞춘다. */
+html body .site-container .rk .rk-kpi,
+html body .site-container .rk .rk-preview,
+html body .site-container .rk .rk-stat,
+html body .site-container .rk .rk-chart,
+html body.page-games .games-hub-popular-card,
+html body.page-games .games-hub-recent-card { background: #fff; border: 1px solid var(--rk-line, #e5e5e9); border-radius: 14px; box-shadow: none; }
+html body .site-container .rk .rk-hl-card { border-radius: 14px; }
+html body.page-games .games-hub-popular-card:hover,
+html body.page-games .games-hub-recent-card:hover { background: #fff; border-color: #b9bcc4; }
+/* 섹션 제목 크기: 홈만 26px 이던 것을 다른 페이지와 같은 24px 로 */
+html body .site-container .rk.rk-home h2 { font-size: 24px; }
+/* 2차 선택(스토어 전환)은 나라 탭과 같은 알약 모양 */
+html body .site-container .rk.rk-trend .rk-tr-seg { border-radius: 999px; }
+html body .site-container .rk.rk-trend .rk-tr-seg label { border-radius: 999px; }

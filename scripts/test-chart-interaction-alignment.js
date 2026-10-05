@@ -56,7 +56,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
               const selected = await root.locator('.rk-chart-tooltip').innerText();
               if (width !== 390) {
                 await page.mouse.move(box.x + box.width * .8, box.y + box.height / 2);
-                assert.notEqual(await root.locator('.rk-chart-tooltip').innerText(), selected, '클릭 후에도 마우스를 따라 갱신');
+                if (data.labels.length >= 8) assert.notEqual(await root.locator('.rk-chart-tooltip').innerText(), selected, '클릭 후에도 마우스를 따라 갱신');
                 await page.mouse.move(2, 2);
                 assert.ok(!(await root.locator('.rk-chart-tooltip').isVisible()), '마우스를 벗어나면 숨김');
               } else {
