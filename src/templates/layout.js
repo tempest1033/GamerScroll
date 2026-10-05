@@ -1621,7 +1621,10 @@ const swipeScript = `
     (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
   if (!isTouchDevice) return;
 
-  const navSections = ['tech', 'games', 'rankings', 'steam'];
+  // 상단 메뉴와 같은 순서(components/nav.js). 예전 목록에는 없어진 'tech'가 남아 있어 AI스크롤로 넘어갔다 (2026-10-05)
+  const navSections = ['rankings', 'trending', 'steam', 'games'];
+  // 언어판 접두사(/ko, /ja, /zh-cn, /zh-tw). 영어판은 접두사가 없다
+  const editionPrefix = (function() { var seg = window.location.pathname.split('/')[1] || ''; return ['ja', 'zh-cn', 'ko', 'zh-tw'].indexOf(seg) >= 0 ? '/' + seg : ''; })();
 
   const SWIPE_THRESHOLD = 0.10; // 10% 넘으면 페이지 이동
   const MAX_DRAG_PERCENT = 0.15; // 최대 15%까지 화면 이동
@@ -1658,11 +1661,8 @@ const swipeScript = `
   let isNavigating = false;
 
   function getCurrentNavIndex() {
-    const path = window.location.pathname;
-    for (let i = 0; i < navSections.length; i++) {
-      if (path.includes(navSections[i])) return i;
-    }
-    return -1;
+    const first = window.location.pathname.slice(editionPrefix.length).split('/')[1] || '';
+    return navSections.indexOf(first);
   }
 
   function getPrevIndex(idx) {
@@ -1844,7 +1844,7 @@ const swipeScript = `
       const targetPage = getPageByIndex(targetIdx);
 
       if (targetPage) {
-        const url = targetPage === 'home' ? '/' : '/' + targetPage + '/';
+        const url = editionPrefix + (targetPage === 'home' ? '/' : '/' + targetPage + '/');
         setNavActiveIndex(targetIdx);
         animateNavToIndex(targetIdx, SLIDE_OUT_MS);
         // 목표 scrollLeft 저장 (애니메이션 최종 위치)
