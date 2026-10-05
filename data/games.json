@@ -146507,8 +146507,24 @@
         "ko": "Mini Match!",
         "zh-cn": "Mini Match!"
       }
+    },
+    "脱出ゲーム｜おばけとかぼちゃのクッキー": {
+      "appIds": {
+        "android": "com.SnowyCanele.EscapePumpkinCookie"
+      },
+      "aliases": [],
+      "developer": "Snowy Canelé",
+      "icon": "https://play-lh.googleusercontent.com/EkUTDW_SPUg0UD8eNUqVN9uK0pnMXLqNfEcrACzbbN1i1Olu3hqLzfGSI41Y2r5ePj3YyCNLw_gdFMAe7fpbcSA",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "脱出ゲーム｜おばけとかぼちゃのクッキー",
+        "ja": "脱出ゲーム｜おばけとかぼちゃのクッキー"
+      }
     }
   },
   "lastUpdated": "2026-10-06",
-  "totalGames": 8481
+  "totalGames": 8482
 }
