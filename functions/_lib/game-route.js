@@ -1,13 +1,21 @@
 // Request-time game detail pages: /games/<slug>/ (en) and /<prefix>/games/<slug>/ (ja, zh-cn, ko, zh-tw).
 // Data comes from the static assets (docs/games-data/<slug>.json + _meta.json); rendering is the same pure template
-// the Node tests use (bundle: scripts/build-game-ssr.js → game-ssr.js). Shared with the AIScroll project's functions/,
-// so everything here acts only on the gamerscroll.com host and falls through otherwise.
+// the Node tests use (bundle: scripts/build-game-ssr.js → game-ssr.js). Acts only on the gamerscroll.com host.
 import { createRenderer, BUNDLE_VERSION } from './game-ssr.js';
 
 const PREFIX = { en: '', ja: '/ja', 'zh-cn': '/zh-cn', ko: '/ko', 'zh-tw': '/zh-tw' };
 // The data version only changes with a build (every 30 minutes); the cached page is keyed by it.
 const HTML_CACHE_CONTROL = 'public, max-age=300, s-maxage=1800, stale-while-revalidate=600';
 const META_TTL_MS = 30 * 1000;
+// Cloudflare bundles functions/ with esbuild's keepNames, which wraps every named function in __name(fn, "name").
+// The templates embed some functions into the page as inline scripts via Function#toString (chart interaction, etc.),
+// so those wrappers reach the browser, where __name does not exist: "ReferenceError: __name is not defined" and the
+// script dies. Define a pass-through before any page script runs.
+const NAME_SHIM = '<script>var __name=function(f){return f};</script>';
+function withNameShim(html) {
+  const at = html.indexOf('<head>');
+  return at < 0 ? NAME_SHIM + html : html.slice(0, at + 6) + NAME_SHIM + html.slice(at + 6);
+}
 
 const renderers = new Map(); // edition code → renderer (a module graph per edition, see src/build/game-ssr-entry.js)
 let metaCache = null; // { at, value }
@@ -70,7 +78,7 @@ export async function handleGameRequest(context, code) {
   if (!game) return notFound(env, url, code, request.method);
 
   let html;
-  try { html = rendererFor(code).render(game, meta); } catch (error) {
+  try { html = withNameShim(rendererFor(code).render(game, meta)); } catch (error) {
     return new Response('Render failed', { status: 500, headers: { 'Cache-Control': 'no-store' } });
   }
   const response = new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE_CONTROL, 'Content-Language': code } });
