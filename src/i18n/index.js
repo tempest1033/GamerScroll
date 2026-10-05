@@ -142,9 +142,25 @@ function searchIndexPath(code = current.code) {
 }
 
 // ---------- formatting ----------
+// Intl formatters are expensive to construct (a game detail page formats a few hundred dates: building a new
+// Intl.DateTimeFormat for each took three quarters of the render time, enough to trip the Cloudflare Pages CPU limit
+// under concurrent requests). Build each locale + options combination once and reuse it.
+const formatterCache = new Map();
+function intlFormatter(Ctor, kind, locale, options) {
+  const key = kind + '|' + locale + '|' + (options ? JSON.stringify(options) : '');
+  let formatter = formatterCache.get(key);
+  if (!formatter) {
+    formatter = new Ctor(locale, options);
+    formatterCache.set(key, formatter);
+  }
+  return formatter;
+}
+const numberFormatter = (options) => intlFormatter(Intl.NumberFormat, 'n', current.intl, options);
+const dateFormatter = (options) => intlFormatter(Intl.DateTimeFormat, 'd', current.intl, options);
+
 function formatNumber(value, options) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return '-';
-  return new Intl.NumberFormat(current.intl, options).format(Number(value));
+  return numberFormatter(options).format(Number(value));
 }
 function formatCompact(value, options) {
   return formatNumber(value, { notation: 'compact', maximumFractionDigits: 1, ...options });
@@ -152,7 +168,7 @@ function formatCompact(value, options) {
 function formatDate(value, options = { year: 'numeric', month: 'long', day: 'numeric' }) {
   const date = value instanceof Date ? value : new Date(/^\d{4}-\d{2}-\d{2}$/.test(String(value)) ? `${value}T00:00:00Z` : value);
   if (Number.isNaN(date.getTime())) return '';
-  return new Intl.DateTimeFormat(current.intl, { timeZone: 'UTC', ...options }).format(date);
+  return dateFormatter({ timeZone: 'UTC', ...options }).format(date);
 }
 
 const ISO_DAY = /^\d{4}-\d{2}-\d{2}/;
@@ -171,7 +187,7 @@ function formatYearMonth(value) {
 function formatStamp(ts, options) {
   const date = new Date(ts);
   if (!ts || Number.isNaN(date.getTime())) return '';
-  return new Intl.DateTimeFormat(current.intl, { timeZone: 'Asia/Seoul', ...options }).format(date);
+  return dateFormatter({ timeZone: 'Asia/Seoul', ...options }).format(date);
 }
 const formatDateTime = (ts) => formatStamp(ts, { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' });
 const formatTime = (ts) => formatStamp(ts, { hour: 'numeric', minute: '2-digit' });
