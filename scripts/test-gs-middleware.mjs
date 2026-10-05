@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { onRequest } from "../functions/_middleware.js";
+import { onRequest as onAiRequest } from "../functions-aiscroll/_middleware.js";
 
 async function call(url, { country, ua, cookie } = {}) {
   const u = new URL(url);
@@ -54,6 +55,26 @@ await t("/wiki/a -> /rankings/", async () => { const r = await call(G + "/wiki/a
 await t("/upcoming -> /games/", async () => { const r = await call(G + "/upcoming"); assert.equal(r.status, 301); assert.equal(loc(r), "/games/"); });
 await t("/tech/foo -> aiscroll", async () => { const r = await call(G + "/tech/foo/"); assert.equal(r.status, 301); assert.equal(r.headers.get("location"), "https://aiscroll.io/ko/"); });
 await t("www -> bare 301", async () => { const r = await call("https://www.gamerscroll.com/rankings/?a=1"); assert.equal(r.status, 301); assert.equal(r.headers.get("location"), "https://gamerscroll.com/rankings/?a=1"); });
-await t("aiscroll KR -> /ko/", async () => { const r = await call("https://aiscroll.io/", { country: "KR" }); assert.equal(r.status, 302); assert.equal(loc(r), "/ko/"); });
+await t("gs middleware leaves aiscroll host alone", async () => { const r = await call("https://aiscroll.io/", { country: "KR" }); assert.equal(r.status, 200); });
+
+// AIScroll 전용 미들웨어
+async function callAi(url, { country, ua, cookie } = {}) {
+  const u = new URL(url);
+  const headers = new Headers({ host: u.host });
+  if (country) headers.set("CF-IPCountry", country);
+  if (ua) headers.set("User-Agent", ua);
+  if (cookie) headers.set("Cookie", cookie);
+  return onAiRequest({ request: new Request(url, { headers }), next: async () => new Response("ok", { status: 200 }) });
+}
+const A = "https://aiscroll.io";
+await t("aiscroll KR -> /ko/", async () => { const r = await callAi(A + "/", { country: "KR" }); assert.equal(r.status, 302); assert.equal(loc(r), "/ko/"); });
+await t("aiscroll KR article keeps path and query", async () => { const r = await callAi(A + "/article/reviews/x/?a=1", { country: "KR" }); assert.equal(r.status, 302); assert.equal(loc(r), "/ko/article/reviews/x/?a=1"); });
+await t("aiscroll KR already on /ko/ passes", async () => { const r = await callAi(A + "/ko/about/", { country: "KR" }); assert.equal(r.status, 200); });
+await t("aiscroll US stays on root", async () => { const r = await callAi(A + "/", { country: "US" }); assert.equal(r.status, 200); assert.equal(r.headers.get("X-AIScroll-Country"), "US"); });
+await t("aiscroll bot from KR is not redirected", async () => { const r = await callAi(A + "/", { country: "KR", ua: "Mozilla/5.0 (compatible; Googlebot/2.1)" }); assert.equal(r.status, 200); });
+await t("aiscroll static file from KR is not redirected", async () => { for (const p of ["/sitemap.xml", "/rss.xml", "/assets/a.js", "/articles.json", "/robots.txt"]) { const r = await callAi(A + p, { country: "KR" }); assert.equal(r.status, 200, p); } });
+await t("aiscroll ?lang=en sets cookie and stays", async () => { const r = await callAi(A + "/?lang=en", { country: "KR" }); assert.equal(r.status, 200); assert.match(r.headers.get("Set-Cookie") || "", /aiscroll_lang=en/); });
+await t("aiscroll lang cookie from KR stays", async () => { const r = await callAi(A + "/", { country: "KR", cookie: "aiscroll_lang=en" }); assert.equal(r.status, 200); });
+await t("aiscroll middleware ignores other hosts", async () => { const r = await callAi("https://preview.pages.dev/", { country: "KR" }); assert.equal(r.status, 200); assert.equal(r.headers.get("X-AIScroll-Middleware"), null); });
 
 console.log(`${n} passed`);

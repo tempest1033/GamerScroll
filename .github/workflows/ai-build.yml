@@ -7,9 +7,6 @@ on:
       - 'data/tech/**'
       - 'data/article-assets/aiscroll/**'
       - 'data/brand-icons/**'
-      - 'reports/issue/**'
-      - 'data/wiki/**'
-      - 'reports/hotpick/**'
       - 'generate-ai-blog.js'
       - 'src/templates/ai-blog/**'
       - 'src/aiscroll-ui/**'
@@ -17,7 +14,7 @@ on:
       - 'src/aiscroll-styles/**'
       - 'src/aiscroll-build/**'
       - 'ai-build-cache.js'
-      - 'functions/**'
+      - 'functions-aiscroll/**'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/ai-build.yml'
@@ -83,15 +80,15 @@ jobs:
           git config user.email "actions@github.com"
           # HARD INVARIANT: pathspec-restricted stash (artifacts only).
           # ai-docs/는 더 이상 main에 커밋하지 않는다 (deploy-aiscroll 발행 전용).
-          git stash push -u -m "ai-build-artifacts" -- .ai-build-cache.json data/ reports/ functions/ || true
+          git stash push -u -m "ai-build-artifacts" -- .ai-build-cache.json data/ || true
           git pull origin main --rebase
           if git stash list | grep -q "ai-build-artifacts"; then
             if ! git stash pop; then
-              # .ai-build-cache.json, functions/는 우리 새 산출물 우선(--theirs는 stash 결과).
+              # .ai-build-cache.json,는 우리 새 산출물 우선(--theirs는 stash 결과).
               # data/, reports/ 같은 user-content path에서 conflict이 남으면 abort.
               echo "::warning::stash pop conflict — resolving artifact paths with stash version"
-              git checkout --theirs .ai-build-cache.json functions/ 2>/dev/null || true
-              git add .ai-build-cache.json functions/ 2>/dev/null || true
+              git checkout --theirs .ai-build-cache.json 2>/dev/null || true
+              git add .ai-build-cache.json 2>/dev/null || true
               if git diff --name-only --diff-filter=U | grep -q .; then
                 echo "::error::unresolved conflict outside artifact paths — aborting"
                 git diff --name-only --diff-filter=U
@@ -100,7 +97,7 @@ jobs:
               git stash drop 2>/dev/null || true
             fi
           fi
-          git add data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ .ai-build-cache.json -f
+          git add data/tech/ .ai-build-cache.json -f
           git diff --staged --quiet || git commit -m "Build AIScroll $(date +'%Y-%m-%d %H:%M')"
           for attempt in 1 2 3; do
             if git push origin main; then exit 0; fi
@@ -108,7 +105,7 @@ jobs:
             git pull origin main --rebase || exit 1
             # 새 main 위에 stale 산출물이 올라가는 것 방지: 빌드 재실행 후 재 스테이지.
             node generate-ai-blog.js || exit 1
-            git add data/tech/ reports/issue/ data/wiki/ reports/hotpick/ functions/ .ai-build-cache.json -f
+            git add data/tech/ .ai-build-cache.json -f
             git diff --staged --quiet || git commit --amend --no-edit
           done
           echo "::error::push failed after 3 retries"
@@ -122,10 +119,11 @@ jobs:
           rm -rf /tmp/deploy-ai
           mkdir -p /tmp/deploy-ai
           cp -a ai-docs /tmp/deploy-ai/ai-docs
-          # AIScroll 은 미들웨어(언어 경로·구 주소 처리)만 쓴다. 게임 상세 함수(functions/games 등)는 GamerScroll 빌드가 만드는
-          # functions/_lib/game-ssr.js 가 있어야 해서, 함께 올리면 Cloudflare 함수 빌드가 실패한다 (2026-10-05).
+          # AIScroll 전용 미들웨어(한국 방문자 → /ko/)만 올린다. 게이머스크롤의 functions/ 는 올리지 않는다:
+          # 두 사이트는 미들웨어를 공유하지 않는다 (2026-10-06 분리).
+          test -f functions-aiscroll/_middleware.js || { echo "::error::functions-aiscroll/_middleware.js missing"; exit 1; }
           mkdir -p /tmp/deploy-ai/functions
-          cp -a functions/_middleware.js /tmp/deploy-ai/functions/_middleware.js
+          cp -a functions-aiscroll/_middleware.js /tmp/deploy-ai/functions/_middleware.js
           cd /tmp/deploy-ai
           git init -q -b deploy-aiscroll
           git config user.name "GitHub Actions"

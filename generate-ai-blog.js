@@ -237,49 +237,8 @@ function minifyCss(css) {
 // 카테고리 목록 (출력 폴더 분리용) — taxonomy.js가 단일 출처
 const CATEGORIES = CATEGORY_IDS;
 
-const SOURCE_IMAGES_ROOT = path.join(__dirname, 'docs', 'assets', 'images');
-
-function getLocalThumbnailUrl(article) {
-  if (!article || !article.slug) return '';
-  const source = String(article.source || '');
-  let relDir = '';
-
-  if (source === 'tech/ai') {
-    relDir = `tech/ai/${article.slug}`;
-  } else if (source === 'tech/vibecoding') {
-    relDir = `tech/vibecoding/${article.slug}`;
-  } else if (source === 'issue') {
-    relDir = `issue/${article.slug}`;
-  } else if (source === 'hotpick') {
-    relDir = `hotpick/${article.slug}`;
-  } else if (source.startsWith('wiki/')) {
-    const wikiCategory = source.split('/')[1] || article.category || '';
-    if (!wikiCategory) return '';
-    relDir = `wiki/${wikiCategory}/${article.slug}`;
-  } else {
-    return '';
-  }
-
-  const normalizedRelDir = relDir.replace(/\\/g, '/');
-  const relParts = normalizedRelDir.split('/').filter(Boolean);
-  const candidates = ['thumbnail-sm.webp', 'thumbnail.webp', 'thumbnail-xs.webp'];
-
-  for (const fileName of candidates) {
-    const absPath = path.join(SOURCE_IMAGES_ROOT, ...relParts, fileName);
-    if (fs.existsSync(absPath)) {
-      return `/assets/images/${normalizedRelDir}/${fileName}`;
-    }
-  }
-
-  return '';
-}
-
 function resolveArticleThumbnail(article) {
-  const thumb = String(article?.thumbnail || '');
-  if (thumb.startsWith('/assets/') || thumb.startsWith('/favicon')) return thumb;
-  const localThumb = getLocalThumbnailUrl(article);
-  if (localThumb) return localThumb;
-  return thumb;
+  return String(article?.thumbnail || '');
 }
 
 let jsonLoadFailures = [];
@@ -290,11 +249,8 @@ function loadArticles() {
   const loadedSlugs = new Set();
 
   const sources = [
-    { dir: path.join(DATA_DIR, 'tech', 'ai'), tag: 'tech/ai' },
-    // 폴더는 정리용일 뿐 카테고리를 강제하지 않는다 — JSON의 category(글 종류)와 topics(주제)가 결정
-    { dir: path.join(DATA_DIR, 'tech', 'vibecoding'), tag: 'tech/vibecoding' },
-    { dir: path.join(REPORTS_DIR, 'issue'), tag: 'issue' },
-    { dir: path.join(REPORTS_DIR, 'hotpick'), tag: 'hotpick' }
+    // AIScroll 글은 이 폴더 하나에만 둔다. 글 종류는 JSON의 category, 주제는 topics 가 결정한다.
+    { dir: path.join(DATA_DIR, 'tech', 'ai'), tag: 'tech/ai' }
   ];
 
   for (const src of sources) {
@@ -318,34 +274,6 @@ function loadArticles() {
       } catch (e) {
         console.error(`❌ JSON 파싱 실패 — 빌드에서 제외됨: ${file} — ${e.message}`);
         jsonLoadFailures.push({ file, error: e.message });
-      }
-    }
-  }
-
-  // data/wiki/<category>/<slug>.json: site === "aiscroll" only
-  const wikiDir = path.join(DATA_DIR, 'wiki');
-  if (fs.existsSync(wikiDir)) {
-    for (const cat of fs.readdirSync(wikiDir)) {
-      const catDir = path.join(wikiDir, cat);
-      let stat;
-      try { stat = fs.statSync(catDir); } catch { continue; }
-      if (!stat.isDirectory()) continue;
-      for (const file of fs.readdirSync(catDir).filter(f => f.endsWith('.json'))) {
-        try {
-          const fullPath = path.join(catDir, file);
-          const content = fs.readFileSync(fullPath, 'utf8').replace(/^\uFEFF/, '');
-          const data = JSON.parse(content);
-          if (data.site !== 'aiscroll') continue;
-          publicationLanguages(data);
-          const isValid = data.status === 'approved' || data.status === 'published' || (includeDrafts && data.status === 'draft');
-          if (!isValid) continue;
-          if (loadedSlugs.has(data.slug)) continue;
-          articles.push({ ...data, source: `wiki/${cat}`, sourceFile: file, _jsonFilePath: fullPath });
-          loadedSlugs.add(data.slug);
-        } catch (e) {
-          console.error(`❌ JSON 파싱 실패 — 빌드에서 제외됨: ${file} — ${e.message}`);
-          jsonLoadFailures.push({ file, error: e.message });
-        }
       }
     }
   }
@@ -479,98 +407,6 @@ async function copyAssets(faviconChanged = false) {
 
   // PNG 아이콘 생성 (sharp 사용, favicon 변경 시에만)
   await generateFaviconPNGs(faviconChanged);
-
-  // tech/ai 이미지 복사
-  const techAiImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'ai');
-  const techAiImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'tech', 'ai');
-  if (fs.existsSync(techAiImagesSrc)) {
-    copyDirRecursive(techAiImagesSrc, techAiImagesDest);
-    console.log('tech/ai 이미지 복사 완료');
-  }
-
-  // tech/vibecoding 이미지 복사
-  const techVibeCodingImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'tech', 'vibecoding');
-  const techVibeCodingImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'tech', 'vibecoding');
-  if (fs.existsSync(techVibeCodingImagesSrc)) {
-    copyDirRecursive(techVibeCodingImagesSrc, techVibeCodingImagesDest);
-    console.log('tech/vibecoding 이미지 복사 완료');
-  }
-
-  // issue 이미지 복사 (isGlobal 기사용)
-  const issueImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'issue');
-  const issueImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'issue');
-  if (fs.existsSync(issueImagesSrc)) {
-    copyDirRecursive(issueImagesSrc, issueImagesDest);
-    console.log('issue 이미지 복사 완료');
-  }
-
-  // hotpick 이미지 복사 (AIScroll 포함 hotpick 기사용)
-  const hotpickImagesSrc = path.join(__dirname, 'docs', 'assets', 'images', 'hotpick');
-  const hotpickImagesDest = path.join(DOCS_DIR, 'assets', 'images', 'hotpick');
-  if (fs.existsSync(hotpickImagesSrc)) {
-    copyDirRecursive(hotpickImagesSrc, hotpickImagesDest);
-    console.log('hotpick 이미지 복사 완료');
-  }
-
-  // wiki 이미지 복사 (site === "aiscroll" 기사용)
-  const wikiDataDir = path.join(__dirname, 'data', 'wiki');
-  if (fs.existsSync(wikiDataDir)) {
-    let wikiCopied = 0;
-    for (const cat of fs.readdirSync(wikiDataDir)) {
-      const catDir = path.join(wikiDataDir, cat);
-      let stat;
-      try { stat = fs.statSync(catDir); } catch { continue; }
-      if (!stat.isDirectory()) continue;
-      for (const file of fs.readdirSync(catDir).filter(f => f.endsWith('.json'))) {
-        try {
-          const data = JSON.parse(fs.readFileSync(path.join(catDir, file), 'utf8').replace(/^\uFEFF/, ''));
-          if (data.site !== 'aiscroll') continue;
-          const slug = file.replace(/\.json$/, '');
-          const wikiImageSrc = path.join(__dirname, 'docs', 'assets', 'images', 'wiki', cat, slug);
-          const wikiImageDest = path.join(DOCS_DIR, 'assets', 'images', 'wiki', cat, slug);
-          if (fs.existsSync(wikiImageSrc)) {
-            copyDirRecursive(wikiImageSrc, wikiImageDest);
-            wikiCopied++;
-          }
-        } catch (e) {}
-      }
-    }
-    if (wikiCopied > 0) console.log(`wiki 이미지 복사 완료 (${wikiCopied}개)`);
-  }
-
-  // tech/ai 기사 폴더 내 이미지 복사 (상대경로 이미지 지원)
-  const techAiSrcDir = path.join(__dirname, 'docs', 'tech', 'ai');
-  if (fs.existsSync(techAiSrcDir)) {
-    const slugDirs = fs.readdirSync(techAiSrcDir).filter(f =>
-      fs.statSync(path.join(techAiSrcDir, f)).isDirectory()
-    );
-    for (const slug of slugDirs) {
-      const srcDir = path.join(techAiSrcDir, slug);
-      // 이미지 확장자만 복사 (html 제외)
-      const files = fs.readdirSync(srcDir).filter(f =>
-        /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(f)
-      );
-      if (files.length > 0) {
-        // category 찾기 (기본 general)
-        const jsonPath = path.join(__dirname, 'data', 'tech', 'ai', `${slug}.json`);
-        let category = 'general';
-        if (fs.existsSync(jsonPath)) {
-          try {
-            const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-            category = data.category || 'general';
-          } catch (e) {}
-        }
-        const destDir = path.join(DOCS_DIR, 'article', category, slug);
-        if (!fs.existsSync(destDir)) {
-          fs.mkdirSync(destDir, { recursive: true });
-        }
-        for (const file of files) {
-          fs.copyFileSync(path.join(srcDir, file), path.join(destDir, file));
-        }
-      }
-    }
-    console.log('기사 폴더 이미지 복사 완료');
-  }
 
   console.log('에셋 복사 완료');
 }
