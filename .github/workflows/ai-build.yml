@@ -122,7 +122,10 @@ jobs:
           rm -rf /tmp/deploy-ai
           mkdir -p /tmp/deploy-ai
           cp -a ai-docs /tmp/deploy-ai/ai-docs
-          cp -a functions /tmp/deploy-ai/functions
+          # AIScroll 은 미들웨어(언어 경로·구 주소 처리)만 쓴다. 게임 상세 함수(functions/games 등)는 GamerScroll 빌드가 만드는
+          # functions/_lib/game-ssr.js 가 있어야 해서, 함께 올리면 Cloudflare 함수 빌드가 실패한다 (2026-10-05).
+          mkdir -p /tmp/deploy-ai/functions
+          cp -a functions/_middleware.js /tmp/deploy-ai/functions/_middleware.js
           cd /tmp/deploy-ai
           git init -q -b deploy-aiscroll
           git config user.name "GitHub Actions"
