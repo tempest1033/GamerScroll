@@ -59,7 +59,9 @@ const canonicalOf = (html) => ((html.match(/<link\b[^>]*rel="canonical"[^>]*>/) 
           // hreflang: 5 editions + x-default, absolute, reciprocal; canonical is self-referencing
           const html = await response.text();
           const links = hreflangLinks(html);
-          const expected = [...EDITIONS.map((e) => ({ hreflang: e.hreflang, href: absoluteUrl(e.code, pagePath) })), { hreflang: 'x-default', href: absoluteUrl('en', pagePath) }]
+          // 나라별 페이지(/rankings/ 등)는 같은 나라 차트끼리 묶인다: i18n.alternatePath
+          const altPath = (code) => require('../src/i18n').alternatePath(code, pagePath, edition.code);
+          const expected = [...EDITIONS.map((e) => ({ hreflang: e.hreflang, href: absoluteUrl(e.code, altPath(e.code)) })), { hreflang: 'x-default', href: absoluteUrl('en', altPath('en')) }]
             .sort((a, b) => a.hreflang.localeCompare(b.hreflang));
           assert.deepEqual(links, expected, 'hreflang set');
           for (const link of links) assert.ok(/^https:\/\/gamerscroll\.com\//.test(link.href), `absolute hreflang ${link.href}`);

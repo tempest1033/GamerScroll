@@ -32,7 +32,7 @@ function withCssAssetVersion(filename) {
 function getPageExtraCssFiles(currentPage = '') {
   const page = String(currentPage || '').toLowerCase();
   let files = [];
-  if (['home', 'game', 'rankings', 'steam', 'about'].includes(page)) files = ['/styles-game.css'];
+  if (['home', 'game', 'rankings', 'trending', 'steam', 'about'].includes(page)) files = ['/styles-game.css'];
   if (page === 'games') files = ['/styles-catalog.css'];
   if (page === 'tech') files = ['/styles-article.css'];
   return files.map(withCssAssetVersion);

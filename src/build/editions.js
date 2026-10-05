@@ -268,8 +268,9 @@ function writeSitemaps(docsDir, results, lastmod) {
   const names = [];
   for (const r of results) {
     const entries = r.sitemap.map((e) => {
-      const alternates = [...i18n.EDITIONS.map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${xmlEscape(i18n.absoluteUrl(x.code, e.path))}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(i18n.absoluteUrl('en', e.path))}"/>`].join('\n');
-      return `  <url>\n    <loc>${xmlEscape(e.loc)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <priority>${e.priority}</priority>\n${alternates}\n  </url>`;
+      const alt = (code) => xmlEscape(encodeURI(i18n.absoluteUrl(code, i18n.alternatePath(code, e.path, r.code))));
+      const alternates = [...i18n.EDITIONS.map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${alt(x.code)}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${alt('en')}"/>`].join('\n');
+      return `  <url>\n    <loc>${xmlEscape(encodeURI(e.loc))}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <priority>${e.priority}</priority>\n${alternates}\n  </url>`;
     }).join('\n');
     const name = `sitemap-${r.code}.xml`;
     fs.writeFileSync(path.join(docsDir, name), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries}\n</urlset>\n`, 'utf8');

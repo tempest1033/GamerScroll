@@ -89,6 +89,20 @@ function editionPath(code, pathname) {
   const edition = EDITION_BY_CODE.get(code);
   return prefixPath(stripEditionPrefix(pathname), edition);
 }
+// hreflang target of a page for another edition.
+// Country-scoped pages (/rankings/[cc/], /rankings/free/[cc/], /trending/[cc/]) are clustered by the chart's country:
+// an edition serves its home country at the bare path and every other country under /<cc>/, so the same chart lives at
+// different paths per edition (ko: /ko/rankings/ = Korea; ja: /ja/rankings/kr/ = Korea). Other pages share one path.
+const COUNTRY_SCOPED_RE = /^\/(rankings(?:\/free)?|trending)\/(?:(us|jp|cn|kr|tw)\/)?$/;
+function alternatePath(targetCode, pathname, sourceCode) {
+  const m = COUNTRY_SCOPED_RE.exec(pathname);
+  if (!m) return pathname;
+  const source = EDITION_BY_CODE.get(sourceCode) || current;
+  const target = EDITION_BY_CODE.get(targetCode);
+  const country = m[2] || source.country;
+  return target && target.country === country ? `/${m[1]}/` : `/${m[1]}/${country}/`;
+}
+
 function absoluteUrl(code, pathname) {
   return SITE_ORIGIN + editionPath(code, pathname);
 }
@@ -163,6 +177,7 @@ const formatDateTime = (ts) => formatStamp(ts, { year: 'numeric', month: 'long',
 const formatTime = (ts) => formatStamp(ts, { hour: 'numeric', minute: '2-digit' });
 
 module.exports = {
+  alternatePath,
   formatDay,
   formatMonthDay,
   formatYearMonth,

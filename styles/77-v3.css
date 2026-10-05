@@ -263,3 +263,5 @@ html body.page-games #recent-games-grid .games-hub-recent-card { height: auto; m
 /* TOP 10 줄: 화면이 넓지 않으면 5칸씩 두 줄(이름이 단어 중간에서 끊기지 않게) */
 @media (min-width: 769px) and (max-width: 1199px) { .rk.rk-trend .rk-tr-t10 { grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: 16px; } }
 @media (min-width: 769px) and (max-width: 1199px) { .rk.rk-trend .rk-tr-new { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* 좁은 변동 카드에서는 긴 한 단어를 중간에서 끊지 않는다 */
+html body .site-container .rk .rk-hcard .mrow .n { overflow-wrap: normal; word-break: normal; }

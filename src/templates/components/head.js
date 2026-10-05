@@ -82,7 +82,7 @@ function generateHead(options = {}) {
     ? breadcrumbs.map(item => ({ ...item, url: normalizeToCanonical(item.url) }))
     : null;
   const alternateLink = editionMode && !noindex
-    ? [...i18n.EDITIONS.map((e) => `<link rel="alternate" hreflang="${e.hreflang}" href="${i18n.absoluteUrl(e.code, pagePath)}">`), `<link rel="alternate" hreflang="x-default" href="${i18n.absoluteUrl('en', pagePath)}">`].join('\n  ')
+    ? [...i18n.EDITIONS.map((e) => `<link rel="alternate" hreflang="${e.hreflang}" href="${i18n.absoluteUrl(e.code, i18n.alternatePath(e.code, pagePath, edition.code))}">`), `<link rel="alternate" hreflang="x-default" href="${i18n.absoluteUrl('en', i18n.alternatePath('en', pagePath, edition.code))}">`].join('\n  ')
     : '';
   const resolvedOgImage = escapeHtmlAttr(
     (typeof ogImage === 'string' && ogImage) ||
