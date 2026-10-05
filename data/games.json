@@ -146445,8 +146445,23 @@
         "ko": "옥사이드: 서바이벌 아일랜드, 협동 생존",
         "zh-tw": "Oxide: Survival Island"
       }
+    },
+    "SortFluids": {
+      "appIds": {
+        "ios": 6804908125
+      },
+      "aliases": [],
+      "developer": "Bu Rentals LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/78/cc/77/78cc77a5-c527-d0fb-00cc-af8a52269706/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "sortfluids",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "SortFluids"
+      }
     }
   },
   "lastUpdated": "2026-10-05",
-  "totalGames": 8477
+  "totalGames": 8478
 }

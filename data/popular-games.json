@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-04T02:48:29.867Z",
+  "updatedAt": "2026-10-05T06:00:35.663Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 41
+      "views": 42
     },
     {
       "slug": "이클립스-더-어웨이크닝",
@@ -12,7 +12,7 @@
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 23
+      "views": 24
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
@@ -20,7 +20,7 @@
     },
     {
       "slug": "운빨존많겜",
-      "views": 8
+      "views": 9
     },
     {
       "slug": "킹샷kingshot",
@@ -35,11 +35,15 @@
       "views": 7
     },
     {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 6
+      "slug": "리니지m",
+      "views": 7
     },
     {
       "slug": "트릭컬-리바이브",
+      "views": 7
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
       "views": 6
     },
     {
@@ -47,11 +51,11 @@
       "views": 5
     },
     {
-      "slug": "where-winds-meet",
+      "slug": "z-루트-리뎀션",
       "views": 5
     },
     {
-      "slug": "리니지m",
+      "slug": "메이플-키우기",
       "views": 5
     },
     {
@@ -73,10 +77,6 @@
     {
       "slug": "탑-히어로즈-영웅의-시대",
       "views": 5
-    },
-    {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 4
     }
   ]
 }
