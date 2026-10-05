@@ -326,3 +326,80 @@
   .related-title { margin-top: 0; }
   .article-after, .blog-author-box { margin-top: 44px; }
 }
+
+/* ---------- 2026-10 블로그풍 손질: 본문은 좁고 진하게, 요약은 상자 대신 머리말 ---------- */
+.article-layout { grid-template-columns: minmax(0, 720px) 300px; }
+.blog-summary { margin-top: 26px; padding: 0; border-radius: 0; background: none; font-size: 20px; font-weight: 500; line-height: 1.7; letter-spacing: -0.02em; }
+.blog-lead-figure { margin-top: 28px; }
+.blog-content { line-height: 1.9; color: var(--text); }
+.blog-content .blog-paragraph,
+.blog-content > p { margin-bottom: 28px; }
+.blog-content .blog-heading { margin: 64px 0 22px; font-size: 27px; font-weight: 700; }
+.blog-content .blog-subheading { margin-top: 44px; }
+.blog-avatar { flex: 0 0 auto; width: 22px; height: 22px; }
+.byline .blog-editor { display: inline-flex; align-items: center; gap: 8px; color: var(--text); }
+.blog-author-box { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 18px; align-items: start; }
+.blog-author-box .blog-avatar { width: 48px; height: 48px; }
+.blog-author-name a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 768px) {
+  .blog-summary { margin-top: 20px; font-size: 18px; }
+  .blog-content .blog-heading { margin-top: 48px; font-size: 23px; }
+  .blog-author-box { grid-template-columns: 40px minmax(0, 1fr); gap: 14px; }
+  .blog-author-box .blog-avatar { width: 40px; height: 40px; }
+}
+
+/* ---------- 본문 양식 정리: 모든 블록이 같은 간격(위아래 32px) · 같은 글자 체계를 쓴다 ---------- */
+.blog-content .blog-list { margin: 0 0 28px; padding-left: 1.25em; }
+.blog-content .blog-list li { margin: 0 0 8px; padding-left: 4px; }
+.blog-content .blog-list li::marker { color: var(--muted); }
+.blog-content ol.blog-list li::marker { font-weight: 600; font-variant-numeric: tabular-nums; }
+.blog-content .blog-quote { margin: 32px 0; padding: 2px 0 2px 22px; border-left: 3px solid var(--text); font-size: 19px; font-weight: 500; line-height: 1.75; letter-spacing: -0.015em; color: var(--text); }
+.blog-content .blog-quote p { margin: 0; }
+.blog-content .blog-quote cite { display: block; margin-top: 10px; font-size: 13px; font-style: normal; font-weight: 400; color: var(--muted); }
+.blog-content .blog-quote cite::before { content: '— '; }
+.blog-content .blog-figure,
+.blog-content .blog-table-wrapper,
+.blog-content .blog-aside,
+.blog-content .blog-verdict { margin-top: 32px; margin-bottom: 32px; }
+.blog-content .wiki-table,
+.blog-content .blog-table-wrapper table { font-size: 15px; line-height: 1.6; color: var(--text); }
+.blog-content .blog-code pre { font-size: 13.5px; line-height: 1.75; }
+.blog-content .blog-aside { font-size: 16px; line-height: 1.8; color: var(--text); }
+.blog-content .blog-aside .aside-title { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 700; color: var(--text-2); }
+.blog-content .blog-aside p { margin: 0; }
+.blog-content .article-action-row { margin: 28px 0 32px; text-align: left; }
+.blog-content .blog-divider { width: 48px; height: 0; margin: 48px 0; border: 0; border-top: 2px solid var(--text); }
+.blog-verdict { padding: 26px 28px 28px; border-radius: 16px; background: var(--gray); }
+.verdict-kicker { margin: 0; font-size: 13px; font-weight: 700; color: var(--text-2); }
+.verdict-summary { margin: 8px 0 0; font-size: 20px; font-weight: 600; line-height: 1.6; letter-spacing: -0.02em; color: var(--text); }
+.verdict-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+.verdict-col { padding: 18px 20px; border-radius: 12px; background: #fff; }
+.verdict-col h3 { margin: 0 0 8px; font-size: 14px; font-weight: 700; color: var(--text); }
+.verdict-col ul { margin: 0; padding-left: 1.1em; font-size: 15px; line-height: 1.7; }
+.verdict-col li { margin-bottom: 4px; }
+.verdict-col.is-pro li::marker { content: '+  '; font-weight: 700; color: var(--text); }
+.verdict-col.is-con li::marker { content: '−  '; font-weight: 700; color: var(--muted); }
+@media (max-width: 768px) {
+  .blog-content .blog-quote { font-size: 17px; padding-left: 16px; }
+  .blog-verdict { padding: 20px; }
+  .verdict-summary { font-size: 18px; }
+  .verdict-cols { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* 본문과 사이드바: 좌우 끝을 헤더(로고 · 검색)와 맞추고 사이 간격은 72px 로 고정한다 */
+.article-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; }
+
+/* 공유 버튼: 링크를 복사하면 버튼이 검정 체크로 바뀌고 '복사됨' 말풍선이 2초 뜬다 */
+.blog-share-btn { width: 34px; height: 34px; }
+.blog-share-btn svg { width: 16px; height: 16px; }
+.blog-share-copy .blog-share-check { display: none; }
+.blog-share-copy.is-copied { background: var(--text); color: #fff; }
+.blog-share-copy.is-copied svg { display: none; }
+.blog-share-copy.is-copied .blog-share-check { display: block; }
+.blog-share-copy.is-copied::after { top: calc(100% + 8px); padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 600; z-index: 2; }
+
+/* 공유 버튼: X · Threads · LinkedIn · Facebook · 기기 공유 창 · 링크 복사. 좁은 화면에서 기기 공유 창이 있으면 SNS는 X만 남긴다 */
+.blog-share-btn[hidden] { display: none; }
+@media (max-width: 768px) {
+  .blog-share-buttons.has-native > a.blog-share-btn:not(:first-child) { display: none; }
+}

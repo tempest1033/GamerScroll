@@ -166,7 +166,7 @@ function generateHead(options = {}) {
     ${(articleSchema.dateModified || articleSchema.datePublished) ? `"dateModified": ${jsonString(ensureTimezone(articleSchema.dateModified || articleSchema.datePublished))},` : ''}
     "author": {
       "@type": "Person",
-      "name": ${jsonString(articleSchema.author || 'Editor J')}
+      "name": ${jsonString(articleSchema.author || 'Plankton')}
     },
     "publisher": {
       "@type": "Organization",

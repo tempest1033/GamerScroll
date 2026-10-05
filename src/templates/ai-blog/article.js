@@ -20,7 +20,7 @@ const {
   pathForLang,
   homeHref
 } = require('./index');
-const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, authorOf } = require('./taxonomy');
+const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, authorOf, personName } = require('./taxonomy');
 const { publicationLanguages, articlePublicationUrls } = require('./taxonomy');
 const { AD_SLOTS, generateHomeAdPairSlot, generateRectangleAdSlot } = require('../../aiscroll-ui/layout');
 const { renderRankingBlock } = require('../../aiscroll-ui/helpers/ranking-blocks');
@@ -314,6 +314,10 @@ function generateAIBlogArticle(article, data = {}) {
     let sectionCount = 1; // 서문 = 섹션1
     let adCount = 0;
 
+    const BT = String.fromCharCode(96);
+    const inlineMd = (value) => renderInlineMarkdownLinks(String(value ?? '')
+      .split(BT).map((part, i) => (i % 2 ? '<code>' + part + '</code>' : part.split('**').map((seg, j) => (j % 2 ? '<strong>' + seg + '</strong>' : seg)).join(''))).join(''));
+
     for (const block of content) {
       switch (block.type) {
         case 'link':
@@ -359,13 +363,31 @@ function generateAIBlogArticle(article, data = {}) {
           break;
         }
         case 'quote':
-          result.push(`<blockquote class="blog-quote">${block.value}</blockquote>`);
+          result.push(`<blockquote class="blog-quote"><p>${inlineMd(block.value)}</p>${block.cite ? `<cite>${escapeHtml(block.cite)}</cite>` : ''}</blockquote>`);
           break;
         case 'list': {
           const items = Array.isArray(block.value) ? block.value : [block.value];
-          result.push(`<ul class="blog-list">${items.map(item => `<li>${item}</li>`).join('')}</ul>`);
+          const listTag = block.ordered ? 'ol' : 'ul';
+          result.push(`<${listTag} class="blog-list">${items.map(item => `<li>${inlineMd(item)}</li>`).join('')}</${listTag}>`);
           break;
         }
+        // 리뷰의 결론 상자: 한 줄 평 + 좋았던 점 / 아쉬운 점
+        case 'verdict': {
+          const pros = Array.isArray(block.pros) ? block.pros : [];
+          const cons = Array.isArray(block.cons) ? block.cons : [];
+          if (!block.summary && !pros.length && !cons.length) break;
+          const col = (title, items, cls) => items.length ? `<div class="verdict-col ${cls}"><h3>${title}</h3><ul>${items.map(item => `<li>${inlineMd(item)}</li>`).join('')}</ul></div>` : '';
+          result.push(`
+            <section class="blog-verdict">
+              <p class="verdict-kicker">${_lang === 'ko' ? '한 줄 평' : 'Verdict'}</p>
+              ${block.summary ? `<p class="verdict-summary">${inlineMd(block.summary)}</p>` : ''}
+              ${pros.length || cons.length ? `<div class="verdict-cols">${col(_lang === 'ko' ? '좋았던 점' : 'What worked', pros, 'is-pro')}${col(_lang === 'ko' ? '아쉬운 점' : 'What did not', cons, 'is-con')}</div>` : ''}
+            </section>`);
+          break;
+        }
+        case 'divider':
+          result.push('<hr class="blog-divider">');
+          break;
         case 'table': {
           if (!block.headers || !block.rows) break;
           const fmtCell = (s) => renderInlineMarkdownLinks(String(s || '')
@@ -484,16 +506,19 @@ function generateAIBlogArticle(article, data = {}) {
             <span class="sidebar-article-rank">${i + 1}</span>
             <span class="sidebar-article-title">${escapeHtml(item.title)}</span>
           </a></li>`).join('');
+    const latestList = renderList(latestArticles);
+    const popularList = renderList(popularArticles) || latestList;
+    if (!popularList) return '';
     return `
         <div class="side-block" id="sidebar-articles">
           <div class="side-tabs" id="sidebarArticleTab">
             <button class="tab-btn active" type="button" data-sidebar-tab="popular">${_t.popular}</button>
             <button class="tab-btn" type="button" data-sidebar-tab="latest">${_t.latest}</button>
           </div>
-          <ol class="sidebar-article-list active" id="sidebar-popular">${renderList(popularArticles)}
+          <ol class="sidebar-article-list active" id="sidebar-popular">${popularList}
           </ol>
           <ol class="sidebar-article-list" id="sidebar-latest"></ol>
-          <template id="sidebar-latest-template">${renderList(latestArticles)}</template>
+          <template id="sidebar-latest-template">${latestList}</template>
         </div>`;
   }
 
@@ -579,9 +604,11 @@ function generateAIBlogArticle(article, data = {}) {
     <div class="blog-share" role="group" aria-label="${shareLabel}">
       <div class="blog-share-buttons">
         <a class="blog-share-btn" href="https://x.com/intent/post?text=${shareTextEnc}&url=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.2 8.2L23.3 22h-6.6l-5.2-6.8L5.6 22H2.4l7.7-8.8L1 2h6.8l4.7 6.2L18.9 2zm-1.2 18.1h1.8L6.4 3.8H4.5l13.2 16.3z"/></svg></a>
+        <a class="blog-share-btn" href="https://www.threads.net/intent/post?text=${shareTextEnc}%20${shareUrlEnc}" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg></a>
         <a class="blog-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
         <a class="blog-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=${shareUrlEnc}" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
-        <button type="button" class="blog-share-btn blog-share-copy" data-share-url="${escapeHtml(shareUrl)}" data-copied-label="${_lang === 'ko' ? '복사됨' : 'Copied'}" aria-label="${_lang === 'ko' ? '링크 복사' : 'Copy link'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></button>
+        <button type="button" class="blog-share-btn blog-share-native" hidden data-share-url="${escapeHtml(shareUrl)}" data-share-title="${escapeHtml(article.title)}" aria-label="${_lang === 'ko' ? '다른 앱으로 공유' : 'Share via…'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button>
+        <button type="button" class="blog-share-btn blog-share-copy" data-share-url="${escapeHtml(shareUrl)}" data-copied-label="${_lang === 'ko' ? '복사됨' : 'Copied'}" aria-label="${_lang === 'ko' ? '링크 복사' : 'Copy link'}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><svg class="blog-share-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="visually-hidden" aria-live="polite"></span></button>
       </div>
     </div>`;
 
@@ -591,25 +618,28 @@ function generateAIBlogArticle(article, data = {}) {
         ${generateRectangleAdSlot(AD_SLOTS.RectanglePC001)}
         ${generateSidebarArticles()}`;
 
-  // 글쓴이 소개 — eesel 'Article by' 블록. 모든 글에 Editor J 로 통일.
+  // 글쓴이 소개 — eesel 'Article by' 블록. 모든 글에 플랑크톤(Plankton)으로 통일.
   const authorBoxHTML = (() => {
     const isKo = _lang === 'ko';
     const kicker = isKo ? '글쓴이' : 'Article by';
     const bio = isKo
-      ? '코딩 에이전트 Mixdog를 비롯해 여러 프로그램을 개발해 온 한국의 개발자. AI를 활용해 다양한 콘텐츠를 만들고 있으며, 그 과정에서 얻은 경험을 공유하기 위해 AI 관련 글을 쓰고 있습니다.'
-      : 'A developer in Korea who has built Mixdog, a coding agent, along with a range of other software. Creates content with AI, and writes here to share what that experience has taught them.';
+      ? '코딩 에이전트 Mixdog와 게이머스크롤을 만드는 개발자. 직접 써 보고 만들면서 알게 된 것을 여기에 적습니다.'
+      : 'The developer behind the Mixdog coding agent and GamerScroll. Writes here about what building and using AI tools actually taught them.';
     return `
       <section class="blog-author-box">
-        <p class="blog-author-kicker">${kicker}</p>
-        <h2 class="blog-author-name">Editor J</h2>
-        <p class="blog-author-bio">${bio}</p>
+        <svg class="blog-avatar" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#0b0b0a"/><g fill="#fff"><circle cx="11.5" cy="11.5" r="3.4"/><circle cx="20.5" cy="11.5" r="3.4"/><circle cx="11.5" cy="20.5" r="3.4"/><circle cx="20.5" cy="20.5" r="3.4" fill="#4f7cff"/></g></svg>
+        <div>
+          <p class="blog-author-kicker">${kicker}</p>
+          <h2 class="blog-author-name"><a href="${aboutHref(_lang)}">${personName(_lang)}</a></h2>
+          <p class="blog-author-bio">${bio}</p>
+        </div>
       </section>`;
   })();
 
   // 저자(사람/사이트)·주제 태그 — 구글이 보는 "누가" 신호 (제작 방식 문구는 노출하지 않는다)
-  const author = authorOf(article, SITE_CONFIG.name, SITE_CONFIG.baseUrl);
+  const author = authorOf(article, SITE_CONFIG.name, SITE_CONFIG.baseUrl, _lang);
   const bylineHTML = author.type === 'Person'
-    ? `<a class="blog-editor" href="${aboutHref(_lang)}" rel="author">${escapeHtml(author.name)}</a>`
+    ? `<a class="blog-editor" href="${aboutHref(_lang)}" rel="author"><svg class="blog-avatar" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#0b0b0a"/><g fill="#fff"><circle cx="11.5" cy="11.5" r="3.4"/><circle cx="20.5" cy="11.5" r="3.4"/><circle cx="11.5" cy="20.5" r="3.4"/><circle cx="20.5" cy="20.5" r="3.4" fill="#4f7cff"/></g></svg>${escapeHtml(author.name)}</a>`
     : `<span class="blog-editor">${escapeHtml(author.name)}</span>`;
   const articleTopics = topicsOf(article);
   const topicsHTML = articleTopics.length > 0
@@ -648,8 +678,8 @@ function generateAIBlogArticle(article, data = {}) {
               ${shareHTML}
             </div>
           </header>
-          ${leadFigureHTML}
           ${article.summary ? `<p class="blog-summary">${escapeHtml(article.summary)}</p>` : ''}
+          ${leadFigureHTML}
           ${topicsHTML}
           ${toc.mobileHTML}
           <div class="blog-content">
@@ -722,7 +752,7 @@ function generateAIBlogArticle(article, data = {}) {
   const jsonLd = [
     {
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": "BlogPosting",
       "inLanguage": _jsonLdLocale,
       "headline": article.title,
       "description": metaDescription,

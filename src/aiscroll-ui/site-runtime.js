@@ -419,18 +419,44 @@ function aiscrollSiteRuntime() {
       fallbackDelay: 1600
     });
   }
+  // 기기 공유 창: 지원하는 브라우저(주로 모바일)에서만 버튼을 드러낸다
+  Array.prototype.forEach.call(doc.querySelectorAll('.blog-share-native'), function(btn) {
+    if (!navigator.share) return;
+    btn.hidden = false;
+    if (btn.parentNode) btn.parentNode.classList.add('has-native');
+    btn.addEventListener('click', function() {
+      navigator.share({ title: btn.getAttribute('data-share-title') || doc.title, url: btn.getAttribute('data-share-url') || location.href }).catch(function() {});
+    });
+  });
   Array.prototype.forEach.call(doc.querySelectorAll('.blog-share-copy'), function(btn) {
     btn.addEventListener('click', function() {
       var url = btn.getAttribute('data-share-url') || location.href;
+      var label = btn.getAttribute('data-copied-label') || TEXT.copied;
+      var live = btn.querySelector('[aria-live]');
       function done() {
         btn.classList.add('is-copied');
-        btn.setAttribute('data-tip', btn.getAttribute('data-copied-label') || TEXT.copied);
-        setTimeout(function() { btn.classList.remove('is-copied'); }, 1500);
+        btn.setAttribute('data-tip', label);
+        if (live) live.textContent = label;
+        clearTimeout(btn._copiedTimer);
+        btn._copiedTimer = setTimeout(function() { btn.classList.remove('is-copied'); if (live) live.textContent = ''; }, 2000);
+      }
+      // 클립보드 API 가 막힌 환경(권한 거부 · 일부 인앱 브라우저)은 임시 입력칸을 골라 복사한다
+      function legacyCopy() {
+        var area = doc.createElement('textarea');
+        area.value = url;
+        area.setAttribute('readonly', '');
+        area.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+        doc.body.appendChild(area);
+        area.select();
+        var ok = false;
+        try { ok = doc.execCommand('copy'); } catch (e) { ok = false; }
+        doc.body.removeChild(area);
+        if (ok) done(); else window.prompt('URL', url);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(done, function() { window.prompt('URL', url); });
+        navigator.clipboard.writeText(url).then(done, legacyCopy);
       } else {
-        window.prompt('URL', url);
+        legacyCopy();
       }
     });
   });

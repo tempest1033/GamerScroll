@@ -2,9 +2,9 @@
 'use strict';
 
 module.exports = {
-  "about.a_pen_name_the_same": " (a pen name). The same person also runs the AI tools and coding agent publication",
+  "about.a_pen_name_the_same": ". The same person also runs the AI tools and coding agent blog",
   "about.about_gamerscroll": "About GamerScroll",
-  "about.about_gamerscroll_game_ranking_data": "about GamerScroll, game ranking data, Editor J, operator, data sources",
+  "about.about_gamerscroll_game_ranking_data": "about GamerScroll, game ranking data, Plankton, operator, data sources",
   "about.about_gamerscroll_who_makes_it": "About GamerScroll: Who Makes It and What It Covers | GamerScroll",
   "about.aiscroll": "AIScroll",
   "about.collects_the_ranking_trend_and": " collects the ranking trend and history of every game we track.",

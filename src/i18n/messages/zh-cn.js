@@ -2,9 +2,9 @@
 'use strict';
 
 module.exports = {
-  "about.a_pen_name_the_same": "（笔名）一人开发并运营。同一个人还运营着 AI 工具与编程智能体媒体",
+  "about.a_pen_name_the_same": "一人开发并运营。同一个人还运营着 AI 工具与编程智能体博客",
   "about.about_gamerscroll": "关于 GamerScroll",
-  "about.about_gamerscroll_game_ranking_data": "关于 GamerScroll，游戏排行榜数据，Editor J，运营者，数据来源",
+  "about.about_gamerscroll_game_ranking_data": "关于 GamerScroll，游戏排行榜数据，Plankton，运营者，数据来源",
   "about.about_gamerscroll_who_makes_it": "关于 GamerScroll：谁在运营、收录哪些数据、如何计算 | GamerScroll",
   "about.aiscroll": "AIScroll",
   "about.collects_the_ranking_trend_and": "收录了我们追踪的每一款游戏的排名走势与历史记录。",

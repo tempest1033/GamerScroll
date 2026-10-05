@@ -1,32 +1,33 @@
-// AIScroll 분류 체계 (2026-09 재출발)
+// AIScroll 분류 체계 (2026-10 개인 블로그로 전환)
 //
-// 카테고리(URL /article/<id>/) = 글 종류 5개. 주제(회사·도구·바이브코딩)는 topics 태그로 두고
+// 카테고리(URL /article/<id>/) = 글 종류 5개: 리뷰 · 분석 · 개발일지 · 소식 · 믹스독.
+// 나누는 기준은 글의 근거다: 직접 써 봤으면 리뷰, 자료·데이터를 파 봤으면 분석, 만들다 겪었으면 개발일지, 먼저 알게 된 일을 전하면 소식. 주제(회사·도구)는 topics 태그로 두고
 // /topic/<id>/ 페이지가 모아 보여준다. 글 하나 = 카테고리 1개 + topics 여러 개.
-// 옛 회사 기준 카테고리(general/openai/google/anthropic/vibecoding/ai/ai-tools)는 LEGACY_CATEGORY_REDIRECTS로 301.
+// 없어진 카테고리(guides/benchmarks/hot, 더 옛 회사 기준 분류)는 LEGACY_CATEGORY_REDIRECTS로 301.
 
-const CATEGORY_IDS = ['news', 'reviews', 'guides', 'benchmarks', 'hot'];
+const CATEGORY_IDS = ['reviews', 'analysis', 'devlog', 'news', 'mixdog'];
 const DEFAULT_CATEGORY = 'news';
 
 const CATEGORY_LABELS = {
-  en: { news: 'News', reviews: 'Reviews', guides: 'Guides', benchmarks: 'Benchmarks', hot: 'Hot Picks' },
-  ko: { news: '뉴스', reviews: '리뷰', guides: '가이드', benchmarks: '벤치마크', hot: '핫픽' }
+  en: { reviews: 'Reviews', analysis: 'Analysis', devlog: 'Dev Log', news: 'News', mixdog: 'Mixdog' },
+  ko: { reviews: '리뷰', analysis: '분석', devlog: '개발일지', news: '소식', mixdog: '믹스독' }
 };
 
 // 카테고리 페이지 <title>·description 용 설명 (언어별)
 const CATEGORY_DESCRIPTIONS = {
   en: {
-    news: 'AI model launches, pricing changes, and industry moves, checked against primary sources.',
-    reviews: 'Reviews, comparisons, evaluations, and recommendations for AI models and tools, distinguishing hands-on experience from source-based analysis.',
-    guides: 'Install and setup guides for coding agents, kept current with a stated as-of date.',
-    benchmarks: 'Terminal-Bench and coding-agent results measured on our own hardware, with methodology.',
-    hot: 'Sales, special offers, free giveaways, and limited-time events for AI products and services.'
+    reviews: 'AI models and tools I paid for and used myself: what worked, what did not, and what I kept.',
+    analysis: 'Deep dives built on sources and data I dug through myself: why something happened and where it is heading.',
+    devlog: 'Notes from building things with AI: where I got stuck and how I got out.',
+    news: 'AI news I caught early or put together myself, kept short.',
+    mixdog: 'Mixdog, the coding agent I build and use: why it exists, how to use it, and what changed.'
   },
   ko: {
-    news: 'AI 모델 출시, 요금 변경, 업계 동향을 1차 자료로 확인해 정리한 뉴스.',
-    reviews: 'AI 모델·도구의 사용기·비교·평가·추천. 직접 사용한 경험과 자료 기반 분석을 구분합니다.',
-    guides: '코딩 에이전트 설치·설정 가이드. 기준 시점을 밝히고 계속 갱신합니다.',
-    benchmarks: '자체 하드웨어에서 직접 측정한 Terminal-Bench·코딩 에이전트 결과와 방법론.',
-    hot: 'AI 제품·서비스의 할인·특가·무료 배포·기간 한정 이벤트.'
+    reviews: '직접 돈 내고 써 본 AI 모델과 도구. 좋았던 것, 아쉬웠던 것, 계속 쓰는 것을 적습니다.',
+    analysis: '자료와 데이터를 직접 파 보고 쓰는 심층 분석. 왜 그런지, 어디로 가는지를 다룹니다.',
+    devlog: 'AI로 무언가를 만들면서 막힌 곳과 풀어낸 방법을 적는 기록.',
+    news: '먼저 알게 됐거나 직접 정리한 AI 소식을 짧게 전합니다.',
+    mixdog: '직접 만들어 쓰는 코딩 에이전트 믹스독. 만든 이유와 사용법, 바뀐 점을 기록합니다.'
   }
 };
 
@@ -58,11 +59,14 @@ const TOPIC_LABELS = {
   }
 };
 
-// 상단 내비에 카테고리와 나란히 두는 대표 주제 (글이 0건이어도 페이지를 만든다)
-const NAV_TOPIC_IDS = ['vibecoding'];
+// 상단 내비에 카테고리와 나란히 두는 대표 주제 (지금은 없음: 메뉴는 글 종류 4개뿐)
+const NAV_TOPIC_IDS = [];
 
 // 옛 카테고리 URL → 새 URL (EN·KO 양쪽에 같은 규칙 적용)
 const LEGACY_CATEGORY_REDIRECTS = {
+  guides: '/article/reviews/',
+  benchmarks: '/article/reviews/',
+  hot: '/article/news/',
   general: '/article/news/',
   ai: '/article/news/',
   'ai-tools': '/article/news/',
@@ -72,9 +76,10 @@ const LEGACY_CATEGORY_REDIRECTS = {
   vibecoding: '/topic/vibecoding/'
 };
 
-// 저자. 모든 카테고리가 사람(Editor J)으로 통일. JSON의 author 필드로 글 단위 재지정: "site" → Organization, 그 외 문자열 → Person 이름.
+// 저자. 모든 카테고리가 사람(필명 플랑크톤 / Plankton)으로 통일. JSON의 author 필드로 글 단위 재지정: "site" → Organization, 그 외 문자열 → Person 이름.
 const SITE_X_URL = 'https://x.com/aiscroll_io';
-const PERSON_AUTHOR = { name: 'Editor J', path: '/about/' };
+const PERSON_AUTHOR = { name: 'Plankton', nameKo: '플랑크톤', path: '/about/' };
+function personName(lang = 'en') { return lang === 'ko' ? PERSON_AUTHOR.nameKo : PERSON_AUTHOR.name; }
 const ORG_AUTHOR_CATEGORIES = new Set();
 
 function normalizeLang(lang) { return lang === 'ko' ? 'ko' : 'en'; }
@@ -150,14 +155,14 @@ function countCategories(articles) {
 }
 
 // { type: 'Person'|'Organization', name, url?, sameAs }
-function authorOf(article, siteName = 'AIScroll', baseUrl = 'https://aiscroll.io') {
+function authorOf(article, siteName = 'AIScroll', baseUrl = 'https://aiscroll.io', lang = 'en') {
   const explicit = article && typeof article.author === 'string' ? article.author.trim() : '';
   const category = normalizeCategory(article && article.category);
   const useOrg = explicit === 'site' || (!explicit && ORG_AUTHOR_CATEGORIES.has(category));
   if (useOrg) {
     return { type: 'Organization', name: siteName, url: baseUrl, sameAs: [SITE_X_URL] };
   }
-  const name = explicit || (article && article.editor) || PERSON_AUTHOR.name;
+  const name = explicit || (article && article.editor) || personName(lang);
   return { type: 'Person', name, url: `${baseUrl}${PERSON_AUTHOR.path}`, path: PERSON_AUTHOR.path, sameAs: [SITE_X_URL] };
 }
 
@@ -170,6 +175,7 @@ module.exports = {
   LEGACY_CATEGORY_REDIRECTS,
   SITE_X_URL,
   PERSON_AUTHOR,
+  personName,
   normalizeCategory,
   publicationLanguages,
   articlePublicationUrls,

@@ -191,6 +191,15 @@ function checkArticlesChanged(cache, articles) {
     }
   }
 
+  // 내린 글: 캐시에는 있는데 지금 목록에 없으면 변경으로 본다. 그러지 않으면 글을 지우기만 한 빌드가
+  // "변경 없음"으로 스킵되어 홈·목록·사이트맵에 지운 글이 그대로 남는다.
+  const current = new Set(result.all);
+  for (const slug of Object.keys(cache.articles)) {
+    if (current.has(slug)) continue;
+    result.changed.push(slug);
+    delete cache.articles[slug];
+  }
+
   return result;
 }
 

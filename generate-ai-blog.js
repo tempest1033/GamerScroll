@@ -25,7 +25,7 @@ const buildCache = require('./ai-build-cache');
 const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, generateTopicPage } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 const { generateAboutPage } = require('./src/templates/ai-blog/about');
-// 분류 체계: 카테고리 5개(news/reviews/guides/benchmarks/hot) + 주제 태그. 옛 회사 기준 카테고리는 301.
+// 분류 체계: 카테고리 5개(reviews/analysis/devlog/news/mixdog) + 주제 태그. 옛 회사 기준 카테고리는 301.
 const {
   CATEGORY_IDS,
   CATEGORY_LABELS,
@@ -846,8 +846,8 @@ function generate404Page(lang = 'en') {
   const { wrapWithLayout } = require('./src/templates/ai-blog/index');
   const isKo = lang === 'ko';
   const t = isKo
-    ? { title: '페이지를 찾을 수 없습니다 - AIScroll', desc: '요청하신 페이지가 존재하지 않거나 이동되었습니다.', heading: '404 — 페이지를 찾을 수 없습니다', body: '요청하신 페이지가 존재하지 않거나 이동되었습니다. 아래 링크로 이동해 주세요.', home: '홈으로', search: '기사 검색' }
-    : { title: 'Page Not Found - AIScroll', desc: 'The page you requested does not exist or has moved.', heading: '404 — Page Not Found', body: 'The page you requested does not exist or has moved. Use the links below to navigate.', home: 'Home', search: 'Search Articles' };
+    ? { title: '페이지를 찾을 수 없습니다 - AIScroll', desc: '요청하신 페이지가 존재하지 않거나 이동되었습니다.', heading: '404 — 페이지를 찾을 수 없습니다', body: '요청하신 페이지가 존재하지 않거나 이동되었습니다. 아래 링크로 이동해 주세요.', home: '홈으로', search: '글 검색' }
+    : { title: 'Page Not Found - AIScroll', desc: 'The page you requested does not exist or has moved.', heading: '404 — Page Not Found', body: 'The page you requested does not exist or has moved. Use the links below to navigate.', home: 'Home', search: 'Search posts' };
   const homePath = isKo ? '/ko/' : '/';
   const searchPath = isKo ? '/ko/search/' : '/search/';
   const content = `
@@ -1261,7 +1261,11 @@ Sitemap: ${SITE_URL}/sitemap.xml
     }
   };
   for (const [oldCat, target] of Object.entries(LEGACY_CATEGORY_REDIRECTS)) {
-    pushRedirect(`/article/${oldCat}/`, target);
+    for (const lang of ['en', 'ko']) {
+      const prefix = lang === 'ko' ? '/ko' : '';
+      const exists = !target.startsWith('/topic/') || fs.existsSync(path.join(langDir(lang), target.replace(/^\/|\/$/g, ''), 'index.html'));
+      redirectLines.push(`${prefix}/article/${oldCat}/ ${prefix}${exists ? target : '/'} 301`);
+    }
   }
   for (const a of articles) {
     const target = `/article/${normalizeCategory(a.category)}/${a.slug}/`;
@@ -1292,9 +1296,9 @@ Sitemap: ${SITE_URL}/sitemap.xml
   const enRssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AIScroll - AI News & Insights</title>
+    <title>AIScroll - AI reviews and dev logs by Plankton</title>
     <link>${SITE_URL}</link>
-    <description>Latest AI news, trends, and insights. Stay updated with the AI industry.</description>
+    <description>Hands-on AI reviews, analysis, and dev logs by Plankton, the developer behind the Mixdog coding agent.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
@@ -1323,9 +1327,9 @@ ${enRssItems.join('\n')}
   const koRssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AIScroll - 최신 AI 뉴스와 인사이트</title>
+    <title>AIScroll - 플랑크톤의 AI 리뷰와 개발일지</title>
     <link>${SITE_URL}/ko</link>
-    <description>최신 AI 뉴스와 인사이트. AI 업계 동향을 빠르게 확인하세요.</description>
+    <description>코딩 에이전트 믹스독을 만드는 개발자 플랑크톤이 직접 써 보고 조사해서 쓰는 AI 리뷰, 분석, 개발일지.</description>
     <language>ko-kr</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${SITE_URL}/ko/rss.xml" rel="self" type="application/rss+xml"/>

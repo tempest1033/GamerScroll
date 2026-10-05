@@ -17,9 +17,9 @@
 .meta-cat { font-weight: 600; color: var(--text-2); }
 
 /* 홈 머리 */
-.home-intro { padding-top: 36px; }
-.home-intro h1 { font-size: 32px; font-weight: 700; line-height: 1.3; letter-spacing: -0.045em; }
-.home-intro p { margin-top: 8px; font-size: 13px; line-height: 1.65; color: var(--muted); }
+
+
+
 .home-sec { margin-top: 56px; }
 .sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 20px; }
 .sec-head h2 { font-size: 26px; font-weight: 600; line-height: 1.3; letter-spacing: -0.04em; }
@@ -170,9 +170,9 @@
 
 /* 모바일: 판은 숨기고 목록만, 카드는 왼쪽 썸네일 목록 */
 @media (max-width: 768px) {
-  .home-intro { padding-top: 28px; }
-  .home-intro h1 { font-size: 26px; }
-  .home-intro p { font-size: 12px; }
+
+
+
   .home-sec { margin-top: 36px; }
   .sec-head { margin-bottom: 8px; }
   .sec-head h2 { font-size: 23px; }
@@ -199,4 +199,50 @@
   .collection-desc { font-size: 13px; }
   .notfound { padding-top: 56px; }
   .notfound h1 { font-size: 24px; }
+}
+
+/* 홈: 글이 서너 건뿐이면 줄을 판 높이에 맞춰 늘리지 않는다 */
+.pop-list.is-short li { flex: 0 0 auto; }
+
+/* 홈: 썸네일 없는 줄(개발일지 등) · 구역 머리의 '전체 보기' */
+.pop-item.no-thumb { grid-template-columns: 24px minmax(0, 1fr); }
+.sec-more { font-size: 13px; color: var(--muted); white-space: nowrap; }
+.sec-more:hover { color: var(--text); }
+
+/* 홈: 개발일지 — 회차 · 제목 · 한 줄 설명 · 날짜 */
+.log-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--text); }
+.log-item { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 20px 6px; border-bottom: 1px solid var(--row); }
+.log-no { font-size: 13px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.log-title { font-size: 18px; font-weight: 600; line-height: 1.45; letter-spacing: -0.02em; }
+.log-sum { margin-top: 4px; font-size: 13px; line-height: 1.65; color: var(--muted); }
+.log-date { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.log-item:hover .log-title { text-decoration: underline; text-underline-offset: 4px; }
+
+/* 홈: 믹스독 판 */
+.mix-panel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px; align-items: center; padding: 36px; border-radius: 24px; background: var(--gray); }
+.mix-panel .pop-panel-label { display: block; margin-bottom: 8px; }
+.mix-panel h2 { font-size: 32px; font-weight: 700; line-height: 1.2; letter-spacing: -0.045em; }
+.mix-panel p { max-width: 420px; margin-top: 10px; font-size: 14px; line-height: 1.7; color: var(--text-2); }
+.mix-panel .btn { margin-top: 20px; }
+.mix-notes { margin: 0; padding: 4px 20px; list-style: none; border-radius: 14px; background: #fff; }
+.mix-notes a { display: flex; justify-content: space-between; gap: 16px; padding: 15px 0; border-top: 1px solid var(--row); font-size: 15px; font-weight: 500; }
+.mix-notes li:first-child a { border-top: 0; }
+.mix-notes time { font-size: 12px; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.mix-notes a:hover span { text-decoration: underline; text-underline-offset: 3px; }
+
+/* 홈: 소식 — 순위 칸 없는 썸네일 목록 2단 (좌우 끝을 구역 폭에 맞춘다) */
+.news-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; margin: 0; padding: 0; list-style: none; }
+.news-list li { display: flex; border-bottom: 1px solid var(--row); }
+.news-list .pop-item { grid-template-columns: 120px minmax(0, 1fr); padding-left: 0; padding-right: 0; border-radius: 0; }
+.news-list .pop-item.no-thumb { grid-template-columns: minmax(0, 1fr); }
+
+@media (max-width: 768px) {
+  .pop-item.no-thumb { grid-template-columns: 20px minmax(0, 1fr); }
+  .log-item { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 16px 0; }
+  .log-date { display: none; }
+  .log-title { font-size: 16px; }
+  .mix-panel { grid-template-columns: minmax(0, 1fr); gap: 24px; padding: 24px 20px; }
+  .mix-panel h2 { font-size: 26px; }
+  .news-list { grid-template-columns: minmax(0, 1fr); }
+  .news-list .pop-item { grid-template-columns: 96px minmax(0, 1fr); }
 }

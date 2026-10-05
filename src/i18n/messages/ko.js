@@ -2,9 +2,9 @@
 'use strict';
 
 module.exports = {
-  "about.a_pen_name_the_same": "(필명)가 혼자 만들고 운영합니다. AI 도구·코딩 에이전트 매체인",
+  "about.a_pen_name_the_same": "이 혼자 만들고 운영합니다. AI 도구·코딩 에이전트 블로그인",
   "about.about_gamerscroll": "게이머스크롤 소개",
-  "about.about_gamerscroll_game_ranking_data": "게이머스크롤 소개, 게임 순위 데이터, Editor J, 운영자, 데이터 출처",
+  "about.about_gamerscroll_game_ranking_data": "게이머스크롤 소개, 게임 순위 데이터, 플랑크톤, 운영자, 데이터 출처",
   "about.about_gamerscroll_who_makes_it": "게이머스크롤 소개 — 누가, 무엇을, 어떻게 만드나 | 게이머스크롤",
   "about.aiscroll": "AI스크롤",
   "about.collects_the_ranking_trend_and": "는 수집된 게임 하나하나의 순위 추이와 기록을 모아 둔 곳입니다.",

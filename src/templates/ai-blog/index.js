@@ -37,9 +37,9 @@ const {
 const SITE_CONFIG = {
   name: 'AIScroll',
   baseUrl: 'https://aiscroll.io',
-  title: 'AIScroll - AI Industry Insights',
-  description: 'AIScroll tracks AI industry shifts, model launches, coding agents, and research trends with concise news and practical insight.',
-  keywords: 'AI news, artificial intelligence, ChatGPT, Claude, machine learning, AI trends',
+  title: 'AIScroll - AI reviews and dev logs by Plankton',
+  description: 'A personal blog by Plankton, the developer behind the Mixdog coding agent: hands-on reviews of AI models and tools, researched analysis and news, and dev logs.',
+  keywords: 'AI reviews, coding agents, dev log, Mixdog, AI tools, Plankton',
   favicon: '/favicon.svg',
   ogImage: '/og-image.png'
 };
@@ -48,41 +48,39 @@ const SITE_CONFIG = {
 const I18N = {
   en: {
     popular: 'Popular', latest: 'Latest', search: 'Search', closeSearch: 'Close search',
-    searchPlaceholder: 'Search articles',
+    searchPlaceholder: 'Search posts',
     privacy: 'Privacy Policy', categories: 'Categories', topics: 'Topics', about: 'About',
     published: 'Published', updated: 'Updated', toc: 'Table of Contents',
-    noResults: 'No results found', sources: 'Sources', related: 'Related Articles',
-    previous: 'Previous', next: 'Next', list: 'All articles',
+    noResults: 'No results found', sources: 'Sources', related: 'Related posts',
+    previous: 'Previous', next: 'Next', list: 'All posts',
     categoryLabels: CATEGORY_LABELS.en,
     topicLabels: TOPIC_LABELS.en,
     navLabel: 'Sections',
-    homeTitle: 'AI Industry Insights',
-    homeTagline: 'Model launches · Coding agents · Big Tech strategy · Research trends',
-    mostRead: 'Most Read', mostReadFirst: 'Most read #1', latestArticles: 'Latest', readArticle: 'Read article',
+    recent: 'Latest posts', recentFirst: 'Newest post', readArticle: 'Read post', viewAll: 'View all',
+    newsHeading: 'News', mixdogKicker: 'The coding agent I build', mixdogDesc: 'Why I built it, how I use it, and what keeps changing.', mixdogMore: 'All Mixdog posts',
     prevPage: 'Previous page', nextPage: 'Next page', pages: 'Pages',
     share: 'Share this article', copyLink: 'Copy link', copied: 'Copied',
     loading: 'Loading…', searchHint: 'Enter at least two characters to search.',
     searchCount: '{n} results for “{q}”', searchNone: 'No results for “{q}”', searchFail: 'Could not load search results.',
-    emptyCollection: 'No articles here yet — coming soon.'
+    emptyCollection: 'No posts here yet.'
   },
   ko: {
     popular: '인기', latest: '최신', search: '검색', closeSearch: '검색 닫기',
-    searchPlaceholder: '기사 검색',
+    searchPlaceholder: '글 검색',
     privacy: '개인정보처리방침', categories: '카테고리', topics: '주제', about: '소개',
     published: '발행', updated: '수정', toc: '목차',
-    noResults: '검색 결과가 없습니다', sources: '출처', related: '관련 기사',
-    previous: '이전 기사', next: '다음 기사', list: '목록',
+    noResults: '검색 결과가 없습니다', sources: '출처', related: '함께 읽을 글',
+    previous: '이전 글', next: '다음 글', list: '목록',
     categoryLabels: CATEGORY_LABELS.ko,
     topicLabels: TOPIC_LABELS.ko,
     navLabel: '분류',
-    homeTitle: 'AI 산업 인사이트',
-    homeTagline: 'AI 모델 출시 · 코딩 에이전트 · 빅테크 전략 · 연구 동향',
-    mostRead: '많이 본 기사', mostReadFirst: '많이 본 기사 1위', latestArticles: '최신 기사', readArticle: '기사 읽기',
+    recent: '최근 글', recentFirst: '가장 최근 글', readArticle: '글 읽기', viewAll: '전체 보기',
+    newsHeading: '소식', mixdogKicker: '직접 만드는 코딩 에이전트', mixdogDesc: '왜 만들었고, 어떻게 쓰고, 무엇이 바뀌고 있는지 기록합니다.', mixdogMore: '믹스독 글 모아 보기',
     prevPage: '이전 페이지', nextPage: '다음 페이지', pages: '페이지',
     share: '이 글 공유', copyLink: '링크 복사', copied: '복사됨',
     loading: '불러오는 중…', searchHint: '검색어를 두 글자 이상 입력하세요.',
     searchCount: '“{q}” 검색 결과 {n}건', searchNone: '“{q}” 검색 결과가 없습니다', searchFail: '검색 결과를 불러오지 못했습니다.',
-    emptyCollection: '아직 이 분류에 글이 없습니다. 곧 채워집니다.'
+    emptyCollection: '아직 이 분류에 글이 없습니다.'
   }
 };
 
@@ -125,7 +123,8 @@ const BLANK_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAA
 // 상단 메뉴: 카테고리 5개 + 대표 주제(바이브코딩). kind로 URL·라벨 출처를 가른다.
 const AI_NAV_ITEMS = [
   ...CATEGORY_IDS.map(id => ({ id, kind: 'category' })),
-  ...NAV_TOPIC_IDS.map(id => ({ id, kind: 'topic' }))
+  ...NAV_TOPIC_IDS.map(id => ({ id, kind: 'topic' })),
+  { id: 'about', kind: 'page' }
 ];
 
 // 헤더: PC는 로고 · 메뉴 · 검색 한 줄, 모바일은 로고 · 돋보기 한 줄 + 메뉴 한 줄.
@@ -133,8 +132,8 @@ const AI_NAV_ITEMS = [
 function generateHeader(currentPage = 'home', lang = 'en', navCurrent = 'page') {
   const t = I18N[lang] || I18N.en;
   const items = AI_NAV_ITEMS.map(item => {
-    const label = item.kind === 'topic' ? topicLabel(item.id, lang) : t.categoryLabels[item.id];
-    const href = item.kind === 'topic' ? topicHref(item.id, lang) : categoryHref(item.id, lang);
+    const label = item.kind === 'page' ? t.about : item.kind === 'topic' ? topicLabel(item.id, lang) : t.categoryLabels[item.id];
+    const href = item.kind === 'page' ? aboutHref(lang) : item.kind === 'topic' ? topicHref(item.id, lang) : categoryHref(item.id, lang);
     const current = item.id === currentPage ? ` aria-current="${navCurrent}"` : '';
     return `<a class="site-nav-item" href="${href}" data-nav-id="${item.id}"${current}>${escapeHtml(label)}</a>`;
   }).join('');
@@ -405,33 +404,38 @@ const PANEL_IMAGE_SIZES = '(max-width: 1099px) 46vw, 480px';
 
 /**
  * AIScroll 홈페이지 생성
- * 소개 제목 → 많이 본 기사(순위 목록 + PC 미리보기 판) → 최신 기사(위에 나온 글은 빼고)
+ * 최근 글(목록 + PC 미리보기 판) → 종류별 구역(개발일지 · 믹스독 · 리뷰 · 분석 · 소식)
  */
 function generateAIBlogIndex(data) {
   const { articles = [], popularArticles = [] } = data;
   const _lang = normalizeLang(data.lang);
   const _t = I18N[_lang];
   const _langPrefix = langPrefixOf(_lang);
-  const top = popularArticles.slice(0, 5);
-  const topSlugs = new Set(top.map(a => a.slug));
-  const latest = articles.filter(a => !topSlugs.has(a.slug));
+  // 홈 구성: 최근 글(종류 구분 없이 5건 + 가장 최근 글 미리보기 판) → 개발일지 → 믹스독 → 리뷰 → 분석 → 소식.
+  // 종류별 구역은 글이 5건을 넘어 '최근 글'만으로 다 보이지 않을 때부터, 그 종류에 글이 있을 때만 나온다.
+  const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const top = sorted.slice(0, 5);
   const lead = top[0];
-
-  const popularRows = top.map((item, i) => `
-          <li><a class="pop-item${i === 0 ? ' is-lead' : ''}" href="${articleHref(item.category, item.slug, _lang)}">
-            <span class="pop-rank">${i + 1}</span>
-            ${item.thumbnail ? `<img class="pop-thumb" ${thumbAttrs(item.thumbnail, [320])} width="320" height="180" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : '<span class="pop-thumb"></span>'}
+  const byCategory = (id) => sorted.filter(a => normalizeCategory(a.category) === id);
+  const showSections = sorted.length > top.length;
+  const secHead = (title, categoryId) => `<div class="sec-head"><h2>${escapeHtml(title)}</h2><a class="sec-more" href="${categoryHref(categoryId, _lang)}">${_t.viewAll} →</a></div>`;
+  const thumbRow = (item, rank) => `
+          <li><a class="pop-item${rank === 1 ? ' is-lead' : ''}${item.thumbnail ? '' : ' no-thumb'}" href="${articleHref(item.category, item.slug, _lang)}">
+            ${rank ? `<span class="pop-rank">${rank}</span>` : ''}
+            ${item.thumbnail ? `<img class="pop-thumb" ${thumbAttrs(item.thumbnail, [320])} width="320" height="180" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
             <div class="pop-text"><h3 class="pop-title">${escapeHtml(item.title)}</h3>${renderMeta(item, _lang)}</div>
-          </a></li>`).join('');
+          </a></li>`;
 
-  // PC 미리보기 판: 1위 글. 모바일은 판을 숨기고 <picture>의 빈 source로 큰 이미지를 아예 받지 않는다.
+  const popularRows = top.map((item, i) => thumbRow(item, i + 1)).join('');
+
+  // PC 미리보기 판: 가장 최근 글. 모바일은 판을 숨기고 <picture>의 빈 source로 큰 이미지를 아예 받지 않는다.
   // 목록 1행과 같은 글이라 보조 기술에는 숨긴다.
   const leadImage = lead && lead.thumbnail
     ? { attrs: thumbAttrs(lead.thumbnail, [640, 960], PANEL_IMAGE_SIZES) }
     : null;
   const panelHtml = lead ? `
         <a class="pop-panel" href="${articleHref(lead.category, lead.slug, _lang)}" aria-hidden="true" tabindex="-1">
-          <span class="pop-panel-label">${_t.mostReadFirst}</span>
+          <span class="pop-panel-label">${_t.recentFirst}</span>
           ${leadImage ? `<picture class="pop-panel-media"><source media="(max-width: 768px)" srcset="${BLANK_GIF}"><img class="pop-panel-img" ${leadImage.attrs} width="960" height="540" alt="" fetchpriority="high" decoding="async" data-img-fallback="hide"></picture>` : ''}
           ${renderMeta(lead, _lang)}
           <h3 class="pop-panel-title">${escapeHtml(lead.title)}</h3>
@@ -439,42 +443,92 @@ function generateAIBlogIndex(data) {
           <span class="btn btn-dark">${_t.readArticle} →</span>
         </a>` : '';
 
-  const popularSection = top.length ? `
-      <section class="home-sec" id="home-popular">
-        <div class="sec-head"><h2>${_t.mostRead}</h2></div>
+  const recentSection = top.length ? `
+      <section class="home-sec" id="home-recent">
+        <div class="sec-head"><h2>${_t.recent}</h2></div>
         <div class="pop-grid">
-          <ol class="pop-list">${popularRows}
+          <ol class="pop-list${top.length < 4 ? ' is-short' : ''}">${popularRows}
           </ol>${panelHtml}
         </div>
       </section>` : '';
 
-  const latestSection = latest.length ? `
-      <section class="home-sec" id="home-latest">
-        <div class="sec-head"><h2>${_t.latestArticles}</h2></div>
-        ${renderFeedList(latest, _lang, { grid: 'homeLatestGrid', data: 'homeLatestDeferredData', pager: 'homeLatestPager' })}
+  // 개발일지: 썸네일 없이 쓰는 글이라 회차 · 제목 · 한 줄 설명 · 날짜만 있는 줄 목록
+  const devlogs = byCategory('devlog');
+  const devlogSection = showSections && devlogs.length ? `
+      <section class="home-sec" id="home-devlog">
+        ${secHead(_t.categoryLabels.devlog, 'devlog')}
+        <ol class="log-list">${devlogs.slice(0, 5).map((item, i) => `
+          <li><a class="log-item" href="${articleHref(item.category, item.slug, _lang)}">
+            <span class="log-no">#${devlogs.length - i}</span>
+            <div><h3 class="log-title">${escapeHtml(item.title)}</h3>${item.summary ? `<p class="log-sum">${escapeHtml(item.summary)}</p>` : ''}</div>
+            <time class="log-date" datetime="${escapeHtml(String(item.date || '').slice(0, 10))}">${formatDateShort(item.date, _lang)}</time>
+          </a></li>`).join('')}
+        </ol>
+      </section>` : '';
+
+  const mixdogs = byCategory('mixdog');
+  const mixdogSection = showSections && mixdogs.length ? `
+      <section class="home-sec" id="home-mixdog">
+        <div class="mix-panel">
+          <div>
+            <span class="pop-panel-label">${_t.mixdogKicker}</span>
+            <h2>Mixdog</h2>
+            <p>${_t.mixdogDesc}</p>
+            <a class="btn btn-dark" href="${categoryHref('mixdog', _lang)}">${_t.mixdogMore} →</a>
+          </div>
+          <ul class="mix-notes">${mixdogs.slice(0, 3).map(item => `
+            <li><a href="${articleHref(item.category, item.slug, _lang)}"><span>${escapeHtml(item.title)}</span><time datetime="${escapeHtml(String(item.date || '').slice(0, 10))}">${formatDateShort(item.date, _lang)}</time></a></li>`).join('')}
+          </ul>
+        </div>
+      </section>` : '';
+
+  const reviews = byCategory('reviews');
+  const reviewSection = showSections && reviews.length ? `
+      <section class="home-sec" id="home-reviews">
+        ${secHead(_t.categoryLabels.reviews, 'reviews')}
+        <div class="feed-grid">${reviews.slice(0, 3).map((item, i) => renderFeedCard(item, i, _lang)).join('')}
+        </div>
+      </section>` : '';
+
+  const analyses = byCategory('analysis');
+  const analysisSection = showSections && analyses.length ? `
+      <section class="home-sec" id="home-analysis">
+        ${secHead(_t.categoryLabels.analysis, 'analysis')}
+        <div class="feed-grid">${analyses.slice(0, 3).map((item, i) => renderFeedCard(item, i, _lang)).join('')}
+        </div>
+      </section>` : '';
+
+  const newsItems = byCategory('news');
+  const newsSection = showSections && newsItems.length ? `
+      <section class="home-sec" id="home-news">
+        ${secHead(_t.newsHeading, 'news')}
+        <ol class="news-list">${newsItems.slice(0, 8).map(item => thumbRow(item, 0)).join('')}
+        </ol>
       </section>` : '';
 
   // 상단 광고: PC 빌보드 / 모바일 300×250 (광고 자리 바로 뒤에서 요청)
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { billboard: true });
-  const _homeTitle = _lang === 'ko' ? 'AIScroll - AI 산업 인사이트' : SITE_CONFIG.title;
+  const _homeTitle = _lang === 'ko' ? 'AIScroll - 플랑크톤의 AI 리뷰와 개발일지' : SITE_CONFIG.title;
   const _homeDescription = _lang === 'ko'
-    ? 'AIScroll은 AI 모델 출시, 코딩 에이전트, 빅테크 전략, 연구 동향을 빠르게 정리해 주는 AI 산업 인사이트 허브입니다.'
+    ? '코딩 에이전트 믹스독을 만드는 개발자 플랑크톤의 블로그. 직접 써 본 AI 모델·도구 리뷰, 직접 조사한 분석과 소식, 개발일지를 올립니다.'
     : SITE_CONFIG.description;
-  const _homeKeywords = _lang === 'ko' ? 'AI 뉴스, 인공지능, ChatGPT, Claude, 머신러닝, AI 트렌드' : SITE_CONFIG.keywords;
+  const _homeKeywords = _lang === 'ko' ? 'AI 리뷰, 코딩 에이전트, 개발일지, 믹스독, AI 도구, 플랑크톤' : SITE_CONFIG.keywords;
 
+  // 맨 위는 배너 자리라 소개 문구를 두지 않는다. h1 은 검색엔진·보조 기술용으로만 둔다.
   const content = `
     <div class="page-wrap home" id="home">
       ${topAds}
-      <div class="home-intro">
-        <h1>${_t.homeTitle}</h1>
-        <p>${_t.homeTagline}</p>
-      </div>
-      ${popularSection}
-      ${latestSection}
+      <h1 class="visually-hidden">AIScroll</h1>
+      ${recentSection}
+      ${devlogSection}
+      ${mixdogSection}
+      ${reviewSection}
+      ${analysisSection}
+      ${newsSection}
     </div>
   `;
 
-  const pageScripts = latest.length ? feedPagerScript('#homeLatestGrid', '#homeLatestPager', '#homeLatestDeferredData') : '';
+  const pageScripts = '';
 
   // WebSite JSON-LD for homepage (includes SearchAction)
   const websiteJsonLd = {
@@ -851,7 +905,7 @@ function generateSearchPage(lang = 'en') {
   </script>`;
 
   const _searchTitle = _lang === 'ko' ? `검색 - ${SITE_CONFIG.name}` : `Search - ${SITE_CONFIG.name}`;
-  const _searchDescription = _lang === 'ko' ? 'AIScroll 기사 검색' : 'Search articles on AIScroll';
+  const _searchDescription = _lang === 'ko' ? 'AIScroll 글 검색' : 'Search posts on AIScroll';
   return wrapWithLayout(content, {
     title: _searchTitle,
     description: _searchDescription,
@@ -904,17 +958,17 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
   // 언어별로 구분되는 제목·설명. 카테고리는 taxonomy 설명문, 주제는 "주제별 모아보기" 문구.
   const categoryTitle = isTopicPage
     ? (_lang === 'ko'
-      ? `${categoryLabel} 뉴스·후기·가이드·벤치마크 - ${SITE_CONFIG.name}`
-      : `${categoryLabel}: News, Reviews, Guides & Benchmarks - ${SITE_CONFIG.name}`)
+      ? `${categoryLabel} 리뷰·분석·개발일지 - ${SITE_CONFIG.name}`
+      : `${categoryLabel}: Reviews, Analysis & Dev Logs - ${SITE_CONFIG.name}`)
     : `${categoryLabel} - ${SITE_CONFIG.name}`;
   const categoryDescriptionText = isTopicPage
     ? (_lang === 'ko'
-      ? `${categoryLabel} 주제의 뉴스, 실사용 후기, 설치 가이드, 자체 벤치마크를 한곳에 모았습니다.`
-      : `Everything AIScroll has published on ${categoryLabel}: news, hands-on reviews, setup guides, and our own benchmarks.`)
+      ? `${categoryLabel} 주제로 쓴 리뷰, 분석, 개발일지, 소식을 한곳에 모았습니다.`
+      : `Everything on AIScroll about ${categoryLabel}: reviews, analysis, dev logs, and news.`)
     : categoryDescription(categoryId, _lang);
   const categoryKeywords = _lang === 'ko'
-    ? `${categoryLabel}, AI 뉴스, 인공지능, ${SITE_CONFIG.name}`
-    : `${categoryLabel}, AI news, ${SITE_CONFIG.keywords}`;
+    ? [...new Set([categoryLabel, 'AI 리뷰', '코딩 에이전트', '개발일지', SITE_CONFIG.name])].join(', ')
+    : `${categoryLabel}, ${SITE_CONFIG.keywords}`;
   // CollectionPage + BreadcrumbList JSON-LD for category pages
   const categoryJsonLd = [
     {
@@ -955,6 +1009,7 @@ function generateCategoryPage(categoryId, categoryLabel, articles, popularArticl
     description: categoryDescriptionText,
     keywords: categoryKeywords,
     canonical: `${SITE_CONFIG.baseUrl}${_langPrefix}${collectionPath}`,
+    noindex: categoryArticles.length === 0,
     pageScripts,
     currentPage: categoryId,
     jsonLd: categoryJsonLd,

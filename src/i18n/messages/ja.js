@@ -2,9 +2,9 @@
 'use strict';
 
 module.exports = {
-  "about.a_pen_name_the_same": "（ペンネーム）が一人で制作・運営しています。AIツール・コーディングエージェント専門メディアの",
+  "about.a_pen_name_the_same": "が一人で制作・運営しています。AIツール・コーディングエージェントのブログ",
   "about.about_gamerscroll": "GamerScrollについて",
-  "about.about_gamerscroll_game_ranking_data": "GamerScrollについて、ゲームランキングデータ、Editor J、運営者、データ出典",
+  "about.about_gamerscroll_game_ranking_data": "GamerScrollについて、ゲームランキングデータ、Plankton、運営者、データ出典",
   "about.about_gamerscroll_who_makes_it": "GamerScrollについて — 運営者・収集データ・集計方法 | GamerScroll",
   "about.aiscroll": "AIScroll",
   "about.collects_the_ranking_trend_and": "は、収集したゲーム一つひとつのランキング推移と履歴をまとめたサイトです。",

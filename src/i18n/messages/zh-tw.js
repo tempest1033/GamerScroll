@@ -2,9 +2,9 @@
 'use strict';
 
 module.exports = {
-  "about.a_pen_name_the_same": "（筆名）獨力打造與營運。同一人也經營 AI 工具與程式開發代理媒體 ",
+  "about.a_pen_name_the_same": "獨力打造與營運。同一人也經營 AI 工具與程式開發代理部落格 ",
   "about.about_gamerscroll": "關於 GamerScroll",
-  "about.about_gamerscroll_game_ranking_data": "關於 GamerScroll, 遊戲排行資料, Editor J, 營運者, 資料來源",
+  "about.about_gamerscroll_game_ranking_data": "關於 GamerScroll, 遊戲排行資料, Plankton, 營運者, 資料來源",
   "about.about_gamerscroll_who_makes_it": "關於 GamerScroll：誰在經營、收錄什麼、如何製作 | GamerScroll",
   "about.aiscroll": "AIScroll",
   "about.collects_the_ranking_trend_and": "收錄我們追蹤的每款遊戲的排名走勢與歷史紀錄。",
