@@ -42045,6 +42045,41 @@
         }
       ],
       "addedAt": "2026-10-04T21:50:43.275Z"
+    },
+    {
+      "title": "Word Spells: Game for Adults",
+      "status": "single",
+      "appIds": {
+        "android": "com.openmygame.magicwordsearch"
+      },
+      "developer": "Malpa Games",
+      "icon": "https://play-lh.googleusercontent.com/AWLhV7GJRWHrBRozvKo5J1BpgNrNSrqagfs0Adp2XLMwvAkFNTQO30UmfnQ8tfvNZCMbiluKIrYaPtC7cdlF5Q",
+      "searchResults": [
+        {
+          "title": "Words of Wonders: 퍼즐 로직!",
+          "appId": 1369521645
+        },
+        {
+          "title": "Word Spells Puzzle for Seniors",
+          "appId": 1542930270
+        },
+        {
+          "title": "Word Trip - Word Puzzles Games",
+          "appId": 1214223596
+        }
+      ],
+      "addedAt": "2026-10-05T00:23:26.904Z"
+    },
+    {
+      "title": "옥사이드: 서바이벌 아일랜드, 협동 생존",
+      "status": "single",
+      "appIds": {
+        "android": "com.catsbit.oxidesurvivalisland"
+      },
+      "developer": "HYPERHUG",
+      "icon": "https://play-lh.googleusercontent.com/angXGBMMY51cmjEacSarq1uV5Olbui9cCQr9BaRNpGcRNv1JrK0Y0JRRq5KqD1pT7jjgWYO1p6BFNlgmME-O",
+      "searchResults": [],
+      "addedAt": "2026-10-05T00:23:27.735Z"
     }
   ],
   "approved": [

@@ -146413,8 +146413,40 @@
         "ko": "ScrewShift Puzzle",
         "zh-tw": "ScrewShift Puzzle"
       }
+    },
+    "Word Spells: Game for Adults": {
+      "appIds": {
+        "android": "com.openmygame.magicwordsearch"
+      },
+      "aliases": [],
+      "developer": "Malpa Games",
+      "icon": "https://play-lh.googleusercontent.com/AWLhV7GJRWHrBRozvKo5J1BpgNrNSrqagfs0Adp2XLMwvAkFNTQO30UmfnQ8tfvNZCMbiluKIrYaPtC7cdlF5Q",
+      "slug": "word-spells-game-for-adults",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Word Spells: Game for Adults",
+        "en": "Word Spells: Game for Adults"
+      }
+    },
+    "옥사이드: 서바이벌 아일랜드, 협동 생존": {
+      "appIds": {
+        "android": "com.catsbit.oxidesurvivalisland"
+      },
+      "aliases": [],
+      "developer": "HYPERHUG",
+      "icon": "https://play-lh.googleusercontent.com/angXGBMMY51cmjEacSarq1uV5Olbui9cCQr9BaRNpGcRNv1JrK0Y0JRRq5KqD1pT7jjgWYO1p6BFNlgmME-O",
+      "slug": "옥사이드-서바이벌-아일랜드-협동-생존",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "옥사이드: 서바이벌 아일랜드, 협동 생존",
+        "zh-tw": "Oxide: Survival Island"
+      }
     }
   },
   "lastUpdated": "2026-10-05",
-  "totalGames": 8475
+  "totalGames": 8477
 }
