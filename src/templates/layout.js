@@ -34,7 +34,6 @@ function getPageExtraCssFiles(currentPage = '') {
   let files = [];
   if (['home', 'game', 'rankings', 'trending', 'steam', 'about'].includes(page)) files = ['/styles-game.css'];
   if (page === 'games') files = ['/styles-catalog.css'];
-  if (page === 'tech') files = ['/styles-article.css'];
   return files.map(withCssAssetVersion);
 }
 

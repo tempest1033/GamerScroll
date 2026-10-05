@@ -18,9 +18,7 @@ const crypto = require('crypto');
 // Order matters: it is part of the hash input. Keep both generators aligned.
 const CSS_ASSET_FILES = [
   'styles-core.css',
-  'styles-report.css',
   'styles-game.css',
-  'styles-article.css',
   'styles-catalog.css',
 ];
 

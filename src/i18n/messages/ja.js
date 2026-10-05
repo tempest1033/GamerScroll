@@ -18,7 +18,7 @@ module.exports = {
   "about.send_to_suffix": "までお送りください。",
   "about.send_correction_requests_and_inquiries": "訂正のご依頼やお問い合わせは X",
   "about.the_collection_scope_schedule_and": "各ランキングの収集範囲・スケジュール・計算式は",
-  "about.there_is_no_separate_editorial": "も同じ人物が運営しています。専任の編集チームはありません。",
+  "about.there_is_no_separate_editorial": "も同じ人物が運営しています。",
   "about.we_collect_the_public_store": "公開されているストアのチャートを1日に数回収集し、日次の履歴を1日1回保存したうえで、推移・連続1位日数・月間平均などの指標を算出しています。売上の推定値は提供しておらず、すべての指標はランキング記録から計算しています。",
   "about.we_do_not_publish_rewritten": "プレスリリースの焼き直し、実際に遊んでいないゲームについての断定、根拠のない売上推定は掲載しません。すべての数値は、GamerScroll自身が記録したランキングデータから計算しています。",
   "about.what_it_covers": "収集対象",

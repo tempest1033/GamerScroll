@@ -18,7 +18,7 @@ module.exports = {
   "about.send_to_suffix": "。",
   "about.send_correction_requests_and_inquiries": "更正請求與洽詢請傳送至 X ",
   "about.the_collection_scope_schedule_and": "蒐集範圍、更新時程與各項排行背後的計算公式，皆說明於 ",
-  "about.there_is_no_separate_editorial": "。我們沒有另設編輯團隊。",
+  "about.there_is_no_separate_editorial": "。",
   "about.we_collect_the_public_store": "我們每天多次蒐集商店公開榜單，並每天保存一次每日歷史紀錄，再計算走勢、連續第 1 名天數與月平均等指標。我們不提供營收估算，所有指標皆由排名紀錄計算而來。",
   "about.we_do_not_publish_rewritten": "我們不發布改寫的新聞稿、對沒人玩過的遊戲的斷言，或缺乏依據的營收估算。所有數字皆來自 GamerScroll 自行記錄的排行資料。",
   "about.what_it_covers": "收錄範圍",

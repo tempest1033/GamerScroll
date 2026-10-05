@@ -18,7 +18,7 @@ module.exports = {
   "about.send_to_suffix": ".",
   "about.send_correction_requests_and_inquiries": "Send correction requests and inquiries to X",
   "about.the_collection_scope_schedule_and": "The collection scope, schedule and formula behind each ranking are explained in",
-  "about.there_is_no_separate_editorial": ". There is no separate editorial team.",
+  "about.there_is_no_separate_editorial": ".",
   "about.we_collect_the_public_store": "We collect the public store charts several times a day and save the daily history once a day, then calculate indicators such as trends, consecutive days at #1 and monthly averages. We do not provide revenue estimates; every indicator is calculated from ranking records.",
   "about.we_do_not_publish_rewritten": "We do not publish rewritten press releases, assertions about games nobody has played, or revenue estimates without evidence. Every figure is calculated from ranking data that GamerScroll records itself.",
   "about.what_it_covers": "What it covers",

@@ -18,7 +18,7 @@ module.exports = {
   "about.send_to_suffix": "로 보내 주세요.",
   "about.send_correction_requests_and_inquiries": "정정 요청과 문의는 X",
   "about.the_collection_scope_schedule_and": "수집 범위·주기·각 순위의 계산식은",
-  "about.there_is_no_separate_editorial": "도 같은 사람이 운영합니다. 별도의 편집팀은 없습니다.",
+  "about.there_is_no_separate_editorial": "도 같은 사람이 운영합니다.",
   "about.we_collect_the_public_store": "순위는 스토어의 공개 차트를 하루 여러 차례 수집하고, 일별 이력을 하루 한 번 저장해 추이·연속 1위 일수·월간 평균 같은 지표를 계산합니다. 매출 금액 추정치는 제공하지 않으며, 모든 지표는 순위 기록에서 계산한 값입니다.",
   "about.we_do_not_publish_rewritten": "보도자료를 옮겨 적은 글, 써 보지 않은 게임에 대한 단정, 근거 없는 매출 추정은 싣지 않습니다. 모든 수치는 게이머스크롤이 직접 기록한 순위 데이터에서 계산합니다.",
   "about.what_it_covers": "무엇을 다루나",

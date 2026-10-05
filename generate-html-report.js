@@ -744,9 +744,7 @@ async function main() {
   const cssBundles = [
     { entry: './src/styles/bundle-core.css', output: './styles-core.css', publicPath: '/styles-core.css', label: 'styles-core.css', required: true },
     { entry: './src/styles/bundle-catalog.css', output: './styles-catalog.css', publicPath: '/styles-catalog.css', label: 'styles-catalog.css', required: true },
-    { entry: './src/styles/bundle-report.css', output: './styles-report.css', publicPath: '/styles-report.css', label: 'styles-report.css', required: false },
-    { entry: './src/styles/bundle-game.css', output: './styles-game.css', publicPath: '/styles-game.css', label: 'styles-game.css', required: false },
-    { entry: './src/styles/bundle-article.css', output: './styles-article.css', publicPath: '/styles-article.css', label: 'styles-article.css', required: false }
+    { entry: './src/styles/bundle-game.css', output: './styles-game.css', publicPath: '/styles-game.css', label: 'styles-game.css', required: false }
   ];
 
   const buildCssBundle = (bundle) => {
@@ -1025,6 +1023,11 @@ async function main() {
       if (/^styles(?:-[a-z]+)?\.[a-f0-9]{8}\.css$/.test(file)) {
         fs.unlinkSync(`${DOCS_DIR}/${file}`);
       }
+    }
+
+    // 기사 섹션과 함께 없앤 묶음: 이전 배포본을 시드로 쓰는 빌드에 남아 있으면 지운다
+    for (const stale of ['styles-report.css', 'styles-article.css']) {
+      if (fs.existsSync(`${DOCS_DIR}/${stale}`)) fs.unlinkSync(`${DOCS_DIR}/${stale}`);
     }
 
     for (const filename of CSS_ASSET_FILES) {

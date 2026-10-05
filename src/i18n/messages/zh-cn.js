@@ -18,7 +18,7 @@ module.exports = {
   "about.send_to_suffix": "。",
   "about.send_correction_requests_and_inquiries": "更正请求与咨询请发送至 X 账号",
   "about.the_collection_scope_schedule_and": "各榜单的收集范围、更新频率和计算公式详见",
-  "about.there_is_no_separate_editorial": "。我们没有独立的编辑团队。",
+  "about.there_is_no_separate_editorial": "。",
   "about.we_collect_the_public_store": "我们每天多次收集各应用商店的公开榜单，每天保存一次日度历史，并据此计算走势、连续登顶天数、月度平均等指标。我们不提供营收金额估算，所有指标均由排名记录计算得出。",
   "about.we_do_not_publish_rewritten": "我们不发布照搬新闻稿的内容、对没玩过的游戏妄下的论断，或没有依据的营收估算。所有数据均由 GamerScroll 自行记录的排名数据计算得出。",
   "about.what_it_covers": "收录内容",
