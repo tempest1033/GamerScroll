@@ -35343,13 +35343,19 @@
     },
     {
       "title": "Sand Blocks: Drop Puzzle",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6757140488
+        "ios": "6757140488",
+        "android": "com.uncosoft.wordpuzzle"
       },
       "developer": "Rollic Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/24/78/3c247842-8a54-ed19-9d4f-8cd1e721a600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Sand Blocks: Drop Puzzle",
+          "appId": "6757140488"
+        }
+      ],
       "addedAt": "2026-09-25T22:03:50.813Z"
     },
     {
@@ -42171,6 +42177,105 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/49/8f/52498f13-7180-f7f2-764a-b351b5054753/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-06T15:39:24.897Z"
+    },
+    {
+      "title": "Nut Stack：Sort Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.nut.stack.sort.puzzle",
+        "ios": 6791946629
+      },
+      "developer": "Nova Games Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/6d2_YnHDPEJF1c3E1XUFzUjNQ5-QrPy-T336qyT7xrsve5J3lsAmG3PlCoRREwJ1hin_FgvodaTMywzuFJfEHw",
+      "searchResults": [
+        {
+          "title": "Nut Stack: Sort Puzzle",
+          "appId": 6791946629
+        },
+        {
+          "title": "SortPuz - Water Sort Puzzles",
+          "appId": 1560298214
+        },
+        {
+          "title": "Nut Sort: Color Sorting Game",
+          "appId": 6476144780
+        }
+      ],
+      "addedAt": "2026-10-06T20:44:39.259Z"
+    },
+    {
+      "title": "墨生",
+      "status": "single",
+      "appIds": {
+        "ios": 6804245310
+      },
+      "developer": "BIIIIIdddaga",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/db/70/52db70f3-c2c2-62a7-3274-9d96931dd495/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-06T20:44:40.228Z"
+    },
+    {
+      "title": "무한 지뢰찾기",
+      "status": "single",
+      "appIds": {
+        "ios": 6476042029
+      },
+      "developer": "JAKUB SOBUN",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a9/3e/53/a93e53f5-757f-1abf-f78c-356c59cedd51/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-06T20:44:40.584Z"
+    },
+    {
+      "title": "激戦！蜀の白龍",
+      "status": "matched",
+      "appIds": {
+        "android": "com.yuegame.battle",
+        "ios": 6802228805
+      },
+      "developer": "yuegame",
+      "icon": "https://play-lh.googleusercontent.com/5zopGPceXGPavFfckoMEqt5rWEOjrjMyvlXKqcJ12bbn0ar8i5hGVobx1WY-LjAasglcioTrc2TF08lVPZ_4zQ",
+      "searchResults": [
+        {
+          "title": "激戦！蜀の白龍",
+          "appId": 6802228805
+        }
+      ],
+      "addedAt": "2026-10-06T20:44:41.124Z"
+    },
+    {
+      "title": "鼠鼠冒險團",
+      "status": "single",
+      "appIds": {
+        "android": "cattt.wzca.ffce"
+      },
+      "developer": "RNPGAME",
+      "icon": "https://play-lh.googleusercontent.com/72pzncEqPcDKojPl7L_ZwhNYKzHdz-D-grlKywoPf73JcSBoq8th6YdzZD-XUB43vKvoHdHj0jJXgRhuQBpz",
+      "searchResults": [],
+      "addedAt": "2026-10-06T20:44:41.576Z"
+    },
+    {
+      "title": "Monster Collector: Card Battle",
+      "status": "single",
+      "appIds": {
+        "android": "com.monster.collector.card"
+      },
+      "developer": "brain",
+      "icon": "https://play-lh.googleusercontent.com/zzuGvsWOV8vas94XGBRRPbOwT1Vq0hBgelySPgtBaOArblC2x9uBsI7H-4t1GILqiu0mqYe1NfbhT1zEVdJ1DA",
+      "searchResults": [
+        {
+          "title": "포켓몬 카드 게임 Pocket",
+          "appId": 6479970832
+        },
+        {
+          "title": "몬스터: 카드 게임",
+          "appId": 6444617179
+        },
+        {
+          "title": "픽셀 테이머즈",
+          "appId": 6670596973
+        }
+      ],
+      "addedAt": "2026-10-06T20:44:42.250Z"
     }
   ],
   "approved": [

@@ -63821,14 +63821,16 @@
     },
     "Sand Blocks: Drop Puzzle": {
       "appIds": {
-        "ios": 6757140488
+        "ios": "6757140488",
+        "android": "com.uncosoft.wordpuzzle"
       },
       "aliases": [],
       "developer": "Rollic Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/24/78/3c247842-8a54-ed19-9d4f-8cd1e721a600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "sand-blocks-drop-puzzle",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Sand Blocks: Drop Puzzle",
@@ -146635,8 +146637,111 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Nut Stack：Sort Puzzle": {
+      "appIds": {
+        "android": "com.nut.stack.sort.puzzle",
+        "ios": 6791946629
+      },
+      "aliases": [
+        "Nut Stack: Sort Puzzle"
+      ],
+      "developer": "Nova Games Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/6d2_YnHDPEJF1c3E1XUFzUjNQ5-QrPy-T336qyT7xrsve5J3lsAmG3PlCoRREwJ1hin_FgvodaTMywzuFJfEHw",
+      "slug": "nut-stacksort-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Nut Stack：Sort Puzzle",
+        "ja": "Nut Stack：Sort Puzzle",
+        "zh-tw": "Nut Stack：Sort Puzzle"
+      }
+    },
+    "墨生": {
+      "appIds": {
+        "ios": 6804245310
+      },
+      "aliases": [],
+      "developer": "BIIIIIdddaga",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/db/70/52db70f3-c2c2-62a7-3274-9d96931dd495/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "墨生",
+        "zh-tw": "墨生"
+      }
+    },
+    "무한 지뢰찾기": {
+      "appIds": {
+        "ios": 6476042029
+      },
+      "aliases": [],
+      "developer": "JAKUB SOBUN",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a9/3e/53/a93e53f5-757f-1abf-f78c-356c59cedd51/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "무한-지뢰찾기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "무한 지뢰찾기",
+        "zh-tw": "無限踩地雷"
+      }
+    },
+    "激戦！蜀の白龍": {
+      "appIds": {
+        "android": "com.yuegame.battle",
+        "ios": 6802228805
+      },
+      "aliases": [],
+      "developer": "yuegame",
+      "icon": "https://play-lh.googleusercontent.com/5zopGPceXGPavFfckoMEqt5rWEOjrjMyvlXKqcJ12bbn0ar8i5hGVobx1WY-LjAasglcioTrc2TF08lVPZ_4zQ",
+      "slug": "",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "激戦！蜀の白龍",
+        "zh-tw": "激戦！蜀の白龍"
+      }
+    },
+    "鼠鼠冒險團": {
+      "appIds": {
+        "android": "cattt.wzca.ffce"
+      },
+      "aliases": [],
+      "developer": "RNPGAME",
+      "icon": "https://play-lh.googleusercontent.com/72pzncEqPcDKojPl7L_ZwhNYKzHdz-D-grlKywoPf73JcSBoq8th6YdzZD-XUB43vKvoHdHj0jJXgRhuQBpz",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "鼠鼠冒險團",
+        "zh-tw": "鼠鼠冒險團"
+      }
+    },
+    "Monster Collector: Card Battle": {
+      "appIds": {
+        "android": "com.monster.collector.card"
+      },
+      "aliases": [],
+      "developer": "brain",
+      "icon": "https://play-lh.googleusercontent.com/zzuGvsWOV8vas94XGBRRPbOwT1Vq0hBgelySPgtBaOArblC2x9uBsI7H-4t1GILqiu0mqYe1NfbhT1zEVdJ1DA",
+      "slug": "monster-collector-card-battle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Monster Collector: Card Battle",
+        "zh-tw": "Monster Collector: Card Battle"
+      }
     }
   },
   "lastUpdated": "2026-10-07",
-  "totalGames": 8490
+  "totalGames": 8496
 }
