@@ -146553,8 +146553,62 @@
       "platforms": [
         "steam"
       ]
+    },
+    "도깨비의세계": {
+      "appIds": {
+        "ios": 6758975161
+      },
+      "aliases": [],
+      "developer": "Kakao Games Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "도깨비의세계",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "도깨비의세계"
+      }
+    },
+    "TOY BLOX トイブロックス-トリマ公式ブロックパズル": {
+      "appIds": {
+        "ios_jp": 6789060737
+      },
+      "aliases": [],
+      "developer": "GeoTechnologies, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/f8/f5/e6f8f5eb-15c1-6c29-b722-1239dd687d9c/AppIcon-production-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "toy-blox-トイブロックス-トリマ公式ブロックパズル",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "TOY BLOX トイブロックス-トリマ公式ブロックパズル"
+      }
+    },
+    "Puzzle Bobble Everybubble!": {
+      "appIds": {
+        "steam": "3990960"
+      },
+      "aliases": [],
+      "developer": "TAITO CORP.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3990960/e9f59d8d3d281c11ece5a766054e16bbb1bb41ff/capsule_231x87.jpg?t=1776909637",
+      "slug": "puzzle-bobble-everybubble",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "DYNASTY WARRIORS 8: Xtreme Legends Complete Edition": {
+      "appIds": {
+        "steam": "278080"
+      },
+      "aliases": [],
+      "developer": "KOEI TECMO GAMES CO., LTD.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/278080/capsule_231x87.jpg?t=1790733331",
+      "slug": "dynasty-warriors-8-xtreme-legends-complete-edition",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-06",
-  "totalGames": 8484
+  "totalGames": 8488
 }

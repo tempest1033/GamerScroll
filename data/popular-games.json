@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T06:00:35.663Z",
+  "updatedAt": "2026-10-06T08:50:27.957Z",
   "period": "30days",
   "games": [
     {
@@ -23,16 +23,16 @@
       "views": 9
     },
     {
-      "slug": "킹샷kingshot",
+      "slug": "roblox",
       "views": 8
     },
     {
-      "slug": "roblox",
-      "views": 7
+      "slug": "레이싱-마스터",
+      "views": 8
     },
     {
-      "slug": "레이싱-마스터",
-      "views": 7
+      "slug": "킹샷kingshot",
+      "views": 8
     },
     {
       "slug": "리니지m",
@@ -47,6 +47,14 @@
       "views": 6
     },
     {
+      "slug": "go-go-고양이-홉핑",
+      "views": 5
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 5
+    },
+    {
       "slug": "sol-enchant",
       "views": 5
     },
@@ -59,23 +67,15 @@
       "views": 5
     },
     {
+      "slug": "명조워더링-웨이브",
+      "views": 5
+    },
+    {
+      "slug": "블라이트-워-사후-처리국",
+      "views": 5
+    },
+    {
       "slug": "블루-프로토콜-스타-레조넌스",
-      "views": 5
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
-      "views": 5
-    },
-    {
-      "slug": "에이지-오브-제트-타워-디펜스",
-      "views": 5
-    },
-    {
-      "slug": "임진왜란-조선의-반격",
-      "views": 5
-    },
-    {
-      "slug": "탑-히어로즈-영웅의-시대",
       "views": 5
     }
   ]

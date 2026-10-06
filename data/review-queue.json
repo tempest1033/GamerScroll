@@ -42149,6 +42149,17 @@
         }
       ],
       "addedAt": "2026-10-06T02:01:47.155Z"
+    },
+    {
+      "title": "도깨비의세계",
+      "status": "single",
+      "appIds": {
+        "ios": 6758975161
+      },
+      "developer": "Kakao Games Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-06T08:51:39.644Z"
     }
   ],
   "approved": [
