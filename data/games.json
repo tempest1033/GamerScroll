@@ -146607,8 +146607,36 @@
       "platforms": [
         "steam"
       ]
+    },
+    "방치했더니 강해진 건에 대하여": {
+      "appIds": {
+        "ios": 6803102556
+      },
+      "aliases": [],
+      "developer": "BarKur Technology Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/49/8f/52498f13-7180-f7f2-764a-b351b5054753/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "방치했더니-강해진-건에-대하여",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "방치했더니 강해진 건에 대하여",
+        "zh-tw": "關於我掛機就能變強這件事"
+      }
+    },
+    "SOS OPS!": {
+      "appIds": {
+        "steam": "2475460"
+      },
+      "aliases": [],
+      "developer": "ArtDock",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2475460/5344dee4abc51a44a5ff48fe7e4508187f885f6f/capsule_231x87.jpg?t=1791094099",
+      "slug": "sos-ops",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-06",
-  "totalGames": 8488
+  "lastUpdated": "2026-10-07",
+  "totalGames": 8490
 }
