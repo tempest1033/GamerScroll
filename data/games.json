@@ -146523,8 +146523,38 @@
         "ko": "脱出ゲーム｜おばけとかぼちゃのクッキー",
         "ja": "脱出ゲーム｜おばけとかぼちゃのクッキー"
       }
+    },
+    "Bubble Fish: Sort Puzzle": {
+      "appIds": {
+        "android": "com.bubble.fish.sort.puzzle",
+        "ios": 6813802366
+      },
+      "aliases": [],
+      "developer": "Magic one games",
+      "icon": "https://play-lh.googleusercontent.com/YY40l4BJtF01o8bT99OoTeDhenUxtN7udFGUASBQfGRbbwTVSV5WcEF6EBQ-8q6NXWuKHQKD9P49rxSbQET66Q",
+      "slug": "bubble-fish-sort-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Bubble Fish: Sort Puzzle",
+        "ja": "Bubble Fish: Sort Puzzle"
+      }
+    },
+    "STAR WARS: Galactic Racer™": {
+      "appIds": {
+        "steam": "4078430"
+      },
+      "aliases": [],
+      "developer": "Fuse Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4078430/13ac6002a7cd1c867f8bf2f650101fe9d91ce4f9/capsule_231x87.jpg?t=1790098978",
+      "slug": "star-wars-galactic-racer",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-06",
-  "totalGames": 8482
+  "totalGames": 8484
 }

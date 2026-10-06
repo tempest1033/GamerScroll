@@ -42124,6 +42124,31 @@
       "icon": "https://play-lh.googleusercontent.com/EkUTDW_SPUg0UD8eNUqVN9uK0pnMXLqNfEcrACzbbN1i1Olu3hqLzfGSI41Y2r5ePj3YyCNLw_gdFMAe7fpbcSA",
       "searchResults": [],
       "addedAt": "2026-10-05T21:35:11.241Z"
+    },
+    {
+      "title": "Bubble Fish: Sort Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.bubble.fish.sort.puzzle",
+        "ios": 6813802366
+      },
+      "developer": "Magic one games",
+      "icon": "https://play-lh.googleusercontent.com/YY40l4BJtF01o8bT99OoTeDhenUxtN7udFGUASBQfGRbbwTVSV5WcEF6EBQ-8q6NXWuKHQKD9P49rxSbQET66Q",
+      "searchResults": [
+        {
+          "title": "Bubble Fish: Sort Puzzle",
+          "appId": 6813802366
+        },
+        {
+          "title": "Fish Sort Puzzle: 물고기 정렬 거품 게임",
+          "appId": 6771681639
+        },
+        {
+          "title": "Fish Jam Fever",
+          "appId": 6812611991
+        }
+      ],
+      "addedAt": "2026-10-06T02:01:47.155Z"
     }
   ],
   "approved": [
