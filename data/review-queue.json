@@ -42276,6 +42276,34 @@
         }
       ],
       "addedAt": "2026-10-06T20:44:42.250Z"
+    },
+    {
+      "title": "고물 히어로",
+      "status": "matched",
+      "appIds": {
+        "android": "com.superpixel.scrap",
+        "ios": 6775388646
+      },
+      "developer": "SUPERBOX Inc",
+      "icon": "https://play-lh.googleusercontent.com/wsShyiBht7Y2eDceCY4ZnsLQuDIU23zoRuMvSi4pxJsnLitZYdJX0sv8gCpOSEQAIJderxd_VCiEP368apfwCQ",
+      "searchResults": [
+        {
+          "title": "고물 히어로",
+          "appId": 6775388646
+        }
+      ],
+      "addedAt": "2026-10-07T00:19:24.307Z"
+    },
+    {
+      "title": "Spider Fuser",
+      "status": "single",
+      "appIds": {
+        "ios": 6746333947
+      },
+      "developer": "R Rahul",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/31/61/553161e5-782c-8655-bffa-3a6bf2738941/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-07T00:19:24.786Z"
     }
   ],
   "approved": [

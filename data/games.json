@@ -146740,8 +146740,41 @@
         "ko": "Monster Collector: Card Battle",
         "zh-tw": "Monster Collector: Card Battle"
       }
+    },
+    "고물 히어로": {
+      "appIds": {
+        "android": "com.superpixel.scrap",
+        "ios": 6775388646
+      },
+      "aliases": [],
+      "developer": "SUPERBOX Inc",
+      "icon": "https://play-lh.googleusercontent.com/wsShyiBht7Y2eDceCY4ZnsLQuDIU23zoRuMvSi4pxJsnLitZYdJX0sv8gCpOSEQAIJderxd_VCiEP368apfwCQ",
+      "slug": "고물-히어로",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "고물 히어로"
+      }
+    },
+    "Spider Fuser": {
+      "appIds": {
+        "ios": 6746333947
+      },
+      "aliases": [],
+      "developer": "R Rahul",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/31/61/553161e5-782c-8655-bffa-3a6bf2738941/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "spider-fuser",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Spider Fuser",
+        "zh-cn": "Spider Fuser"
+      }
     }
   },
   "lastUpdated": "2026-10-07",
-  "totalGames": 8496
+  "totalGames": 8498
 }
