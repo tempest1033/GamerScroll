@@ -1,12 +1,13 @@
 {
   "meta": {
-    "cssHash": "cbcab1c3a3b5",
-    "templateJsHash": "2f8f730b1661",
+    "cssHash": "650ac8ea9f14",
+    "templateJsHash": "cab20e80ba70",
     "faviconSvgHash": "bbb58ecf0858",
-    "lastBuild": "2026-10-05T18:52:53.710Z"
+    "lastBuild": "2026-10-07T03:27:00.858Z"
   },
   "articles": {
     "coding-agent-picks-2026-09": "e28626bce3f1",
-    "muse-spark-13-contributor": "937cb1283425"
+    "muse-spark-13-contributor": "937cb1283425",
+    "ai-token-cost-by-language": "d460f939aea2"
   }
 }
