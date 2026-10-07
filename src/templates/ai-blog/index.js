@@ -13,6 +13,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { buildCardFeedPagerScript, LAYOUT_CORE_ASSET, buildLayoutCoreBundle, AD_SLOTS, generateHomeAdPairSlot } = require('../../aiscroll-ui/layout');
 const { lazyImageLoaderScript } = require('../../aiscroll-build/lazy-images');
+const MIXDOG_COPY = require('./mixdog-copy');
 
 // 광고 활성화 여부 (ADS_ENABLED=false면 비활성화)
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
@@ -56,8 +57,8 @@ const I18N = {
     categoryLabels: CATEGORY_LABELS.en,
     topicLabels: TOPIC_LABELS.en,
     navLabel: 'Sections',
-    recent: 'Latest posts', recentFirst: 'Newest post', readArticle: 'Read post', viewAll: 'View all',
-    newsHeading: 'News', mixdogKicker: 'The coding agent I build', mixdogDesc: 'Why I built it, how I use it, and what keeps changing.', mixdogMore: 'All Mixdog posts',
+    recent: 'Latest posts', viewAll: 'View all',
+    newsHeading: 'News', mixdogMore: 'Learn about Mixdog',
     prevPage: 'Previous page', nextPage: 'Next page', pages: 'Pages',
     share: 'Share this article', copyLink: 'Copy link', copied: 'Copied',
     loading: 'Loading…', searchHint: 'Enter at least two characters to search.',
@@ -74,8 +75,8 @@ const I18N = {
     categoryLabels: CATEGORY_LABELS.ko,
     topicLabels: TOPIC_LABELS.ko,
     navLabel: '분류',
-    recent: '최근 글', recentFirst: '가장 최근 글', readArticle: '글 읽기', viewAll: '전체 보기',
-    newsHeading: '소식', mixdogKicker: '직접 만드는 코딩 에이전트', mixdogDesc: '왜 만들었고, 어떻게 쓰고, 무엇이 바뀌고 있는지 기록합니다.', mixdogMore: '믹스독 글 모아 보기',
+    recent: '최근 글', viewAll: '전체 보기',
+    newsHeading: '소식', mixdogMore: '믹스독 자세히 보기',
     prevPage: '이전 페이지', nextPage: '다음 페이지', pages: '페이지',
     share: '이 글 공유', copyLink: '링크 복사', copied: '복사됨',
     loading: '불러오는 중…', searchHint: '검색어를 두 글자 이상 입력하세요.',
@@ -104,6 +105,10 @@ function topicHref(topicId, lang = 'en') {
 function homeHref(lang = 'en') { return pathForLang('/', lang); }
 function searchHref(lang = 'en') { return pathForLang('/search/', lang); }
 function aboutHref(lang = 'en') { return pathForLang(PERSON_AUTHOR.path, lang); }
+function mixdogHref(lang = 'en') { return pathForLang('/mixdog/', lang); }
+
+// 글쓴이 아바타(점 4개 마크): 카드 하단·기사 바이라인·글쓴이 박스가 함께 쓴다.
+const AUTHOR_AVATAR_SVG = '<svg class="blog-avatar" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#0b0b0a"/><g fill="#fff"><circle cx="11.5" cy="11.5" r="3.4"/><circle cx="20.5" cy="11.5" r="3.4"/><circle cx="11.5" cy="20.5" r="3.4"/><circle cx="20.5" cy="20.5" r="3.4" fill="#4f7cff"/></g></svg>';
 
 const AI_CATEGORY_IDS = CATEGORY_IDS;
 
@@ -117,14 +122,12 @@ const logoSvg = (className) => AISCROLL_LOGO_SVG.replace(/^<svg\b/, `<svg class=
 
 const ICON_SEARCH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
 const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>';
-// 모바일에서 받지 않을 이미지 자리(<picture>의 source)에 쓰는 1px 투명 GIF
-const BLANK_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
-// 상단 메뉴: 카테고리 5개 + 대표 주제(바이브코딩). kind로 URL·라벨 출처를 가른다.
+// 상단 메뉴: 카테고리 5개 + 대표 주제(바이브코딩). 소개 페이지는 푸터와 글쓴이 링크로만 연결한다.
+// '믹스독'은 카테고리 목록 대신 제품 소개 페이지(/mixdog/)로 간다. 그 페이지 아래에 믹스독 글이 모인다.
 const AI_NAV_ITEMS = [
   ...CATEGORY_IDS.map(id => ({ id, kind: 'category' })),
-  ...NAV_TOPIC_IDS.map(id => ({ id, kind: 'topic' })),
-  { id: 'about', kind: 'page' }
+  ...NAV_TOPIC_IDS.map(id => ({ id, kind: 'topic' }))
 ];
 
 // 헤더: PC는 로고 · 메뉴 · 검색 한 줄, 모바일은 로고 · 돋보기 한 줄 + 메뉴 한 줄.
@@ -132,8 +135,8 @@ const AI_NAV_ITEMS = [
 function generateHeader(currentPage = 'home', lang = 'en', navCurrent = 'page') {
   const t = I18N[lang] || I18N.en;
   const items = AI_NAV_ITEMS.map(item => {
-    const label = item.kind === 'page' ? t.about : item.kind === 'topic' ? topicLabel(item.id, lang) : t.categoryLabels[item.id];
-    const href = item.kind === 'page' ? aboutHref(lang) : item.kind === 'topic' ? topicHref(item.id, lang) : categoryHref(item.id, lang);
+    const label = item.kind === 'topic' ? topicLabel(item.id, lang) : t.categoryLabels[item.id];
+    const href = item.kind === 'topic' ? topicHref(item.id, lang) : item.id === 'mixdog' ? mixdogHref(lang) : categoryHref(item.id, lang);
     const current = item.id === currentPage ? ` aria-current="${navCurrent}"` : '';
     return `<a class="site-nav-item" href="${href}" data-nav-id="${item.id}"${current}>${escapeHtml(label)}</a>`;
   }).join('');
@@ -328,28 +331,38 @@ function buildDeferredCardPayload(cardHtmlList, pageSize = FEED_PAGE_SIZE, initi
   };
 }
 
-// 피드 카드 이미지: PC 3열(약 370px) · 모바일 목록 썸네일 96px
+// 피드 카드 이미지: PC 3열(약 370px) · 큰 카드(약 640px) · 모바일 목록 썸네일 96px
 const FEED_CARD_SIZES = '(max-width: 768px) 96px, (max-width: 1099px) 46vw, 370px';
+const FEATURE_CARD_SIZES = '(max-width: 768px) calc(100vw - 32px), (max-width: 1099px) 54vw, 640px';
 
 /**
- * 최신 기사 · 카테고리 · 주제 · 검색 결과 공용 카드
- * PC: 이미지 위 · 분류와 날짜 · 제목 · 요약 / 모바일: 왼쪽 썸네일 목록 (CSS만 다르다)
+ * 최신 기사 · 카테고리 · 주제 · 검색 결과 공용 카드 (eesel 블로그 카드)
+ * PC: 흰 카드 안에 이미지 · 분류 칩 · 제목 · 요약 · 글쓴이와 날짜 / 모바일: 왼쪽 썸네일 목록 (CSS만 다르다)
  * options.eagerCount: 앞에서부터 바로 받을 카드 수, options.highPriorityIndex: LCP 후보 카드
+ * options.feature: 홈 맨 위의 가로형 큰 카드 (격자 한 줄 전체를 쓴다)
  */
 function renderFeedCard(item, index, lang = 'en', options = {}) {
   const _lang = normalizeLang(lang);
+  const t = I18N[_lang];
   const eager = index < (Number.isFinite(options.eagerCount) ? options.eagerCount : 0);
   const high = Number.isFinite(options.highPriorityIndex) && index === options.highPriorityIndex;
   const image = item.thumbnail
-    ? `<img ${thumbAttrs(item.thumbnail, [320, 640], FEED_CARD_SIZES)} width="640" height="360" alt="" ${eager ? 'loading="eager"' : 'loading="lazy"'}${high ? ' fetchpriority="high"' : ''} decoding="async" data-img-fallback="hide">`
+    ? (options.feature
+      ? `<img ${thumbAttrs(item.thumbnail, [640, 960], FEATURE_CARD_SIZES)} width="960" height="540" alt=""`
+      : `<img ${thumbAttrs(item.thumbnail, [320, 640], FEED_CARD_SIZES)} width="640" height="360" alt=""`)
+      + ` ${eager ? 'loading="eager"' : 'loading="lazy"'}${high ? ' fetchpriority="high"' : ''} decoding="async" data-img-fallback="hide">`
     : '';
+  const label = t.categoryLabels[normalizeCategory(item.category)] || '';
+  const date = formatDateShort(item.date, _lang);
+  const author = taxonomy.authorOf(item, SITE_CONFIG.name, SITE_CONFIG.baseUrl, _lang);
   return `
-      <a class="feed-card" href="${articleHref(item.category, item.slug, _lang)}">
+      <a class="feed-card${options.feature ? ' is-lead' : ''}" href="${articleHref(item.category, item.slug, _lang)}">
         <div class="feed-thumb">${image}</div>
         <div class="feed-body">
-          ${renderMeta(item, _lang)}
+          ${label ? `<span class="feed-chip">${escapeHtml(label)}</span>` : ''}
           <h3 class="feed-title">${escapeHtml(item.title)}</h3>
           ${item.summary ? `<p class="feed-sum">${escapeHtml(item.summary)}</p>` : ''}
+          <div class="feed-foot">${author.type === 'Person' ? AUTHOR_AVATAR_SVG : ''}<span class="feed-author">${escapeHtml(author.name)}</span>${date ? `<time datetime="${escapeHtml(String(item.date || '').slice(0, 10))}">${date}</time>` : ''}</div>
         </div>
       </a>`;
 }
@@ -400,7 +413,6 @@ function renderFeedList(items, lang, ids, cardOptions = {}) {
       ${renderFeedPager(ids.pager, items.length, lang)}`;
 }
 
-const PANEL_IMAGE_SIZES = '(max-width: 1099px) 46vw, 480px';
 
 /**
  * AIScroll 홈페이지 생성
@@ -411,107 +423,60 @@ function generateAIBlogIndex(data) {
   const _lang = normalizeLang(data.lang);
   const _t = I18N[_lang];
   const _langPrefix = langPrefixOf(_lang);
-  // 홈 구성: 최근 글(종류 구분 없이 5건 + 가장 최근 글 미리보기 판) → 개발일지 → 믹스독 → 리뷰 → 분석 → 소식.
-  // 종류별 구역은 글이 5건을 넘어 '최근 글'만으로 다 보이지 않을 때부터, 그 종류에 글이 있을 때만 나온다.
+  // 홈 구성(Cursor 블로그 · Anthropic 뉴스룸): 주제 알약 → 대표 글 덩어리(최신 1건을 3칸 격자의 두 칸 크기로,
+  // 다음 2건을 셋째 칸에 위아래로) → 최근 글 줄 목록(날짜 · 분류 | 제목 | 주제, 15건) → 믹스독 판.
+  // 분류별 구역은 두지 않는다. 상단 메뉴(분류)와 줄 목록이 같은 역할을 한다.
   const sorted = [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
-  const top = sorted.slice(0, 5);
-  const lead = top[0];
-  const byCategory = (id) => sorted.filter(a => normalizeCategory(a.category) === id);
-  const showSections = sorted.length > top.length;
-  const secHead = (title, categoryId) => `<div class="sec-head"><h2>${escapeHtml(title)}</h2><a class="sec-more" href="${categoryHref(categoryId, _lang)}">${_t.viewAll} →</a></div>`;
-  const thumbRow = (item, rank) => `
-          <li><a class="pop-item${rank === 1 ? ' is-lead' : ''}${item.thumbnail ? '' : ' no-thumb'}" href="${articleHref(item.category, item.slug, _lang)}">
-            ${rank ? `<span class="pop-rank">${rank}</span>` : ''}
-            ${item.thumbnail ? `<img class="pop-thumb" ${thumbAttrs(item.thumbnail, [320])} width="320" height="180" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}
-            <div class="pop-text"><h3 class="pop-title">${escapeHtml(item.title)}</h3>${renderMeta(item, _lang)}</div>
-          </a></li>`;
+  const lead = sorted.slice(0, 3);
+  const listed = sorted.slice(0, 15);
 
-  const popularRows = top.map((item, i) => thumbRow(item, i + 1)).join('');
+  // 주제(태그) 알약: eesel 블로그의 알약 필터처럼 글이 있는 주제를 글 수 순으로 보여 준다 (상단 메뉴는 카테고리라 겹치지 않는다)
+  const topicCounts = new Map();
+  for (const a of sorted) for (const id of topicsOf(a)) topicCounts.set(id, (topicCounts.get(id) || 0) + 1);
+  const topicPills = [...topicCounts].sort((a, b) => b[1] - a[1]).map(([id, n]) =>
+    `<a class="topic-pill" href="${topicHref(id, _lang)}">${escapeHtml(topicLabel(id, _lang))}<span>${n}</span></a>`).join('');
 
-  // PC 미리보기 판: 가장 최근 글. 모바일은 판을 숨기고 <picture>의 빈 source로 큰 이미지를 아예 받지 않는다.
-  // 목록 1행과 같은 글이라 보조 기술에는 숨긴다.
-  // 글이 서너 건뿐일 때는 순위 목록 + 큰 미리보기 판 대신 큰 카드로 나란히 보여 준다 (목록이 짧으면 판 옆이 텅 빈다)
-  const fewPosts = sorted.length < 4;
-  const leadImage = !fewPosts && lead && lead.thumbnail
-    ? { attrs: thumbAttrs(lead.thumbnail, [640, 960], PANEL_IMAGE_SIZES) }
-    : null;
-  const panelHtml = lead ? `
-        <a class="pop-panel" href="${articleHref(lead.category, lead.slug, _lang)}" aria-hidden="true" tabindex="-1">
-          <span class="pop-panel-label">${_t.recentFirst}</span>
-          ${leadImage ? `<picture class="pop-panel-media"><source media="(max-width: 768px)" srcset="${BLANK_GIF}"><img class="pop-panel-img" ${leadImage.attrs} width="960" height="540" alt="" fetchpriority="high" decoding="async" data-img-fallback="hide"></picture>` : ''}
-          ${renderMeta(lead, _lang)}
-          <h3 class="pop-panel-title">${escapeHtml(lead.title)}</h3>
-          ${lead.summary ? `<p class="pop-panel-sum">${escapeHtml(lead.summary)}</p>` : ''}
-          <span class="btn btn-dark">${_t.readArticle} →</span>
-        </a>` : '';
-
-  const recentSection = !top.length ? '' : fewPosts ? `
-      <section class="home-sec" id="home-recent">
-        <div class="sec-head"><h2>${_t.recent}</h2></div>
-        <div class="feed-grid cols-${top.length}">${top.map((item, i) => renderFeedCard(item, i, _lang, { eagerCount: 3, highPriorityIndex: 0 })).join('')}
-        </div>
-      </section>` : `
-      <section class="home-sec" id="home-recent">
-        <div class="sec-head"><h2>${_t.recent}</h2></div>
-        <div class="pop-grid">
-          <ol class="pop-list">${popularRows}
-          </ol>${panelHtml}
+  // 대표 글 덩어리: 첫 카드는 LCP 후보라 바로, 높은 우선순위로 받는다. 세 장 모두 첫 화면이라 바로 받는다.
+  const leadSection = !lead.length ? '' : `
+      <section class="home-sec home-recent" id="home-recent">
+        <h2 class="visually-hidden">${_t.recent}</h2>
+        ${topicPills ? `<nav class="topic-pills" aria-label="${_t.topics}">${topicPills}</nav>` : ''}
+        <div class="home-lead">${lead.map((item, i) => renderFeedCard(item, i, _lang, { eagerCount: 3, highPriorityIndex: 0, feature: i === 0 })).join('')}
         </div>
       </section>`;
 
-  // 개발일지: 썸네일 없이 쓰는 글이라 회차 · 제목 · 한 줄 설명 · 날짜만 있는 줄 목록
-  const devlogs = byCategory('devlog');
-  const devlogSection = showSections && devlogs.length ? `
-      <section class="home-sec" id="home-devlog">
-        ${secHead(_t.categoryLabels.devlog, 'devlog')}
-        <ol class="log-list">${devlogs.slice(0, 5).map((item, i) => `
-          <li><a class="log-item" href="${articleHref(item.category, item.slug, _lang)}">
-            <span class="log-no">#${devlogs.length - i}</span>
-            <div><h3 class="log-title">${escapeHtml(item.title)}</h3>${item.summary ? `<p class="log-sum">${escapeHtml(item.summary)}</p>` : ''}</div>
-            <time class="log-date" datetime="${escapeHtml(String(item.date || '').slice(0, 10))}">${formatDateShort(item.date, _lang)}</time>
-          </a></li>`).join('')}
+  // 최근 글 줄 목록 (Cursor 블로그 목록): 회색 판 안에 날짜 · 분류 | 제목 | 주제
+  const listSection = !listed.length ? '' : `
+      <section class="home-sec" id="home-list">
+        <div class="sec-head"><h2>${_t.recent}</h2></div>
+        <ol class="post-list">${listed.map(item => {
+          const label = _t.categoryLabels[normalizeCategory(item.category)] || '';
+          const date = formatDateShort(item.date, _lang);
+          const topic = topicsOf(item)[0];
+          return `
+          <li><a class="post-row" href="${articleHref(item.category, item.slug, _lang)}">
+            <span class="post-meta">${[date ? `<time datetime="${escapeHtml(String(item.date || '').slice(0, 10))}">${date}</time>` : '', escapeHtml(label)].filter(Boolean).join(' · ')}</span>
+            <span class="post-title">${escapeHtml(item.title)}</span>
+            <span class="post-topic">${topic ? escapeHtml(topicLabel(topic, _lang)) : ''}</span>
+          </a></li>`;
+        }).join('')}
         </ol>
-      </section>` : '';
+      </section>`;
 
-  const mixdogs = byCategory('mixdog');
-  const mixdogSection = showSections && mixdogs.length ? `
+  // 믹스독 판: 믹스독 페이지의 기능 패널과 같은 모양 — 글 한 칸 + 화면 두 칸
+  const mixdogCopy = MIXDOG_COPY[_lang];
+  const mixdogSection = `
       <section class="home-sec" id="home-mixdog">
         <div class="mix-panel">
-          <div>
-            <span class="pop-panel-label">${_t.mixdogKicker}</span>
-            <h2>Mixdog</h2>
-            <p>${_t.mixdogDesc}</p>
-            <a class="btn btn-dark" href="${categoryHref('mixdog', _lang)}">${_t.mixdogMore} →</a>
+          <div class="mix-text">
+            <p class="mix-label"><img src="/assets/mixdog/icon.webp" width="22" height="22" alt="">Mixdog</p>
+            <h2>${mixdogCopy.title.map(escapeHtml).join('<br>')}</h2>
+            <p>${escapeHtml(mixdogCopy.sub)}</p>
+            <div class="mix-actions"><a class="btn btn-dark" href="${mixdogHref(_lang)}">${_t.mixdogMore} →</a><a class="btn btn-gray" href="https://github.com/tribgames/mixdog" rel="noopener" target="_blank">GitHub</a></div>
           </div>
-          <ul class="mix-notes">${mixdogs.slice(0, 3).map(item => `
-            <li><a href="${articleHref(item.category, item.slug, _lang)}"><span>${escapeHtml(item.title)}</span><time datetime="${escapeHtml(String(item.date || '').slice(0, 10))}">${formatDateShort(item.date, _lang)}</time></a></li>`).join('')}
-          </ul>
+          <a class="mix-poster" href="${mixdogHref(_lang)}" tabindex="-1" aria-hidden="true"><img src="/assets/mixdog/film-${_lang}.webp" width="1280" height="720" alt="" loading="lazy" decoding="async"></a>
         </div>
-      </section>` : '';
-
-  const reviews = byCategory('reviews');
-  const reviewSection = showSections && reviews.length ? `
-      <section class="home-sec" id="home-reviews">
-        ${secHead(_t.categoryLabels.reviews, 'reviews')}
-        <div class="feed-grid">${reviews.slice(0, 3).map((item, i) => renderFeedCard(item, i, _lang)).join('')}
-        </div>
-      </section>` : '';
-
-  const analyses = byCategory('analysis');
-  const analysisSection = showSections && analyses.length ? `
-      <section class="home-sec" id="home-analysis">
-        ${secHead(_t.categoryLabels.analysis, 'analysis')}
-        <div class="feed-grid">${analyses.slice(0, 3).map((item, i) => renderFeedCard(item, i, _lang)).join('')}
-        </div>
-      </section>` : '';
-
-  const newsItems = byCategory('news');
-  const newsSection = showSections && newsItems.length ? `
-      <section class="home-sec" id="home-news">
-        ${secHead(_t.newsHeading, 'news')}
-        <ol class="news-list">${newsItems.slice(0, 8).map(item => thumbRow(item, 0)).join('')}
-        </ol>
-      </section>` : '';
+      </section>`;
 
   // 상단 광고: PC 빌보드 / 모바일 300×250 (광고 자리 바로 뒤에서 요청)
   const topAds = generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001, { billboard: true });
@@ -526,12 +491,9 @@ function generateAIBlogIndex(data) {
     <div class="page-wrap home" id="home">
       ${topAds}
       <h1 class="visually-hidden">AIScroll</h1>
-      ${recentSection}
-      ${devlogSection}
+      ${leadSection}
+      ${listSection}
       ${mixdogSection}
-      ${reviewSection}
-      ${analysisSection}
-      ${newsSection}
     </div>
   `;
 
@@ -566,9 +528,7 @@ function generateAIBlogIndex(data) {
     }
   };
 
-  // LCP: PC는 미리보기 판 이미지. 모바일은 판을 숨기므로 미리 받지 않는다.
-  const panelPreload = leadImage ? { ...imageAttrsForPreload(leadImage.attrs), media: '(min-width: 769px)' } : null;
-
+  // LCP: 맨 위 큰 카드 이미지(fetchpriority="high")를 wrapWithLayout이 찾아 미리 받는다.
   return wrapWithLayout(content, {
     title: _homeTitle,
     description: _homeDescription,
@@ -577,8 +537,7 @@ function generateAIBlogIndex(data) {
     pageScripts: pageScripts,
     jsonLd: websiteJsonLd,
     lang: _lang,
-    alternates: data.alternates || null,
-    preloadImage: panelPreload
+    alternates: data.alternates || null
   });
 }
 
@@ -1053,9 +1012,12 @@ module.exports = {
   categoryHref,
   homeHref,
   searchHref,
+  mixdogHref,
   AI_CATEGORY_IDS,
+  AUTHOR_AVATAR_SVG,
   escapeHtml,
   getThumbUrl,
   thumbAttrs,
-  renderMeta
+  renderMeta,
+  renderFeedCard
 };

@@ -25,6 +25,7 @@ const buildCache = require('./ai-build-cache');
 const { generateAIBlogIndex, generateSearchPage, generateCategoryPage, generateTopicPage } = require('./src/templates/ai-blog/index');
 const { generateAIBlogArticle } = require('./src/templates/ai-blog/article');
 const { generateAboutPage } = require('./src/templates/ai-blog/about');
+const { generateMixdogPage } = require('./src/templates/ai-blog/mixdog');
 // 분류 체계: 카테고리 5개(reviews/analysis/devlog/news/mixdog) + 주제 태그. 옛 회사 기준 카테고리는 301.
 const {
   CATEGORY_IDS,
@@ -405,6 +406,14 @@ async function copyAssets(faviconChanged = false) {
     fs.copyFileSync(adsTxtSrc, path.join(DOCS_DIR, 'ads.txt'));
   }
 
+  // 믹스독 소개 페이지 자료(앱 화면 · 포스터 · 홍보 영상): assets/aiscroll-mixdog/ → /assets/mixdog/
+  const mixdogAssetsSrc = path.join(__dirname, 'assets', 'aiscroll-mixdog');
+  const mixdogAssetsDest = path.join(DOCS_DIR, 'assets', 'mixdog');
+  fs.mkdirSync(mixdogAssetsDest, { recursive: true });
+  for (const name of fs.readdirSync(mixdogAssetsSrc)) {
+    fs.copyFileSync(path.join(mixdogAssetsSrc, name), path.join(mixdogAssetsDest, name));
+  }
+
   // PNG 아이콘 생성 (sharp 사용, favicon 변경 시에만)
   await generateFaviconPNGs(faviconChanged);
 
@@ -542,11 +551,20 @@ function generateHTML(articles, popularArticlesData = { articles: [] }) {
 
     generatePrivacyPage(lang);
     generateAboutPageFile(lang);
+    generateMixdogPageFile(langArticles, lang);
     generateSearchPageFile(lang);
     generate404Page(lang);
     generateCategoryPages(langArticles, popularArticles, latestArticles, lang);
     generateTopicPages(langArticles, popularArticles, latestArticles, lang, articles);
   }
+}
+
+// 믹스독 소개 페이지 (/mixdog/) — 상단 메뉴 '믹스독'이 여기로 온다. 아래에 믹스독 카테고리 글을 모은다.
+function generateMixdogPageFile(articles, lang = 'en') {
+  const dir = path.join(langDir(lang), 'mixdog');
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'index.html'), generateMixdogPage(articles, lang), 'utf8');
+  console.log(`믹스독 페이지 생성 완료 (${lang})`);
 }
 
 // 소개·저자 페이지 (/about/) — 바이라인 rel="author"와 푸터가 여기로 온다
@@ -980,6 +998,7 @@ function generateSEOFiles(articles) {
     const paths = [
       { path: '/', priority: '1.0' },
       { path: PERSON_AUTHOR.path, priority: '0.5' },
+      { path: '/mixdog/', priority: '0.8' },
       { path: '/privacy/', priority: '0.3' },
       ...CATEGORY_IDS.filter(cat => activeCategories.has(cat)).map(cat => ({ path: `/article/${cat}/`, priority: '0.8' })),
       ...activeTopicIds(entries).map(id => ({ path: `/topic/${id}/`, priority: '0.7' }))

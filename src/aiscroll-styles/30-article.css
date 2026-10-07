@@ -214,7 +214,7 @@
 .blog-sources-list a { color: var(--text-2); }
 .blog-sources-list a:hover { color: var(--link); text-decoration: underline; }
 .blog-author-box { margin-top: 56px; padding: 24px; border-radius: 12px; background: var(--gray); }
-.blog-author-kicker { font-size: 12px; color: var(--muted); }
+.blog-author-kicker { font-size: 12px; color: var(--text-2); }
 .blog-author-name { margin-top: 6px; font-size: 18px; font-weight: 600; }
 .blog-author-bio { margin-top: 8px; font-size: 14px; line-height: 1.7; color: var(--text-2); }
 .article-pager { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 48px; }
@@ -397,6 +397,46 @@
 .blog-share-copy.is-copied svg { display: none; }
 .blog-share-copy.is-copied .blog-share-check { display: block; }
 .blog-share-copy.is-copied::after { top: calc(100% + 8px); padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 600; z-index: 2; }
+
+/* ---------- 2026-10 리뉴얼(Cursor 문법): 미색 바탕 위 테두리 없는 회색 판 · 공통 모서리(--radius) — 대표 이미지 · 표 · 곁글 · 판정 · 글쓴이 · 공유 버튼 ---------- */
+.blog-image,
+.blog-lead-figure,
+.blog-lead-figure .blog-image,
+.blog-video-wrapper,
+.blog-content .blog-aside,
+.blog-code pre,
+.blog-series-card img,
+.blog-content .article-action,
+.related-thumb,
+.blog-author-box,
+.article-toc-mobile,
+.blog-verdict,
+.verdict-col,
+.side-tabs,
+.side-tabs .tab-btn { border-radius: var(--radius); }
+.blog-lead-figure { overflow: hidden; }
+.blog-share-btn { background: var(--gray); }
+.blog-share-btn:hover { background: var(--gray-2); }
+.blog-share-copy.is-copied:hover { background: var(--text); }
+.blog-topic-chip { background: var(--gray); }
+.blog-topic-chip:hover { background: var(--gray-2); }
+/* 표: 상자 없이 위쪽 굵은 선 + 가는 행 구분선(믹스독 '더 많은 기능' 목록과 같은 문법) */
+.blog-content .blog-table-wrapper,
+.table-scroll { border: 0; border-top: 1px solid var(--text); border-radius: 0; background: none; }
+.blog-content th { background: none; font-size: 13px; color: var(--muted); }
+.blog-content th,
+.blog-content td { padding-left: 0; padding-right: 20px; border-bottom-color: var(--card-line); }
+.blog-content .blog-aside,
+.blog-verdict,
+.blog-author-box,
+.blog-code pre { border: 0; background: var(--gray); }
+.verdict-col { background: var(--bg); }
+.side-tabs .tab-btn { background: transparent; }
+.side-tabs { padding: 4px; background: var(--gray); }
+.side-tabs .tab-btn.active { background: var(--bg); box-shadow: none; }
+@media (max-width: 1099px) {
+  .article-toc-mobile { border: 0; background: var(--gray); }
+}
 
 /* 공유 버튼: X · Threads · LinkedIn · Facebook · 기기 공유 창 · 링크 복사. 좁은 화면에서 기기 공유 창이 있으면 SNS는 X만 남긴다 */
 .blog-share-btn[hidden] { display: none; }

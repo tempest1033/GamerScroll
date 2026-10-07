@@ -18,7 +18,8 @@ const {
   topicHref,
   aboutHref,
   pathForLang,
-  homeHref
+  homeHref,
+  AUTHOR_AVATAR_SVG
 } = require('./index');
 const { CATEGORY_IDS, DEFAULT_CATEGORY, LEGACY_CATEGORY_REDIRECTS, SITE_X_URL, normalizeCategory, topicLabel, topicsOf, authorOf, personName } = require('./taxonomy');
 const { publicationLanguages, articlePublicationUrls } = require('./taxonomy');
@@ -623,11 +624,11 @@ function generateAIBlogArticle(article, data = {}) {
     const isKo = _lang === 'ko';
     const kicker = isKo ? '글쓴이' : 'Article by';
     const bio = isKo
-      ? '코딩 에이전트 Mixdog와 게이머스크롤을 만드는 개발자. 직접 써 보고 만들면서 알게 된 것을 여기에 적습니다.'
-      : 'The developer behind the Mixdog coding agent and GamerScroll. Writes here about what building and using AI tools actually taught them.';
+      ? '2016년부터 게임 업계에서 일하며 여러 게임의 기획과 개발에 참여해 왔습니다. 지금은 코딩 에이전트 믹스독을 직접 만들고, 게임과 다양한 앱을 개발하며 게이머스크롤과 AI스크롤을 운영하고 있습니다. 이곳에는 AI 모델과 도구를 직접 써 본 후기, 직접 측정한 결과, AI로 무언가를 만들며 겪은 경험을 기록합니다.'
+      : 'Has worked in the games industry since 2016, helping plan and build a number of titles. Now builds the Mixdog coding agent, makes games and a range of apps, and runs GamerScroll and AIScroll. Writes here about hands-on use of AI models and tools, original measurements, and what building things with AI has taught along the way.';
     return `
       <section class="blog-author-box">
-        <svg class="blog-avatar" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#0b0b0a"/><g fill="#fff"><circle cx="11.5" cy="11.5" r="3.4"/><circle cx="20.5" cy="11.5" r="3.4"/><circle cx="11.5" cy="20.5" r="3.4"/><circle cx="20.5" cy="20.5" r="3.4" fill="#4f7cff"/></g></svg>
+        ${AUTHOR_AVATAR_SVG}
         <div>
           <p class="blog-author-kicker">${kicker}</p>
           <h2 class="blog-author-name"><a href="${aboutHref(_lang)}">${personName(_lang)}</a></h2>
@@ -639,7 +640,7 @@ function generateAIBlogArticle(article, data = {}) {
   // 저자(사람/사이트)·주제 태그 — 구글이 보는 "누가" 신호 (제작 방식 문구는 노출하지 않는다)
   const author = authorOf(article, SITE_CONFIG.name, SITE_CONFIG.baseUrl, _lang);
   const bylineHTML = author.type === 'Person'
-    ? `<a class="blog-editor" href="${aboutHref(_lang)}" rel="author"><svg class="blog-avatar" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#0b0b0a"/><g fill="#fff"><circle cx="11.5" cy="11.5" r="3.4"/><circle cx="20.5" cy="11.5" r="3.4"/><circle cx="11.5" cy="20.5" r="3.4"/><circle cx="20.5" cy="20.5" r="3.4" fill="#4f7cff"/></g></svg>${escapeHtml(author.name)}</a>`
+    ? `<a class="blog-editor" href="${aboutHref(_lang)}" rel="author">${AUTHOR_AVATAR_SVG}${escapeHtml(author.name)}</a>`
     : `<span class="blog-editor">${escapeHtml(author.name)}</span>`;
   const articleTopics = topicsOf(article);
   const topicsHTML = articleTopics.length > 0

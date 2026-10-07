@@ -1,0 +1,416 @@
+{
+  "slug": "ai-token-cost-by-language",
+  "site": "aiscroll",
+  "category": "analysis",
+  "topics": [
+    "pricing",
+    "anthropic",
+    "china-ai"
+  ],
+  "status": "approved",
+  "date": "",
+  "title": "AI 토큰 비용 언어별 비교: 영어가 아니면 평균 1.54배, 8개 모델 토크나이저 측정",
+  "summary": "8개 AI 모델에 9개 언어로 같은 문장을 입력해 AI 토큰 비용을 측정한 결과, 영어가 아닌 언어는 평균 1.54배 더 많은 토큰을 썼다. 추론 토큰 역시 출력 요금으로 과금되므로 시스템 프롬프트는 영어로 작성하는 편이 유리하다.",
+  "keywords": "AI 토큰 비용, 토크나이저, 추론 토큰, 시스템 프롬프트",
+  "thumbnail": "/assets/images/tech/ai/ai-token-cost-by-language/thumbnail.webp",
+  "content": [
+    {
+      "type": "text",
+      "value": "영어가 아닌 언어로 AI와 작업하면 비용이 더 든다는 이야기는 개발자 커뮤니티에서 꾸준히 나온다. 같은 내용이라도 언어에 따라 토큰 수가 달라지고, API 요금은 토큰 단위로 매겨지기 때문이다. 하지만 지금 쓰이는 모델들을 같은 조건에 놓고 차이가 실제로 얼마인지 비교한 자료는 많지 않았다.\n\n그래서 AI스크롤이 직접 재 봤다. 2026년 10월 6일(UTC) GPT 6.1, 클로드 오퍼스 5.5, 제미나이 3.8 플래시 등 8개 모델에 같은 내용의 문장 200개를 9개 언어로 넣어 입력 토큰을 측정했다. 영어가 아닌 언어의 AI 토큰 비용은 평균 1.54배였다. 영어를 1로 두었을 때 중국어는 1.08배로 큰 차이가 없었다. 반면 스페인어·독일어·프랑스어는 1.4~1.5배, 한국어와 아랍어는 1.6배, 힌디어는 2.27배에 달했다."
+    },
+    {
+      "type": "text",
+      "value": "API 요금은 토큰 단위로 산정된다. 단가가 같더라도 토크나이저가 텍스트를 더 잘게 쪼개면 청구액은 그만큼 늘어난다. 이러한 차이는 입력 단계에서 끝나지 않는다. 시스템 프롬프트처럼 요청마다 붙는 고정 지침도 마찬가지다. 답변과 내부 추론 과정 역시 토큰으로 계산되며, 출력 단가는 입력보다 몇 배 더 비싸다."
+    },
+    {
+      "type": "heading",
+      "value": "토크나이저가 언어마다 다른 AI 토큰 비용을 산정하는 이유"
+    },
+    {
+      "type": "text",
+      "value": "토크나이저는 텍스트를 AI 모델의 처리 단위인 토큰으로 분할하는 장치다. 학습 데이터에 자주 등장하는 문자열은 하나의 덩어리로 묶이고, 드물게 나오는 문자열은 더 작은 조각으로 쪼개진다. 학습 데이터에서 영어가 차지하는 비중이 큰 만큼, 영어 단어는 대개 한두 토큰으로 처리된다. 반면 다른 문자 체계는 같은 뜻을 표현하더라도 더 많은 토큰을 소모한다."
+    },
+    {
+      "type": "text",
+      "value": "데바나가리 문자를 사용하는 힌디어가 대표적이다. 이번 측정에서 GLM 5.3 플래시는 동일한 힌디어 문장을 영어의 4.29배 토큰으로 셌다. 반대로 중국 연구소가 개발한 모델은 중국어를 영어와 같거나 더 적은 토큰으로 처리했다. 모델이 어떤 언어를 주로 학습했는지가 토크나이저에 그대로 반영된 셈이다."
+    },
+    {
+      "type": "text",
+      "value": "토크나이저는 모델 세대에 따라서도 달라진다. [앤트로픽 공식 문서](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1)에 따르면, 클로드 오퍼스 4.7부터 도입된 토크나이저는 이전 모델보다 동일한 텍스트를 약 30% 더 많은 토큰으로 분할한다. 이번 측정에서도 오퍼스 5.5는 영어 문장 200개를 9,023토큰으로 계산했다. 나머지 7개 모델이 5,469~5,791토큰을 기록한 것과 대조적이다. 100만 토큰당 단가표만으로는 실제 비용을 가늠하기 어려운 이유가 여기에 있다."
+    },
+    {
+      "type": "heading",
+      "value": "AI 토큰 비용 측정 결과: 8개 모델, 9개 언어"
+    },
+    {
+      "type": "aside",
+      "title": "측정 방법",
+      "value": "언어별로 내용이 같은 FLORES-200 devtest 문장 200개를 사용자 메시지 하나로 보냈다. 시스템 프롬프트와 도구는 넣지 않았다. 각 API 응답의 입력 토큰 수(제미나이는 countTokens)를 기록했고, 요청마다 붙는 고정 토큰은 한 글자짜리 요청으로 따로 재서 뺐다. 모델별 1회, 2026년 10월 6일(UTC)에 측정했으며 배수는 각 언어 토큰 수를 같은 모델의 영어 토큰 수로 나눈 값이다."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/ai-token-cost-by-language/heatmap-v5.webp",
+      "caption": "모델·언어별 영어 대비 입력 토큰 배수 히트맵. 낮을수록 토큰을 적게 쓴다. AI스크롤 측정, 2026년 10월 6일(UTC)",
+      "alt": "8개 AI 모델과 9개 언어의 영어 대비 입력 토큰 배수를 색으로 나타낸 표"
+    },
+    {
+      "type": "text",
+      "value": "8개 모델 평균을 보면, 영어가 아닌 언어는 영어보다 1.54배 많은 토큰을 소모했다. 배수가 1 미만인 경우는 키미 K3(0.92배)와 딥시크 V4.1 플래시(0.98배)의 중국어 처리 결과뿐이었다. GLM 5.3 플래시의 중국어 역시 1.00배로 영어와 동일했다. 이를 제외한 나머지 조합은 모두 영어보다 더 많은 토큰을 사용했다."
+    },
+    {
+      "type": "table",
+      "caption": "언어별 영어 대비 입력 토큰 배수. 8개 모델 평균과 최저·최고 모델, AI스크롤 측정",
+      "headers": [
+        "언어",
+        "평균",
+        "가장 적은 모델",
+        "가장 많은 모델"
+      ],
+      "rows": [
+        [
+          "중국어",
+          "1.08배",
+          "키미 K3 0.92배",
+          "GPT 6.1 1.28배"
+        ],
+        [
+          "스페인어",
+          "1.41배",
+          "제미나이 3.8 플래시 1.28배",
+          "키미 K3 1.67배"
+        ],
+        [
+          "일본어",
+          "1.42배",
+          "그록 4.7 1.22배",
+          "GPT 6.1 1.68배"
+        ],
+        [
+          "독일어",
+          "1.46배",
+          "뮤즈 스파크 1.3 1.31배",
+          "키미 K3 1.73배"
+        ],
+        [
+          "프랑스어",
+          "1.47배",
+          "뮤즈 스파크 1.3 1.37배",
+          "키미 K3 1.73배"
+        ],
+        [
+          "러시아어",
+          "1.50배",
+          "뮤즈 스파크 1.3 1.26배",
+          "키미 K3 2.07배"
+        ],
+        [
+          "한국어",
+          "1.61배",
+          "뮤즈 스파크 1.3 1.27배",
+          "키미 K3 1.99배"
+        ],
+        [
+          "아랍어",
+          "1.63배",
+          "그록 4.7 1.36배",
+          "키미 K3 2.06배"
+        ],
+        [
+          "힌디어",
+          "2.27배",
+          "제미나이 3.8 플래시 1.30배",
+          "GLM 5.3 플래시 4.29배"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "이 수치는 입력 토큰만 측정한 결과다. 출력 역시 같은 토크나이저를 거치므로 비슷한 배수가 적용될 것으로 예상되나, 출력 길이는 모델이 자체적으로 결정하기 때문에 직접 측정하지는 않았다. 번역문이라는 특성상 언어별로 문장 길이도 조금씩 다르다. 그럼에도 동일한 내용을 입력했을 때 언어에 따라 비용 격차가 얼마나 벌어지는지는 뚜렷하게 확인할 수 있다."
+    },
+    {
+      "type": "heading",
+      "value": "언어별 토크나이저 격차: 중국어만 예외"
+    },
+    {
+      "type": "text",
+      "value": "유럽 언어는 영어와 같은 라틴 문자를 사용함에도 1.4~1.5배의 토큰을 소모했다. 스페인어 1.41배, 독일어 1.46배, 프랑스어 1.47배로, 문자가 같다고 해서 비용까지 같지는 않았다. 키릴 문자를 쓰는 러시아어는 1.50배, 아랍어는 1.63배로 나타났다."
+    },
+    {
+      "type": "text",
+      "value": "동아시아 언어는 결과가 크게 엇갈렸다. 중국어는 1.08배로 9개 언어 중 유일하게 영어와 비슷한 수준을 보였으나, 일본어는 1.42배, 한국어는 1.61배를 기록했다. 중국어 처리 효율이 가장 높았던 키미 K3조차 한국어에서는 1.99배, 일본어에서는 1.65배의 토큰을 요구했다. 특정 언어에 맞춘 토크나이저가 이웃 언어까지 효율적으로 처리하지는 못한다."
+    },
+    {
+      "type": "text",
+      "value": "모델별 평균 배수는 제미나이 3.8 플래시가 1.32배로 가장 낮았다. 이어 뮤즈 스파크 1.3(1.36배), 그록 4.7(1.39배), GPT 6.1(1.43배), 오퍼스 5.5(1.51배) 순이었다. 딥시크 V4.1 플래시(1.64배), GLM 5.3 플래시(1.82배), 키미 K3(1.84배) 등 중국 모델들은 중국어 처리에는 가장 효율적이었으나 타 언어 평균 배수는 가장 높았다. 단가가 저렴한 [뮤즈 스파크 1.3](/ko/article/reviews/muse-spark-13-contributor/)은 언어별 배수 역시 낮은 편에 속했다."
+    },
+    {
+      "type": "heading",
+      "value": "입력보다 비싼 출력, 추론 토큰도 출력으로 과금된다"
+    },
+    {
+      "type": "text",
+      "value": "입력 배수만 놓고 보면 그 차이가 미미해 보일 수 있다. 하지만 실제 비용 격차는 출력 단계에서 훨씬 크게 벌어진다. [클로드 오퍼스 5.5의 공식 단가](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5)는 100만 토큰당 입력 4달러, 출력 20달러로 출력 비용이 5배나 더 비싸다."
+    },
+    {
+      "type": "text",
+      "value": "추론 모델은 답변을 생성하기 전 내부 추론 과정을 거친다. [오픈AI 공식 문서](https://developers.openai.com/api/docs/guides/reasoning/)는 추론 토큰이 API 응답에는 표시되지 않지만 출력 토큰으로 과금된다고 명시하고 있다. 클로드 역시 사고 과정을 출력 토큰으로 계산한다. 오퍼스 5.5와 페이블 5.1은 이 사고 기능을 아예 비활성화할 수 없으며, effort 설정으로 추론의 깊이만 조절할 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "이를 바탕으로 계산해 보면 비용 차이는 더욱 명확해진다. 오퍼스 5.5에서 영어 기준으로 2,000토큰 분량의 추론과 답변을 1,000회 출력하면 40달러가 청구된다. 동일한 분량을 한국어로 처리할 경우 오퍼스의 한국어 배수인 1.55배가 적용되어 약 62달러로 뛴다. 아랍어(1.75배)는 약 70달러, 힌디어(2.09배)는 약 84달러에 달한다. 반면 중국어는 약 45달러로 비용 상승폭이 가장 작았다."
+    },
+    {
+      "type": "heading",
+      "value": "페이블 5.1·오퍼스 5.5에서 반복되는 영어 고착 불편"
+    },
+    {
+      "type": "text",
+      "value": "추론 토큰이 출력 요금으로 청구되는 만큼, 최근 모델들이 내부 추론을 영어로 처리하도록 최적화되었다는 해석도 나온다. 앤트로픽이 이를 공식적으로 밝힌 적은 없다. 다만 사용자 커뮤니티에서는 이와 관련된 불편 사항이 꾸준히 보고되고 있다."
+    },
+    {
+      "type": "text",
+      "value": "추론 언어 문제는 오퍼스 4.6 출시 무렵부터 제기되어 왔다. 응답 언어를 지정하더라도 사고 과정은 영어로만 출력된다는 [클로드 코드 기능 요청](https://github.com/anthropics/claude-code/issues/27051)이 있었으나, 별다른 설정 옵션이 추가되지 않은 채 마무리되었다. 오퍼스 5.5와 페이블 5.1에서는 이러한 현상이 답변 영역까지 번졌다는 제보가 잇따르고 있다. 작업 전 진행 안내 문구가 영어로만 출력되거나, 영어 자료를 읽은 후 답변 언어가 영어로 고정되어 버린다는 것이다."
+    },
+    {
+      "type": "text",
+      "value": "지난 9월 23일 등록된 [버그 신고](https://github.com/anthropics/claude-code/issues/96326)에 따르면, 한 사용자가 일본어로 답변할 것을 세 번이나 거듭 지시했음에도 모델은 매번 곧 영어로 돌아갔다. 실제 평소 작업 중에도 이런 현상이 심심찮게 나타나곤 한다. 비용 측면에서는 합리적인 동작 방식일지 몰라도, 모국어로 작업하는 사용자에게는 반복되는 불편 요소다."
+    },
+    {
+      "type": "text",
+      "value": "모델 성능이 향상되어 이제 모국어를 사용해도 무방하다는 의견도 있다. 앤트로픽의 [다국어 지원 문서](https://platform.claude.com/docs/en/build-with-claude/multilingual-support)를 보면, 클로드 소네트 4.5의 한국어·일본어·힌디어 점수는 영어의 96.7~96.8% 수준에 달한다. 성능 격차는 크게 줄었지만, 이번 측정 결과에서 알 수 있듯 토큰 소모량의 격차는 여전히 남아 있다."
+    },
+    {
+      "type": "heading",
+      "value": "시스템 프롬프트는 영어로: 중국어 외 모든 언어에서 비용 증가"
+    },
+    {
+      "type": "text",
+      "value": "이번 측정에서 영어와 비슷한 수준의 토큰을 소모한 언어는 중국어뿐이었다. 나머지 언어는 모델에 따라 1.2배에서 최대 4배 이상 더 많은 토큰을 사용했다. AI 토큰 비용을 절감하는 가장 확실한 방법은 시스템 프롬프트처럼 매번 반복해서 전송하는 고정 지침을 영어로 작성하는 것이다."
+    },
+    {
+      "type": "text",
+      "value": "시스템 프롬프트, 스킬, 도구 설명, 프로젝트 지침 파일은 모든 API 요청에 포함된다. 오퍼스 5.5에서 1만 토큰 분량의 영어 고정 프롬프트를 1,000회 전송할 경우 입력 비용은 40달러다. 반면 동일한 내용을 한국어로 작성하면 약 62달러, 독일어는 약 67달러가 청구된다. 프롬프트 캐시를 활용하면 단가가 100만 토큰당 0.20달러로 낮아지지만, 언어별 배수는 캐시 요금에도 동일하게 적용된다."
+    },
+    {
+      "type": "text",
+      "value": "답변 언어는 별도로 지정하면 된다. 앤트로픽 공식 문서 역시 응답 언어를 시스템 프롬프트에 명시할 것을 권장하고 있다. 지침 본문은 영어로 작성하되 'Always respond in French'처럼 응답 언어만 따로 지정하면, 사용자는 원하는 언어로 답변을 받으면서도 고정 비용을 줄일 수 있다."
+    },
+    {
+      "type": "text",
+      "value": "모국어 대신 영어로 프롬프트를 작성할 수 있다면, 대화 자체를 영어로 진행하는 편이 비용과 성능 양면에서 유리하다. 영어 프롬프트를 사용하면 토큰 소모량을 줄일 수 있을 뿐만 아니라, 모델이 가장 잘 이해하는 언어로 작업을 지시할 수 있기 때문이다."
+    }
+  ],
+  "titleEn": "AI Token Cost by Language: 8 Tokenizers Measured",
+  "summaryEn": "Non-English text averages a 1.54x token multiplier across 8 AI models. With reasoning tokens billed as output, English system prompts cut costs.",
+  "keywordsEn": "token multiplier, reasoning tokens, non-English text, English system prompts",
+  "contentEn": [
+    {
+      "type": "text",
+      "value": "Developers keep saying that working with AI in a language other than English costs more. The same content turns into a different number of tokens depending on the language, and API bills are counted in tokens, reasoning tokens included. What has been hard to find is a like-for-like measurement of how large that gap is across the models in use today.\n\nSo AIScroll measured it. On Oct. 6, 2026 (UTC), AIScroll sent 200 identical sentences in nine languages to eight models, including GPT 6.1, Claude Opus 5.5 and Gemini 3.8 Flash. On average, non-English text cost 1.54 times as many tokens as the same content in English. With English set to 1x, Chinese came in at 1.08x. Spanish, German and French ran 1.4x to 1.5x, Korean and Arabic about 1.6x, and Hindi 2.27x."
+    },
+    {
+      "type": "text",
+      "value": "API prices are quoted per token. Even at the same unit price, a higher token multiplier means a larger bill. This applies to system prompts and other fixed instructions attached to every request. The gap also extends beyond input: answers and hidden reasoning are tokens too, and output tokens cost several times more than input."
+    },
+    {
+      "type": "heading",
+      "value": "Why Tokenizers Charge Languages Differently"
+    },
+    {
+      "type": "text",
+      "value": "A tokenizer splits text into the units a model processes. Strings that appear frequently in training data become single tokens; rare strings are broken into smaller pieces. Because English dominates most training data, an English word often fits into one or two tokens, while non-English text in other scripts requires more tokens to convey the same meaning."
+    },
+    {
+      "type": "text",
+      "value": "Hindi, written in Devanagari, represents the extreme case. GLM 5.3 Flash gave Hindi a token multiplier of 4.29x. Conversely, models from Chinese labs handled Chinese with as few tokens as English, or fewer. The languages a lab trains its models on show up directly in its tokenizer."
+    },
+    {
+      "type": "text",
+      "value": "Tokenizers also change between model generations. [Anthropic's documentation](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1) notes that the tokenizer introduced with Claude Opus 4.7 produces roughly 30% more tokens for the same text than older models. In this test, Opus 5.5 counted the 200 English sentences at 9,023 tokens, while the other seven models landed between 5,469 and 5,791. A per-million-token price list alone does not reveal actual workload costs."
+    },
+    {
+      "type": "heading",
+      "value": "Token Multiplier Results: 8 Models, 9 Languages"
+    },
+    {
+      "type": "aside",
+      "title": "Method",
+      "value": "The first 200 FLORES-200 devtest sentences, identical in meaning across languages, were sent as a single user message with no system prompt and no tools. Each API's reported input tokens were recorded (countTokens for Gemini), and the fixed per-request overhead was measured with a one-character request and subtracted. One run per model on October 6, 2026 (UTC). Each multiplier is a language's token count divided by the same model's English count."
+    },
+    {
+      "type": "image",
+      "src": "/assets/images/tech/ai/ai-token-cost-by-language/heatmap-v5.webp",
+      "caption": "Input-token multiplier versus English by model and language; lower is better. AIScroll measurement, October 6, 2026 (UTC)",
+      "alt": "Heatmap of input-token multipliers for eight AI models across nine languages"
+    },
+    {
+      "type": "text",
+      "value": "Averaged across the eight models, non-English text carried a token multiplier of 1.54x. Only two results fell below 1x, both for Chinese: Kimi K3 at 0.92x and DeepSeek V4.1 Flash at 0.98x. GLM 5.3 Flash matched English on Chinese at 1.00x. Every other combination cost more than English."
+    },
+    {
+      "type": "table",
+      "caption": "Input-token multiplier versus English: eight-model average with the lowest and highest model. AIScroll measurement",
+      "headers": [
+        "Language",
+        "Average",
+        "Lowest model",
+        "Highest model"
+      ],
+      "rows": [
+        [
+          "Chinese",
+          "1.08x",
+          "Kimi K3 0.92x",
+          "GPT 6.1 1.28x"
+        ],
+        [
+          "Spanish",
+          "1.41x",
+          "Gemini 3.8 Flash 1.28x",
+          "Kimi K3 1.67x"
+        ],
+        [
+          "Japanese",
+          "1.42x",
+          "Grok 4.7 1.22x",
+          "GPT 6.1 1.68x"
+        ],
+        [
+          "German",
+          "1.46x",
+          "Muse Spark 1.3 1.31x",
+          "Kimi K3 1.73x"
+        ],
+        [
+          "French",
+          "1.47x",
+          "Muse Spark 1.3 1.37x",
+          "Kimi K3 1.73x"
+        ],
+        [
+          "Russian",
+          "1.50x",
+          "Muse Spark 1.3 1.26x",
+          "Kimi K3 2.07x"
+        ],
+        [
+          "Korean",
+          "1.61x",
+          "Muse Spark 1.3 1.27x",
+          "Kimi K3 1.99x"
+        ],
+        [
+          "Arabic",
+          "1.63x",
+          "Grok 4.7 1.36x",
+          "Kimi K3 2.06x"
+        ],
+        [
+          "Hindi",
+          "2.27x",
+          "Gemini 3.8 Flash 1.30x",
+          "GLM 5.3 Flash 4.29x"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "These figures cover input tokens only. Output passes through the same tokenizer, so similar multipliers likely apply, but output length is determined by the model and was not measured directly. Translations also vary slightly in length across languages. Even so, the cost spread for identical content remains clear."
+    },
+    {
+      "type": "heading",
+      "value": "Language Gaps: Chinese Is the Exception"
+    },
+    {
+      "type": "text",
+      "value": "European languages share the Latin alphabet with English yet still cost 1.4x to 1.5x more: Spanish hit 1.41x, German 1.46x and French 1.47x. Russian, written in Cyrillic, came in at 1.50x, and Arabic at 1.63x."
+    },
+    {
+      "type": "text",
+      "value": "East Asian languages split widely. Chinese, at 1.08x, was the only language close to English, while Japanese reached 1.42x and Korean 1.61x. Kimi K3, the most efficient model for Chinese, proved among the most expensive for its neighbors, hitting 1.99x for Korean and 1.65x for Japanese. A tokenizer tuned for one language does not automatically carry over to the next."
+    },
+    {
+      "type": "text",
+      "value": "By model, Gemini 3.8 Flash had the lowest average token multiplier for non-English text at 1.32x, followed by Muse Spark 1.3 (1.36x), Grok 4.7 (1.39x), GPT 6.1 (1.43x) and Opus 5.5 (1.51x). The Chinese models—DeepSeek V4.1 Flash (1.64x), GLM 5.3 Flash (1.82x) and Kimi K3 (1.84x)—were the most efficient on Chinese but had the highest averages elsewhere. The low-priced [Muse Spark 1.3](/article/reviews/muse-spark-13-contributor/) also maintained low language multipliers."
+    },
+    {
+      "type": "heading",
+      "value": "Output Costs More, and Reasoning Tokens Bill as Output"
+    },
+    {
+      "type": "text",
+      "value": "Input multipliers alone can appear modest. The larger gap opens on the output side. [Claude Opus 5.5's list price](https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5) is $4 per million input tokens and $20 per million output tokens, five times the input rate."
+    },
+    {
+      "type": "text",
+      "value": "Reasoning models think before they answer. [OpenAI's documentation](https://developers.openai.com/api/docs/guides/reasoning/) states that reasoning tokens are invisible in the API but are billed as output tokens. Claude also counts its thinking process as output. On Opus 5.5 and Fable 5.1, thinking cannot be disabled; the effort setting only controls its depth."
+    },
+    {
+      "type": "text",
+      "value": "The arithmetic is straightforward. On Opus 5.5, 1,000 responses containing 2,000 English tokens of reasoning and answers cost $40. The same volume in Korean, applying Opus's 1.55x Korean token multiplier, comes to about $62. Arabic (1.75x) reaches roughly $70, and Hindi (2.09x) about $84. Chinese adds the least, totaling about $45."
+    },
+    {
+      "type": "heading",
+      "value": "Fable 5.1 and Opus 5.5 Keep Drifting Into English"
+    },
+    {
+      "type": "text",
+      "value": "With reasoning tokens billed at output rates, some users suspect recent models are optimized to do their reasoning in English. Anthropic has not confirmed this. However, users working with non-English text continually report side effects."
+    },
+    {
+      "type": "text",
+      "value": "Complaints about reasoning language date back to around Opus 4.6. A [Claude Code feature request](https://github.com/anthropics/claude-code/issues/27051) noted that thinking remained in English regardless of the language specified in settings or system prompts; the issue was closed without a new setting. With Opus 5.5 and Fable 5.1, reports indicate this drift now affects user-facing text: progress lines before tool calls appear in English, and replies switch to English after the model processes English material and stay there."
+    },
+    {
+      "type": "text",
+      "value": "In a [bug report filed on Sept. 23](https://github.com/anthropics/claude-code/issues/96326), a user restated a Japanese-only reply rule three times, yet the model repeatedly reverted to English. The same thing shows up fairly often in everyday work, too. While it may make sense from a cost perspective, it remains a recurring annoyance for users working in their native languages."
+    },
+    {
+      "type": "text",
+      "value": "Some argue models now handle non-English text well enough. Anthropic's [multilingual support page](https://platform.claude.com/docs/en/build-with-claude/multilingual-support) shows Claude Sonnet 4.5 scoring 96.7% to 96.8% of its English baseline in Korean, Japanese and Hindi. While the quality gap has narrowed, the token multiplier gap measured here persists."
+    },
+    {
+      "type": "heading",
+      "value": "English System Prompts Pay Off Unless You Work in Chinese"
+    },
+    {
+      "type": "text",
+      "value": "Chinese was the only language in this test that cost roughly the same as English. All other non-English text used 1.2x to more than 4x the tokens, depending on the model. The most reliable way to save money is using English system prompts: write the fixed instructions sent with every request in English."
+    },
+    {
+      "type": "text",
+      "value": "System prompts, skills, tool descriptions and project instruction files accompany every API call. On Opus 5.5, sending a 10,000-token English fixed prompt 1,000 times costs $40 in input. The same system prompts written in Korean cost about $62, and in German about $67. Prompt caching cuts the rate to $0.20 per million tokens, but the token multiplier still applies to cached tokens."
+    },
+    {
+      "type": "text",
+      "value": "The reply language is a separate setting. Anthropic's documentation recommends specifying the response language in system prompts. Keep the instructions in English, add a line such as 'Always respond in French', and users still get answers in their own language while the fixed cost stays low."
+    },
+    {
+      "type": "text",
+      "value": "If you can write prompts in English instead of your native language, conducting the entire conversation in English improves both cost and reasoning quality. English system prompts and conversations consume fewer tokens and assign tasks to the model in the language it understands best."
+    }
+  ],
+  "needTranslate": false,
+  "sources": [
+    {
+      "name": "Anthropic",
+      "title": "What's new in Claude Fable 5.1",
+      "url": "https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1"
+    },
+    {
+      "name": "OpenAI",
+      "title": "Reasoning models",
+      "url": "https://developers.openai.com/api/docs/guides/reasoning/"
+    },
+    {
+      "name": "Meta AI",
+      "title": "FLORES-200 evaluation benchmark",
+      "url": "https://github.com/facebookresearch/flores"
+    }
+  ],
+  "relatedDocs": [
+    "tech:ai/muse-spark-13-contributor"
+  ],
+  "relatedGames": [],
+  "relatedArticles": []
+}

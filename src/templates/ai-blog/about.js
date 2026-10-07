@@ -18,12 +18,12 @@ const COPY = {
     updated: 'Last updated: October 2026',
     sections: [
       ['Who writes this', [
-        `AIScroll is a blog run by <strong>Plankton</strong>, a developer in Korea who has built <strong>Mixdog</strong>, a coding agent, along with a range of other software, and creates content with AI. This site is where that experience with AI gets shared. Plankton also runs <a href="https://gamerscroll.com/" rel="noopener" target="_blank">GamerScroll</a>.`,
+        `AIScroll is a blog run by <strong>Plankton</strong>, who has worked in the games industry since 2016, helping plan and build a number of titles. Plankton now builds <strong>Mixdog</strong>, a coding agent, makes games and a range of apps, and also runs <a href="https://gamerscroll.com/" rel="noopener" target="_blank">GamerScroll</a>. This site collects hands-on use of AI models and tools, original measurements, and what building things with AI has taught along the way.`,
         `Plankton is on X as <a href="${SITE_X_URL}" rel="me noopener" target="_blank">${X_HANDLE}</a>. Corrections and questions go there.`
       ]],
       ['How each kind of post is made', [
         `<strong>Reviews</strong> cover AI models and tools I have actually used. Each one says how long I used it, for what work, what it cost, and where it fell short. When a comparison leans on official documentation instead of my own use, the post says so.`,
-        `<strong>Analysis</strong> posts are deep dives built on sources and data I went through myself. They say what the evidence is and where my own reading starts.`,
+        `<strong>Analysis</strong> posts are deep dives built on sources and data I went through or measured myself. Measurement posts state the method, the date and the number of runs, and every analysis says what the evidence is and where my own reading starts.`,
         `<strong>Dev Log</strong> posts are notes from building Mixdog, GamerScroll, and this site: what broke, what I tried, and what fixed it.`,
         `<strong>News</strong> covers things I caught early or put together myself, kept short. Claims are checked against the primary source (release notes, filings, official posts), and the sources are linked at the end.`,
         `<strong>Mixdog</strong> posts document the coding agent I build: why it exists, how to use it, and what changed in each update.`,
@@ -39,12 +39,12 @@ const COPY = {
     updated: '최종 수정: 2026년 10월',
     sections: [
       ['누가 쓰는가', [
-        `AIScroll은 <strong>플랑크톤</strong>이 운영하는 블로그입니다. 코딩 에이전트 <strong>Mixdog</strong>를 비롯해 여러 프로그램을 개발해 온 한국의 개발자로, AI를 활용해 다양한 콘텐츠를 만들고 있습니다. 그 과정에서 얻은 AI 관련 경험을 공유하기 위해 이 사이트에 글을 쓰고 있습니다. <a href="https://gamerscroll.com/" rel="noopener" target="_blank">게이머스크롤</a>도 함께 운영합니다.`,
+        `AIScroll은 <strong>플랑크톤</strong>이 운영하는 블로그입니다. 2016년부터 게임 업계에서 일하며 여러 게임의 기획과 개발에 참여해 왔고, 지금은 코딩 에이전트 <strong>믹스독</strong>을 직접 만들면서 게임과 다양한 앱을 개발하고 있습니다. <a href="https://gamerscroll.com/" rel="noopener" target="_blank">게이머스크롤</a>도 함께 운영합니다. 이곳에는 AI 모델과 도구를 직접 써 본 후기, 직접 측정한 결과, AI로 무언가를 만들며 겪은 경험을 기록합니다.`,
         `X 계정은 <a href="${SITE_X_URL}" rel="me noopener" target="_blank">${X_HANDLE}</a>입니다. 정정 요청과 문의는 이곳으로 주세요.`
       ]],
       ['글 종류별로 쓰는 방식', [
         `<strong>리뷰</strong>는 실제로 써 본 AI 모델과 도구를 다룹니다. 얼마 동안, 어떤 작업에 썼는지와 비용, 아쉬웠던 점을 적습니다. 직접 써 보지 않고 공식 문서에 기대어 비교한 부분은 그렇다고 밝힙니다.`,
-        `<strong>분석</strong>은 자료와 데이터를 직접 파 보고 쓰는 글입니다. 무엇이 근거이고 어디부터가 제 해석인지 구분해서 적습니다.`,
+        `<strong>분석</strong>은 자료와 데이터를 직접 파 보거나 직접 측정해서 쓰는 글입니다. 측정한 글은 방법과 날짜, 측정 횟수를 함께 밝히고, 무엇이 근거이고 어디부터가 제 해석인지 구분해서 적습니다.`,
         `<strong>개발일지</strong>는 믹스독, 게이머스크롤, 이 사이트를 만들면서 남기는 기록입니다. 무엇이 깨졌고, 무엇을 해 봤고, 무엇으로 고쳤는지 적습니다.`,
         `<strong>소식</strong>은 먼저 알게 됐거나 직접 정리한 내용을 짧게 전합니다. 1차 자료(릴리스 노트, 공시, 공식 게시물)로 확인하고, 출처를 글 끝에 링크합니다.`,
         `<strong>믹스독</strong>은 직접 만드는 코딩 에이전트의 기록입니다. 만든 이유, 사용법, 업데이트마다 바뀐 점을 적습니다.`,
