@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-06T08:50:27.957Z",
+  "updatedAt": "2026-10-07T11:53:22.418Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 42
+      "views": 43
     },
     {
       "slug": "이클립스-더-어웨이크닝",
@@ -16,7 +16,19 @@
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 13
+      "views": 15
+    },
+    {
+      "slug": "주술회전-팬텀-퍼레이드",
+      "views": 11
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 10
+    },
+    {
+      "slug": "레이싱-마스터",
+      "views": 10
     },
     {
       "slug": "운빨존많겜",
@@ -27,7 +39,19 @@
       "views": 8
     },
     {
-      "slug": "레이싱-마스터",
+      "slug": "리니지m",
+      "views": 8
+    },
+    {
+      "slug": "매치-팩토리match-factory",
+      "views": 8
+    },
+    {
+      "slug": "세포-특공대-전략형-타워-디펜스",
+      "views": 8
+    },
+    {
+      "slug": "에이지-오브-제트-타워-디펜스",
       "views": 8
     },
     {
@@ -35,48 +59,24 @@
       "views": 8
     },
     {
-      "slug": "리니지m",
-      "views": 7
-    },
-    {
-      "slug": "트릭컬-리바이브",
-      "views": 7
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 6
-    },
-    {
       "slug": "go-go-고양이-홉핑",
-      "views": 5
+      "views": 7
     },
     {
       "slug": "my-hero-ultra-rumble",
-      "views": 5
+      "views": 7
     },
     {
-      "slug": "sol-enchant",
-      "views": 5
+      "slug": "skate",
+      "views": 7
     },
     {
-      "slug": "z-루트-리뎀션",
-      "views": 5
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 7
     },
     {
-      "slug": "메이플-키우기",
-      "views": 5
-    },
-    {
-      "slug": "명조워더링-웨이브",
-      "views": 5
-    },
-    {
-      "slug": "블라이트-워-사후-처리국",
-      "views": 5
-    },
-    {
-      "slug": "블루-프로토콜-스타-레조넌스",
-      "views": 5
+      "slug": "단어-찾기-단어-게임",
+      "views": 7
     }
   ]
 }

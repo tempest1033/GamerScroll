@@ -146795,8 +146795,52 @@
         "ko": "UnGodly",
         "zh-tw": "UnGodly"
       }
+    },
+    "Keepsweeper": {
+      "appIds": {
+        "ios": 6814857804
+      },
+      "aliases": [],
+      "developer": "Flarup Industries",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dc/74/73/dc7473c1-1e5e-342d-4e84-725a0dbecc8a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "keepsweeper",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Keepsweeper",
+        "ja": "Keepsweeper"
+      }
+    },
+    "GT Rivals: Real Racing Sim": {
+      "appIds": {
+        "ios": 6761461013
+      },
+      "aliases": [],
+      "developer": "Digital Racers FZ-LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/18/d3/35/18d335e3-90a8-ee73-7f29-c3b487217f0b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "gt-rivals-real-racing-sim",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "GT Rivals: Real Racing Sim",
+        "zh-tw": "GT Rivals: Real Racing Sim"
+      }
+    },
+    "Dragon's Dogma 2: Dark Arisen Expansion": {
+      "appIds": {
+        "steam": "2593290"
+      },
+      "aliases": [],
+      "developer": "CAPCOM Co., Ltd.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2593290/a435e9998c19a773d933eebdbe7c76ed161adef9/capsule_231x87.jpg?t=1789715787",
+      "slug": "dragons-dogma-2-dark-arisen-expansion",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-07",
-  "totalGames": 8499
+  "totalGames": 8502
 }

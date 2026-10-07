@@ -42339,6 +42339,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/4b/04/184b04cb-65d6-43f5-15da-7d8ad964483f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-07T06:17:03.164Z"
+    },
+    {
+      "title": "Keepsweeper",
+      "status": "single",
+      "appIds": {
+        "ios": 6814857804
+      },
+      "developer": "Flarup Industries",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dc/74/73/dc7473c1-1e5e-342d-4e84-725a0dbecc8a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-07T11:59:45.373Z"
+    },
+    {
+      "title": "GT Rivals: Real Racing Sim",
+      "status": "single",
+      "appIds": {
+        "ios": 6761461013
+      },
+      "developer": "Digital Racers FZ-LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/18/d3/35/18d335e3-90a8-ee73-7f29-c3b487217f0b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-07T11:59:45.849Z"
     }
   ],
   "approved": [
