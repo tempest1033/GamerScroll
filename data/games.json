@@ -146854,8 +146854,38 @@
       "names": {
         "ja": "VS BOAT－3D競艇オンライン対戦ゲーム"
       }
+    },
+    "ピクセル放置RPG：俺の絵だけ解像度がおかしい": {
+      "appIds": {
+        "ios_jp": 6769318336
+      },
+      "aliases": [],
+      "developer": "ANTIC TECNOLOGY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0d/32/ae/0d32aea2-242b-684e-1f41-e5a8b8aad8c8/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "ピクセル放置rpg俺の絵だけ解像度がおかしい",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ピクセル放置RPG：俺の絵だけ解像度がおかしい"
+      }
+    },
+    "熱血三國M": {
+      "appIds": {
+        "ios_tw": 6796199141
+      },
+      "aliases": [],
+      "developer": "FUNMORE TECHNOLOGY COMPANY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/dc/ea/5fdcea1d-6231-e884-6d41-50c66dfa2d9a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "熱血三國m",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "熱血三國M"
+      }
     }
   },
   "lastUpdated": "2026-10-08",
-  "totalGames": 8503
+  "totalGames": 8505
 }
