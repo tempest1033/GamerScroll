@@ -1,7 +1,7 @@
 // Request-time game detail pages: /games/<slug>/ (en) and /<prefix>/games/<slug>/ (ja, zh-cn, ko, zh-tw).
 // Data comes from the static assets (docs/games-data/<slug>.json + _meta.json); rendering is the same pure template
 // the Node tests use (bundle: scripts/build-game-ssr.js → game-ssr.js). Acts only on the gamerscroll.com host.
-import { createRenderer, BUNDLE_VERSION } from './game-ssr.js';
+import { createRenderer, BUNDLE_VERSION, WARMUP } from './game-ssr.js';
 
 const PREFIX = { en: '', ja: '/ja', 'zh-cn': '/zh-cn', ko: '/ko', 'zh-tw': '/zh-tw' };
 // The data version only changes with a build (every 30 minutes); the cached page is keyed by it.
@@ -24,6 +24,13 @@ function rendererFor(code) {
   if (!renderers.has(code)) renderers.set(code, createRenderer(code));
   return renderers.get(code);
 }
+
+// Workers Free allows 10 ms CPU per request, but an isolate's first renderer creation + render costs ~55 ms (module graph
+// evaluation and V8 compilation). Global scope runs once per isolate under the separate 1 s startup limit, so pay it here.
+// A failure must not stop the isolate (the middleware shares it); the request-time render reports it as "Render failed".
+try {
+  for (const code of Object.keys(PREFIX)) rendererFor(code).render(WARMUP.game, WARMUP.meta);
+} catch { /* see above */ }
 
 async function assetJson(env, url, path) {
   const response = await env.ASSETS.fetch(new Request(new URL(path, url)));
