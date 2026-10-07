@@ -564,7 +564,7 @@ async function main() {
     // 일반 모드: 시간대별 조건부 크롤링
     const existingCache = fs.existsSync(CACHE_FILE) ? JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8')) : null;
 
-    // 순위는 30분마다 항상 수집
+    // 순위는 빌드마다(1시간) 항상 수집
     console.log('\n🔄 5대 마켓 순위 데이터 수집 중 (200위까지)...\n');
     rankings = await fetchRankings(gplay, store);
 
@@ -601,7 +601,7 @@ async function main() {
     fs.writeFileSync(CACHE_FILE, JSON.stringify(cache), 'utf8');
     console.log('\n💾 캐시 저장 완료');
 
-    // 30분마다 CSV 스냅샷 저장
+    // 빌드마다 CSV 스냅샷 저장 (시각은 30분 단위로 내림)
     const now = new Date();
     const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
     const snapshotDate = kst.toISOString().split('T')[0];

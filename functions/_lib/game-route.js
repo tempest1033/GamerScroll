@@ -4,7 +4,7 @@
 import { createRenderer, BUNDLE_VERSION, WARMUP } from './game-ssr.js';
 
 const PREFIX = { en: '', ja: '/ja', 'zh-cn': '/zh-cn', ko: '/ko', 'zh-tw': '/zh-tw' };
-// The data version only changes with a build (every 30 minutes); the cached page is keyed by it.
+// The data version only changes with a build (hourly); the cached page is keyed by it.
 const HTML_CACHE_CONTROL = 'public, max-age=300, s-maxage=1800, stale-while-revalidate=600';
 const META_TTL_MS = 30 * 1000;
 // Cloudflare bundles functions/ with esbuild's keepNames, which wraps every named function in __name(fn, "name").

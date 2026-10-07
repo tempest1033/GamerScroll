@@ -2,7 +2,7 @@
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # 30분마다 실행
+    - cron: '0 * * * *'  # 1시간마다 실행 (Cloudflare Pages Free 빌드 월 500회 한도 고려)
   workflow_dispatch:  # 수동 실행 가능
 
 permissions:
