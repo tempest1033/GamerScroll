@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+  <script>(function () { if (location.hostname !== 'aiscroll.io') return; var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825'; document.head.appendChild(s); })();</script>
+  <link rel="preload" as="image" fetchpriority="high" href="/assets/images/tech/ai/ai-token-cost-by-language/thumbnail.webp">
+  <title>AI Token Cost by Language: 8 Tokenizers Measured - AIScroll</title>
+  <meta name="description" content="Non-English text averages a 1.54x token multiplier across 8 AI models. With reasoning tokens billed as output, English system prompts cut costs.">
+  <meta name="keywords" content="token multiplier, reasoning tokens, non-English text, English system prompts">
+  <meta name="robots" content="max-image-preview:large">
+  <link rel="canonical" href="https://aiscroll.io/article/analysis/ai-token-cost-by-language/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="application-name" content="AIScroll">
+  <meta name="apple-mobile-web-app-title" content="AIScroll">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <meta property="og:title" content="AI Token Cost by Language: 8 Tokenizers Measured - AIScroll">
+  <meta property="og:description" content="Non-English text averages a 1.54x token multiplier across 8 AI models. With reasoning tokens billed as output, English system prompts cut costs.">
+  <meta property="og:url" content="https://aiscroll.io/article/analysis/ai-token-cost-by-language/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://aiscroll.io/assets/images/tech/ai/ai-token-cost-by-language/thumbnail.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI Token Cost by Language: 8 Tokenizers Measured - AIScroll">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:site_name" content="AIScroll">
+  <meta property="article:published_time" content="2026-10-07T03:30Z">
+  <meta property="article:section" content="Analysis">
+  <meta property="article:author" content="Plankton">
+  <meta property="article:tag" content="token multiplier">
+  <meta property="article:tag" content="reasoning tokens">
+  <meta property="article:tag" content="non-English text">
+  <meta property="article:tag" content="English system prompts">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@aiscroll_io">
+  <meta name="twitter:creator" content="@aiscroll_io">
+  <meta name="twitter:title" content="AI Token Cost by Language: 8 Tokenizers Measured - AIScroll">
+  <meta name="twitter:description" content="Non-English text averages a 1.54x token multiplier across 8 AI models. With reasoning tokens billed as output, English system prompts cut costs.">
+  <meta name="twitter:image" content="https://aiscroll.io/assets/images/tech/ai/ai-token-cost-by-language/thumbnail.webp">
+  <meta name="twitter:image:alt" content="AI Token Cost by Language: 8 Tokenizers Measured - AIScroll">
+  <link rel="alternate" type="application/rss+xml" title="AIScroll RSS Feed" href="https://aiscroll.io/rss.xml">
+  <link rel="alternate" hreflang="en" href="https://aiscroll.io/article/analysis/ai-token-cost-by-language/">
+  <link rel="alternate" hreflang="ko" href="https://aiscroll.io/ko/article/analysis/ai-token-cost-by-language/">
+  <link rel="alternate" hreflang="x-default" href="https://aiscroll.io/article/analysis/ai-token-cost-by-language/">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"BlogPosting","inLanguage":"en-US","headline":"AI Token Cost by Language: 8 Tokenizers Measured","description":"Non-English text averages a 1.54x token multiplier across 8 AI models. With reasoning tokens billed as output, English system prompts cut costs.","image":"https://aiscroll.io/assets/images/tech/ai/ai-token-cost-by-language/thumbnail.webp","datePublished":"2026-10-07T03:30Z","author":{"@type":"Person","name":"Plankton","url":"https://aiscroll.io/about/","sameAs":["https://x.com/aiscroll_io"]},"publisher":{"@type":"Organization","name":"AIScroll","url":"https://aiscroll.io","sameAs":["https://x.com/aiscroll_io"],"logo":{"@type":"ImageObject","url":"https://aiscroll.io/icon-192.png","width":192,"height":192}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aiscroll.io/article/analysis/ai-token-cost-by-language/","inLanguage":"en-US"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aiscroll.io/"},{"@type":"ListItem","position":2,"name":"Analysis","item":"https://aiscroll.io/article/analysis/"},{"@type":"ListItem","position":3,"name":"AI Token Cost by Language: 8 Tokenizers Measured","item":"https://aiscroll.io/article/analysis/ai-token-cost-by-language/"}]}]</script>
+  <!-- 메인 CSS -->
+  <style data-layout-css="/styles-core.c06155cb.css">:root{--text:#1d1d1f;--text-2:#515154;--muted:#6e6e73;--line:#dedee3;--subtle:#eeeef0;--row:#f1f1f3;--gray:#f5f5f7;--gray-2:#ececf0;--link:#0066cc;--border:var(--line);--wrap:1200px;--gutter:20px;--header-h:64px;color-scheme:light;}*,*::before,*::after{box-sizing:border-box;}html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}body{margin:0;background:#fff;color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Malgun Gothic",sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}a{color:inherit;text-decoration:none;}img{max-width:100%;}h1,h2,h3,p,ol,ul,figure{margin:0;}button,input{font:inherit;color:inherit;}h1,h2,h3{word-break:keep-all;overflow-wrap:anywhere;}:focus-visible{outline:2px solid var(--link);outline-offset:2px;}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;}.page-wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:10px 18px;border:0;border-radius:999px;font-size:13px;font-weight:500;line-height:1.4;white-space:nowrap;cursor:pointer;}.btn-gray{background:var(--gray);color:var(--text);}@media (hover:hover){.btn-gray:hover{background:var(--gray-2);}}.site-header{position:relative;z-index:50;background:#fff;border-bottom:1px solid var(--subtle);}.site-header-in{display:flex;align-items:center;gap:48px;max-width:var(--wrap);height:var(--header-h);margin:0 auto;padding:0 var(--gutter);}.site-logo{display:flex;align-items:center;flex:none;color:var(--text);}.site-logo-svg{display:block;width:auto;height:22px;}.site-nav{display:flex;align-self:stretch;gap:24px;min-width:0;}.site-nav-item{display:flex;align-items:center;font-size:13px;font-weight:500;color:var(--text-2);white-space:nowrap;}@media (hover:hover){.site-nav-item:hover{color:var(--text);}}.site-nav-item[aria-current]{color:var(--text);font-weight:600;box-shadow:inset 0 -2px 0 var(--text);}.site-search{position:relative;flex:none;width:240px;margin:0 0 0 auto;}.site-search-box{display:flex;align-items:center;height:36px;padding:0 6px 0 16px;border-radius:10px;background:var(--gray);}.search-input{flex:1;min-width:0;height:100%;padding:0;border:0;outline:0;background:transparent;font-size:13px;-webkit-appearance:none;appearance:none;}.search-input::placeholder{color:var(--muted);}.search-input::-webkit-search-cancel-button{display:none;}.site-search-box:focus-within{box-shadow:0 0 0 2px var(--line);}.search-submit,.search-close,.search-toggle{display:flex;align-items:center;justify-content:center;flex:none;width:32px;height:32px;padding:0;border:0;background:none;color:var(--text-2);cursor:pointer;}.search-submit svg,.search-close svg{width:17px;height:17px;}.search-close,.search-toggle{display:none;}.search-dropdown{position:absolute;top:calc(100% + 6px);right:0;z-index:60;display:none;width:360px;max-height:420px;overflow-y:auto;padding:6px 0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,0.12);}.search-dropdown.active{display:block;}.search-result-item{display:block;padding:10px 16px;font-size:14px;line-height:1.45;color:var(--text);}.search-result-item:focus-visible{background:var(--gray);outline:0;}@media (hover:hover){.search-result-item:hover{background:var(--gray);outline:0;}}.search-no-results{padding:12px 16px;font-size:13px;color:var(--muted);}.site-footer{margin-top:80px;padding:24px var(--gutter) calc(24px + env(safe-area-inset-bottom,0px));background:var(--gray);text-align:center;font-size:12px;line-height:1.6;color:var(--muted);}@media (hover:hover){.site-footer a:hover{color:var(--text);}}.site-footer-sep{margin:0 10px;color:#c7c7cc;}@media (min-width:769px) and (max-width:1099px){.site-header-in{gap:28px;}.site-nav{gap:16px;}.site-search{width:200px;}}@media (max-width:768px){:root{--gutter:16px;}.site-header{position:fixed;top:0;left:0;right:0;transition:transform 0.2s ease;}body.search-hidden .site-header{transform:translateY(-60px);}.site-header-in{flex-wrap:wrap;gap:0;height:auto;padding:0;}.site-logo{height:60px;padding-left:var(--gutter);}.site-logo-svg{height:20px;}.search-toggle{display:flex;width:44px;height:60px;margin:0 6px 0 auto;color:var(--text);}.search-toggle svg{width:22px;height:22px;}.site-search{display:none;}.site-header.search-open .site-logo,.site-header.search-open .search-toggle{display:none;}.site-header.search-open .site-search{display:flex;align-items:center;flex:1 1 100%;width:auto;height:60px;margin:0;padding:0 var(--gutter);}.site-search-box{flex:1;height:42px;padding:0 4px 0 16px;border-radius:12px;}.search-input{font-size:16px;}.search-submit{display:none;}.search-close{display:flex;width:36px;height:36px;}.search-close svg{width:20px;height:20px;}.search-dropdown{top:56px;left:var(--gutter);right:var(--gutter);width:auto;max-height:60vh;}.site-nav{order:3;width:100%;height:48px;padding:0 var(--gutter);justify-content:space-between;gap:16px;border-top:1px solid var(--subtle);overflow-x:auto;scrollbar-width:none;}.site-nav::-webkit-scrollbar{display:none;}.site-nav-item{font-size:15px;}.site-container{padding-top:109px;}.site-footer{margin-top:56px;}}:root{--bg:#f6f6f3;--card:#fff;--card-line:#e6e6e0;--line:#deded7;--subtle:#e8e8e2;--row:#ebebe5;--gray:#eeeee9;--gray-2:#e5e5df;--radius:8px;--grid-gap:10px;}body{background:var(--bg);}.site-header{background:var(--bg);border-bottom-color:var(--subtle);}.site-nav-item{font-size:14px;color:#3c3c40;}.site-search-box{background:var(--card);box-shadow:inset 0 0 0 1px var(--card-line);border-radius:999px;}.site-search-box:focus-within{box-shadow:inset 0 0 0 1px #c9c9c1;}.search-dropdown{border-color:var(--card-line);border-radius:var(--radius);}.btn-gray{background:var(--gray-2);}@media (hover:hover){.btn-gray:hover{background:#dcdbd4;}}.site-footer{background:transparent;border-top:1px solid var(--subtle);}@media (max-width:768px){.site-search-box{border-radius:12px;}}body{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;}.site-container{flex:1 0 auto;width:100%;}.site-footer{flex:0 0 auto;}.ad-card{position:relative;box-sizing:border-box;touch-action:pan-x pan-y;}.ad-card>ins.adsbygoogle{max-width:100%;}.page-wrap>.ad-card-responsive-home,.page-wrap>.ad-card-mobile-top{margin-top:16px;}.ad-card-responsive-home>ins.adsbygoogle,.ad-card-mobile-top>ins.adsbygoogle{position:relative;line-height:0;}.ad-card-responsive-home:has(ins[data-ad-status="unfilled"]){display:none !important;}.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]){border-radius:8px;background:var(--gray);}.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle{visibility:hidden;}.ad-card-mobile-top:has(ins[data-ad-status="unfilled"])::before{content:'';position:absolute;inset:0;z-index:1;width:44px;height:44px;margin:auto;background:url('/favicon.svg') center / contain no-repeat;}.ad-card-scroll{width:100%;min-height:308px !important;}.ad-card-scroll>ins.adsbygoogle{min-height:284px !important;}.ad-card-scroll.gs-ad-compact,.ad-card-scroll.gs-ad-compact>ins.adsbygoogle{min-height:0 !important;}.blog-in-article-ad{margin:36px 0;}.ad-card-sidebar-rectangle{margin:24px 0;}@media (max-width:1199px){.ad-card-sidebar-rectangle{display:none;}}.ad-card-scroll:has(ins[data-ad-status="unfilled"]),.ad-card-scroll:has(ins[data-gs-ad-empty="1"]),.ad-card-scroll.gs-ad-empty,.ad-card-sidebar-rectangle:has(ins[data-ad-status="unfilled"]){display:none !important;min-height:0 !important;height:0 !important;margin:0 !important;}</style>
+  <noscript><link rel="stylesheet" href="/styles-core.c06155cb.css"></noscript>
+  <style data-layout-css="/styles-article.c06155cb.css">.article-layout{display:grid;grid-template-columns:minmax(0,780px) 300px;justify-content:space-between;gap:64px;margin-top:44px;}.article-main{min-width:0;}.article-kicker{display:inline-block;margin-bottom:12px;font-size:13px;font-weight:600;color:var(--text-2);}@media (hover:hover){.article-kicker:hover{color:var(--text);}}.blog-title{font-size:36px;font-weight:700;line-height:1.35;letter-spacing:-0.035em;}.article-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 16px;margin-top:18px;padding-bottom:22px;border-bottom:1px solid var(--subtle);}.byline{display:flex;align-items:center;flex-wrap:wrap;gap:4px 0;font-size:13px;line-height:1.6;color:var(--muted);}.byline>* + *::before{content:'';display:inline-block;width:3px;height:3px;margin:0 9px;border-radius:50%;background:#c7c7cc;vertical-align:middle;}.byline .blog-editor{font-weight:600;color:var(--text-2);}@media (hover:hover){.byline a.blog-editor:hover{color:var(--text);}}.blog-share-buttons{display:flex;gap:6px;}.blog-share-btn{position:relative;display:flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:var(--gray);color:var(--text-2);cursor:pointer;}@media (hover:hover){.blog-share-btn:hover{background:var(--gray-2);color:var(--text);}}.blog-share-btn svg{width:15px;height:15px;}.blog-share-copy.is-copied::after{content:attr(data-tip);position:absolute;top:calc(100% + 6px);right:0;padding:4px 8px;border-radius:6px;background:var(--text);color:#fff;font-size:11px;white-space:nowrap;}.blog-lead-figure{margin:32px 0 0;}.blog-lead-figure .blog-image{width:100%;aspect-ratio:16 / 9;object-fit:cover;background:var(--gray);}.blog-summary{margin-top:28px;padding:24px;border-radius:12px;background:var(--gray);font-size:17px;line-height:1.8;color:var(--text);word-break:keep-all;overflow-wrap:anywhere;}.blog-topics{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}.blog-topic-chip{padding:7px 12px;border-radius:999px;background:#f0f0f2;font-size:12px;font-weight:500;line-height:1.4;color:var(--text-2);}@media (hover:hover){.blog-topic-chip:hover{background:var(--gray-2);color:var(--text);}}.article-toc-mobile{display:none;}.article-toc-list{margin:0;padding:0;list-style:none;}.article-toc-item{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;padding:9px 0;font-size:14px;line-height:1.5;color:var(--muted);}@media (hover:hover){.article-toc-item:hover{color:var(--text);}}.article-toc-item.is-current{color:var(--text);font-weight:600;}.article-toc-num{font-size:13px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;}.article-toc-text{word-break:keep-all;overflow-wrap:anywhere;}.blog-content{margin-top:40px;font-size:17px;line-height:1.85;color:var(--text-2);}.blog-content .blog-paragraph,.blog-content>p{margin:0 0 24px;overflow-wrap:anywhere;}.blog-content .blog-heading{margin:48px 0 20px;font-size:26px;font-weight:600;line-height:1.45;letter-spacing:-0.03em;color:var(--text);scroll-margin-top:24px;}.blog-content strong{font-weight:600;color:var(--text);}.blog-content a{color:var(--link);text-decoration:underline;text-decoration-color:rgba(0,102,204,0.3);text-underline-offset:3px;}@media (hover:hover){.blog-content a:hover{text-decoration-color:currentColor;}}.blog-figure{margin:32px 0;}.blog-image{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:16px;}.blog-caption{margin-top:10px;font-size:13px;line-height:1.7;color:var(--muted);text-align:left;}.table-title{margin-bottom:12px;font-size:16px;font-weight:600;line-height:1.5;color:var(--text);}.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch;}.blog-content table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.65;}.blog-content th{background:var(--gray);color:var(--text-2);font-weight:600;text-align:left;}.blog-content td{color:var(--text-2);}.blog-content th,.blog-content td{padding:12px 14px;border:0;border-bottom:1px solid var(--line);vertical-align:middle;}.blog-content tr:last-child td{border-bottom:0;}.blog-aside{margin:28px 0;padding:20px 24px;border-radius:12px;background:var(--gray);font-size:15px;line-height:1.75;}.blog-aside .aside-title{display:block;margin-bottom:6px;color:var(--text);}.article-after{margin-top:56px;}.article-after-title{margin-bottom:16px;font-size:20px;font-weight:600;line-height:1.4;letter-spacing:-0.03em;}.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}.related-card{display:block;min-width:0;}.related-thumb{aspect-ratio:16 / 9;overflow:hidden;border-radius:12px;background:var(--gray);}.related-thumb img{display:block;width:100%;height:100%;object-fit:cover;}.related-title{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;margin-top:10px;font-size:15px;font-weight:600;line-height:1.45;}@media (hover:hover){.related-card:hover .related-title{text-decoration:underline;text-underline-offset:3px;}}.blog-sources-list{margin:0;padding:0;list-style:none;}.blog-sources-list li{padding:11px 0;border-top:1px solid var(--row);font-size:14px;line-height:1.6;overflow-wrap:anywhere;}.blog-sources-list li:last-child{border-bottom:1px solid var(--row);}.blog-sources-list a{color:var(--text-2);}@media (hover:hover){.blog-sources-list a:hover{color:var(--link);text-decoration:underline;}}.blog-author-box{margin-top:56px;padding:24px;border-radius:12px;background:var(--gray);}.blog-author-kicker{font-size:12px;color:var(--text-2);}.blog-author-name{margin-top:6px;font-size:18px;font-weight:600;}.blog-author-bio{margin-top:8px;font-size:14px;line-height:1.7;color:var(--text-2);}.article-pager{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:48px;}.article-sidebar{min-width:0;}.article-sidebar-sticky{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding-bottom:8px;}.side-head{margin-bottom:8px;font-size:13px;font-weight:600;color:var(--muted);}.side-tabs{display:flex;gap:4px;margin-bottom:4px;}.side-tabs .tab-btn{flex:1;padding:7px 0;border:0;border-radius:8px;background:var(--gray);font-size:13px;font-weight:500;color:var(--muted);cursor:pointer;}.side-tabs .tab-btn.active{background:var(--gray-2);color:var(--text);}.sidebar-article-list{margin:0;padding:0;list-style:none;}.sidebar-article-list:not(.active){display:none;}.sidebar-article-item{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;padding:11px 0;border-bottom:1px solid var(--row);font-size:14px;line-height:1.5;}.sidebar-article-rank{font-size:13px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;}.sidebar-article-title{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-weight:500;color:var(--text);word-break:keep-all;overflow-wrap:anywhere;}@media (hover:hover){.sidebar-article-item:hover .sidebar-article-title{text-decoration:underline;text-underline-offset:3px;}}@media (max-width:1099px){.article-layout{display:block;max-width:780px;margin:32px auto 0;}.article-sidebar{display:none;}.article-toc-mobile{display:block;margin-top:24px;padding:0 16px;border-radius:12px;background:var(--gray);}.article-toc-mobile summary{display:flex;align-items:center;justify-content:space-between;padding:14px 0;font-size:15px;font-weight:600;color:var(--text);list-style:none;cursor:pointer;}.article-toc-mobile summary::-webkit-details-marker{display:none;}.article-toc-chevron{width:18px;height:18px;color:var(--muted);transition:transform 0.2s;}.article-toc-mobile[open] .article-toc-chevron{transform:rotate(180deg);}.article-toc-mobile .article-toc{padding-bottom:8px;}}@media (max-width:768px){.article-layout{margin-top:28px;}.blog-title{font-size:28px;}.article-meta{margin-top:14px;padding-bottom:18px;}.blog-lead-figure{margin-top:24px;}.blog-image{border-radius:12px;}.blog-summary{margin-top:24px;padding:20px;font-size:15px;}.blog-content{margin-top:32px;font-size:16px;line-height:1.8;}.blog-content .blog-heading{margin:40px 0 16px;font-size:23px;scroll-margin-top:120px;}.blog-caption{font-size:12px;}.blog-content table{width:max-content;min-width:100%;font-size:13px;}.blog-content th,.blog-content td{padding:10px;white-space:nowrap;}.blog-in-article-ad{margin:32px auto;}.related-grid{grid-template-columns:minmax(0,1fr);gap:0;}.related-card{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--row);}.related-thumb{border-radius:8px;}.related-title{margin-top:0;}.article-after,.blog-author-box{margin-top:44px;}}.article-layout{grid-template-columns:minmax(0,720px) 300px;}.blog-summary{margin-top:26px;padding:0;border-radius:0;background:none;font-size:20px;font-weight:500;line-height:1.7;letter-spacing:-0.02em;}.blog-lead-figure{margin-top:28px;}.blog-content{line-height:1.9;color:var(--text);}.blog-content .blog-paragraph,.blog-content>p{margin-bottom:28px;}.blog-content .blog-heading{margin:64px 0 22px;font-size:27px;font-weight:700;}.blog-avatar{flex:0 0 auto;width:22px;height:22px;}.byline .blog-editor{display:inline-flex;align-items:center;gap:8px;color:var(--text);}.blog-author-box{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;align-items:start;}.blog-author-box .blog-avatar{width:48px;height:48px;}@media (hover:hover){.blog-author-name a:hover{text-decoration:underline;text-underline-offset:3px;}}@media (max-width:768px){.blog-summary{margin-top:20px;font-size:18px;}.blog-content .blog-heading{margin-top:48px;font-size:23px;}.blog-author-box{grid-template-columns:40px minmax(0,1fr);gap:14px;}.blog-author-box .blog-avatar{width:40px;height:40px;}}.blog-content .blog-figure,.blog-content .blog-aside{margin-top:32px;margin-bottom:32px;}.blog-content .wiki-table{font-size:15px;line-height:1.6;color:var(--text);}.blog-content .blog-aside{font-size:16px;line-height:1.8;color:var(--text);}.blog-content .blog-aside .aside-title{display:block;margin-bottom:6px;font-size:13px;font-weight:700;color:var(--text-2);}.blog-content .blog-aside p{margin:0;}.article-layout{grid-template-columns:minmax(0,1fr) 300px;gap:72px;}.blog-share-btn{width:34px;height:34px;}.blog-share-btn svg{width:16px;height:16px;}.blog-share-copy .blog-share-check{display:none;}.blog-share-copy.is-copied{background:var(--text);color:#fff;}.blog-share-copy.is-copied svg{display:none;}.blog-share-copy.is-copied .blog-share-check{display:block;}.blog-share-copy.is-copied::after{top:calc(100% + 8px);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:600;z-index:2;}.blog-image,.blog-lead-figure,.blog-lead-figure .blog-image,.blog-content .blog-aside,.related-thumb,.blog-author-box,.article-toc-mobile,.side-tabs,.side-tabs .tab-btn{border-radius:var(--radius);}.blog-lead-figure{overflow:hidden;}.blog-share-btn{background:var(--gray);}@media (hover:hover){.blog-share-btn:hover{background:var(--gray-2);}}@media (hover:hover){.blog-share-copy.is-copied:hover{background:var(--text);}}.blog-topic-chip{background:var(--gray);}@media (hover:hover){.blog-topic-chip:hover{background:var(--gray-2);}}.table-scroll{border:0;border-top:1px solid var(--text);border-radius:0;background:none;}.blog-content th{background:none;font-size:13px;color:var(--muted);}.blog-content th,.blog-content td{padding-left:0;padding-right:20px;border-bottom-color:var(--card-line);}.blog-content .blog-aside,.blog-author-box{border:0;background:var(--gray);}.side-tabs .tab-btn{background:transparent;}.side-tabs{padding:4px;background:var(--gray);}.side-tabs .tab-btn.active{background:var(--bg);box-shadow:none;}@media (max-width:1099px){.article-toc-mobile{border:0;background:var(--gray);}}.blog-share-btn[hidden]{display:none;}@media (max-width:768px){.blog-share-buttons.has-native>a.blog-share-btn:not(:first-child){display:none;}}</style>
+  <noscript><link rel="stylesheet" href="/styles-article.c06155cb.css"></noscript>
+  <script data-css-loader>
+    (function() {
+      var started = false;
+      function start() {
+        if (started) return;
+        started = true;
+        [].forEach.call(document.querySelectorAll('style[data-layout-css]'), function(style) {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = style.getAttribute('data-layout-css');
+          style.parentNode.insertBefore(link, style.nextSibling);
+        });
+      }
+      window.addEventListener('load', start);
+      ['pointerdown', 'keydown', 'focusin'].forEach(function(type) {
+        window.addEventListener(type, start, { capture: true, once: true, passive: true });
+      });
+    })();
+  </script>
+  <script>
+    (function() {
+      function show(img) {
+        var srcset = img.getAttribute('data-gs-srcset');
+        if (srcset !== null) {
+          img.srcset = srcset;
+          img.removeAttribute('data-gs-srcset');
+        }
+        img.src = img.getAttribute('data-gs-src');
+        img.removeAttribute('data-gs-src');
+      }
+      function pending() { return document.querySelectorAll('img[data-gs-src]'); }
+      if (!('IntersectionObserver' in window)) {
+        document.addEventListener('DOMContentLoaded', function() { [].forEach.call(pending(), show); });
+        return;
+      }
+      function watch(margin) {
+        return new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting || !entry.target.hasAttribute('data-gs-src')) return;
+            observer.unobserve(entry.target);
+            show(entry.target);
+          });
+        }, { rootMargin: margin + ' 0px', scrollMargin: margin });
+      }
+      var near = watch('200px');
+      var parser = new MutationObserver(function(records) {
+        records.forEach(function(record) {
+          [].forEach.call(record.addedNodes, function(node) {
+            if (node.nodeName === 'IMG' && node.hasAttribute('data-gs-src')) near.observe(node);
+          });
+        });
+      });
+      parser.observe(document.documentElement, { childList: true, subtree: true });
+      document.addEventListener('DOMContentLoaded', function() {
+        parser.disconnect();
+        [].forEach.call(pending(), function(img) { near.observe(img); });
+      });
+      window.addEventListener('load', function() {
+        near.disconnect();
+        var far = watch('1250px');
+        [].forEach.call(pending(), function(img) { far.observe(img); });
+      });
+    })();
+  </script>
+  <script>document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&t.getAttribute('data-img-fallback')==='hide')t.style.display='none';},true);</script>
+  <script>
+    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장)
+    (function() {
+      if (window.location.hostname !== 'aiscroll.io') return;
+      window.__asPageViewQueue = [];
+      window.__asLogPageView = function(path) { window.__asPageViewQueue.push(path); };
+    })();
+  </script>
+  <script type="module">
+    (function() {
+      if (window.location.hostname !== 'aiscroll.io') return;
+      function initFirebase() {
+        (async function() {
+          try {
+            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+            ]);
+            const firebaseConfig = {
+              apiKey: "AIzaSyBrklaUMi0oCBdwdAKidy-ZrZSNeHR9irg",
+              authDomain: "aiscroll.firebaseapp.com",
+              projectId: "aiscroll",
+              storageBucket: "aiscroll.firebasestorage.app",
+              messagingSenderId: "616378969440",
+              appId: "1:616378969440:web:9a8e65a68fe990cc934205",
+              measurementId: "G-RKW0H8HYMS"
+            };
+            const analytics = getAnalytics(initializeApp(firebaseConfig));
+            (window.__asPageViewQueue || []).forEach(function(path) {
+              logEvent(analytics, 'page_view', { page_path: path, page_location: window.location.origin + path });
+            });
+            window.__asLogPageView = function(path) {
+              logEvent(analytics, 'page_view', { page_path: path, page_location: window.location.origin + path });
+            };
+          } catch (e) {}
+        })();
+      }
+      // 페이지 load 뒤 상단 광고 결과(filled/unfilled)가 나오면 시작한다(최대 3초 대기):
+      // 분석 스크립트(약 190KB)가 광고 소재와 대역폭·CPU를 나눠 쓰지 않게 한다.
+      function afterTopAd() {
+        var ad = document.querySelector('ins.adsbygoogle[data-gs-ad-pushed="1"]');
+        if (!ad || ad.getAttribute('data-ad-status')) return initFirebase();
+        var started = false;
+        var observer = new MutationObserver(function() {
+          if (ad.getAttribute('data-ad-status')) start();
+        });
+        function start() {
+          if (started) return;
+          started = true;
+          observer.disconnect();
+          initFirebase();
+        }
+        observer.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
+        setTimeout(start, 3000);
+      }
+      if (document.readyState === 'complete') setTimeout(afterTopAd, 0);
+      else window.addEventListener('load', afterTopAd);
+    })();
+  </script>
+</head>
+<body class="page-analysis" data-page="analysis">
+  <script>try{if(sessionStorage.getItem('ai-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('ai-search-hidden');}}catch(e){}</script>
+  
+  <header class="site-header" id="site-header">
+    <div class="site-header-in">
+      <a class="site-logo" href="/" aria-label="AIScroll"><svg class="site-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121 32" aria-hidden="true"><g transform="translate(0 5.0)"><g fill="currentColor"><circle cx="5.5" cy="5.5" r="4.5"/><circle cx="16.5" cy="5.5" r="4.5"/><circle cx="5.5" cy="16.5" r="4.5"/><circle cx="16.5" cy="16.5" r="4.5" fill="#2457e6"/></g></g><g fill="currentColor" transform="translate(31 25.2)"><path d="M0.6 0.0 6.8 -18.4H12.5L18.7 0.0H14.1L9.7 -13.8H9.6L5.2 0.0ZM14.6 -7.2V-3.9H4.6V-7.2Z"/><path d="M23.8 0.0H19.5V-18.4H23.8Z"/><path d="M32.5 -15.1Q31.6 -15.1 31 -14.8Q30.4 -14.6 30.1 -14.2Q29.8 -13.8 29.8 -13.3Q29.8 -12.4 30.5 -12Q31.2 -11.5 32.5 -11.2L34.1 -10.8Q36.9 -10.2 38.3 -8.9Q39.7 -7.5 39.7 -5.3Q39.7 -3.6 38.9 -2.4Q38 -1.1 36.4 -0.4Q34.7 0.2 32.5 0.2Q30.2 0.2 28.5 -0.5Q26.8 -1.2 25.8 -2.6Q24.9 -4 24.8 -6.1H29Q29.1 -5.2 29.5 -4.6Q29.9 -4 30.7 -3.7Q31.4 -3.4 32.4 -3.4Q33.3 -3.4 34 -3.6Q34.6 -3.9 35 -4.3Q35.3 -4.8 35.3 -5.3Q35.3 -5.9 35 -6.3Q34.7 -6.6 34.1 -6.9Q33.4 -7.2 32.4 -7.4L30.4 -7.9Q28 -8.4 26.6 -9.7Q25.3 -10.9 25.3 -13Q25.3 -14.6 26.3 -15.9Q27.2 -17.2 28.8 -17.9Q30.4 -18.6 32.5 -18.6Q34.6 -18.6 36.2 -17.9Q37.7 -17.2 38.6 -15.9Q39.5 -14.6 39.5 -12.9H35.3Q35.3 -13.6 34.9 -14.1Q34.6 -14.6 34 -14.8Q33.4 -15.1 32.5 -15.1Z"/><path d="M40.2 -6.8Q40.2 -9 41.1 -10.6Q41.9 -12.2 43.5 -13.1Q45 -14 47.1 -14Q49 -14 50.5 -13.3Q51.9 -12.6 52.7 -11.4Q53.5 -10.1 53.5 -8.4H49.5Q49.4 -9.1 49.1 -9.7Q48.8 -10.2 48.3 -10.4Q47.9 -10.7 47.2 -10.7Q46.4 -10.7 45.8 -10.3Q45.2 -9.8 44.9 -9Q44.6 -8.1 44.6 -6.9Q44.6 -5.7 44.9 -4.8Q45.2 -4 45.8 -3.5Q46.4 -3.1 47.2 -3.1Q47.8 -3.1 48.3 -3.3Q48.8 -3.6 49.1 -4.1Q49.4 -4.6 49.5 -5.3H53.5Q53.4 -3.7 52.7 -2.4Q51.9 -1.1 50.5 -0.4Q49.1 0.3 47.2 0.3Q45 0.3 43.5 -0.6Q41.9 -1.5 41.1 -3.1Q40.2 -4.8 40.2 -6.8Z"/><path d="M54.5 -13.8H58.7V-11.3H58.8Q59.2 -12.6 60 -13.3Q60.9 -14 62 -14Q62.6 -14 63.3 -13.8V-10.1Q63 -10.2 62.5 -10.3Q62 -10.3 61.6 -10.3Q60.8 -10.3 60.1 -10Q59.5 -9.6 59.2 -9Q58.8 -8.4 58.8 -7.6V0.0H54.5Z"/><path d="M63.3 -6.8Q63.3 -9 64.1 -10.6Q64.9 -12.2 66.5 -13.1Q68.1 -14 70.2 -14Q72.3 -14 73.9 -13.1Q75.5 -12.2 76.3 -10.6Q77.1 -9 77.1 -6.8Q77.1 -4.7 76.3 -3.1Q75.5 -1.5 73.9 -0.6Q72.3 0.3 70.2 0.3Q68.1 0.3 66.5 -0.6Q64.9 -1.5 64.1 -3.1Q63.3 -4.7 63.3 -6.8ZM72.8 -6.9Q72.8 -8 72.5 -8.9Q72.2 -9.8 71.6 -10.3Q71 -10.8 70.2 -10.8Q69.4 -10.8 68.8 -10.3Q68.2 -9.8 67.9 -8.9Q67.6 -8.1 67.6 -6.9Q67.6 -5.7 67.9 -4.8Q68.2 -4 68.8 -3.5Q69.4 -3 70.2 -3Q71 -3 71.6 -3.5Q72.2 -4 72.5 -4.8Q72.8 -5.7 72.8 -6.9Z"/><path d="M82.4 0.0H78.2V-18.4H82.4Z"/><path d="M88.2 0.0H84V-18.4H88.2Z"/></g></svg></a>
+      <nav class="site-nav" aria-label="Sections"><a class="site-nav-item" href="/article/reviews/" data-nav-id="reviews">Reviews</a><a class="site-nav-item" href="/article/analysis/" data-nav-id="analysis" aria-current="true">Analysis</a><a class="site-nav-item" href="/article/devlog/" data-nav-id="devlog">Dev Log</a><a class="site-nav-item" href="/article/news/" data-nav-id="news">News</a><a class="site-nav-item" href="/mixdog/" data-nav-id="mixdog">Mixdog</a></nav>
+      <form class="site-search" id="site-search" action="/search/" method="get" role="search">
+        <div class="site-search-box">
+          <input class="search-input" type="search" name="q" placeholder="Search posts" aria-label="Search" autocomplete="off" enterkeyhint="search">
+          <button class="search-submit" type="submit" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+          <button class="search-close" type="button" aria-label="Close search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div class="search-dropdown" data-css-tokens="search-result-item search-no-results"></div>
+      </form>
+      <a class="search-toggle" href="/search/" aria-label="Search" aria-controls="site-search" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></a>
+    </div>
+  </header>
+  <script>(function(){var n=document.querySelector('.site-nav'),a=n&&n.querySelector('[aria-current]');if(!a||n.scrollWidth<=n.clientWidth+1)return;n.scrollLeft=Math.max(0,a.getBoundingClientRect().left-n.getBoundingClientRect().left+n.scrollLeft-(n.clientWidth-a.offsetWidth)/2);})();</script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    
+    <div class="page-wrap article-page" id="article">
+      <div class="ad-card ad-card-responsive-home gs-ad-fixed ad-home-pc-4-card">
+  <style>
+    .ad-home-pc-4-card, .ad-home-pc-4 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-4-card { display:flex !important; width:100%; max-width:970px; min-height:60px; margin:0 auto; overflow:hidden; align-items:center; justify-content:center; }
+      .ad-home-pc-4 { display:block !important; width:468px; height:60px; margin:0 auto; }
+    }
+    @media (min-width: 900px) {
+      .ad-home-pc-4-card { min-height:90px; }
+      .ad-home-pc-4 { width:728px; height:90px; }
+    }
+    @media (min-width: 1200px) {
+      .ad-home-pc-4-card { min-height:250px; }
+      .ad-home-pc-4 { width:970px; height:250px; }
+    }
+  </style>
+  <ins class="adsbygoogle gs-ad-fixed ad-home-pc-4"
+       style="display:inline-block"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-5-card">
+  <style>
+    .ad-home-mo-5-card { display:flex !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-5, .ad-home-mo-5-card > .ad-home-mo-5, .ad-home-mo-5-card > .ad-home-mo-5 > div, .ad-home-mo-5-card > .ad-home-mo-5 iframe { display:block !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; margin:0 auto; }
+    .ad-home-mo-5-card > .ad-home-mo-5 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-5-card, .ad-home-mo-5, .ad-home-mo-5-card > .ad-home-mo-5 > div, .ad-home-mo-5-card > .ad-home-mo-5 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-5"
+       style="display:block;width:100%;max-width:300px;height:250px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+<script>
+(function() {
+  if (window.__gsEarlyTopAdRequested || document.body.classList.contains('ads-disabled')) return;
+  function isHidden(ad) {
+    var node = ad;
+    while (node && node !== document.body) {
+      if (node.offsetParent === null) return true;
+      var cs = window.getComputedStyle ? getComputedStyle(node) : null;
+      if (cs && cs.display === 'none') return true;
+      node = node.parentElement;
+    }
+    return false;
+  }
+  // 애드센스는 순서상 첫 번째 미처리 <ins>를 채운다. 다른 화면 폭용으로 숨겨진 슬롯은 먼저 치운다.
+  var ads = document.querySelectorAll('.adsbygoogle');
+  var ad = null;
+  for (var i = 0; i < ads.length; i++) {
+    if (isHidden(ads[i])) {
+      if (!ads[i].getAttribute('data-gs-ad-pushed') && !ads[i].getAttribute('data-adsbygoogle-status') && ads[i].parentNode) {
+        ads[i].parentNode.removeChild(ads[i]);
+      }
+    } else if (!ad) {
+      ad = ads[i];
+    }
+  }
+  if (!ad || !ad.closest('.ad-card-responsive-home, .ad-card-mobile-top')) return;
+  if (ad.getAttribute('data-gs-ad-pushed') === '1' || ad.getBoundingClientRect().width <= 0) return;
+  ad.setAttribute('data-gs-ad-pushed', '1');
+  try {
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    window.__gsEarlyTopAdRequested = true;
+    if (window.performance && performance.mark) performance.mark('gs-top-ad-request');
+  } catch (e) {
+    ad.removeAttribute('data-gs-ad-pushed');
+  }
+})();
+</script>
+      <div class="article-layout">
+        <article class="article-main">
+          <header class="article-head">
+            <a class="article-kicker" href="/article/analysis/">Analysis</a>
+            <h1 class="blog-title">AI Token Cost by Language: 8 Tokenizers Measured</h1>
+            <div class="article-meta">
+              <div class="byline"><a class="blog-editor" href="/about/" rel="author"><svg class="blog-avatar" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#0b0b0a"/><g fill="#fff"><circle cx="11.5" cy="11.5" r="3.4"/><circle cx="20.5" cy="11.5" r="3.4"/><circle cx="11.5" cy="20.5" r="3.4"/><circle cx="20.5" cy="20.5" r="3.4" fill="#4f7cff"/></g></svg>Plankton</a><time class="blog-date" datetime="2026-10-07">Oct 7, 2026</time></div>
+              
+    <div class="blog-share" role="group" aria-label="Share this article">
+      <div class="blog-share-buttons">
+        <a class="blog-share-btn" href="https://x.com/intent/post?text=AI%20Token%20Cost%20by%20Language%3A%208%20Tokenizers%20Measured&url=https%3A%2F%2Faiscroll.io%2Farticle%2Fanalysis%2Fai-token-cost-by-language%2F" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.2 8.2L23.3 22h-6.6l-5.2-6.8L5.6 22H2.4l7.7-8.8L1 2h6.8l4.7 6.2L18.9 2zm-1.2 18.1h1.8L6.4 3.8H4.5l13.2 16.3z"/></svg></a>
+        <a class="blog-share-btn" href="https://www.threads.net/intent/post?text=AI%20Token%20Cost%20by%20Language%3A%208%20Tokenizers%20Measured%20https%3A%2F%2Faiscroll.io%2Farticle%2Fanalysis%2Fai-token-cost-by-language%2F" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg></a>
+        <a class="blog-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Faiscroll.io%2Farticle%2Fanalysis%2Fai-token-cost-by-language%2F" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
+        <a class="blog-share-btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faiscroll.io%2Farticle%2Fanalysis%2Fai-token-cost-by-language%2F" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+        <button type="button" class="blog-share-btn blog-share-native" hidden data-share-url="https://aiscroll.io/article/analysis/ai-token-cost-by-language/" data-share-title="AI Token Cost by Language: 8 Tokenizers Measured" aria-label="Share via…"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.7l7.4-4.3M8.3 13.3l7.4 4.3"/></svg></button>
+        <button type="button" class="blog-share-btn blog-share-copy" data-share-url="https://aiscroll.io/article/analysis/ai-token-cost-by-language/" data-copied-label="Copied" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><svg class="blog-share-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span class="visually-hidden" aria-live="polite"></span></button>
+      </div>
+    </div>
+            </div>
+          </header>
+          <p class="blog-summary">Non-English text averages a 1.54x token multiplier across 8 AI models. With reasoning tokens billed as output, English system prompts cut costs.</p>
+          
+          <figure class="blog-figure blog-lead-figure">
+            <img src="/assets/images/tech/ai/ai-token-cost-by-language/thumbnail.webp" class="blog-image" width="1200" height="675" alt="AI Token Cost by Language: 8 Tokenizers Measured" loading="eager" fetchpriority="high" decoding="async">
+          </figure>
+          <div class="blog-topics" aria-label="Topics"><a class="blog-topic-chip" href="/topic/pricing/">Pricing &amp; Limits</a><a class="blog-topic-chip" href="/topic/anthropic/">Anthropic</a><a class="blog-topic-chip" href="/topic/china-ai/">China AI</a></div>
+          
+    <details class="article-toc-mobile">
+      <summary>Table of Contents<svg class="article-toc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <nav class="article-toc" aria-label="Table of Contents"><ol class="article-toc-list">
+      <li><a href="#why-tokenizers-charge-languages-differently" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">1</span><span class="article-toc-text">Why Tokenizers Charge Languages Differently</span></a></li>
+      <li><a href="#token-multiplier-results-8-models-9-languages" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">2</span><span class="article-toc-text">Token Multiplier Results: 8 Models, 9 Languages</span></a></li>
+      <li><a href="#language-gaps-chinese-is-the-exception" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">3</span><span class="article-toc-text">Language Gaps: Chinese Is the Exception</span></a></li>
+      <li><a href="#output-costs-more-and-reasoning-tokens-bill-as-output" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">4</span><span class="article-toc-text">Output Costs More, and Reasoning Tokens Bill as Output</span></a></li>
+      <li><a href="#fable-51-and-opus-55-keep-drifting-into-english" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">5</span><span class="article-toc-text">Fable 5.1 and Opus 5.5 Keep Drifting Into English</span></a></li>
+      <li><a href="#english-system-prompts-pay-off-unless-you-work-in-chinese" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">6</span><span class="article-toc-text">English System Prompts Pay Off Unless You Work in Chinese</span></a></li>
+    </ol></nav>
+    </details>
+          <div class="blog-content">
+            <p class="blog-paragraph">Developers keep saying that working with AI in a language other than English costs more. The same content turns into a different number of tokens depending on the language, and API bills are counted in tokens, reasoning tokens included. What has been hard to find is a like-for-like measurement of how large that gap is across the models in use today.</p><p class="blog-paragraph">So AIScroll measured it. On Oct. 6, 2026 (UTC), AIScroll sent 200 identical sentences in nine languages to eight models, including GPT 6.1, Claude Opus 5.5 and Gemini 3.8 Flash. On average, non-English text cost 1.54 times as many tokens as the same content in English. With English set to 1x, Chinese came in at 1.08x. Spanish, German and French ran 1.4x to 1.5x, Korean and Arabic about 1.6x, and Hindi 2.27x.</p>
+<p class="blog-paragraph">API prices are quoted per token. Even at the same unit price, a higher token multiplier means a larger bill. This applies to system prompts and other fixed instructions attached to every request. The gap also extends beyond input: answers and hidden reasoning are tokens too, and output tokens cost several times more than input.</p>
+
+    <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="1">
+      <ins class="adsbygoogle"
+           style="display:block;text-align:center"
+           data-ad-format="fluid"
+           data-ad-layout="in-article"
+           data-ad-client="ca-pub-9477874183990825"
+           data-ad-slot="8021405606"></ins>
+    </div>
+<h2 id="why-tokenizers-charge-languages-differently" class="blog-heading">Why Tokenizers Charge Languages Differently</h2>
+<p class="blog-paragraph">A tokenizer splits text into the units a model processes. Strings that appear frequently in training data become single tokens; rare strings are broken into smaller pieces. Because English dominates most training data, an English word often fits into one or two tokens, while non-English text in other scripts requires more tokens to convey the same meaning.</p>
+<p class="blog-paragraph">Hindi, written in Devanagari, represents the extreme case. GLM 5.3 Flash gave Hindi a token multiplier of 4.29x. Conversely, models from Chinese labs handled Chinese with as few tokens as English, or fewer. The languages a lab trains its models on show up directly in its tokenizer.</p>
+<p class="blog-paragraph">Tokenizers also change between model generations. <a href="https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1" target="_blank" rel="noopener">Anthropic&#39;s documentation</a> notes that the tokenizer introduced with Claude Opus 4.7 produces roughly 30% more tokens for the same text than older models. In this test, Opus 5.5 counted the 200 English sentences at 9,023 tokens, while the other seven models landed between 5,469 and 5,791. A per-million-token price list alone does not reveal actual workload costs.</p>
+<h2 id="token-multiplier-results-8-models-9-languages" class="blog-heading">Token Multiplier Results: 8 Models, 9 Languages</h2>
+
+            <aside class="blog-aside">
+              <strong class="aside-title">Method</strong>
+              <p>The first 200 FLORES-200 devtest sentences, identical in meaning across languages, were sent as a single user message with no system prompt and no tools. Each API's reported input tokens were recorded (countTokens for Gemini), and the fixed per-request overhead was measured with a one-character request and subtracted. One run per model on October 6, 2026 (UTC). Each multiplier is a language's token count divided by the same model's English count.</p>
+            </aside>
+
+            <figure class="blog-figure">
+              <img class="blog-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="/assets/images/tech/ai/ai-token-cost-by-language/heatmap-v5.webp" alt="Heatmap of input-token multipliers for eight AI models across nine languages" width="1200" height="675" loading="lazy" onerror="this.parentElement.style.display='none'">
+              <figcaption class="blog-caption">Input-token multiplier versus English by model and language; lower is better. AIScroll measurement, October 6, 2026 (UTC)</figcaption>
+            </figure>
+<p class="blog-paragraph">Averaged across the eight models, non-English text carried a token multiplier of 1.54x. Only two results fell below 1x, both for Chinese: Kimi K3 at 0.92x and DeepSeek V4.1 Flash at 0.98x. GLM 5.3 Flash matched English on Chinese at 1.00x. Every other combination cost more than English.</p>
+
+            <figure class="blog-figure blog-table">
+              <div class="table-title">Input-token multiplier versus English: eight-model average with the lowest and highest model. AIScroll measurement</div>
+              <div class="table-scroll">
+                <table class="wiki-table">
+                  <thead><tr><th>Language</th><th>Average</th><th>Lowest model</th><th>Highest model</th></tr></thead>
+                  <tbody><tr><td data-label="Language">Chinese</td><td data-label="Average">1.08x</td><td data-label="Lowest model">Kimi K3 0.92x</td><td data-label="Highest model">GPT 6.1 1.28x</td></tr><tr><td data-label="Language">Spanish</td><td data-label="Average">1.41x</td><td data-label="Lowest model">Gemini 3.8 Flash 1.28x</td><td data-label="Highest model">Kimi K3 1.67x</td></tr><tr><td data-label="Language">Japanese</td><td data-label="Average">1.42x</td><td data-label="Lowest model">Grok 4.7 1.22x</td><td data-label="Highest model">GPT 6.1 1.68x</td></tr><tr><td data-label="Language">German</td><td data-label="Average">1.46x</td><td data-label="Lowest model">Muse Spark 1.3 1.31x</td><td data-label="Highest model">Kimi K3 1.73x</td></tr><tr><td data-label="Language">French</td><td data-label="Average">1.47x</td><td data-label="Lowest model">Muse Spark 1.3 1.37x</td><td data-label="Highest model">Kimi K3 1.73x</td></tr><tr><td data-label="Language">Russian</td><td data-label="Average">1.50x</td><td data-label="Lowest model">Muse Spark 1.3 1.26x</td><td data-label="Highest model">Kimi K3 2.07x</td></tr><tr><td data-label="Language">Korean</td><td data-label="Average">1.61x</td><td data-label="Lowest model">Muse Spark 1.3 1.27x</td><td data-label="Highest model">Kimi K3 1.99x</td></tr><tr><td data-label="Language">Arabic</td><td data-label="Average">1.63x</td><td data-label="Lowest model">Grok 4.7 1.36x</td><td data-label="Highest model">Kimi K3 2.06x</td></tr><tr><td data-label="Language">Hindi</td><td data-label="Average">2.27x</td><td data-label="Lowest model">Gemini 3.8 Flash 1.30x</td><td data-label="Highest model">GLM 5.3 Flash 4.29x</td></tr></tbody>
+                </table>
+              </div>
+            </figure>
+<p class="blog-paragraph">These figures cover input tokens only. Output passes through the same tokenizer, so similar multipliers likely apply, but output length is determined by the model and was not measured directly. Translations also vary slightly in length across languages. Even so, the cost spread for identical content remains clear.</p>
+
+    <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="2">
+      <ins class="adsbygoogle"
+           style="display:block;text-align:center"
+           data-ad-format="fluid"
+           data-ad-layout="in-article"
+           data-ad-client="ca-pub-9477874183990825"
+           data-ad-slot="9566421564"></ins>
+    </div>
+<h2 id="language-gaps-chinese-is-the-exception" class="blog-heading">Language Gaps: Chinese Is the Exception</h2>
+<p class="blog-paragraph">European languages share the Latin alphabet with English yet still cost 1.4x to 1.5x more: Spanish hit 1.41x, German 1.46x and French 1.47x. Russian, written in Cyrillic, came in at 1.50x, and Arabic at 1.63x.</p>
+<p class="blog-paragraph">East Asian languages split widely. Chinese, at 1.08x, was the only language close to English, while Japanese reached 1.42x and Korean 1.61x. Kimi K3, the most efficient model for Chinese, proved among the most expensive for its neighbors, hitting 1.99x for Korean and 1.65x for Japanese. A tokenizer tuned for one language does not automatically carry over to the next.</p>
+<p class="blog-paragraph">By model, Gemini 3.8 Flash had the lowest average token multiplier for non-English text at 1.32x, followed by Muse Spark 1.3 (1.36x), Grok 4.7 (1.39x), GPT 6.1 (1.43x) and Opus 5.5 (1.51x). The Chinese models—DeepSeek V4.1 Flash (1.64x), GLM 5.3 Flash (1.82x) and Kimi K3 (1.84x)—were the most efficient on Chinese but had the highest averages elsewhere. The low-priced <a href="/article/reviews/muse-spark-13-contributor/">Muse Spark 1.3</a> also maintained low language multipliers.</p>
+<h2 id="output-costs-more-and-reasoning-tokens-bill-as-output" class="blog-heading">Output Costs More, and Reasoning Tokens Bill as Output</h2>
+<p class="blog-paragraph">Input multipliers alone can appear modest. The larger gap opens on the output side. <a href="https://platform.claude.com/docs/en/models/opus-5-5/whats-new-opus-5-5" target="_blank" rel="noopener">Claude Opus 5.5&#39;s list price</a> is $4 per million input tokens and $20 per million output tokens, five times the input rate.</p>
+<p class="blog-paragraph">Reasoning models think before they answer. <a href="https://developers.openai.com/api/docs/guides/reasoning/" target="_blank" rel="noopener">OpenAI&#39;s documentation</a> states that reasoning tokens are invisible in the API but are billed as output tokens. Claude also counts its thinking process as output. On Opus 5.5 and Fable 5.1, thinking cannot be disabled; the effort setting only controls its depth.</p>
+<p class="blog-paragraph">The arithmetic is straightforward. On Opus 5.5, 1,000 responses containing 2,000 English tokens of reasoning and answers cost $40. The same volume in Korean, applying Opus's 1.55x Korean token multiplier, comes to about $62. Arabic (1.75x) reaches roughly $70, and Hindi (2.09x) about $84. Chinese adds the least, totaling about $45.</p>
+
+    <div class="ad-card ad-card-scroll blog-in-article-ad" data-ad-index="3">
+      <ins class="adsbygoogle"
+           style="display:block;text-align:center"
+           data-ad-format="fluid"
+           data-ad-layout="in-article"
+           data-ad-client="ca-pub-9477874183990825"
+           data-ad-slot="6077622756"></ins>
+    </div>
+<h2 id="fable-51-and-opus-55-keep-drifting-into-english" class="blog-heading">Fable 5.1 and Opus 5.5 Keep Drifting Into English</h2>
+<p class="blog-paragraph">With reasoning tokens billed at output rates, some users suspect recent models are optimized to do their reasoning in English. Anthropic has not confirmed this. However, users working with non-English text continually report side effects.</p>
+<p class="blog-paragraph">Complaints about reasoning language date back to around Opus 4.6. A <a href="https://github.com/anthropics/claude-code/issues/27051" target="_blank" rel="noopener">Claude Code feature request</a> noted that thinking remained in English regardless of the language specified in settings or system prompts; the issue was closed without a new setting. With Opus 5.5 and Fable 5.1, reports indicate this drift now affects user-facing text: progress lines before tool calls appear in English, and replies switch to English after the model processes English material and stay there.</p>
+<p class="blog-paragraph">In a <a href="https://github.com/anthropics/claude-code/issues/96326" target="_blank" rel="noopener">bug report filed on Sept. 23</a>, a user restated a Japanese-only reply rule three times, yet the model repeatedly reverted to English. The same thing shows up fairly often in everyday work, too. While it may make sense from a cost perspective, it remains a recurring annoyance for users working in their native languages.</p>
+<p class="blog-paragraph">Some argue models now handle non-English text well enough. Anthropic's <a href="https://platform.claude.com/docs/en/build-with-claude/multilingual-support" target="_blank" rel="noopener">multilingual support page</a> shows Claude Sonnet 4.5 scoring 96.7% to 96.8% of its English baseline in Korean, Japanese and Hindi. While the quality gap has narrowed, the token multiplier gap measured here persists.</p>
+<h2 id="english-system-prompts-pay-off-unless-you-work-in-chinese" class="blog-heading">English System Prompts Pay Off Unless You Work in Chinese</h2>
+<p class="blog-paragraph">Chinese was the only language in this test that cost roughly the same as English. All other non-English text used 1.2x to more than 4x the tokens, depending on the model. The most reliable way to save money is using English system prompts: write the fixed instructions sent with every request in English.</p>
+<p class="blog-paragraph">System prompts, skills, tool descriptions and project instruction files accompany every API call. On Opus 5.5, sending a 10,000-token English fixed prompt 1,000 times costs $40 in input. The same system prompts written in Korean cost about $62, and in German about $67. Prompt caching cuts the rate to $0.20 per million tokens, but the token multiplier still applies to cached tokens.</p>
+<p class="blog-paragraph">The reply language is a separate setting. Anthropic's documentation recommends specifying the response language in system prompts. Keep the instructions in English, add a line such as 'Always respond in French', and users still get answers in their own language while the fixed cost stays low.</p>
+<p class="blog-paragraph">If you can write prompts in English instead of your native language, conducting the entire conversation in English improves both cost and reasoning quality. English system prompts and conversations consume fewer tokens and assign tasks to the model in the language it understands best.</p>
+          </div>
+          
+          <section class="article-after related">
+            <h2 class="article-after-title">Related posts</h2>
+            <div class="related-grid">
+              
+              <a href="/article/reviews/muse-spark-13-contributor/" class="related-card">
+                <div class="related-thumb"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="/assets/images/tech/ai/muse-spark-13-contributor/thumbnail.webp" width="640" height="360" alt="" loading="lazy" decoding="async" data-img-fallback="hide"></div>
+                <h3 class="related-title">Muse Spark 1.3: My Best-Value Coding Model</h3>
+              </a>
+            </div>
+          </section>
+          
+          <section class="article-after blog-sources">
+            <h2 class="article-after-title">Sources</h2>
+            <ul class="blog-sources-list">
+              <li><a href="https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1" target="_blank" rel="noopener">Anthropic - What&#39;s new in Claude Fable 5.1</a></li><li><a href="https://developers.openai.com/api/docs/guides/reasoning/" target="_blank" rel="noopener">OpenAI - Reasoning models</a></li><li><a href="https://github.com/facebookresearch/flores" target="_blank" rel="noopener">Meta AI - FLORES-200 evaluation benchmark</a></li>
+            </ul>
+          </section>
+          
+      <section class="blog-author-box">
+        <svg class="blog-avatar" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="16" fill="#0b0b0a"/><g fill="#fff"><circle cx="11.5" cy="11.5" r="3.4"/><circle cx="20.5" cy="11.5" r="3.4"/><circle cx="11.5" cy="20.5" r="3.4"/><circle cx="20.5" cy="20.5" r="3.4" fill="#4f7cff"/></g></svg>
+        <div>
+          <p class="blog-author-kicker">Article by</p>
+          <h2 class="blog-author-name"><a href="/about/">Plankton</a></h2>
+          <p class="blog-author-bio">Has worked in the games industry since 2016, helping plan and build a number of titles. Now builds the Mixdog coding agent, makes games and a range of apps, and runs GamerScroll and AIScroll. Writes here about hands-on use of AI models and tools, original measurements, and what building things with AI has taught along the way.</p>
+        </div>
+      </section>
+          
+          <nav class="article-pager" aria-label="Previous · Next">
+            <a class="btn btn-gray" href="/article/reviews/muse-spark-13-contributor/" rel="prev">‹ Previous</a>
+            <a class="btn btn-gray" href="/">All posts</a>
+            
+          </nav>
+        </article>
+        <aside class="article-sidebar">
+          <div class="article-sidebar-sticky">
+        
+    <div class="side-block side-toc" id="sidebar-toc">
+      <p class="side-head">Table of Contents</p>
+      <nav class="article-toc" aria-label="Table of Contents"><ol class="article-toc-list">
+      <li><a href="#why-tokenizers-charge-languages-differently" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">1</span><span class="article-toc-text">Why Tokenizers Charge Languages Differently</span></a></li>
+      <li><a href="#token-multiplier-results-8-models-9-languages" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">2</span><span class="article-toc-text">Token Multiplier Results: 8 Models, 9 Languages</span></a></li>
+      <li><a href="#language-gaps-chinese-is-the-exception" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">3</span><span class="article-toc-text">Language Gaps: Chinese Is the Exception</span></a></li>
+      <li><a href="#output-costs-more-and-reasoning-tokens-bill-as-output" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">4</span><span class="article-toc-text">Output Costs More, and Reasoning Tokens Bill as Output</span></a></li>
+      <li><a href="#fable-51-and-opus-55-keep-drifting-into-english" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">5</span><span class="article-toc-text">Fable 5.1 and Opus 5.5 Keep Drifting Into English</span></a></li>
+      <li><a href="#english-system-prompts-pay-off-unless-you-work-in-chinese" class="article-toc-item"><span class="article-toc-num" aria-hidden="true">6</span><span class="article-toc-text">English System Prompts Pay Off Unless You Work in Chinese</span></a></li>
+    </ol></nav>
+    </div>
+        <div class="ad-card ad-card-sidebar-rectangle">
+  <style>
+    .ad-sidebar-r-3 { display:none; }
+    @media (min-width: 1200px) { .ad-sidebar-r-3 { display:inline-block; width:300px; height:250px; } }
+  </style>
+  <ins class="adsbygoogle ad-sidebar-r-3"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="1104244740"></ins>
+</div>
+        
+        <div class="side-block" id="sidebar-articles">
+          <div class="side-tabs" id="sidebarArticleTab">
+            <button class="tab-btn active" type="button" data-sidebar-tab="popular">Popular</button>
+            <button class="tab-btn" type="button" data-sidebar-tab="latest">Latest</button>
+          </div>
+          <ol class="sidebar-article-list active" id="sidebar-popular">
+          <li><a href="/article/reviews/muse-spark-13-contributor/" class="sidebar-article-item">
+            <span class="sidebar-article-rank">1</span>
+            <span class="sidebar-article-title">Muse Spark 1.3: My Best-Value Coding Model</span>
+          </a></li>
+          <li><a href="/article/reviews/coding-agent-picks-2026-09/" class="sidebar-article-item">
+            <span class="sidebar-article-rank">2</span>
+            <span class="sidebar-article-title">3 Coding Agent Picks for September 2026</span>
+          </a></li>
+          </ol>
+          <ol class="sidebar-article-list" id="sidebar-latest"></ol>
+          <template id="sidebar-latest-template">
+          <li><a href="/article/reviews/muse-spark-13-contributor/" class="sidebar-article-item">
+            <span class="sidebar-article-rank">1</span>
+            <span class="sidebar-article-title">Muse Spark 1.3: My Best-Value Coding Model</span>
+          </a></li>
+          <li><a href="/article/reviews/coding-agent-picks-2026-09/" class="sidebar-article-item">
+            <span class="sidebar-article-rank">2</span>
+            <span class="sidebar-article-title">3 Coding Agent Picks for September 2026</span>
+          </a></li></template>
+        </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  
+  </main>
+  
+  <footer class="site-footer">
+    <span>© 2026 AIScroll</span><span class="site-footer-sep" aria-hidden="true">|</span><a href="/about/">About</a><span class="site-footer-sep" aria-hidden="true">|</span><a href="/privacy/">Privacy Policy</a>
+  </footer>
+  <script>(function initArticleToc() {
+  if (window.__gsArticleTocCleanup) window.__gsArticleTocCleanup();
+  var groups = new Map();
+  document.querySelectorAll('.article-toc .article-toc-item').forEach(function(link) {
+    var id = (link.getAttribute('href') || '').slice(1);
+    var heading = id && document.getElementById(id);
+    if (!heading) return;
+    if (!groups.has(id)) groups.set(id, { heading: heading, links: [] });
+    groups.get(id).links.push(link);
+  });
+  var pairs = Array.from(groups.values());
+  if (!pairs.length) return;
+  var current = null;
+  var frame = 0;
+  function update() {
+    frame = 0;
+    if (!pairs[0].heading.isConnected) {
+      cleanup();
+      return;
+    }
+    var threshold = (parseFloat(getComputedStyle(pairs[0].heading).scrollMarginTop) || 84) + 12;
+    var active = pairs[0];
+    pairs.forEach(function(pair) {
+      if (pair.heading.getBoundingClientRect().top <= threshold) active = pair;
+    });
+    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+      active = pairs[pairs.length - 1];
+    }
+    if (active === current) return;
+    if (current) current.links.forEach(function(link) {
+      link.classList.remove('is-current');
+      link.removeAttribute('aria-current');
+    });
+    active.links.forEach(function(link) {
+      link.classList.add('is-current');
+      link.setAttribute('aria-current', 'location');
+      // 긴 PC 목차에서도 현재 항목만 내부 스크롤로 드러낸다. 본문은 움직이지 않는다.
+      var nav = link.closest('.article-sidebar-sticky');
+      if (!nav || !nav.clientHeight || nav.scrollHeight <= nav.clientHeight) return;
+      var bounds = nav.getBoundingClientRect();
+      var item = link.getBoundingClientRect();
+      if (item.top < bounds.top) nav.scrollTop += item.top - bounds.top;
+      else if (item.bottom > bounds.bottom) nav.scrollTop += item.bottom - bounds.bottom;
+    });
+    current = active;
+  }
+  function schedule() {
+    if (!frame) frame = requestAnimationFrame(update);
+  }
+  var observer = typeof ResizeObserver === 'function' ? new ResizeObserver(schedule) : null;
+  var main = document.querySelector('.article-main');
+  if (observer && main) observer.observe(main);
+  function cleanup() {
+    cancelAnimationFrame(frame);
+    window.removeEventListener('scroll', schedule);
+    window.removeEventListener('resize', schedule);
+    window.removeEventListener('hashchange', schedule);
+    window.removeEventListener('pageshow', schedule);
+    document.removeEventListener('load', schedule, true);
+    if (observer) observer.disconnect();
+    if (window.__gsArticleTocCleanup === cleanup) window.__gsArticleTocCleanup = null;
+  }
+  window.__gsArticleTocCleanup = cleanup;
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule);
+  window.addEventListener('hashchange', schedule);
+  window.addEventListener('pageshow', schedule);
+  document.addEventListener('load', schedule, true);
+  update();
+})();</script>
+  <script defer src="/assets/layout-core.js?v=73914f086f"></script>
+  
+  <script>
+    (function() {
+      // 이전 페이지에서 헤더 윗줄을 접은 채 왔으면 같은 높이(60px)만큼 내려 메뉴 위치를 그대로 둔다
+      if (document.body.classList.contains('search-hidden') && window.innerWidth <= 768) window.scrollTo(0, 60);
+      if (!('serviceWorker' in navigator) || location.protocol !== 'https:' || location.hostname !== 'aiscroll.io') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+</body>
+</html>

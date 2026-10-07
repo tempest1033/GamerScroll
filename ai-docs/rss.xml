@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIScroll - AI reviews and dev logs by Plankton</title>
+    <link>https://aiscroll.io</link>
+    <description>Hands-on AI reviews, analysis, and dev logs by Plankton, the developer behind the Mixdog coding agent.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Oct 2026 11:50:08 GMT</lastBuildDate>
+    <atom:link href="https://aiscroll.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title><![CDATA[AI Token Cost by Language: 8 Tokenizers Measured]]></title>
+      <link>https://aiscroll.io/article/analysis/ai-token-cost-by-language/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/analysis/ai-token-cost-by-language/</guid>
+      <pubDate>Wed, 07 Oct 2026 03:30:00 GMT</pubDate>
+      <description><![CDATA[Non-English text averages a 1.54x token multiplier across 8 AI models. With reasoning tokens billed as output, English system prompts cut costs.]]></description>
+      <category><![CDATA[analysis]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Muse Spark 1.3: My Best-Value Coding Model]]></title>
+      <link>https://aiscroll.io/article/reviews/muse-spark-13-contributor/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/reviews/muse-spark-13-contributor/</guid>
+      <pubDate>Wed, 09 Sep 2026 11:00:00 GMT</pubDate>
+      <description><![CDATA[Muse Spark 1.3 is a low-cost coding worker on Contributor terms. Compare Meta pricing, OpenCode Go's $10 plan, limitations and required data sharing.]]></description>
+      <category><![CDATA[reviews]]></category>
+    </item>
+    <item>
+      <title><![CDATA[3 Coding Agent Picks for September 2026]]></title>
+      <link>https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/</link>
+      <guid isPermaLink="true">https://aiscroll.io/article/reviews/coding-agent-picks-2026-09/</guid>
+      <pubDate>Mon, 07 Sep 2026 17:00:00 GMT</pubDate>
+      <description><![CDATA[Paseo for remote panels, Orca for isolated parallel work, and DeepSeek Harness for flexible plugins: three September 2026 picks and who each suits.]]></description>
+      <category><![CDATA[reviews]]></category>
+    </item>
+  </channel>
+</rss>
