@@ -42158,13 +42158,19 @@
     },
     {
       "title": "도깨비의세계",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6758975161
+        "ios": 6758975161,
+        "android": "com.kakaogames.dokkaebi"
       },
       "developer": "Kakao Games Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "도깨비의세계",
+          "appId": 6758975161
+        }
+      ],
       "addedAt": "2026-10-06T08:51:39.644Z"
     },
     {
@@ -42304,6 +42310,35 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/31/61/553161e5-782c-8655-bffa-3a6bf2738941/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-07T00:19:24.786Z"
+    },
+    {
+      "title": "TOY BLOX トイブロックス-トリマ公式ブロックパズル",
+      "status": "matched",
+      "appIds": {
+        "ios_jp": 6789060737,
+        "android": "jp.geot.triblock",
+        "ios": 6789060737
+      },
+      "developer": "GeoTechnologies, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/f8/f5/e6f8f5eb-15c1-6c29-b722-1239dd687d9c/AppIcon-production-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "TOY BLOX トイブロックス-トリマ公式ブロックパズル",
+          "appId": 6789060737
+        }
+      ],
+      "addedAt": "2026-10-07T06:17:02.553Z"
+    },
+    {
+      "title": "UnGodly",
+      "status": "single",
+      "appIds": {
+        "ios": 6740617332
+      },
+      "developer": "Azra Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/4b/04/184b04cb-65d6-43f5-15da-7d8ad964483f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-07T06:17:03.164Z"
     }
   ],
   "approved": [

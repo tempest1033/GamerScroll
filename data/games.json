@@ -146558,14 +146558,16 @@
     },
     "도깨비의세계": {
       "appIds": {
-        "ios": 6758975161
+        "ios": 6758975161,
+        "android": "com.kakaogames.dokkaebi"
       },
       "aliases": [],
       "developer": "Kakao Games Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "도깨비의세계",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "도깨비의세계"
@@ -146573,16 +146575,20 @@
     },
     "TOY BLOX トイブロックス-トリマ公式ブロックパズル": {
       "appIds": {
-        "ios_jp": 6789060737
+        "ios_jp": 6789060737,
+        "android": "jp.geot.triblock",
+        "ios": 6789060737
       },
       "aliases": [],
       "developer": "GeoTechnologies, Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e6/f8/f5/e6f8f5eb-15c1-6c29-b722-1239dd687d9c/AppIcon-production-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "toy-blox-トイブロックス-トリマ公式ブロックパズル",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "TOY BLOX トイブロックス-トリマ公式ブロックパズル",
         "ja": "TOY BLOX トイブロックス-トリマ公式ブロックパズル"
       }
     },
@@ -146773,8 +146779,24 @@
         "ko": "Spider Fuser",
         "zh-cn": "Spider Fuser"
       }
+    },
+    "UnGodly": {
+      "appIds": {
+        "ios": 6740617332
+      },
+      "aliases": [],
+      "developer": "Azra Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/18/4b/04/184b04cb-65d6-43f5-15da-7d8ad964483f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ungodly",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "UnGodly",
+        "zh-tw": "UnGodly"
+      }
     }
   },
   "lastUpdated": "2026-10-07",
-  "totalGames": 8498
+  "totalGames": 8499
 }
