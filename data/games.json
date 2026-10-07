@@ -146839,8 +146839,23 @@
       "platforms": [
         "steam"
       ]
+    },
+    "VS BOAT－3D競艇オンライン対戦ゲーム": {
+      "appIds": {
+        "ios_jp": 6817994753
+      },
+      "aliases": [],
+      "developer": "soma anraku",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/2a/8f/3b2a8fbd-4084-3a4c-05e8-e70e1644f264/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "vs-boat-3d競艇オンライン対戦ゲーム",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "VS BOAT－3D競艇オンライン対戦ゲーム"
+      }
     }
   },
-  "lastUpdated": "2026-10-07",
-  "totalGames": 8502
+  "lastUpdated": "2026-10-08",
+  "totalGames": 8503
 }
