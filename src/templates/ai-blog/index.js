@@ -644,7 +644,7 @@ function wrapWithLayout(content, options = {}) {
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
   <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
-  <script async crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}${usesWsrv ? `
+  <script>(function () { if (location.hostname !== 'aiscroll.io') return; var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825'; document.head.appendChild(s); })();</script>` : ''}${usesWsrv ? `
   <link rel="preconnect" href="https://wsrv.nl">` : ''}${preloadHtml}
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(safeDescription)}">

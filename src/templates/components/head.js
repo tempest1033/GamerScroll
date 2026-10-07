@@ -248,9 +248,9 @@ function generateHead(options = {}) {
 	      .home-main > *, .home-card { margin-bottom: 0; }
 	    }
 	  </style>
-	  <!-- AdSense: preload + static async (preload scanner picks it up at first byte) -->${ADS_ENABLED ? `
+	  <!-- AdSense: preload (preload scanner picks it up at first byte) + run only on gamerscroll.com (no ad impressions on localhost/preview hosts) -->${ADS_ENABLED ? `
 	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
-	  <script async crossorigin="anonymous" fetchpriority="high" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825"></script>` : ''}
+	  <script>(function () { if (location.hostname !== 'gamerscroll.com') return; var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.fetchPriority = 'high'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825'; document.head.appendChild(s); })();</script>` : ''}
 	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->${(() => {
 	    const opt = preloadImage && typeof preloadImage === 'object'
 	      ? preloadImage
