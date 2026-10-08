@@ -124321,14 +124321,16 @@
     },
     "[グリパチ]CR戦国乙女5 10th Anniversary": {
       "appIds": {
-        "android_jp": "net.commseed.gp.he140001"
+        "android_jp": "net.commseed.gp.he140001",
+        "ios_jp": 6771605991
       },
       "aliases": [],
       "developer": "CommSeed Corporation",
       "icon": "https://play-lh.googleusercontent.com/DdAcWvTlsO3DRXJxDjT9HnA8XPhkgvcmcB7v4cTifCm8Wlto79m2UAup-yVR4X7QxE6Hm_VKTgfytDEFV395Wg",
       "slug": "グリパチcr戦国乙女5-10th-anniversary",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "en": "[グリパチ]CR戦国乙女5 10th Anniversary",
@@ -146481,16 +146483,19 @@
     },
     "マビノギモバイル": {
       "appIds": {
-        "ios_jp": 6775403879
+        "ios_jp": 6775403879,
+        "android": "com.nexon.devcat.mm.jp"
       },
       "aliases": [],
       "developer": "NEXON Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/1f/e4/5f1fe486-2d98-8633-ae4f-bd4cb4339b93/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "マビノギモバイル",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "マビノギモバイル",
         "ja": "マビノギモバイル"
       }
     },
@@ -146884,8 +146889,123 @@
       "names": {
         "zh-tw": "熱血三國M"
       }
+    },
+    "Bubble Shooter: 가족 구출": {
+      "appIds": {
+        "android": "com.bubbleshooter.rescue.story.family.pop.puzzle"
+      },
+      "aliases": [],
+      "developer": "Wood Puzzle Sudoku Games",
+      "icon": "https://play-lh.googleusercontent.com/C_JzSuXakmX-uCPqz776Her_9TfPc2NOBSXGvr04wts_6z8F1DzB2HrWlroWTY2OdLkFNB130bLwZ6sWqDUfBQ",
+      "slug": "bubble-shooter-가족-구출",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Bubble Shooter: 가족 구출"
+      }
+    },
+    "Micmic Fun: Voice Challenge": {
+      "appIds": {
+        "android": "com.gamepeak.mimicparty"
+      },
+      "aliases": [],
+      "developer": "GAMEPEAK LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/Q6ddGa-NwPbGcG2jbFmEYSF2c4nnkec-VmWKloRZ_hrld9Z3ZeAVn-HYhXBiZqhbESwgUCpn2ODiLaxonwwU7A",
+      "slug": "micmic-fun-voice-challenge",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Micmic Fun: Voice Challenge",
+        "en": "Micmic Fun: Voice Challenge"
+      }
+    },
+    "Plush Sort: 장난감 정렬 게임": {
+      "appIds": {
+        "android": "toy.fluffy.puzzle.sort.match"
+      },
+      "aliases": [],
+      "developer": "Easetouch",
+      "icon": "https://play-lh.googleusercontent.com/BzSaG9El7DNZruK4UFSE6QniIaaB3ukD4mlyLd35rz8vDAODK9o85pAYFHMfLdy37XJr4MLShQ25dwIgeEipOA",
+      "slug": "plush-sort-장난감-정렬-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Plush Sort: 장난감 정렬 게임",
+        "ja": "Plush Sort: おもちゃの仕分けゲーム"
+      }
+    },
+    "Bus Master: Traffic Jam": {
+      "appIds": {
+        "android": "com.vcgames.bus.master.traffic.jam",
+        "ios": 6774532265
+      },
+      "aliases": [],
+      "developer": "Amobear Game Global",
+      "icon": "https://play-lh.googleusercontent.com/6-ikcI29q0T0s4oW4iP3msbkX6oAd4-7MLroXX9DlQFcpO2ihPL0yBo_6OvARuJ4a1FBXSMulLmJRKMwojdAGg",
+      "slug": "bus-master-traffic-jam",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Bus Master: Traffic Jam",
+        "ja": "Bus Master: Traffic Jam"
+      }
+    },
+    "스테이트 빌더(States Builder): 무역 제국": {
+      "appIds": {
+        "android": "games.resourcer.hex",
+        "ios": 6464049892
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/RTA2cUtsYQtpcb5Qhycl-EeS-yGhXgamzU35_5QHduFqUQwQ0rdhI1Nxo3l4GomDuIwDO9XW_s6y04OlABEqMA",
+      "slug": "스테이트-빌더states-builder-무역-제국",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "스테이트 빌더(States Builder): 무역 제국",
+        "ja": "ステーツビルダー(States Builder)：貿易帝国"
+      }
+    },
+    "물 퍼즐 정렬 - 색상 정렬 게임": {
+      "appIds": {
+        "android": "sort.water.puzzle.pour.color.tubes.sorting.game"
+      },
+      "aliases": [],
+      "developer": "Sonatgame",
+      "icon": "https://play-lh.googleusercontent.com/pk9StEZ0hX_of8p0zU7TDg87I3rpabDupDFClFNdbLnAY07Ky-sBR5mcSBKXfWd_lyZCfmZN3ip_MhG5Y2KV",
+      "slug": "물-퍼즐-정렬-색상-정렬-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "물 퍼즐 정렬 - 색상 정렬 게임",
+        "ja": "ソートウォーターパズル - 色分けゲーム"
+      }
+    },
+    "Bus Simulator: City Drive": {
+      "appIds": {
+        "android": "com.hihiparty.bus.simulator"
+      },
+      "aliases": [],
+      "developer": "Sleep Stories",
+      "icon": "https://play-lh.googleusercontent.com/wwHSM-Fj2vzmFYzZdQctg9b6-t9Ez21INcDFBkqcPIWJiIpTVZlcUVo_g4Z7kU6GIkgxQZ6et-HB5IamQZqlYNk",
+      "slug": "bus-simulator-city-drive",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Bus Simulator: City Drive",
+        "ja": "Bus Simulator: City Drive"
+      }
     }
   },
   "lastUpdated": "2026-10-08",
-  "totalGames": 8505
+  "totalGames": 8512
 }
