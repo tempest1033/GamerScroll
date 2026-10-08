@@ -19349,9 +19349,10 @@
     },
     {
       "title": "Bacon in Zane",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6751200829
+        "ios": 6751200829,
+        "android": "de.kamibox.baconbacon"
       },
       "developer": "Philipp Stollenmayer",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/0d/3b/0b0d3be3-f24e-6f9b-ebf3-651ac0a9ca9c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
@@ -42515,6 +42516,77 @@
         }
       ],
       "addedAt": "2026-10-08T02:25:27.040Z"
+    },
+    {
+      "title": "소다전설",
+      "status": "single",
+      "appIds": {
+        "android": "com.byabyak.soda"
+      },
+      "developer": "Byabyak Games",
+      "icon": "https://play-lh.googleusercontent.com/pKTZQouXCxce4c7E-7hPrmTp39IiiWwEPN8uJHUeFnXlQBXG2cYaTIx-nngRU10XXkRp-CVnMvl61fk_5nuqGNc",
+      "searchResults": [
+        {
+          "title": "캔디 달콤한 스타 소다 사가 : 2D 퍼즐 매니아 매치 3의 HD 무료 게임",
+          "appId": 1020541790
+        },
+        {
+          "title": "쿠키 소년 소녀 용 버거 경기 3 게임 메이커 식품 햄버거 만들기",
+          "appId": 1124759390
+        },
+        {
+          "title": "사탕 균열",
+          "appId": 1291205700
+        }
+      ],
+      "addedAt": "2026-10-08T09:50:22.567Z"
+    },
+    {
+      "title": "森のかき氷屋さん　甘雪",
+      "status": "single",
+      "appIds": {
+        "ios": 6802154813
+      },
+      "developer": "Sasaki Keisuke",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/df/33/dadf331f-fb26-c316-b222-94b8bc0a75e6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-08T09:50:23.432Z"
+    },
+    {
+      "title": "Lotus Scapes: Pairing Match",
+      "status": "single",
+      "appIds": {
+        "android": "com.winplus.lotusscapes.android"
+      },
+      "developer": "WinPlus Games",
+      "icon": "https://play-lh.googleusercontent.com/iZSx7v3N51FWQqOxSb5Ybe7u0364j7MunCYbA79u4WL5teMQjdBj3r64wCRmJmJngU0xunHHC76z5ErIMBdZErk",
+      "searchResults": [],
+      "addedAt": "2026-10-08T09:50:23.890Z"
+    },
+    {
+      "title": "Dungeon Battle: Action RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "com.bx.db",
+        "ios": 6805727327
+      },
+      "developer": "BinX",
+      "icon": "https://play-lh.googleusercontent.com/LdOc9WSKlYpLf_pgOg7k04vPhldfRiycSKdm-w9m3zLoVpCFEoikd7AW05vmmF1OeOb4i_ERt-6dJg1rflEmOw",
+      "searchResults": [
+        {
+          "title": "Dungeon Battle: Action RPG",
+          "appId": 6805727327
+        },
+        {
+          "title": "쿠키런 키우기 - 쿠키런: 크럼블",
+          "appId": 6749251466
+        },
+        {
+          "title": "Nonstop Knight 2 - Action RPG",
+          "appId": 1444887980
+        }
+      ],
+      "addedAt": "2026-10-08T09:50:24.715Z"
     }
   ],
   "approved": [

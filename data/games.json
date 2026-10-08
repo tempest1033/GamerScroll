@@ -39357,14 +39357,16 @@
     },
     "Bacon in Zane": {
       "appIds": {
-        "ios": 6751200829
+        "ios": 6751200829,
+        "android": "de.kamibox.baconbacon"
       },
       "aliases": [],
       "developer": "Philipp Stollenmayer",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/0d/3b/0b0d3be3-f24e-6f9b-ebf3-651ac0a9ca9c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "bacon-in-zane",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Bacon in Zane",
@@ -147004,8 +147006,85 @@
         "ko": "Bus Simulator: City Drive",
         "ja": "Bus Simulator: City Drive"
       }
+    },
+    "소다전설": {
+      "appIds": {
+        "android": "com.byabyak.soda"
+      },
+      "aliases": [],
+      "developer": "Byabyak Games",
+      "icon": "https://play-lh.googleusercontent.com/pKTZQouXCxce4c7E-7hPrmTp39IiiWwEPN8uJHUeFnXlQBXG2cYaTIx-nngRU10XXkRp-CVnMvl61fk_5nuqGNc",
+      "slug": "소다전설",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "소다전설"
+      }
+    },
+    "森のかき氷屋さん　甘雪": {
+      "appIds": {
+        "ios": 6802154813
+      },
+      "aliases": [],
+      "developer": "Sasaki Keisuke",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/da/df/33/dadf331f-fb26-c316-b222-94b8bc0a75e6/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "森のかき氷屋さん　甘雪",
+        "ja": "森のかき氷屋さん　甘雪"
+      }
+    },
+    "Lotus Scapes: Pairing Match": {
+      "appIds": {
+        "android": "com.winplus.lotusscapes.android"
+      },
+      "aliases": [],
+      "developer": "WinPlus Games",
+      "icon": "https://play-lh.googleusercontent.com/iZSx7v3N51FWQqOxSb5Ybe7u0364j7MunCYbA79u4WL5teMQjdBj3r64wCRmJmJngU0xunHHC76z5ErIMBdZErk",
+      "slug": "lotus-scapes-pairing-match",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Lotus Scapes: Pairing Match",
+        "ja": "Lotus Scapes: Pairing Match"
+      }
+    },
+    "Dungeon Battle: Action RPG": {
+      "appIds": {
+        "android": "com.bx.db",
+        "ios": 6805727327
+      },
+      "aliases": [],
+      "developer": "BinX",
+      "icon": "https://play-lh.googleusercontent.com/LdOc9WSKlYpLf_pgOg7k04vPhldfRiycSKdm-w9m3zLoVpCFEoikd7AW05vmmF1OeOb4i_ERt-6dJg1rflEmOw",
+      "slug": "dungeon-battle-action-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Dungeon Battle: Action RPG",
+        "zh-tw": "地城之戰：暗黑動作RPG"
+      }
+    },
+    "Maid Cafe Simulator": {
+      "appIds": {
+        "steam": "3232690"
+      },
+      "aliases": [],
+      "developer": "Accelix",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3232690/06cba72ec019ba6b975813b3779c72d8ef7fbc82/capsule_231x87.jpg?t=1791442792",
+      "slug": "maid-cafe-simulator",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-08",
-  "totalGames": 8512
+  "totalGames": 8517
 }
