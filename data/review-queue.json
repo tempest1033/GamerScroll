@@ -35597,13 +35597,19 @@
     },
     {
       "title": "와르르비버",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6798071755
+        "ios": 6798071755,
+        "android": "com.nep.tr.hybrid.cg.rock"
       },
       "developer": "Neptune Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/62/76/fb6276e6-7eb1-433f-ae4d-100b1abb1c33/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "와르르비버",
+          "appId": 6798071755
+        }
+      ],
       "addedAt": "2026-10-01T09:15:13.449Z"
     },
     {
@@ -42609,6 +42615,64 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/6a/11/686a115b-3569-32d5-e0b7-84280b5d3a84/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-08T17:09:31.662Z"
+    },
+    {
+      "title": "슈퍼진화스토리2",
+      "status": "single",
+      "appIds": {
+        "ios": 6742139163
+      },
+      "developer": "Guangzhou Anteng Information Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/81/c7/aa81c7eb-cbb8-f54b-3edf-18e33504d51e/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-08T22:46:09.228Z"
+    },
+    {
+      "title": "All Dubs",
+      "status": "single",
+      "appIds": {
+        "ios": 6797929772
+      },
+      "developer": "Vaulty Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/db/c2/f1dbc2bb-ac4e-bcd2-202f-0d9ae7ed0d0f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-08T22:46:09.620Z"
+    },
+    {
+      "title": "탈출 게임 화금을 즐기고 싶다",
+      "status": "single",
+      "appIds": {
+        "ios": 6812830268
+      },
+      "developer": "Shiro Miyahara",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/cc/0c/91cc0c44-6fac-6fbd-e6db-a59fa961f829/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-08T22:46:10.083Z"
+    },
+    {
+      "title": "Fish Jam Fever",
+      "status": "matched",
+      "appIds": {
+        "android": "com.puzzle.fish.jam.fever",
+        "ios": 6812611991
+      },
+      "developer": "XGame HK",
+      "icon": "https://play-lh.googleusercontent.com/9c7UPOXtVCKaERIfYK9-fsGfZUpbtndP6prDEYyjCnrjNwneZON68fcLXaFiiNTUWFolFHZUIeug_Jc1jnlpLQ",
+      "searchResults": [
+        {
+          "title": "Fish Jam Fever",
+          "appId": 6812611991
+        },
+        {
+          "title": "Wool Craze - 3D 트레드 뜨개질 게임마스터",
+          "appId": 6744317674
+        },
+        {
+          "title": "Jelly Fish Crush",
+          "appId": 1330895640
+        }
+      ],
+      "addedAt": "2026-10-08T22:46:10.653Z"
     }
   ],
   "approved": [

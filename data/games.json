@@ -64369,14 +64369,16 @@
     },
     "와르르비버": {
       "appIds": {
-        "ios": 6798071755
+        "ios": 6798071755,
+        "android": "com.nep.tr.hybrid.cg.rock"
       },
       "aliases": [],
       "developer": "Neptune Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/62/76/fb6276e6-7eb1-433f-ae4d-100b1abb1c33/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "와르르비버",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "와르르비버",
@@ -147142,8 +147144,131 @@
       "platforms": [
         "steam"
       ]
+    },
+    "슈퍼진화스토리2": {
+      "appIds": {
+        "ios": 6742139163
+      },
+      "aliases": [],
+      "developer": "Guangzhou Anteng Information Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/81/c7/aa81c7eb-cbb8-f54b-3edf-18e33504d51e/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "슈퍼진화스토리2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "슈퍼진화스토리2",
+        "ja": "超進化物語2"
+      }
+    },
+    "All Dubs": {
+      "appIds": {
+        "ios": 6797929772
+      },
+      "aliases": [],
+      "developer": "Vaulty Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/db/c2/f1dbc2bb-ac4e-bcd2-202f-0d9ae7ed0d0f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "all-dubs",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "All Dubs",
+        "en": "All Dubs"
+      }
+    },
+    "탈출 게임 화금을 즐기고 싶다": {
+      "appIds": {
+        "ios": 6812830268
+      },
+      "aliases": [],
+      "developer": "Shiro Miyahara",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/cc/0c/91cc0c44-6fac-6fbd-e6db-a59fa961f829/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "탈출-게임-화금을-즐기고-싶다",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "탈출 게임 화금을 즐기고 싶다",
+        "ja": "脱出ゲーム 華金を楽しみたい"
+      }
+    },
+    "Fish Jam Fever": {
+      "appIds": {
+        "android": "com.puzzle.fish.jam.fever",
+        "ios": 6812611991
+      },
+      "aliases": [],
+      "developer": "XGame HK",
+      "icon": "https://play-lh.googleusercontent.com/9c7UPOXtVCKaERIfYK9-fsGfZUpbtndP6prDEYyjCnrjNwneZON68fcLXaFiiNTUWFolFHZUIeug_Jc1jnlpLQ",
+      "slug": "fish-jam-fever",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Fish Jam Fever",
+        "ja": "Fish Jam Fever"
+      }
+    },
+    "SSS冒險家": {
+      "appIds": {
+        "ios_tw": 6810494758
+      },
+      "aliases": [],
+      "developer": "SPGame Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0a/8a/63/0a8a6376-ba47-68db-2609-c3f346275184/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "sss冒險家",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "SSS冒險家"
+      }
+    },
+    "屍控防線 - Zomline Survival": {
+      "appIds": {
+        "ios_tw": 6791922794
+      },
+      "aliases": [],
+      "developer": "WGAME TECHNOLOGY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/22/b7/8f22b7ae-8f9a-711c-1abd-86b42cc75442/GameIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "屍控防線-zomline-survival",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "屍控防線 - Zomline Survival"
+      }
+    },
+    "少女迷境": {
+      "appIds": {
+        "ios_tw": 6797752936
+      },
+      "aliases": [],
+      "developer": "DazzleFun Entertainment Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/57/2c/f1572c42-97fa-b37b-ba76-d3c635c23db4/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "少女迷境",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "少女迷境"
+      }
+    },
+    "Risk of Rain 2: Hallowed Concepts": {
+      "appIds": {
+        "steam": "3055670"
+      },
+      "aliases": [],
+      "developer": "Gearbox Software",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3055670/f3e7c3a12cbf2790adacd346c1f01cf3e06a3ad4/capsule_231x87.jpg?t=1791475249",
+      "slug": "risk-of-rain-2-hallowed-concepts",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-09",
-  "totalGames": 8521
+  "totalGames": 8529
 }
