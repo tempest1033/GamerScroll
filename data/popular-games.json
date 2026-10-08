@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T11:53:22.418Z",
+  "updatedAt": "2026-10-08T17:08:19.449Z",
   "period": "30days",
   "games": [
     {
@@ -16,11 +16,11 @@
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 15
+      "views": 16
     },
     {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 11
+      "views": 15
     },
     {
       "slug": "monopoly-go-모노폴리-go",
@@ -43,15 +43,7 @@
       "views": 8
     },
     {
-      "slug": "매치-팩토리match-factory",
-      "views": 8
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
-      "views": 8
-    },
-    {
-      "slug": "에이지-오브-제트-타워-디펜스",
+      "slug": "블루-프로토콜-스타-레조넌스",
       "views": 8
     },
     {
@@ -67,15 +59,23 @@
       "views": 7
     },
     {
-      "slug": "skate",
+      "slug": "pixel-flow",
       "views": 7
     },
     {
-      "slug": "sled-surfers-슬로프-어드벤처",
+      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
       "views": 7
     },
     {
-      "slug": "단어-찾기-단어-게임",
+      "slug": "매치-팩토리match-factory",
+      "views": 7
+    },
+    {
+      "slug": "블라이트-워-사후-처리국",
+      "views": 7
+    },
+    {
+      "slug": "세포-특공대-전략형-타워-디펜스",
       "views": 7
     }
   ]

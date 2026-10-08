@@ -147083,8 +147083,67 @@
       "platforms": [
         "steam"
       ]
+    },
+    "神楽姫絵巻～美少女育成放置RPG": {
+      "appIds": {
+        "ios_jp": 6784473841
+      },
+      "aliases": [],
+      "developer": "GAMECC, CO., LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/36/65/3c/36653c3b-efba-6a66-7f8a-ead8833ee1d8/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "神楽姫絵巻美少女育成放置rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "神楽姫絵巻～美少女育成放置RPG"
+      }
+    },
+    "Infinite Gacha Fever": {
+      "appIds": {
+        "ios": 6778702559
+      },
+      "aliases": [],
+      "developer": "Darrisha Thompson",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/20/3f/04203ff3-8189-94af-a03a-4e71e236009f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "infinite-gacha-fever",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Infinite Gacha Fever",
+        "zh-tw": "Infinite Gacha Fever"
+      }
+    },
+    "MapGame!": {
+      "appIds": {
+        "ios": 6468603035
+      },
+      "aliases": [],
+      "developer": "Minas Giannekas",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/6a/11/686a115b-3569-32d5-e0b7-84280b5d3a84/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "mapgame",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "MapGame!",
+        "zh-tw": "MapGame!"
+      }
+    },
+    "ARC Raiders - Frozen Trail Collector Set": {
+      "appIds": {
+        "steam": "5201760"
+      },
+      "aliases": [],
+      "developer": "Embark Studios",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5201760/d3f650fa56e9123bd766556fcaaf862709802b1b/capsule_231x87.jpg?t=1791450424",
+      "slug": "arc-raiders-frozen-trail-collector-set",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-08",
-  "totalGames": 8517
+  "lastUpdated": "2026-10-09",
+  "totalGames": 8521
 }

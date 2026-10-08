@@ -42587,6 +42587,28 @@
         }
       ],
       "addedAt": "2026-10-08T09:50:24.715Z"
+    },
+    {
+      "title": "Infinite Gacha Fever",
+      "status": "single",
+      "appIds": {
+        "ios": 6778702559
+      },
+      "developer": "Darrisha Thompson",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/20/3f/04203ff3-8189-94af-a03a-4e71e236009f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-08T17:09:31.092Z"
+    },
+    {
+      "title": "MapGame!",
+      "status": "single",
+      "appIds": {
+        "ios": 6468603035
+      },
+      "developer": "Minas Giannekas",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/6a/11/686a115b-3569-32d5-e0b7-84280b5d3a84/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-08T17:09:31.662Z"
     }
   ],
   "approved": [
