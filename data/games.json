@@ -147363,8 +147363,94 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ねこマンション": {
+      "appIds": {
+        "ios_jp": 6783606955
+      },
+      "aliases": [],
+      "developer": "GlobalGear Co. Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/21/25/bd2125a5-3e36-b2f6-5e9c-cd3b9b4a7395/AppIcon-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "ねこマンション",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ねこマンション"
+      }
+    },
+    "CaseX（ケースエックス）| スマホの中の事件": {
+      "appIds": {
+        "ios": 6809037928
+      },
+      "aliases": [],
+      "developer": "rio nagasaki",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ef/c6/3c/efc63c8c-2c3f-a251-f3c2-a27491994bf5/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "casex",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "CaseX（ケースエックス）| スマホの中の事件",
+        "ja": "CaseX（ケースエックス）| スマホの中の事件"
+      }
+    },
+    "WordBlade - 文字ブレード": {
+      "appIds": {
+        "ios": 6819836440
+      },
+      "aliases": [],
+      "developer": "IBUKI YOSHIDA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/35/5d/e4355dee-87f0-8207-035a-ecfd1ccaac24/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "wordblade",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "WordBlade - 文字ブレード",
+        "ja": "WordBlade - 文字ブレード"
+      }
+    },
+    "花格 Bloomgrid": {
+      "appIds": {
+        "ios_tw": 6816957285
+      },
+      "aliases": [],
+      "developer": "Chao Hsuan Cheng",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fb/31/8b/fb318b2f-d18f-36d4-cce6-7930b9027c27/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "花格-bloomgrid",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "花格 Bloomgrid"
+      }
+    },
+    "Permafrost": {
+      "appIds": {
+        "steam": "2254990"
+      },
+      "aliases": [],
+      "developer": "SpaceRocket Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2254990/024db5584cd87b23dd37229e049378f2d4828bdb/capsule_231x87.jpg?t=1791551921",
+      "slug": "permafrost",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Survival Log": {
+      "appIds": {
+        "steam": "4164790"
+      },
+      "aliases": [],
+      "developer": "Midnight Workshop",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4164790/fd42f9bb4e955c05ed5d086216d0c9c724893d40/capsule_231x87.jpg?t=1790679893",
+      "slug": "survival-log",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-09",
-  "totalGames": 8536
+  "lastUpdated": "2026-10-10",
+  "totalGames": 8542
 }
