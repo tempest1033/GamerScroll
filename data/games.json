@@ -147311,8 +147311,60 @@
       "platforms": [
         "steam"
       ]
+    },
+    "무기 마스터：방치형 RPG": {
+      "appIds": {
+        "ios": 6791394610
+      },
+      "aliases": [],
+      "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/eb/2e/2a/eb2e2a50-4e10-92e9-4dc2-5f0c6f9a2f24/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "무기-마스터방치형-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "무기 마스터：방치형 RPG",
+        "zh-tw": "兵器王者：鍛造放置RPG"
+      }
+    },
+    "Japanese Ramen Simulator": {
+      "appIds": {
+        "steam": "4968640"
+      },
+      "aliases": [],
+      "developer": "Wild Dog",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4968640/c87a37a5d10a2ac11bf2ab4aded25ca9bc657e12/capsule_231x87.jpg?t=1791536897",
+      "slug": "japanese-ramen-simulator",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Clive Barker's Hellraiser: Revival": {
+      "appIds": {
+        "steam": "1551980"
+      },
+      "aliases": [],
+      "developer": "Saber Interactive",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1551980/c8642c8c08272cb8646e851aa464a2e627438d19/capsule_231x87.jpg?t=1791462446",
+      "slug": "clive-barkers-hellraiser-revival",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Invokyr": {
+      "appIds": {
+        "steam": "3883570"
+      },
+      "aliases": [],
+      "developer": "Ludogram",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3883570/5af07df8afce5c9e5feb755c2b47a277f679399a/capsule_231x87.jpg?t=1791485649",
+      "slug": "invokyr",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-09",
-  "totalGames": 8532
+  "totalGames": 8536
 }
