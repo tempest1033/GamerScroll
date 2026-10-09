@@ -147267,8 +147267,52 @@
       "platforms": [
         "steam"
       ]
+    },
+    "goatthrow": {
+      "appIds": {
+        "ios": 6784102028
+      },
+      "aliases": [],
+      "developer": "Viviana Piedra",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/a6/92/3da6921f-a395-c2b2-f801-eb5a5248512b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "goatthrow",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "goatthrow",
+        "zh-tw": "goatthrow"
+      }
+    },
+    "Goddess Gloss: Everlasting": {
+      "appIds": {
+        "ios": 6798575354
+      },
+      "aliases": [],
+      "developer": "YANCY DILLON LUTTRELL",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ed/13/1a/ed131ad0-d6a9-2d91-2aa9-66a3c7a129ad/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "goddess-gloss-everlasting",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Goddess Gloss: Everlasting",
+        "zh-tw": "Goddess Gloss: Everlasting"
+      }
+    },
+    "Order of the Sinking Star": {
+      "appIds": {
+        "steam": "499170"
+      },
+      "aliases": [],
+      "developer": "Thekla, Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/499170/395519d87cc923a64bfa8834b02efb3c4ac8a565/capsule_231x87.jpg?t=1791483535",
+      "slug": "order-of-the-sinking-star",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-09",
-  "totalGames": 8529
+  "totalGames": 8532
 }
