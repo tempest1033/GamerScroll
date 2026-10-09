@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-08T17:08:19.449Z",
+  "updatedAt": "2026-10-09T21:26:09.104Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 43
+      "views": 42
     },
     {
       "slug": "이클립스-더-어웨이크닝",
@@ -15,12 +15,12 @@
       "views": 24
     },
     {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "slug": "주술회전-팬텀-퍼레이드",
       "views": 16
     },
     {
-      "slug": "주술회전-팬텀-퍼레이드",
-      "views": 15
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 16
     },
     {
       "slug": "monopoly-go-모노폴리-go",
@@ -51,7 +51,15 @@
       "views": 8
     },
     {
+      "slug": "arrow-pro-3d",
+      "views": 7
+    },
+    {
       "slug": "go-go-고양이-홉핑",
+      "views": 7
+    },
+    {
+      "slug": "loop-master-컬러-정렬-퍼즐",
       "views": 7
     },
     {
@@ -59,23 +67,15 @@
       "views": 7
     },
     {
+      "slug": "palworld",
+      "views": 7
+    },
+    {
       "slug": "pixel-flow",
       "views": 7
     },
     {
-      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
-      "views": 7
-    },
-    {
-      "slug": "매치-팩토리match-factory",
-      "views": 7
-    },
-    {
-      "slug": "블라이트-워-사후-처리국",
-      "views": 7
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
+      "slug": "sakura-school-simulator",
       "views": 7
     }
   ]

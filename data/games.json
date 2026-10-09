@@ -78516,7 +78516,8 @@
     },
     "Camo Guys": {
       "appIds": {
-        "ios": "6787823821"
+        "ios": 6787823821,
+        "android": "com.ghostmelon.hide.seek"
       },
       "aliases": [
         "Camo Snap"
@@ -78525,7 +78526,8 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/1c/be/701cbe5e-70fb-48ed-325b-fc306871ee10/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "camo-guys",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Camo Guys",
@@ -147103,14 +147105,16 @@
     },
     "Infinite Gacha Fever": {
       "appIds": {
-        "ios": 6778702559
+        "ios": 6778702559,
+        "android": "com.infinitegachafever.tcg.rpg.gp"
       },
       "aliases": [],
       "developer": "Darrisha Thompson",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/20/3f/04203ff3-8189-94af-a03a-4e71e236009f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "infinite-gacha-fever",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Infinite Gacha Fever",
@@ -147449,8 +147453,76 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Relax Mini Games": {
+      "appIds": {
+        "android": "com.yg.mini.games"
+      },
+      "aliases": [],
+      "developer": "SUPERIOR  STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/svuPSiGNjjZAjMZolPgPTI2VBMWUxksxnE_2_if58hKp10IP9yBB8JyXXx-e_RXNfuGSUbIxy-gI-NOc3nGQJg",
+      "slug": "relax-mini-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Relax Mini Games",
+        "ja": "リラックスミニゲーム"
+      }
+    },
+    "Crazy Joker": {
+      "appIds": {
+        "android": "com.puzzlea18.puzzle"
+      },
+      "aliases": [],
+      "developer": "Lingkar Nusantara Pers",
+      "icon": "https://play-lh.googleusercontent.com/d8Xw8fU_pGdY1BsPlwvYL7G5BPkFAZo2nQbMzIN0T1WVrqQp64PqoKkIhSft2_guzZuOLbgNDZIC0C2gnNt0TQ",
+      "slug": "crazy-joker",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Crazy Joker",
+        "en": "Crazy Joker"
+      }
+    },
+    "脱出ゲーム　森のかき氷屋さん 甘雪": {
+      "appIds": {
+        "android": "com.camp.kakigori",
+        "ios": 6802154813
+      },
+      "aliases": [
+        "脱出ゲーム　森のかき氷屋さん　甘雪"
+      ],
+      "developer": "ノイスキット【Noice Kit.】",
+      "icon": "https://play-lh.googleusercontent.com/nqdYuhRZuQqGTnv_fwezH1jO0tQzssEeEtT9NePW8Bl6lT-LDZ_3HE2J2TeTJboG-Jvh9wODMLug1HYSrNAvxTY",
+      "slug": "",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "脱出ゲーム　森のかき氷屋さん 甘雪",
+        "ja": "脱出ゲーム　森のかき氷屋さん 甘雪"
+      }
+    },
+    "夜市開鍋 Night Market Rush": {
+      "appIds": {
+        "ios": 6818666283
+      },
+      "aliases": [],
+      "developer": "YUN HAN LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/73/79/ca737998-de2c-d26e-87d1-644820e51d62/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "night-market-rush",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "夜市開鍋 Night Market Rush",
+        "zh-tw": "夜市開鍋 Night Market Rush"
+      }
     }
   },
   "lastUpdated": "2026-10-10",
-  "totalGames": 8542
+  "totalGames": 8546
 }

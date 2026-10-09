@@ -42596,13 +42596,19 @@
     },
     {
       "title": "Infinite Gacha Fever",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6778702559
+        "ios": 6778702559,
+        "android": "com.infinitegachafever.tcg.rpg.gp"
       },
       "developer": "Darrisha Thompson",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/20/3f/04203ff3-8189-94af-a03a-4e71e236009f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Infinite Gacha Fever",
+          "appId": 6778702559
+        }
+      ],
       "addedAt": "2026-10-08T17:09:31.092Z"
     },
     {
@@ -42728,6 +42734,107 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/35/5d/e4355dee-87f0-8207-035a-ecfd1ccaac24/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-09T16:47:58.291Z"
+    },
+    {
+      "title": "Relax Mini Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.yg.mini.games"
+      },
+      "developer": "SUPERIOR  STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/svuPSiGNjjZAjMZolPgPTI2VBMWUxksxnE_2_if58hKp10IP9yBB8JyXXx-e_RXNfuGSUbIxy-gI-NOc3nGQJg",
+      "searchResults": [
+        {
+          "title": "Mini Antistress Relaxing Games",
+          "appId": 6480044742
+        },
+        {
+          "title": "편안한 장난감 미니 게임",
+          "appId": 6695740631
+        },
+        {
+          "title": "Mini Games: Calm & Chill",
+          "appId": 6737214802
+        }
+      ],
+      "addedAt": "2026-10-09T21:27:20.146Z"
+    },
+    {
+      "title": "Crazy Joker",
+      "status": "single",
+      "appIds": {
+        "android": "com.puzzlea18.puzzle"
+      },
+      "developer": "Lingkar Nusantara Pers",
+      "icon": "https://play-lh.googleusercontent.com/d8Xw8fU_pGdY1BsPlwvYL7G5BPkFAZo2nQbMzIN0T1WVrqQp64PqoKkIhSft2_guzZuOLbgNDZIC0C2gnNt0TQ",
+      "searchResults": [
+        {
+          "title": "Crazy Joker Head",
+          "appId": 6754234416
+        },
+        {
+          "title": "크레이지 에이트 - Crazy Eight",
+          "appId": 1344683753
+        },
+        {
+          "title": "원카드 - 오프라인 카드게임 AI 대전",
+          "appId": 6807013947
+        }
+      ],
+      "addedAt": "2026-10-09T21:27:20.683Z"
+    },
+    {
+      "title": "脱出ゲーム　森のかき氷屋さん 甘雪",
+      "status": "matched",
+      "appIds": {
+        "android": "com.camp.kakigori",
+        "ios": 6802154813
+      },
+      "developer": "ノイスキット【Noice Kit.】",
+      "icon": "https://play-lh.googleusercontent.com/nqdYuhRZuQqGTnv_fwezH1jO0tQzssEeEtT9NePW8Bl6lT-LDZ_3HE2J2TeTJboG-Jvh9wODMLug1HYSrNAvxTY",
+      "searchResults": [
+        {
+          "title": "脱出ゲーム　森のかき氷屋さん　甘雪",
+          "appId": 6802154813
+        }
+      ],
+      "addedAt": "2026-10-09T21:27:21.085Z"
+    },
+    {
+      "title": "Camo Guys",
+      "status": "matched",
+      "appIds": {
+        "ios": 6787823821,
+        "android": "com.ghostmelon.hide.seek"
+      },
+      "developer": "PIXON PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/1c/be/701cbe5e-70fb-48ed-325b-fc306871ee10/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Camo Guys",
+          "appId": 6787823821
+        },
+        {
+          "title": "Paint & Vanish: Hide & Seek",
+          "appId": 6789756267
+        },
+        {
+          "title": "Chameleon Paint: Hide & Seek",
+          "appId": 6802556764
+        }
+      ],
+      "addedAt": "2026-10-09T21:27:21.533Z"
+    },
+    {
+      "title": "夜市開鍋 Night Market Rush",
+      "status": "single",
+      "appIds": {
+        "ios": 6818666283
+      },
+      "developer": "YUN HAN LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/73/79/ca737998-de2c-d26e-87d1-644820e51d62/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-09T21:27:22.170Z"
     }
   ],
   "approved": [
