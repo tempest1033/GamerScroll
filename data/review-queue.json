@@ -42916,6 +42916,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/60/fa/4660faea-a6de-0134-b507-33072b37ef24/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-10T08:00:35.419Z"
+    },
+    {
+      "title": "PopSwap",
+      "status": "single",
+      "appIds": {
+        "ios": 6815579491
+      },
+      "developer": "Vardar Mert",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/2e/08/ba2e08f1-29e9-a69e-5b1a-0fd8a7371d3a/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-10T14:21:15.099Z"
+    },
+    {
+      "title": "젤리 마스터: 먹방 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6738694162
+      },
+      "developer": "Hieu Nguyen Trung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/62/0a/13620a22-bd3a-ebee-7182-258fbb3343a9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-10T14:21:15.568Z"
     }
   ],
   "approved": [

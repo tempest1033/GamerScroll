@@ -147628,8 +147628,52 @@
         "ko": "Differences: 차이의 놀이. 틀린그림찾기.",
         "zh-tw": "Can You Spot It: Search Game"
       }
+    },
+    "PopSwap": {
+      "appIds": {
+        "ios": 6815579491
+      },
+      "aliases": [],
+      "developer": "Vardar Mert",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/2e/08/ba2e08f1-29e9-a69e-5b1a-0fd8a7371d3a/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "popswap",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "PopSwap",
+        "zh-cn": "PopSwap"
+      }
+    },
+    "젤리 마스터: 먹방 게임": {
+      "appIds": {
+        "ios": 6738694162
+      },
+      "aliases": [],
+      "developer": "Hieu Nguyen Trung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/62/0a/13620a22-bd3a-ebee-7182-258fbb3343a9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "젤리-마스터-먹방-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "젤리 마스터: 먹방 게임",
+        "zh-tw": "美食直播超級巨星"
+      }
+    },
+    "Mimic Party": {
+      "appIds": {
+        "steam": "5053820"
+      },
+      "aliases": [],
+      "developer": "FoliesAPP",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5053820/4adb5e68ffcb7785768a355dada919756e74c31c/capsule_231x87.jpg?t=1789831835",
+      "slug": "mimic-party",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-10",
-  "totalGames": 8553
+  "totalGames": 8556
 }
