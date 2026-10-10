@@ -147521,8 +147521,36 @@
         "ko": "夜市開鍋 Night Market Rush",
         "zh-tw": "夜市開鍋 Night Market Rush"
       }
+    },
+    "Wattcraft：電網建設": {
+      "appIds": {
+        "ios": 6809993982
+      },
+      "aliases": [],
+      "developer": "Tech Beast",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/db/e6/bb/dbe6bbfd-983d-f668-f9a7-d84ed823361f/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "wattcraft",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Wattcraft：電網建設",
+        "zh-tw": "Wattcraft：電網建設"
+      }
+    },
+    "Duelist: Idle Expedition": {
+      "appIds": {
+        "steam": "4282780"
+      },
+      "aliases": [],
+      "developer": "One Interactive Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4282780/56d560f272ae73d1e6317a6b7d0aa981b3f2fcb1/capsule_231x87.jpg?t=1791544323",
+      "slug": "duelist-idle-expedition",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-10",
-  "totalGames": 8546
+  "totalGames": 8548
 }
