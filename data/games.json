@@ -146883,16 +146883,19 @@
     },
     "熱血三國M": {
       "appIds": {
-        "ios_tw": 6796199141
+        "ios_tw": 6796199141,
+        "android": "net.hi94.hsg.android"
       },
       "aliases": [],
       "developer": "FUNMORE TECHNOLOGY COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/dc/ea/5fdcea1d-6231-e884-6d41-50c66dfa2d9a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "熱血三國m",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "熱血三國M",
         "zh-tw": "熱血三國M"
       }
     },
@@ -147672,8 +147675,40 @@
       "platforms": [
         "steam"
       ]
+    },
+    "인보커스: 타이탄 레거시": {
+      "appIds": {
+        "android": "hitzone.anima.spirit.guardians"
+      },
+      "aliases": [],
+      "developer": "HitZone Games Inc.",
+      "icon": "https://play-lh.googleusercontent.com/KDktut_NByIwOyaJg7KdOZqRoUfRHYBXn5X9aSiU-1AW84iTFcyxZ1dBPWwUMbyxMR0EQhAGIuttzJ04NhcfSQ",
+      "slug": "인보커스-타이탄-레거시",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "인보커스: 타이탄 레거시",
+        "en": "Invokers: Titan Legacy"
+      }
+    },
+    "Tea Garden Mahjong Alarm": {
+      "appIds": {
+        "android": "com.teagarden.wilderness.world"
+      },
+      "aliases": [],
+      "developer": "The Wilder-ness, World Piece Computer, LLC",
+      "icon": "https://play-lh.googleusercontent.com/5IqlTzxPN2yibQDOhQUQ2zdxy41iAQ31A0pIzaTmq-ccGNv-xzaCwlOlFGlvji7p6m_8h1HqS6I6TUYvttd4",
+      "slug": "tea-garden-mahjong-alarm",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Tea Garden Mahjong Alarm",
+        "en": "Tea Garden Mahjong Alarm"
+      }
     }
   },
-  "lastUpdated": "2026-10-10",
-  "totalGames": 8556
+  "lastUpdated": "2026-10-11",
+  "totalGames": 8558
 }

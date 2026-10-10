@@ -42938,6 +42938,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/62/0a/13620a22-bd3a-ebee-7182-258fbb3343a9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-10T14:21:15.568Z"
+    },
+    {
+      "title": "인보커스: 타이탄 레거시",
+      "status": "single",
+      "appIds": {
+        "android": "hitzone.anima.spirit.guardians"
+      },
+      "developer": "HitZone Games Inc.",
+      "icon": "https://play-lh.googleusercontent.com/KDktut_NByIwOyaJg7KdOZqRoUfRHYBXn5X9aSiU-1AW84iTFcyxZ1dBPWwUMbyxMR0EQhAGIuttzJ04NhcfSQ",
+      "searchResults": [],
+      "addedAt": "2026-10-10T19:07:48.507Z"
+    },
+    {
+      "title": "Tea Garden Mahjong Alarm",
+      "status": "single",
+      "appIds": {
+        "android": "com.teagarden.wilderness.world"
+      },
+      "developer": "The Wilder-ness, World Piece Computer, LLC",
+      "icon": "https://play-lh.googleusercontent.com/5IqlTzxPN2yibQDOhQUQ2zdxy41iAQ31A0pIzaTmq-ccGNv-xzaCwlOlFGlvji7p6m_8h1HqS6I6TUYvttd4",
+      "searchResults": [],
+      "addedAt": "2026-10-10T19:07:48.889Z"
     }
   ],
   "approved": [
