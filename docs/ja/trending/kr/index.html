@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+	  <meta name="robots" content="max-image-preview:large">
+	  <!-- preconnect: AdSense / 광고 서빙 — preload·async script보다 먼저 연결 핸드셰이크 시작 -->
+	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+	  <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin>
+	  <link rel="preconnect" href="https://tpc.googlesyndication.com" crossorigin>
+	  <!-- Critical CSS: 레이아웃 선적용 (CLS 방지) -->
+	  <style>
+	    :root { --space-page-x: 16px; --space-block-gap: 20px; --space-block-y: 24px; }
+	    body { margin: 0; }
+	    .home-trend-card-image { background: transparent !important; }
+	    :is(.site-container, .container) {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding-left: var(--space-page-x);
+	      padding-right: var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .header-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 32px;
+	      box-sizing: border-box;
+	    }
+	    .nav-inner {
+	      max-width: 1180px;
+	      margin: 0 auto;
+	      padding: 0 var(--space-page-x);
+	      box-sizing: border-box;
+	    }
+	    .home-container {
+	      display: grid;
+	      grid-template-columns: 1fr 300px;
+	      gap: var(--space-block-gap);
+	      padding: 0 0 var(--space-block-y) 0;
+	    }
+	    .home-main > * { margin-bottom: var(--space-block-gap); }
+	    .home-card { margin-bottom: var(--space-block-gap); }
+	    @media (max-width: 768px) {
+	      body { width: 100%; max-width: 100vw; overscroll-behavior-x: none; }
+	      .header, .header-inner, .nav-inner { width: 100%; max-width: 100%; }
+	      .nav, .container, .site-container { width: 100%; max-width: 100%; }
+	      .home-container { display: block; padding: 0; }
+	      .home-main > *, .home-card { margin-bottom: 0; }
+	    }
+	  </style>
+	  <!-- AdSense: preload (preload scanner picks it up at first byte) + run only on gamerscroll.com (no ad impressions on localhost/preview hosts) -->
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <script>(function () { if (location.hostname !== 'gamerscroll.com') return; var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.fetchPriority = 'high'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825'; document.head.appendChild(s); })();</script>
+	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->
+		  <title>韓国 トレンドゲームランキング — 今週の急上昇・急落・TOP 10の変化（2026年10月11日） | GamerScroll</title>
+  <!-- SEO -->
+  <meta name="description" content="2026年10月11日の韓国モバイルゲーム売上ランキングをもとに、この1週間で最も上がったゲーム (도깨비의세계)、TOP 10に入ったゲームと外れたゲーム、複数の国で同時に上昇したゲームを毎日まとめます。">
+  <meta name="keywords" content="トレンドゲーム, 急上昇ゲーム, モバイルゲーム 急上昇, ゲームランキング 変動, 売上ランキング 急上昇, 新作ゲームランキング">
+  <meta name="application-name" content="GamerScroll">
+  <meta name="apple-mobile-web-app-title" content="GamerScroll">
+  <link rel="canonical" href="https://gamerscroll.com/ja/trending/kr/">
+  <link rel="alternate" hreflang="en" href="https://gamerscroll.com/trending/kr/">
+  <link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/trending/kr/">
+  <link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/trending/kr/">
+  <link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/trending/">
+  <link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/trending/kr/">
+  <link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/trending/kr/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://gamerscroll.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "トレンド",
+        "item": "https://gamerscroll.com/trending/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "韓国",
+        "item": "https://gamerscroll.com/trending/kr/"
+      }
+    ]
+  }
+  </script>
+  <!-- Open Graph / SNS 공유 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="韓国 トレンドゲームランキング — 今週の急上昇・急落・TOP 10の変化（2026年10月11日） | GamerScroll">
+  <meta property="og:description" content="2026年10月11日の韓国モバイルゲーム売上ランキングをもとに、この1週間で最も上がったゲーム (도깨비의세계)、TOP 10に入ったゲームと外れたゲーム、複数の国で同時に上昇したゲームを毎日まとめます。">
+  <meta property="og:image" content="https://gamerscroll.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="韓国 トレンドゲームランキング — 今週の急上昇・急落・TOP 10の変化（2026年10月11日） | GamerScroll">
+  <meta property="og:url" content="https://gamerscroll.com/ja/trending/kr/">
+  <meta property="og:site_name" content="GamerScroll">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="zh_TW">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="韓国 トレンドゲームランキング — 今週の急上昇・急落・TOP 10の変化（2026年10月11日） | GamerScroll">
+  <meta name="twitter:description" content="2026年10月11日の韓国モバイルゲーム売上ランキングをもとに、この1週間で最も上がったゲーム (도깨비의세계)、TOP 10に入ったゲームと外れたゲーム、複数の国で同時に上昇したゲームを毎日まとめます。">
+  <meta name="twitter:image" content="https://gamerscroll.com/og-image.png">
+  <meta name="twitter:image:alt" content="韓国 トレンドゲームランキング — 今週の急上昇・急落・TOP 10の変化（2026年10月11日） | GamerScroll">
+  <meta name="twitter:site" content="@gamerscroll">
+  <meta name="twitter:creator" content="@gamerscroll">
+  <!-- Theme & Favicon -->
+  <meta name="theme-color" content="#ffffff">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
+  <!-- dns-prefetch: preconnect 안 한 도메인용 (광고 도메인 preconnect는 <head> 최상단으로 이동) -->
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
+  <link rel="dns-prefetch" href="https://tpc.googlesyndication.com">
+  <link rel="dns-prefetch" href="https://play-lh.googleusercontent.com">
+  <link rel="dns-prefetch" href="https://is1-ssl.mzstatic.com">
+	  <script>
+    (function() {
+      var root = document.documentElement;
+      if (!root || !root.classList) return;
+      root.classList.add('deferred-css-pending');
+    })();
+  </script>
+	  <style>
+    .deferred-css-pending *,.deferred-css-pending *::before,.deferred-css-pending *::after{
+      transition:none !important;
+      animation:none !important;
+    }
+  </style>
+	  <!-- 메인 CSS -->
+<style data-layout-css="/styles-core.cddae620.css">*{-webkit-tap-highlight-color:transparent;}a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visible,.nav-item:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}}html,body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans KR","Malgun Gothic",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;font-feature-settings:"ss06","ss07";-webkit-text-size-adjust:100%;text-size-adjust:100%;}h1{font-size:2em;font-weight:bold;margin:0.67em 0;}section h1,nav h1{font-size:2em;}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}.is-hidden{display:none !important;}.thumb-fallback{background:var(--bg-secondary,#1a1a2e) url('/favicon.svg') center/32px no-repeat !important;}.thumb-fallback img{opacity:0;}@media (max-width:768px){body{width:100%;max-width:100vw;overscroll-behavior-x:none;}img{max-width:100%;height:auto;}.header,.header-inner,.nav-inner{width:100%;max-width:100%;}.nav,.site-container{width:100%;max-width:100%;}}:root{--primary:#2563EB;--accent:#2563EB;--bg:#F5F6F8;--bg-elevated:#FFFFFF;--card:#FFFFFF;--card-hover:#FFFFFF;--border:#E4E4E7;--border-subtle:#ECECEF;--border-hover:var(--primary);--text:#18181B;--text-primary:#18181B;--text-secondary:#3F3F46;--text-muted:#6B6B73;--text-tertiary:#A1A1AA;--font-title-size:18px;--font-title-weight:600;--font-card-title-weight:700;--font-item-weight:500;--font-logo-weight:800;--font-body-size:18px;--font-desc-size:16px;--font-body-weight:400;--font-desc-weight:400;--font-body-line-height:1.8;--font-tab-size:14px;--font-tab-weight:500;--font-badge-size:12px;--font-badge-weight:600;--font-small-size:12px;--font-nav-size:15px;--font-nav-weight:500;--font-rank-name-size:15px;--font-rank-name-weight:500;--font-rank-name-color:var(--text);--font-rank-dev-size:13px;--font-rank-dev-weight:500;--font-rank-dev-color:var(--text-muted);--font-micro-size:12px;--font-tiny-size:12px;--font-xs-size:12px;--font-sm-size:13px;--font-meta-size:13px;--font-caption-size:13px;--font-source-size:var(--font-small-size);--font-source-weight:500;--font-source-color:var(--primary);--font-section-size:20px;--font-section-weight:700;--font-heading-size:22px;--font-lg-size:22px;--font-xl-size:22px;--font-2xl-size:26px;--font-stat-size:28px;--font-article-title-size:40px;--font-article-lead-size:20px;--font-article-h2-size:28px;--font-article-h3-size:22px;--font-article-body-size:18px;--font-article-quote-size:20px;--font-article-small-size:15px;--font-article-table-size:15px;--font-article-code-size:14px;--font-feature-title-size:28px;--font-section-title-size:22px;--font-card-title-size:18px;--font-card-summary-size:15px;--font-card-meta-size:13px;--font-sidebar-label-size:13px;--font-sidebar-item-size:14px;--font-overline-size:12px;--bg-secondary:#F4F4F5;--bg-tertiary:#E4E4E7;--border-color:#E4E4E7;--bg-hover:#F4F4F5;--card-bg:var(--card);--font-meta-weight:500;--font-desc-line-height:1.6;--shadow-xs:0 1px 2px rgb(0 0 0 / 0.04);--shadow-sm:0 1px 3px rgb(0 0 0 / 0.05),0 1px 2px rgb(0 0 0 / 0.04);--glass-bg:rgba(255,255,255,0.7);--glass-bg-solid:rgba(255,255,255,0.9);--hover-bg:var(--bg-hover);--item-bg:#ffffff;--modal-bg:#1a1a1a;--modal-text:#ddd;--modal-title:#fff;--modal-section-title:#aaa;--modal-close:#888;--modal-close-hover:#fff;--modal-effective-date:#666;--radius:12px;--radius-sm:8px;--radius-lg:16px;--space-sm:12px;--space-md:16px;--space-lg:20px;--space-xl:24px;--space-page-x:var(--space-md);--space-block-y:var(--space-md);--space-block-y-xl:var(--space-md);--space-block-gap:var(--space-md);--ease-out-expo:cubic-bezier(0.16,1,0.3,1);--ease-in-out:cubic-bezier(0.4,0,0.2,1);--transition-fast:0.15s var(--ease-in-out);--transition-normal:0.25s var(--ease-out-expo);}@media (max-width:768px){:root{--font-title-size:18px;--font-body-size:17px;--font-desc-size:15px;--font-tab-size:14px;--font-nav-size:14px;--font-section-size:18px;--font-heading-size:20px;--font-lg-size:20px;--font-stat-size:26px;--font-xl-size:22px;--font-2xl-size:26px;--font-small-size:12px;--font-badge-size:12px;--font-meta-size:13px;--font-rank-name-size:15px;--font-rank-dev-size:13px;--font-article-title-size:30px;--font-article-lead-size:18px;--font-article-h2-size:24px;--font-article-h3-size:20px;--font-article-body-size:17px;--font-article-quote-size:18px;--font-article-table-size:14px;--font-feature-title-size:24px;--font-section-title-size:20px;--font-card-title-size:16px;--font-card-meta-size:12px;}}@media (min-width:769px){:root{--space-block-y:var(--space-xl);--space-block-y-xl:var(--space-xl);--space-block-gap:var(--space-lg);}}.nav-item{color:var(--text-secondary);}@media (hover:hover){.nav-item:hover{color:var(--text);background:var(--hover-bg);}}.nav-item.active{color:var(--primary);background:transparent;font-weight:600;}.nav-item.active::after{content:'';position:absolute;left:14px;right:14px;bottom:-8px;height:2px;background:var(--primary);border-radius:1px;}.nav-item svg{stroke:var(--text-secondary);}@media (hover:hover){.nav-item:hover svg{stroke:var(--text);}}.nav-item.active svg{stroke:var(--primary);}html:lang(ja) body,html:lang(ja) button,html:lang(ja) input{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic","Yu Gothic UI",Meiryo,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}html:lang(zh-Hans) body,html:lang(zh-Hans) button,html:lang(zh-Hans) input{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans SC","Microsoft YaHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}html:lang(zh-Hant) body,html:lang(zh-Hant) button,html:lang(zh-Hant) input{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}.ad-card-mobile-top{width:100%;max-width:300px;height:250px;min-height:250px;max-height:250px;display:flex;align-items:center;justify-content:center;margin-left:auto;margin-right:auto;overflow:hidden;}.ad-card-mobile-top>ins.adsbygoogle,.ad-card-mobile-top>ins.adsbygoogle>div{width:100% !important;max-width:300px !important;height:250px !important;min-height:250px !important;max-height:250px !important;left:0 !important;right:0 !important;}.ad-card-mobile-top>ins.adsbygoogle>div{display:block !important;overflow:hidden !important;}.ad-card-scroll{width:100%;min-height:308px !important;}.ad-card-scroll>ins.adsbygoogle{min-height:284px !important;}.ad-card-scroll.gs-ad-compact,.ad-card-scroll.gs-ad-compact>ins.adsbygoogle{min-height:0 !important;}.ad-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);box-sizing:border-box;touch-action:pan-x pan-y;position:relative;overflow:hidden;}.ad-card.ad-card-scroll{border:0;border-radius:0;background:transparent;overflow:visible;}.ad-card>ins.adsbygoogle{border-radius:inherit;max-width:100%;}.ad-card-responsive-home>ins.adsbygoogle,.ad-card-mobile-top>ins.adsbygoogle{display:block !important;position:relative;line-height:0;}.ad-card-responsive-home{display:flex;align-items:center;justify-content:center;min-height:100px;}@media (min-width:769px){.ad-card-responsive-home{min-height:90px;}}.ad-card-responsive-home:not(:has(ins.adsbygoogle[data-ad-status="filled"])){background:transparent;border-color:transparent;}.ad-card-responsive-home.gs-ad-compact{align-items:center;}.ad-card-responsive-home>ins.adsbygoogle.gs-ad-center{display:flex !important;align-items:center;justify-content:center;}.ad-card-responsive-home>ins.adsbygoogle.gs-ad-center>div{display:flex !important;align-items:center;justify-content:center;margin-left:auto !important;margin-right:auto !important;}main .ad-card{margin-top:var(--space-block-gap,16px);}.page-container>.ad-card:first-child{margin-top:var(--space-block-gap,16px);}body.ads-disabled main{margin-top:var(--space-block-gap,16px);}body.ads-disabled .page-container{padding-top:0 !important;}.page-container>.ad-card:not(:first-child),.page-container .ad-card:not(:first-child){margin-top:0;}.page-container:not(:has(>.home-container)):not(:has(>.article-layout)){padding-top:var(--space-block-gap,16px) !important;}@media (min-width:769px){body:not(.page-home) .site-container:has(.ad-card-responsive-home){padding-top:12px !important;}body .site-container .ad-card-responsive-home{margin-top:0 !important;margin-bottom:0 !important;}}body .section>.ad-card-responsive-home + .ad-card-mobile-top + .page-container{padding-top:0 !important;margin-top:12px;}.ad-card-responsive-home:not(:has(ins[data-ad-status="filled"]))::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:28px;height:28px;background:url('/favicon.svg') center/contain no-repeat;opacity:0.28;pointer-events:none;z-index:1;}.ad-card-responsive-home:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle{visibility:hidden;}.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]){background:var(--card);box-shadow:inset 0 0 0 1px var(--border);}.ad-card-mobile-top:has(ins[data-ad-status="unfilled"]) ins.adsbygoogle{visibility:hidden;}.ad-card-mobile-top:has(ins[data-ad-status="unfilled"])::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:url('/favicon.svg') center/contain no-repeat;filter:none;opacity:1;z-index:1;}.ad-card-scroll:has(ins[data-ad-status="unfilled"]),.ad-card-scroll:has(ins[data-gs-ad-empty="1"]),.ad-card-scroll.gs-ad-empty{display:none !important;min-height:0 !important;height:0 !important;margin:0 !important;}:root{--tab-group-gap:4px;--tab-group-justify:flex-start;--tab-btn-flex:1 1 0;--tab-btn-min-width:0;--tab-btn-min-height:44px;--tab-btn-padding:12px 8px;--tab-btn-gap:6px;--tab-btn-overflow:hidden;}@media (min-width:769px){:root{--tab-group-gap:8px;--tab-group-justify:center;--tab-btn-flex:0 0 auto;--tab-btn-min-width:auto;--tab-btn-min-height:38px;--tab-btn-padding:9px 20px;--tab-btn-gap:6px;--tab-btn-overflow:visible;}}@media (max-width:768px){:root{--tab-btn-padding:10px 8px;--tab-btn-min-height:40px;--tab-btn-gap:4px;}}@media (max-width:768px){body:not(.search-hidden) .page-container{padding-top:0 !important;}}::-webkit-scrollbar{width:8px;height:8px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:var(--text-muted);border-radius:4px;}@media (hover:hover){::-webkit-scrollbar-thumb:hover{background:var(--text-secondary);}}*{scrollbar-width:thin;scrollbar-color:var(--text-muted) transparent;}@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}*{margin:0;padding:0;box-sizing:border-box;}html{overflow-y:scroll;overflow-x:hidden;}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR","Malgun Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;opacity:1;}@media (min-width:769px){html,body{overflow-x:visible;}.site-container{overflow-x:clip;}}.header{background:var(--bg-elevated);border-bottom:none;padding:20px 0;box-shadow:none;}.header-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;justify-content:center;align-items:center;gap:var(--space-sm);position:relative;}.header-title{font-size:2.2rem;font-weight:var(--font-logo-weight);margin:0;display:flex;align-items:center;justify-content:center;gap:10px;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none;}.header-title a{display:flex;align-items:center;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none;}.header-title a:visited,.header-title a:active,.header-title a:focus:not(:focus-visible){color:inherit;text-decoration:none;outline:none;}@media (hover:hover){.header-title a:hover{color:inherit;text-decoration:none;outline:none;}}.logo-svg{height:48px;width:auto;max-width:100%;color:var(--text);transition:transform var(--transition-normal),color var(--transition-normal);}@media (hover:hover){.logo-svg:hover{transform:scale(1.02);}}.header-title a:active .logo-svg{color:var(--text);}.nav{background:var(--glass-bg);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);border-bottom:1px solid var(--border-subtle);position:sticky;top:0;z-index:100;box-shadow:var(--shadow-xs);transition:background var(--transition-normal);}.nav-inner{max-width:1180px;margin:0 auto;padding:0 var(--space-page-x);display:flex;justify-content:center;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;transition:transform 0.3s ease;contain:layout style;}.nav-inner::-webkit-scrollbar{display:none;}.nav-item{padding:8px 14px;font-size:var(--font-nav-size);font-weight:var(--font-nav-weight);letter-spacing:0.01em;color:var(--text-secondary);text-decoration:none;cursor:pointer;position:relative;transition:color var(--transition-fast),background var(--transition-fast),transform var(--transition-fast),box-shadow var(--transition-fast);display:flex;align-items:center;gap:6px;white-space:nowrap;flex-shrink:0;border-radius:var(--radius-sm);margin:2px 0;border-bottom:none;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;user-select:none;}@media (hover:hover){.nav-item:hover{color:var(--text);background:var(--hover-bg);border-radius:var(--radius-sm);}}@media (min-width:769px){.nav-inner{justify-content:center !important;padding:0 32px;}}@media (max-width:768px){.nav-inner{justify-content:flex-start;padding:0;gap:0;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;}.nav-inner::-webkit-scrollbar{display:none;}.nav-item{min-width:20%;flex:0 0 20%;justify-content:center;text-align:center;padding:8px 4px 6px;margin:0;font-size:var(--font-nav-size) !important;font-weight:var(--font-nav-weight) !important;gap:5px;flex-direction:column;border-radius:var(--radius-sm);}.nav-item.active{font-weight:var(--font-nav-weight);position:relative;}.nav-item.active::after{bottom:2px;left:0;right:0;transform:none;width:100%;height:2px;}.nav-item svg{width:22px;height:22px;}.nav-item.active svg{opacity:1;}}@media (hover:hover){.nav-item:hover svg{opacity:1;}}body.is-swiping .nav-item:active{background:transparent !important;color:inherit !important;opacity:inherit !important;transform:none !important;box-shadow:none !important;}@media (hover:hover){body.is-swiping .nav-item:hover{background:transparent !important;color:inherit !important;opacity:inherit !important;transform:none !important;box-shadow:none !important;}}.nav-item.active{color:var(--text);background:transparent;border-bottom:none;border-radius:0;font-weight:var(--font-card-title-weight);position:relative;}.nav-item.active::after{content:'';display:block;position:absolute;bottom:0;left:0;right:0;width:100%;height:2px;background:var(--primary);border-radius:1px;}.nav-item svg{display:none;}.nav-item.active svg{display:none;}.page-container{display:block;}.page-container>*{margin-bottom:var(--space-block-gap);}.page-container>*:last-child{margin-bottom:0;}.page-container{min-height:calc(100vh - 180px) !important;}:is(.site-container,.container){max-width:1180px;flex:1 0 auto !important;margin:0 auto;padding:0 32px 60px;box-sizing:border-box;}@media (max-width:768px){.page-container{min-height:calc(100vh - 120px) !important;}}.section{padding-top:0;}.section:not(.active){display:none;}.page-container{padding-top:0;}@media print{.nav{display:none;}body{background:white;}.header{background:#1e3a8a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}}@media (max-width:768px){.nav-item{padding:10px 14px;}.nav-item svg{width:15px;height:15px;}}@media (max-width:768px){.nav-item{padding:10px 12px;gap:4px;}.nav-item svg{width:14px;height:14px;}.logo-svg{height:36px;}}@media (max-width:768px){:root{--space-page-x:8px;}:is(.site-container,.container){padding:0 var(--space-page-x) calc(40px + env(safe-area-inset-bottom,0px));}.nav-inner{padding:0;}.nav-item{padding:12px 8px;gap:4px;font-size:var(--font-nav-size) !important;font-weight:var(--font-nav-weight) !important;}.nav-item svg{width:20px;height:20px;}.logo-svg{height:32px;}}.site-footer{text-align:center;padding:var(--space-xl) var(--space-md);margin-top:var(--space-xl);border-top:1px solid var(--border);color:var(--text-muted);font-size:var(--font-meta-size);}.site-footer a{color:var(--text-secondary);text-decoration:none;display:inline-block;padding:14px 6px;min-width:24px;box-sizing:border-box;text-align:center;line-height:1.3;}@media (hover:hover){.site-footer a:hover{color:var(--text);}}.footer-divider{margin:0 8px;}.search-container{max-width:100%;margin:0 auto;padding:8px 20px 16px;position:relative;z-index:200;background:var(--glass-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}.search-box{width:100%;max-width:300px;margin:0 auto;display:flex;align-items:center;background:var(--card-bg);border:1px solid var(--border-color);border-radius:20px;padding:0 5px 0 24px;height:40px;transition:border-color 0.2s,box-shadow 0.2s;}.search-box:focus-within{border-color:var(--border-color);box-shadow:none;}.search-input{flex:1;background:transparent;border:none;outline:none;color:var(--text-primary);font-size:14px;padding:0 8px;min-width:0;height:100%;min-height:24px;text-align:center;}.search-input::placeholder{color:var(--text-secondary);opacity:0.8;transition:opacity 0.15s;}.search-input:focus::placeholder{opacity:0;}.search-btn{display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--hover-bg);border:none;border-radius:50%;cursor:pointer;color:var(--text-secondary);transition:color 0.2s,background 0.2s;flex-shrink:0;}@media (hover:hover){.search-btn:hover{color:var(--text-primary);background:var(--hover-bg);}}.search-btn:active{transform:scale(0.95);}.search-btn svg{width:16px;height:16px;}.search-home-icon{display:none;}.search-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%);width:100%;max-width:300px;background:var(--card-bg);border:1px solid var(--border-color);border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.15);max-height:320px;overflow-y:auto;z-index:1000;display:none;margin-top:6px;}.search-dropdown.active{display:block;}@media (max-width:768px){.header{display:none !important;}.search-container{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:200 !important;transition:transform 0.2s cubic-bezier(0.4,0,0.2,1);max-width:100%;padding:8px 16px !important;margin-bottom:0 !important;border-bottom:1px solid var(--border) !important;background:var(--bg) !important;}.nav{position:fixed !important;top:64px !important;left:0 !important;right:0 !important;z-index:199 !important;transition:transform 0.2s cubic-bezier(0.4,0,0.2,1);padding:4px 0 !important;margin-top:0 !important;background:var(--glass-bg-solid) !important;}:is(.site-container,.container){padding-top:120px !important;transition:padding-top 0.2s cubic-bezier(0.4,0,0.2,1);}body.search-hidden .search-container{transform:translateY(-100%) !important;pointer-events:none !important;}body.search-hidden .nav{transform:translateY(-64px) !important;}body.search-hidden:is(.site-container,.container){padding-top:56px !important;}:root{--games-hub-sticky-top:116px;}body.search-hidden{--games-hub-sticky-top:52px;}.nav-item svg{display:none !important;}.nav-item.active{color:var(--nav-active-color,#1e293b) !important;background:transparent !important;font-weight:var(--font-nav-weight) !important;border-bottom:none !important;border-radius:0 !important;position:relative !important;}.nav-item.active::after{content:'' !important;display:block !important;position:absolute !important;bottom:0 !important;left:0 !important;right:0 !important;transform:none !important;width:100% !important;height:2px !important;background:var(--nav-active-color,#1e293b) !important;border-radius:1px !important;}.search-home-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:100%;}.search-home-icon img{width:32px;height:32px;}.search-box{flex:1;max-width:none;height:48px;border-radius:20px;padding:0 4px 0 8px;}.search-input{font-size:16px;}.search-btn{width:36px;height:36px;}.search-btn svg{width:20px;height:20px;}.search-dropdown{left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:500px;border-radius:12px;}}@keyframes spin{to{transform:rotate(360deg);}}@media (min-width:481px) and (max-width:768px){:is(.site-container,.container){padding-left:24px !important;padding-right:24px !important;}}@media (max-width:480px){:is(.site-container,.container){padding-left:16px !important;padding-right:16px !important;}}@media (max-width:768px){.ad-card{border-radius:0 !important;border-left:none !important;border-right:none !important;}.ad-card{border:none !important;box-shadow:none !important;}}:root{--site-max-width:1240px;--site-gutter:40px;color-scheme:light;--bg:#fff;--bg-elevated:#ffffff;--card:#ffffff;--card-bg:#ffffff;--card-hover:#f5f5f7;--bg-secondary:#f5f5f7;--bg-tertiary:#f5f5f7;--border:#dedee3;--border-subtle:#eeeef0;--text:#1d1d1f;--text-primary:#1d1d1f;--text-secondary:#515154;--text-muted:#6e6e73;--text-tertiary:#6e6e73;--primary:#0071e3;--accent:#0071e3;--data-up:#d43e42;--data-new:#b45309;--data-new-bg:#fff4e0;--data-discount:#166534;--line:#e5e5e9;--chip-bg:#e8e8ed;--glass-bg:rgba(255,255,255,.92);--glass-bg-solid:#fff;}body{background:var(--bg);color:var(--text);}.site-container{max-width:var(--site-max-width);margin:0 auto;padding:40px var(--site-gutter) 80px;}.page-container.rk{border:0;padding:0;background:transparent;border-radius:0;}@media (min-width:769px){.nav{display:none !important;}body>.search-container{display:none !important;}}.site-footer{max-width:1280px;margin:40px auto 0;padding:22px 24px;border-top:1px solid var(--border);font-size:12.5px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:0;align-items:center;justify-content:center;text-align:center;background:transparent;}.site-footer>span:first-child{padding:0 6px;}.site-footer a{color:inherit;text-decoration:none;}@media (hover:hover){.site-footer a:hover{color:var(--primary);}}.gs-header .gs-header-inner{max-width:var(--site-max-width);height:64px;}.gs-header .gs-logo .logo-svg{width:212px;height:26px;transform:none;transition:none;}.gs-header .gs-nav{height:100%;align-items:stretch;}.gs-header .gs-nav a{display:flex;align-items:center;padding:0;font-size:13px;font-weight:500;}.gs-header .gs-nav a.active::after{bottom:0;background:var(--text);height:2px;}@media (min-width:769px) and (max-width:1000px){.gs-header .gs-logo .logo-svg{width:183px;height:23px;}.gs-header .gs-header-inner{gap:20px;}.gs-header .gs-nav{gap:16px;}}.gs-header .gs-search .search-box{background:var(--bg-secondary);border-radius:9px;height:34px;}.gs-header .gs-search .search-input{font-size:12px;}body>.search-container .search-box{background:var(--bg-secondary) !important;border:0;}body>.search-container .search-input{color:var(--text);}body>.search-container .search-btn{background:transparent;color:var(--text-muted);}body .nav{background:#fff !important;}.site-footer{border:0;background:var(--bg-secondary);max-width:none;padding:24px max(var(--site-gutter),calc((100% - var(--site-max-width))/2 + var(--site-gutter)));font-size:11px;}@media (max-width:768px){.site-container{padding:16px 14px 60px;}.site-footer{flex-wrap:wrap;gap:0;padding:18px 14px;justify-content:center;}body>.search-container .search-input{font-size:16px !important;}body>.search-container .search-home-icon{display:flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;color:var(--text);}body>.search-container .search-home-icon.search-logo{flex:0 0 auto;width:auto;padding:0;}body>.search-container .search-home-icon .logo-svg{display:block;width:175px;height:20px;}body>.search-container:not(.search-open) .search-box{background:transparent !important;padding:0 0 0 4px;}body>.search-container:not(.search-open) .search-input{display:none;}body>.search-container:not(.search-open) .search-btn{margin-left:auto;color:var(--text);}body>.search-container .search-close svg{width:18px;height:18px;}}.search-close{display:none;}:root{--layout-gap:32px;--layout-card-gap:16px;--layout-section-gap:48px;--layout-heading-gap:20px;}body .site-container .rk .rk-section{margin-top:var(--layout-section-gap);}.site-container .rk .rk-section>h2{margin-top:0;margin-bottom:0;padding-bottom:var(--layout-heading-gap);}.site-container .rk .rk-section>h2{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;}.site-container .rk .rk-section>h2 small{line-height:1.5;}body .site-container .rk .rk-table th,body .site-container .rk .rk-table td{padding-left:12px;padding-right:12px;vertical-align:middle;}body .site-container .rk .rk-table th.c,body .site-container .rk .rk-table td.c{text-align:center;}@media (max-width:768px){body .nav .nav-inner{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);width:100%;max-width:none;padding:0 16px;gap:0;overflow:visible;box-sizing:border-box;}body .nav .nav-inner .nav-item{display:flex;align-items:center;justify-content:center;min-width:0;width:auto;margin:0;padding:0 4px;height:48px;flex:none;text-align:center;}body .nav .nav-inner .nav-item::after{left:50%;right:auto;bottom:0;width:32px;transform:translateX(-50%);background:var(--text);}body .site-container .rk .rk-table th,body .site-container .rk .rk-table td{padding-left:6px;padding-right:6px;}}@media (min-width:769px) and (max-width:1100px){:root{--layout-gap:24px;}}@media (max-width:768px){:root{--layout-gap:24px;--layout-section-gap:36px;--layout-heading-gap:16px;}}body a:not(.rk-preview-link):not(.rk-btn),body a:not(.rk-preview-link):not(.rk-btn):visited{color:var(--text-secondary) !important;}@media (hover:hover){body a:not(.rk-preview-link):not(.rk-btn):hover{color:var(--text-secondary) !important;}}body .gs-header .gs-nav a.active,body .site-container .rk .rk-tabs a.active{color:var(--text) !important;}@media (hover:hover){body .gs-header .gs-nav a:hover{color:var(--text) !important;}}body .site-container .rk .rk-chg.down{color:var(--text-secondary) !important;}body .nav .nav-item.active{color:var(--text) !important;}:root{--fs-caption:11px;--fs-meta:12px;--fs-ui:13px;--fs-body-sm:14px;--fs-body:15px;--fs-article:17px;--fs-card-title:18px;--fs-list-title:20px;--fs-h2:24px;--fs-h2-lg:26px;--fs-h1-detail:32px;--fs-h1:36px;--fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;}body:not(.page-home) .site-container .rk h1{font-weight:var(--fw-bold);}body .site-container .rk .rk-table .rk-app .t,body .site-container .rk .rk-app .t{font-weight:var(--fw-medium);}body .site-container .rk .rk-table td.v{font-weight:var(--fw-bold);}body .site-container .rk .rk-chg.new{font-size:var(--fs-meta);}body .site-container .rk .rk-app .d,.site-footer{font-size:var(--fs-ui);}body .site-container .rk .rk-app .t{font-size:var(--fs-body-sm);}</style>
+  <noscript><link rel="stylesheet" href="/styles-core.cddae620.css"></noscript>
+  <style data-layout-css="/styles-game.cddae620.css">.search-home-icon{display:none;}@media (max-width:768px){.search-box{flex:1;max-width:none;padding-left:8px;display:flex;align-items:center;height:48px;}.search-input{font-size:var(--font-body-size);}}.rk{--rk-bg:var(--card,#fff);--rk-bg2:var(--bg,#f4f4f5);--rk-line:var(--border-subtle,#ededee);--rk-line2:var(--border,#dcdcdf);--rk-text:var(--text,#111113);--rk-text2:var(--text-secondary,#3a3a3f);--rk-muted:var(--text-muted,#6f6f76);--rk-dim:var(--text-tertiary,#9c9ca3);--rk-accent:var(--primary,#2563eb);--rk-accent-bg:rgba(37,99,235,.1);--rk-up:#e5484d;--rk-down:#2f6fdc;--rk-new:#b45309;--rk-new-bg:rgba(245,158,11,.16);--rk-gold:#d97706;--rk-sub:#6d5ce7;--rk-sub-bg:rgba(109,92,231,.12);--rk-ios:#0a7cff;--rk-and:#00a56d;color:var(--rk-text);font-size:14px;line-height:1.5;letter-spacing:-.01em;font-feature-settings:"tnum" 1;}.page-container.rk{display:block;background:transparent;border:0;border-radius:0;padding:0;min-width:0;}.page-container.rk>*{margin:0;}.rk *{box-sizing:border-box;}.rk a{color:inherit;text-decoration:none;}.rk img{display:block;}.rk b{font-weight:700;}.rk .rk-head{margin:0 0 8px;}.rk h1{font-size:28px;font-weight:800;letter-spacing:-.03em;margin:0;line-height:1.2;color:var(--rk-text);}.rk .rk-toolbar{display:flex;align-items:center;gap:8px;margin:18px 0 0;flex-wrap:wrap;}.rk .rk-tabs{display:flex;gap:6px;flex-wrap:wrap;}.rk .rk-tabs a{display:inline-flex;align-items:center;height:32px;padding:0 13px;border-radius:999px;font-size:13px;color:var(--rk-text2);border:1px solid var(--rk-line2);font-weight:500;white-space:nowrap;background:var(--rk-bg);}.rk .rk-tabs a.active{background:var(--rk-accent-bg);color:var(--rk-accent);border-color:transparent;font-weight:600;}.rk .rk-chg{font-size:14px;font-weight:700;white-space:nowrap;letter-spacing:-.01em;}.rk .rk-chg.up{color:var(--rk-up);}.rk .rk-chg.down{color:var(--rk-down);}.rk .rk-chg.same{color:var(--rk-dim);font-weight:500;}.rk .rk-chg.new{color:var(--rk-new);font-size:11.5px;letter-spacing:.04em;}.rk td .rk-chg{font-size:13px;}.rk .rk-scroll{overflow-x:auto;}.rk table.rk-table{width:100%;border-collapse:collapse;font-size:14px;margin:0;}.rk .rk-table thead th{font-size:12px;font-weight:500;color:var(--rk-muted);text-align:left;padding:8px 8px;white-space:nowrap;border-bottom:1px solid var(--rk-line2);background:none;}.rk .rk-table td{padding:0 8px;height:56px;border-bottom:1px solid var(--rk-line);vertical-align:middle;background:none;}.rk .rk-table tbody tr:last-child td{border-bottom:0;}.rk .rk-table thead th:first-child,.rk .rk-table tbody td:first-child{padding-left:0;}.rk .rk-table thead th:last-child,.rk .rk-table tbody td:last-child{padding-right:0;}.rk .rk-table td.c,.rk .rk-table th.c{text-align:center;white-space:nowrap;}.rk .rk-app{display:flex;align-items:center;gap:12px;min-width:0;}.rk .rk-app img{width:44px;height:44px;border-radius:12px;background:var(--rk-bg2);flex:none;box-shadow:0 0 0 .5px rgba(0,0,0,.08);}.rk .rk-app .t{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px;letter-spacing:-.015em;}.rk .rk-app .d{font-size:12.5px;color:var(--rk-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px;}@media (max-width:768px){.page-container.rk{padding:16px 14px 24px;border-radius:10px;}.rk h1{font-size:22px;}.rk .rk-toolbar{margin-top:12px;}.rk:has(#rk-st-ios:checked) label[for="rk-st-ios"],.rk:has(#rk-st-and:checked) label[for="rk-st-and"]{background:var(--rk-bg);color:var(--rk-text);box-shadow:0 1px 3px rgba(0,0,0,.1);}.rk .rk-app .t,.rk .rk-app .d{max-width:190px;}}.rk .rk-section{margin:44px 0 0;min-width:0;}.rk .rk-section>h2{font-size:17px;font-weight:700;letter-spacing:-.02em;margin:0;padding-bottom:12px;border-bottom:1px solid var(--rk-line);display:flex;align-items:baseline;gap:10px;color:var(--rk-text);}.rk .rk-section>h2 small{font-size:12px;color:var(--rk-muted);font-weight:500;}.rk{--rk-accent:var(--primary);--rk-bg2:var(--bg-tertiary);--rk-dim:var(--text-tertiary);}.page-container.rk{padding:0;}.rk .rk-head{margin-bottom:20px;}.rk h1{font-size:28px;font-weight:750;letter-spacing:-.045em;line-height:1.35;}.rk .rk-toolbar{margin:16px 0;}.rk .rk-tabs a{border:0;background:transparent;height:36px;border-radius:10px;}.rk .rk-tabs a.active{background:var(--rk-accent-bg);}.rk .rk-section>h2{font-size:17px;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:16px;flex-wrap:wrap;}.rk .rk-table thead th{padding-top:12px;padding-bottom:12px;color:var(--text-muted);background:var(--bg-tertiary);font-size:11px;}.rk .rk-table td{height:60px;font-size:13px;}@media (hover:hover){.rk .rk-table tbody tr:hover{background:var(--card-hover);}}.rk .rk-table .rk-app .t{font-size:14px;}.rk .rk-table .rk-app .d{font-size:11px;}.rk .rk-table td.v{text-align:right;font-weight:650;white-space:nowrap;}.rk .rk-table td.v small{display:block;color:var(--text-muted);font-size:11px;font-weight:400;}.rk .rk-section{margin-top:30px;}.rk:has(#rk-st-and:focus-visible) label[for="rk-st-and"],.rk:has(#rk-st-ios:focus-visible) label[for="rk-st-ios"]{outline:2px solid var(--primary);outline-offset:2px;}@media (max-width:768px){.rk h1{font-size:24px;}.rk .rk-head{margin-bottom:14px;}.rk .rk-table{min-width:max-content;}.rk .rk-scroll{overflow-x:auto;}.rk .rk-table .rk-app .t,.rk .rk-table .rk-app .d{max-width:150px;}}html:has(body.page-home){color-scheme:light;}body:not(.page-home) .rk{--rk-accent-bg:#f0f6ff;--rk-line:var(--line);--rk-up:var(--data-up);--rk-down:var(--accent);--rk-new:var(--data-new);}body:not(.page-home) .rk h1{font-size:36px;line-height:1.25;font-weight:650;letter-spacing:-.045em;}body:not(.page-home) .rk .rk-head{margin:12px 0 28px;}body:not(.page-home) .rk .rk-tabs a{border:0;border-radius:999px;font-size:12px;}body:not(.page-home) .rk .rk-tabs a.active{background:#f0f0f2;color:var(--text);}body:not(.page-home) .rk .rk-chg{font-size:12px;font-weight:500;}body:not(.page-home) .rk .rk-section>h2{font-size:24px;font-weight:600;letter-spacing:-.035em;border:0;padding-bottom:18px;}body:not(.page-home) .rk .rk-table{font-size:13px;}body:not(.page-home) .rk .rk-table thead th{background:transparent;color:var(--text-muted);font-weight:400;font-size:12px;padding-top:0;padding-bottom:10px;border-bottom:1px solid var(--border-subtle);}body:not(.page-home) .rk .rk-table .rk-app .t{font-weight:550;}@media (hover:hover){body:not(.page-home) .rk .rk-table tbody tr:hover{background:#fafafa;}}@media (min-width:769px){.rk .rk-table td,.rk .rk-table th{font-variant-numeric:tabular-nums;}}@media (max-width:768px){body:not(.page-home) .rk h1{font-size:26px;}body:not(.page-home) .rk .rk-head{margin:8px 0 20px;}body:not(.page-home) .rk .rk-section>h2{font-size:22px;}body:not(.page-home) .rk .rk-table td,body:not(.page-home) .rk .rk-table th{padding-left:4px !important;padding-right:4px !important;font-size:12.5px;}body:not(.page-home) .rk .rk-table thead th{white-space:normal;line-height:1.25;}}:root{--layout-gap:32px;--layout-card-gap:16px;--layout-section-gap:48px;--layout-heading-gap:20px;}body .site-container .rk .rk-section{margin-top:var(--layout-section-gap);}.site-container .rk .rk-section>h2{margin-top:0;margin-bottom:0;padding-bottom:var(--layout-heading-gap);}.site-container .rk .rk-section>h2{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;}.site-container .rk .rk-section>h2 small{line-height:1.5;}body .site-container .rk .rk-table th,body .site-container .rk .rk-table td{padding-left:12px;padding-right:12px;vertical-align:middle;}body .site-container .rk .rk-table th.c,body .site-container .rk .rk-table td.c{text-align:center;}@media (max-width:768px){body .nav .nav-inner{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);width:100%;max-width:none;padding:0 16px;gap:0;overflow:visible;box-sizing:border-box;}body .nav .nav-inner .nav-item{display:flex;align-items:center;justify-content:center;min-width:0;width:auto;margin:0;padding:0 4px;height:48px;flex:none;text-align:center;}body .nav .nav-inner .nav-item::after{left:50%;right:auto;bottom:0;width:32px;transform:translateX(-50%);background:var(--text);}body .site-container .rk .rk-table th,body .site-container .rk .rk-table td{padding-left:6px;padding-right:6px;}}@media (min-width:769px) and (max-width:1100px){:root{--layout-gap:24px;}}@media (max-width:768px){:root{--layout-gap:24px;--layout-section-gap:36px;--layout-heading-gap:16px;}}body a:not(.rk-preview-link):not(.rk-btn),body a:not(.rk-preview-link):not(.rk-btn):visited{color:var(--text-secondary) !important;}@media (hover:hover){body a:not(.rk-preview-link):not(.rk-btn):hover{color:var(--text-secondary) !important;}}body .gs-header .gs-nav a.active,body .site-container .rk .rk-tabs a.active{color:var(--text) !important;}@media (hover:hover){body .gs-header .gs-nav a:hover{color:var(--text) !important;}}body .site-container .rk .rk-chg.down{color:var(--text-secondary) !important;}body .nav .nav-item.active{color:var(--text) !important;}:root{--fs-caption:11px;--fs-meta:12px;--fs-ui:13px;--fs-body-sm:14px;--fs-body:15px;--fs-article:17px;--fs-card-title:18px;--fs-list-title:20px;--fs-h2:24px;--fs-h2-lg:26px;--fs-h1-detail:32px;--fs-h1:36px;--fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;}body:not(.page-home) .site-container .rk h1{font-weight:var(--fw-bold);}body .site-container .rk .rk-table .rk-app .t,body .site-container .rk .rk-app .t{font-weight:var(--fw-medium);}body .site-container .rk .rk-table td.v{font-weight:var(--fw-bold);}body .site-container .rk .rk-chg.new{font-size:var(--fs-meta);}body .site-container .rk .rk-app .d,.site-footer{font-size:var(--fs-ui);}body .site-container .rk .rk-app .t{font-size:var(--fs-body-sm);}body .site-container .rk .rk-country-tabs{gap:2px;margin:0;padding:0;}body .site-container .rk .rk-country-tabs a{height:30px;padding:0 12px;border:0;border-radius:999px;background:transparent;font-size:13px;font-weight:500;}body .site-container .rk .rk-country-tabs a.active{background:#f0f0f2;font-weight:600;}@media (max-width:768px){body:not(.page-home) .site-container .rk .rk-table th.c,body:not(.page-home) .site-container .rk .rk-table td.c{text-align:right;}body:not(.page-home) .site-container .rk .rk-table th:last-child,body:not(.page-home) .site-container .rk .rk-table td:last-child{padding-right:10px !important;}body:not(.page-home) .site-container .rk .rk-table thead th{font-size:11px;}body .site-container .rk .rk-country-tabs a{height:28px;padding:0 10px;font-size:12px;}}@media (max-width:768px){body>.search-container .gs-lang-mobile{margin-left:auto;margin-right:6px;}body>.search-container .gs-lang-mobile + .search-btn,body>.search-container:not(.search-open) .gs-lang-mobile + .search-btn{margin-left:0;}body>.search-container .gs-lang-mobile .gs-lang-menu{top:calc(100% + 8px);bottom:auto;right:0;}}.rk.rk-trend .rk-section>h2{padding-bottom:12px;border-bottom:1px solid var(--rk-text);margin-bottom:8px;}@media (max-width:768px){html body .site-container .rk .rk-table .rk-app .t{white-space:normal;overflow:visible;text-overflow:clip;max-width:none;overflow-wrap:break-word;line-height:1.3;}}.rk.rk-trend .rk-tr-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0 0;}.rk.rk-trend .rk-tr-kpi{border:1px solid var(--rk-line);border-radius:14px;padding:14px 16px;min-width:0;}.rk.rk-trend .rk-tr-kpi .l{display:block;font-size:12px;font-weight:600;color:var(--rk-muted);}.rk.rk-trend .rk-tr-kpi b{display:block;font-size:24px;font-weight:800;letter-spacing:-.03em;margin:2px 0 8px;}.rk.rk-trend .rk-tr-kpi .g{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;min-width:0;}.rk.rk-trend .rk-tr-kpi .g img{width:24px;height:24px;border-radius:6px;flex:none;}.rk.rk-trend .rk-tr-kpi .g span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.rk.rk-trend .rk-tr-rise{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;}.rk.rk-trend .rk-tr-card{display:flex;flex-direction:column;gap:6px;padding:16px;border:1px solid var(--rk-line);border-radius:14px;min-width:0;color:inherit;text-decoration:none;}@media (hover:hover){.rk.rk-trend a.rk-tr-card:hover,.rk.rk-trend a.rk-tr-nc:hover,.rk.rk-trend a.rk-tr-t:hover{border-color:var(--rk-dim);}}.rk.rk-trend .rk-tr-card .top{display:flex;justify-content:space-between;align-items:flex-start;}.rk.rk-trend .rk-tr-card img{width:56px;height:56px;border-radius:14px;background:var(--rk-bg2);}.rk.rk-trend .rk-tr-card .no{font-size:22px;font-weight:800;line-height:1;color:var(--rk-dim);}.rk.rk-trend .rk-tr-card .no.first{color:var(--rk-up);}.rk.rk-trend .rk-tr-card .nm{font-size:16px;font-weight:700;line-height:1.3;min-height:42px;margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;}.rk.rk-trend .rk-tr-card .dv{font-size:12px;color:var(--rk-muted);}.rk.rk-trend .rk-tr-area{display:block;width:100%;height:56px;}.rk.rk-trend .rk-tr-card .v{display:flex;justify-content:space-between;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:15px;}.rk.rk-trend .rk-tr-card .v b{white-space:nowrap;}.rk.rk-trend .rk-tr-input{position:absolute;opacity:0;pointer-events:none;}.rk.rk-trend .rk-tr-seg{display:inline-flex;background:var(--rk-bg2);border-radius:10px;padding:3px;margin-bottom:16px;}.rk.rk-trend .rk-tr-seg label{font-size:13px;font-weight:600;color:var(--rk-muted);padding:6px 14px;border-radius:8px;cursor:pointer;white-space:nowrap;}.rk.rk-trend .rk-tr-panel{display:none;}.rk.rk-trend .rk-tr-stores>.rk-tr-panel:only-of-type,.rk.rk-trend #rk-tr-s-android:checked~.rk-tr-p-android,.rk.rk-trend #rk-tr-s-ios:checked~.rk-tr-p-ios{display:block;}.rk.rk-trend #rk-tr-s-android:checked~.rk-tr-seg label[for="rk-tr-s-android"],.rk.rk-trend #rk-tr-s-ios:checked~.rk-tr-seg label[for="rk-tr-s-ios"]{background:var(--rk-bg,#fff);color:var(--rk-text);box-shadow:0 0 0 1px var(--rk-line);}.rk.rk-trend .rk-tr-t10{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:8px;}.rk.rk-trend .rk-tr-t{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 4px 10px;border:1px solid var(--rk-line);border-radius:14px;position:relative;min-width:0;text-align:center;color:inherit;text-decoration:none;}.rk.rk-trend .rk-tr-t.in{border-color:var(--rk-text);background:var(--rk-bg2);}.rk.rk-trend .rk-tr-t .tag{position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:var(--rk-text);color:var(--rk-bg,#fff);font-size:11px;font-weight:800;border-radius:999px;padding:2px 8px;white-space:nowrap;}.rk.rk-trend .rk-tr-t .no{font-size:13px;font-weight:800;color:var(--rk-muted);}.rk.rk-trend .rk-tr-t img{width:52px;height:52px;border-radius:13px;background:var(--rk-bg2);}.rk.rk-trend .rk-tr-t .nm{font-size:14px;font-weight:600;line-height:1.25;min-height:35px;max-width:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;}.rk.rk-trend .rk-tr-outs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;font-size:14px;}.rk.rk-trend .rk-tr-outs .l{color:var(--rk-muted);font-size:13px;}.rk.rk-trend .rk-tr-outs .o{display:inline-flex;align-items:center;gap:8px;border:1px dashed var(--rk-dim);border-radius:999px;padding:5px 12px 5px 5px;color:inherit;text-decoration:none;max-width:100%;}.rk.rk-trend .rk-tr-outs .o img{width:26px;height:26px;border-radius:7px;flex:none;}.rk.rk-trend .rk-tr-outs .o span[data-name]{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.rk.rk-trend .rk-tr-cross td.c{padding:6px 4px;width:13%;}.rk.rk-trend .rk-tr-cross th{white-space:nowrap;}.rk.rk-trend .rk-tr-cell{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;height:58px;border-radius:12px;background:#fff5f4;}.rk.rk-trend .rk-tr-cell.l{background:#ffe1dd;}.rk.rk-trend .rk-tr-cell b{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1;color:#1d1d1f;}.rk.rk-trend .rk-tr-new{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}.rk.rk-trend .rk-tr-nc{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--rk-line);border-radius:14px;min-width:0;color:inherit;text-decoration:none;}.rk.rk-trend .rk-tr-nc img{width:48px;height:48px;border-radius:12px;flex:none;background:var(--rk-bg2);}.rk.rk-trend .rk-tr-nc .tx{flex:1;min-width:0;display:flex;flex-direction:column;}.rk.rk-trend .rk-tr-nc .nm{font-size:14px;font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;}.rk.rk-trend .rk-tr-nc .dv{font-size:12px;color:var(--rk-muted);}.rk.rk-trend .rk-tr-nc .d{flex:none;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:2px;}.rk.rk-trend .rk-tr-nc .d b{font-size:18px;font-weight:800;white-space:nowrap;}.rk.rk-trend .rk-tr-nc .d i{font-style:normal;font-size:11px;font-weight:700;background:var(--rk-bg2);border-radius:999px;padding:2px 8px;white-space:nowrap;}@media (max-width:1023px){.rk.rk-trend .rk-tr-rise{grid-template-columns:repeat(2,minmax(0,1fr));}.rk.rk-trend .rk-tr-rise>:nth-child(5){display:none;}.rk.rk-trend .rk-tr-new,.rk.rk-trend .rk-tr-kpis{grid-template-columns:repeat(2,minmax(0,1fr));}}@media (max-width:768px){.rk.rk-trend .rk-tr-t10{grid-template-columns:minmax(0,1fr);gap:0;}.rk.rk-trend .rk-tr-t{flex-direction:row;text-align:left;gap:10px;padding:10px 8px;border:0;border-bottom:1px solid var(--rk-line);border-radius:0;}.rk.rk-trend .rk-tr-t.in{border-color:var(--rk-line);}.rk.rk-trend .rk-tr-t .tag{position:static;transform:none;order:4;}.rk.rk-trend .rk-tr-t .no{width:20px;text-align:center;flex:none;}.rk.rk-trend .rk-tr-t img{width:40px;height:40px;border-radius:10px;flex:none;}.rk.rk-trend .rk-tr-t .nm{flex:1;min-height:0;font-size:15px;}.rk.rk-trend .rk-tr-t .rk-chg{order:5;flex:none;}.rk.rk-trend .rk-tr-new{grid-template-columns:minmax(0,1fr);}.rk.rk-trend .rk-tr-card{padding:14px;}.rk.rk-trend .rk-tr-card .v{font-size:14px;}.rk.rk-trend .rk-tr-cell{height:48px;}.rk.rk-trend .rk-tr-cell b{font-size:17px;}.rk.rk-trend .rk-tr-cross .rk-app img{display:none;}}.rk.rk-trend .rk-tr-kpi .g span{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.3;overflow-wrap:break-word;}@media (max-width:768px){.rk.rk-trend .rk-tr-cross{table-layout:fixed;width:100%;min-width:0;}.rk.rk-trend .rk-tr-cross th:first-child,.rk.rk-trend .rk-tr-cross td:first-child{width:30%;}.rk.rk-trend .rk-tr-cross td.c,.rk.rk-trend .rk-tr-cross th.c{width:14%;padding:5px 2px;font-size:11px;}.rk.rk-trend .rk-tr-cross .rk-app .d{display:none;}.rk.rk-trend .rk-tr-cell .rk-chg{font-size:10px;}}.rk.rk-trend .rk-tr-cross th .s{display:none;}@media (max-width:768px){.rk.rk-trend .rk-tr-cross th .f{display:none;}.rk.rk-trend .rk-tr-cross th .s{display:inline;}}@media (min-width:769px) and (max-width:1199px){.rk.rk-trend .rk-tr-t10{grid-template-columns:repeat(5,minmax(0,1fr));row-gap:16px;}}@media (min-width:769px) and (max-width:1199px){.rk.rk-trend .rk-tr-new{grid-template-columns:repeat(2,minmax(0,1fr));}}html body .site-container .rk.rk-trend .rk-tr-seg{border-radius:999px;}html body .site-container .rk.rk-trend .rk-tr-seg label{border-radius:999px;}</style>
+  <noscript><link rel="stylesheet" href="/styles-game.cddae620.css"></noscript>
+  <script data-css-loader>
+    (function() {
+      var root = document.documentElement;
+      var started = false;
+      function unlock() { root.classList.remove('deferred-css-pending'); }
+      setTimeout(unlock, 3200);
+      function start() {
+        if (started) return;
+        started = true;
+        var styles = document.querySelectorAll('style[data-layout-css]');
+        var pending = styles.length;
+        if (!pending) return unlock();
+        [].forEach.call(styles, function(style) {
+          var link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = style.getAttribute('data-layout-css');
+          link.onload = link.onerror = function() { if (--pending === 0) unlock(); };
+          style.parentNode.insertBefore(link, style.nextSibling);
+        });
+      }
+      window.addEventListener('load', start);
+      ['pointerdown', 'keydown', 'focusin'].forEach(function(type) {
+        window.addEventListener(type, start, { capture: true, once: true, passive: true });
+      });
+    })();
+  </script>
+<script>
+    (function() {
+      function show(img) {
+        var srcset = img.getAttribute('data-gs-srcset');
+        if (srcset !== null) {
+          img.srcset = srcset;
+          img.removeAttribute('data-gs-srcset');
+        }
+        img.src = img.getAttribute('data-gs-src');
+        img.removeAttribute('data-gs-src');
+      }
+      function pending() { return document.querySelectorAll('img[data-gs-src]'); }
+      if (!('IntersectionObserver' in window)) {
+        document.addEventListener('DOMContentLoaded', function() { [].forEach.call(pending(), show); });
+        return;
+      }
+      function watch(margin) {
+        return new IntersectionObserver(function(entries, observer) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting || !entry.target.hasAttribute('data-gs-src')) return;
+            observer.unobserve(entry.target);
+            show(entry.target);
+          });
+        }, { rootMargin: margin + ' 0px', scrollMargin: margin });
+      }
+      var near = watch('200px');
+      var parser = new MutationObserver(function(records) {
+        records.forEach(function(record) {
+          [].forEach.call(record.addedNodes, function(node) {
+            if (node.nodeName === 'IMG' && node.hasAttribute('data-gs-src')) near.observe(node);
+          });
+        });
+      });
+      parser.observe(document.documentElement, { childList: true, subtree: true });
+      document.addEventListener('DOMContentLoaded', function() {
+        parser.disconnect();
+        [].forEach.call(pending(), function(img) { near.observe(img); });
+      });
+      window.addEventListener('load', function() {
+        near.disconnect();
+        var far = watch('1250px');
+        [].forEach.call(pending(), function(img) { far.observe(img); });
+      });
+    })();
+  </script>
+	  <!-- Firebase Analytics (프로덕션만) -->
+	  <script>
+	    // 페이지뷰 큐 (Firebase 로드 전 이벤트 저장) - 일반 스크립트로 즉시 실행
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+	      window.__gcPageViewQueue = [];
+	      window.__gcLogPageView = function(path) {
+	        window.__gcPageViewQueue.push(path);
+	      };
+	    })();
+	  </script>
+	  <script type="module">
+	    (function() {
+	      var host = window.location.hostname;
+	      if (host !== 'gamerscroll.com') return;
+
+	      // 페이지 로드 완료 후 Firebase 초기화 (LCP 영향 제거)
+	      function initFirebase() {
+	        (async function() {
+	          try {
+	            const [{ initializeApp }, { getAnalytics, logEvent }] = await Promise.all([
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js'),
+	              import('https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js')
+	            ]);
+	          const firebaseConfig = {
+	            apiKey: "AIzaSyBn7HyeG6RhNZcWYOTg6_GfRHxuMZOgSTI",
+	            authDomain: "gamerscroll-958b4.firebaseapp.com",
+	            projectId: "gamerscroll-958b4",
+	            storageBucket: "gamerscroll-958b4.firebasestorage.app",
+	            messagingSenderId: "529297035305",
+	            appId: "1:529297035305:web:a0df9b47d2189ed5d50c38",
+	            measurementId: "G-W6SPVQ67NJ"
+	          };
+	          const app = initializeApp(firebaseConfig);
+	          const analytics = getAnalytics(app);
+
+	          // 큐에 쌓인 페이지뷰 처리
+	          if (window.__gcPageViewQueue) {
+	            window.__gcPageViewQueue.forEach(function(path) {
+	              logEvent(analytics, 'page_view', {
+	                page_path: path,
+	                page_location: window.location.origin + path
+	              });
+	            });
+	          }
+
+	          // 실제 로깅 함수로 교체 (SPA 페이지 전환용, 현재 미사용)
+	          window.__gcLogPageView = function(path) {
+	            logEvent(analytics, 'page_view', {
+	              page_path: path,
+	              page_location: window.location.origin + path
+	            });
+	          };
+
+	          // Firebase 자동 page_view 추적 사용 (getAnalytics 호출 시 자동 전송)
+	          } catch (e) {}
+	        })();
+	      }
+	      // 페이지 로드 후 상단 광고 결과(filled/unfilled)가 나오면 실행 (최대 3초 대기):
+	      // 분석 스크립트(gtag 포함 약 190KB)가 광고 소재와 대역폭·CPU를 나눠 쓰지 않게 한다.
+	      function afterTopAd() {
+	        var ad = document.querySelector('ins.adsbygoogle[data-gs-ad-pushed="1"]');
+	        if (!ad || ad.getAttribute('data-ad-status')) return initFirebase();
+	        var started = false;
+	        var observer = new MutationObserver(function() {
+	          if (ad.getAttribute('data-ad-status')) start();
+	        });
+	        function start() {
+	          if (started) return;
+	          started = true;
+	          observer.disconnect();
+	          initFirebase();
+	        }
+	        observer.observe(ad, { attributes: true, attributeFilter: ['data-ad-status'] });
+	        setTimeout(start, 3000);
+	      }
+	      if (document.readyState === 'complete') {
+	        setTimeout(afterTopAd, 0);
+	      } else {
+	        window.addEventListener('load', afterTopAd);
+	      }
+	    })();
+	  </script>
+</head>
+<body class="page-trending">
+  <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
+  
+  <style>
+    .gs-header { padding: 0 !important; position: sticky; top: 0; z-index: 100000; background: var(--gs-header-bg); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .gs-header-inner {
+      display: flex !important;
+      align-items: center;
+      justify-content: flex-start !important;
+      max-width: var(--site-max-width, 1240px);
+      height: 68px;
+      margin: 0 auto;
+      padding: 0 var(--site-gutter, 40px) !important;
+      gap: 32px;
+    }
+    .gs-logo { flex-shrink: 0; color: var(--text); }
+    .gs-logo .logo-svg { height: 18px; width: 165px; display: block; }
+    .gs-nav { display: flex; gap: 26px; }
+    .gs-nav a { font-size: 15px; font-weight: 600; color: var(--text-muted); text-decoration: none; white-space: nowrap; padding: 4px 0; position: relative; }
+    .gs-nav a:hover, .gs-nav a.active { color: var(--primary); }
+    .gs-nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -23px; height: 3px; border-radius: 3px 3px 0 0; background: var(--primary); }
+    .gs-status { margin-left: 0; font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+    @media (max-width: 1120px) { .gs-status { display: none; } .gs-header-inner { gap: 22px; } .gs-nav { gap: 18px; } }
+    .gs-search { position: relative; flex-shrink: 0; width: 240px; margin-left: auto; }
+    .gs-search .search-box {
+      display: flex;
+      align-items: center;
+      height: 36px;
+      background: var(--bg);
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 0 12px;
+      transition: border-color 0.15s;
+    }
+    .gs-search .search-box:focus-within { border-color: var(--primary); background: var(--card); }
+    .gs-search .search-input {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .gs-search .search-input::placeholder { color: var(--text-muted); }
+    .gs-search .search-btn {
+      background: transparent;
+      border: none;
+      padding: 4px;
+      cursor: pointer;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+    .gs-search .search-btn svg { width: 18px; height: 18px; }
+    .gs-search .search-dropdown {
+      position: absolute !important;
+      top: calc(100% + 4px) !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      background: var(--card) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 12px !important;
+      display: none;
+      z-index: 99999 !important;
+      max-height: 400px !important;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg) !important;
+      margin-top: 0 !important;
+    }
+    .gs-search .search-dropdown.active { display: block; }
+    /* PC에서 별도 search-container 숨김 (헤더 내장으로 대체) */
+    @media (min-width: 769px) {
+      body:not(.detail-page) > .search-container { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      .gs-header { display: none !important; }
+    }
+    .gs-lang { position: relative; flex-shrink: 0; font-size: 13px; }
+    .gs-lang-btn { display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 10px; border: 1px solid var(--border); border-radius: 10px; background: transparent; color: var(--text); font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .gs-lang-btn:hover, .gs-lang-btn[aria-expanded="true"] { border-color: var(--primary); }
+    .gs-flag { display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.12); flex-shrink: 0; }
+    .gs-lang-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 100001; min-width: 168px; margin: 0; padding: 6px; list-style: none; background: var(--card, #fff); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-lg, 0 8px 24px rgba(0,0,0,.14)); }
+    .gs-lang-menu[hidden] { display: none; }
+    .gs-lang-menu a { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 8px; color: var(--text); text-decoration: none; font-weight: 500; white-space: nowrap; }
+    .gs-lang-menu a:hover, .gs-lang-menu a:focus-visible { background: var(--bg); }
+    .gs-lang-menu a[aria-current="true"] { font-weight: 700; color: var(--primary); }
+    .gs-lang-mobile { display: none; }
+    @media (max-width: 768px) { .gs-lang-mobile { display: block; position: relative; flex: 0 0 auto; } .gs-lang-mobile .gs-lang-btn { height: 34px; padding: 0 8px; gap: 4px; background: transparent; } .gs-lang-mobile .gs-lang-code { font-size: 13px; line-height: 1; } }
+  </style>
+  <header class="header gs-header">
+    <div class="header-inner gs-header-inner">
+      <div class="header-title gs-logo">
+        <a href="/ja/">
+          <span class="visually-hidden">GamerScroll</span>
+          <svg class="logo-svg" width="208" height="26" viewBox="0 0 570 62" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="currentColor"><rect x="0" y="22" width="6" height="18" rx="2"/><rect x="10" y="12" width="6" height="38" rx="2"/><rect x="20" y="4" width="6" height="54" rx="2"/><rect x="30" y="12" width="6" height="38" rx="2"/><rect x="40" y="22" width="6" height="18" rx="2"/><g transform="translate(10 0)"><path d="M72.7 16.8Q69.8 16.8 67.8 18.2Q65.8 19.6 64.7 22.2Q63.6 24.8 63.6 28.4Q63.6 32.2 64.6 34.8Q65.7 37.4 67.7 38.8Q69.7 40.2 72.6 40.2Q75.1 40.2 76.9 39.4Q78.7 38.6 79.6 37.2Q80.5 35.7 80.5 33.8L82.4 34H72.8V26.2H90.8V31.8Q90.8 37.3 88.5 41.3Q86.2 45.3 82 47.4Q77.9 49.6 72.5 49.6Q66.6 49.6 62.1 47Q57.5 44.5 55 39.7Q52.5 34.9 52.5 28.5Q52.5 22 55.2 17.2Q57.8 12.4 62.3 9.9Q66.8 7.4 72.4 7.4Q77.2 7.4 81.1 9.2Q85.1 11 87.5 14.2Q89.9 17.4 90.4 21.5H79.5Q79.1 20 78.2 19Q77.3 17.9 75.9 17.4Q74.5 16.8 72.7 16.8Z"/><path d="M91.4 49.0 105 8H119.7L133.3 49.0H121.7L112.5 19H112.2L103.1 49.0ZM123.5 32.8V40.9H101V32.8Z"/><path d="M148.7 8 158.5 31.8H159L168.8 8H182.2V49.0H171.7V24.9H171.3L162 48.7H155.5L146.2 24.8H145.9V49.0H135.3V8Z"/><path d="M185.7 8H215V16.7H196.5V24.1H213.5V32.8H196.5V40.3H214.9V49.0H185.7Z"/><path d="M218.7 8H236.1Q240.7 8 244.1 9.7Q247.6 11.3 249.4 14.5Q251.3 17.6 251.3 21.9Q251.3 26.1 249.4 29.2Q247.5 32.2 244 33.8Q240.5 35.3 235.8 35.3H225.1V26.9H233.7Q235.8 26.9 237.2 26.4Q238.6 25.8 239.3 24.7Q240.1 23.6 240.1 21.9Q240.1 20.1 239.3 18.9Q238.6 17.8 237.1 17.2Q235.7 16.6 233.7 16.6H229.4V49.0H218.7ZM252.7 49.0H240.9L230.9 30.2H242.4Z"/><path d="M281.2 16.3Q279.5 16.3 278.3 16.7Q277.2 17.1 276.6 17.9Q276 18.6 276 19.6Q276 21.2 277.3 22.1Q278.7 23 281.7 23.7L285.1 24.4Q291.6 25.8 294.7 29Q297.8 32.1 297.8 36.9Q297.8 40.9 295.8 43.7Q293.8 46.5 290.2 48Q286.5 49.5 281.3 49.5Q275.9 49.5 272 47.9Q268.1 46.3 265.9 43Q263.8 39.7 263.7 34.8H274Q274.1 36.7 275 38Q275.9 39.3 277.4 39.9Q279 40.6 281.1 40.6Q282.9 40.6 284.2 40.1Q285.5 39.6 286.2 38.8Q286.8 38 286.8 36.9Q286.8 35.9 286.2 35.2Q285.6 34.4 284.2 33.9Q282.8 33.3 280.5 32.8L276.4 31.9Q270.8 30.7 267.8 27.8Q264.8 25 264.8 20.4Q264.8 16.5 266.9 13.6Q269 10.7 272.7 9.1Q276.4 7.4 281.2 7.4Q286.1 7.4 289.7 9.1Q293.3 10.7 295.3 13.7Q297.3 16.7 297.3 20.7H286.9Q286.8 19.3 286.2 18.3Q285.5 17.3 284.3 16.8Q283 16.3 281.2 16.3Z"/><path d="M320 16.8Q317.2 16.8 315.2 18.2Q313.2 19.6 312.1 22.2Q311.1 24.8 311.1 28.5Q311.1 32.3 312.1 34.9Q313.2 37.5 315.2 38.8Q317.2 40.2 319.9 40.2Q322 40.2 323.5 39.4Q325.1 38.7 326 37.4Q327 36.1 327.3 34.3L338.2 34.4Q337.9 38.1 335.7 41.6Q333.5 45.1 329.4 47.3Q325.3 49.6 319.7 49.6Q314 49.6 309.6 47.1Q305.1 44.6 302.5 39.9Q300 35.1 300 28.5Q300 21.8 302.6 17.1Q305.2 12.3 309.6 9.9Q314.1 7.4 319.7 7.4Q324.8 7.4 328.8 9.3Q332.9 11.1 335.3 14.7Q337.8 18.3 338.2 23.2H327.3Q327.1 21.3 326.2 19.8Q325.3 18.4 323.7 17.6Q322.1 16.8 320 16.8Z"/><path d="M341.4 8H358.9Q363.5 8 366.9 9.7Q370.3 11.3 372.2 14.5Q374 17.6 374 21.9Q374 26.1 372.1 29.2Q370.2 32.2 366.7 33.8Q363.2 35.3 358.5 35.3H347.9V26.9H356.4Q358.5 26.9 359.9 26.4Q361.3 25.8 362 24.7Q362.8 23.6 362.8 21.9Q362.8 20.1 362 18.9Q361.3 17.8 359.9 17.2Q358.5 16.6 356.4 16.6H352.2V49.0H341.4ZM375.4 49.0H363.6L353.7 30.2H365.2Z"/><path d="M396.5 49.6Q390.9 49.6 386.4 47.1Q381.9 44.6 379.3 39.8Q376.7 35.1 376.7 28.5Q376.7 21.8 379.3 17.1Q381.9 12.3 386.4 9.9Q390.9 7.4 396.5 7.4Q402.2 7.4 406.7 9.9Q411.2 12.3 413.8 17.1Q416.4 21.8 416.4 28.5Q416.4 35.1 413.8 39.9Q411.2 44.6 406.7 47.1Q402.2 49.6 396.5 49.6ZM396.5 16.8Q393.7 16.8 391.7 18.2Q389.8 19.5 388.8 22.1Q387.8 24.7 387.8 28.5Q387.8 32.3 388.8 34.9Q389.8 37.5 391.7 38.8Q393.7 40.2 396.5 40.2Q399.4 40.2 401.3 38.8Q403.3 37.5 404.3 34.9Q405.3 32.3 405.3 28.5Q405.3 24.7 404.3 22.1Q403.3 19.5 401.3 18.2Q399.4 16.8 396.5 16.8Z"/><path d="M419.7 8H430.4V40.3H447.1V49.0H419.7Z"/><path d="M449.8 8H460.6V40.3H477.3V49.0H449.8Z"/></g></g></svg>
+        </a>
+      </div>
+      <nav class="gs-nav" aria-label="メインメニュー"><a class="" href="/ja/rankings/">モバイル</a><a class="active" href="/ja/trending/">トレンド</a><a class="" href="/ja/steam/">Steam</a><a class="" href="/ja/games/">ゲームDB</a></nav>
+      <div class="gs-search">
+        <div class="search-box">
+          <input type="text" class="search-input" aria-label="ゲームを検索" placeholder="ゲームを検索" autocomplete="off">
+          <button class="search-btn" type="button" aria-label="検索">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+        </div>
+        <div class="search-dropdown"></div>
+      </div>
+      
+      <div class="gs-lang" data-edition-selector>
+    <button type="button" class="gs-lang-btn" data-edition-toggle aria-haspopup="true" aria-expanded="false" aria-label="国 / 言語"><span data-edition-current="ja" style="display:inline-flex;align-items:center;gap:6px"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><circle cx="9" cy="6" r="3.4" fill="#bc002d"/></svg><span class="gs-lang-label" data-name title="日本">日本</span></span><svg class="gs-lang-chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ul class="gs-lang-menu" data-edition-menu hidden><li><a href="/trending/kr/" data-edition-link data-edition="en" data-prefix="" lang="en" hreflang="en"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><path fill="#b22234" d="M0 0h18v1.2H0zM0 2.4h18v1.2H0zM0 4.8h18v1.2H0zM0 7.2h18v1.2H0zM0 9.6h18v1.2H0z"/><rect width="8" height="6.4" fill="#3c3b6e"/></svg><span data-name title="United States">United States</span></a></li><li><a href="/ja/trending/kr/" data-edition-link data-edition="ja" data-prefix="/ja" lang="ja" hreflang="ja" aria-current="true"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><circle cx="9" cy="6" r="3.4" fill="#bc002d"/></svg><span data-name title="日本">日本</span></a></li><li><a href="/zh-cn/trending/kr/" data-edition-link data-edition="zh-cn" data-prefix="/zh-cn" lang="zh-Hans" hreflang="zh-CN"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#de2910"/><circle cx="3.6" cy="3.2" r="1.6" fill="#ffde00"/><circle cx="7" cy="1.6" r=".6" fill="#ffde00"/><circle cx="8.2" cy="3.2" r=".6" fill="#ffde00"/><circle cx="8.2" cy="5" r=".6" fill="#ffde00"/><circle cx="7" cy="6.4" r=".6" fill="#ffde00"/></svg><span data-name title="中国">中国</span></a></li><li><a href="/ko/trending/kr/" data-edition-link data-edition="ko" data-prefix="/ko" lang="ko" hreflang="ko"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><path d="M6.2 6a2.8 2.8 0 0 1 5.6 0z" fill="#cd2e3a"/><path d="M6.2 6a2.8 2.8 0 0 0 5.6 0z" fill="#0047a0"/><path d="M2 2.2l1.6-1M2.4 3.2l1.6-1M14 9.8l1.6-1M14.4 10.8l1.6-1M14 2.2l1.6 1M14.4 1.2l1.6 1M2 9.8l1.6 1M2.4 8.8l1.6 1" stroke="#000" stroke-width=".7"/></svg><span data-name title="대한민국">대한민국</span></a></li><li><a href="/zh-tw/trending/kr/" data-edition-link data-edition="zh-tw" data-prefix="/zh-tw" lang="zh-Hant" hreflang="zh-TW"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fe0000"/><rect width="9" height="6" fill="#000095"/><circle cx="4.5" cy="3" r="1.7" fill="#fff"/></svg><span data-name title="台灣">台灣</span></a></li></ul>
+  </div>
+    </div>
+  </header>
+  
+  <div class="search-container">
+    <div class="search-box">
+      <a href="/ja/" class="search-home-icon search-logo" aria-label="GamerScrollホーム">
+        <svg class="logo-svg" width="208" height="26" viewBox="0 0 570 62" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="currentColor"><rect x="0" y="22" width="6" height="18" rx="2"/><rect x="10" y="12" width="6" height="38" rx="2"/><rect x="20" y="4" width="6" height="54" rx="2"/><rect x="30" y="12" width="6" height="38" rx="2"/><rect x="40" y="22" width="6" height="18" rx="2"/><g transform="translate(10 0)"><path d="M72.7 16.8Q69.8 16.8 67.8 18.2Q65.8 19.6 64.7 22.2Q63.6 24.8 63.6 28.4Q63.6 32.2 64.6 34.8Q65.7 37.4 67.7 38.8Q69.7 40.2 72.6 40.2Q75.1 40.2 76.9 39.4Q78.7 38.6 79.6 37.2Q80.5 35.7 80.5 33.8L82.4 34H72.8V26.2H90.8V31.8Q90.8 37.3 88.5 41.3Q86.2 45.3 82 47.4Q77.9 49.6 72.5 49.6Q66.6 49.6 62.1 47Q57.5 44.5 55 39.7Q52.5 34.9 52.5 28.5Q52.5 22 55.2 17.2Q57.8 12.4 62.3 9.9Q66.8 7.4 72.4 7.4Q77.2 7.4 81.1 9.2Q85.1 11 87.5 14.2Q89.9 17.4 90.4 21.5H79.5Q79.1 20 78.2 19Q77.3 17.9 75.9 17.4Q74.5 16.8 72.7 16.8Z"/><path d="M91.4 49.0 105 8H119.7L133.3 49.0H121.7L112.5 19H112.2L103.1 49.0ZM123.5 32.8V40.9H101V32.8Z"/><path d="M148.7 8 158.5 31.8H159L168.8 8H182.2V49.0H171.7V24.9H171.3L162 48.7H155.5L146.2 24.8H145.9V49.0H135.3V8Z"/><path d="M185.7 8H215V16.7H196.5V24.1H213.5V32.8H196.5V40.3H214.9V49.0H185.7Z"/><path d="M218.7 8H236.1Q240.7 8 244.1 9.7Q247.6 11.3 249.4 14.5Q251.3 17.6 251.3 21.9Q251.3 26.1 249.4 29.2Q247.5 32.2 244 33.8Q240.5 35.3 235.8 35.3H225.1V26.9H233.7Q235.8 26.9 237.2 26.4Q238.6 25.8 239.3 24.7Q240.1 23.6 240.1 21.9Q240.1 20.1 239.3 18.9Q238.6 17.8 237.1 17.2Q235.7 16.6 233.7 16.6H229.4V49.0H218.7ZM252.7 49.0H240.9L230.9 30.2H242.4Z"/><path d="M281.2 16.3Q279.5 16.3 278.3 16.7Q277.2 17.1 276.6 17.9Q276 18.6 276 19.6Q276 21.2 277.3 22.1Q278.7 23 281.7 23.7L285.1 24.4Q291.6 25.8 294.7 29Q297.8 32.1 297.8 36.9Q297.8 40.9 295.8 43.7Q293.8 46.5 290.2 48Q286.5 49.5 281.3 49.5Q275.9 49.5 272 47.9Q268.1 46.3 265.9 43Q263.8 39.7 263.7 34.8H274Q274.1 36.7 275 38Q275.9 39.3 277.4 39.9Q279 40.6 281.1 40.6Q282.9 40.6 284.2 40.1Q285.5 39.6 286.2 38.8Q286.8 38 286.8 36.9Q286.8 35.9 286.2 35.2Q285.6 34.4 284.2 33.9Q282.8 33.3 280.5 32.8L276.4 31.9Q270.8 30.7 267.8 27.8Q264.8 25 264.8 20.4Q264.8 16.5 266.9 13.6Q269 10.7 272.7 9.1Q276.4 7.4 281.2 7.4Q286.1 7.4 289.7 9.1Q293.3 10.7 295.3 13.7Q297.3 16.7 297.3 20.7H286.9Q286.8 19.3 286.2 18.3Q285.5 17.3 284.3 16.8Q283 16.3 281.2 16.3Z"/><path d="M320 16.8Q317.2 16.8 315.2 18.2Q313.2 19.6 312.1 22.2Q311.1 24.8 311.1 28.5Q311.1 32.3 312.1 34.9Q313.2 37.5 315.2 38.8Q317.2 40.2 319.9 40.2Q322 40.2 323.5 39.4Q325.1 38.7 326 37.4Q327 36.1 327.3 34.3L338.2 34.4Q337.9 38.1 335.7 41.6Q333.5 45.1 329.4 47.3Q325.3 49.6 319.7 49.6Q314 49.6 309.6 47.1Q305.1 44.6 302.5 39.9Q300 35.1 300 28.5Q300 21.8 302.6 17.1Q305.2 12.3 309.6 9.9Q314.1 7.4 319.7 7.4Q324.8 7.4 328.8 9.3Q332.9 11.1 335.3 14.7Q337.8 18.3 338.2 23.2H327.3Q327.1 21.3 326.2 19.8Q325.3 18.4 323.7 17.6Q322.1 16.8 320 16.8Z"/><path d="M341.4 8H358.9Q363.5 8 366.9 9.7Q370.3 11.3 372.2 14.5Q374 17.6 374 21.9Q374 26.1 372.1 29.2Q370.2 32.2 366.7 33.8Q363.2 35.3 358.5 35.3H347.9V26.9H356.4Q358.5 26.9 359.9 26.4Q361.3 25.8 362 24.7Q362.8 23.6 362.8 21.9Q362.8 20.1 362 18.9Q361.3 17.8 359.9 17.2Q358.5 16.6 356.4 16.6H352.2V49.0H341.4ZM375.4 49.0H363.6L353.7 30.2H365.2Z"/><path d="M396.5 49.6Q390.9 49.6 386.4 47.1Q381.9 44.6 379.3 39.8Q376.7 35.1 376.7 28.5Q376.7 21.8 379.3 17.1Q381.9 12.3 386.4 9.9Q390.9 7.4 396.5 7.4Q402.2 7.4 406.7 9.9Q411.2 12.3 413.8 17.1Q416.4 21.8 416.4 28.5Q416.4 35.1 413.8 39.9Q411.2 44.6 406.7 47.1Q402.2 49.6 396.5 49.6ZM396.5 16.8Q393.7 16.8 391.7 18.2Q389.8 19.5 388.8 22.1Q387.8 24.7 387.8 28.5Q387.8 32.3 388.8 34.9Q389.8 37.5 391.7 38.8Q393.7 40.2 396.5 40.2Q399.4 40.2 401.3 38.8Q403.3 37.5 404.3 34.9Q405.3 32.3 405.3 28.5Q405.3 24.7 404.3 22.1Q403.3 19.5 401.3 18.2Q399.4 16.8 396.5 16.8Z"/><path d="M419.7 8H430.4V40.3H447.1V49.0H419.7Z"/><path d="M449.8 8H460.6V40.3H477.3V49.0H449.8Z"/></g></g></svg>
+      </a>
+      <input type="text" class="search-input" aria-label="ゲームランキングを検索" placeholder="ゲームランキングを検索" autocomplete="off">
+      <div class="gs-lang gs-lang-mobile" data-edition-selector>
+    <button type="button" class="gs-lang-btn" data-edition-toggle aria-haspopup="true" aria-expanded="false" aria-label="国 / 言語"><span data-edition-current="ja" style="display:inline-flex;align-items:center;gap:4px"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><circle cx="9" cy="6" r="3.4" fill="#bc002d"/></svg><span class="gs-lang-code">JP</span></span><svg class="gs-lang-chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <ul class="gs-lang-menu" data-edition-menu hidden><li><a href="/trending/kr/" data-edition-link data-edition="en" data-prefix="" lang="en" hreflang="en"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><path fill="#b22234" d="M0 0h18v1.2H0zM0 2.4h18v1.2H0zM0 4.8h18v1.2H0zM0 7.2h18v1.2H0zM0 9.6h18v1.2H0z"/><rect width="8" height="6.4" fill="#3c3b6e"/></svg><span data-name title="United States">United States</span></a></li><li><a href="/ja/trending/kr/" data-edition-link data-edition="ja" data-prefix="/ja" lang="ja" hreflang="ja" aria-current="true"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><circle cx="9" cy="6" r="3.4" fill="#bc002d"/></svg><span data-name title="日本">日本</span></a></li><li><a href="/zh-cn/trending/kr/" data-edition-link data-edition="zh-cn" data-prefix="/zh-cn" lang="zh-Hans" hreflang="zh-CN"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#de2910"/><circle cx="3.6" cy="3.2" r="1.6" fill="#ffde00"/><circle cx="7" cy="1.6" r=".6" fill="#ffde00"/><circle cx="8.2" cy="3.2" r=".6" fill="#ffde00"/><circle cx="8.2" cy="5" r=".6" fill="#ffde00"/><circle cx="7" cy="6.4" r=".6" fill="#ffde00"/></svg><span data-name title="中国">中国</span></a></li><li><a href="/ko/trending/kr/" data-edition-link data-edition="ko" data-prefix="/ko" lang="ko" hreflang="ko"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fff"/><path d="M6.2 6a2.8 2.8 0 0 1 5.6 0z" fill="#cd2e3a"/><path d="M6.2 6a2.8 2.8 0 0 0 5.6 0z" fill="#0047a0"/><path d="M2 2.2l1.6-1M2.4 3.2l1.6-1M14 9.8l1.6-1M14.4 10.8l1.6-1M14 2.2l1.6 1M14.4 1.2l1.6 1M2 9.8l1.6 1M2.4 8.8l1.6 1" stroke="#000" stroke-width=".7"/></svg><span data-name title="대한민국">대한민국</span></a></li><li><a href="/zh-tw/trending/kr/" data-edition-link data-edition="zh-tw" data-prefix="/zh-tw" lang="zh-Hant" hreflang="zh-TW"><svg class="gs-flag" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true" focusable="false"><rect width="18" height="12" fill="#fe0000"/><rect width="9" height="6" fill="#000095"/><circle cx="4.5" cy="3" r="1.7" fill="#fff"/></svg><span data-name title="台灣">台灣</span></a></li></ul>
+  </div>
+      <button class="search-btn" type="button" aria-label="検索">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </button>
+      <button class="search-close" type="button" aria-label="検索を閉じる">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="search-dropdown"></div>
+  </div>
+  
+  <nav class="nav">
+    <div class="nav-inner">
+      
+      <a class="nav-item" href="/ja/rankings/">モバイル</a>
+      <a class="nav-item active" href="/ja/trending/">トレンド</a>
+      <a class="nav-item" href="/ja/steam/">Steam</a>
+      <a class="nav-item" href="/ja/games/">ゲームDB</a>
+    </div>
+  </nav>
+  <script>
+  (function(){
+    if(window.innerWidth>768)return;
+    var n=document.querySelector('.nav-inner');
+    if(!n)return;
+    // 스와이프로 온 경우 저장된 scrollLeft 즉시 복원
+    try{
+      var saved=sessionStorage.getItem('gs-nav-scroll');
+      if(saved!==null){
+        n.scrollLeft=parseInt(saved,10);
+        sessionStorage.removeItem('gs-nav-scroll');
+        n.classList.add('nav-ready');
+        return;
+      }
+    }catch(e){}
+    function init(r){
+      // 측정을 한 번에 모아서
+      var cw=n.clientWidth,sw=n.scrollWidth;
+      if(cw<=0){if(!r)requestAnimationFrame(function(){init(1);});return;}
+      if(sw<=cw+1){n.classList.add('nav-ready');return;}
+      var idx=1;
+      var items=n.querySelectorAll('.nav-item');
+      var t=idx<0?items[0]:items[idx];
+      if(t){
+        var left=t.offsetLeft,tw=t.offsetWidth;
+        n.scrollLeft=Math.max(0,left+tw/2-cw/2);
+      }
+      n.classList.add('nav-ready');
+    }
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+    else init();
+  })();
+  </script>
+  <main class="site-container">
+    
+  <script>
+    (function() {
+      if (typeof window.__gsOnReady !== 'function') {
+        var readyQueue = [];
+        window.__gsOnReady = function(fn) {
+          if (typeof fn !== 'function') return;
+          if (window.GSUtils && window.GSUtils.__ready === true) {
+            try { fn(); } catch (e) {}
+            return;
+          }
+          readyQueue.push(fn);
+        };
+        window.__gsFlushReadyQueue = function() {
+          if (!window.GSUtils || window.GSUtils.__ready !== true) return;
+          var queue = readyQueue.slice();
+          readyQueue.length = 0;
+          queue.forEach(function(fn) {
+            try { fn(); } catch (e) {}
+          });
+        };
+      }
+    })();
+  </script>
+    <script defer src="/assets/ja/layout-core.js?v=046925f9"></script>
+    
+    <section class="section active" id="trending">
+      <div class="ad-card ad-card-responsive-home gs-ad-fixed ad-home-pc-7-card">
+  <style>
+    .ad-home-pc-7-card, .ad-home-pc-7 { display:none !important; }
+    @media (min-width: 769px) {
+      .ad-home-pc-7-card { display:flex !important; width:100%; max-width:970px; height:250px; min-height:250px; max-height:250px; margin:0 auto; border:0; border-radius:0; background:transparent; overflow:visible; align-items:center; justify-content:center; }
+      .ad-home-pc-7 { display:block !important; width:970px; max-width:100%; height:250px; min-height:250px; margin:0 auto; }
+    }
+  </style>
+  <ins class="adsbygoogle gs-ad-fixed ad-home-pc-7"
+       style="display:inline-block"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="6527917656"></ins>
+</div>
+<div class="ad-card ad-card-mobile-top ad-home-mo-8-card">
+  <style>
+    .ad-home-mo-8-card { display:flex !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; align-items:center; justify-content:center; margin-left:auto !important; margin-right:auto !important; overflow:hidden; }
+    .ad-home-mo-8, .ad-home-mo-8-card > .ad-home-mo-8, .ad-home-mo-8-card > .ad-home-mo-8 > div, .ad-home-mo-8-card > .ad-home-mo-8 iframe { display:block !important; width:100% !important; max-width:300px !important; height:250px !important; min-height:250px !important; max-height:250px !important; margin:0 auto; }
+    .ad-home-mo-8-card > .ad-home-mo-8 > div { overflow:hidden !important; }
+    @media (min-width: 769px) {
+      .ad-home-mo-8-card, .ad-home-mo-8, .ad-home-mo-8-card > .ad-home-mo-8 > div, .ad-home-mo-8-card > .ad-home-mo-8 iframe { display:none !important; width:0 !important; max-width:0 !important; height:0 !important; min-height:0 !important; max-height:0 !important; margin:0 !important; }
+    }
+  </style>
+  <ins class="adsbygoogle ad-home-mo-8"
+       style="display:block;width:100%;max-width:300px;height:250px"
+       data-ad-client="ca-pub-9477874183990825"
+       data-ad-slot="5825162341"></ins>
+</div>
+<script>
+
+(function() {
+  if (window.__gsAdRequests) return;
+  function isHidden(ad) {
+    if (!ad) return true;
+    var node = ad;
+    while (node && node !== document.body) {
+      if (node.offsetParent === null) return true;
+      var cs = window.getComputedStyle ? getComputedStyle(node) : null;
+      if (cs && cs.display === 'none') return true;
+      node = node.parentElement;
+    }
+    return false;
+  }
+  function visibleAds(ads) {
+    var visible = [];
+    for (var i = 0; i < ads.length; i++) {
+      var ad = ads[i];
+      if (isHidden(ad)) {
+        // AdSense consumes the first unprocessed ins in DOM order, even if hidden.
+        if (!ad.getAttribute('data-gs-ad-pushed') &&
+            !ad.getAttribute('data-adsbygoogle-status') && ad.parentNode) {
+          ad.parentNode.removeChild(ad);
+        }
+      } else {
+        visible.push(ad);
+      }
+    }
+    return visible;
+  }
+  function push(ad) {
+    if (!ad || document.body.classList.contains('ads-disabled')) return false;
+    if (ad.getAttribute('data-gs-ad-pushed') === '1') return true;
+    if (ad.getAttribute('data-adsbygoogle-status') || ad.getAttribute('data-ad-status')) {
+      ad.setAttribute('data-gs-ad-pushed', '1');
+      return true;
+    }
+    if (isHidden(ad)) return false;
+    var rect = ad.getBoundingClientRect();
+    if (rect.width <= 0) return false;
+    ad.setAttribute('data-gs-ad-pushed', '1');
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      return true;
+    } catch (e) {
+      ad.removeAttribute('data-gs-ad-pushed');
+      return false;
+    }
+  }
+  window.__gsAdRequests = { isHidden: isHidden, visibleAds: visibleAds, push: push };
+})();
+(function() {
+  if (window.__gsEarlyTopAdRequested || document.body.classList.contains('ads-disabled')) return;
+  var ads = window.__gsAdRequests.visibleAds(document.querySelectorAll('.adsbygoogle'));
+  var ad = ads[0];
+  if (!ad || !ad.closest('.ad-card-responsive-home, .ad-card-mobile-top')) return;
+  if (window.__gsAdRequests.push(ad)) {
+    window.__gsEarlyTopAdRequested = true;
+    if (window.performance && performance.mark) performance.mark('gs-top-ad-request');
+  }
+})();
+</script>
+      <div class="page-container rk rk-trend"><div class="rk-head"><h1>いま話題のゲーム · 韓国</h1></div>
+<div class="rk-toolbar"><div class="rk-tabs rk-country-tabs" role="navigation" aria-label="国"><a class="" href="/ja/trending/">日本</a><a class="active" aria-current="page" href="/ja/trending/kr/">韓国</a><a class="" href="/ja/trending/us/">アメリカ</a><a class="" href="/ja/trending/cn/">中国</a><a class="" href="/ja/trending/tw/">台湾</a><a class="" href="/ja/trending/global/">グローバル</a></div></div>
+<div class="rk-tr-kpis"><div class="rk-tr-kpi"><span class="l">今週の最大上昇</span><b>NEW</b><span class="g"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span data-name title="도깨비의세계">도깨비의세계</span></span></div><div class="rk-tr-kpi"><span class="l">TOP 10の新顔</span><b>7本</b><span class="g"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span data-name title="도깨비의세계">도깨비의세계</span></span></div><div class="rk-tr-kpi"><span class="l">グローバル急上昇ゲーム</span><b>31本</b><span class="g"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/4a/81/e44a8199-b099-edd3-4963-cbf2a268239a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span data-name title="ハリウッドマージ">ハリウッドマージ</span></span></div><div class="rk-tr-kpi"><span class="l">ランクインした新作</span><b>8本</b><span class="g"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span data-name title="도깨비의세계">도깨비의세계</span></span></div></div>
+<section class="rk-section"><h2>上昇幅ランキング <small>直近7日間で最も上がったゲーム · 2026年10月11日</small></h2><div class="rk-tr-rise"><a class="rk-tr-card" href="/ja/games/도깨비의세계/"><span class="top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="no first">1</span></span><span class="nm" data-name title="도깨비의세계">도깨비의세계</span><span class="dv">App Store</span><svg class="rk-tr-area" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0,52.0L7.7,52.0L15.4,52.0L23.1,52.0L30.8,52.0L38.5,52.0L46.2,52.0L53.8,52.0L61.5,52.0L69.2,52.0L76.9,52.0L84.6,4.0L92.3,11.2L100.0,4.0L100,56L0,56Z" fill="var(--rk-up)" opacity=".12"/><path d="M0.0,52.0L7.7,52.0L15.4,52.0L23.1,52.0L30.8,52.0L38.5,52.0L46.2,52.0L53.8,52.0L61.5,52.0L69.2,52.0L76.9,52.0L84.6,4.0L92.3,11.2L100.0,4.0" fill="none" stroke="var(--rk-up)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="v"><b>圏外 → 2位</b><span class="rk-chg new">NEW</span></span></a><a class="rk-tr-card" href="/ja/games/포지-마스터-forge-master/"><span class="top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/59/d9/3d59d90c-ab3f-90cc-fdc5-c29468eb3f91/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="no">2</span></span><span class="nm" data-name title="Forge Master – Idle RPG">Forge Master – Idle RPG</span><span class="dv">App Store</span><svg class="rk-tr-area" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0,47.9L7.7,29.8L15.4,24.8L23.1,44.1L30.8,30.2L38.5,37.6L46.2,48.7L53.8,52.0L61.5,10.7L69.2,4.0L76.9,8.4L84.6,17.7L92.3,9.0L100.0,5.9L100,56L0,56Z" fill="var(--rk-up)" opacity=".12"/><path d="M0.0,47.9L7.7,29.8L15.4,24.8L23.1,44.1L30.8,30.2L38.5,37.6L46.2,48.7L53.8,52.0L61.5,10.7L69.2,4.0L76.9,8.4L84.6,17.7L92.3,9.0L100.0,5.9" fill="none" stroke="var(--rk-up)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="v"><b>189位 → 84位</b><span class="rk-chg up">▲105</span></span></a><a class="rk-tr-card" href="/ja/games/레이싱-마스터/"><span class="top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4d/44/9a/4d449a02-4fe0-7ba6-332d-2dadf9daf6e9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="no">3</span></span><span class="nm" data-name title="레이싱 마스터">레이싱 마스터</span><span class="dv">App Store</span><svg class="rk-tr-area" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0,52.0L7.7,52.0L15.4,52.0L23.1,42.0L30.8,38.9L38.5,44.2L46.2,47.2L53.8,52.0L61.5,49.5L69.2,52.0L76.9,52.0L84.6,11.7L92.3,4.0L100.0,12.3L100,56L0,56Z" fill="var(--rk-up)" opacity=".12"/><path d="M0.0,52.0L7.7,52.0L15.4,52.0L23.1,42.0L30.8,38.9L38.5,44.2L46.2,47.2L53.8,52.0L61.5,49.5L69.2,52.0L76.9,52.0L84.6,11.7L92.3,4.0L100.0,12.3" fill="none" stroke="var(--rk-up)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="v"><b>180位 → 81位</b><span class="rk-chg up">▲99</span></span></a><a class="rk-tr-card" href="/ja/games/더-코지-플로리스트/"><span class="top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/6c/89/d16c892a-808c-39fe-c99e-3edde6a804bd/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="no">4</span></span><span class="nm" data-name title="더 코지 플로리스트">더 코지 플로리스트</span><span class="dv">App Store</span><svg class="rk-tr-area" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0,52.0L7.7,47.9L15.4,49.9L23.1,42.1L30.8,46.1L38.5,41.2L46.2,39.1L53.8,44.3L61.5,45.7L69.2,41.4L76.9,46.5L84.6,18.4L92.3,4.0L100.0,4.0L100,56L0,56Z" fill="var(--rk-up)" opacity=".12"/><path d="M0.0,52.0L7.7,47.9L15.4,49.9L23.1,42.1L30.8,46.1L38.5,41.2L46.2,39.1L53.8,44.3L61.5,45.7L69.2,41.4L76.9,46.5L84.6,18.4L92.3,4.0L100.0,4.0" fill="none" stroke="var(--rk-up)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="v"><b>116位 → 26位</b><span class="rk-chg up">▲90</span></span></a><a class="rk-tr-card" href="/ja/games/소울-헌터-키우기-방치형-rpg/"><span class="top"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/1d/6a/b71d6ad7-be03-385e-c893-edbcb72c4420/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="no">5</span></span><span class="nm" data-name title="ソウルハンター育成：放置系RPG">ソウルハンター育成：放置系RPG</span><span class="dv">App Store</span><svg class="rk-tr-area" viewBox="0 0 100 56" preserveAspectRatio="none" aria-hidden="true"><path d="M0.0,38.3L7.7,43.0L15.4,47.8L23.1,46.5L30.8,47.8L38.5,45.2L46.2,47.7L53.8,52.0L61.5,45.2L69.2,52.0L76.9,52.0L84.6,4.0L92.3,22.0L100.0,28.2L100,56L0,56Z" fill="var(--rk-up)" opacity=".12"/><path d="M0.0,38.3L7.7,43.0L15.4,47.8L23.1,46.5L30.8,47.8L38.5,45.2L46.2,47.7L53.8,52.0L61.5,45.2L69.2,52.0L76.9,52.0L84.6,4.0L92.3,22.0L100.0,28.2" fill="none" stroke="var(--rk-up)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="v"><b>173位 → 88位</b><span class="rk-chg up">▲85</span></span></a></div></section>
+<section class="rk-section"><h2>TOP 10の変化 <small>今日のTOP 10 · この1週間で新たに入ったゲームを強調表示</small></h2><div class="rk-tr-stores"><input type="radio" name="rk-tr-s" id="rk-tr-s-ios" class="rk-tr-input" checked><input type="radio" name="rk-tr-s" id="rk-tr-s-android" class="rk-tr-input"><div class="rk-tr-seg" role="group" aria-label="ストア"><label for="rk-tr-s-ios">App Store</label><label for="rk-tr-s-android">Google Play</label></div><div class="rk-tr-panel rk-tr-p-ios"><div class="rk-tr-t10"><a class="rk-tr-t" href="/ja/games/운빨존많겜/"><span class="no">1</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b5/22/f6/b522f697-f6de-5c6d-e792-04c88be44a7e/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ラッキー傭兵団：協力ディフェンス">ラッキー傭兵団：協力ディフェンス</span><span class="rk-chg up">▲6</span></a><a class="rk-tr-t in" href="/ja/games/도깨비의세계/"><span class="tag">新規</span><span class="no">2</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="도깨비의세계">도깨비의세계</span><span class="rk-chg new">NEW</span></a><a class="rk-tr-t" href="/ja/games/wos-화이트아웃-서바이벌/"><span class="no">3</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/5a/db/1f5adbc9-8ca2-966a-a708-a599b6910efa/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ホワイトアウト・サバイバル">ホワイトアウト・サバイバル</span><span class="rk-chg up">▲3</span></a><a class="rk-tr-t" href="/ja/games/roblox/"><span class="no">4</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/96/a9/a5/96a9a586-952f-c5b2-4898-085555d49d52/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="Roblox (ロブロックス)">Roblox (ロブロックス)</span><span class="rk-chg down">▼2</span></a><a class="rk-tr-t" href="/ja/games/리니지m/"><span class="no">5</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/48/15/a5/4815a57a-3e9e-0024-8f6f-7d748e42fb0d/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="리니지M">리니지M</span><span class="rk-chg down">▼4</span></a><a class="rk-tr-t" href="/ja/games/로얄-매치-royal-match/"><span class="no">6</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/24/de/aa/24deaa83-7e15-c811-cc29-5f8dca26bbf9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ロイヤルマッチ（Royal Match)">ロイヤルマッチ（Royal Match)</span><span class="rk-chg up">▲3</span></a><a class="rk-tr-t" href="/ja/games/가십하버-합성-스토리-게임/"><span class="no">7</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fe/5f/a8/fe5fa8bd-23a0-8fc1-e7b6-af93cc405a9a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ゴシップハーバー：マージ &amp; ストーリー">ゴシップハーバー：マージ &amp; ストーリー</span><span class="rk-chg down">▼2</span></a><a class="rk-tr-t" href="/ja/games/컴투스프로야구v26/"><span class="no">8</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4c/1a/23/4c1a230b-50bd-58a6-05ee-ac05b0a3c849/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="컴투스프로야구V26">컴투스프로야구V26</span><span class="rk-chg down">▼4</span></a><a class="rk-tr-t in" href="/ja/games/메이플-키우기/"><span class="tag">新規</span><span class="no">9</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/57/e5/55/57e5553f-a685-7234-5b2d-ce3592057d50/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="메이플 키우기">메이플 키우기</span><span class="rk-chg up">▲2</span></a><a class="rk-tr-t in" href="/ja/games/fc-모바일/"><span class="tag">新規</span><span class="no">10</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/ca/cd/55cacd3b-9e03-8584-8daa-aa251907e857/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="FC 모바일">FC 모바일</span><span class="rk-chg up">▲2</span></a></div><div class="rk-tr-outs"><span class="l">圏外へ</span><a class="o" href="/ja/games/pokmon-go/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6f/ba/4f/6fba4fa7-a958-f96e-6761-7d848fd21600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span data-name title="Pokémon GO">Pokémon GO</span><span class="rk-chg down">3 → 20</span></a><a class="o" href="/ja/games/삼국지-천하결전/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/1e/40/c61e40f4-8978-174f-a64f-0ca4eb3f455c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span data-name title="삼국지: 천하결전">삼국지: 천하결전</span><span class="rk-chg down">8 → 79</span></a><a class="o" href="/ja/games/이클립스-더-어웨이크닝/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cc/63/8a/cc638a95-aeec-e60d-805e-5eeba60d9ef7/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span data-name title="이클립스: 더 어웨이크닝">이클립스: 더 어웨이크닝</span><span class="rk-chg down">10 → 22</span></a></div></div><div class="rk-tr-panel rk-tr-p-android"><div class="rk-tr-t10"><a class="rk-tr-t" href="/ja/games/제우스-오만의-신/"><span class="no">1</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/Cn3mFHKMLbpjEBSZGiCKysZpRKXYNm5CH4vGFBLUMpWtZ7gk_2ONDoqAfJ6OIh_V-Lm3d8uZOmzKoAFdQxW4=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="제우스: 오만의 신">제우스: 오만의 신</span><span class="rk-chg same">=</span></a><a class="rk-tr-t" href="/ja/games/리니지m/"><span class="no">2</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/xy6xR7NsdX81HpwWu8CoVkseQECAug3pLvvpdBGtls12xwiQy3Qw5hvQ51fc3oTXPmI8xyOArPnm70t8395Mmdw=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="리니지M">리니지M</span><span class="rk-chg same">=</span></a><a class="rk-tr-t" href="/ja/games/이클립스-더-어웨이크닝/"><span class="no">3</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/JhepoyYDmabwj5ffSFC3cyfAdllyeIdHzSW5a3i_nlzsahXojL7S57JR1_RlYYkRh02OXzZM6K1s9KWnd-1Mpw=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="이클립스: 더 어웨이크닝">이클립스: 더 어웨이크닝</span><span class="rk-chg up">▲1</span></a><a class="rk-tr-t" href="/ja/games/wos-화이트아웃-서바이벌/"><span class="no">4</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/tNMaMiJ4wTQy_TeZSWHdSlP5qH0PGig9g9sDJu2QFvCHdnrbo2u17pX55W4i6KITo56v_ZyICkqLgA2svH9ycQ=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ホワイトアウト・サバイバル">ホワイトアウト・サバイバル</span><span class="rk-chg up">▲2</span></a><a class="rk-tr-t in" href="/ja/games/도깨비의세계/"><span class="tag">新規</span><span class="no">5</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/PJFxzucCQHWQZBZnyvLp3IDp4G70W2o_AlXxVIRSn_pB66f-STd4yFDJNGJ5clJDKi9DK8jcn-D9Tq0L5pRz=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="도깨비의세계">도깨비의세계</span><span class="rk-chg new">NEW</span></a><a class="rk-tr-t in" href="/ja/games/킹샷kingshot/"><span class="tag">新規</span><span class="no">6</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/cs59HOM5uSmSzgnmMyFpqYw9sMtQkYxMUTRZ1TSCZK6t6T-cjluQW_9krAcgeEozBYQWKl2DmUTeETdYtKhq=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="キングショット">キングショット</span><span class="rk-chg up">▲5</span></a><a class="rk-tr-t" href="/ja/games/roblox/"><span class="no">7</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/QqZj22aXblAyYDxLQw-Gg0ycW0QkKhrDnwqgERZU9BMRXZnMlgXfq-94sikG5mEpt_I0lzZxcUzfLblmQgwYzUE=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="Roblox (ロブロックス)">Roblox (ロブロックス)</span><span class="rk-chg up">▲3</span></a><a class="rk-tr-t in" href="/ja/games/로얄-매치-royal-match/"><span class="tag">新規</span><span class="no">8</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/RBnqZ3q_jjOREX6v49DGe4BzKGNwJMcv8aBNDeDuMRFQdyX6rA7S-k5N39ggj43XeKFGLmxuH1jOYONfbUHmYA=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ロイヤルマッチ（Royal Match)">ロイヤルマッチ（Royal Match)</span><span class="rk-chg up">▲6</span></a><a class="rk-tr-t in" href="/ja/games/가십하버-합성-스토리-게임/"><span class="tag">新規</span><span class="no">9</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/VEmJnv1zUKIcst7pnOOqEFBXItThIbTzS29wxDEhJ9vPnXxNEHJAOkclrUMYFBR9essYJKDhkm-lPR95161D=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ゴシップハーバー：マージ &amp; ストーリー">ゴシップハーバー：マージ &amp; ストーリー</span><span class="rk-chg up">▲3</span></a><a class="rk-tr-t in" href="/ja/games/운빨존많겜/"><span class="tag">新規</span><span class="no">10</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/GlBaTDhvSbHkdZR7T-ynCB6uj2pR6VeUAmBKECYo22Y2m3-HM4Py2Gl3BXrRfaP43BfFk-HTH0eTrmTZQBck3Q=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="nm" data-name title="ラッキー傭兵団：協力ディフェンス">ラッキー傭兵団：協力ディフェンス</span><span class="rk-chg up">▲7</span></a></div><div class="rk-tr-outs"><span class="l">圏外へ</span><a class="o" href="/ja/games/명조워더링-웨이브/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/S4HjezIFmL17FpPu7Z8VzxZvFMABYUjfLkcrDSEKxpjCYIL3tWLQK76_16SDOTiZlVHm_KeoMawvC7BPcyW_=s100-rw-lo" alt="" loading="lazy" decoding="async"><span data-name title="鳴潮">鳴潮</span><span class="rk-chg down">3 → 14</span></a><a class="o" href="/ja/games/오딘-발할라-라이징/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/65JquVIM391Il8M5oXrUzwTOFvFn72Yef4EJGWLBp190MflgritBJqiMuSjoK_ZeA2jF53OV9rRNgAXRm8_scQ=s100-rw-lo" alt="" loading="lazy" decoding="async"><span data-name title="오딘: 발할라 라이징">오딘: 발할라 라이징</span><span class="rk-chg down">5 → 15</span></a><a class="o" href="/ja/games/트릭컬-리바이브/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/7WntpQt6D18uzI3amQ_SrHYl74se-bQl1PXORC1xUpkc5KtkPPdYcX8WZXOH-NS5BMwlLICJ-CUifGkvsD_C98s=s100-rw-lo" alt="" loading="lazy" decoding="async"><span data-name title="트릭컬 리바이브">트릭컬 리바이브</span><span class="rk-chg down">7 → 17</span></a><a class="o" href="/ja/games/메이플-키우기/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/VKzgyaBMxhdjOfgfRuJobcjnMkoWVxB9KCQpoPOcb0S4lltYv55Zi2fClECBPWMaAzm74buXQW7X6CO344sD=s100-rw-lo" alt="" loading="lazy" decoding="async"><span data-name title="메이플 키우기">메이플 키우기</span><span class="rk-chg down">8 → 11</span></a><a class="o" href="/ja/games/sol-enchant/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/eRGPrWXzheZvTiTRBDBuaysX8ptDH5xasKV8rzWmuEKA9WsXfftcybnz9zQB89Iiqx7WKa_naS_WK5DdT1KB=s100-rw-lo" alt="" loading="lazy" decoding="async"><span data-name title="SOL: enchant">SOL: enchant</span><span class="rk-chg down">9 → 12</span></a></div></div></div></section>
+<section class="rk-section"><h2>グローバル急上昇ゲーム <small>直近7日間に2か国以上で上昇したゲーム · 大きい数字が今日の順位</small></h2><div class="rk-scroll"><table class="rk-table rk-tr-cross"><thead><tr><th></th><th class="c"><span class="f">韓国</span><span class="s" aria-hidden="true">KR</span></th><th class="c"><span class="f">日本</span><span class="s" aria-hidden="true">JP</span></th><th class="c"><span class="f">アメリカ</span><span class="s" aria-hidden="true">US</span></th><th class="c"><span class="f">中国</span><span class="s" aria-hidden="true">CN</span></th><th class="c"><span class="f">台湾</span><span class="s" aria-hidden="true">TW</span></th></tr></thead><tbody><tr><td><div class="rk-app"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/4a/81/e44a8199-b099-edd3-4963-cbf2a268239a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><div><div class="t"><a class="" data-name href="/ja/games/할리우드-머지/" title="ハリウッドマージ">ハリウッドマージ</a></div><div class="d" data-name title="VoyagerOne">VoyagerOne</div></div></div></td><td class="c"><span class="rk-tr-cell"><b>34</b><span class="rk-chg up">▲17</span></span></td><td class="c"><span class="rk-tr-cell"><b>43</b><span class="rk-chg up">▲24</span></span></td><td class="c"><span class="rk-tr-cell"><b>93</b><span class="rk-chg up">▲22</span></span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-tr-cell"><b>36</b><span class="rk-chg up">▲22</span></span></td></tr><tr><td><div class="rk-app"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d9/88/76/d9887647-00fd-09c8-8a61-c6c31a1bfe2a/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><div><div class="t"><a class="" data-name href="/ja/games/모바일-레전드-bang-bang/" title="モバイル·レジェンド: Bang Bang">モバイル·レジェンド: Bang Bang</a></div><div class="d" data-name title="MOONTON">MOONTON</div></div></div></td><td class="c"><span class="rk-tr-cell"><b>39</b><span class="rk-chg up">▲48</span></span></td><td class="c"><span class="rk-tr-cell"><b>35</b><span class="rk-chg up">▲70</span></span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-tr-cell l"><b>54</b><span class="rk-chg up">▲123</span></span></td></tr><tr><td><div class="rk-app"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2f/25/29/2f252937-d57e-4d1c-5c61-3435fe4d2a3a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><div><div class="t"><a class="" data-name href="/ja/games/세포-특공대-전략형-타워-디펜스/" title="セルサバイバー - シューティングゲーム">セルサバイバー - シューティングゲーム</a></div><div class="d" data-name title="Snap Brain Games">Snap Brain Games</div></div></div></td><td class="c"><span class="rk-tr-cell"><b>57</b><span class="rk-chg up">▲60</span></span></td><td class="c"><span class="rk-tr-cell"><b>63</b><span class="rk-chg up">▲62</span></span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-tr-cell"><b>43</b><span class="rk-chg up">▲77</span></span></td></tr><tr><td><div class="rk-app"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/frPGVrz_hwSOyNm3y9RoVkfxD5I5ibKv0C5RD9Ub1188PJtv3BXa7KkfSyzr_-9SeNk50AVt3P2XvS_jtzTa=s100-rw-lo" alt="" loading="lazy" decoding="async"><div><div class="t"><a class="" data-name href="/ja/games/브라운더스트2-가슴-벅찬-rpg/" title="ブラウンダスト２ 胸いっぱいのRPG">ブラウンダスト２ 胸いっぱいのRPG</a></div><div class="d" data-name title="NEOWIZ">NEOWIZ</div></div></div></td><td class="c"><span class="rk-tr-cell"><b>100</b><span class="rk-chg up">▲70</span></span></td><td class="c"><span class="rk-tr-cell"><b>90</b><span class="rk-chg up">▲72</span></span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-tr-cell"><b>32</b><span class="rk-chg up">▲37</span></span></td></tr><tr><td><div class="rk-app"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c0/c7/19/c0c71938-1180-c800-73c2-1a596168368f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><div><div class="t"><a class="" data-name href="/ja/games/머지-맨션-merge-mansion/" title="マージマンション : パズル &amp; ストーリー">マージマンション : パズル &amp; ストーリー</a></div><div class="d" data-name title="Metacore Games Oy">Metacore Games Oy</div></div></div></td><td class="c"><span class="rk-tr-cell"><b>80</b><span class="rk-chg up">▲70</span></span></td><td class="c"><span class="rk-tr-cell"><b>60</b><span class="rk-chg up">▲57</span></span></td><td class="c"><span class="rk-tr-cell"><b>75</b><span class="rk-chg up">▲42</span></span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-chg same">-</span></td></tr><tr><td><div class="rk-app"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/N0Cq4MZ9VszB5TH_Wq229R62IuSVn1LfWwB3uhdjb0J_fsRn2hfHWc8XOEH7kAUs7Hg4SB2HLl_LEOj17YkwNQ=s100-rw-lo" alt="" loading="lazy" decoding="async"><div><div class="t"><a class="" data-name href="/ja/games/소녀전선2-망명/" title="ドールズフロントライン2：エクシリウム">ドールズフロントライン2：エクシリウム</a></div><div class="d" data-name title="HaoPlay Limited">HaoPlay Limited</div></div></div></td><td class="c"><span class="rk-tr-cell"><b>60</b><span class="rk-chg up">▲63</span></span></td><td class="c"><span class="rk-tr-cell"><b>59</b><span class="rk-chg up">▲61</span></span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-chg same">-</span></td><td class="c"><span class="rk-tr-cell"><b>66</b><span class="rk-chg up">▲42</span></span></td></tr></tbody></table></div></section>
+<section class="rk-section"><h2>ランクインした新作 <small>初ランクインから45日以内</small></h2><div class="rk-tr-new"><a class="rk-tr-nc" href="/ja/games/도깨비의세계/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/4f/c5/8b4fc551-5259-2427-1d4d-81f79d4192eb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="도깨비의세계">도깨비의세계</span><span class="dv">App Store</span></span><span class="d"><b>2位</b><i>2日目</i></span></a><a class="rk-tr-nc" href="/ja/games/이클립스-더-어웨이크닝/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/fe/ca/58feca48-1e9e-ee9a-09c6-05d91f43aca7/AppIcon-0-0-1x_U007emarketing-0-4-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="이클립스: 더 어웨이크닝">이클립스: 더 어웨이크닝</span><span class="dv">App Store</span></span><span class="d"><b>22位</b><i>31日目</i></span></a><a class="rk-tr-nc" href="/ja/games/후더덕-서바이벌-777뽑기-증정/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/rDbVN_XC0pxpQMgTMRD9n7et-PpV5PFfF-jS86jBpkKkiSx2kPrvN65t_XlY5V4sHQvbL1RxT05eMJIXksDXoA=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="후더덕 서바이벌-777뽑기 증정">후더덕 서바이벌-777뽑기 증정</span><span class="dv">Google Play</span></span><span class="d"><b>22位</b><i>22日目</i></span></a><a class="rk-tr-nc" href="/ja/games/아쿠아랜드-크레이지-서바이벌/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/31/38/19/313819f2-862f-780f-363e-1e0d539647a0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="波乱水世界">波乱水世界</span><span class="dv">App Store</span></span><span class="d"><b>30位</b><i>40日目</i></span></a><a class="rk-tr-nc" href="/ja/games/후더덕-서바이벌/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/af/9f/7a/af9f7a91-0cea-27d0-660c-efac30d80c40/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="후더덕 서바이벌">후더덕 서바이벌</span><span class="dv">App Store</span></span><span class="d"><b>47位</b><i>23日目</i></span></a><a class="rk-tr-nc" href="/ja/games/뚜까펫-서바이벌/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a2/73/6a/a2736ac2-fe62-9bc3-0419-c35945a9fc05/AppIcon-Global-0-0-1x_U007epad-0-11-0-85-220.png/100x100bb.webp" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="モンスターサバイバル">モンスターサバイバル</span><span class="dv">App Store</span></span><span class="d"><b>53位</b><i>44日目</i></span></a><a class="rk-tr-nc" href="/ja/games/top-force-탑-포스/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/dIGYOhW1mwhxLLCti6-O-VQAL_5oz7yzyLkP5WJH80i6j3HWcaIOfTnJ-FaQC1tQ7DC2pR5BphwkZJ9tFQe_ag=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="Top Force">Top Force</span><span class="dv">Google Play</span></span><span class="d"><b>58位</b><i>34日目</i></span></a><a class="rk-tr-nc" href="/ja/games/나만-sss급-퇴마사/"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-gs-src="https://play-lh.googleusercontent.com/ceUBjNJg-amLkxroSmXROYnMLidaq6fv7nvXuWxgxZ9_9tdRLC62yprljkycEM7YIpnBtnC-H1PJF8V47BO8Wg=s100-rw-lo" alt="" loading="lazy" decoding="async"><span class="tx"><span class="nm" data-name title="나만 SSS급 퇴마사">나만 SSS급 퇴마사</span><span class="dv">Google Play</span></span><span class="d"><b>61位</b><i>15日目</i></span></a></div></section>
+      </div>
+    </section>
+    
+  </main>
+  
+  
+	  <!-- Footer -->
+	  <footer class="site-footer">
+	    <span>© 2026 GamerScroll</span>
+	    <span class="footer-divider">|</span>
+	    <a href="/ja/about/" class="footer-about-link">サイトについて</a>
+	    <span class="footer-divider">|</span>
+	    <a href="https://x.com/gamerscroll" class="footer-x-link" rel="me noopener" target="_blank">X</a>
+	    <span class="footer-divider">|</span>
+	    <a href="/ja/privacy/" class="footer-privacy-link">プライバシーポリシー</a>
+	  </footer>
+
+  <script defer src="/assets/ja/layout-runtime.js?v=046925f9"></script>
+  
+  
+  <script>
+    (function() {
+      if (!('serviceWorker' in navigator)) return;
+      if (location.protocol !== 'https:') return;
+      var host = location.hostname;
+      if (host !== 'gamerscroll.com' && host !== 'www.gamerscroll.com') return;
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').catch(function() {});
+      });
+    })();
+  </script>
+  <script>(function(){if(document.body.classList.contains('search-hidden'))window.scrollTo(0,64);var n=window.innerWidth<=768?document.querySelector('.nav-inner'):null;if(n){n.style.transition='none';n.offsetHeight;n.style.visibility='visible';n.classList.add('nav-ready');}if(n)setTimeout(function(){n.style.transition='';},50);})();</script>
+  <script>(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href]');if(!a||a.target==='_blank')return;try{if(document.body.classList.contains('search-hidden'))sessionStorage.setItem('gs-search-hidden','1');else sessionStorage.removeItem('gs-search-hidden');}catch(ex){}},true);})();</script>
+</body>
+</html>
