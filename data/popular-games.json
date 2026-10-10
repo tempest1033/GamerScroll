@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09T21:26:09.104Z",
+  "updatedAt": "2026-10-10T23:08:45.370Z",
   "period": "30days",
   "games": [
     {
@@ -8,11 +8,11 @@
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 32
+      "views": 31
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 24
+      "views": 23
     },
     {
       "slug": "주술회전-팬텀-퍼레이드",
@@ -24,11 +24,11 @@
     },
     {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 10
+      "views": 11
     },
     {
       "slug": "레이싱-마스터",
-      "views": 10
+      "views": 9
     },
     {
       "slug": "운빨존많겜",
@@ -47,12 +47,12 @@
       "views": 8
     },
     {
-      "slug": "킹샷kingshot",
+      "slug": "에이지-오브-엠파이어-모바일",
       "views": 8
     },
     {
-      "slug": "arrow-pro-3d",
-      "views": 7
+      "slug": "킹샷kingshot",
+      "views": 8
     },
     {
       "slug": "go-go-고양이-홉핑",

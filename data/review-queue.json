@@ -25978,13 +25978,19 @@
     },
     {
       "title": "던전 시스터즈 : 픽셀 방치형 RPG",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6737465125"
+        "ios": 6737465125,
+        "android": "com.lobstargames.dungeon.idle.rpg"
       },
       "developer": "Lobstar Games Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/16/2c/d7/162cd7c9-455f-4daf-1eec-0f6e42c9cff0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "던전 시스터즈 : 픽셀 방치형 RPG",
+          "appId": 6737465125
+        }
+      ],
       "addedAt": "2026-06-22T05:39:46.824Z"
     },
     {
@@ -42635,13 +42641,19 @@
     },
     {
       "title": "All Dubs",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6797929772
+        "ios": 6797929772,
+        "android": "com.vaultystudios.alldubs"
       },
       "developer": "Vaulty Studios Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/db/c2/f1dbc2bb-ac4e-bcd2-202f-0d9ae7ed0d0f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "All Dubs",
+          "appId": 6797929772
+        }
+      ],
       "addedAt": "2026-10-08T22:46:09.620Z"
     },
     {

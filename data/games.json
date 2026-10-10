@@ -48891,14 +48891,16 @@
     },
     "던전 시스터즈 : 픽셀 방치형 RPG": {
       "appIds": {
-        "ios": "6737465125"
+        "ios": 6737465125,
+        "android": "com.lobstargames.dungeon.idle.rpg"
       },
       "aliases": [],
       "developer": "Lobstar Games Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/16/2c/d7/162cd7c9-455f-4daf-1eec-0f6e42c9cff0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "던전-시스터즈-픽셀-방치형-rpg",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "던전 시스터즈 : 픽셀 방치형 RPG",
@@ -147170,14 +147172,16 @@
     },
     "All Dubs": {
       "appIds": {
-        "ios": 6797929772
+        "ios": 6797929772,
+        "android": "com.vaultystudios.alldubs"
       },
       "aliases": [],
       "developer": "Vaulty Studios Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f1/db/c2/f1dbc2bb-ac4e-bcd2-202f-0d9ae7ed0d0f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "all-dubs",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "All Dubs",
@@ -147707,8 +147711,41 @@
         "ko": "Tea Garden Mahjong Alarm",
         "en": "Tea Garden Mahjong Alarm"
       }
+    },
+    "魔法使的约定": {
+      "appIds": {
+        "android_tw": "com.isweety.mht"
+      },
+      "aliases": [
+        "魔法使的約定"
+      ],
+      "developer": "iSWEETY Entertainment co., ltd",
+      "icon": "https://play-lh.googleusercontent.com/NEVmqbHnaj_xM-7XZy5h1Z8jVHPrGlQHnzmzIVHgWjshBE6hUozufJCUmaag-YnuSchvsssR_OW-wdmLNZteDYI",
+      "slug": "魔法使的约定",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "魔法使的约定",
+        "zh-tw": "魔法使的約定"
+      }
+    },
+    "我叫MT：崛起": {
+      "appIds": {
+        "ios_cn": 6808532104
+      },
+      "aliases": [],
+      "developer": "Guangzhou Puyu Network Technology Co.,Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/bc/b7/debcb778-a945-9265-59e6-b1a2b0d03b48/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "我叫mt崛起",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "我叫MT：崛起"
+      }
     }
   },
   "lastUpdated": "2026-10-11",
-  "totalGames": 8558
+  "totalGames": 8560
 }
