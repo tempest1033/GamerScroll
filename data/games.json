@@ -147549,8 +147549,87 @@
       "platforms": [
         "steam"
       ]
+    },
+    "축구선수 키우기: 프로 축구 커리어 시뮬레이션": {
+      "appIds": {
+        "ios": 6807107830
+      },
+      "aliases": [],
+      "developer": "YT Lab",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/e2/ac/39e2acbf-6135-a1c1-ff04-f00e2ca6c8ba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "축구선수-키우기-프로-축구-커리어-시뮬레이션",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "축구선수 키우기: 프로 축구 커리어 시뮬레이션"
+      }
+    },
+    "Surprise Dumpling: ASMR Box": {
+      "appIds": {
+        "android": "com.RC67.surprise.dumpling.ASMR.box"
+      },
+      "aliases": [],
+      "developer": "NAMIGAME",
+      "icon": "https://play-lh.googleusercontent.com/PdAsT_HFz2NLE7H53RY3i496pamKJia8So45cf8jTbTHuoVboDlURFxcp2qaHyoPaZcQChNAI_b0Vc40sguQ2A",
+      "slug": "surprise-dumpling-asmr-box",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Surprise Dumpling: ASMR Box",
+        "en": "Surprise Dumpling: ASMR Box"
+      }
+    },
+    "マルチ掲示板 攻略 for モンスターストライク": {
+      "appIds": {
+        "ios_jp": 926278322
+      },
+      "aliases": [],
+      "developer": "PPP LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/39/ff/fc/39fffcfc-4287-c83a-5826-f8ec44f418d2/AppIcon-1x_U007emarketing-0-10-0-0-85-220.png/512x512bb.jpg",
+      "slug": "マルチ掲示板-攻略-for-モンスターストライク",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "マルチ掲示板 攻略 for モンスターストライク",
+        "ja": "マルチ掲示板 攻略 for モンスターストライク"
+      }
+    },
+    "ねこマンション -放置でのんびり、ねこ暮らし。": {
+      "appIds": {
+        "android": "air.jp.globalgear.g279"
+      },
+      "aliases": [],
+      "developer": "GlobalGear Co. Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/SFmNN0NE3NLT6PZJYUGDvUhKWfqQf3clDYdzwmilDMR62xtyQfd3fSw78oIUQ_LPJj9n_3jw4cumCft4OwKRDw",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ねこマンション -放置でのんびり、ねこ暮らし。",
+        "ja": "ねこマンション -放置でのんびり、ねこ暮らし。"
+      }
+    },
+    "Differences: 차이의 놀이. 틀린그림찾기.": {
+      "appIds": {
+        "ios": 1499114408
+      },
+      "aliases": [],
+      "developer": "Brightika, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/60/fa/4660faea-a6de-0134-b507-33072b37ef24/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "differences-차이의-놀이-틀린그림찾기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Differences: 차이의 놀이. 틀린그림찾기.",
+        "zh-tw": "Can You Spot It: Search Game"
+      }
     }
   },
   "lastUpdated": "2026-10-10",
-  "totalGames": 8548
+  "totalGames": 8553
 }

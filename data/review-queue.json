@@ -42846,6 +42846,76 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/db/e6/bb/dbe6bbfd-983d-f668-f9a7-d84ed823361f/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-10T01:28:03.258Z"
+    },
+    {
+      "title": "축구선수 키우기: 프로 축구 커리어 시뮬레이션",
+      "status": "single",
+      "appIds": {
+        "ios": 6807107830
+      },
+      "developer": "YT Lab",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/e2/ac/39e2acbf-6135-a1c1-ff04-f00e2ca6c8ba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-10T08:00:33.829Z"
+    },
+    {
+      "title": "Surprise Dumpling: ASMR Box",
+      "status": "single",
+      "appIds": {
+        "android": "com.RC67.surprise.dumpling.ASMR.box"
+      },
+      "developer": "NAMIGAME",
+      "icon": "https://play-lh.googleusercontent.com/PdAsT_HFz2NLE7H53RY3i496pamKJia8So45cf8jTbTHuoVboDlURFxcp2qaHyoPaZcQChNAI_b0Vc40sguQ2A",
+      "searchResults": [
+        {
+          "title": "Dumpling Surprise: Unbox ASMR",
+          "appId": 6799871015
+        },
+        {
+          "title": "Dumpling Squishy: ASMR Unbox",
+          "appId": 6812278314
+        },
+        {
+          "title": "Mystery Dumpling Unboxing ASMR",
+          "appId": 6802779821
+        }
+      ],
+      "addedAt": "2026-10-10T08:00:34.331Z"
+    },
+    {
+      "title": "ねこマンション -放置でのんびり、ねこ暮らし。",
+      "status": "single",
+      "appIds": {
+        "android": "air.jp.globalgear.g279"
+      },
+      "developer": "GlobalGear Co. Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/SFmNN0NE3NLT6PZJYUGDvUhKWfqQf3clDYdzwmilDMR62xtyQfd3fSw78oIUQ_LPJj9n_3jw4cumCft4OwKRDw",
+      "searchResults": [
+        {
+          "title": "飼い猫ぐらし",
+          "appId": 1390454332
+        },
+        {
+          "title": "ぶち猫アブールの1日",
+          "appId": 1438832756
+        },
+        {
+          "title": "いぬのつかい",
+          "appId": 1645290246
+        }
+      ],
+      "addedAt": "2026-10-10T08:00:35.055Z"
+    },
+    {
+      "title": "Differences: 차이의 놀이. 틀린그림찾기.",
+      "status": "single",
+      "appIds": {
+        "ios": 1499114408
+      },
+      "developer": "Brightika, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/60/fa/4660faea-a6de-0134-b507-33072b37ef24/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-10T08:00:35.419Z"
     }
   ],
   "approved": [
