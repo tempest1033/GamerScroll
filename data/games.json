@@ -147771,8 +147771,55 @@
         "ko": "Triple Flora: Match Puzzle",
         "ja": "Triple Flora: Match Puzzle"
       }
+    },
+    "사운드스톡": {
+      "appIds": {
+        "ios": 6799460922
+      },
+      "aliases": [],
+      "developer": "KUNYOUNG PARK",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0e/e6/e7/0ee6e71b-c774-9d1e-4c09-c22a83fafaac/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "사운드스톡",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "사운드스톡"
+      }
+    },
+    "Satisfying Clean ASMR": {
+      "appIds": {
+        "ios": 6767180267
+      },
+      "aliases": [],
+      "developer": "DongZ Game",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/84/93/81849387-7103-2e79-b756-7467e2942d18/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "satisfying-clean-asmr",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Satisfying Clean ASMR",
+        "en": "Satisfying Clean ASMR"
+      }
+    },
+    "Aeclis": {
+      "appIds": {
+        "ios": 6759264878
+      },
+      "aliases": [],
+      "developer": "nemutone",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bb/ed/01/bbed01f7-4909-6b02-c9de-95b2898528b0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "aeclis",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Aeclis",
+        "ja": "Aeclis"
+      }
     }
   },
   "lastUpdated": "2026-10-11",
-  "totalGames": 8561
+  "totalGames": 8564
 }
