@@ -147818,8 +147818,85 @@
         "ko": "Aeclis",
         "ja": "Aeclis"
       }
+    },
+    "스트라이커 키우기: 세계 정상을 향해": {
+      "appIds": {
+        "ios": "6820143017"
+      },
+      "aliases": [],
+      "developer": "YORAM CHOI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/93/69/d8/9369d81d-b9a8-2b4c-fde2-064fb782fb48/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "스트라이커-키우기-세계-정상을-향해",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "스트라이커 키우기: 세계 정상을 향해"
+      }
+    },
+    "下方了": {
+      "appIds": {
+        "ios_cn": "6802200582"
+      },
+      "aliases": [],
+      "developer": "Shenzhen Feiyu Xingkong Technology Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/ee/f5/aaeef556-6ff5-b0da-30d1-41377e84b815/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "下方了",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "下方了"
+      }
+    },
+    "9 Kings 나인 킹즈": {
+      "appIds": {
+        "ios": 6757860952
+      },
+      "aliases": [],
+      "developer": "Playdigious",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/14/67/75/14677591-4fc6-fcb4-83f7-a09a3a0f6457/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "9-kings-나인-킹즈",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "9 Kings 나인 킹즈"
+      }
+    },
+    "Buzzy Bus!": {
+      "appIds": {
+        "ios": 6811744016
+      },
+      "aliases": [],
+      "developer": "Dino Studios Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/99/57/69/9957699b-782d-bed5-9679-d0332b4d7681/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "buzzy-bus",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Buzzy Bus!",
+        "en": "Buzzy Bus!"
+      }
+    },
+    "리틀 키티, 빅 시티": {
+      "appIds": {
+        "ios": 6760796215
+      },
+      "aliases": [],
+      "developer": "Double Dagger Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/e3/a6/97e3a677-c9a2-5136-3644-594c778a2218/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "리틀-키티-빅-시티",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "리틀 키티, 빅 시티",
+        "zh-tw": "小貓咪大城市 Little Kitty, Big City"
+      }
     }
   },
   "lastUpdated": "2026-10-12",
-  "totalGames": 8564
+  "totalGames": 8569
 }

@@ -43065,6 +43065,50 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bb/ed/01/bbed01f7-4909-6b02-c9de-95b2898528b0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-11T10:31:33.055Z"
+    },
+    {
+      "title": "스트라이커 키우기: 세계 정상을 향해",
+      "status": "single",
+      "appIds": {
+        "ios": "6820143017"
+      },
+      "developer": "YORAM CHOI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/93/69/d8/9369d81d-b9a8-2b4c-fde2-064fb782fb48/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-11T20:45:32.404Z"
+    },
+    {
+      "title": "9 Kings 나인 킹즈",
+      "status": "single",
+      "appIds": {
+        "ios": 6757860952
+      },
+      "developer": "Playdigious",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/14/67/75/14677591-4fc6-fcb4-83f7-a09a3a0f6457/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-11T20:45:33.118Z"
+    },
+    {
+      "title": "Buzzy Bus!",
+      "status": "single",
+      "appIds": {
+        "ios": 6811744016
+      },
+      "developer": "Dino Studios Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/99/57/69/9957699b-782d-bed5-9679-d0332b4d7681/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-11T20:45:33.410Z"
+    },
+    {
+      "title": "리틀 키티, 빅 시티",
+      "status": "single",
+      "appIds": {
+        "ios": 6760796215
+      },
+      "developer": "Double Dagger Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/e3/a6/97e3a677-c9a2-5136-3644-594c778a2218/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-11T20:45:33.695Z"
     }
   ],
   "approved": [
