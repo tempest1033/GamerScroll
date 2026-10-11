@@ -147224,46 +147224,57 @@
     },
     "SSS冒險家": {
       "appIds": {
-        "ios_tw": 6810494758
+        "ios_tw": 6810494758,
+        "android": "com.lmyx.gptw",
+        "ios": "6810494758"
       },
       "aliases": [],
       "developer": "SPGame Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0a/8a/63/0a8a6376-ba47-68db-2609-c3f346275184/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "sss冒險家",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "SSS冒險家",
         "zh-tw": "SSS冒險家"
       }
     },
     "屍控防線 - Zomline Survival": {
       "appIds": {
-        "ios_tw": 6791922794
+        "ios_tw": 6791922794,
+        "android": "com.wgame.codeball",
+        "ios": "6791922794"
       },
       "aliases": [],
       "developer": "WGAME TECHNOLOGY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/22/b7/8f22b7ae-8f9a-711c-1abd-86b42cc75442/GameIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "屍控防線-zomline-survival",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "屍控防線 - Zomline Survival",
         "zh-tw": "屍控防線 - Zomline Survival"
       }
     },
     "少女迷境": {
       "appIds": {
-        "ios_tw": 6797752936
+        "ios_tw": 6797752936,
+        "android": "com.dazzlefun.xnmj"
       },
       "aliases": [],
       "developer": "DazzleFun Entertainment Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/57/2c/f1572c42-97fa-b37b-ba76-d3c635c23db4/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "少女迷境",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "少女迷境",
         "zh-tw": "少女迷境"
       }
     },
@@ -147744,8 +147755,24 @@
       "names": {
         "zh-cn": "我叫MT：崛起"
       }
+    },
+    "Triple Flora: Match Puzzle": {
+      "appIds": {
+        "android": "com.secondwonder.tripleflora.gp"
+      },
+      "aliases": [],
+      "developer": "SecondWonder Games",
+      "icon": "https://play-lh.googleusercontent.com/-DA-J8U-2urZfGXp2cigURciyLuEsuep6y39yRqD5nWuzNNf8ZIt2wwTrurk3TsVXWiKn2P1choXexs8GSqgYA",
+      "slug": "triple-flora-match-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Triple Flora: Match Puzzle",
+        "ja": "Triple Flora: Match Puzzle"
+      }
     }
   },
   "lastUpdated": "2026-10-11",
-  "totalGames": 8560
+  "totalGames": 8561
 }
