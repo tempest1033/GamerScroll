@@ -66644,14 +66644,16 @@
     },
     "Archmage Idle": {
       "appIds": {
-        "ios": "6771789648"
+        "ios": 6771789648,
+        "android": "com.topcog.archmageidle"
       },
       "aliases": [],
       "developer": "TopCog LLC",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/01/40/d5014034-b76e-1fb2-e0d6-0177d939b5b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "archmage-idle",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Archmage Idle",
@@ -147895,8 +147897,132 @@
         "ko": "리틀 키티, 빅 시티",
         "zh-tw": "小貓咪大城市 Little Kitty, Big City"
       }
+    },
+    "Ludo Go! - 주사위 보드게임": {
+      "appIds": {
+        "android": "com.easybrain.ludo.board.games"
+      },
+      "aliases": [],
+      "developer": "Easybrain",
+      "icon": "https://play-lh.googleusercontent.com/jeI55qFK3IjtLyt6okMfh0fN2QoG8FzXGex6aavr3ccN-7R-4EsQ2tY7DRIkGDOFZDDb3duMmqWgqWSbxT03cKE",
+      "slug": "ludo-go-주사위-보드게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Ludo Go! - 주사위 보드게임",
+        "zh-tw": "Ludo Go!——骰子桌遊"
+      }
+    },
+    "Alchemy Infinite Craft World": {
+      "appIds": {
+        "android": "infinite.alchemy.magic.merge"
+      },
+      "aliases": [],
+      "developer": "Inwave Co Ltd",
+      "icon": "https://play-lh.googleusercontent.com/kE4KGwdkxwX73IbgTzL_eQcIxRFRPImSbrzy1u5k6Dt_Y_W_rood7WrSDjxjmsDqd5uUo4IullmkFvtRVUTxMw",
+      "slug": "alchemy-infinite-craft-world",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Alchemy Infinite Craft World"
+      }
+    },
+    "Foodie Pop!": {
+      "appIds": {
+        "android": "com.abi.foodpop",
+        "ios": 6811006356
+      },
+      "aliases": [],
+      "developer": "ABI GAMES PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/VmEyq7I9T9rLBeyqtAzpGcddLfaYu5t5v3MxOUs7KA1dACjFmMsMqqicUR6ilPpt1dbCWhh_94nyj4-BVJbE",
+      "slug": "foodie-pop",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Foodie Pop!"
+      }
+    },
+    "Moji Blade": {
+      "appIds": {
+        "android": "com.kayac.mojiblade"
+      },
+      "aliases": [],
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/ZpkKA4H6gsRi5mXy3LEjdXhwsZkog0uLn4pX-ZHdOG2h7V-l10isnWmpn3OYuv6Btd1l2jnil3ogYp559ZhJ",
+      "slug": "moji-blade",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Moji Blade",
+        "ja": "文字ブレード - Moji Blade"
+      }
+    },
+    "麻辣湯ものがたり": {
+      "appIds": {
+        "android": "appful.maratan"
+      },
+      "aliases": [],
+      "developer": "appful",
+      "icon": "https://play-lh.googleusercontent.com/Xf3RcPjquW5LhPMAmVApzkgAqGhnECbldCVZBBNENQKnWSug7qbtOga6ZW4coZuRt3y4wQgojonzQbzf4lgrysE",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "麻辣湯ものがたり",
+        "ja": "麻辣湯ものがたり"
+      }
+    },
+    "Fruit Match Jam: 맞추기 게임": {
+      "appIds": {
+        "android": "pair.matching.fruit.match.jam"
+      },
+      "aliases": [],
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/mUd0ISg5_tf1qkaQdjCKrGq2gZDrVvixcfYw3wc2CokJP3RV3GESkolxUfhbrzLvWeNoOKkWVGf2P98hjkPQ",
+      "slug": "fruit-match-jam-맞추기-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fruit Match Jam: 맞추기 게임",
+        "ja": "Fruit Match Jam: マッチングゲーム"
+      }
+    },
+    "흙수저 스타트업 성장기": {
+      "appIds": {
+        "android": "com.leyo.internet"
+      },
+      "aliases": [],
+      "developer": "LEYO",
+      "icon": "https://play-lh.googleusercontent.com/di1hPw7j6x-ratjJh-tT5RuTnAgFSCnE4nt81ys-JppkD-17Pq6PFP9UVGxHcCPnKyLSPtg8vJNPAQb8Qa8ESOs",
+      "slug": "흙수저-스타트업-성장기",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "흙수저 스타트업 성장기",
+        "zh-tw": "網路巨頭模擬器"
+      }
+    },
+    "UBERMOSH:OMEGA": {
+      "appIds": {
+        "steam": "1181000"
+      },
+      "aliases": [],
+      "developer": "Walter Machado",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1181000/header.jpg?t=1683734260",
+      "slug": "ubermoshomega",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-12",
-  "totalGames": 8569
+  "totalGames": 8577
 }

@@ -43109,6 +43109,167 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/e3/a6/97e3a677-c9a2-5136-3644-594c778a2218/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-11T20:45:33.695Z"
+    },
+    {
+      "title": "Ludo Go! - 주사위 보드게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.easybrain.ludo.board.games"
+      },
+      "developer": "Easybrain",
+      "icon": "https://play-lh.googleusercontent.com/jeI55qFK3IjtLyt6okMfh0fN2QoG8FzXGex6aavr3ccN-7R-4EsQ2tY7DRIkGDOFZDDb3duMmqWgqWSbxT03cKE",
+      "searchResults": [
+        {
+          "title": "주사위 굴리기!",
+          "appId": 1562781829
+        },
+        {
+          "title": "3D 주사위 롤러: Yahtzee, Ludo",
+          "appId": 6504456544
+        },
+        {
+          "title": "Ludo Online Multiplayer 3d",
+          "appId": 1557033331
+        }
+      ],
+      "addedAt": "2026-10-12T00:10:09.298Z"
+    },
+    {
+      "title": "Alchemy Infinite Craft World",
+      "status": "single",
+      "appIds": {
+        "android": "infinite.alchemy.magic.merge"
+      },
+      "developer": "Inwave Co Ltd",
+      "icon": "https://play-lh.googleusercontent.com/kE4KGwdkxwX73IbgTzL_eQcIxRFRPImSbrzy1u5k6Dt_Y_W_rood7WrSDjxjmsDqd5uUo4IullmkFvtRVUTxMw",
+      "searchResults": [
+        {
+          "title": "Fun Alchemy: World Sandbox DIY",
+          "appId": 6479698443
+        },
+        {
+          "title": "Infinite Craft by Neal",
+          "appId": 6499235533
+        },
+        {
+          "title": "Little Alchemy 2",
+          "appId": 1214190989
+        }
+      ],
+      "addedAt": "2026-10-12T00:10:09.579Z"
+    },
+    {
+      "title": "Foodie Pop!",
+      "status": "matched",
+      "appIds": {
+        "android": "com.abi.foodpop",
+        "ios": 6811006356
+      },
+      "developer": "ABI GAMES PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/VmEyq7I9T9rLBeyqtAzpGcddLfaYu5t5v3MxOUs7KA1dACjFmMsMqqicUR6ilPpt1dbCWhh_94nyj4-BVJbE",
+      "searchResults": [
+        {
+          "title": "Foodie Pop!",
+          "appId": 6811006356
+        },
+        {
+          "title": "rednote",
+          "appId": 741292507
+        },
+        {
+          "title": "쌤쌤분식 :K-푸드 스낵바",
+          "appId": 6757700944
+        }
+      ],
+      "addedAt": "2026-10-12T00:10:09.906Z"
+    },
+    {
+      "title": "Moji Blade",
+      "status": "single",
+      "appIds": {
+        "android": "com.kayac.mojiblade"
+      },
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/ZpkKA4H6gsRi5mXy3LEjdXhwsZkog0uLn4pX-ZHdOG2h7V-l10isnWmpn3OYuv6Btd1l2jnil3ogYp559ZhJ",
+      "searchResults": [
+        {
+          "title": "Juicy Hole - Food Smasher",
+          "appId": 449504046
+        },
+        {
+          "title": "Pixel Cutter 3D",
+          "appId": 6444358094
+        }
+      ],
+      "addedAt": "2026-10-12T00:10:10.318Z"
+    },
+    {
+      "title": "麻辣湯ものがたり",
+      "status": "single",
+      "appIds": {
+        "android": "appful.maratan"
+      },
+      "developer": "appful",
+      "icon": "https://play-lh.googleusercontent.com/Xf3RcPjquW5LhPMAmVApzkgAqGhnECbldCVZBBNENQKnWSug7qbtOga6ZW4coZuRt3y4wQgojonzQbzf4lgrysE",
+      "searchResults": [
+        {
+          "title": "麻辣湯ものがたり（マーラータン）",
+          "appId": 6816625266
+        }
+      ],
+      "addedAt": "2026-10-12T00:10:10.761Z"
+    },
+    {
+      "title": "Fruit Match Jam: 맞추기 게임",
+      "status": "single",
+      "appIds": {
+        "android": "pair.matching.fruit.match.jam"
+      },
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/mUd0ISg5_tf1qkaQdjCKrGq2gZDrVvixcfYw3wc2CokJP3RV3GESkolxUfhbrzLvWeNoOKkWVGf2P98hjkPQ",
+      "searchResults": [
+        {
+          "title": "Triple Tile 트리플 타일: 퍼즐 게임 맞추기",
+          "appId": 1572661625
+        },
+        {
+          "title": "직소 퍼즐: 퍼즐 게임",
+          "appId": 1324604053
+        },
+        {
+          "title": "Define: 틀린그림찾기 숨은그림찾기 게임 그림맞추기",
+          "appId": 1481463413
+        }
+      ],
+      "addedAt": "2026-10-12T00:10:11.270Z"
+    },
+    {
+      "title": "흙수저 스타트업 성장기",
+      "status": "single",
+      "appIds": {
+        "android": "com.leyo.internet"
+      },
+      "developer": "LEYO",
+      "icon": "https://play-lh.googleusercontent.com/di1hPw7j6x-ratjJh-tT5RuTnAgFSCnE4nt81ys-JppkD-17Pq6PFP9UVGxHcCPnKyLSPtg8vJNPAQb8Qa8ESOs",
+      "searchResults": [],
+      "addedAt": "2026-10-12T00:10:11.644Z"
+    },
+    {
+      "title": "Archmage Idle",
+      "status": "matched",
+      "appIds": {
+        "ios": 6771789648,
+        "android": "com.topcog.archmageidle"
+      },
+      "developer": "TopCog LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/01/40/d5014034-b76e-1fb2-e0d6-0177d939b5b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Archmage Idle",
+          "appId": 6771789648
+        }
+      ],
+      "addedAt": "2026-10-12T00:10:11.882Z"
     }
   ],
   "approved": [

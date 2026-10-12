@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-10T23:08:45.370Z",
+  "updatedAt": "2026-10-12T00:08:56.765Z",
   "period": "30days",
   "games": [
     {
@@ -16,7 +16,7 @@
     },
     {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 16
+      "views": 17
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
@@ -39,6 +39,10 @@
       "views": 8
     },
     {
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 8
+    },
+    {
       "slug": "리니지m",
       "views": 8
     },
@@ -47,12 +51,20 @@
       "views": 8
     },
     {
-      "slug": "에이지-오브-엠파이어-모바일",
+      "slug": "세포-특공대-전략형-타워-디펜스",
+      "views": 8
+    },
+    {
+      "slug": "에이지-오브-제트-타워-디펜스",
       "views": 8
     },
     {
       "slug": "킹샷kingshot",
       "views": 8
+    },
+    {
+      "slug": "barotrauma",
+      "views": 7
     },
     {
       "slug": "go-go-고양이-홉핑",
@@ -64,18 +76,6 @@
     },
     {
       "slug": "my-hero-ultra-rumble",
-      "views": 7
-    },
-    {
-      "slug": "palworld",
-      "views": 7
-    },
-    {
-      "slug": "pixel-flow",
-      "views": 7
-    },
-    {
-      "slug": "sakura-school-simulator",
       "views": 7
     }
   ]
