@@ -2,8 +2,8 @@
  * 믹스독 제품 페이지 (/mixdog/, /ko/mixdog/) — cursor.com/ko 레이아웃 문법.
  * 모든 블록이 본문 폭(.page-wrap) 하나의 좌우 끝에 맞고, 카드 격자는 어디서나 10px 간격으로 그 폭을 나눈다.
  * 기능 패널은 같은 폭의 회색 판, 미디어는 3칸 격자의 두 칸(왼쪽 끝이 둘째 칸 시작선)을 차지한다.
- * 순서: 첫 화면(OS 자동 버튼 + OS 링크 줄) → 앱 창 → 비용(가운데 제목 · 숫자 3칸 · 막대) → 기능 패널 5개
- * → 토큰 절감 4칸 → 기능 4칸 격자 → 45초 영상 패널 → 오픈소스 패널 → 질문 → 마지막 다운로드.
+ * 순서: 첫 화면(OS 자동 버튼 + 전체 다운로드 링크) → 앱 창 → 비용(가운데 제목 · 숫자 3칸 · 막대) → 기능 패널 5개
+ * → 토큰 절감 4칸 → 기능 4칸 격자 → 45초 영상 패널 → 오픈소스 패널 → 질문 → 마지막 다운로드(OS 자동 버튼 + OS별 목록).
  * 문구는 mixdog-copy.js, 영상·이미지는 assets/aiscroll-mixdog/ (빌드가 /assets/mixdog/로 복사).
  */
 
@@ -14,6 +14,19 @@ const REPO = 'https://github.com/tribgames/mixdog';
 const DL = `${REPO}/releases/latest/download`;
 const WIN = `${DL}/mixdog-desktop-win-x64.exe`;
 const MAC = `${DL}/mixdog-desktop-mac-arm64.dmg`;
+const MAC_INTEL = `${DL}/mixdog-desktop-mac-x64.dmg`;
+const LINUX = `${DL}/mixdog-desktop-linux-x86_64.AppImage`;
+// 마지막 영역의 OS별 설치 파일 목록 [OS, data-os, [[이름, 주소]...]]
+const DOWNLOADS = [
+  ['Windows', 'win', [['x64', WIN]]],
+  ['macOS', 'mac', [['Apple Silicon', MAC], ['Intel', MAC_INTEL]]],
+  ['Linux', 'linux', [
+    ['x64 · AppImage', LINUX],
+    ['x64 · .deb', `${DL}/mixdog-desktop-linux-amd64.deb`],
+    ['ARM64 · AppImage', `${DL}/mixdog-desktop-linux-arm64.AppImage`],
+    ['ARM64 · .deb', `${DL}/mixdog-desktop-linux-arm64.deb`]
+  ]]
+];
 const BENCH = `${REPO}/tree/main/benchmarks/terminal-bench-2.1`;
 const A = '/assets/mixdog';
 
@@ -22,11 +35,19 @@ const ICON_GH = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="tr
 
 const lines = (arr) => arr.map(escapeHtml).join('<br>');
 
-// 기본은 Windows 버튼, 맥에서 열면 스크립트가 Mac 버튼으로 바꾸고 휴대폰에서는 숨긴다
-const downloadBtn = (t) => `<a class="mxp-btn mxp-btn-dark" href="${WIN}" rel="noopener" data-dl data-mac="${MAC}" data-mac-label="${escapeHtml(t.mac)}"><span>${escapeHtml(t.win)}</span>${ICON_DOWN}</a>`;
+// 기본은 Windows 버튼, 맥·리눅스에서 열면 스크립트가 해당 OS 버튼으로 바꾸고 휴대폰에서는 숨긴다
+const downloadBtn = (t) => `<a class="mxp-btn mxp-btn-dark" href="${WIN}" rel="noopener" data-dl data-mac="${MAC}" data-mac-label="${escapeHtml(t.mac)}" data-linux="${LINUX}" data-linux-label="${escapeHtml(t.linux)}"><span>${escapeHtml(t.win)}</span>${ICON_DOWN}</a>`;
 
-// 버튼 아래 OS 링크 줄: 다른 OS 설치 파일도 바로 받는다. 지금 OS 쪽은 스크립트가 진하게 표시한다
-const platformLinks = (t) => `<p class="mxp-platforms">${escapeHtml(t.free)} · <a href="${WIN}" rel="noopener" data-os="win">${escapeHtml(t.winLink)}</a> · <a href="${MAC}" rel="noopener" data-os="mac">${escapeHtml(t.macLink)}</a></p>`;
+// 버튼 아래 한 줄: 다른 OS 설치 파일은 마지막 영역의 전체 목록으로 보낸다
+const platformLinks = (t) => `<p class="mxp-platforms">${escapeHtml(t.free)} · <a href="#downloads">${escapeHtml(t.allDownloads)}</a></p>`;
+
+// OS별 설치 파일 목록. 지금 OS 칸은 스크립트가 강조한다
+const downloadList = () => `<div class="mxp-dl-list" id="downloads">${DOWNLOADS.map(([os, key, files]) => `
+          <div class="mxp-dl-os" data-os="${key}">
+            <h3>${os}</h3>
+            <ul>${files.map(([label, href]) => `<li><a href="${href}" rel="noopener">${escapeHtml(label)}${ICON_DOWN}</a></li>`).join('')}</ul>
+          </div>`).join('')}
+        </div>`;
 
 // 맥 스타일 창 틀 안의 앱 영상. 화면에 들어올 때만 받아서 재생한다
 const appWindow = (name, alt, w, h) => `<div class="mxp-window">
@@ -50,10 +71,10 @@ const pageScript = `<script>
 (function () {
   var ua = navigator.userAgent;
   var mobile = /iPhone|iPad|Android|Mobile/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-  var os = mobile ? '' : /Macintosh|Mac OS X/.test(ua) ? 'mac' : 'win';
+  var os = mobile ? '' : /Macintosh|Mac OS X/.test(ua) ? 'mac' : /Linux/.test(ua) ? 'linux' : 'win';
   document.querySelectorAll('[data-dl]').forEach(function (a) {
     if (mobile) a.hidden = true;
-    else if (os === 'mac') { a.href = a.getAttribute('data-mac'); a.firstChild.textContent = a.getAttribute('data-mac-label'); }
+    else if (os === 'mac' || os === 'linux') { a.href = a.getAttribute('data-' + os); a.firstChild.textContent = a.getAttribute('data-' + os + '-label'); }
   });
   document.querySelectorAll('[data-os="' + os + '"]').forEach(function (a) { a.classList.add('is-current'); });
   var vids = document.querySelectorAll('.mxp-clip[data-src]');
@@ -88,7 +109,7 @@ function generateMixdogPage(articles = [], lang = 'en') {
   const content = `
     <div class="page-wrap mixdog-page" id="mixdog">
       <section class="mxp-hero">
-        <p class="mxp-eyebrow"><img src="${A}/icon.webp" width="22" height="22" alt="">Mixdog</p>
+        <img class="mxp-appicon" src="${A}/icon.webp" width="64" height="64" alt="Mixdog">
         <h1 class="mxp-title">${lines(t.title)}</h1>
         <p class="mxp-sub">${escapeHtml(t.sub)}</p>
         <div class="mxp-actions">
@@ -176,10 +197,9 @@ function generateMixdogPage(articles = [], lang = 'en') {
         <h2>${escapeHtml(t.endTitle)}</h2>
         <p>${escapeHtml(t.endBody)}</p>
         <div class="mxp-actions">
-          <a class="mxp-btn mxp-btn-dark" href="${WIN}" rel="noopener"><span>${escapeHtml(t.win)}</span>${ICON_DOWN}</a>
-          <a class="mxp-btn mxp-btn-soft" href="${MAC}" rel="noopener"><span>${escapeHtml(t.mac)}</span>${ICON_DOWN}</a>
+          ${downloadBtn(t)}
         </div>
-        <p class="mxp-platforms">${escapeHtml(t.platforms)}</p>
+        ${downloadList()}
       </section>
 ${postsHtml}
     </div>
@@ -191,9 +211,9 @@ ${postsHtml}
     "name": "Mixdog",
     "description": t.description,
     "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Windows, macOS",
+    "operatingSystem": "Windows, macOS, Linux",
     "url": pageUrl,
-    "downloadUrl": [WIN, MAC],
+    "downloadUrl": [WIN, MAC, MAC_INTEL, LINUX],
     "license": "https://www.apache.org/licenses/LICENSE-2.0",
     "image": `${SITE_CONFIG.baseUrl}${A}/poster.webp`,
     "sameAs": [REPO],

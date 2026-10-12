@@ -145,11 +145,12 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border: 1px solid var(--card-line);
   border-radius: var(--radius);
-  background: var(--gray);
-  transition: background 0.15s;
+  background: var(--card);
+  transition: border-color 0.15s;
 }
-.feed-card:hover { background: var(--gray-2); }
+.feed-card:hover { border-color: #c8c7be; }
 .feed-card:hover .feed-title { text-decoration: none; }
 .feed-thumb { border-radius: 0; }
 .feed-body { display: flex; flex: 1; flex-direction: column; padding: 16px 18px 18px; }
@@ -170,7 +171,7 @@
 .home-lead .feed-card:not(.is-lead) .feed-sum { display: none; }
 
 /* 홈 최근 글 줄 목록 (Cursor 블로그 목록): 회색 판 안 날짜 · 분류 | 제목 | 주제. 제목 시작선 = 4칸 격자의 둘째 칸 */
-.post-list { margin: 0; padding: 4px 18px; list-style: none; border-radius: var(--radius); background: var(--gray); }
+.post-list { margin: 0; padding: 4px 18px; list-style: none; border: 1px solid var(--card-line); border-radius: var(--radius); background: var(--card); }
 .post-row { display: grid; grid-template-columns: calc((100% + 6px) / 4 - 28px) minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 15px 0; border-bottom: 1px solid var(--line); }
 .post-list li:last-child .post-row { border-bottom: 0; }
 .post-meta { font-size: 13.5px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -189,7 +190,7 @@
 .sec-head h2 { font-size: 22px; letter-spacing: -0.025em; }
 
 /* 홈 믹스독 판: 믹스독 페이지 기능 패널과 같은 모양 — 글 한 칸 + 화면 두 칸(시작선 = 3칸 격자의 둘째 칸) */
-.mix-panel { display: grid; grid-template-columns: calc((100% + 16px) / 3 - 18px) minmax(0, 1fr); column-gap: var(--grid-gap); align-items: center; padding: 18px; border-radius: var(--radius); background: var(--gray); }
+.mix-panel { display: grid; grid-template-columns: calc((100% + 16px) / 3 - 18px) minmax(0, 1fr); column-gap: var(--grid-gap); align-items: center; padding: 18px; border: 1px solid var(--card-line); border-radius: var(--radius); background: var(--card); }
 .mix-text { padding-right: 28px; }
 .mix-label { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; }
 .mix-label img { width: 22px; height: 22px; border-radius: 6px; }
@@ -214,24 +215,20 @@
 
 @media (max-width: 768px) {
   .home-recent { margin-top: 20px; }
-  .feed-grid { gap: 0; }
-  .feed-card { display: grid; padding: 12px 0; border: 0; border-bottom: 1px solid var(--row); border-radius: 0; background: none; overflow: visible; }
-  .feed-card:hover { background: none; }
-  .feed-thumb { border-radius: var(--radius); }
-  .feed-body { padding: 0; }
-  .feed-chip { padding: 0 6px; font-size: 11px; }
-  .feed-title { margin-top: 4px; }
-  .feed-foot { padding-top: 4px; }
+  /* 모바일 글 목록: 토스 테크·Linear·Vercel처럼 글마다 큰 이미지가 위에 있는 카드 한 장, 카드 사이 12px */
+  .feed-grid, .home-lead { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .feed-card { display: flex; gap: 0; align-items: stretch; padding: 0; border-bottom: 1px solid var(--card-line); }
+  .feed-thumb { border-radius: 0; }
+  .feed-body { padding: 14px 16px 16px; }
+  .feed-title { margin-top: 8px; font-size: 18px; }
+  .feed-sum { display: -webkit-box; }
+  .feed-foot { padding-top: 12px; }
   .feed-foot .blog-avatar, .feed-author { display: none; }
   .feed-foot time::before { content: none; }
-  .home-lead { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .home-lead .feed-card.is-lead { grid-column: auto; grid-row: auto; }
-  .feed-card.is-lead { display: block; margin-bottom: 8px; padding: 0; border: 0; border-radius: var(--radius); background: var(--gray); overflow: hidden; }
-  .feed-card.is-lead .feed-thumb { border-radius: 0; }
-  .feed-card.is-lead .feed-body { padding: 14px; }
+  .home-lead .feed-card:not(.is-lead) .feed-sum { display: -webkit-box; }
+  .feed-card.is-lead .feed-body { padding: 14px 16px 16px; }
   .feed-card.is-lead .feed-title { font-size: 20px; }
-  .feed-card.is-lead .feed-sum { display: -webkit-box; }
-  .feed-card.is-lead .feed-foot { padding-top: 12px; }
   .post-list { padding: 0 14px; }
   .post-row { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 14px 0; }
   .post-title { order: -1; font-size: 15px; }
@@ -252,7 +249,7 @@
    ========================================================================== */
 .mixdog-page {
   --mx-ink: #1a1a18;
-  --mx-panel: var(--gray);
+  --mx-panel: var(--card);
   --mx-soft: var(--gray-2);
   --mx-gray: #7d7c75;
   --mx-accent: #e8590c;
@@ -262,12 +259,12 @@
 }
 .mixdog-page p { word-break: keep-all; overflow-wrap: anywhere; }
 
-/* 첫 화면: 왼쪽 정렬 제목 → 설명 → 버튼 */
-.mxp-hero { padding: 96px 0 56px; }
-.mxp-eyebrow { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 600; }
-.mxp-eyebrow img { width: 22px; height: 22px; border-radius: 6px; }
-.mxp-title { margin-top: 20px; font-size: 52px; font-weight: 600; line-height: 1.15; letter-spacing: -0.04em; }
-.mxp-sub { max-width: 600px; margin-top: 18px; font-size: 18px; line-height: 1.6; letter-spacing: -0.01em; color: var(--mx-gray); }
+/* 첫 화면: 가운데 정렬 앱 아이콘 → 제목 → 설명 → 버튼 (Codex·Factory 제품 페이지 구성) */
+.mxp-hero { display: flex; flex-direction: column; align-items: center; padding: 88px 0 64px; text-align: center; }
+.mxp-hero .mxp-actions { justify-content: center; }
+.mxp-appicon { display: block; width: 96px; height: 96px; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.08)) drop-shadow(0 10px 24px rgba(0, 0, 0, 0.14)); }
+.mxp-title { margin-top: 32px; font-size: 60px; text-wrap: balance; font-weight: 600; line-height: 1.15; letter-spacing: -0.04em; }
+.mxp-sub { max-width: 560px; margin-top: 20px; font-size: 18px; line-height: 1.6; letter-spacing: -0.01em; color: var(--mx-gray); }
 .mxp-actions { display: flex; flex-wrap: wrap; gap: var(--mx-gap); margin-top: 28px; }
 .mxp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 22px; border-radius: 999px; font-size: 15px; font-weight: 500; line-height: 1; transition: background 0.15s; }
 .mxp-btn-dark { background: var(--mx-ink); color: #fff; }
@@ -333,7 +330,7 @@
 /* 벤치마크 띠: 본문 폭 어두운 판. 위는 글 한 칸 + 막대 두 칸(패널과 같은 선), 아래는 토큰 절감 4칸(본문 4칸 격자와 같은 선) */
 .mxp-bench { padding: 64px var(--mx-pad) 56px; border-radius: var(--radius); background: var(--mx-ink); color: #f3f2ee; }
 .mxp-bench-top { display: grid; grid-template-columns: var(--mx-col3) minmax(0, 1fr); column-gap: var(--mx-gap); align-items: start; }
-.mxp-bench-text h2 { font-size: 36px; font-weight: 600; line-height: 1.22; letter-spacing: -0.04em; }
+.mxp-bench-text h2 { font-size: clamp(28px, 2.65vw, 34px); text-wrap: balance; font-weight: 600; line-height: 1.22; letter-spacing: -0.04em; }
 .mxp-bench-text p { margin-top: 16px; padding-right: 24px; font-size: 16px; line-height: 1.65; color: #a3a29b; }
 .mxp-bench-text .mxp-more { margin-top: 18px; color: #ff8a4c; }
 .mxp-bench-chart { padding-top: 6px; }
@@ -371,7 +368,7 @@
 
 /* 기능 패널: 본문 폭 회색 판, 글 한 칸 + 미디어 두 칸(Cursor 840×680 비율), 좌우 번갈아 */
 .mxp-panels { display: grid; gap: 88px; }
-.mxp-panel { display: grid; grid-template-columns: var(--mx-col3) minmax(0, 1fr); column-gap: var(--mx-gap); align-items: center; padding: var(--mx-pad); border-radius: var(--radius); background: var(--mx-panel); }
+.mxp-panel { display: grid; grid-template-columns: var(--mx-col3) minmax(0, 1fr); column-gap: var(--mx-gap); align-items: center; padding: var(--mx-pad); border: 1px solid var(--card-line); border-radius: var(--radius); background: var(--mx-panel); }
 .mxp-panel.is-flip { grid-template-columns: minmax(0, 1fr) var(--mx-col3); }
 .mxp-panel.is-flip .mxp-panel-media { order: -1; }
 .mxp-panel-text { padding-right: 28px; }
@@ -412,9 +409,18 @@
 
 /* 마지막 다운로드 (Cursor 마지막 안내: 큰 가운데 제목 + 버튼) */
 .mxp-end { padding: 160px 0 140px; text-align: center; }
-.mxp-end h2 { font-size: 64px; font-weight: 600; line-height: 1.1; letter-spacing: -0.045em; }
+.mxp-end h2 { font-size: 64px; text-wrap: balance; font-weight: 600; line-height: 1.1; letter-spacing: -0.045em; }
 .mxp-end > p:not(.mxp-platforms) { margin-top: 16px; font-size: 17px; color: var(--mx-gray); }
 .mxp-end .mxp-actions { justify-content: center; margin-top: 32px; }
+/* 마지막 영역의 OS별 설치 파일 목록: OS 한 줄씩, 파일은 오른쪽 알약 버튼 (지금 OS 줄은 진한 버튼) */
+.mxp-dl-list { max-width: 760px; margin: 64px auto 0; border-top: 1px solid var(--card-line); text-align: left; scroll-margin-top: 96px; }
+.mxp-dl-os { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--card-line); }
+.mxp-dl-os h3 { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.mxp-dl-os ul { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.mxp-dl-os a { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 14px; border-radius: 999px; background: var(--mx-soft); font-size: 13.5px; font-weight: 500; color: var(--mx-ink); transition: background 0.15s; }
+.mxp-dl-os a:hover { background: #dcdbd4; }
+.mxp-dl-os.is-current a { background: var(--mx-ink); color: #fff; }
+.mxp-dl-os.is-current a:hover { background: #3a3a36; }
 .mixdog-page > .mxp-sec:last-child { margin-bottom: 60px; }
 .mixdog-page .mxp-sec .sec-head { margin-bottom: 22px; }
 
@@ -435,10 +441,11 @@
 }
 @media (max-width: 768px) {
   .mixdog-page { --mx-pad: 14px; }
-  .mxp-hero { padding: 44px 0 32px; }
-  .mxp-title { font-size: 34px; }
+  .mxp-hero { padding: 48px 0 36px; }
+  .mxp-title { font-size: 36px; }
   .mxp-sub { font-size: 16.5px; }
-  .mxp-actions .mxp-btn { flex: 1 1 auto; }
+  .mxp-appicon { width: 72px; height: 72px; }
+  .mxp-title { margin-top: 24px; }
   .mxp-hero-media { margin: 0 calc(var(--gutter) * -1); border-radius: 0; aspect-ratio: 4 / 3; }
   .mxp-promo { width: 92%; }
   .mxp-sec { margin-top: 96px; }
@@ -462,5 +469,7 @@
   .mxp-cli { padding: 18px; }
   .mxp-cli pre { font-size: 13px; }
   .mxp-end { padding: 110px 0 80px; }
+  .mxp-dl-os { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .mxp-dl-os ul { justify-content: flex-start; }
   .mxp-end h2 { font-size: 36px; }
 }
