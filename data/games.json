@@ -126663,16 +126663,19 @@
     },
     "Echocalypse -緋紅の神約-": {
       "appIds": {
-        "ios_jp": "1596737038"
+        "ios_jp": "1596737038",
+        "android_jp": "com.yoozoo.jgame.jp"
       },
       "aliases": [],
       "developer": "YOUZU (SINGAPORE) PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/47/e0/ce/47e0cedc-76de-7ca9-cc4c-6bcac5212575/GameIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "echocalypse-緋紅の神約",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "en": "Echocalypse -緋紅の神約-",
         "ja": "Echocalypse -緋紅の神約-"
       }
     },
@@ -148021,8 +148024,71 @@
       "platforms": [
         "steam"
       ]
+    },
+    "地城狩猎-2026技能百搭地城刷宝爽游": {
+      "appIds": {
+        "ios_cn": 6785441297
+      },
+      "aliases": [],
+      "developer": "Shanghai Miaoyi Information Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/6d/a2/c06da251-7151-26b5-2483-aee665d4c887/AppIcon_1-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "地城狩猎-2026技能百搭地城刷宝爽游",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "地城狩猎-2026技能百搭地城刷宝爽游"
+      }
+    },
+    "馭獸紀元：BEAST ERA": {
+      "appIds": {
+        "android": "com.wilds.twgp"
+      },
+      "aliases": [],
+      "developer": "SPIRIT FOX NETWORK TECHNOLOGY CO.,LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/2RKbRVQRvVbwkZfWcXae7UrdQIHCZPXTzqmfSQ7LZJqGQSemXLPbeYXLOO6U-zUviDjhaALL-0nS3IVP_jHDGQ",
+      "slug": "beast-era",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "馭獸紀元：BEAST ERA",
+        "zh-tw": "馭獸紀元：BEAST ERA"
+      }
+    },
+    "My Perfect Thug Life": {
+      "appIds": {
+        "android": "com.urban.outlaws"
+      },
+      "aliases": [],
+      "developer": "Key Jump",
+      "icon": "https://play-lh.googleusercontent.com/q0RwQJaRHnglRDANpMIadtxWhv09hkaakd1V_vApsfDZIyH-hqCs_juFxErhisVHgn6gBrPqvx_vQ_7W0Hfz_is",
+      "slug": "my-perfect-thug-life",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "My Perfect Thug Life",
+        "zh-tw": "My Perfect Thug Life"
+      }
+    },
+    "靈境奇譚": {
+      "appIds": {
+        "android": "com.ljqt.gg"
+      },
+      "aliases": [],
+      "developer": "White Dragon Horse",
+      "icon": "https://play-lh.googleusercontent.com/lZZuzgweX9z_mKCwacBzMNTEt_Y1L-1Begva1bwws0Mt07MlEVP53sH73eC0u9LFnuEpAptRdaOqDbyPqJ3NXg",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "靈境奇譚",
+        "zh-tw": "靈境奇譚"
+      }
     }
   },
   "lastUpdated": "2026-10-12",
-  "totalGames": 8577
+  "totalGames": 8581
 }
