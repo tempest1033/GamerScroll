@@ -1199,6 +1199,33 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     console.warn('⚠️ _headers 생성 실패:', err.message);
   }
 
+  // Cloudflare Pages _routes.json: 루트 _middleware.js 때문에 기본값은 모든 요청이 Functions 호출(무료 하루 10만 건 한도)로 잡힌다.
+  // 정적 파일은 Functions를 거치지 않게 제외한다. 미들웨어가 정적 경로에서 하던 일은 next()뿐이라 동작은 같다.
+  try {
+    const routes = {
+      version: 1,
+      include: ['/*'],
+      exclude: [
+        '/assets/*',
+        '/games-data/*',
+        '/styles/*',
+        '/styles-*',
+        '/favicon*',
+        '/icon-*',
+        '/*.json',
+        '/robots.txt',
+        '/sitemap*',
+        '/service-worker.js',
+        '/ads.txt',
+        '/naver*'
+      ]
+    };
+    fs.writeFileSync(`${DOCS_DIR}/_routes.json`, JSON.stringify(routes, null, 2) + '\n', 'utf8');
+    console.log('🧭 _routes.json 생성 완료');
+  } catch (err) {
+    console.warn('⚠️ _routes.json 생성 실패:', err.message);
+  }
+
   // Service Worker 전체 생성 (template literal)
   const swCacheVersion = `gamerscroll-${runtimeAssetVersion}${searchIndexVersion ? `-${searchIndexVersion}` : ''}`;
   const swPrecacheUrls = [

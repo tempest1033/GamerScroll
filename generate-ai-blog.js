@@ -1353,6 +1353,31 @@ function writeCloudflareHeaders(cssVersion) {
   } catch (err) {
     console.warn('_headers 생성 실패:', err.message);
   }
+  // Cloudflare Pages _routes.json: 루트 _middleware.js 때문에 기본값은 모든 요청이 Functions 호출(무료 하루 10만 건 한도)로 잡힌다.
+  // 정적 파일은 Functions를 거치지 않게 제외한다 (functions-aiscroll/_middleware.js의 isStaticPath와 같은 범위).
+  try {
+    const routes = {
+      version: 1,
+      include: ['/*'],
+      exclude: [
+        '/assets/*',
+        '/styles-*',
+        '/favicon*',
+        '/icon-*',
+        '/apple-touch-icon.png',
+        '/og-image.png',
+        '/*.json',
+        '/*.xml',
+        '/*.txt',
+        '/service-worker.js',
+        '/naver*'
+      ]
+    };
+    fs.writeFileSync(path.join(DOCS_DIR, '_routes.json'), JSON.stringify(routes, null, 2) + '\n', 'utf8');
+    console.log('_routes.json 생성 완료');
+  } catch (err) {
+    console.warn('_routes.json 생성 실패:', err.message);
+  }
 }
 
 main().catch(console.error);
