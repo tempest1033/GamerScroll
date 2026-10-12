@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/styles-*",
+    "/favicon*",
+    "/icon-*",
+    "/apple-touch-icon.png",
+    "/og-image.png",
+    "/*.json",
+    "/*.xml",
+    "/*.txt",
+    "/service-worker.js",
+    "/naver*"
+  ]
+}
