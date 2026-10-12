@@ -42630,13 +42630,19 @@
     },
     {
       "title": "슈퍼진화스토리2",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6742139163
+        "ios": "6742139163",
+        "android": "com.ntfusion.beastsevolved2"
       },
       "developer": "Guangzhou Anteng Information Technology Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/81/c7/aa81c7eb-cbb8-f54b-3edf-18e33504d51e/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "슈퍼진화스토리2",
+          "appId": "6742139163"
+        }
+      ],
       "addedAt": "2026-10-08T22:46:09.228Z"
     },
     {
@@ -43320,6 +43326,65 @@
         }
       ],
       "addedAt": "2026-10-12T16:25:27.226Z"
+    },
+    {
+      "title": "Growing Fire",
+      "status": "single",
+      "appIds": {
+        "android": "com.kayac.GrowingFire"
+      },
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/JiBPsXhaG6v94CiK7xSvN6zcIqgOh8baw7Jrwz79HXFJDZp2IR1ESMBS8Imt4McZOU4xFsdZU_2lZWQ5IwfjpJk",
+      "searchResults": [
+        {
+          "title": "Keep My Fire Bigger",
+          "appId": 6793584122
+        },
+        {
+          "title": "로블록스(Roblox)",
+          "appId": 431946152
+        },
+        {
+          "title": "Messenger",
+          "appId": 454638411
+        }
+      ],
+      "addedAt": "2026-10-12T23:26:49.760Z"
+    },
+    {
+      "title": "어비스 크롤러: 방치형 핵앤슬래시 RPG",
+      "status": "single",
+      "appIds": {
+        "ios": 6801753585
+      },
+      "developer": "Caprio Lab",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/d0/6e/23d06e3d-1165-1b06-5d22-4209dc9ddf52/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-12T23:26:50.484Z"
+    },
+    {
+      "title": "ARMSX3 (PS3 Emulator)",
+      "status": "single",
+      "appIds": {
+        "android": "com.armsx3.play"
+      },
+      "developer": "ARMSX",
+      "icon": "https://play-lh.googleusercontent.com/VnU-BdQlFmBySpiBq5i9Ofvbk6R0jv5gIBXxQfKJ_8eVc37hck9X9Ve54kBK_aZKLlzDpJIZqQ3rtaANais0JA",
+      "searchResults": [
+        {
+          "title": "Manic EMU - 게임 에뮬레이터",
+          "appId": 6743335790
+        },
+        {
+          "title": "RetroArch",
+          "appId": 6499539433
+        },
+        {
+          "title": "RTM-EMU : PS2 XB360 PS1 Player",
+          "appId": 6756944097
+        }
+      ],
+      "addedAt": "2026-10-12T23:26:50.931Z"
     }
   ],
   "approved": [

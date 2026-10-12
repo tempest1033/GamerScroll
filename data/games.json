@@ -147163,14 +147163,16 @@
     },
     "슈퍼진화스토리2": {
       "appIds": {
-        "ios": 6742139163
+        "ios": "6742139163",
+        "android": "com.ntfusion.beastsevolved2"
       },
       "aliases": [],
       "developer": "Guangzhou Anteng Information Technology Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/81/c7/aa81c7eb-cbb8-f54b-3edf-18e33504d51e/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "슈퍼진화스토리2",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "슈퍼진화스토리2",
@@ -148140,8 +148142,68 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Growing Fire": {
+      "appIds": {
+        "android": "com.kayac.GrowingFire"
+      },
+      "aliases": [],
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/JiBPsXhaG6v94CiK7xSvN6zcIqgOh8baw7Jrwz79HXFJDZp2IR1ESMBS8Imt4McZOU4xFsdZU_2lZWQ5IwfjpJk",
+      "slug": "growing-fire",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Growing Fire",
+        "en": "Growing Fire"
+      }
+    },
+    "어비스 크롤러: 방치형 핵앤슬래시 RPG": {
+      "appIds": {
+        "ios": 6801753585
+      },
+      "aliases": [],
+      "developer": "Caprio Lab",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/23/d0/6e/23d06e3d-1165-1b06-5d22-4209dc9ddf52/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "어비스-크롤러-방치형-핵앤슬래시-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "어비스 크롤러: 방치형 핵앤슬래시 RPG",
+        "zh-tw": "深淵爬行者 - 放置刷寶地城單機RPG"
+      }
+    },
+    "ARMSX3 (PS3 Emulator)": {
+      "appIds": {
+        "android": "com.armsx3.play"
+      },
+      "aliases": [],
+      "developer": "ARMSX",
+      "icon": "https://play-lh.googleusercontent.com/VnU-BdQlFmBySpiBq5i9Ofvbk6R0jv5gIBXxQfKJ_8eVc37hck9X9Ve54kBK_aZKLlzDpJIZqQ3rtaANais0JA",
+      "slug": "armsx3-ps3-emulator",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ARMSX3 (PS3 Emulator)",
+        "zh-tw": "ARMSX3 (PS3 Emulator)"
+      }
+    },
+    "SULFUR": {
+      "appIds": {
+        "steam": "2124120"
+      },
+      "aliases": [],
+      "developer": "Perfect Random",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2124120/939ba19f0fa15e399329ae380b2de0cb15593ea3/capsule_231x87.jpg?t=1791577246",
+      "slug": "sulfur",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-13",
-  "totalGames": 8585
+  "totalGames": 8589
 }
