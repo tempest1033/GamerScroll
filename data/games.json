@@ -106971,14 +106971,16 @@
     },
     "Disney Twisted-Wonderland": {
       "appIds": {
-        "android": "com.aniplex.twst.en"
+        "android": "com.aniplex.twst.en",
+        "ios_us": "1578628213"
       },
       "aliases": [],
       "developer": "Aniplex Inc.",
       "icon": "https://play-lh.googleusercontent.com/9EJLLX-trZBN18KPIXw1TBPrK30hneue2QF9h_phIa49ZHWcWQOL50sNv-VTOTLPBcIsG8XzF0T4W2fRG9RwRw",
       "slug": "disney-twisted-wonderland",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "Disney Twisted-Wonderland",
@@ -110329,14 +110331,16 @@
     },
     "ULTRAMAN Puzzle Shuwatch!!": {
       "appIds": {
-        "ios": "6744716764"
+        "ios": 6744716764,
+        "android": "com.ultraman.puzzshuwa"
       },
       "aliases": [],
       "developer": "Meta Field Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/21/5e/57215e40-cbe2-3cd4-5e50-0dd0f9309e15/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "ultraman-puzzle-shuwatch",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "ULTRAMAN Puzzle Shuwatch!!",
@@ -148373,8 +148377,124 @@
       "platforms": [
         "steam"
       ]
+    },
+    "パチスロ 戦国コレクション６": {
+      "appIds": {
+        "ios_jp": "6783610245"
+      },
+      "aliases": [],
+      "developer": "Konami Digital Entertainment Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/4f/a2/6d4fa205-4f7d-3948-a7ee-3de1817d6aa1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "パチスロ-戦国コレクション6",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "パチスロ 戦国コレクション６"
+      }
+    },
+    "나무 나사 퍼즐 - 재미있는 볼트 정렬 게임": {
+      "appIds": {
+        "android": "com.wood.screwpuzzle.bolts.and.nuts.sort.jam"
+      },
+      "aliases": [],
+      "developer": "Lynn Mobile Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/VXszawM4Z3QJuswy1e7pt10vICdtWzzlJcsB2MxqQP6r1qYfD6I__Wj0a0m7gTNBJI3xgAy45rFY6OhPGVMZ",
+      "slug": "나무-나사-퍼즐-재미있는-볼트-정렬-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "나무 나사 퍼즐 - 재미있는 볼트 정렬 게임"
+      }
+    },
+    "Water Sort: 물 정렬 퍼즐": {
+      "appIds": {
+        "android": "water.sort.puzzle.wood.color.sort.brain.train.test.watersort.ball.sort.logic.game"
+      },
+      "aliases": [],
+      "developer": "Fantasy Games Ltd",
+      "icon": "https://play-lh.googleusercontent.com/_3JdoDaaDVBzCinNQQO1DkctLkKgPo3SbEe88arwBwVQUqobYCjyjPY8TPIk7FFo7PyfH5ZIShEt3VoHCvY8Vw",
+      "slug": "water-sort-물-정렬-퍼즐",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Water Sort: 물 정렬 퍼즐"
+      }
+    },
+    "千年の旅ELF": {
+      "appIds": {
+        "ios_jp": 6762710814
+      },
+      "aliases": [],
+      "developer": "ZENEXUS CORPORATION LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2e/be/9d/2ebe9d1a-cec0-6a7b-c116-fcb1ab254b7a/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg",
+      "slug": "千年の旅elf",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "千年の旅ELF"
+      }
+    },
+    "Bloody Bastards": {
+      "appIds": {
+        "ios": 1593430099
+      },
+      "aliases": [],
+      "developer": "Tibith",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/18/b0/ee18b0a6-1c4f-0ab1-7fa0-eb6fe1d41b49/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "bloody-bastards",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Bloody Bastards",
+        "zh-tw": "Bloody Bastards"
+      }
+    },
+    "Math Solitaire: Brain Puzzle": {
+      "appIds": {
+        "ios": 6757699551
+      },
+      "aliases": [],
+      "developer": "Smart Project GmbH",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b8/01/72/b801724e-610c-3c88-7bf5-98897e7586ff/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "math-solitaire-brain-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Math Solitaire: Brain Puzzle",
+        "zh-tw": "Math Solitaire: Brain Puzzle"
+      }
+    },
+    "Total War: SHOGUN 2 - Complete Edition": {
+      "appIds": {
+        "steam": "3846830"
+      },
+      "aliases": [],
+      "developer": "Creative Assembly",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3846830/3aac12897252e0b0726d8a882a90ed3c83a0ccfa/capsule_231x87.jpg?t=1791903651",
+      "slug": "total-war-shogun-2-complete-edition",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Valor Mortis": {
+      "appIds": {
+        "steam": "2828710"
+      },
+      "aliases": [],
+      "developer": "One More Level",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2828710/c845c26a71524fa38b25c3b3da23a384de7d1436/capsule_231x87.jpg?t=1791911208",
+      "slug": "valor-mortis",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-13",
-  "totalGames": 8600
+  "lastUpdated": "2026-10-14",
+  "totalGames": 8608
 }

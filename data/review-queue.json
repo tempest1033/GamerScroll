@@ -43502,6 +43502,93 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2f/55/72/2f5572bc-79e3-4ad2-1983-4aa99f8fb21f/AppIcon-0-0-1x_U007emarketing-0-9-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-13T12:29:06.022Z"
+    },
+    {
+      "title": "ULTRAMAN Puzzle Shuwatch!!",
+      "status": "matched",
+      "appIds": {
+        "ios": 6744716764,
+        "android": "com.ultraman.puzzshuwa"
+      },
+      "developer": "Meta Field Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/57/21/5e/57215e40-cbe2-3cd4-5e50-0dd0f9309e15/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "ULTRAMAN Puzzle Shuwatch!!",
+          "appId": 6744716764
+        }
+      ],
+      "addedAt": "2026-10-13T19:44:24.281Z"
+    },
+    {
+      "title": "나무 나사 퍼즐 - 재미있는 볼트 정렬 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.wood.screwpuzzle.bolts.and.nuts.sort.jam"
+      },
+      "developer": "Lynn Mobile Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/VXszawM4Z3QJuswy1e7pt10vICdtWzzlJcsB2MxqQP6r1qYfD6I__Wj0a0m7gTNBJI3xgAy45rFY6OhPGVMZ",
+      "searchResults": [
+        {
+          "title": "Screwdom : 나사와 볼트 퍼즐",
+          "appId": 6740043080
+        },
+        {
+          "title": "Screw Sort 3D 나사 빼기 매치 &볼트 퍼즐",
+          "appId": 6633425539
+        },
+        {
+          "title": "나사 매치 - 볼트업 퍼즐게임",
+          "appId": 6499293031
+        }
+      ],
+      "addedAt": "2026-10-13T19:44:24.660Z"
+    },
+    {
+      "title": "Water Sort: 물 정렬 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "water.sort.puzzle.wood.color.sort.brain.train.test.watersort.ball.sort.logic.game"
+      },
+      "developer": "Fantasy Games Ltd",
+      "icon": "https://play-lh.googleusercontent.com/_3JdoDaaDVBzCinNQQO1DkctLkKgPo3SbEe88arwBwVQUqobYCjyjPY8TPIk7FFo7PyfH5ZIShEt3VoHCvY8Vw",
+      "searchResults": [
+        {
+          "title": "Water Sort Puzzle 물병 물 정렬 색깔퍼즐",
+          "appId": 1569776448
+        },
+        {
+          "title": "마법의 정렬 (Magic Sort!)",
+          "appId": 6499209744
+        },
+        {
+          "title": "물 정렬 퍼즐. 물병. Water Sort Puzzle",
+          "appId": 1592423966
+        }
+      ],
+      "addedAt": "2026-10-13T19:44:25.077Z"
+    },
+    {
+      "title": "Bloody Bastards",
+      "status": "single",
+      "appIds": {
+        "ios": 1593430099
+      },
+      "developer": "Tibith",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/18/b0/ee18b0a6-1c4f-0ab1-7fa0-eb6fe1d41b49/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-13T19:44:26.338Z"
+    },
+    {
+      "title": "Math Solitaire: Brain Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6757699551
+      },
+      "developer": "Smart Project GmbH",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b8/01/72/b801724e-610c-3c88-7bf5-98897e7586ff/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-13T19:44:26.671Z"
     }
   ],
   "approved": [
