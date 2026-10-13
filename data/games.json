@@ -148493,8 +148493,50 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Runner Poker": {
+      "appIds": {
+        "ios": 6758372976
+      },
+      "aliases": [],
+      "developer": "주식회사 러너소프트",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/e5/b4/81e5b45d-9eab-d2aa-0b4f-4fd49f43125a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "runner-poker",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Runner Poker"
+      }
+    },
+    "蠟筆小新：GO！": {
+      "appIds": {
+        "ios_tw": 6761524901
+      },
+      "aliases": [],
+      "developer": "5X Entertainment Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/68/d9/8a/68d98ad5-88d4-12eb-db7c-60d6400b05e4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "蠟筆小新go",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "蠟筆小新：GO！"
+      }
+    },
+    "Life, the Universe, and Restaurants": {
+      "appIds": {
+        "steam": "3746950"
+      },
+      "aliases": [],
+      "developer": "GARRY",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3746950/5b1d6ee6d70c363e1d6738822122bbe2f94b9050/capsule_231x87.jpg?t=1791803615",
+      "slug": "life-the-universe-and-restaurants",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-14",
-  "totalGames": 8608
+  "totalGames": 8611
 }
