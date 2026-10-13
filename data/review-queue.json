@@ -42722,13 +42722,27 @@
     },
     {
       "title": "무기 마스터：방치형 RPG",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6791394610
+        "ios": 6791394610,
+        "android": "com.mobibrain.championforge"
       },
       "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/eb/2e/2a/eb2e2a50-4e10-92e9-4dc2-5f0c6f9a2f24/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "무기 마스터：방치형 RPG",
+          "appId": 6791394610
+        },
+        {
+          "title": "웨폰 마스터 키우기 : 방치형 전략 액션 RPG",
+          "appId": 6737999086
+        },
+        {
+          "title": "소드마스터 키우기",
+          "appId": 1494043689
+        }
+      ],
       "addedAt": "2026-10-09T09:55:05.520Z"
     },
     {
@@ -43455,6 +43469,39 @@
         }
       ],
       "addedAt": "2026-10-13T04:58:40.420Z"
+    },
+    {
+      "title": "ChillJigsawSolitaire",
+      "status": "single",
+      "appIds": {
+        "ios": 6808982582
+      },
+      "developer": "Muhammad Ahmad",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2f/b1/3f/2fb13fc8-77a5-9297-354c-a4cc9fdbb0cf/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-13T12:29:04.968Z"
+    },
+    {
+      "title": "Happy Tycoon: Dice Board Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6749266954
+      },
+      "developer": "TECOZONE LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/73/0c/fb730ca5-c0b3-c08c-46e1-31074b40aa79/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-13T12:29:05.756Z"
+    },
+    {
+      "title": "애로우 러시: 물감 색상 정렬 게임하기",
+      "status": "single",
+      "appIds": {
+        "ios": 6762461210
+      },
+      "developer": "Orange One Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2f/55/72/2f5572bc-79e3-4ad2-1983-4aa99f8fb21f/AppIcon-0-0-1x_U007emarketing-0-9-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-13T12:29:06.022Z"
     }
   ],
   "approved": [

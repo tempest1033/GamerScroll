@@ -147345,14 +147345,16 @@
     },
     "무기 마스터：방치형 RPG": {
       "appIds": {
-        "ios": 6791394610
+        "ios": 6791394610,
+        "android": "com.mobibrain.championforge"
       },
       "aliases": [],
       "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/eb/2e/2a/eb2e2a50-4e10-92e9-4dc2-5f0c6f9a2f24/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "무기-마스터방치형-rpg",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "무기 마스터：방치형 RPG",
@@ -148266,8 +148268,113 @@
         "ko": "Color Sand: Fill The Blocks",
         "zh-tw": "Color Sand: Fill The Blocks"
       }
+    },
+    "[777Real]e 七つの大罪3": {
+      "appIds": {
+        "ios_jp": 6811791418
+      },
+      "aliases": [],
+      "developer": "Sammy Networks Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/92/5b/74925be5-bf9f-29a3-a155-4b52efd9fef1/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "777reale-七つの大罪3",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[777Real]e 七つの大罪3"
+      }
+    },
+    "首なし騎士：異世界伝説": {
+      "appIds": {
+        "ios_jp": 6498629945
+      },
+      "aliases": [],
+      "developer": "JMMOBI Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/58/4a/d4/584ad4a1-59bb-4e2e-7827-0f4f779c251d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "首なし騎士異世界伝説",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "首なし騎士：異世界伝説"
+      }
+    },
+    "ChillJigsawSolitaire": {
+      "appIds": {
+        "ios": 6808982582
+      },
+      "aliases": [],
+      "developer": "Muhammad Ahmad",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2f/b1/3f/2fb13fc8-77a5-9297-354c-a4cc9fdbb0cf/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "chilljigsawsolitaire",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "ChillJigsawSolitaire",
+        "ja": "ChillJigsawSolitaire"
+      }
+    },
+    "绿梦：时空之声": {
+      "appIds": {
+        "ios_cn": 6791432398
+      },
+      "aliases": [],
+      "developer": "Shanghai Zhuzi Lvmeng Network Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d0/56/70/d05670bc-fde9-54d3-0fd6-7d340c04d4b3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "绿梦时空之声",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "绿梦：时空之声"
+      }
+    },
+    "Happy Tycoon: Dice Board Game": {
+      "appIds": {
+        "ios": 6749266954
+      },
+      "aliases": [],
+      "developer": "TECOZONE LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fb/73/0c/fb730ca5-c0b3-c08c-46e1-31074b40aa79/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "happy-tycoon-dice-board-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Happy Tycoon: Dice Board Game",
+        "zh-tw": "歡樂富翁：經典大富翁對戰"
+      }
+    },
+    "애로우 러시: 물감 색상 정렬 게임하기": {
+      "appIds": {
+        "ios": 6762461210
+      },
+      "aliases": [],
+      "developer": "Orange One Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2f/55/72/2f5572bc-79e3-4ad2-1983-4aa99f8fb21f/AppIcon-0-0-1x_U007emarketing-0-9-0-85-220.png/512x512bb.jpg",
+      "slug": "애로우-러시-물감-색상-정렬-게임하기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "애로우 러시: 물감 색상 정렬 게임하기",
+        "zh-tw": "箭頭衝刺：水彩顏色分類遊戲"
+      }
+    },
+    "Season 5 Battlefield Pro - Battlefield™ 6 and REDSEC": {
+      "appIds": {
+        "steam": "4888270"
+      },
+      "aliases": [],
+      "developer": "Battlefield Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4888270/d294038ba59a78738c44e9fbfb8951e9f308a06d/capsule_231x87.jpg?t=1791881955",
+      "slug": "season-5-battlefield-pro-battlefield-6-and-redsec",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-13",
-  "totalGames": 8593
+  "totalGames": 8600
 }
