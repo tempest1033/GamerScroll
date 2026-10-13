@@ -148202,8 +148202,72 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Block Bus!": {
+      "appIds": {
+        "android": "com.gl.bus"
+      },
+      "aliases": [],
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/5J7Gs1Fa6l076d0KaFn4_q45C9L899M3mqAUVeQOls93vKeRh4U-vztxIWW8tOCIU8pOcOF6wYe2x2CsAH2ypcY",
+      "slug": "block-bus",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Block Bus!",
+        "en": "Block Bus!"
+      }
+    },
+    "Arrow Block 3D - 슬라이드박스 큐브 화살표": {
+      "appIds": {
+        "ios": 6777863511
+      },
+      "aliases": [],
+      "developer": "Shycheese",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/fb/c7/77fbc749-3cdb-033f-0743-6d54a004b967/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "arrow-block-3d-슬라이드박스-큐브-화살표",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Arrow Block 3D - 슬라이드박스 큐브 화살표",
+        "ja": "Arrow Block 3D - 立体ピクロス 矢印ゲーム"
+      }
+    },
+    "Dogtor 逗課": {
+      "appIds": {
+        "android": "com.dogtor.superbFlutterApp"
+      },
+      "aliases": [],
+      "developer": "SuperB Software Technology",
+      "icon": "https://play-lh.googleusercontent.com/upmW78pYDwNZC-TdNffSskWALmVFNKV3cc2dEcDRZBTqHNWHXi_Mg4U_p9SYfXE0d_f_PzpxZR-sAfjrR-AUIg",
+      "slug": "dogtor",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Dogtor 逗課",
+        "zh-tw": "Dogtor 逗課"
+      }
+    },
+    "Color Sand: Fill The Blocks": {
+      "appIds": {
+        "android": "puzzle.color.sand.blocks"
+      },
+      "aliases": [],
+      "developer": "kiwilab",
+      "icon": "https://play-lh.googleusercontent.com/aaVb5W_9SQGnKfqJuOrwvcMxPY_KteYfZuLqzsUNFq0UgfvI8AZ2r5BXAlS_IC9khDbSZrHC82wJExefmVV-",
+      "slug": "color-sand-fill-the-blocks",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Color Sand: Fill The Blocks",
+        "zh-tw": "Color Sand: Fill The Blocks"
+      }
     }
   },
   "lastUpdated": "2026-10-13",
-  "totalGames": 8589
+  "totalGames": 8593
 }

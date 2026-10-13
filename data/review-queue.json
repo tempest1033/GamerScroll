@@ -43385,6 +43385,76 @@
         }
       ],
       "addedAt": "2026-10-12T23:26:50.931Z"
+    },
+    {
+      "title": "Block Bus!",
+      "status": "single",
+      "appIds": {
+        "android": "com.gl.bus"
+      },
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/5J7Gs1Fa6l076d0KaFn4_q45C9L899M3mqAUVeQOls93vKeRh4U-vztxIWW8tOCIU8pOcOF6wYe2x2CsAH2ypcY",
+      "searchResults": [
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "버스 시뮬레이터 : Ultimate",
+          "appId": 1461749632
+        },
+        {
+          "title": "Bus Out - 버스 퍼즐 게임",
+          "appId": 6736378756
+        }
+      ],
+      "addedAt": "2026-10-13T04:58:38.705Z"
+    },
+    {
+      "title": "Arrow Block 3D - 슬라이드박스 큐브 화살표",
+      "status": "single",
+      "appIds": {
+        "ios": 6777863511
+      },
+      "developer": "Shycheese",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/77/fb/c7/77fbc749-3cdb-033f-0743-6d54a004b967/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-13T04:58:39.566Z"
+    },
+    {
+      "title": "Dogtor 逗課",
+      "status": "single",
+      "appIds": {
+        "android": "com.dogtor.superbFlutterApp"
+      },
+      "developer": "SuperB Software Technology",
+      "icon": "https://play-lh.googleusercontent.com/upmW78pYDwNZC-TdNffSskWALmVFNKV3cc2dEcDRZBTqHNWHXi_Mg4U_p9SYfXE0d_f_PzpxZR-sAfjrR-AUIg",
+      "searchResults": [],
+      "addedAt": "2026-10-13T04:58:39.956Z"
+    },
+    {
+      "title": "Color Sand: Fill The Blocks",
+      "status": "single",
+      "appIds": {
+        "android": "puzzle.color.sand.blocks"
+      },
+      "developer": "kiwilab",
+      "icon": "https://play-lh.googleusercontent.com/aaVb5W_9SQGnKfqJuOrwvcMxPY_KteYfZuLqzsUNFq0UgfvI8AZ2r5BXAlS_IC9khDbSZrHC82wJExefmVV-",
+      "searchResults": [
+        {
+          "title": "Fill Sand: Block Puzzle",
+          "appId": 6797907221
+        },
+        {
+          "title": "Sand Blocks: Drop Puzzle",
+          "appId": 6757140488
+        },
+        {
+          "title": "Sand Hole: Block Sort Jam",
+          "appId": 6795585457
+        }
+      ],
+      "addedAt": "2026-10-13T04:58:40.420Z"
     }
   ],
   "approved": [

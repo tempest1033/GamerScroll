@@ -1,18 +1,18 @@
 {
-  "updatedAt": "2026-10-12T00:08:56.765Z",
+  "updatedAt": "2026-10-13T04:57:37.399Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 42
+      "views": 32
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 31
+      "views": 24
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 23
+      "views": 21
     },
     {
       "slug": "주술회전-팬텀-퍼레이드",
@@ -20,7 +20,7 @@
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 16
+      "views": 15
     },
     {
       "slug": "monopoly-go-모노폴리-go",
@@ -33,6 +33,10 @@
     {
       "slug": "운빨존많겜",
       "views": 9
+    },
+    {
+      "slug": "barotrauma",
+      "views": 8
     },
     {
       "slug": "roblox",
@@ -59,11 +63,7 @@
       "views": 8
     },
     {
-      "slug": "킹샷kingshot",
-      "views": 8
-    },
-    {
-      "slug": "barotrauma",
+      "slug": "3d운전교실",
       "views": 7
     },
     {
