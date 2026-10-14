@@ -43598,13 +43598,19 @@
     },
     {
       "title": "Bloody Bastards",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 1593430099
+        "ios": 1593430099,
+        "android": "com.tibith.badboxing"
       },
       "developer": "Tibith",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/18/b0/ee18b0a6-1c4f-0ab1-7fa0-eb6fe1d41b49/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Bloody Bastards",
+          "appId": 1593430099
+        }
+      ],
       "addedAt": "2026-10-13T19:44:26.338Z"
     },
     {
@@ -43729,6 +43735,134 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/57/94/1f/57941f91-4506-9661-9995-01674f2136ec/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-14T14:51:38.347Z"
+    },
+    {
+      "title": "히어로즈 테일즈2",
+      "status": "single",
+      "appIds": {
+        "ios": 6800226885
+      },
+      "developer": "Sunflower Network Technology Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/ec/8e/67ec8ec7-9731-032b-be11-2f28b5ad29d5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T19:09:54.391Z"
+    },
+    {
+      "title": "비누 자르기 ASMR (Idle Soap ASMR)",
+      "status": "single",
+      "appIds": {
+        "ios": 6478873931
+      },
+      "developer": "Midnite",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/8f/51/008f5157-ae79-9d7e-e670-558ed3b6cc06/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T19:09:54.586Z"
+    },
+    {
+      "title": "햄도쿠: 햄스터 스도쿠 두뇌 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6795797684
+      },
+      "developer": "MOBIRIX",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/de/26/b9/de26b928-fcc9-1ca6-7e1e-053eaa48933a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T19:09:54.755Z"
+    },
+    {
+      "title": "애로우 러시: 워터 컬러 정렬",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrow.out.color.line.brian.puzzle"
+      },
+      "developer": "Pleasure City",
+      "icon": "https://play-lh.googleusercontent.com/J2rcibLvo9EZJXkIT4hbF6aL2V6XyyKjUu4L0yt2k1MO5xPJDnzXKIaaUadX12Z7k_vEfNpqVMMH4908BmX0Kw",
+      "searchResults": [
+        {
+          "title": "애로우 러시: 물감 색상 정렬 게임하기",
+          "appId": 6762461210
+        },
+        {
+          "title": "라스트 워: 서바이벌",
+          "appId": 6448786147
+        },
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 트래픽 피버",
+          "appId": 6505095234
+        }
+      ],
+      "addedAt": "2026-10-14T19:09:55.163Z"
+    },
+    {
+      "title": "이세계 모에소녀 키우기: 방치형 RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "kr.co.o2ent.idle.kr",
+        "ios": 6794662044
+      },
+      "developer": "O2 Entertainment",
+      "icon": "https://play-lh.googleusercontent.com/vfyYTVKi4xkLIKlMtspMmpsHkX9yZkjo_sAzMESfy9nErf3e7bijko7loLVJiJz-jer9QhRmT9fxiUnmqHc-fqE",
+      "searchResults": [
+        {
+          "title": "이세계 모에소녀 키우기: 방치형 RPG",
+          "appId": 6794662044
+        },
+        {
+          "title": "재배소년",
+          "appId": 849000272
+        },
+        {
+          "title": "마법소녀 키우기 - 5.5주년",
+          "appId": 6450410750
+        }
+      ],
+      "addedAt": "2026-10-14T19:09:55.584Z"
+    },
+    {
+      "title": "Yes, Your Grace 2: Snowfall",
+      "status": "single",
+      "appIds": {
+        "ios": 6757407113
+      },
+      "developer": "Noodlecake",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/66/07/1e/66071ee7-4cb1-5d4d-8606-61eb9f4abf15/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T19:09:55.924Z"
+    },
+    {
+      "title": "Tap Drive：Traffic Rush",
+      "status": "single",
+      "appIds": {
+        "android": "com.rushhour.tapdd"
+      },
+      "developer": "RECETE ART INC.",
+      "icon": "https://play-lh.googleusercontent.com/z61pDZA1yNH8M2Ud3_cKJM67XxxO1ggzcmg4flSufBL_0yp_7Q_g82USlgU0lCkESrFPSeoQ_UMv2AtvaGIT-A",
+      "searchResults": [
+        {
+          "title": "Traffic Rider",
+          "appId": 951744068
+        },
+        {
+          "title": "Google 드라이브 – 안전한 온라인 파일 저장공간",
+          "appId": 507874739
+        },
+        {
+          "title": "Bus Traffic Fever!",
+          "appId": 6759763476
+        }
+      ],
+      "addedAt": "2026-10-14T19:09:56.472Z"
+    },
+    {
+      "title": "Clack Crush: Desire Mahjong",
+      "status": "single",
+      "appIds": {
+        "android": "com.ClackCrush.Desire.Mahjong.secretgirl"
+      },
+      "developer": "mil gam inc",
+      "icon": "https://play-lh.googleusercontent.com/HHlyZnRBs1IxLQLjRVKJdcUJlXJ_DmeuWZre18F_QyP5XxmYXC0bZDHpT08V_MBIloWfdbJxB0BVG7fbHMqepA",
+      "searchResults": [],
+      "addedAt": "2026-10-14T19:09:57.311Z"
     }
   ],
   "approved": [

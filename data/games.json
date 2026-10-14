@@ -148447,14 +148447,16 @@
     },
     "Bloody Bastards": {
       "appIds": {
-        "ios": 1593430099
+        "ios": 1593430099,
+        "android": "com.tibith.badboxing"
       },
       "aliases": [],
       "developer": "Tibith",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/18/b0/ee18b0a6-1c4f-0ab1-7fa0-eb6fe1d41b49/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "bloody-bastards",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Bloody Bastards",
@@ -148769,8 +148771,173 @@
       "platforms": [
         "steam"
       ]
+    },
+    "히어로즈 테일즈2": {
+      "appIds": {
+        "ios": 6800226885
+      },
+      "aliases": [],
+      "developer": "Sunflower Network Technology Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/ec/8e/67ec8ec7-9731-032b-be11-2f28b5ad29d5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "히어로즈-테일즈2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "히어로즈 테일즈2"
+      }
+    },
+    "비누 자르기 ASMR (Idle Soap ASMR)": {
+      "appIds": {
+        "ios": 6478873931
+      },
+      "aliases": [],
+      "developer": "Midnite",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/8f/51/008f5157-ae79-9d7e-e670-558ed3b6cc06/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "비누-자르기-asmr-idle-soap-asmr",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "비누 자르기 ASMR (Idle Soap ASMR)"
+      }
+    },
+    "햄도쿠: 햄스터 스도쿠 두뇌 퍼즐": {
+      "appIds": {
+        "ios": 6795797684
+      },
+      "aliases": [],
+      "developer": "MOBIRIX",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/de/26/b9/de26b928-fcc9-1ca6-7e1e-053eaa48933a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "햄도쿠-햄스터-스도쿠-두뇌-퍼즐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "햄도쿠: 햄스터 스도쿠 두뇌 퍼즐"
+      }
+    },
+    "애로우 러시: 워터 컬러 정렬": {
+      "appIds": {
+        "android": "com.arrow.out.color.line.brian.puzzle"
+      },
+      "aliases": [],
+      "developer": "Pleasure City",
+      "icon": "https://play-lh.googleusercontent.com/J2rcibLvo9EZJXkIT4hbF6aL2V6XyyKjUu4L0yt2k1MO5xPJDnzXKIaaUadX12Z7k_vEfNpqVMMH4908BmX0Kw",
+      "slug": "애로우-러시-워터-컬러-정렬",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "애로우 러시: 워터 컬러 정렬",
+        "zh-tw": "箭頭衝刺：水彩顏色分類遊戲"
+      }
+    },
+    "이세계 모에소녀 키우기: 방치형 RPG": {
+      "appIds": {
+        "android": "kr.co.o2ent.idle.kr",
+        "ios": 6794662044
+      },
+      "aliases": [],
+      "developer": "O2 Entertainment",
+      "icon": "https://play-lh.googleusercontent.com/vfyYTVKi4xkLIKlMtspMmpsHkX9yZkjo_sAzMESfy9nErf3e7bijko7loLVJiJz-jer9QhRmT9fxiUnmqHc-fqE",
+      "slug": "이세계-모에소녀-키우기-방치형-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "이세계 모에소녀 키우기: 방치형 RPG"
+      }
+    },
+    "Yes, Your Grace 2: Snowfall": {
+      "appIds": {
+        "ios": 6757407113
+      },
+      "aliases": [],
+      "developer": "Noodlecake",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/66/07/1e/66071ee7-4cb1-5d4d-8606-61eb9f4abf15/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "yes-your-grace-2-snowfall",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Yes, Your Grace 2: Snowfall",
+        "en": "Yes, Your Grace 2: Snowfall"
+      }
+    },
+    "Tap Drive：Traffic Rush": {
+      "appIds": {
+        "android": "com.rushhour.tapdd"
+      },
+      "aliases": [],
+      "developer": "RECETE ART INC.",
+      "icon": "https://play-lh.googleusercontent.com/z61pDZA1yNH8M2Ud3_cKJM67XxxO1ggzcmg4flSufBL_0yp_7Q_g82USlgU0lCkESrFPSeoQ_UMv2AtvaGIT-A",
+      "slug": "tap-drivetraffic-rush",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Tap Drive：Traffic Rush",
+        "en": "Tap Drive：Traffic Rush"
+      }
+    },
+    "精灵永恒-奇幻大陆": {
+      "appIds": {
+        "ios_cn": 6810109789
+      },
+      "aliases": [],
+      "developer": "Jinan Qianhong Network Technology Co., LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/76/4d/f8764dec-2615-3014-daa8-28ec42506f08/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "精灵永恒-奇幻大陆",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "精灵永恒-奇幻大陆"
+      }
+    },
+    "Clack Crush: Desire Mahjong": {
+      "appIds": {
+        "android": "com.ClackCrush.Desire.Mahjong.secretgirl"
+      },
+      "aliases": [],
+      "developer": "mil gam inc",
+      "icon": "https://play-lh.googleusercontent.com/HHlyZnRBs1IxLQLjRVKJdcUJlXJ_DmeuWZre18F_QyP5XxmYXC0bZDHpT08V_MBIloWfdbJxB0BVG7fbHMqepA",
+      "slug": "clack-crush-desire-mahjong",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Clack Crush: Desire Mahjong",
+        "zh-tw": "Clack Crush: Desire Mahjong"
+      }
+    },
+    "over the hill": {
+      "appIds": {
+        "steam": "2929250"
+      },
+      "aliases": [],
+      "developer": "Funselektor Labs Inc.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2929250/36a5e318291b96b49df81d3d5de731b19c094a2b/capsule_231x87.jpg?t=1792002879",
+      "slug": "over-the-hill",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Warhammer 40,000: Boltgun 2": {
+      "appIds": {
+        "steam": "3115160"
+      },
+      "aliases": [],
+      "developer": "Auroch Digital",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3115160/a41870d91ff8f8e27b95c9f8aec1b2bfc357f1e3/capsule_231x87.jpg?t=1792001670",
+      "slug": "warhammer-40000-boltgun-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-14",
-  "totalGames": 8627
+  "lastUpdated": "2026-10-15",
+  "totalGames": 8638
 }
