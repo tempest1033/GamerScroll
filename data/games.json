@@ -70743,7 +70743,8 @@
     },
     "EZ PZ: Byte Heroes": {
       "appIds": {
-        "android": "com.szqdgames.android.arzhg"
+        "android": "com.szqdgames.android.arzhg",
+        "ios_tw": 6760294279
       },
       "aliases": [
         "懶人三國"
@@ -70752,7 +70753,8 @@
       "icon": "https://play-lh.googleusercontent.com/j1bGByUAHnpNwA4LBjyoVqrs_doHQmoFesoDGXuKCsMaR-eG7tbBr1I0SYrlkDa6yY_gVvHtq99KZKTuFPO_",
       "slug": "ez-pz-byte-heroes",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "EZ PZ: Byte Heroes",
@@ -148725,8 +148727,50 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Frogs Kitchen": {
+      "appIds": {
+        "ios": 6504572215
+      },
+      "aliases": [],
+      "developer": "OUTLOUD SOFTWARE DEVELOPMENT LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/57/94/1f/57941f91-4506-9661-9995-01674f2136ec/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "frogs-kitchen",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Frogs Kitchen"
+      }
+    },
+    "气泡英雄：绝对正义": {
+      "appIds": {
+        "ios_cn": 6774426166
+      },
+      "aliases": [],
+      "developer": "Qinhuangdao Hanluoguo Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f8/75/c2/f875c27c-5be7-7891-92b8-24d4ea42f9a8/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "气泡英雄绝对正义",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "气泡英雄：绝对正义"
+      }
+    },
+    "Nientum - Op.ZERO": {
+      "appIds": {
+        "steam": "2725250"
+      },
+      "aliases": [],
+      "developer": "QueseraGames",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2725250/5d3cfcc2d00c057b1d888c3f69d0e41fae6c3be6/capsule_231x87.jpg?t=1791950185",
+      "slug": "nientum-opzero",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-14",
-  "totalGames": 8624
+  "totalGames": 8627
 }
