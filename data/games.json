@@ -53789,14 +53789,16 @@
     },
     "Merge Bistro™ 요리 & 꾸미기": {
       "appIds": {
-        "ios": 6752610996
+        "ios": 6752610996,
+        "android": "com.solotopiax.merge.cooking"
       },
       "aliases": [],
       "developer": "Gaming Flight Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/11/02/b8/1102b8e9-1109-19e3-5feb-5fc8a9558a9b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "merge-bistro-요리-꾸미기",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Merge Bistro™ 요리 & 꾸미기",
@@ -147866,17 +147868,20 @@
     },
     "9 Kings 나인 킹즈": {
       "appIds": {
-        "ios": 6757860952
+        "ios": 6757860952,
+        "android": "com.playdigious.ninekings"
       },
       "aliases": [],
       "developer": "Playdigious",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/14/67/75/14677591-4fc6-fcb4-83f7-a09a3a0f6457/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "9-kings-나인-킹즈",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
-        "ko": "9 Kings 나인 킹즈"
+        "ko": "9 Kings 나인 킹즈",
+        "zh-tw": "九王 9 Kings"
       }
     },
     "Buzzy Bus!": {
@@ -148559,8 +148564,169 @@
       "platforms": [
         "steam"
       ]
+    },
+    "드래곤 레이드: GPS 어드벤처 RPG": {
+      "appIds": {
+        "ios": 6480118153
+      },
+      "aliases": [],
+      "developer": "FunnyStorm",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/82/0d/e8820db2-4eee-6d73-0221-d6548e7bb369/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "드래곤-레이드-gps-어드벤처-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "드래곤 레이드: GPS 어드벤처 RPG"
+      }
+    },
+    "Yarnation: Unravel Flow": {
+      "appIds": {
+        "ios": 6759294686
+      },
+      "aliases": [],
+      "developer": "UNICO GAMES BILISIM LIMITED SIRKETI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/02/42/020242b0-d371-af1f-7ff7-09f399552ffe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "yarnation-unravel-flow",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Yarnation: Unravel Flow"
+      }
+    },
+    "ロンバルジーズ": {
+      "appIds": {
+        "ios": 6748576090
+      },
+      "aliases": [],
+      "developer": "ALPLACIA SOFTWARE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/19/a4/39/19a4396b-9db4-ba38-ae07-d9e2e776439f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "ロンバルジーズ",
+        "ja": "ロンバルジーズ"
+      }
+    },
+    "剑侠世界4：无限": {
+      "appIds": {
+        "ios_cn": 6759635917
+      },
+      "aliases": [],
+      "developer": "Chengdu Seasun Shiyou Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bc/53/7c/bc537cc2-0d28-069e-31b5-136f7abcd055/AppIcon-1x_U007emarketing-0-8-85-220-0.jpeg/512x512bb.jpg",
+      "slug": "剑侠世界4无限",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "剑侠世界4：无限"
+      }
+    },
+    "小路快抢修": {
+      "appIds": {
+        "ios": 6816835190
+      },
+      "aliases": [],
+      "developer": "园园 黄",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/49/75/71/497571a3-522b-4bd0-973e-093c2f6722f3/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "小路快抢修",
+        "zh-cn": "小路快抢修"
+      }
+    },
+    "Market Battle": {
+      "appIds": {
+        "ios": 6816637828
+      },
+      "aliases": [],
+      "developer": "YUEH LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/e3/e4/bfe3e4a7-b90d-b57a-641f-7b89a0b4853e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "market-battle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Market Battle",
+        "zh-tw": "Market Battle"
+      }
+    },
+    "마물로 전생": {
+      "appIds": {
+        "ios": 6794292807
+      },
+      "aliases": [],
+      "developer": "Wai Shan Cheung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/0e/98/220e985d-433c-33c4-ffbe-abf852094b78/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "마물로-전생",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "마물로 전생",
+        "zh-tw": "轉生成魔物是否搞錯了什麼？"
+      }
+    },
+    "Steal Escape: Egg Speed": {
+      "appIds": {
+        "android": "com.Steal.Escape.Egg.Speed"
+      },
+      "aliases": [],
+      "developer": "H2T GLOBAL PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/Yhokel6sO_BP6B86_mP7o1OtTdP9tUzrcbmtq2nLrfBpzRelhSgBiYJBosBTAcAgFcGpvLML7vvdpUIv4CZe6A",
+      "slug": "steal-escape-egg-speed",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Steal Escape: Egg Speed",
+        "zh-tw": "Steal Escape: Egg Speed"
+      }
+    },
+    "Deep Dish Dungeon": {
+      "appIds": {
+        "steam": "2871520"
+      },
+      "aliases": [],
+      "developer": "Behold Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2871520/95d7765d85841c7729fa66c4dd90a4d9fe78ed61/capsule_231x87_alt_assets_1.jpg?t=1791960486",
+      "slug": "deep-dish-dungeon",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Trash Day": {
+      "appIds": {
+        "steam": "3314580"
+      },
+      "aliases": [],
+      "developer": "Off by One Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3314580/dcc96a6f2eee6a1f001ef6d00ca5d533d24338e8/capsule_231x87.jpg?t=1791911043",
+      "slug": "trash-day",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Legion Breaker": {
+      "appIds": {
+        "steam": "4425980"
+      },
+      "aliases": [],
+      "developer": "Baffled Engineer",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4425980/25044cb566f18df2178523028cc5b17ef20da8ba/capsule_231x87.jpg?t=1791968397",
+      "slug": "legion-breaker",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-14",
-  "totalGames": 8613
+  "totalGames": 8624
 }

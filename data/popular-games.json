@@ -1,26 +1,26 @@
 {
-  "updatedAt": "2026-10-13T04:57:37.399Z",
+  "updatedAt": "2026-10-14T09:13:15.295Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 32
+      "views": 31
     },
     {
       "slug": "이클립스-더-어웨이크닝",
-      "views": 24
+      "views": 22
     },
     {
       "slug": "wos-화이트아웃-서바이벌",
-      "views": 21
+      "views": 18
     },
     {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 17
+      "views": 18
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 15
+      "views": 16
     },
     {
       "slug": "monopoly-go-모노폴리-go",
@@ -28,6 +28,10 @@
     },
     {
       "slug": "레이싱-마스터",
+      "views": 10
+    },
+    {
+      "slug": "블루-프로토콜-스타-레조넌스",
       "views": 9
     },
     {
@@ -39,7 +43,27 @@
       "views": 8
     },
     {
+      "slug": "go-go-고양이-홉핑",
+      "views": 8
+    },
+    {
+      "slug": "loop-master-컬러-정렬-퍼즐",
+      "views": 8
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 8
+    },
+    {
+      "slug": "pixel-flow",
+      "views": 8
+    },
+    {
       "slug": "roblox",
+      "views": 8
+    },
+    {
+      "slug": "sakura-school-simulator",
       "views": 8
     },
     {
@@ -47,36 +71,12 @@
       "views": 8
     },
     {
+      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
+      "views": 8
+    },
+    {
       "slug": "리니지m",
       "views": 8
-    },
-    {
-      "slug": "블루-프로토콜-스타-레조넌스",
-      "views": 8
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
-      "views": 8
-    },
-    {
-      "slug": "에이지-오브-제트-타워-디펜스",
-      "views": 8
-    },
-    {
-      "slug": "3d운전교실",
-      "views": 7
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 7
-    },
-    {
-      "slug": "loop-master-컬러-정렬-퍼즐",
-      "views": 7
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 7
     }
   ]
 }

@@ -28848,13 +28848,27 @@
     },
     {
       "title": "Merge Bistro™ 요리 & 꾸미기",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6752610996
+        "ios": 6752610996,
+        "android": "com.solotopiax.merge.cooking"
       },
       "developer": "Gaming Flight Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/11/02/b8/1102b8e9-1109-19e3-5feb-5fc8a9558a9b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Merge Bistro™ 요리 & 꾸미기",
+          "appId": 6752610996
+        },
+        {
+          "title": "고양이와 스프: 귀여운 힐링 방치형 키우기 게임",
+          "appId": 1581431235
+        },
+        {
+          "title": "Toca Boca World: 집꾸미기",
+          "appId": 1208138685
+        }
+      ],
       "addedAt": "2026-07-20T07:55:42.732Z"
     },
     {
@@ -43099,13 +43113,27 @@
     },
     {
       "title": "9 Kings 나인 킹즈",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6757860952
+        "ios": 6757860952,
+        "android": "com.playdigious.ninekings"
       },
       "developer": "Playdigious",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/14/67/75/14677591-4fc6-fcb4-83f7-a09a3a0f6457/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "9 Kings 나인 킹즈",
+          "appId": 6757860952
+        },
+        {
+          "title": "8 Ball Pool™",
+          "appId": 543186831
+        },
+        {
+          "title": "Grok",
+          "appId": 6670324846
+        }
+      ],
       "addedAt": "2026-10-11T20:45:33.118Z"
     },
     {
@@ -43600,6 +43628,96 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/e5/b4/81e5b45d-9eab-d2aa-0b4f-4fd49f43125a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-13T23:35:25.066Z"
+    },
+    {
+      "title": "드래곤 레이드: GPS 어드벤처 RPG",
+      "status": "single",
+      "appIds": {
+        "ios": 6480118153
+      },
+      "developer": "FunnyStorm",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/82/0d/e8820db2-4eee-6d73-0221-d6548e7bb369/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T09:14:19.712Z"
+    },
+    {
+      "title": "Yarnation: Unravel Flow",
+      "status": "single",
+      "appIds": {
+        "ios": 6759294686
+      },
+      "developer": "UNICO GAMES BILISIM LIMITED SIRKETI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/02/42/020242b0-d371-af1f-7ff7-09f399552ffe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T09:14:20.044Z"
+    },
+    {
+      "title": "ロンバルジーズ",
+      "status": "single",
+      "appIds": {
+        "ios": 6748576090
+      },
+      "developer": "ALPLACIA SOFTWARE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/19/a4/39/19a4396b-9db4-ba38-ae07-d9e2e776439f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T09:14:20.531Z"
+    },
+    {
+      "title": "小路快抢修",
+      "status": "single",
+      "appIds": {
+        "ios": 6816835190
+      },
+      "developer": "园园 黄",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/49/75/71/497571a3-522b-4bd0-973e-093c2f6722f3/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T09:14:21.338Z"
+    },
+    {
+      "title": "Market Battle",
+      "status": "single",
+      "appIds": {
+        "ios": 6816637828
+      },
+      "developer": "YUEH LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/e3/e4/bfe3e4a7-b90d-b57a-641f-7b89a0b4853e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T09:14:21.678Z"
+    },
+    {
+      "title": "마물로 전생",
+      "status": "single",
+      "appIds": {
+        "ios": 6794292807
+      },
+      "developer": "Wai Shan Cheung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/0e/98/220e985d-433c-33c4-ffbe-abf852094b78/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-14T09:14:22.028Z"
+    },
+    {
+      "title": "Steal Escape: Egg Speed",
+      "status": "single",
+      "appIds": {
+        "android": "com.Steal.Escape.Egg.Speed"
+      },
+      "developer": "H2T GLOBAL PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/Yhokel6sO_BP6B86_mP7o1OtTdP9tUzrcbmtq2nLrfBpzRelhSgBiYJBosBTAcAgFcGpvLML7vvdpUIv4CZe6A",
+      "searchResults": [
+        {
+          "title": "Steal Egg Run Escape",
+          "appId": 6762119300
+        },
+        {
+          "title": "Steal & Catch Eggs Escape",
+          "appId": 6768549204
+        },
+        {
+          "title": "Escape Animal Steal Egg",
+          "appId": 6754623012
+        }
+      ],
+      "addedAt": "2026-10-14T09:14:23.499Z"
     }
   ],
   "approved": [
