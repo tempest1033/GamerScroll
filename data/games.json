@@ -148936,8 +148936,56 @@
       "platforms": [
         "steam"
       ]
+    },
+    "케어프리 타임": {
+      "appIds": {
+        "ios": 6778022968
+      },
+      "aliases": [],
+      "developer": "JOYGLOBE PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/a5/22/3ca522bf-fd4b-7b75-5f98-97dc1ba9713c/AppIcon-0-0-1x_U007epad-0-4-85-220.png/512x512bb.jpg",
+      "slug": "케어프리-타임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "케어프리 타임"
+      }
+    },
+    "PurrPrize": {
+      "appIds": {
+        "android": "com.purr.prize.maopurrprize"
+      },
+      "aliases": [],
+      "developer": "SokPlayDev",
+      "icon": "https://play-lh.googleusercontent.com/bY1UUbsb7vcNyBr-FhJaG0H27HZquc6ceqKh-rgsV6_xDyKya4JKfv6yOLazyRjNX-bsGKFP0-xKaCN_6BMBPiE",
+      "slug": "purrprize",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "PurrPrize"
+      }
+    },
+    "On Raft": {
+      "appIds": {
+        "android": "com.on.raft",
+        "ios": 6760892302
+      },
+      "aliases": [],
+      "developer": "24 HIT Riga SIA",
+      "icon": "https://play-lh.googleusercontent.com/rHZPweQZOuRsORZXQHv8g9Dbjnqus2mntVie5v9U_9Zs1iEPDTFMwDYkc2dvlpM-ILkIJ9vI4_cAKR3_Meu17A",
+      "slug": "on-raft",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "On Raft",
+        "zh-tw": "On Raft"
+      }
     }
   },
   "lastUpdated": "2026-10-15",
-  "totalGames": 8638
+  "totalGames": 8641
 }
