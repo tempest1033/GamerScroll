@@ -43910,6 +43910,31 @@
         }
       ],
       "addedAt": "2026-10-14T22:57:34.561Z"
+    },
+    {
+      "title": "Last Combat: Z Shooter",
+      "status": "matched",
+      "appIds": {
+        "android": "com.sg.lastaura.army.zombie.shooter",
+        "ios": 6812733413
+      },
+      "developer": "PIXEL KING PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/nzPK4TXqhO4b1JQ2RrWK54q6Slq0ArR9kALxHgNaSxUlZyfpf0yJkiGQ6PmNlg8d932X3MrB0WpcFNPMHyrrHw",
+      "searchResults": [
+        {
+          "title": "Last Combat: Z Shooter",
+          "appId": 6812733413
+        },
+        {
+          "title": "라스트 워: 서바이벌",
+          "appId": 6448786147
+        },
+        {
+          "title": "Critical Strike CS: Online FPS",
+          "appId": 1467648713
+        }
+      ],
+      "addedAt": "2026-10-15T01:12:26.551Z"
     }
   ],
   "approved": [

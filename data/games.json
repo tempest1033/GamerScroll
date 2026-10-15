@@ -148984,8 +148984,26 @@
         "ko": "On Raft",
         "zh-tw": "On Raft"
       }
+    },
+    "Last Combat: Z Shooter": {
+      "appIds": {
+        "android": "com.sg.lastaura.army.zombie.shooter",
+        "ios": 6812733413
+      },
+      "aliases": [],
+      "developer": "PIXEL KING PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/nzPK4TXqhO4b1JQ2RrWK54q6Slq0ArR9kALxHgNaSxUlZyfpf0yJkiGQ6PmNlg8d932X3MrB0WpcFNPMHyrrHw",
+      "slug": "last-combat-z-shooter",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Last Combat: Z Shooter",
+        "en": "Last Combat: Z Shooter"
+      }
     }
   },
   "lastUpdated": "2026-10-15",
-  "totalGames": 8641
+  "totalGames": 8642
 }
