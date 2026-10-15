@@ -149062,8 +149062,82 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Dragonbound: Wings of Magic": {
+      "appIds": {
+        "ios_us": 6767434212
+      },
+      "aliases": [],
+      "developer": "Efun Global Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/be/71/1d/be711df2-8746-1df7-943f-2c0df850c06d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "dragonbound-wings-of-magic",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Dragonbound: Wings of Magic"
+      }
+    },
+    "Girls Echo": {
+      "appIds": {
+        "ios_us": 6797805969
+      },
+      "aliases": [],
+      "developer": "HOWLYO HONG KONG LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/50/b3/6d50b3d3-dfd4-2d54-d004-33054cea92b5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "girls-echo",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Girls Echo"
+      }
+    },
+    "Stamp Solitaire: Card Matching": {
+      "appIds": {
+        "ios": 6761845923
+      },
+      "aliases": [],
+      "developer": "Piti Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4e/9e/68/4e9e685e-d563-6161-6646-d55036b91f81/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "stamp-solitaire-card-matching",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Stamp Solitaire: Card Matching",
+        "en": "Stamp Solitaire: Card Matching"
+      }
+    },
+    "왁뿌!": {
+      "appIds": {
+        "ios": 6796334031
+      },
+      "aliases": [],
+      "developer": "JoCoding, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7b/52/e0/7b52e011-788b-1801-dc0b-1c72def8f351/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "왁뿌",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "왁뿌!",
+        "zh-tw": "Waxpop!"
+      }
+    },
+    "DayZ Badlands": {
+      "appIds": {
+        "steam": "3816030"
+      },
+      "aliases": [],
+      "developer": "Bohemia Interactive",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3816030/fb0824834103c0c1a2206feb9ec4e9a5e87a9b1c/capsule_231x87.jpg?t=1792059040",
+      "slug": "dayz-badlands",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-15",
-  "totalGames": 8646
+  "totalGames": 8651
 }
