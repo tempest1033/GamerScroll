@@ -43935,6 +43935,28 @@
         }
       ],
       "addedAt": "2026-10-15T01:12:26.551Z"
+    },
+    {
+      "title": "Viking Island: Merge Adventure",
+      "status": "single",
+      "appIds": {
+        "ios": 6740337084
+      },
+      "developer": "Pine Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/24/6a/41/246a41d8-d7ba-f042-8f76-26922baf4710/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-15T06:52:19.640Z"
+    },
+    {
+      "title": "YukiGuni",
+      "status": "single",
+      "appIds": {
+        "ios": 6815691344
+      },
+      "developer": "SEVEN DOT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/10/34/78/1034783a-39eb-ac34-f661-548842c787bf/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-15T06:52:19.992Z"
     }
   ],
   "approved": [

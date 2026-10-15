@@ -149002,8 +149002,68 @@
         "ko": "Last Combat: Z Shooter",
         "en": "Last Combat: Z Shooter"
       }
+    },
+    "Age of Spirits": {
+      "appIds": {
+        "ios_us": 6805006706
+      },
+      "aliases": [],
+      "developer": "LEXIANGCO.,LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/40/5b/24/405b2456-061e-ce87-3773-23183c7bb93c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "age-of-spirits",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Age of Spirits"
+      }
+    },
+    "Viking Island: Merge Adventure": {
+      "appIds": {
+        "ios": 6740337084
+      },
+      "aliases": [],
+      "developer": "Pine Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/24/6a/41/246a41d8-d7ba-f042-8f76-26922baf4710/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "viking-island-merge-adventure",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Viking Island: Merge Adventure",
+        "ja": "Viking Island: Merge Adventure",
+        "zh-tw": "Viking Island: Merge Adventure"
+      }
+    },
+    "YukiGuni": {
+      "appIds": {
+        "ios": 6815691344
+      },
+      "aliases": [],
+      "developer": "SEVEN DOT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/10/34/78/1034783a-39eb-ac34-f661-548842c787bf/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "yukiguni",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "YukiGuni",
+        "ja": "YukiGuni"
+      }
+    },
+    "Arknights: Endfield": {
+      "appIds": {
+        "steam": "4732690"
+      },
+      "aliases": [],
+      "developer": "Hypergryph",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4732690/0eca7469dc7d4ba37dad24bfb2d64d2a830ae93b/capsule_231x87.jpg?t=1792035845",
+      "slug": "arknights-endfield",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-15",
-  "totalGames": 8642
+  "totalGames": 8646
 }
