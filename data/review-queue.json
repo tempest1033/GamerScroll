@@ -44118,6 +44118,86 @@
       "icon": "https://play-lh.googleusercontent.com/gIbgzgPmxMW7fT5JEHGWNeqQPK4vZn4Dj3XkuHv5njkWASsG7TrE4U8SntCPqvOT4P6pyfXwKXuYkeSTEX3kSQ",
       "searchResults": [],
       "addedAt": "2026-10-15T20:51:45.033Z"
+    },
+    {
+      "title": "숨은 그림 찾기 게임: Find & Go",
+      "status": "single",
+      "appIds": {
+        "android": "com.gurupuzzle.find.go.hidden.objects"
+      },
+      "developer": "Guru Puzzle Game",
+      "icon": "https://play-lh.googleusercontent.com/p51TvVIQbWa6G1aeQnZZETFCV_DXxBkdnk5xmvX8cxqkD_A9HVQmCC-f-cKnS0uu31Zg_9eW1uzXPuHuJpMT",
+      "searchResults": [
+        {
+          "title": "Found It! 숨은 그림 찾기 게임",
+          "appId": 1643547847
+        },
+        {
+          "title": "숨은그림찾기 게임 - Find It Out",
+          "appId": 1643481036
+        },
+        {
+          "title": "숨은그림찾기: 숨겨진 물건 찾기 & 퍼즐 게임",
+          "appId": 6751270213
+        }
+      ],
+      "addedAt": "2026-10-15T23:31:55.630Z"
+    },
+    {
+      "title": "覺醒吧主公：像素重生",
+      "status": "single",
+      "appIds": {
+        "android": "com.xylytkxy.gp"
+      },
+      "developer": "LIGHTYEAR INTERACTIVE LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/j6XwRThIFvNSIosFA91atuhLqy8i-GGKykJ0yurENzaDlPXdKJk1sC6vFkiT3lVBPw_rCxRDexwk-lwf0Uu3Yg",
+      "searchResults": [],
+      "addedAt": "2026-10-15T23:31:56.091Z"
+    },
+    {
+      "title": "仙界飛升錄",
+      "status": "single",
+      "appIds": {
+        "android": "com.xjfslqygg.goo"
+      },
+      "developer": "广州穗游",
+      "icon": "https://play-lh.googleusercontent.com/4-9qz1rtvlP-ibxCwlEqcZ5XIWd3fWSZS_8e_IdY4Ph5BrO3GkzXY0ZSOGXPSsdVYVt__NIXkCe1THSFlf8vZA",
+      "searchResults": [
+        {
+          "title": "平凡人的人生：轮回修仙录",
+          "appId": 6756426242
+        },
+        {
+          "title": "修仙启示录",
+          "appId": 1490810998
+        }
+      ],
+      "addedAt": "2026-10-15T23:31:59.706Z"
+    },
+    {
+      "title": "Supermarket Tycoon Empire",
+      "status": "matched",
+      "appIds": {
+        "ios": 6752849675,
+        "android": "com.supermarkettycoon.idle"
+      },
+      "developer": "Celestial Roads LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/1d/f4/c41df484-fc39-6888-a7c9-de04d937375d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Supermarket Tycoon Empire",
+          "appId": 6752849675
+        },
+        {
+          "title": "Idle Supermarket Tycoon - Shop",
+          "appId": 1442064951
+        },
+        {
+          "title": "Idle Farming Empire",
+          "appId": 1018795567
+        }
+      ],
+      "addedAt": "2026-10-15T23:32:00.364Z"
     }
   ],
   "approved": [

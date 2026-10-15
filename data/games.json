@@ -81078,14 +81078,16 @@
     },
     "Supermarket Tycoon Empire": {
       "appIds": {
-        "ios": "6752849675"
+        "ios": 6752849675,
+        "android": "com.supermarkettycoon.idle"
       },
       "aliases": [],
       "developer": "Celestial Roads LLC",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/1d/f4/c41df484-fc39-6888-a7c9-de04d937375d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "supermarket-tycoon-empire",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Supermarket Tycoon Empire",
@@ -149316,8 +149318,68 @@
         "ko": "Triple Crush: Sweety Elite",
         "zh-tw": "Triple Crush: Sweety Elite"
       }
+    },
+    "숨은 그림 찾기 게임: Find & Go": {
+      "appIds": {
+        "android": "com.gurupuzzle.find.go.hidden.objects"
+      },
+      "aliases": [],
+      "developer": "Guru Puzzle Game",
+      "icon": "https://play-lh.googleusercontent.com/p51TvVIQbWa6G1aeQnZZETFCV_DXxBkdnk5xmvX8cxqkD_A9HVQmCC-f-cKnS0uu31Zg_9eW1uzXPuHuJpMT",
+      "slug": "숨은-그림-찾기-게임-find-go",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "숨은 그림 찾기 게임: Find & Go",
+        "ja": "アイテム探しゲーム：Find & Go"
+      }
+    },
+    "覺醒吧主公：像素重生": {
+      "appIds": {
+        "android": "com.xylytkxy.gp"
+      },
+      "aliases": [],
+      "developer": "LIGHTYEAR INTERACTIVE LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/j6XwRThIFvNSIosFA91atuhLqy8i-GGKykJ0yurENzaDlPXdKJk1sC6vFkiT3lVBPw_rCxRDexwk-lwf0Uu3Yg",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "覺醒吧主公：像素重生",
+        "zh-tw": "覺醒吧主公：像素重生"
+      }
+    },
+    "仙界飛升錄": {
+      "appIds": {
+        "android": "com.xjfslqygg.goo"
+      },
+      "aliases": [],
+      "developer": "广州穗游",
+      "icon": "https://play-lh.googleusercontent.com/4-9qz1rtvlP-ibxCwlEqcZ5XIWd3fWSZS_8e_IdY4Ph5BrO3GkzXY0ZSOGXPSsdVYVt__NIXkCe1THSFlf8vZA",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "仙界飛升錄",
+        "zh-tw": "仙界飛升錄"
+      }
+    },
+    "Tales of Eternia Remastered": {
+      "appIds": {
+        "steam": "3470960"
+      },
+      "aliases": [],
+      "developer": "TOSE CO., LTD.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3470960/21ef3b5cc2964971d83b1c9957d557a0a8a5a680/capsule_231x87.jpg?t=1792101885",
+      "slug": "tales-of-eternia-remastered",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-16",
-  "totalGames": 8662
+  "totalGames": 8666
 }
