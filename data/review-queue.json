@@ -43738,13 +43738,19 @@
     },
     {
       "title": "히어로즈 테일즈2",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6800226885
+        "ios": 6800226885,
+        "android": "com.tg.ysczg.kr"
       },
       "developer": "Sunflower Network Technology Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/ec/8e/67ec8ec7-9731-032b-be11-2f28b5ad29d5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "히어로즈 테일즈2",
+          "appId": 6800226885
+        }
+      ],
       "addedAt": "2026-10-14T19:09:54.391Z"
     },
     {
@@ -44014,6 +44020,104 @@
         }
       ],
       "addedAt": "2026-10-15T17:35:26.827Z"
+    },
+    {
+      "title": "세피루스 키우기",
+      "status": "single",
+      "appIds": {
+        "android": "com.DreamIdeaSoft.Sephiruth_Idle"
+      },
+      "developer": "DREAMIDEASOFT",
+      "icon": "https://play-lh.googleusercontent.com/DSWnWT7l7WXwO-2VT3cPs2Xv1JsLw9LjIkcT70GjtGTYsDJcLLZKtAeK2LWHekQqz_WzDJCzcHUtELLmF4-8",
+      "searchResults": [],
+      "addedAt": "2026-10-15T20:51:42.046Z"
+    },
+    {
+      "title": "탈출 게임 Past Floor",
+      "status": "single",
+      "appIds": {
+        "android": "org.unity.jamms.elevator"
+      },
+      "developer": "Jammsworks Inc.",
+      "icon": "https://play-lh.googleusercontent.com/EAzrfHZ0t5ZAKGQAvnWzHsYWjOCyw8rkdvmvcCtdAYL8n6L0KPND7cVxxyqVs7xxHTB-gOTrjmL8vOTyYBpCLA",
+      "searchResults": [
+        {
+          "title": "방탈출:공포 무한의 계단 모험(Escape Game)",
+          "appId": 1378006884
+        },
+        {
+          "title": "100층탈출:Doors&Rooms Escape Game",
+          "appId": 1289578157
+        },
+        {
+          "title": "방탈출:겨울 퍼즐 탈출 게임(Puzzle Game)",
+          "appId": 1450786954
+        }
+      ],
+      "addedAt": "2026-10-15T20:51:43.229Z"
+    },
+    {
+      "title": "Category Match Solitaire",
+      "status": "matched",
+      "appIds": {
+        "android": "puzzle.topic.match.card.sort",
+        "ios": 6786663314
+      },
+      "developer": "kiwilab",
+      "icon": "https://play-lh.googleusercontent.com/qsr_M0s0Z0MeQrpHJGeT6hKXKcidjvtfionM_KuaymcdDIkeH804qXwY0v7JKCW4cCmEq8HY_eVwjemcmSZpZX0",
+      "searchResults": [
+        {
+          "title": "Category Match: Solitaire",
+          "appId": 6786663314
+        },
+        {
+          "title": "단어 솔리테어: 카드 퍼즐게임",
+          "appId": 6748950306
+        },
+        {
+          "title": "단어 연상 - 단어잇기 낱말 퀴즈 퍼즐게임",
+          "appId": 6755509102
+        }
+      ],
+      "addedAt": "2026-10-15T20:51:43.648Z"
+    },
+    {
+      "title": "Meowpop: Cat Sort Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "jam.bubble.sort"
+      },
+      "developer": "Hyper Surfer Games",
+      "icon": "https://play-lh.googleusercontent.com/GKiKSvM41i-Ok9JjP4yldrkj8Y3XN_k0AzwaWzgk4OdX83wXg2kipiPo24VnLopACeLYPUPkLwpv_UId0aYX4co",
+      "searchResults": [],
+      "addedAt": "2026-10-15T20:51:43.991Z"
+    },
+    {
+      "title": "Puppydoku! Sudoku Brain Master",
+      "status": "single",
+      "appIds": {
+        "android": "com.u3.ixdg.corgidoku"
+      },
+      "developer": "CozyTap Studio",
+      "icon": "https://play-lh.googleusercontent.com/xTfl0FH0e6CSfct36TG03cKl4EOHnktFSdowhD0skDJmw9h_L_vCuj2XT8mfaj7Ao7iDkWANwjghs7-VC0EwXA",
+      "searchResults": [
+        {
+          "title": "Pupdoku: Dog Sudoku Game",
+          "appId": 6776662713
+        }
+      ],
+      "addedAt": "2026-10-15T20:51:44.384Z"
+    },
+    {
+      "title": "Triple Crush: Sweety Elite",
+      "status": "single",
+      "appIds": {
+        "android": "com.Triple.Crush.Sweety.Elite"
+      },
+      "developer": "KAKATO",
+      "icon": "https://play-lh.googleusercontent.com/gIbgzgPmxMW7fT5JEHGWNeqQPK4vZn4Dj3XkuHv5njkWASsG7TrE4U8SntCPqvOT4P6pyfXwKXuYkeSTEX3kSQ",
+      "searchResults": [],
+      "addedAt": "2026-10-15T20:51:45.033Z"
     }
   ],
   "approved": [

@@ -148281,16 +148281,19 @@
     },
     "[777Real]e 七つの大罪3": {
       "appIds": {
-        "ios_jp": 6811791418
+        "ios_jp": 6811791418,
+        "android_jp": "jp.sammynet.next.ort.a0244"
       },
       "aliases": [],
       "developer": "Sammy Networks Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/92/5b/74925be5-bf9f-29a3-a155-4b52efd9fef1/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "slug": "777reale-七つの大罪3",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "en": "[777Real]e 七つの大罪3",
         "ja": "[777Real]e 七つの大罪3"
       }
     },
@@ -148776,14 +148779,16 @@
     },
     "히어로즈 테일즈2": {
       "appIds": {
-        "ios": 6800226885
+        "ios": 6800226885,
+        "android": "com.tg.ysczg.kr"
       },
       "aliases": [],
       "developer": "Sunflower Network Technology Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/ec/8e/67ec8ec7-9731-032b-be11-2f28b5ad29d5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "히어로즈-테일즈2",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "히어로즈 테일즈2"
@@ -149181,8 +149186,138 @@
       "platforms": [
         "steam"
       ]
+    },
+    "세피루스 키우기": {
+      "appIds": {
+        "android": "com.DreamIdeaSoft.Sephiruth_Idle"
+      },
+      "aliases": [],
+      "developer": "DREAMIDEASOFT",
+      "icon": "https://play-lh.googleusercontent.com/DSWnWT7l7WXwO-2VT3cPs2Xv1JsLw9LjIkcT70GjtGTYsDJcLLZKtAeK2LWHekQqz_WzDJCzcHUtELLmF4-8",
+      "slug": "세피루스-키우기",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "세피루스 키우기"
+      }
+    },
+    "ダックサバイバー": {
+      "appIds": {
+        "ios_jp": 6799009278
+      },
+      "aliases": [],
+      "developer": "JOY MOBILE NETWORK PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/a3/89/61a3898f-2517-e8c1-4e9b-c92e5ff0c304/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "ダックサバイバー",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ダックサバイバー"
+      }
+    },
+    "탈출 게임 Past Floor": {
+      "appIds": {
+        "android": "org.unity.jamms.elevator"
+      },
+      "aliases": [],
+      "developer": "Jammsworks Inc.",
+      "icon": "https://play-lh.googleusercontent.com/EAzrfHZ0t5ZAKGQAvnWzHsYWjOCyw8rkdvmvcCtdAYL8n6L0KPND7cVxxyqVs7xxHTB-gOTrjmL8vOTyYBpCLA",
+      "slug": "탈출-게임-past-floor",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "탈출 게임 Past Floor",
+        "ja": "脱出ゲーム Past Floor"
+      }
+    },
+    "Category Match Solitaire": {
+      "appIds": {
+        "android": "puzzle.topic.match.card.sort",
+        "ios": 6786663314
+      },
+      "aliases": [
+        "Category Match: Solitaire"
+      ],
+      "developer": "kiwilab",
+      "icon": "https://play-lh.googleusercontent.com/qsr_M0s0Z0MeQrpHJGeT6hKXKcidjvtfionM_KuaymcdDIkeH804qXwY0v7JKCW4cCmEq8HY_eVwjemcmSZpZX0",
+      "slug": "category-match-solitaire",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Category Match Solitaire",
+        "ja": "Category Match Solitaire"
+      }
+    },
+    "Meowpop: Cat Sort Puzzle": {
+      "appIds": {
+        "android": "jam.bubble.sort"
+      },
+      "aliases": [],
+      "developer": "Hyper Surfer Games",
+      "icon": "https://play-lh.googleusercontent.com/GKiKSvM41i-Ok9JjP4yldrkj8Y3XN_k0AzwaWzgk4OdX83wXg2kipiPo24VnLopACeLYPUPkLwpv_UId0aYX4co",
+      "slug": "meowpop-cat-sort-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Meowpop: Cat Sort Puzzle",
+        "ja": "Meowpop: Cat Sort Puzzle"
+      }
+    },
+    "Puppydoku! Sudoku Brain Master": {
+      "appIds": {
+        "android": "com.u3.ixdg.corgidoku"
+      },
+      "aliases": [],
+      "developer": "CozyTap Studio",
+      "icon": "https://play-lh.googleusercontent.com/xTfl0FH0e6CSfct36TG03cKl4EOHnktFSdowhD0skDJmw9h_L_vCuj2XT8mfaj7Ao7iDkWANwjghs7-VC0EwXA",
+      "slug": "puppydoku-sudoku-brain-master",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Puppydoku! Sudoku Brain Master",
+        "ja": "Puppydoku! Sudoku Brain Master"
+      }
+    },
+    "我要开网吧": {
+      "appIds": {
+        "ios_cn": 6796303300
+      },
+      "aliases": [],
+      "developer": "泽威 李",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/37/01/f137010a-1afc-c9a8-8162-7f9257d9f007/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "我要开网吧",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "我要开网吧",
+        "zh-cn": "我要开网吧"
+      }
+    },
+    "Triple Crush: Sweety Elite": {
+      "appIds": {
+        "android": "com.Triple.Crush.Sweety.Elite"
+      },
+      "aliases": [],
+      "developer": "KAKATO",
+      "icon": "https://play-lh.googleusercontent.com/gIbgzgPmxMW7fT5JEHGWNeqQPK4vZn4Dj3XkuHv5njkWASsG7TrE4U8SntCPqvOT4P6pyfXwKXuYkeSTEX3kSQ",
+      "slug": "triple-crush-sweety-elite",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Triple Crush: Sweety Elite",
+        "zh-tw": "Triple Crush: Sweety Elite"
+      }
     }
   },
   "lastUpdated": "2026-10-16",
-  "totalGames": 8654
+  "totalGames": 8662
 }
