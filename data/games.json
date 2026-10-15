@@ -49450,7 +49450,7 @@
     },
     "7,200 Premier Pack - Rainbow Six Siege": {
       "appIds": {
-        "steam": "4770140"
+        "steam": "4893530"
       },
       "aliases": [],
       "developer": "Ubisoft Montreal",
@@ -49458,8 +49458,7 @@
       "slug": "7200-premier-pack-rainbow-six-siege",
       "platforms": [
         "steam"
-      ],
-      "names": {}
+      ]
     },
     "Arrow Pro 3D": {
       "appIds": {
@@ -148520,16 +148519,19 @@
     },
     "蠟筆小新：GO！": {
       "appIds": {
-        "ios_tw": 6761524901
+        "ios_tw": 6761524901,
+        "android": "com.fivexgames.shin.tc"
       },
       "aliases": [],
       "developer": "5X Entertainment Company Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/68/d9/8a/68d98ad5-88d4-12eb-db7c-60d6400b05e4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "slug": "蠟筆小新go",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "蠟筆小新：GO！",
         "zh-tw": "蠟筆小新：GO！"
       }
     },
@@ -149136,8 +149138,51 @@
       "platforms": [
         "steam"
       ]
+    },
+    "나의 축구영웅 키우기": {
+      "appIds": {
+        "ios": 6819031624
+      },
+      "aliases": [],
+      "developer": "HANNA KWON",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/83/65/e8836505-6111-f3e1-4c15-f2f522293a27/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "나의-축구영웅-키우기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "나의 축구영웅 키우기"
+      }
+    },
+    "Tank Busters: Cannon Battle": {
+      "appIds": {
+        "android": "com.tank.busters"
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/W4-qL3Lppsq9xL37hg0DDVSKKNieBNx9zVGMjyUdbs7eU2bGri5k-a1FLXaGnCC_BRFPh209WjnQhQRsh6VBTZ0",
+      "slug": "tank-busters-cannon-battle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Tank Busters: Cannon Battle",
+        "en": "Tank Busters: Cannon Battle"
+      }
+    },
+    "Dupery: A Game of Solo Deduction": {
+      "appIds": {
+        "steam": "3845070"
+      },
+      "aliases": [],
+      "developer": "Gilded Rune Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3845070/fb9d8416c09d1bf076b4af741bd59aa5a560b8f4/capsule_231x87_alt_assets_1.jpg?t=1792079628",
+      "slug": "dupery-a-game-of-solo-deduction",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-15",
-  "totalGames": 8651
+  "lastUpdated": "2026-10-16",
+  "totalGames": 8654
 }

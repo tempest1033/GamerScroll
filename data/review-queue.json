@@ -43979,6 +43979,41 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7b/52/e0/7b52e011-788b-1801-dc0b-1c72def8f351/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-15T12:24:51.500Z"
+    },
+    {
+      "title": "나의 축구영웅 키우기",
+      "status": "single",
+      "appIds": {
+        "ios": 6819031624
+      },
+      "developer": "HANNA KWON",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/83/65/e8836505-6111-f3e1-4c15-f2f522293a27/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-15T17:35:26.355Z"
+    },
+    {
+      "title": "Tank Busters: Cannon Battle",
+      "status": "single",
+      "appIds": {
+        "android": "com.tank.busters"
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/W4-qL3Lppsq9xL37hg0DDVSKKNieBNx9zVGMjyUdbs7eU2bGri5k-a1FLXaGnCC_BRFPh209WjnQhQRsh6VBTZ0",
+      "searchResults": [
+        {
+          "title": "Smash Fest!",
+          "appId": 6748084174
+        },
+        {
+          "title": "Royal Smash! - Physics Puzzle",
+          "appId": 6780891673
+        },
+        {
+          "title": "Google",
+          "appId": 284815942
+        }
+      ],
+      "addedAt": "2026-10-15T17:35:26.827Z"
     }
   ],
   "approved": [
