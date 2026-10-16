@@ -44328,6 +44328,71 @@
         }
       ],
       "addedAt": "2026-10-16T17:12:22.396Z"
+    },
+    {
+      "title": "왓더뼈킹 : 20000뽑기 FLEX!",
+      "status": "single",
+      "appIds": {
+        "android": "com.teamquest.skull_GP"
+      },
+      "developer": "TeamQuest",
+      "icon": "https://play-lh.googleusercontent.com/Fdc8QhsKjEVI2InFTu9nWE2tMQzd81xLKyorQe1X-e47AdYxGkjeDs2_7SU0VEJ8xSZZl9udSHzz3d-KgiJYMEE",
+      "searchResults": [
+        {
+          "title": "왓더뼈킹",
+          "appId": 6785339469
+        }
+      ],
+      "addedAt": "2026-10-16T20:24:55.555Z"
+    },
+    {
+      "title": "나의 축구영웅 키우기: 축구 선수 키우기 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.eonku.myfootballhero"
+      },
+      "developer": "오늘란",
+      "icon": "https://play-lh.googleusercontent.com/tWoqUMyWQ9mmaaxR03Pb4buaW7UCX0ceXLU8SPkverwUeVodS6qabZZR4akQ0v33uFwoWOaE9X_oZmO_a3Qrhg",
+      "searchResults": [
+        {
+          "title": "나의 축구영웅 키우기",
+          "appId": 6819031624
+        }
+      ],
+      "addedAt": "2026-10-16T20:24:55.834Z"
+    },
+    {
+      "title": "행성파괴 냥냐냥: 머지 서바이버",
+      "status": "matched",
+      "appIds": {
+        "android": "com.superrabbitgames.globalminicrafts",
+        "ios": 6803396660
+      },
+      "developer": "Veroplay",
+      "icon": "https://play-lh.googleusercontent.com/ORkpDnEaS09jpXY2XZg_RUBDWkvKKziYShIuT1NrJMohGkpS-XsgIFwvGY1H09tIpXALMEvBnisKWmy_XbR8RA",
+      "searchResults": [
+        {
+          "title": "행성파괴 냥냐냥: 머지 서바이버",
+          "appId": 6803396660
+        }
+      ],
+      "addedAt": "2026-10-16T20:24:56.182Z"
+    },
+    {
+      "title": "主公來點將",
+      "status": "single",
+      "appIds": {
+        "android": "com.biglord.gp.tw"
+      },
+      "developer": "FUN TOO GAMES",
+      "icon": "https://play-lh.googleusercontent.com/fbO0c9fkxdCjhvPTBE9_Gv66sERGqtzUssYjW5G8xZdnUOPXxfzLW7DahA9-ntgY6Fos0Kyw7uhqRmXWR8SR8bQ",
+      "searchResults": [
+        {
+          "title": "新婚派对",
+          "appId": 1612229940
+        }
+      ],
+      "addedAt": "2026-10-16T20:24:57.096Z"
     }
   ],
   "approved": [

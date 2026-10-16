@@ -149214,16 +149214,19 @@
     },
     "ダックサバイバー": {
       "appIds": {
-        "ios_jp": 6799009278
+        "ios_jp": 6799009278,
+        "android": "com.mrtgd2.jp.and"
       },
       "aliases": [],
       "developer": "JOY MOBILE NETWORK PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/a3/89/61a3898f-2517-e8c1-4e9b-c92e5ff0c304/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "ダックサバイバー",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "ダックサバイバー",
         "ja": "ダックサバイバー"
       }
     },
@@ -149656,8 +149659,83 @@
       "names": {
         "ja": "[グリパチ]スマスロ 新鬼武者3"
       }
+    },
+    "왓더뼈킹 : 20000뽑기 FLEX!": {
+      "appIds": {
+        "android": "com.teamquest.skull_GP"
+      },
+      "aliases": [],
+      "developer": "TeamQuest",
+      "icon": "https://play-lh.googleusercontent.com/Fdc8QhsKjEVI2InFTu9nWE2tMQzd81xLKyorQe1X-e47AdYxGkjeDs2_7SU0VEJ8xSZZl9udSHzz3d-KgiJYMEE",
+      "slug": "왓더뼈킹-20000뽑기-flex",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "왓더뼈킹 : 20000뽑기 FLEX!"
+      }
+    },
+    "나의 축구영웅 키우기: 축구 선수 키우기 게임": {
+      "appIds": {
+        "android": "com.eonku.myfootballhero"
+      },
+      "aliases": [],
+      "developer": "오늘란",
+      "icon": "https://play-lh.googleusercontent.com/tWoqUMyWQ9mmaaxR03Pb4buaW7UCX0ceXLU8SPkverwUeVodS6qabZZR4akQ0v33uFwoWOaE9X_oZmO_a3Qrhg",
+      "slug": "나의-축구영웅-키우기-축구-선수-키우기-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "나의 축구영웅 키우기: 축구 선수 키우기 게임"
+      }
+    },
+    "행성파괴 냥냐냥: 머지 서바이버": {
+      "appIds": {
+        "android": "com.superrabbitgames.globalminicrafts",
+        "ios": 6803396660
+      },
+      "aliases": [],
+      "developer": "Veroplay",
+      "icon": "https://play-lh.googleusercontent.com/ORkpDnEaS09jpXY2XZg_RUBDWkvKKziYShIuT1NrJMohGkpS-XsgIFwvGY1H09tIpXALMEvBnisKWmy_XbR8RA",
+      "slug": "행성파괴-냥냐냥-머지-서바이버",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "행성파괴 냥냐냥: 머지 서바이버"
+      }
+    },
+    "主公來點將": {
+      "appIds": {
+        "android": "com.biglord.gp.tw"
+      },
+      "aliases": [],
+      "developer": "FUN TOO GAMES",
+      "icon": "https://play-lh.googleusercontent.com/fbO0c9fkxdCjhvPTBE9_Gv66sERGqtzUssYjW5G8xZdnUOPXxfzLW7DahA9-ntgY6Fos0Kyw7uhqRmXWR8SR8bQ",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "主公來點將",
+        "zh-tw": "主公來點將"
+      }
+    },
+    "Doomed Otaku": {
+      "appIds": {
+        "steam": "3318210"
+      },
+      "aliases": [],
+      "developer": "KiwiSaurus",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3318210/7b90da1d75535cddc861c8e4428ce441465c5ed7/capsule_231x87.jpg?t=1792126838",
+      "slug": "doomed-otaku",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-17",
-  "totalGames": 8684
+  "totalGames": 8689
 }
