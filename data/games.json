@@ -147717,14 +147717,18 @@
     },
     "인보커스: 타이탄 레거시": {
       "appIds": {
-        "android": "hitzone.anima.spirit.guardians"
+        "android": "hitzone.anima.spirit.guardians",
+        "ios_us": "6755186220"
       },
-      "aliases": [],
+      "aliases": [
+        "Invokers: Titan Legacy"
+      ],
       "developer": "HitZone Games Inc.",
       "icon": "https://play-lh.googleusercontent.com/KDktut_NByIwOyaJg7KdOZqRoUfRHYBXn5X9aSiU-1AW84iTFcyxZ1dBPWwUMbyxMR0EQhAGIuttzJ04NhcfSQ",
       "slug": "인보커스-타이탄-레거시",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "인보커스: 타이탄 레거시",
@@ -149734,8 +149738,40 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Goods Sorter": {
+      "appIds": {
+        "android": "com.gimica.goodssorter"
+      },
+      "aliases": [],
+      "developer": "Gimica GmbH",
+      "icon": "https://play-lh.googleusercontent.com/ucie62-F3YiNkyhwQo-mwYNwmRlWmwOF9MtdwQF6E91YG8rfPD7QirNRRWLtIBsemPtI7vlkot-2TeJY01eqmek",
+      "slug": "goods-sorter",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Goods Sorter",
+        "en": "Goods Sorter"
+      }
+    },
+    "Mech Survivor": {
+      "appIds": {
+        "android": "com.gameyk.szmyus"
+      },
+      "aliases": [],
+      "developer": "Playbest Limited",
+      "icon": "https://play-lh.googleusercontent.com/Wzi5UEwCtpz2HMmvAR5UNFLTYS31UvHZJKCZhUdVXgMiKTOH5bEFudd_RQqAX8AMhyhnOX-EAh85ZZbBrZLezQ",
+      "slug": "mech-survivor",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Mech Survivor",
+        "zh-tw": "Mech Survivor"
+      }
     }
   },
   "lastUpdated": "2026-10-17",
-  "totalGames": 8689
+  "totalGames": 8691
 }

@@ -44393,6 +44393,54 @@
         }
       ],
       "addedAt": "2026-10-16T20:24:57.096Z"
+    },
+    {
+      "title": "Goods Sorter",
+      "status": "single",
+      "appIds": {
+        "android": "com.gimica.goodssorter"
+      },
+      "developer": "Gimica GmbH",
+      "icon": "https://play-lh.googleusercontent.com/ucie62-F3YiNkyhwQo-mwYNwmRlWmwOF9MtdwQF6E91YG8rfPD7QirNRRWLtIBsemPtI7vlkot-2TeJY01eqmek",
+      "searchResults": [
+        {
+          "title": "상품 정렬: 매치 3 퍼즐 - Goods Sorting",
+          "appId": 6482849843
+        },
+        {
+          "title": "Goods Sort™ - 트리플 퍼즐 정리게임 3D",
+          "appId": 1658958534
+        },
+        {
+          "title": "상품 정리 3D: 매치 게임",
+          "appId": 6499306806
+        }
+      ],
+      "addedAt": "2026-10-16T23:14:05.733Z"
+    },
+    {
+      "title": "Mech Survivor",
+      "status": "single",
+      "appIds": {
+        "android": "com.gameyk.szmyus"
+      },
+      "developer": "Playbest Limited",
+      "icon": "https://play-lh.googleusercontent.com/Wzi5UEwCtpz2HMmvAR5UNFLTYS31UvHZJKCZhUdVXgMiKTOH5bEFudd_RQqAX8AMhyhnOX-EAh85ZZbBrZLezQ",
+      "searchResults": [
+        {
+          "title": "Mecha Survivor",
+          "appId": 6451382457
+        },
+        {
+          "title": "Last Mech Survivor Online",
+          "appId": 6742560179
+        },
+        {
+          "title": "로봇 서바이버: 메카 배틀",
+          "appId": 6744367269
+        }
+      ],
+      "addedAt": "2026-10-16T23:14:06.275Z"
     }
   ],
   "approved": [
