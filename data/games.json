@@ -76501,14 +76501,16 @@
     },
     "開攤啦！": {
       "appIds": {
-        "android": "com.yiuying.tanshou"
+        "android": "com.yiuying.tanshou",
+        "ios": 6809145427
       },
       "aliases": [],
       "developer": "里育科技",
       "icon": "https://play-lh.googleusercontent.com/i40WUxduKylp3V48tKqCJmifOMXNWQbWKBdUQwjNvexAoXYwRw47Y7sfFCX_q01i_6lDE0q8pr7U4TeKHynapg",
       "slug": "開攤啦",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "開攤啦！",
@@ -149394,8 +149396,102 @@
         "ko": "Jiudoku! 啾啾數獨：可愛小鳥解謎",
         "zh-tw": "Jiudoku! 啾啾數獨：可愛小鳥解謎"
       }
+    },
+    "마법소녀 키우기 - 5.5주년": {
+      "appIds": {
+        "ios": 6450410750
+      },
+      "aliases": [],
+      "developer": "Mind Blossom",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9d/a7/7f/9da77f06-aba4-b581-ceb3-dcf60e49a8a4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "마법소녀-키우기-55주년",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "마법소녀 키우기 - 5.5주년"
+      }
+    },
+    "다쏘냥: 한손 고양이 캐주얼 슈팅": {
+      "appIds": {
+        "ios": 6787348459
+      },
+      "aliases": [],
+      "developer": "Highway Heroes",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7f/9f/0e/7f9f0e10-4c4b-e03c-d224-8c013e1de9db/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "다쏘냥-한손-고양이-캐주얼-슈팅",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "다쏘냥: 한손 고양이 캐주얼 슈팅"
+      }
+    },
+    "렉시오 모바일": {
+      "appIds": {
+        "ios": 6748591012
+      },
+      "aliases": [],
+      "developer": "DIDANONIA Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c3/e8/a8/c3e8a835-c3a3-cf04-d212-0cbe13364867/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "렉시오-모바일",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "렉시오 모바일"
+      }
+    },
+    "80억 분의 1 - 인생 시뮬레이터": {
+      "appIds": {
+        "ios": 6821576483
+      },
+      "aliases": [],
+      "developer": "HAYO (Apps)",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9e/32/28/9e32280a-7304-a561-ed16-15673a57300e/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "80억-분의-1-인생-시뮬레이터",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "80억 분의 1 - 인생 시뮬레이터",
+        "ja": "80億分の1 - 人生シミュレーター",
+        "zh-tw": "80億分之一 - 人生模擬器"
+      }
+    },
+    "오! 홀!(O! Hole!) – 블랙홀 먹기 게임": {
+      "appIds": {
+        "ios": 6762259775
+      },
+      "aliases": [],
+      "developer": "SayGames LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/cd/aa/34cdaae4-29b3-7e26-e845-c3dd7c62d276/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "오-홀o-hole-블랙홀-먹기-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "오! 홀!(O! Hole!) – 블랙홀 먹기 게임",
+        "en": "O! Hole! - Eating Game"
+      }
+    },
+    "Santa Color By Number Games": {
+      "appIds": {
+        "ios": 6810562342
+      },
+      "aliases": [],
+      "developer": "HK PIXO TECHNOLOGY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/4b/01/944b01b7-c75b-8806-06fc-8ddeaae65362/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "santa-color-by-number-games",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Santa Color By Number Games",
+        "en": "Santa Color By Number Games"
+      }
     }
   },
   "lastUpdated": "2026-10-16",
-  "totalGames": 8667
+  "totalGames": 8673
 }
