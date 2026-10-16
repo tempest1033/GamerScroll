@@ -149490,8 +149490,123 @@
         "ko": "Santa Color By Number Games",
         "en": "Santa Color By Number Games"
       }
+    },
+    "EGGRYPTO: Hatch! Own! Monster": {
+      "appIds": {
+        "ios_jp": "1450911855"
+      },
+      "aliases": [
+        "エグリプト 世界に一体だけのモンスターを育成して戦うRPG"
+      ],
+      "developer": "Kyuzan Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/26/b9/c4/26b9c4a1-e5e6-ff84-6da5-949b6afe99e4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "eggrypto-hatch-own-monster",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "EGGRYPTO: Hatch! Own! Monster",
+        "ja": "エグリプト 世界に一体だけのモンスターを育成して戦うRPG"
+      }
+    },
+    "용사는 건물주 - 힐링 방치형 RPG": {
+      "appIds": {
+        "android": "com.codemon.HeroLandlord"
+      },
+      "aliases": [],
+      "developer": "CODEMON",
+      "icon": "https://play-lh.googleusercontent.com/9BH4fXj-KvosAGTHx0X9ulFzhlSpL965l0cTQRyapAb06_WOiJMMgkTMiVcA7AD5xSJqz2OLtqoD03-3amKCXg",
+      "slug": "용사는-건물주-힐링-방치형-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "용사는 건물주 - 힐링 방치형 RPG"
+      }
+    },
+    "霸海争锋": {
+      "appIds": {
+        "ios_cn": 6799914102
+      },
+      "aliases": [],
+      "developer": "ALLBY MUSIC LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e2/d9/b9/e2d9b91b-4841-5fd7-2f24-d1ac8debcebb/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "霸海争锋",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "霸海争锋"
+      }
+    },
+    "失落城堡": {
+      "appIds": {
+        "ios_cn": 1408526664
+      },
+      "aliases": [],
+      "developer": "Xiamen Leiting Network Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/c3/b1/54c3b123-cb25-a391-2689-79fd7ef0a505/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "失落城堡",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "失落城堡"
+      }
+    },
+    "仙醒九霄": {
+      "appIds": {
+        "ios": 6802202841
+      },
+      "aliases": [],
+      "developer": "AVCI AHMET ISKAN",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/86/f9/3286f9f7-161e-9ba3-50a2-b4182f9047c3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "仙醒九霄",
+        "zh-tw": "仙醒九霄"
+      }
+    },
+    "Chained Beasts": {
+      "appIds": {
+        "steam": "3569420"
+      },
+      "aliases": [],
+      "developer": "Featherweight Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3569420/37a1f130512c4537b4a2b556bd104adb710bb0c5/capsule_231x87.jpg?t=1792082632",
+      "slug": "chained-beasts",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Maldhalla": {
+      "appIds": {
+        "steam": "4385780"
+      },
+      "aliases": [],
+      "developer": "eyejoker",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4385780/bc17590853b3ab4147b55271bfe66b801711b6ee/capsule_231x87.jpg?t=1792144794",
+      "slug": "maldhalla",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Brick by Brick: Tidy Up the Small Town!": {
+      "appIds": {
+        "steam": "5228920"
+      },
+      "aliases": [],
+      "developer": "PaperPixel Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5228920/999d76679b85624ff8d765b9f3e748073e3ee394/capsule_231x87.jpg?t=1792140551",
+      "slug": "brick-by-brick-tidy-up-the-small-town",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-16",
-  "totalGames": 8673
+  "totalGames": 8681
 }

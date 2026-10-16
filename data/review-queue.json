@@ -44275,6 +44275,41 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/4b/01/944b01b7-c75b-8806-06fc-8ddeaae65362/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-16T07:49:04.673Z"
+    },
+    {
+      "title": "용사는 건물주 - 힐링 방치형 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.codemon.HeroLandlord"
+      },
+      "developer": "CODEMON",
+      "icon": "https://play-lh.googleusercontent.com/9BH4fXj-KvosAGTHx0X9ulFzhlSpL965l0cTQRyapAb06_WOiJMMgkTMiVcA7AD5xSJqz2OLtqoD03-3amKCXg",
+      "searchResults": [
+        {
+          "title": "용사식당",
+          "appId": 1442183132
+        },
+        {
+          "title": "리틀 팜 우주여행 방치 클리커 미니어처 방치형 게임",
+          "appId": 1622143915
+        },
+        {
+          "title": "CocoMico Quest 고양이 방치형 RPG",
+          "appId": 6785526320
+        }
+      ],
+      "addedAt": "2026-10-16T12:58:28.583Z"
+    },
+    {
+      "title": "仙醒九霄",
+      "status": "single",
+      "appIds": {
+        "ios": 6802202841
+      },
+      "developer": "AVCI AHMET ISKAN",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/86/f9/3286f9f7-161e-9ba3-50a2-b4182f9047c3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-16T12:58:29.659Z"
     }
   ],
   "approved": [

@@ -1,14 +1,10 @@
 {
-  "updatedAt": "2026-10-15T12:23:47.126Z",
+  "updatedAt": "2026-10-16T12:57:16.139Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 30
-    },
-    {
-      "slug": "이클립스-더-어웨이크닝",
-      "views": 20
+      "views": 28
     },
     {
       "slug": "주술회전-팬텀-퍼레이드",
@@ -19,39 +15,23 @@
       "views": 17
     },
     {
+      "slug": "이클립스-더-어웨이크닝",
+      "views": 15
+    },
+    {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 16
+      "views": 15
     },
     {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 11
-    },
-    {
-      "slug": "레이싱-마스터",
       "views": 10
     },
     {
-      "slug": "블루-프로토콜-스타-레조넌스",
+      "slug": "레이싱-마스터",
       "views": 9
     },
     {
-      "slug": "barotrauma",
-      "views": 8
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 8
-    },
-    {
-      "slug": "loop-master-컬러-정렬-퍼즐",
-      "views": 8
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 8
-    },
-    {
-      "slug": "pixel-flow",
+      "slug": "palworld",
       "views": 8
     },
     {
@@ -59,24 +39,44 @@
       "views": 8
     },
     {
-      "slug": "sakura-school-simulator",
-      "views": 8
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
-      "views": 8
-    },
-    {
-      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
-      "views": 8
-    },
-    {
       "slug": "리니지m",
       "views": 8
     },
     {
-      "slug": "매치-팩토리match-factory",
+      "slug": "블루-프로토콜-스타-레조넌스",
       "views": 8
+    },
+    {
+      "slug": "에이지-오브-엠파이어-모바일",
+      "views": 8
+    },
+    {
+      "slug": "탈출-게임-암스테르담",
+      "views": 8
+    },
+    {
+      "slug": "arrow-pro-3d",
+      "views": 7
+    },
+    {
+      "slug": "barotrauma",
+      "views": 7
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 7
+    },
+    {
+      "slug": "loop-master-컬러-정렬-퍼즐",
+      "views": 7
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 7
+    },
+    {
+      "slug": "pixel-flow",
+      "views": 7
     }
   ]
 }
