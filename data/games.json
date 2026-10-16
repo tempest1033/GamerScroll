@@ -17382,14 +17382,16 @@
     },
     "Arrow Puzzle - 화살퍼즐게임": {
       "appIds": {
-        "android": "com.easybrain.arrow.puzzle.game"
+        "android": "com.easybrain.arrow.puzzle.game",
+        "ios": 6755482314
       },
       "aliases": [],
       "developer": "Easybrain",
       "icon": "https://play-lh.googleusercontent.com/b--9J_VPY-VBj6ZAYDkXBZIni5JSi44_tFOeJ_HW3uVnxw1XNIkUvHF8qT9V6aLzyK_W4U5EAlDoofjjOfqWXQ",
       "slug": "arrow-puzzle-화살퍼즐게임",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "Arrow Puzzle - 화살퍼즐게임",
@@ -149091,16 +149093,20 @@
     },
     "Girls Echo": {
       "appIds": {
-        "ios_us": 6797805969
+        "ios_us": 6797805969,
+        "android": "com.girlsecho.gp",
+        "ios": 6797805969
       },
       "aliases": [],
       "developer": "HOWLYO HONG KONG LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/50/b3/6d50b3d3-dfd4-2d54-d004-33054cea92b5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "girls-echo",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "Girls Echo",
         "en": "Girls Echo"
       }
     },
@@ -149605,8 +149611,53 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ことば橋 - 言葉で橋をかける": {
+      "appIds": {
+        "ios_jp": 6821785946
+      },
+      "aliases": [],
+      "developer": "CURRY CROQUETTE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/80/85/518085c6-61fb-2730-7aa1-f6602e2e970f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ことば橋-言葉で橋をかける",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ことば橋 - 言葉で橋をかける"
+      }
+    },
+    "全速旋回!!ビクトリーボート": {
+      "appIds": {
+        "ios_jp": 6821248978
+      },
+      "aliases": [],
+      "developer": "KOKI HITORA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/57/cb/75/57cb7567-f1b2-26b0-4455-4a5ae8db1422/AppIcon-1x_U007emarketing-0-6-0-85-220-0.png/512x512bb.jpg",
+      "slug": "全速旋回ビクトリーボート",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "全速旋回!!ビクトリーボート"
+      }
+    },
+    "[グリパチ]スマスロ 新鬼武者3": {
+      "appIds": {
+        "ios_jp": 6775338234
+      },
+      "aliases": [],
+      "developer": "Commseed Corporation",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/97/3f/cf973f02-949d-72eb-ab02-6a079380dcf4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "グリパチスマスロ-新鬼武者3",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[グリパチ]スマスロ 新鬼武者3"
+      }
     }
   },
-  "lastUpdated": "2026-10-16",
-  "totalGames": 8681
+  "lastUpdated": "2026-10-17",
+  "totalGames": 8684
 }

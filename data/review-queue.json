@@ -44310,6 +44310,24 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/86/f9/3286f9f7-161e-9ba3-50a2-b4182f9047c3/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-16T12:58:29.659Z"
+    },
+    {
+      "title": "Girls Echo",
+      "status": "matched",
+      "appIds": {
+        "ios_us": 6797805969,
+        "android": "com.girlsecho.gp",
+        "ios": 6797805969
+      },
+      "developer": "HOWLYO HONG KONG LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/50/b3/6d50b3d3-dfd4-2d54-d004-33054cea92b5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Girls Echo",
+          "appId": 6797805969
+        }
+      ],
+      "addedAt": "2026-10-16T17:12:22.396Z"
     }
   ],
   "approved": [
