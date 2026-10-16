@@ -149378,8 +149378,24 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Jiudoku! 啾啾數獨：可愛小鳥解謎": {
+      "appIds": {
+        "android": "com.igs.jiudoku.aos"
+      },
+      "aliases": [],
+      "developer": "GAMEJOY TECHNOLOGY CO",
+      "icon": "https://play-lh.googleusercontent.com/xo7LodeRUTHw3AwBztNmWh6ypaMajW-gYhyr7QD7k_otkbGmbOebnoLSR4VOll_pyAK4DYUwxlPvn07x7XJg2w",
+      "slug": "jiudoku",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Jiudoku! 啾啾數獨：可愛小鳥解謎",
+        "zh-tw": "Jiudoku! 啾啾數獨：可愛小鳥解謎"
+      }
     }
   },
   "lastUpdated": "2026-10-16",
-  "totalGames": 8666
+  "totalGames": 8667
 }
