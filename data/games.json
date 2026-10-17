@@ -149941,8 +149941,55 @@
         "ko": "星壤計畫",
         "zh-tw": "星壤計畫"
       }
+    },
+    "Neon Fill": {
+      "appIds": {
+        "android": "com.kayac.NeonFill"
+      },
+      "aliases": [],
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/IvcMgZVjzo8ksw_Oso7qkTk2qw86LpmIAO_roR7yn1BvXP5J8adLPAsrmXLVXt9f1EUDMpRK9zgMUNIF3zV8",
+      "slug": "neon-fill",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Neon Fill"
+      }
+    },
+    "웰다이버": {
+      "appIds": {
+        "android": "com.loadcomplete.welldiver"
+      },
+      "aliases": [],
+      "developer": "LoadComplete",
+      "icon": "https://play-lh.googleusercontent.com/8bJP3ldszPniJWJkoLigQ69gwes185IzXi0LBQ9aVL5sAtL8PcS-ua8ZEidIO6nCzmJpCWoyTkaWSTTmBFqx",
+      "slug": "웰다이버",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "웰다이버",
+        "zh-tw": "WellDiver"
+      }
+    },
+    "용사는 오늘도 지하근무": {
+      "appIds": {
+        "android": "net.gameduo.lb"
+      },
+      "aliases": [],
+      "developer": "Gameduo",
+      "icon": "https://play-lh.googleusercontent.com/YlTezgQjVnJn6_D32meBqCOcx6xkp9Mb2PIMAFE6mB9QKVRkaufiVpjIyTo6q4uqLpk8OCPqznf-Ns7sNQ9y4w",
+      "slug": "용사는-오늘도-지하근무",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "용사는 오늘도 지하근무",
+        "zh-tw": "勇者今天也在地下城裡上班"
+      }
     }
   },
   "lastUpdated": "2026-10-18",
-  "totalGames": 8702
+  "totalGames": 8705
 }

@@ -44550,6 +44550,52 @@
       "icon": "https://play-lh.googleusercontent.com/u4AIOTkpeYzWlDsuBb7g2qdUO6mA3M5hmKkD9fPib98Tl5Sq-cWoUJc6B8Y8OpxWXmJnD6KCJUBS3NF-chiD",
       "searchResults": [],
       "addedAt": "2026-10-17T17:43:47.835Z"
+    },
+    {
+      "title": "Neon Fill",
+      "status": "single",
+      "appIds": {
+        "android": "com.kayac.NeonFill"
+      },
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/IvcMgZVjzo8ksw_Oso7qkTk2qw86LpmIAO_roR7yn1BvXP5J8adLPAsrmXLVXt9f1EUDMpRK9zgMUNIF3zV8",
+      "searchResults": [
+        {
+          "title": "Color Fill Neon",
+          "appId": 6812315561
+        },
+        {
+          "title": "Neon Block Puzzle : Fill Board",
+          "appId": 1370949329
+        },
+        {
+          "title": "FIIL+: Global Edition",
+          "appId": 1235973012
+        }
+      ],
+      "addedAt": "2026-10-17T19:58:27.597Z"
+    },
+    {
+      "title": "웰다이버",
+      "status": "single",
+      "appIds": {
+        "android": "com.loadcomplete.welldiver"
+      },
+      "developer": "LoadComplete",
+      "icon": "https://play-lh.googleusercontent.com/8bJP3ldszPniJWJkoLigQ69gwes185IzXi0LBQ9aVL5sAtL8PcS-ua8ZEidIO6nCzmJpCWoyTkaWSTTmBFqx",
+      "searchResults": [],
+      "addedAt": "2026-10-17T19:58:27.986Z"
+    },
+    {
+      "title": "용사는 오늘도 지하근무",
+      "status": "single",
+      "appIds": {
+        "android": "net.gameduo.lb"
+      },
+      "developer": "Gameduo",
+      "icon": "https://play-lh.googleusercontent.com/YlTezgQjVnJn6_D32meBqCOcx6xkp9Mb2PIMAFE6mB9QKVRkaufiVpjIyTo6q4uqLpk8OCPqznf-Ns7sNQ9y4w",
+      "searchResults": [],
+      "addedAt": "2026-10-17T19:58:28.323Z"
     }
   ],
   "approved": [
