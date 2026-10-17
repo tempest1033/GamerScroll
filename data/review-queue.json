@@ -44596,6 +44596,31 @@
       "icon": "https://play-lh.googleusercontent.com/YlTezgQjVnJn6_D32meBqCOcx6xkp9Mb2PIMAFE6mB9QKVRkaufiVpjIyTo6q4uqLpk8OCPqznf-Ns7sNQ9y4w",
       "searchResults": [],
       "addedAt": "2026-10-17T19:58:28.323Z"
+    },
+    {
+      "title": "생존 전쟁: 더 워",
+      "status": "conflict",
+      "appIds": {
+        "android": "com.thewar.global",
+        "ios": 6812953395
+      },
+      "developer": "Cosmos game Limited",
+      "icon": "https://play-lh.googleusercontent.com/79Gr5K_tKcluU_8wcyNrlASQtmsR3ymp-qeYIFCRH8ZVYO5EiUd6gbl-7r786WzihhEqnes-dqBt9bl7BLue",
+      "searchResults": [
+        {
+          "title": "라스트 워: 서바이벌",
+          "appId": 6448786147
+        },
+        {
+          "title": "생존 전쟁: 더 워",
+          "appId": 6812953395
+        },
+        {
+          "title": "그만쫌쳐들어와: 2인 협동 실시간 디펜스",
+          "appId": 6612024302
+        }
+      ],
+      "addedAt": "2026-10-17T23:49:10.037Z"
     }
   ],
   "approved": [

@@ -149988,8 +149988,23 @@
         "ko": "용사는 오늘도 지하근무",
         "zh-tw": "勇者今天也在地下城裡上班"
       }
+    },
+    "Kardmi": {
+      "appIds": {
+        "ios_us": 6467834283
+      },
+      "aliases": [],
+      "developer": "7 Pirates Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4e/2b/c0/4e2bc049-5aaf-e893-0ec4-0802c4712ee1/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg",
+      "slug": "kardmi",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Kardmi"
+      }
     }
   },
   "lastUpdated": "2026-10-18",
-  "totalGames": 8705
+  "totalGames": 8706
 }
