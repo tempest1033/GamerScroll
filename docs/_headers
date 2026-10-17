@@ -1,0 +1,54 @@
+/styles-core.cddae620.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles-catalog.cddae620.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles-game.cddae620.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*
+  Cache-Control: public, max-age=604800
+
+/icon-*.png
+  Cache-Control: public, max-age=2592000
+
+/favicon*
+  Cache-Control: public, max-age=2592000
+
+/assets/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ja/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ja/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-cn/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-cn/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ko/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ko/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-tw/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-tw/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/feed/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/apexcharts-*.min.js
+  Cache-Control: public, max-age=31536000, immutable
+

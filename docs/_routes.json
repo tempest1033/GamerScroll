@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/games-data/*",
+    "/styles/*",
+    "/styles-*",
+    "/favicon*",
+    "/icon-*",
+    "/*.json",
+    "/robots.txt",
+    "/sitemap*",
+    "/service-worker.js",
+    "/ads.txt",
+    "/naver*"
+  ]
+}
