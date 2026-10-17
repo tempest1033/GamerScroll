@@ -149770,8 +149770,20 @@
         "ko": "Mech Survivor",
         "zh-tw": "Mech Survivor"
       }
+    },
+    "Beyond These Stars": {
+      "appIds": {
+        "steam": "2295060"
+      },
+      "aliases": [],
+      "developer": "Balancing Monkey Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2295060/c060f4df90e23f39db22875fcf89d40a73a82e8f/capsule_231x87.jpg?t=1792185225",
+      "slug": "beyond-these-stars",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-17",
-  "totalGames": 8691
+  "totalGames": 8692
 }
