@@ -149877,8 +149877,24 @@
         "ko": "Castle Rivals",
         "zh-tw": "Castle Rivals"
       }
+    },
+    "四通八达：星轨漫游": {
+      "appIds": {
+        "ios_cn": 6816929413
+      },
+      "aliases": [],
+      "developer": "桂录 殷",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/68/7f/6c/687f6ca4-cb13-d6c7-fe03-7facb80a24db/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "四通八达星轨漫游",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "四通八达：星轨漫游",
+        "zh-cn": "四通八达：星轨漫游"
+      }
     }
   },
   "lastUpdated": "2026-10-17",
-  "totalGames": 8698
+  "totalGames": 8699
 }
