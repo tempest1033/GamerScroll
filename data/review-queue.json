@@ -44245,13 +44245,19 @@
     },
     {
       "title": "80억 분의 1 - 인생 시뮬레이터",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6821576483
+        "ios": 6821576483,
+        "android": "games.hayo.whilewelive"
       },
       "developer": "HAYO (Apps)",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9e/32/28/9e32280a-7304-a561-ed16-15673a57300e/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "80억 분의 1 - 인생 시뮬레이터",
+          "appId": 6821576483
+        }
+      ],
       "addedAt": "2026-10-16T07:49:04.066Z"
     },
     {
@@ -44441,6 +44447,63 @@
         }
       ],
       "addedAt": "2026-10-16T23:14:06.275Z"
+    },
+    {
+      "title": "플리더스 - 게임테스트 리워드앱, 게임하고 돈벌어가자",
+      "status": "single",
+      "appIds": {
+        "ios": 6443593709
+      },
+      "developer": "(주)플리더스",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/43/ee/e8/43eee873-3fbb-7541-0031-18d39e4fffe1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-17T07:27:17.818Z"
+    },
+    {
+      "title": "Arrows Master: Tap Away Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.openmygame.games.android.arrows"
+      },
+      "developer": "Malpa Games",
+      "icon": "https://play-lh.googleusercontent.com/NaB5udzxiXOnH0_Zemp4jHoHnVXztbrhwZM8NswQ3NXbwIZ_ATYoqJ0b-5CXicHQAnOMf9zf3e773UETvcez",
+      "searchResults": [
+        {
+          "title": "ArrowCube - 3DPuzzle",
+          "appId": 6760325543
+        },
+        {
+          "title": "Arrow Block 3D - 슬라이드박스 큐브 화살표",
+          "appId": 6777863511
+        },
+        {
+          "title": "Arrows – Puzzle Escape",
+          "appId": 6748397500
+        }
+      ],
+      "addedAt": "2026-10-17T07:27:18.266Z"
+    },
+    {
+      "title": "CaseFile 404: Crime Mystery",
+      "status": "single",
+      "appIds": {
+        "ios": 6800370473
+      },
+      "developer": "Nex Atlas Labs",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a1/d9/25/a1d92541-e05d-cac6-e5a4-efbd4a36e7a6/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-17T07:27:19.231Z"
+    },
+    {
+      "title": "Castle Rivals",
+      "status": "single",
+      "appIds": {
+        "ios": 6758003347
+      },
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/2a/21/f82a218b-1895-b60b-a9e0-c4ff21624e17/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-17T07:27:19.492Z"
     }
   ],
   "approved": [
