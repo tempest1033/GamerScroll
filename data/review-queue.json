@@ -44515,6 +44515,41 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2c/4d/51/2c4d51ba-1cc6-22ed-a061-4522a1cdfcbc/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-17T14:49:29.653Z"
+    },
+    {
+      "title": "Slide to Wake",
+      "status": "single",
+      "appIds": {
+        "android": "com.pointandslide.puzzlegame"
+      },
+      "developer": "BC COMPUTERS, LLC",
+      "icon": "https://play-lh.googleusercontent.com/ZPdRzRVPSOYpRFWKDYx6WD8EhScLoGA0okMdc77KSDY4V-xIbM4Wymki2wquYr8cBO_8m7nZ6pLJbA9LL6TK1w",
+      "searchResults": [
+        {
+          "title": "TikTok Lite",
+          "appId": 6447160980
+        },
+        {
+          "title": "Adobe Acrobat Reader: PDF 편집",
+          "appId": 469337564
+        },
+        {
+          "title": "Google 포토",
+          "appId": 962194608
+        }
+      ],
+      "addedAt": "2026-10-17T17:43:47.444Z"
+    },
+    {
+      "title": "星壤計畫",
+      "status": "single",
+      "appIds": {
+        "android": "com.leonyxinteractive.duomaomao"
+      },
+      "developer": "熾臨互動",
+      "icon": "https://play-lh.googleusercontent.com/u4AIOTkpeYzWlDsuBb7g2qdUO6mA3M5hmKkD9fPib98Tl5Sq-cWoUJc6B8Y8OpxWXmJnD6KCJUBS3NF-chiD",
+      "searchResults": [],
+      "addedAt": "2026-10-17T17:43:47.835Z"
     }
   ],
   "approved": [

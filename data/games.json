@@ -149909,8 +149909,40 @@
         "ko": "Funny Monkey In Banana Academy",
         "zh-cn": "Funny Monkey In Banana Academy"
       }
+    },
+    "Slide to Wake": {
+      "appIds": {
+        "android": "com.pointandslide.puzzlegame"
+      },
+      "aliases": [],
+      "developer": "BC COMPUTERS, LLC",
+      "icon": "https://play-lh.googleusercontent.com/ZPdRzRVPSOYpRFWKDYx6WD8EhScLoGA0okMdc77KSDY4V-xIbM4Wymki2wquYr8cBO_8m7nZ6pLJbA9LL6TK1w",
+      "slug": "slide-to-wake",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Slide to Wake",
+        "en": "Slide to Wake"
+      }
+    },
+    "星壤計畫": {
+      "appIds": {
+        "android": "com.leonyxinteractive.duomaomao"
+      },
+      "aliases": [],
+      "developer": "熾臨互動",
+      "icon": "https://play-lh.googleusercontent.com/u4AIOTkpeYzWlDsuBb7g2qdUO6mA3M5hmKkD9fPib98Tl5Sq-cWoUJc6B8Y8OpxWXmJnD6KCJUBS3NF-chiD",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "星壤計畫",
+        "zh-tw": "星壤計畫"
+      }
     }
   },
-  "lastUpdated": "2026-10-17",
-  "totalGames": 8700
+  "lastUpdated": "2026-10-18",
+  "totalGames": 8702
 }
