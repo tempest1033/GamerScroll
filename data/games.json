@@ -150084,8 +150084,120 @@
       "names": {
         "ko": "Make it Fit - Packing Puzzle"
       }
+    },
+    "寶島立志傳－台灣的經營冒險遊戲": {
+      "appIds": {
+        "android": "com.taiwansaga.game"
+      },
+      "aliases": [],
+      "developer": "采倢媒體股份有限公司",
+      "icon": "https://play-lh.googleusercontent.com/Fp3DQtMNwXf3akY8b8UZYzkRHmBOiiGLCps6tVbK4IUZULawlAmAV_SENAnfz1kqH3MW8zbSYwu-_s1BOMXL",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "寶島立志傳－台灣的經營冒險遊戲",
+        "zh-tw": "寶島立志傳－台灣的經營冒險遊戲"
+      }
+    },
+    "Yoshiwara Higanbana": {
+      "appIds": {
+        "steam": "1487590"
+      },
+      "aliases": [],
+      "developer": "MariaCrown",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1487590/capsule_231x87.jpg?t=1620629037",
+      "slug": "yoshiwara-higanbana",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Fuga: Melodies of Steel 2": {
+      "appIds": {
+        "steam": "2001340"
+      },
+      "aliases": [],
+      "developer": "CyberConnect2",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2001340/capsule_231x87.jpg?t=1787557211",
+      "slug": "fuga-melodies-of-steel-2",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Eiyuden Chronicle: Hundred Heroes": {
+      "appIds": {
+        "steam": "1658280"
+      },
+      "aliases": [],
+      "developer": "Rabbit & Bear Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1658280/287e9ccf974afc26270a47213a5d1622b5ac715e/capsule_231x87.jpg?t=1752751979",
+      "slug": "eiyuden-chronicle-hundred-heroes",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "The Alchemist of Ars Magna": {
+      "appIds": {
+        "steam": "2328240"
+      },
+      "aliases": [],
+      "developer": "Ninetail",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2328240/capsule_231x87.jpg?t=1695799825",
+      "slug": "the-alchemist-of-ars-magna",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Sharp Stock": {
+      "appIds": {
+        "steam": "4542090"
+      },
+      "aliases": [],
+      "developer": "Sharp Knife Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4542090/ef0d213e9ca8b5e6e633ce49514ebdd34ceb64c2/capsule_231x87.jpg?t=1791802227",
+      "slug": "sharp-stock",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Planet Coaster": {
+      "appIds": {
+        "steam": "493340"
+      },
+      "aliases": [],
+      "developer": "Frontier Developments",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/493340/capsule_231x87.jpg?t=1782480201",
+      "slug": "planet-coaster",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "萌萌２次大戰（略）３ Moe Moe World War II-3": {
+      "appIds": {
+        "steam": "1088630"
+      },
+      "aliases": [],
+      "developer": "SystemSoft Alpha Corporation",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1088630/capsule_231x87.jpg?t=1635156196",
+      "slug": "moe-moe-world-war-ii-3",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Once Upon A KATAMARI": {
+      "appIds": {
+        "steam": "1880620"
+      },
+      "aliases": [],
+      "developer": "RENGAME",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1880620/f39936735a9721b8307b7d486c9fb06dfc3e1ddc/capsule_231x87.jpg?t=1791527923",
+      "slug": "once-upon-a-katamari",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-19",
-  "totalGames": 8711
+  "totalGames": 8720
 }

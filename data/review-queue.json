@@ -44676,6 +44676,22 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/79/ca/3b79ca0b-02a6-c239-e11f-75b0a867a2ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-18T12:23:52.054Z"
+    },
+    {
+      "title": "寶島立志傳－台灣的經營冒險遊戲",
+      "status": "single",
+      "appIds": {
+        "android": "com.taiwansaga.game"
+      },
+      "developer": "采倢媒體股份有限公司",
+      "icon": "https://play-lh.googleusercontent.com/Fp3DQtMNwXf3akY8b8UZYzkRHmBOiiGLCps6tVbK4IUZULawlAmAV_SENAnfz1kqH3MW8zbSYwu-_s1BOMXL",
+      "searchResults": [
+        {
+          "title": "武林侠影-单机武侠rpg",
+          "appId": 1626970064
+        }
+      ],
+      "addedAt": "2026-10-18T22:11:29.090Z"
     }
   ],
   "approved": [
