@@ -150051,8 +150051,38 @@
         "ko": "카드 오브 데몬슬레이어: 덱빌딩 로그라이크 RPG",
         "zh-tw": "Card of Demon Slayer: 牌組構築×肉鴿"
       }
+    },
+    "Dome Keeper 돔 키퍼": {
+      "appIds": {
+        "ios": "6755046527"
+      },
+      "aliases": [],
+      "developer": "Raw Fury",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/45/88/ce/4588ce85-0def-0c44-8e41-3e0a69d2c217/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "dome-keeper-돔-키퍼",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Dome Keeper 돔 키퍼"
+      }
+    },
+    "Make it Fit - Packing Puzzle": {
+      "appIds": {
+        "ios": 6796574369
+      },
+      "aliases": [],
+      "developer": "Luong Vuong",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/79/ca/3b79ca0b-02a6-c239-e11f-75b0a867a2ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "make-it-fit-packing-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Make it Fit - Packing Puzzle"
+      }
     }
   },
   "lastUpdated": "2026-10-18",
-  "totalGames": 8709
+  "totalGames": 8711
 }
