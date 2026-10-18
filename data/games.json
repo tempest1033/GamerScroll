@@ -149623,16 +149623,19 @@
     },
     "ことば橋 - 言葉で橋をかける": {
       "appIds": {
-        "ios_jp": 6821785946
+        "ios_jp": 6821785946,
+        "android": "com.yorimichigames.kotobabashi"
       },
       "aliases": [],
       "developer": "CURRY CROQUETTE",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/80/85/518085c6-61fb-2730-7aa1-f6602e2e970f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "ことば橋-言葉で橋をかける",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "ことば橋 - 言葉で橋をかける",
         "ja": "ことば橋 - 言葉で橋をかける"
       }
     },
