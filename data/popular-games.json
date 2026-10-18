@@ -1,37 +1,37 @@
 {
-  "updatedAt": "2026-10-17T14:48:14.698Z",
+  "updatedAt": "2026-10-18T16:19:33.849Z",
   "period": "30days",
   "games": [
     {
       "slug": "제우스-오만의-신",
-      "views": 28
+      "views": 25
     },
     {
       "slug": "주술회전-팬텀-퍼레이드",
       "views": 18
     },
     {
-      "slug": "wos-화이트아웃-서바이벌",
-      "views": 15
-    },
-    {
-      "slug": "이클립스-더-어웨이크닝",
-      "views": 15
-    },
-    {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 15
     },
     {
+      "slug": "wos-화이트아웃-서바이벌",
+      "views": 14
+    },
+    {
+      "slug": "이클립스-더-어웨이크닝",
+      "views": 12
+    },
+    {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 10
+      "views": 9
     },
     {
       "slug": "레이싱-마스터",
       "views": 9
     },
     {
-      "slug": "palworld",
+      "slug": "barotrauma",
       "views": 8
     },
     {
@@ -39,7 +39,7 @@
       "views": 8
     },
     {
-      "slug": "리니지m",
+      "slug": "sled-surfers-슬로프-어드벤처",
       "views": 8
     },
     {
@@ -47,19 +47,11 @@
       "views": 8
     },
     {
-      "slug": "에이지-오브-엠파이어-모바일",
-      "views": 8
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
+      "slug": "세포-특공대-전략형-타워-디펜스",
       "views": 8
     },
     {
       "slug": "arrow-pro-3d",
-      "views": 7
-    },
-    {
-      "slug": "barotrauma",
       "views": 7
     },
     {
@@ -75,7 +67,15 @@
       "views": 7
     },
     {
+      "slug": "palworld",
+      "views": 7
+    },
+    {
       "slug": "pixel-flow",
+      "views": 7
+    },
+    {
+      "slug": "sakura-school-simulator",
       "views": 7
     }
   ]
