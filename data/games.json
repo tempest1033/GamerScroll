@@ -150003,8 +150003,56 @@
       "names": {
         "en": "Kardmi"
       }
+    },
+    "PolyFootball": {
+      "appIds": {
+        "ios": 6740756687
+      },
+      "aliases": [],
+      "developer": "Kyle Miceli",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/86/f3/bb/86f3bb87-cc0d-f242-dc93-151c46845418/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "polyfootball",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "PolyFootball",
+        "en": "PolyFootball"
+      }
+    },
+    "Sea Muncher-Big Bite Fish": {
+      "appIds": {
+        "android": "com.ocedomin.fishio"
+      },
+      "aliases": [],
+      "developer": "Dear Dream Game",
+      "icon": "https://play-lh.googleusercontent.com/fqet4JTm_ReBB1X0KT67zPQpSwW0h_Vpimjal5jXzkzX4_bJ4oWjcmQv9qh3pR41SUmrOHqnhXQvxtgT3A0WZw",
+      "slug": "sea-muncher-big-bite-fish",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sea Muncher-Big Bite Fish",
+        "en": "Sea Muncher-Big Bite Fish"
+      }
+    },
+    "카드 오브 데몬슬레이어: 덱빌딩 로그라이크 RPG": {
+      "appIds": {
+        "android": "com.rabbithole.cardofdemonslayer"
+      },
+      "aliases": [],
+      "developer": "Rabbit Hole Studio Inc.",
+      "icon": "https://play-lh.googleusercontent.com/RpeQuybAK1btuXM8AOALcpdIV8w0F42Bjc1i5AamNnI2hhdMpQeWIbK0TlxYDYeqaPFLeN3Vb40aUKTqbERq",
+      "slug": "카드-오브-데몬슬레이어-덱빌딩-로그라이크-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "카드 오브 데몬슬레이어: 덱빌딩 로그라이크 RPG",
+        "zh-tw": "Card of Demon Slayer: 牌組構築×肉鴿"
+      }
     }
   },
   "lastUpdated": "2026-10-18",
-  "totalGames": 8706
+  "totalGames": 8709
 }

@@ -44621,6 +44621,39 @@
         }
       ],
       "addedAt": "2026-10-17T23:49:10.037Z"
+    },
+    {
+      "title": "PolyFootball",
+      "status": "single",
+      "appIds": {
+        "ios": 6740756687
+      },
+      "developer": "Kyle Miceli",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/86/f3/bb/86f3bb87-cc0d-f242-dc93-151c46845418/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-18T07:41:38.066Z"
+    },
+    {
+      "title": "Sea Muncher-Big Bite Fish",
+      "status": "single",
+      "appIds": {
+        "android": "com.ocedomin.fishio"
+      },
+      "developer": "Dear Dream Game",
+      "icon": "https://play-lh.googleusercontent.com/fqet4JTm_ReBB1X0KT67zPQpSwW0h_Vpimjal5jXzkzX4_bJ4oWjcmQv9qh3pR41SUmrOHqnhXQvxtgT3A0WZw",
+      "searchResults": [],
+      "addedAt": "2026-10-18T07:41:38.459Z"
+    },
+    {
+      "title": "카드 오브 데몬슬레이어: 덱빌딩 로그라이크 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.rabbithole.cardofdemonslayer"
+      },
+      "developer": "Rabbit Hole Studio Inc.",
+      "icon": "https://play-lh.googleusercontent.com/RpeQuybAK1btuXM8AOALcpdIV8w0F42Bjc1i5AamNnI2hhdMpQeWIbK0TlxYDYeqaPFLeN3Vb40aUKTqbERq",
+      "searchResults": [],
+      "addedAt": "2026-10-18T07:41:38.814Z"
     }
   ],
   "approved": [
