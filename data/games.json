@@ -150228,8 +150228,53 @@
         "ko": "초고속사격",
         "ja": "早撃ちパニック"
       }
+    },
+    "원시인 형님들 키우기 : 문명": {
+      "appIds": {
+        "ios": "1490207503"
+      },
+      "aliases": [],
+      "developer": "T.G",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/1e/b9/5e1eb9c6-4e44-6d33-9560-ba17a3c6c8e7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "원시인-형님들-키우기-문명",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "원시인 형님들 키우기 : 문명"
+      }
+    },
+    "씰M2": {
+      "appIds": {
+        "ios": 6758812727
+      },
+      "aliases": [],
+      "developer": "PLAYWITH Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/59/b2/9c59b251-16e7-c810-ea48-4ac9f76f0a43/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "씰m2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "씰M2"
+      }
+    },
+    "恋と深空・クラウド版": {
+      "appIds": {
+        "ios_jp": 6747174029
+      },
+      "aliases": [],
+      "developer": "INFOLD PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/90/16/d8/9016d818-9d88-ae5e-1dea-798fe4ba74f9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "恋と深空クラウド版",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "恋と深空・クラウド版"
+      }
     }
   },
   "lastUpdated": "2026-10-19",
-  "totalGames": 8722
+  "totalGames": 8725
 }
