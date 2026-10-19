@@ -150273,8 +150273,39 @@
       "names": {
         "ja": "恋と深空・クラウド版"
       }
+    },
+    "Badosuma - Badminton Online": {
+      "appIds": {
+        "ios": 6790022776
+      },
+      "aliases": [],
+      "developer": "IBUKI YOSHIDA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6b/99/62/6b99620e-0aa5-5c48-62ca-8b84d1a155cc/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "badosuma-badminton-online",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Badosuma - Badminton Online",
+        "ja": "バドスマ - バドミントンオンライン対戦"
+      }
+    },
+    "市長選舉模擬": {
+      "appIds": {
+        "ios_tw": 6818957178
+      },
+      "aliases": [],
+      "developer": "Walking technology Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/2b/0a/b72b0a4a-bd4e-2e8b-2f6c-62af2037e6a1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "市長選舉模擬",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "市長選舉模擬"
+      }
     }
   },
-  "lastUpdated": "2026-10-19",
-  "totalGames": 8725
+  "lastUpdated": "2026-10-20",
+  "totalGames": 8727
 }
