@@ -150196,8 +150196,40 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Sand Drop - Color Puzzle": {
+      "appIds": {
+        "ios": 6786642612
+      },
+      "aliases": [],
+      "developer": "Lion Studios Plus",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/92/de/9a92de24-f6f5-a592-2419-bd8a2c4dbae5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "sand-drop-color-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Sand Drop - Color Puzzle",
+        "en": "Sand Drop - Color Puzzle"
+      }
+    },
+    "초고속사격": {
+      "appIds": {
+        "ios": 935189254
+      },
+      "aliases": [],
+      "developer": "CatchApp",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/8b/95/a2/8b95a228-c877-2b50-0c2e-a7d4c2883eb5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "초고속사격",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "초고속사격",
+        "ja": "早撃ちパニック"
+      }
     }
   },
   "lastUpdated": "2026-10-19",
-  "totalGames": 8720
+  "totalGames": 8722
 }
