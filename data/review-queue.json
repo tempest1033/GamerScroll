@@ -44728,13 +44728,19 @@
     },
     {
       "title": "씰M2",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6758812727
+        "ios": 6758812727,
+        "android": "com.playwith.seal2.google"
       },
       "developer": "PLAYWITH Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/59/b2/9c59b251-16e7-c810-ea48-4ac9f76f0a43/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "씰M2",
+          "appId": 6758812727
+        }
+      ],
       "addedAt": "2026-10-19T11:49:53.542Z"
     },
     {
@@ -44747,6 +44753,72 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6b/99/62/6b99620e-0aa5-5c48-62ca-8b84d1a155cc/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-19T18:10:31.663Z"
+    },
+    {
+      "title": "바구니배틀",
+      "status": "single",
+      "appIds": {
+        "android": "com.noorgames.basketbattle"
+      },
+      "developer": "Supersonic Studios LTD",
+      "icon": "https://play-lh.googleusercontent.com/bH9zmX8N05oYkAhTdLv8mfP1cF8N_F_7DxKrnQDKF2ccZVvQwSH8CFDpIxbX8SEbsJped_0f5w0dEwbXCK8Tkg",
+      "searchResults": [
+        {
+          "title": "농구 스포츠 경기장 2026",
+          "appId": 1574696537
+        },
+        {
+          "title": "실제 농구 후프 - 2026",
+          "appId": 6471217245
+        }
+      ],
+      "addedAt": "2026-10-19T22:46:32.279Z"
+    },
+    {
+      "title": "Pokémon Shuffle Mobile",
+      "status": "single",
+      "appIds": {
+        "ios": 1014919815
+      },
+      "developer": "The Pokemon Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/9d/fd/699dfd62-d3a7-b445-61fb-05c55afda0a7/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-19T22:46:33.365Z"
+    },
+    {
+      "title": "Block Puzzle: Blast Master",
+      "status": "single",
+      "appIds": {
+        "android": "fun.rgpd.block.puzzle.blast"
+      },
+      "developer": "Rogue Panda",
+      "icon": "https://play-lh.googleusercontent.com/ZPnkbDEDx04c77uECrxNcEGGuHiqAIUNzj-Y1yfyMVHZ-4Mu8wo6rpNuGOpn7fvR5y3G0U33I--GjyNGt_I-Lhs",
+      "searchResults": [
+        {
+          "title": "Blockudoku - 블록퍼즐게임",
+          "appId": 1452227871
+        },
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "블록 크러시 (Block Crush)",
+          "appId": 1638139403
+        }
+      ],
+      "addedAt": "2026-10-19T22:46:33.947Z"
+    },
+    {
+      "title": "FingerLaserX",
+      "status": "single",
+      "appIds": {
+        "ios": 6474999801
+      },
+      "developer": "WeiTing Weng",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8f/56/f9/8f56f90c-c594-511c-1f18-fb9bfce24e2d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-19T22:46:34.361Z"
     }
   ],
   "approved": [

@@ -150246,14 +150246,16 @@
     },
     "씰M2": {
       "appIds": {
-        "ios": 6758812727
+        "ios": 6758812727,
+        "android": "com.playwith.seal2.google"
       },
       "aliases": [],
       "developer": "PLAYWITH Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/59/b2/9c59b251-16e7-c810-ea48-4ac9f76f0a43/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "씰m2",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "씰M2"
@@ -150304,8 +150306,84 @@
       "names": {
         "zh-tw": "市長選舉模擬"
       }
+    },
+    "바구니배틀": {
+      "appIds": {
+        "android": "com.noorgames.basketbattle"
+      },
+      "aliases": [],
+      "developer": "Supersonic Studios LTD",
+      "icon": "https://play-lh.googleusercontent.com/bH9zmX8N05oYkAhTdLv8mfP1cF8N_F_7DxKrnQDKF2ccZVvQwSH8CFDpIxbX8SEbsJped_0f5w0dEwbXCK8Tkg",
+      "slug": "바구니배틀",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "바구니배틀",
+        "en": "Basket Battle"
+      }
+    },
+    "Pokémon Shuffle Mobile": {
+      "appIds": {
+        "ios": 1014919815
+      },
+      "aliases": [],
+      "developer": "The Pokemon Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/9d/fd/699dfd62-d3a7-b445-61fb-05c55afda0a7/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/512x512bb.jpg",
+      "slug": "pokmon-shuffle-mobile",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Pokémon Shuffle Mobile",
+        "ja": "ポケとる スマホ版"
+      }
+    },
+    "Block Puzzle: Blast Master": {
+      "appIds": {
+        "android": "fun.rgpd.block.puzzle.blast"
+      },
+      "aliases": [],
+      "developer": "Rogue Panda",
+      "icon": "https://play-lh.googleusercontent.com/ZPnkbDEDx04c77uECrxNcEGGuHiqAIUNzj-Y1yfyMVHZ-4Mu8wo6rpNuGOpn7fvR5y3G0U33I--GjyNGt_I-Lhs",
+      "slug": "block-puzzle-blast-master",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Block Puzzle: Blast Master",
+        "ja": "Block Puzzle: Blast Master"
+      }
+    },
+    "FingerLaserX": {
+      "appIds": {
+        "ios": 6474999801
+      },
+      "aliases": [],
+      "developer": "WeiTing Weng",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8f/56/f9/8f56f90c-c594-511c-1f18-fb9bfce24e2d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "fingerlaserx",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "FingerLaserX",
+        "zh-tw": "FingerLaserX"
+      }
+    },
+    "Silver Pines": {
+      "appIds": {
+        "steam": "2333000"
+      },
+      "aliases": [],
+      "developer": "Wych Elm",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2333000/1d876833b58e192d06e6067a84da77c2768c30e4/capsule_231x87.jpg?t=1791897978",
+      "slug": "silver-pines",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-20",
-  "totalGames": 8727
+  "totalGames": 8732
 }
