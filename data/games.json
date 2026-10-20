@@ -150503,8 +150503,113 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Pixel Survival Game 2": {
+      "appIds": {
+        "ios": "1151562905"
+      },
+      "aliases": [],
+      "developer": "Cowbeans Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/95/53/c7/9553c7f1-b783-c4a4-d50a-c15cb53bed49/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "pixel-survival-game-2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Pixel Survival Game 2",
+        "zh-tw": "像素生存遊戲2"
+      }
+    },
+    "NBA RISE: 농구 카드 전략": {
+      "appIds": {
+        "ios": 6762187862
+      },
+      "aliases": [],
+      "developer": "GRAVITY Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ea/2b/6d/ea2b6d55-afa7-3cbc-6bc3-c50fb3d60d47/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "nba-rise-농구-카드-전략",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "NBA RISE: 농구 카드 전략"
+      }
+    },
+    "트래블 소트: 컬러 & 매치 (Travel Sort)": {
+      "appIds": {
+        "ios": 6751308308
+      },
+      "aliases": [],
+      "developer": "Happy Hour Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/3d/c4/5e3dc4df-1161-fea0-a3ac-15223e170f3f/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg",
+      "slug": "트래블-소트-컬러-매치-travel-sort",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "트래블 소트: 컬러 & 매치 (Travel Sort)",
+        "en": "Travel Sort: Color & Match"
+      }
+    },
+    "7RL少女歌劇 レヴュースタァライト -The SLOT-": {
+      "appIds": {
+        "ios_jp": 6816938728
+      },
+      "aliases": [],
+      "developer": "Sammy Networks Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bb/d2/dc/bbd2dc33-1285-f2c0-b0f8-f69d310e29d6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "7rl少女歌劇-レヴュースタァライト-the-slot",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "7RL少女歌劇 レヴュースタァライト -The SLOT-"
+      }
+    },
+    "花开满堂": {
+      "appIds": {
+        "ios_cn": 6761814487
+      },
+      "aliases": [],
+      "developer": "Henan Chenyang Trading Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c5/11/09/c5110945-0af6-07c3-db91-26b1a3e321ed/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "花开满堂",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "花开满堂"
+      }
+    },
+    "Twist Colors: Cube Smash": {
+      "appIds": {
+        "ios": 6795531178
+      },
+      "aliases": [],
+      "developer": "Nova Games Technology Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7f/70/b9/7f70b938-8c74-95a2-f5e1-637ff9fbfc6b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "twist-colors-cube-smash",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Twist Colors: Cube Smash",
+        "zh-tw": "Twist Colors: Cube Smash"
+      }
+    },
+    "Back 4 Blood": {
+      "appIds": {
+        "steam": "924970"
+      },
+      "aliases": [],
+      "developer": "Turtle Rock Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/924970/capsule_231x87.jpg?t=1780594976",
+      "slug": "back-4-blood",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-20",
-  "totalGames": 8740
+  "totalGames": 8747
 }
