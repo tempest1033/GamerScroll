@@ -150718,8 +150718,72 @@
       "platforms": [
         "steam"
       ]
+    },
+    "[グリパチ]スマスロ 新鬼武者３": {
+      "appIds": {
+        "android_jp": "net.commseed.gp.er017001"
+      },
+      "aliases": [],
+      "developer": "CommSeed Corporation",
+      "icon": "https://play-lh.googleusercontent.com/1zR145h6DYS98C6svnem2VbVsNRPUizKfV9Y7JU9nei1GBdeu3EseWOk7-mN1LiX4xDLCAsQfCWJFDQxLKeA",
+      "slug": "グリパチスマスロ-新鬼武者3-jp",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "[グリパチ]スマスロ 新鬼武者３",
+        "ja": "[グリパチ]スマスロ 新鬼武者３"
+      }
+    },
+    "Number Match Joy": {
+      "appIds": {
+        "android": "com.cwjoy.numbermatchjoy"
+      },
+      "aliases": [],
+      "developer": "CwGames",
+      "icon": "https://play-lh.googleusercontent.com/T_4dx0ckyLfIINj2NtXDRENL_AJqgZjMWuAOFXAbtcj5sbrXdZ-lbQgq03WdblfkqbjjpDcPHYtuhjl6lGgUbA",
+      "slug": "number-match-joy",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Number Match Joy",
+        "ja": "Number Match Joy"
+      }
+    },
+    "老大来找茬 - 打工人日记": {
+      "appIds": {
+        "ios": 6779230226
+      },
+      "aliases": [],
+      "developer": "松焕 麦",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/15/1d/8a/151d8ac5-301b-b989-b84a-53b234a07cb5/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "老大来找茬 - 打工人日记",
+        "zh-cn": "老大来找茬 - 打工人日记"
+      }
+    },
+    "Dead Ahead: Roadside": {
+      "appIds": {
+        "ios": 6741141103
+      },
+      "aliases": [],
+      "developer": "ABE Entertainment Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/e1/31/b6e13115-67f9-02fa-a1a7-eb49e9d5b700/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "dead-ahead-roadside",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Dead Ahead: Roadside",
+        "zh-tw": "Dead Ahead: Roadside"
+      }
     }
   },
   "lastUpdated": "2026-10-21",
-  "totalGames": 8754
+  "totalGames": 8758
 }

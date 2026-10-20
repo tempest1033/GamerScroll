@@ -44976,6 +44976,52 @@
         }
       ],
       "addedAt": "2026-10-20T17:45:10.914Z"
+    },
+    {
+      "title": "Number Match Joy",
+      "status": "single",
+      "appIds": {
+        "android": "com.cwjoy.numbermatchjoy"
+      },
+      "developer": "CwGames",
+      "icon": "https://play-lh.googleusercontent.com/T_4dx0ckyLfIINj2NtXDRENL_AJqgZjMWuAOFXAbtcj5sbrXdZ-lbQgq03WdblfkqbjjpDcPHYtuhjl6lGgUbA",
+      "searchResults": [
+        {
+          "title": "스도쿠 퍼즐 - 스도쿠 재미있는 번호 게임",
+          "appId": 1460985516
+        },
+        {
+          "title": "Number Match - Magic Num Game",
+          "appId": 6751176371
+        },
+        {
+          "title": "Tinder 틴더",
+          "appId": 547702041
+        }
+      ],
+      "addedAt": "2026-10-20T21:08:53.575Z"
+    },
+    {
+      "title": "老大来找茬 - 打工人日记",
+      "status": "single",
+      "appIds": {
+        "ios": 6779230226
+      },
+      "developer": "松焕 麦",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/15/1d/8a/151d8ac5-301b-b989-b84a-53b234a07cb5/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-20T21:08:54.090Z"
+    },
+    {
+      "title": "Dead Ahead: Roadside",
+      "status": "single",
+      "appIds": {
+        "ios": 6741141103
+      },
+      "developer": "ABE Entertainment Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/e1/31/b6e13115-67f9-02fa-a1a7-eb49e9d5b700/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-20T21:08:54.376Z"
     }
   ],
   "approved": [
