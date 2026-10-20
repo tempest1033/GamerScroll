@@ -150382,8 +150382,38 @@
       "platforms": [
         "steam"
       ]
+    },
+    "高校野球マネジメント": {
+      "appIds": {
+        "ios_jp": 6819186957
+      },
+      "aliases": [],
+      "developer": "RYO YASUI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4d/59/44/4d594404-ff21-3a72-1087-7e58fd1e760b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "高校野球マネジメント",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "高校野球マネジメント"
+      }
+    },
+    "英雄请出战": {
+      "appIds": {
+        "ios_cn": 6758136169
+      },
+      "aliases": [],
+      "developer": "BEIJING JIYINGSHE SOFTWARE TECHNOLOGY CO.,LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/6e/bb/3d6ebb9c-1491-b7dc-a5f8-ce1c157f3f75/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "英雄请出战",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "英雄请出战"
+      }
     }
   },
   "lastUpdated": "2026-10-20",
-  "totalGames": 8732
+  "totalGames": 8734
 }
