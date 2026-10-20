@@ -44819,6 +44819,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8f/56/f9/8f56f90c-c594-511c-1f18-fb9bfce24e2d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-19T22:46:34.361Z"
+    },
+    {
+      "title": "Bounce Defenders",
+      "status": "single",
+      "appIds": {
+        "ios": 6753945122
+      },
+      "developer": "Rollic Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/70/49/41704964-f010-49e5-0b72-139d5156781e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-20T07:00:54.119Z"
+    },
+    {
+      "title": "Packingdom - 힐링 패킹 타임",
+      "status": "single",
+      "appIds": {
+        "android": "com.abi.packingdom"
+      },
+      "developer": "ABI GAMES PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/ubztt96-8cXxJK-pMBOHjNnJz2JBpVHYotPK7Ne2K7CCZwuOwP43-dN0a01k25Z08dl5lU0U-z565-KMZliwEw",
+      "searchResults": [],
+      "addedAt": "2026-10-20T07:00:54.525Z"
     }
   ],
   "approved": [

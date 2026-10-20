@@ -150412,8 +150412,99 @@
       "names": {
         "zh-cn": "英雄请出战"
       }
+    },
+    "Slot Master - Earn Real Money": {
+      "appIds": {
+        "android_us": "io.magicplay.slotmaster"
+      },
+      "aliases": [],
+      "developer": "Magic Play Games",
+      "icon": "https://play-lh.googleusercontent.com/8UMIpRxYJEWOMtAMfTv9V6IbeIEsNshw2nXOJbLC_dQNCmPV2JO9fAVTQHSAsi-GdNlMDQcbaiRlQ28Yclq0",
+      "slug": "slot-master-earn-real-money",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Slot Master - Earn Real Money"
+      }
+    },
+    "オンラインゲーセンで貯めたコインで買い物-GAPOLI": {
+      "appIds": {
+        "android_jp": "jp.sammynet.next.gapoli.a0001"
+      },
+      "aliases": [],
+      "developer": "Sammy Networks Co.,Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/QpPkw6w3B5aZTnxbr5lWibJdQs2n3EgSuhs6KxeHqpVPla5OofA_6YdeTdp5od_zcxb1GqplWwgDQknRpFmPZw",
+      "slug": "オンラインゲーセンで貯めたコインで買い物-gapoli",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "オンラインゲーセンで貯めたコインで買い物-GAPOLI",
+        "ja": "オンラインゲーセンで貯めたコインで買い物-GAPOLI"
+      }
+    },
+    "休闲大师-凌荒行": {
+      "appIds": {
+        "ios_cn": 6822166107
+      },
+      "aliases": [],
+      "developer": "涛 王",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/db/59/21/db59214e-31aa-3ac3-6f30-dc31a28bbc19/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "休闲大师-凌荒行",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "休闲大师-凌荒行",
+        "zh-cn": "休闲大师-凌荒行"
+      }
+    },
+    "Bounce Defenders": {
+      "appIds": {
+        "ios": 6753945122
+      },
+      "aliases": [],
+      "developer": "Rollic Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/70/49/41704964-f010-49e5-0b72-139d5156781e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "bounce-defenders",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Bounce Defenders",
+        "zh-tw": "Bounce Defenders"
+      }
+    },
+    "Packingdom - 힐링 패킹 타임": {
+      "appIds": {
+        "android": "com.abi.packingdom"
+      },
+      "aliases": [],
+      "developer": "ABI GAMES PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/ubztt96-8cXxJK-pMBOHjNnJz2JBpVHYotPK7Ne2K7CCZwuOwP43-dN0a01k25Z08dl5lU0U-z565-KMZliwEw",
+      "slug": "packingdom-힐링-패킹-타임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Packingdom - 힐링 패킹 타임",
+        "zh-tw": "Packingdom - 打包和放鬆"
+      }
+    },
+    "Big Dig": {
+      "appIds": {
+        "steam": "4304900"
+      },
+      "aliases": [],
+      "developer": "Dan Schumacher",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4304900/9cad933d1e464d31fbda3966229ebdff2f0751bd/capsule_231x87.jpg?t=1792418287",
+      "slug": "big-dig",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-20",
-  "totalGames": 8734
+  "totalGames": 8740
 }
