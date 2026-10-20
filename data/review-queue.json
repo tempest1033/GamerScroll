@@ -44885,6 +44885,97 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7f/70/b9/7f70b938-8c74-95a2-f5e1-637ff9fbfc6b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-20T12:38:35.245Z"
+    },
+    {
+      "title": "조이톡온라인",
+      "status": "single",
+      "appIds": {
+        "ios": 6789973476
+      },
+      "developer": "JUNHYUK YANG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5b/db/92/5bdb920a-bc98-ec1a-8f2d-2b5e9ddae0d2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-20T17:45:08.759Z"
+    },
+    {
+      "title": "Cube Jump",
+      "status": "single",
+      "appIds": {
+        "android": "com.rayole.games.cube.jump"
+      },
+      "developer": "Rayole Games",
+      "icon": "https://play-lh.googleusercontent.com/2838hkZ7hUWDtviUp9NKdsjMFKSX2cVPQbr7Di498RI8LfZ1vXiwZCYfrT-sa7udBkwMBXAr5UT8rCgyovTdPQ",
+      "searchResults": [
+        {
+          "title": "Geometry Dash Lite",
+          "appId": 698255242
+        },
+        {
+          "title": "Jelly Jump",
+          "appId": 955327604
+        },
+        {
+          "title": "Geometry Dash World",
+          "appId": 1112307917
+        }
+      ],
+      "addedAt": "2026-10-20T17:45:09.193Z"
+    },
+    {
+      "title": "Paso Sabio",
+      "status": "single",
+      "appIds": {
+        "ios": 6809829504
+      },
+      "developer": "Taupe Euphemia Kensington",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/1b/3b/041b3b29-c507-6695-2965-123bf05923b1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-20T17:45:09.611Z"
+    },
+    {
+      "title": "헬 파킹: 33 스테이지",
+      "status": "single",
+      "appIds": {
+        "ios": 6811795826
+      },
+      "developer": "NISK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/32/6a/6c/326a6ce6-8b55-a88d-a851-0dd58af275ec/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-20T17:45:10.017Z"
+    },
+    {
+      "title": "戰意凌霄：獨斷萬古",
+      "status": "matched",
+      "appIds": {
+        "android": "com.jhzwxzs.gp",
+        "ios": 6803316480
+      },
+      "developer": "Inovit Guide",
+      "icon": "https://play-lh.googleusercontent.com/ydPZ89pOjNey76p4gTlmh3qCU1e01uA4QlqH0I4B9apYL1PnpVqqqPOmcLnX_xi-GNvMOpK14LNgAJPRgZBH4w",
+      "searchResults": [
+        {
+          "title": "戰意凌霄：獨斷萬古",
+          "appId": 6803316480
+        }
+      ],
+      "addedAt": "2026-10-20T17:45:10.500Z"
+    },
+    {
+      "title": "작은 전사들의 돌진: 타워 디펜스",
+      "status": "matched",
+      "appIds": {
+        "android": "com.nlabsoft.defense.tinywarriors",
+        "ios": 6499256180
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/D7Syq-JrbLfnHbGrkcqGQ9E51qNPIVjhaCSmesrlkuGmxAkXm8o5Rt4QFkb79Z5eZIAPgITaVOGKsfEQ02dILQ",
+      "searchResults": [
+        {
+          "title": "작은 전사들의 돌진: 타워 디펜스",
+          "appId": 6499256180
+        }
+      ],
+      "addedAt": "2026-10-20T17:45:10.914Z"
     }
   ],
   "approved": [

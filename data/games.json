@@ -150608,8 +150608,118 @@
       "platforms": [
         "steam"
       ]
+    },
+    "조이톡온라인": {
+      "appIds": {
+        "ios": 6789973476
+      },
+      "aliases": [],
+      "developer": "JUNHYUK YANG",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5b/db/92/5bdb920a-bc98-ec1a-8f2d-2b5e9ddae0d2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "조이톡온라인",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "조이톡온라인"
+      }
+    },
+    "Cube Jump": {
+      "appIds": {
+        "android": "com.rayole.games.cube.jump"
+      },
+      "aliases": [],
+      "developer": "Rayole Games",
+      "icon": "https://play-lh.googleusercontent.com/2838hkZ7hUWDtviUp9NKdsjMFKSX2cVPQbr7Di498RI8LfZ1vXiwZCYfrT-sa7udBkwMBXAr5UT8rCgyovTdPQ",
+      "slug": "cube-jump",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Cube Jump"
+      }
+    },
+    "Paso Sabio": {
+      "appIds": {
+        "ios": 6809829504
+      },
+      "aliases": [],
+      "developer": "Taupe Euphemia Kensington",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/1b/3b/041b3b29-c507-6695-2965-123bf05923b1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "paso-sabio",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Paso Sabio",
+        "zh-cn": "Paso Sabio"
+      }
+    },
+    "헬 파킹: 33 스테이지": {
+      "appIds": {
+        "ios": 6811795826
+      },
+      "aliases": [],
+      "developer": "NISK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/32/6a/6c/326a6ce6-8b55-a88d-a851-0dd58af275ec/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "헬-파킹-33-스테이지",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "헬 파킹: 33 스테이지",
+        "zh-tw": "地獄停車場"
+      }
+    },
+    "戰意凌霄：獨斷萬古": {
+      "appIds": {
+        "android": "com.jhzwxzs.gp",
+        "ios": 6803316480
+      },
+      "aliases": [],
+      "developer": "Inovit Guide",
+      "icon": "https://play-lh.googleusercontent.com/ydPZ89pOjNey76p4gTlmh3qCU1e01uA4QlqH0I4B9apYL1PnpVqqqPOmcLnX_xi-GNvMOpK14LNgAJPRgZBH4w",
+      "slug": "",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "戰意凌霄：獨斷萬古",
+        "zh-tw": "戰意凌霄：獨斷萬古"
+      }
+    },
+    "작은 전사들의 돌진: 타워 디펜스": {
+      "appIds": {
+        "android": "com.nlabsoft.defense.tinywarriors",
+        "ios": 6499256180
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/D7Syq-JrbLfnHbGrkcqGQ9E51qNPIVjhaCSmesrlkuGmxAkXm8o5Rt4QFkb79Z5eZIAPgITaVOGKsfEQ02dILQ",
+      "slug": "작은-전사들의-돌진-타워-디펜스",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "작은 전사들의 돌진: 타워 디펜스",
+        "zh-tw": "小小勇士：策略塔防(Tiny Warriors Clash)"
+      }
+    },
+    "We Were Here Tomorrow": {
+      "appIds": {
+        "steam": "2315050"
+      },
+      "aliases": [],
+      "developer": "Total Mayhem Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2315050/18c8f4f1b23e258bda5f0ca7ecf3bfd2e64313a6/capsule_231x87_alt_assets_3.jpg?t=1792501768",
+      "slug": "we-were-here-tomorrow",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-20",
-  "totalGames": 8747
+  "lastUpdated": "2026-10-21",
+  "totalGames": 8754
 }
