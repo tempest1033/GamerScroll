@@ -145808,15 +145808,21 @@
     },
     "Ball of Ages": {
       "appIds": {
-        "ios": 6759306715
+        "ios": 6759306715,
+        "android": "com.ludens.WeaponBallMasters"
       },
       "aliases": [],
       "developer": "Rollic Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/77/44/3277444a-af04-72ba-bdcb-a994fe00afeb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "ball-of-ages",
       "platforms": [
-        "ios"
-      ]
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "Ball of Ages",
+        "zh-tw": "Ball of Ages"
+      }
     },
     "오목코드": {
       "appIds": {
@@ -150782,8 +150788,112 @@
         "ko": "Dead Ahead: Roadside",
         "zh-tw": "Dead Ahead: Roadside"
       }
+    },
+    "리턴 투 1990": {
+      "appIds": {
+        "android": "online.laboon.return1990"
+      },
+      "aliases": [],
+      "developer": "LABOON",
+      "icon": "https://play-lh.googleusercontent.com/0w5GOJdt2yiMBfgKVzDZiAI38egf2diO9hiNtppz8Bjjl45Yim-rfgXFTX9MowqPBervFrFxz1xJ0uGj6T5cD0Q",
+      "slug": "리턴-투-1990",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "리턴 투 1990"
+      }
+    },
+    "비트 크러시": {
+      "appIds": {
+        "android": "com.qunsamllih.gp.tile.vibecrush"
+      },
+      "aliases": [],
+      "developer": "Huizhou Hanyu Game",
+      "icon": "https://play-lh.googleusercontent.com/d0VRYuZEtYbdwW3ToWelZBHufXTOclICh7zgDHi_yppD8JUzVHgePZ30TFTCiazO_T7CI8ZstcILoGLXj6gBwQ",
+      "slug": "비트-크러시",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "비트 크러시"
+      }
+    },
+    "Ring Tangle - Circle Puzzle": {
+      "appIds": {
+        "android": "com.puzzlegames.idlematch"
+      },
+      "aliases": [],
+      "developer": "Echidna Games",
+      "icon": "https://play-lh.googleusercontent.com/yrcL85MBq4I9JsrbdTja7uheeh_j8l_-dnJSCU27gUJe1As7JGVoiCarRtzqOHoRU6x5IAHq1VccTXPgdq2Gr8g",
+      "slug": "ring-tangle-circle-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Ring Tangle - Circle Puzzle",
+        "ja": "Ring Tangle - Circle Puzzle"
+      }
+    },
+    "拳皇·命运-福利版": {
+      "appIds": {
+        "ios_cn": 6809345559
+      },
+      "aliases": [],
+      "developer": "HOOLAI GAME LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d0/b8/e1/d0b8e13f-6d00-3d61-0734-205449de164d/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "拳皇命运-福利版",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "拳皇·命运-福利版"
+      }
+    },
+    "美职篮奇迹梦之队-自由战术无界交易": {
+      "appIds": {
+        "ios_cn": 6796649230
+      },
+      "aliases": [],
+      "developer": "Shenzhen youyou information technology co., ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/a0/47/90a0475b-030e-eafe-9048-035cca1baa91/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "美职篮奇迹梦之队-自由战术无界交易",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "美职篮奇迹梦之队-自由战术无界交易"
+      }
+    },
+    "Truck Hill Dash-Truck Climb": {
+      "appIds": {
+        "android": "com.truckcar.swracing"
+      },
+      "aliases": [],
+      "developer": "GreenTTeaGame",
+      "icon": "https://play-lh.googleusercontent.com/GT08A1hMn8S1-Gqg95-IzU3EkUHe_ezbPVmZMGNQC_ygd9nlt83vhQy6i03uRJVIt_Q8AsHSHSyRjvEa-9t4G2E",
+      "slug": "truck-hill-dash-truck-climb",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Truck Hill Dash-Truck Climb",
+        "zh-tw": "Truck Hill Dash-Truck Climb"
+      }
+    },
+    "Empires of the Undergrowth": {
+      "appIds": {
+        "steam": "463530"
+      },
+      "aliases": [],
+      "developer": "Slug Disco",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/463530/f8c76fdca0bdd4d135895b686bd26e50e3bd98bd/capsule_231x87.jpg?t=1791278484",
+      "slug": "empires-of-the-undergrowth",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-21",
-  "totalGames": 8758
+  "totalGames": 8765
 }

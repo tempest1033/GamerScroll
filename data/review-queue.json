@@ -41394,13 +41394,27 @@
     },
     {
       "title": "Ball of Ages",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6759306715
+        "ios": 6759306715,
+        "android": "com.ludens.WeaponBallMasters"
       },
       "developer": "Rollic Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/77/44/3277444a-af04-72ba-bdcb-a994fe00afeb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Ball of Ages",
+          "appId": 6759306715
+        },
+        {
+          "title": "Paper.io 2",
+          "appId": 1423046460
+        },
+        {
+          "title": "Color Switch",
+          "appId": 1314725881
+        }
+      ],
       "addedAt": "2026-10-01T16:38:58.154Z"
     },
     {
@@ -45022,6 +45036,89 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b6/e1/31/b6e13115-67f9-02fa-a1a7-eb49e9d5b700/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-20T21:08:54.376Z"
+    },
+    {
+      "title": "리턴 투 1990",
+      "status": "single",
+      "appIds": {
+        "android": "online.laboon.return1990"
+      },
+      "developer": "LABOON",
+      "icon": "https://play-lh.googleusercontent.com/0w5GOJdt2yiMBfgKVzDZiAI38egf2diO9hiNtppz8Bjjl45Yim-rfgXFTX9MowqPBervFrFxz1xJ0uGj6T5cD0Q",
+      "searchResults": [],
+      "addedAt": "2026-10-21T00:20:50.969Z"
+    },
+    {
+      "title": "비트 크러시",
+      "status": "single",
+      "appIds": {
+        "android": "com.qunsamllih.gp.tile.vibecrush"
+      },
+      "developer": "Huizhou Hanyu Game",
+      "icon": "https://play-lh.googleusercontent.com/d0VRYuZEtYbdwW3ToWelZBHufXTOclICh7zgDHi_yppD8JUzVHgePZ30TFTCiazO_T7CI8ZstcILoGLXj6gBwQ",
+      "searchResults": [
+        {
+          "title": "Words Crush: Hidden Words!",
+          "appId": 979759584
+        },
+        {
+          "title": "버블팝! 클래식 퍼즐 게임",
+          "appId": 1444990764
+        },
+        {
+          "title": "Car Crusher!",
+          "appId": 1511955517
+        }
+      ],
+      "addedAt": "2026-10-21T00:20:51.385Z"
+    },
+    {
+      "title": "Ring Tangle - Circle Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.puzzlegames.idlematch"
+      },
+      "developer": "Echidna Games",
+      "icon": "https://play-lh.googleusercontent.com/yrcL85MBq4I9JsrbdTja7uheeh_j8l_-dnJSCU27gUJe1As7JGVoiCarRtzqOHoRU6x5IAHq1VccTXPgdq2Gr8g",
+      "searchResults": [
+        {
+          "title": "Ring Tangle - Rotate Puzzle",
+          "appId": 6795122424
+        },
+        {
+          "title": "로테이트 링스 (Rotate Rings)",
+          "appId": 6793924927
+        },
+        {
+          "title": "Rotate the Rings",
+          "appId": 6452395870
+        }
+      ],
+      "addedAt": "2026-10-21T00:20:51.935Z"
+    },
+    {
+      "title": "Truck Hill Dash-Truck Climb",
+      "status": "single",
+      "appIds": {
+        "android": "com.truckcar.swracing"
+      },
+      "developer": "GreenTTeaGame",
+      "icon": "https://play-lh.googleusercontent.com/GT08A1hMn8S1-Gqg95-IzU3EkUHe_ezbPVmZMGNQC_ygd9nlt83vhQy6i03uRJVIt_Q8AsHSHSyRjvEa-9t4G2E",
+      "searchResults": [
+        {
+          "title": "MMX Hill Dash",
+          "appId": 1057961675
+        },
+        {
+          "title": "Monster Truck Xtreme Stunt MTD",
+          "appId": 1574342309
+        },
+        {
+          "title": "All Terrain: Hill Trials Race",
+          "appId": 1396498323
+        }
+      ],
+      "addedAt": "2026-10-21T00:20:53.823Z"
     }
   ],
   "approved": [
