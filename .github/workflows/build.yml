@@ -217,6 +217,10 @@ jobs:
           # functions/ (routes + _lib/game-ssr.js bundle) must ship with docs/: game pages exist only as Pages Functions.
           test -f functions/_lib/game-ssr.js || { echo "::error::functions/_lib/game-ssr.js missing — game pages would 404"; exit 1; }
           cp -a functions /tmp/deploy-gs/functions
+          # docs/_routes.json (written by generate-html-report.js) keeps static files out of the Functions free-plan quota (100k/day).
+          # Without it the root middleware runs on every request. Must sit at the output root (docs/ is the Pages build output dir).
+          test -f docs/_routes.json || { echo "::error::docs/_routes.json missing — every static request would invoke Functions"; exit 1; }
+          node -e "const r=JSON.parse(require('fs').readFileSync('docs/_routes.json','utf8'));const a=[...r.include,...r.exclude];if(r.version!==1||!r.include.length||a.length>100||a.some(s=>s.length>100))process.exit(1)" || { echo "::error::docs/_routes.json invalid (version 1, >=1 include, <=100 rules, <=100 chars each)"; exit 1; }
           echo "docs files: $(find docs -type f | wc -l) (Cloudflare Pages Free limit 20000)"
           cd /tmp/deploy-gs
           git init -q -b deploy-gamerscroll

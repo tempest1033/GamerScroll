@@ -122,6 +122,9 @@ jobs:
           # AIScroll 전용 미들웨어(한국 방문자 → /ko/)만 올린다. 게이머스크롤의 functions/ 는 올리지 않는다:
           # 두 사이트는 미들웨어를 공유하지 않는다 (2026-10-06 분리).
           test -f functions-aiscroll/_middleware.js || { echo "::error::functions-aiscroll/_middleware.js missing"; exit 1; }
+          # ai-docs/_routes.json (written by generate-ai-blog.js) keeps static files and the /ko tree out of the Functions quota (100k/day).
+          test -f ai-docs/_routes.json || { echo "::error::ai-docs/_routes.json missing — every static request would invoke Functions"; exit 1; }
+          node -e "const r=JSON.parse(require('fs').readFileSync('ai-docs/_routes.json','utf8'));const a=[...r.include,...r.exclude];if(r.version!==1||!r.include.length||a.length>100||a.some(s=>s.length>100))process.exit(1)" || { echo "::error::ai-docs/_routes.json invalid (version 1, >=1 include, <=100 rules, <=100 chars each)"; exit 1; }
           mkdir -p /tmp/deploy-ai/functions
           cp -a functions-aiscroll/_middleware.js /tmp/deploy-ai/functions/_middleware.js
           cd /tmp/deploy-ai

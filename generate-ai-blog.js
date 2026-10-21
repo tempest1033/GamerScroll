@@ -1355,22 +1355,36 @@ function writeCloudflareHeaders(cssVersion) {
   }
   // Cloudflare Pages _routes.json: 루트 _middleware.js 때문에 기본값은 모든 요청이 Functions 호출(무료 하루 10만 건 한도)로 잡힌다.
   // 정적 파일은 Functions를 거치지 않게 제외한다 (functions-aiscroll/_middleware.js의 isStaticPath와 같은 범위).
+  // 규칙: `*`는 `/`까지 포함해 매칭한다. exclude가 include보다 우선, 규칙 합계 ≤100개, 각 ≤100자.
+  // /ko, /ko/* 는 미들웨어가 첫 줄에서 next()만 하고 끝내므로(이미 한국어 트리) 함께 제외한다.
+  // 남기는 것: 영어 트리의 HTML 페이지 (한국 방문자 → /ko/ 302, ?lang=en 쿠키).
   try {
     const routes = {
       version: 1,
       include: ['/*'],
       exclude: [
+        '/ko',
+        '/ko/*',
         '/assets/*',
         '/styles-*',
         '/favicon*',
         '/icon-*',
-        '/apple-touch-icon.png',
+        '/apple-touch-icon*',
         '/og-image.png',
+        '/naver*',
         '/*.json',
         '/*.xml',
         '/*.txt',
-        '/service-worker.js',
-        '/naver*'
+        '/*.css',
+        '/*.js',
+        '/*.map',
+        '/*.png',
+        '/*.jpg',
+        '/*.jpeg',
+        '/*.gif',
+        '/*.webp',
+        '/*.svg',
+        '/*.ico'
       ]
     };
     fs.writeFileSync(path.join(DOCS_DIR, '_routes.json'), JSON.stringify(routes, null, 2) + '\n', 'utf8');
