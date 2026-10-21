@@ -33,5 +33,26 @@ module.exports = {
   "game.sum_store": "{c} {p0}",
   "game.sum_store_prev": "{c} {p0}{p1}",
   "game.sum_none": "<div class=\"game-empty\">该时段暂无{c}畅销榜排名记录。</div>",
-  "game.sum_no_history": "暂无{c}畅销榜排名历史。"
+  "game.sum_no_history": "暂无{c}畅销榜排名历史。",
+  "game.desc_title": "游戏概览",
+  "game.desc_rank": "第{n}名",
+  "game.desc_sep": "，",
+  "game.desc_join": "",
+  "game.desc_id_gd": "{name}是{dev}推出的{genre}类游戏。",
+  "game.desc_id_g": "{name}是一款{genre}类游戏。",
+  "game.desc_id_d": "{name}是{dev}的游戏。",
+  "game.desc_peak_top": "该游戏曾登上{c} {store}畅销榜榜首，首次夺冠是在{date}。",
+  "game.desc_peak": "在{days}天的榜单记录中，最高排名为{date}的{c} {store}畅销榜{rank}。",
+  "game.desc_peak_now": "目前在{c} {store}畅销榜位列{rank}，为历史最高排名。",
+  "game.desc_cur_up": "在{c} {store}，当前排名{cur}，近7日平均排名由{prev}升至{now}。",
+  "game.desc_cur_down": "在{c} {store}，当前排名{cur}，近7日平均排名由{prev}降至{now}。",
+  "game.desc_cur_flat": "在{c} {store}，当前排名{cur}，近7日平均排名稳定在{now}左右。",
+  "game.desc_cur_none": "在{c} {store}，当前排名{cur}。",
+  "game.desc_off": "目前未进入{c} {store}畅销榜，最近一次上榜是在{date}。",
+  "game.desc_markets": "目前在{n}个国家/地区的畅销榜上榜：{list}。",
+  "game.desc_steam": "在Steam上，{list}。",
+  "game.desc_steam_ccu": "同时在线排名{rank}",
+  "game.desc_steam_sales": "销量排名{rank}",
+  "game.desc_steam_players": "当前在线{n}人",
+  "game.desc_steam_peak": "Steam同时在线人数排名的最高纪录是{date}的{rank}。"
 };

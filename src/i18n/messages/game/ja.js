@@ -33,5 +33,26 @@ module.exports = {
   "game.sum_store": "{c} {p0}",
   "game.sum_store_prev": "{c} {p0}{p1}",
   "game.sum_none": "<div class=\"game-empty\">この期間の{c}売上ランキング記録はありません。</div>",
-  "game.sum_no_history": "{c}の売上ランキング履歴がありません。"
+  "game.sum_no_history": "{c}の売上ランキング履歴がありません。",
+  "game.desc_title": "ゲーム概要",
+  "game.desc_rank": "{n}位",
+  "game.desc_sep": "、",
+  "game.desc_join": "",
+  "game.desc_id_gd": "{name}は{dev}の{genre}ゲームです。",
+  "game.desc_id_g": "{name}は{genre}ジャンルのゲームです。",
+  "game.desc_id_d": "{name}は{dev}のゲームです。",
+  "game.desc_peak_top": "{c}の{store}売上ランキングで首位に立った実績があり、初の1位は{date}です。",
+  "game.desc_peak": "{days}日間のランキング記録で、最高順位は{date}の{c} {store}売上{rank}です。",
+  "game.desc_peak_now": "{c}の{store}売上{rank}で、現在が過去最高順位です。",
+  "game.desc_cur_up": "{c}の{store}では現在{cur}で、直近7日間の平均順位は{prev}から{now}へ上昇しました。",
+  "game.desc_cur_down": "{c}の{store}では現在{cur}で、直近7日間の平均順位は{prev}から{now}へ下がりました。",
+  "game.desc_cur_flat": "{c}の{store}では現在{cur}で、直近7日間の平均{now}前後を保っています。",
+  "game.desc_cur_none": "{c}の{store}では現在{cur}です。",
+  "game.desc_off": "{c}の{store}売上チャートには現在ランクインしておらず、最後にランクインしたのは{date}です。",
+  "game.desc_markets": "現在{n}か国（{list}）の売上チャートにランクインしています。",
+  "game.desc_steam": "Steamでは{list}です。",
+  "game.desc_steam_ccu": "同時接続数{rank}",
+  "game.desc_steam_sales": "販売{rank}",
+  "game.desc_steam_players": "現在{n}人がプレイ中",
+  "game.desc_steam_peak": "Steamの同時接続数ランキングの最高順位は{date}の{rank}です。"
 };

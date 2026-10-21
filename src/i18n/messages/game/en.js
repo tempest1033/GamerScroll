@@ -33,5 +33,26 @@ module.exports = {
   "game.sum_store": "{c} {p0}",
   "game.sum_store_prev": "{c} {p0}{p1}",
   "game.sum_none": "<div class=\"game-empty\">There are no {c} revenue ranking records for this period.</div>",
-  "game.sum_no_history": "There is no {c} revenue ranking history."
+  "game.sum_no_history": "There is no {c} revenue ranking history.",
+  "game.desc_title": "Overview",
+  "game.desc_rank": "#{n}",
+  "game.desc_sep": ", ",
+  "game.desc_join": " ",
+  "game.desc_id_gd": "{name} comes from {dev} and is classified as {genre}.",
+  "game.desc_id_g": "{name} is classified as {genre} on GamerScroll.",
+  "game.desc_id_d": "{name} is a game from {dev}.",
+  "game.desc_peak_top": "It has reached the top spot on the {c} {store} top-grossing chart, first on {date}.",
+  "game.desc_peak": "Across {days} days of chart history, its highest position is {rank} on the {c} {store} top-grossing chart ({date}).",
+  "game.desc_peak_now": "It is at its all-time high right now: {rank} on the {c} {store} top-grossing chart.",
+  "game.desc_cur_up": "On the {c} {store} chart it sits at {cur}, with its 7-day average rank improving from {prev} to {now}.",
+  "game.desc_cur_down": "On the {c} {store} chart it sits at {cur}, with its 7-day average rank slipping from {prev} to {now}.",
+  "game.desc_cur_flat": "On the {c} {store} chart it holds {cur}, steady at a 7-day average of around {now}.",
+  "game.desc_cur_none": "On the {c} {store} chart it currently sits at {cur}.",
+  "game.desc_off": "It is not on the {c} {store} chart at the moment; it last charted on {date}.",
+  "game.desc_markets": "It is currently charting in {n} markets: {list}.",
+  "game.desc_steam": "On Steam it shows {list}.",
+  "game.desc_steam_ccu": "{rank} in concurrent players",
+  "game.desc_steam_sales": "{rank} in sales",
+  "game.desc_steam_players": "{n} players online now",
+  "game.desc_steam_peak": "Its best concurrent-player rank on Steam is {rank} ({date})."
 };

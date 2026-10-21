@@ -33,5 +33,26 @@ module.exports = {
   "game.sum_store": "{c} {p0}",
   "game.sum_store_prev": "{c} {p0}{p1}",
   "game.sum_none": "<div class=\"game-empty\">此期間沒有{c}營收排行紀錄。</div>",
-  "game.sum_no_history": "沒有{c}營收排行歷史紀錄。"
+  "game.sum_no_history": "沒有{c}營收排行歷史紀錄。",
+  "game.desc_title": "遊戲概覽",
+  "game.desc_rank": "第{n}名",
+  "game.desc_sep": "，",
+  "game.desc_join": "",
+  "game.desc_id_gd": "{name}是{dev}推出的{genre}類遊戲。",
+  "game.desc_id_g": "{name}是一款{genre}類遊戲。",
+  "game.desc_id_d": "{name}是{dev}的遊戲。",
+  "game.desc_peak_top": "該遊戲曾登上{c} {store}營收排行榜榜首，首次奪冠是在{date}。",
+  "game.desc_peak": "在{days}天的排行紀錄中，最高名次為{date}的{c} {store}營收排行{rank}。",
+  "game.desc_peak_now": "目前在{c} {store}營收排行位列{rank}，為歷來最高名次。",
+  "game.desc_cur_up": "在{c} {store}，目前排名{cur}，近7日平均名次由{prev}升至{now}。",
+  "game.desc_cur_down": "在{c} {store}，目前排名{cur}，近7日平均名次由{prev}降至{now}。",
+  "game.desc_cur_flat": "在{c} {store}，目前排名{cur}，近7日平均名次穩定在{now}左右。",
+  "game.desc_cur_none": "在{c} {store}，目前排名{cur}。",
+  "game.desc_off": "目前未進入{c} {store}營收排行榜，最近一次上榜是在{date}。",
+  "game.desc_markets": "目前在{n}個國家／地區的營收排行榜上榜：{list}。",
+  "game.desc_steam": "在Steam上，{list}。",
+  "game.desc_steam_ccu": "同時在線排名{rank}",
+  "game.desc_steam_sales": "銷量排名{rank}",
+  "game.desc_steam_players": "目前在線{n}人",
+  "game.desc_steam_peak": "Steam同時在線人數排名的最高紀錄是{date}的{rank}。"
 };

@@ -33,5 +33,26 @@ module.exports = {
   "game.sum_store": "{c} {p0}",
   "game.sum_store_prev": "{c} {p0}{p1}",
   "game.sum_none": "<div class=\"game-empty\">해당 기간의 {c} 매출 순위 기록이 없습니다.</div>",
-  "game.sum_no_history": "{c} 매출 순위 이력이 없습니다."
+  "game.sum_no_history": "{c} 매출 순위 이력이 없습니다.",
+  "game.desc_title": "게임 개요",
+  "game.desc_rank": "{n}위",
+  "game.desc_sep": ", ",
+  "game.desc_join": " ",
+  "game.desc_id_gd": "{name}: {dev}의 {genre} 게임입니다.",
+  "game.desc_id_g": "{name}: {genre} 장르의 게임입니다.",
+  "game.desc_id_d": "{name}: {dev}의 게임입니다.",
+  "game.desc_peak_top": "{c} {store} 매출 순위 정상에 올랐으며, 처음 1위를 기록한 날은 {date}입니다.",
+  "game.desc_peak": "{days}일간의 순위 기록 중 최고 순위는 {date} {c} {store} 매출 {rank}입니다.",
+  "game.desc_peak_now": "{c} {store} 매출 {rank}로, 현재 역대 최고 순위를 기록 중입니다.",
+  "game.desc_cur_up": "{c} {store}에서는 현재 {cur}이며, 최근 7일 평균 순위가 {prev}에서 {now}로 올랐습니다.",
+  "game.desc_cur_down": "{c} {store}에서는 현재 {cur}이며, 최근 7일 평균 순위가 {prev}에서 {now}로 내려갔습니다.",
+  "game.desc_cur_flat": "{c} {store}에서는 현재 {cur}로, 최근 7일 평균 {now} 안팎을 유지하고 있습니다.",
+  "game.desc_cur_none": "{c} {store}에서는 현재 {cur}입니다.",
+  "game.desc_off": "{c} {store} 매출 차트에는 현재 진입해 있지 않으며, 마지막으로 차트에 오른 날은 {date}입니다.",
+  "game.desc_markets": "현재 {n}개 국가({list})의 매출 차트에 올라 있습니다.",
+  "game.desc_steam": "스팀에서는 {list}입니다.",
+  "game.desc_steam_ccu": "동시접속자 {rank}",
+  "game.desc_steam_sales": "판매 {rank}",
+  "game.desc_steam_players": "현재 접속자 {n}명",
+  "game.desc_steam_peak": "스팀 동시접속자 순위 최고 기록은 {date}의 {rank}입니다."
 };

@@ -9,6 +9,7 @@ const { t, currentEdition, formatNumber, href, formatDay, formatMonthDay } = req
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
+const { describeGame, trimDescription } = require('../helpers/game-description');
 const { renderGameRankSummary, summaryDays, INDEXABLE_DAYS } = require('../helpers/game-rank-summary');
 
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -24,8 +25,11 @@ const jsonForScript = (value) => JSON.stringify(value).replace(/</g, '\\u003c').
 function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const { slug = '', platforms = [], developer = '', icon = null, ranked = false, steamHistory = [], steam = null, rank = null } = game;
   const edition = currentEdition();
-  const name = esc((game.names && game.names[edition.code]) || game.name);
   const plainName = (game.names && game.names[edition.code]) || game.name;
+  // Localized name (only when the data has one) shown together with the original name.
+  const lowerLocal = plainName.toLowerCase(), lowerOrig = String(game.name).toLowerCase();
+  const titleName = !lowerLocal.includes(lowerOrig) && !lowerOrig.includes(lowerLocal) ?`${plainName} (${game.name})` : plainName;
+  const name = esc(titleName);
 
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
@@ -37,6 +41,13 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const showMobileRanking = hasMobilePlatform || ranked;
 
   const summary = renderGameRankSummary(rank, meta, plainName, edition.country);
+  const overview = describeGame(game, meta, edition.country);
+  const overviewHtml = overview.length
+    ? `<div class="home-card grid-full game-overview">
+          <div class="home-card-header"><h2 class="home-card-title">${t('game.desc_title')}</h2></div>
+          <div class="home-card-body"><p>${esc(overview.join(t('game.desc_join')))}</p></div>
+        </div>`
+    : '';
 
   // 플랫폼 배지
   const platformBadges = platforms.map(p => {
@@ -209,7 +220,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
       <div class="page-container game-page-grid">
         <!-- 게임 히어로 -->
         <div class="home-card game-hero grid-full">
-          <div class="game-crumb"><a href="/games/">${t('game.games_db')}</a><span>›</span><span data-name>${name}</span></div>
+          <div class="game-crumb"><a href="/games/">${t('game.games_db')}</a><span>›</span><span data-name>${esc(plainName)}</span></div>
           <div class="game-hero-content">
             ${iconHtml}
             <div class="game-hero-info">
@@ -220,6 +231,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
             ${summary && summary.hero ? summary.hero : ''}
           </div>
         </div>
+        ${overviewHtml}
             ${isSteamOnly && steam ? `
         <div class="home-card grid-full game-steam-summary">
           <div class="home-card-header"><h2 class="home-card-title">${t('game.steam_analysis')}</h2></div>
@@ -289,8 +301,11 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const indexable = Boolean(summary && summary.days >= INDEXABLE_DAYS);
 
   // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎
-  const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: plainName });
-  const seoDescription = summary && summary.text
+  const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: titleName });
+  // The data-derived overview replaces the formulaic rank-summary / generic description.
+  const seoDescription = overview.length
+    ? trimDescription(overview, t('game.desc_join'))
+    : summary && summary.text
     ? summary.text
     : t(hasMobilePlatform ? 'game.seo_desc_mobile' : 'game.seo_desc_steam', { name: plainName });
   const seoKeywords = t(hasMobilePlatform ? 'game.seo_keywords_mobile' : 'game.seo_keywords_steam', { name: plainName });

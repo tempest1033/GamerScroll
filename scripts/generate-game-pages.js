@@ -15,6 +15,7 @@ const path = require('path');
 const crypto = require('crypto');
 const i18n = require('../src/i18n');
 const { loadRankStats } = require('../src/rank/stats');
+const { loadGenres } = require('../src/rank/genres');
 const { collectRankData, summaryMeta } = require('../src/build/game-data');
 const { summaryDays, INDEXABLE_DAYS } = require('../src/templates/helpers/game-rank-summary');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
@@ -137,6 +138,7 @@ for (const g of S.games) {
     slug,
     platforms: g.platforms || [],
     developer: g.developer || '',
+    genres: loadGenres().tagsFor(g),
     icon,
     ranked,
     steam,
