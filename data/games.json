@@ -151050,8 +151050,110 @@
         "ko": "江湖戰亂",
         "zh-tw": "江湖戰亂"
       }
+    },
+    "수련충 리마스터": {
+      "appIds": {
+        "ios": 6803365307
+      },
+      "aliases": [],
+      "developer": "DAERI SOFT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/f4/74/9af474f4-12f6-2efe-7522-169fe7f1d06d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "수련충-리마스터",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "수련충 리마스터"
+      }
+    },
+    "篮球少女：飞跃巅峰": {
+      "appIds": {
+        "ios_cn": 6800167533
+      },
+      "aliases": [],
+      "developer": "Lingxi Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/f7/85/55f78515-ee43-bf22-293b-0d604e6aefcc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "篮球少女飞跃巅峰",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "篮球少女：飞跃巅峰"
+      }
+    },
+    "星途天城": {
+      "appIds": {
+        "ios_cn": 6503579813
+      },
+      "aliases": [],
+      "developer": "Guangzhou Mengqu Information Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8e/07/55/8e07553c-b115-852a-af35-79be661e436b/AppIcon-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "星途天城",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "星途天城"
+      }
+    },
+    "希望之启航：哈比兔喊你归队了": {
+      "appIds": {
+        "ios_cn": 6810632075
+      },
+      "aliases": [],
+      "developer": "Hangzhou Runhe Network Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/17/30/dc/1730dc6d-31d1-5075-3ecb-af6513316a51/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "希望之启航哈比兔喊你归队了",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "希望之启航：哈比兔喊你归队了"
+      }
+    },
+    "整洁小房间 - 小小收纳师达人 收拾布置房间": {
+      "appIds": {
+        "ios_cn": 6745768019
+      },
+      "aliases": [],
+      "developer": "GLORYWAY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/2f/54/562f548d-f345-051d-c7c5-0a31d6506b05/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "整洁小房间-小小收纳师达人-收拾布置房间",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "整洁小房间 - 小小收纳师达人 收拾布置房间"
+      }
+    },
+    "指尖大冒險": {
+      "appIds": {
+        "ios_tw": 6800268867
+      },
+      "aliases": [],
+      "developer": "Electronic Soul Interaction Entertainment (Hong Kong) Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/cb/2a/37cb2ad4-c7b7-ddaa-be27-bd70dc20f771/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "指尖大冒險",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "指尖大冒險"
+      }
+    },
+    "Mycopunk": {
+      "appIds": {
+        "steam": "3247750"
+      },
+      "aliases": [],
+      "developer": "Pigeons at Play",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3247750/6825b608db79ecf83d22fdf3cef7993d7701c451/capsule_231x87.jpg?t=1792530683",
+      "slug": "mycopunk",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-21",
-  "totalGames": 8775
+  "lastUpdated": "2026-10-22",
+  "totalGames": 8782
 }
