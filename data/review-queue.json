@@ -45253,6 +45253,127 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/f4/74/9af474f4-12f6-2efe-7522-169fe7f1d06d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-21T15:55:11.295Z"
+    },
+    {
+      "title": "그랜드 해적 대모험",
+      "status": "single",
+      "appIds": {
+        "android": "com.grandseaadventure3.googlelb"
+      },
+      "developer": "广州市弘弧网络科技有限公司",
+      "icon": "https://play-lh.googleusercontent.com/-EQ_F37W1w1aFMPf_MbzK1mia6o9BgYKupJg9ZdsrKQJDhMAkJQhTOQG-qYGc9Z1s8FSYEjqT9SFGoT5HkPHLQ",
+      "searchResults": [
+        {
+          "title": "마약상 대모험: 시뮬레이터",
+          "appId": 6753288334
+        }
+      ],
+      "addedAt": "2026-10-21T19:53:52.897Z"
+    },
+    {
+      "title": "Easy Drum - 진짜 음악 드럼",
+      "status": "single",
+      "appIds": {
+        "android": "easy.drum.real.music.drum.set"
+      },
+      "developer": "AVA GAMES",
+      "icon": "https://play-lh.googleusercontent.com/Awb7HZPdMNrzJHmiKdeBpQFhoSjCMtSE7WxQzcfoUhI5H0vZM2PKAE3nyFmtXfeUHj_p4qEE8hbvac0zSo2X",
+      "searchResults": [
+        {
+          "title": "Go Drums - 드럼",
+          "appId": 1450521011
+        },
+        {
+          "title": "드럼@",
+          "appId": 843567514
+        },
+        {
+          "title": "The Best Real Drums",
+          "appId": 1133867427
+        }
+      ],
+      "addedAt": "2026-10-21T19:53:53.560Z"
+    },
+    {
+      "title": "Cardegory: Picture Sort Tiles",
+      "status": "matched",
+      "appIds": {
+        "android": "com.cardegory.match.sort.tiles.puzzle",
+        "ios": 6805292241
+      },
+      "developer": "ZenEcho Studio",
+      "icon": "https://play-lh.googleusercontent.com/gTuvlbhgDuMDsctHgmqtI2MrH1jrkeBL1Qa_Yb7-5MDN-R-Pxe6HiivD5YBQrwYnpxHUUZAnl1StOmX8Q_eNxb4",
+      "searchResults": [
+        {
+          "title": "Cardegory: Picture Sort Tiles",
+          "appId": 6805292241
+        }
+      ],
+      "addedAt": "2026-10-21T19:53:54.008Z"
+    },
+    {
+      "title": "UMAWALK - 歩いて育てる競走馬",
+      "status": "single",
+      "appIds": {
+        "android": "jp.switchmedia.umawalk"
+      },
+      "developer": "合同会社スイッチメディア",
+      "icon": "https://play-lh.googleusercontent.com/NRKPk7FyT4DlSTXOZU8mxweWGOW5Hk-D9ze9XDpi3ySFhmqu1T3nxWTIc1HVmjvKd0jbH4AYputokMhJebxI",
+      "searchResults": [
+        {
+          "title": "UMAWALK-歩いて競走馬を育てる-",
+          "appId": 6816302336
+        }
+      ],
+      "addedAt": "2026-10-21T19:53:54.766Z"
+    },
+    {
+      "title": "Fishing Go!",
+      "status": "single",
+      "appIds": {
+        "android": "com.zchdint.mhdy"
+      },
+      "developer": "Cloud Joy Games",
+      "icon": "https://play-lh.googleusercontent.com/IhjftLUQzanVr8zIB7BV-PK5dQbR6acKjOWvhyXNFVrEgpvFbieJPhJ2Y40_S__WWJgpBL6ESkvZh5_Bqqr7rS4",
+      "searchResults": [
+        {
+          "title": "피싱의 달인",
+          "appId": 6471659176
+        },
+        {
+          "title": "Fishing Clash: 스포츠 게임",
+          "appId": 1151811380
+        },
+        {
+          "title": "FishingGO  AR",
+          "appId": 1262044370
+        }
+      ],
+      "addedAt": "2026-10-21T19:53:55.276Z"
+    },
+    {
+      "title": "다크 헌터 - 헌터 히어로 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "dovi.darkhero.survival"
+      },
+      "developer": "Dovi Games",
+      "icon": "https://play-lh.googleusercontent.com/_a4GF767njjCjdiYHK6fQ_va2acQSGV-0A0eFWU2UPJ3J81V2JcuP3HI3-r0qCXFdNSbW65UMLfDEBQsQnbZIw",
+      "searchResults": [
+        {
+          "title": "Dark Hunter - Hunter Hero RPG",
+          "appId": 6795450808
+        },
+        {
+          "title": "헌터 키우기 : 방치형 RPG - 신규 서버 오픈!",
+          "appId": 1668807323
+        },
+        {
+          "title": "블레이드 바운드: 이모탈 핵앤슬래시액션 알피지게임",
+          "appId": 1198507229
+        }
+      ],
+      "addedAt": "2026-10-21T19:53:55.734Z"
     }
   ],
   "approved": [

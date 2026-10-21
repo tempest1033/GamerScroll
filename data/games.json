@@ -150559,16 +150559,21 @@
     },
     "7RL少女歌劇 レヴュースタァライト -The SLOT-": {
       "appIds": {
-        "ios_jp": 6816938728
+        "ios_jp": 6816938728,
+        "android_jp": "jp.sammynet.next.ort.a0237"
       },
-      "aliases": [],
+      "aliases": [
+        "7RL少女☆歌劇 レヴュースタァライト -The SLOT-"
+      ],
       "developer": "Sammy Networks Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bb/d2/dc/bbd2dc33-1285-f2c0-b0f8-f69d310e29d6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "slug": "7rl少女歌劇-レヴュースタァライト-the-slot",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "en": "7RL少女☆歌劇 レヴュースタァライト -The SLOT-",
         "ja": "7RL少女歌劇 レヴュースタァライト -The SLOT-"
       }
     },
@@ -151152,8 +151157,116 @@
       "platforms": [
         "steam"
       ]
+    },
+    "그랜드 해적 대모험": {
+      "appIds": {
+        "android": "com.grandseaadventure3.googlelb"
+      },
+      "aliases": [],
+      "developer": "广州市弘弧网络科技有限公司",
+      "icon": "https://play-lh.googleusercontent.com/-EQ_F37W1w1aFMPf_MbzK1mia6o9BgYKupJg9ZdsrKQJDhMAkJQhTOQG-qYGc9Z1s8FSYEjqT9SFGoT5HkPHLQ",
+      "slug": "그랜드-해적-대모험",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "그랜드 해적 대모험"
+      }
+    },
+    "Easy Drum - 진짜 음악 드럼": {
+      "appIds": {
+        "android": "easy.drum.real.music.drum.set"
+      },
+      "aliases": [],
+      "developer": "AVA GAMES",
+      "icon": "https://play-lh.googleusercontent.com/Awb7HZPdMNrzJHmiKdeBpQFhoSjCMtSE7WxQzcfoUhI5H0vZM2PKAE3nyFmtXfeUHj_p4qEE8hbvac0zSo2X",
+      "slug": "easy-drum-진짜-음악-드럼",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Easy Drum - 진짜 음악 드럼"
+      }
+    },
+    "Cardegory: Picture Sort Tiles": {
+      "appIds": {
+        "android": "com.cardegory.match.sort.tiles.puzzle",
+        "ios": 6805292241
+      },
+      "aliases": [],
+      "developer": "ZenEcho Studio",
+      "icon": "https://play-lh.googleusercontent.com/gTuvlbhgDuMDsctHgmqtI2MrH1jrkeBL1Qa_Yb7-5MDN-R-Pxe6HiivD5YBQrwYnpxHUUZAnl1StOmX8Q_eNxb4",
+      "slug": "cardegory-picture-sort-tiles",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Cardegory: Picture Sort Tiles",
+        "en": "Cardegory: Picture Sort Tiles"
+      }
+    },
+    "UMAWALK - 歩いて育てる競走馬": {
+      "appIds": {
+        "android": "jp.switchmedia.umawalk"
+      },
+      "aliases": [],
+      "developer": "合同会社スイッチメディア",
+      "icon": "https://play-lh.googleusercontent.com/NRKPk7FyT4DlSTXOZU8mxweWGOW5Hk-D9ze9XDpi3ySFhmqu1T3nxWTIc1HVmjvKd0jbH4AYputokMhJebxI",
+      "slug": "umawalk",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "UMAWALK - 歩いて育てる競走馬",
+        "ja": "UMAWALK - 歩いて育てる競走馬"
+      }
+    },
+    "Fishing Go!": {
+      "appIds": {
+        "android": "com.zchdint.mhdy"
+      },
+      "aliases": [],
+      "developer": "Cloud Joy Games",
+      "icon": "https://play-lh.googleusercontent.com/IhjftLUQzanVr8zIB7BV-PK5dQbR6acKjOWvhyXNFVrEgpvFbieJPhJ2Y40_S__WWJgpBL6ESkvZh5_Bqqr7rS4",
+      "slug": "fishing-go",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fishing Go!",
+        "zh-tw": "Fishing Go!"
+      }
+    },
+    "다크 헌터 - 헌터 히어로 RPG": {
+      "appIds": {
+        "android": "dovi.darkhero.survival"
+      },
+      "aliases": [],
+      "developer": "Dovi Games",
+      "icon": "https://play-lh.googleusercontent.com/_a4GF767njjCjdiYHK6fQ_va2acQSGV-0A0eFWU2UPJ3J81V2JcuP3HI3-r0qCXFdNSbW65UMLfDEBQsQnbZIw",
+      "slug": "다크-헌터-헌터-히어로-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "다크 헌터 - 헌터 히어로 RPG",
+        "zh-tw": "暗黑獵手：獵人英雄 RPG"
+      }
+    },
+    "Escape from Playtime": {
+      "appIds": {
+        "steam": "2087540"
+      },
+      "aliases": [],
+      "developer": "Mob Entertainment",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2087540/630614ed67f5181a54b86515c300b8f872fe02a8/capsule_231x87.jpg?t=1792598504",
+      "slug": "escape-from-playtime",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-22",
-  "totalGames": 8782
+  "totalGames": 8789
 }
