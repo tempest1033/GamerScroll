@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T21:07:41.809Z",
+  "updatedAt": "2026-10-21T22:58:24.059Z",
   "period": "30days",
   "games": [
     {
@@ -12,10 +12,14 @@
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 12
+      "views": 11
     },
     {
-      "slug": "wos-화이트아웃-서바이벌",
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 10
+    },
+    {
+      "slug": "레이싱-마스터",
       "views": 10
     },
     {
@@ -23,11 +27,7 @@
       "views": 10
     },
     {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 9
-    },
-    {
-      "slug": "레이싱-마스터",
+      "slug": "wos-화이트아웃-서바이벌",
       "views": 9
     },
     {
@@ -39,7 +39,23 @@
       "views": 8
     },
     {
+      "slug": "go-go-고양이-홉핑",
+      "views": 8
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 8
+    },
+    {
+      "slug": "pixel-flow",
+      "views": 8
+    },
+    {
       "slug": "roblox",
+      "views": 8
+    },
+    {
+      "slug": "sakura-school-simulator",
       "views": 8
     },
     {
@@ -59,24 +75,8 @@
       "views": 8
     },
     {
-      "slug": "3d운전교실",
-      "views": 7
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 7
-    },
-    {
-      "slug": "loop-master-컬러-정렬-퍼즐",
-      "views": 7
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 7
-    },
-    {
-      "slug": "palworld",
-      "views": 7
+      "slug": "한게임-포커",
+      "views": 8
     }
   ]
 }
