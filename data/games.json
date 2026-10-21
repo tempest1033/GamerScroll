@@ -150985,8 +150985,73 @@
         "ko": "기어벤처",
         "zh-tw": "武器大冒險"
       }
+    },
+    "Jackpot Lightning Casino Slots": {
+      "appIds": {
+        "ios_tw": "1607025770"
+      },
+      "aliases": [],
+      "developer": "Slots Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/12/99/f6/1299f61d-d6fc-f29a-203f-207b270c91c2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "jackpot-lightning-casino-slots",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Jackpot Lightning Casino Slots",
+        "zh-tw": "Jackpot Lightning Casino Slots"
+      }
+    },
+    "이번 생은 야구다": {
+      "appIds": {
+        "ios": 6819516070,
+        "android": "com.slbcareer.app"
+      },
+      "aliases": [],
+      "developer": "Ingie Han",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/95/a2/a695a273-cd5e-f1c1-1930-82ca646a9e76/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "이번-생은-야구다",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "이번 생은 야구다"
+      }
+    },
+    "Richman 4 Fun Lite": {
+      "appIds": {
+        "ios": 580017968
+      },
+      "aliases": [],
+      "developer": "SOFTSTAR ENTERTAINMENT INC.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2f/1d/21/2f1d2134-2513-84e8-613d-ff9818501417/AppIcon-1x_U007emarketing-0-5-85-220-0.jpeg/512x512bb.jpg",
+      "slug": "richman-4-fun-lite",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Richman 4 Fun Lite",
+        "zh-tw": "Richman 4 Fun Lite"
+      }
+    },
+    "江湖戰亂": {
+      "appIds": {
+        "android": "com.leplay.jhzl.gg"
+      },
+      "aliases": [],
+      "developer": "leplay",
+      "icon": "https://play-lh.googleusercontent.com/Q5R9V7yNtWL0szq9nUAuWpG_mFEeWZXFEaSPuz1xaK1HfItlLSM59-nmRKlKGIVIq4FZ0tSIhEEAho5VFa0WvnU",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "江湖戰亂",
+        "zh-tw": "江湖戰亂"
+      }
     }
   },
   "lastUpdated": "2026-10-21",
-  "totalGames": 8771
+  "totalGames": 8775
 }

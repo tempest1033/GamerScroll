@@ -45190,6 +45190,58 @@
       "icon": "https://play-lh.googleusercontent.com/uDX8RWwafOS7qkC5V9kUGB1lmQg5AJeUo-y6QQJdiE68EyZhOFZSYiF1viusn5-Ak1f2LF1l7C5nwwXnw_YDbw",
       "searchResults": [],
       "addedAt": "2026-10-21T03:15:39.919Z"
+    },
+    {
+      "title": "이번 생은 야구다",
+      "status": "matched",
+      "appIds": {
+        "ios": 6819516070,
+        "android": "com.slbcareer.app"
+      },
+      "developer": "Ingie Han",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/95/a2/a695a273-cd5e-f1c1-1930-82ca646a9e76/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "이번 생은 야구다",
+          "appId": "com.slbcareer.app"
+        }
+      ],
+      "addedAt": "2026-10-21T11:00:56.399Z"
+    },
+    {
+      "title": "Richman 4 Fun Lite",
+      "status": "single",
+      "appIds": {
+        "ios": 580017968
+      },
+      "developer": "SOFTSTAR ENTERTAINMENT INC.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2f/1d/21/2f1d2134-2513-84e8-613d-ff9818501417/AppIcon-1x_U007emarketing-0-5-85-220-0.jpeg/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-21T11:01:00.410Z"
+    },
+    {
+      "title": "江湖戰亂",
+      "status": "single",
+      "appIds": {
+        "android": "com.leplay.jhzl.gg"
+      },
+      "developer": "leplay",
+      "icon": "https://play-lh.googleusercontent.com/Q5R9V7yNtWL0szq9nUAuWpG_mFEeWZXFEaSPuz1xaK1HfItlLSM59-nmRKlKGIVIq4FZ0tSIhEEAho5VFa0WvnU",
+      "searchResults": [
+        {
+          "title": "三国杀—三国卡牌策略回合制手游",
+          "appId": 1037198513
+        },
+        {
+          "title": "劍客行",
+          "appId": 6670597611
+        },
+        {
+          "title": "战江湖-塔防江湖外传",
+          "appId": 1475759405
+        }
+      ],
+      "addedAt": "2026-10-21T11:01:00.924Z"
     }
   ],
   "approved": [
