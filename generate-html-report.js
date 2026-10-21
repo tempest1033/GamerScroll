@@ -1201,17 +1201,18 @@ Sitemap: https://gamerscroll.com/sitemap.xml
 
   // Cloudflare Pages _routes.json: 루트 _middleware.js 때문에 기본값은 모든 요청이 Functions 호출(무료 하루 10만 건 한도)로 잡힌다.
   // 정적 파일은 Functions를 거치지 않게 제외한다. 미들웨어가 정적 경로에서 하던 일은 next()뿐이라 동작은 같다.
-  // 규칙: `*`는 `/`까지 포함해 매칭한다(/*.json = 중첩 경로 포함). exclude가 include보다 우선, 규칙 합계 ≤100개, 각 ≤100자.
+  // 규칙: `*`는 `/`까지 포함해 매칭한다(/*.json = 중첩 경로 포함). 끝의 `/*`는 접두 경로 자체도 매칭한다(/images/* → /images 포함,
+  // /assets/*/* 는 /assets/* 와 같아져 privacy-content 까지 삼킨다 — 2026-10-21 실측). exclude가 include보다 우선, 규칙 합계 ≤100개, 각 ≤100자.
   // 일부러 Functions에 남기는 것:
   //  - HTML 페이지 전부 (www→bare 301, 로캘 302, 레거시 301/410, 게임 상세 /games/<slug>/)
-  //  - /assets/privacy-content(.html): noindex 헤더를 미들웨어가 붙인다 → /assets/* 통째 제외 금지, 하위 폴더(/assets/*/*)와 확장자로만 제외
+  //  - /assets/privacy-content(.html): noindex 헤더를 미들웨어가 붙인다 → /assets/* 통째 제외 금지, 하위 폴더 파일(/assets/*/*.*)과 확장자로만 제외
   //  - /rss.xml (410), 레거시 구간(/magazine /reports /tech …) 아래의 이미지 URL(410/301) → /*.xml, /*.png 같은 이미지·XML 확장자 와일드카드는 쓰지 않는다
   try {
     const routes = {
       version: 1,
       include: ['/*'],
       exclude: [
-        '/assets/*/*',
+        '/assets/*/*.*',
         '/games-data/*',
         '/images/*',
         '/styles/*',
