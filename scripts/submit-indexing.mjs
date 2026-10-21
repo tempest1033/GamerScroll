@@ -23,14 +23,20 @@
 // Failures never abort: IndexNow non-2xx responses are warned but the process
 // exits 0 so CI stays green.
 
-import { readFileSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { pathToFileURL } from 'node:url'
+import path from 'node:path'
 import taxonomy from '../src/templates/ai-blog/taxonomy.js'
 
 const buildAiscrollUrls = article => Object.values(taxonomy.articlePublicationUrls(article))
 
 const DRY_RUN = process.argv.includes('--dry-run')
+// Sitemap mode: submit every gamerscroll.com URL listed in the sitemap index.
+const SITEMAP_MODE = process.argv.includes('--sitemap') || process.env.INDEXING_MODE === 'sitemap'
+const SITEMAP_INDEX = 'https://gamerscroll.com/sitemap.xml'
+const INDEXNOW_BATCH = 10000
+const USER_AGENT = 'Mozilla/5.0 (compatible; GamerScrollIndexNow/1.0; +https://gamerscroll.com)'
 
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
 
@@ -74,7 +80,32 @@ function extractUrlsFromCommit() {
   return [...urls]
 }
 
-function getUrls() {
+// Read a sitemap XML: prefer the built file under docs/ (when present), else fetch live.
+async function readSitemap(url) {
+  const local = path.join('docs', new URL(url).pathname)
+  if (existsSync(local)) return readFileSync(local, 'utf8')
+  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } })
+  if (!res.ok) throw new Error(`sitemap fetch failed: ${url} -> ${res.status}`)
+  return res.text()
+}
+
+const extractLocs = xml => [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map(m => m[1].replace(/&amp;/g, '&'))
+
+async function collectSitemapUrls() {
+  const children = extractLocs(await readSitemap(SITEMAP_INDEX))
+    .filter(u => new URL(u).host === 'gamerscroll.com')
+  const urls = new Set()
+  for (const child of children) {
+    for (const u of extractLocs(await readSitemap(child))) {
+      if (new URL(u).host === 'gamerscroll.com') urls.add(u)
+    }
+  }
+  console.log(`[indexnow] sitemap mode: ${children.length} child sitemap(s), ${urls.size} URL(s)`)
+  return [...urls]
+}
+
+async function getUrls() {
+  if (SITEMAP_MODE) return collectSitemapUrls()
   const fromEnv = (process.env.INDEXING_URLS || '').split('\n').map(s => s.trim()).filter(Boolean)
   if (fromEnv.length) return fromEnv
   return extractUrlsFromCommit()
@@ -111,7 +142,7 @@ async function submitIndexNow(host, urlList) {
 }
 
 async function main() {
-  const all = getUrls()
+  const all = await getUrls()
   const { groups, unknown } = groupByHost(all)
   if (unknown.length) {
     console.log(`[indexnow] skipping ${unknown.length} URL(s) with no registered host key: ${unknown.join(', ')}`)
@@ -122,14 +153,17 @@ async function main() {
   }
   for (const [host, urls] of groups) {
     console.log(`[indexnow] ${DRY_RUN ? 'would submit' : 'submitting'} ${urls.length} URL(s) for ${host}:`)
-    for (const u of urls) console.log(`  ${u}`)
+    for (const u of SITEMAP_MODE ? urls.slice(0, 5) : urls) console.log(`  ${u}`)
     if (DRY_RUN) continue
-    const r = await submitIndexNow(host, urls)
-    if (r.ok) {
-      console.log(`[indexnow] OK ${r.status} (${host})`)
-    } else {
-      // Warn only — IndexNow non-2xx must not fail the workflow.
-      console.warn(`[indexnow] WARN ${r.status} (${host}) :: ${String(r.body).slice(0, 300)}`)
+    for (let i = 0; i < urls.length; i += INDEXNOW_BATCH) {
+      const batch = urls.slice(i, i + INDEXNOW_BATCH)
+      const r = await submitIndexNow(host, batch)
+      if (r.ok) {
+        console.log(`[indexnow] OK ${r.status} (${host}, ${batch.length} URL(s))`)
+      } else {
+        // Warn only — IndexNow non-2xx must not fail the workflow.
+        console.warn(`[indexnow] WARN ${r.status} (${host}, ${batch.length} URL(s)) :: ${String(r.body).slice(0, 300)}`)
+      }
     }
   }
   if (DRY_RUN) console.log('[indexnow] --dry-run: no live submission')

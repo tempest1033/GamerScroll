@@ -18,8 +18,19 @@ on:
       - 'data/wiki/**.json'
       - 'reports/issue/**.json'
       - 'reports/hotpick/**.json'
+  # Daily full-sitemap ping (ranking pages change daily): 02:30 UTC
+  schedule:
+    - cron: '30 2 * * *'
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'articles = changed article JSON / URL list; sitemap = every gamerscroll.com URL in the sitemap index'
+        required: false
+        default: 'articles'
+        type: choice
+        options:
+          - articles
+          - sitemap
       urls:
         description: 'Newline-separated URLs to submit (overrides diff detection)'
         required: false
@@ -49,6 +60,8 @@ jobs:
         # IndexNow non-2xx is warned but never fails the run (script exits 0).
         continue-on-error: true
         env:
+          # schedule -> sitemap mode; dispatch -> inputs.mode; push -> articles
+          INDEXING_MODE: ${{ (github.event_name == 'schedule' && 'sitemap') || inputs.mode || 'articles' }}
           INDEXING_URLS: ${{ inputs.urls }}
           # push event: github.event.before..sha (전체 새 커밋 누락 없이 scan)
           # workflow_dispatch: inputs.diff_range 우선, 없으면 HEAD~1..HEAD
