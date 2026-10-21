@@ -9,7 +9,7 @@ const { t, currentEdition, formatNumber, href, formatDay, formatMonthDay } = req
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
-const { describeGame, trimDescription } = require('../helpers/game-description');
+const { describeGame, trimDescription, dominantScript } = require('../helpers/game-description');
 const { renderGameRankSummary, summaryDays, INDEXABLE_DAYS } = require('../helpers/game-rank-summary');
 
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -28,7 +28,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const plainName = (game.names && game.names[edition.code]) || game.name;
   // Localized name (only when the data has one) shown together with the original name.
   const lowerLocal = plainName.toLowerCase(), lowerOrig = String(game.name).toLowerCase();
-  const titleName = !lowerLocal.includes(lowerOrig) && !lowerOrig.includes(lowerLocal) ?`${plainName} (${game.name})` : plainName;
+  const titleName = !lowerLocal.includes(lowerOrig) && !lowerOrig.includes(lowerLocal) && dominantScript(plainName) !== dominantScript(String(game.name)) ? `${plainName} (${game.name})` : plainName;
   const name = esc(titleName);
 
   // 플랫폼 체크

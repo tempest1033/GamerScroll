@@ -93,12 +93,13 @@ function describeGame(game, meta, home) {
   if (parts.length) out.push(t('game.desc_steam', { list: parts.join(t('game.desc_sep')) }));
   else if (r.marketsNow && r.marketsNow.length > 1) out.push(t('game.desc_markets', { n: r.marketsNow.length, list: r.marketsNow.map((cc) => t(COUNTRY_KEYS[cc])).join(t('game.desc_sep')) }));
 
-  return out.slice(0, 4);
+  // A data value (e.g. "Co., Ltd.") may already end with the sentence's full stop: never print it twice.
+  return out.slice(0, 4).map((s) => s.replace(/([.。])[.。]+$/, '$1'));
 }
 
 // Meta description: whole sentences up to the limit (CJK text is denser), hard cut with an ellipsis if the first one is too long.
 function trimDescription(sentences, joiner) {
-  const limit = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(sentences.join('')) ? 120 : 158;
+  const limit = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(sentences.join('')) ? 120 : 155; // components/head.js cuts anything over 155 chars with "..."
   let text = '';
   for (const s of sentences) {
     const next = text ? text + joiner + s : s;
@@ -112,4 +113,13 @@ function trimDescription(sentences, joiner) {
   return text;
 }
 
-module.exports = { describeGame, trimDescription };
+// Script of a name: 'ja' when it has kana, else the most frequent of Hangul / Han / Latin letters ('' if none).
+function dominantScript(text) {
+  const s = String(text);
+  if (/[\u3040-\u30ff]/.test(s)) return 'ja';
+  const counts = { ko: (s.match(/[\uac00-\ud7af]/g) || []).length, han: (s.match(/[\u3400-\u9fff]/g) || []).length, latin: (s.match(/[A-Za-z]/g) || []).length };
+  const [script, n] = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
+  return n ? script : '';
+}
+
+module.exports = { describeGame, trimDescription, dominantScript };
