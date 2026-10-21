@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/ko",
+    "/ko/*",
+    "/assets/*",
+    "/styles-*",
+    "/favicon*",
+    "/icon-*",
+    "/apple-touch-icon*",
+    "/og-image.png",
+    "/naver*",
+    "/*.json",
+    "/*.xml",
+    "/*.txt",
+    "/*.css",
+    "/*.js",
+    "/*.map",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg",
+    "/*.gif",
+    "/*.webp",
+    "/*.svg",
+    "/*.ico"
+  ]
+}
