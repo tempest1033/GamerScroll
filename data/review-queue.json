@@ -45130,6 +45130,66 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/c5/15/74c5156e-e9a0-656e-85db-6afff891f72b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-21T02:20:22.445Z"
+    },
+    {
+      "title": "Arrow 3D: Space Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.arrow3d.puzzle.ample.game",
+        "ios": 6809347793
+      },
+      "developer": "Ample Wise Studio",
+      "icon": "https://play-lh.googleusercontent.com/dYD_gqL6ojd25Xg7gbgaKRyQ0xs0mpXy8lmx0S3gK6yszeH-PL6PbnRSJTqP_FUgP52pxThyjL4ko1ZYvBUP3N0",
+      "searchResults": [
+        {
+          "title": "Arrow 3D: Space Puzzle",
+          "appId": 6809347793
+        },
+        {
+          "title": "Twisted Strap: Rope Master 3D",
+          "appId": 1590135118
+        },
+        {
+          "title": "Arrow Space - Crazy Puzzle",
+          "appId": 6785647806
+        }
+      ],
+      "addedAt": "2026-10-21T03:15:38.450Z"
+    },
+    {
+      "title": "Pixel Frontier",
+      "status": "single",
+      "appIds": {
+        "android": "net.gameduo.aa"
+      },
+      "developer": "Gameduo",
+      "icon": "https://play-lh.googleusercontent.com/zph_hS6IKReE7jx_6FwB0Zh7C8DKulJXg1iuleQJ8_dS0tEzY4mFxgmjcbNBFClJlqTf6sBvztHI5HGrSFzVFiA",
+      "searchResults": [
+        {
+          "title": "픽셀 좀비 프론티어",
+          "appId": 1435982251
+        },
+        {
+          "title": "좀비 프론티어 3 : 스나이퍼 FPS & 생존 전쟁",
+          "appId": 1057844059
+        },
+        {
+          "title": "스텔라 개척 스토리",
+          "appId": 6744878177
+        }
+      ],
+      "addedAt": "2026-10-21T03:15:39.559Z"
+    },
+    {
+      "title": "기어벤처",
+      "status": "single",
+      "appIds": {
+        "android": "net.gameduo.lf"
+      },
+      "developer": "Gameduo",
+      "icon": "https://play-lh.googleusercontent.com/uDX8RWwafOS7qkC5V9kUGB1lmQg5AJeUo-y6QQJdiE68EyZhOFZSYiF1viusn5-Ak1f2LF1l7C5nwwXnw_YDbw",
+      "searchResults": [],
+      "addedAt": "2026-10-21T03:15:39.919Z"
     }
   ],
   "approved": [
