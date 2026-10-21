@@ -160,6 +160,8 @@ jobs:
           cp ads.txt docs/ads.txt
           # 네이버 사이트 인증 파일 복사
           cp naver7c3fb9852973561ab46756977b2f398e.html docs/naver7c3fb9852973561ab46756977b2f398e.html 2>/dev/null || true
+          # Bing 웹마스터 도구 사이트 인증 파일 복사
+          cp BingSiteAuth.xml docs/BingSiteAuth.xml
           # CNAME 제거됨 - Cloudflare Pages 사용 (GitHub Pages 비활성화)
       - name: Commit and push
         run: |
