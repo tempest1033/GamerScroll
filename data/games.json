@@ -151321,8 +151321,51 @@
         "ko": "凹嗚殺:狼人在身邊",
         "zh-tw": "凹嗚殺:狼人在身邊"
       }
+    },
+    "小小英杰：合战天下": {
+      "appIds": {
+        "ios_cn": 6781578236
+      },
+      "aliases": [],
+      "developer": "Shanghai Sparking Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/89/e5/84/89e58437-96ab-e1eb-e1b8-c5e3a15e8843/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "小小英杰合战天下",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "小小英杰：合战天下"
+      }
+    },
+    "夢之森物語": {
+      "appIds": {
+        "android": "com.dreamforest.google"
+      },
+      "aliases": [],
+      "developer": "Water Horse",
+      "icon": "https://play-lh.googleusercontent.com/r2OsAVzOme9S484bZCXlPionYPl-6BCguRGc9qVoSpst0rnlul1t5gVcMmgPpFO62HnKhxIluYc0JZdUaDk25g",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "夢之森物語",
+        "zh-tw": "夢之森物語"
+      }
+    },
+    "Automobilista 2": {
+      "appIds": {
+        "steam": "1066890"
+      },
+      "aliases": [],
+      "developer": "Reiza Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1066890/capsule_231x87.jpg?t=1781533387",
+      "slug": "automobilista-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-22",
-  "totalGames": 8792
+  "totalGames": 8795
 }
