@@ -45464,6 +45464,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4d/e1/13/4de113c4-e1ea-167d-3971-23ad429fc7ce/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-22T06:58:58.092Z"
+    },
+    {
+      "title": "소드마스터 스토리",
+      "status": "single",
+      "appIds": {
+        "ios": 1521447065
+      },
+      "developer": "SuperPlanet",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/88/68/c8/8868c81f-62f5-3e67-9269-158f5336ee20/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-22T12:48:55.127Z"
+    },
+    {
+      "title": "Just a Rock",
+      "status": "single",
+      "appIds": {
+        "ios": 6810886970
+      },
+      "developer": "Heseri Games Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/fb/27/c2fb2777-87be-cd91-6d6d-81e2d51d4d64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-22T12:48:55.917Z"
     }
   ],
   "approved": [

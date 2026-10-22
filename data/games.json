@@ -151396,8 +151396,81 @@
         "ko": "일랜시아 모바일",
         "zh-tw": "伊蘭西亞 Mobile"
       }
+    },
+    "소드마스터 스토리": {
+      "appIds": {
+        "ios": 1521447065
+      },
+      "aliases": [],
+      "developer": "SuperPlanet",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/88/68/c8/8868c81f-62f5-3e67-9269-158f5336ee20/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "소드마스터-스토리",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "소드마스터 스토리"
+      }
+    },
+    "Just a Rock": {
+      "appIds": {
+        "ios": 6810886970
+      },
+      "aliases": [],
+      "developer": "Heseri Games Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/fb/27/c2fb2777-87be-cd91-6d6d-81e2d51d4d64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "just-a-rock",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Just a Rock",
+        "en": "Just a Rock"
+      }
+    },
+    "管道梦工厂 - 小球冲冲冲 冒险大作战": {
+      "appIds": {
+        "ios_cn": 6504469118
+      },
+      "aliases": [],
+      "developer": "Moo Stars Technology Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/d5/53/bfd5530f-9b7c-afc7-4e02-de9265d3c67f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "管道梦工厂-小球冲冲冲-冒险大作战",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "管道梦工厂 - 小球冲冲冲 冒险大作战"
+      }
+    },
+    "RO仙境傳說：口袋戰記": {
+      "appIds": {
+        "ios_tw": 6762712984
+      },
+      "aliases": [],
+      "developer": "Nuverse Pte. Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/6a/40/da6a4010-717d-6aab-6250-f9fb527d4805/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ro仙境傳說口袋戰記",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "RO仙境傳說：口袋戰記"
+      }
+    },
+    "ONE PIECE: Grand Gourmet": {
+      "appIds": {
+        "steam": "3905010"
+      },
+      "aliases": [],
+      "developer": "Kairosoft Co.,Ltd",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3905010/4be1c8be5e3cbbcaa3f7183d5211dfa1c5b29088/capsule_231x87.jpg?t=1789090874",
+      "slug": "one-piece-grand-gourmet",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-22",
-  "totalGames": 8797
+  "totalGames": 8802
 }
