@@ -151546,8 +151546,41 @@
       "platforms": [
         "steam"
       ]
+    },
+    "탕탕에이스": {
+      "appIds": {
+        "ios": 6789467258
+      },
+      "aliases": [],
+      "developer": "Gorilla Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/e7/52/4ce75255-7f22-b360-77d6-f602880eebcd/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "탕탕에이스",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "탕탕에이스",
+        "ja": "ダダエース",
+        "zh-tw": "噠噠戰機"
+      }
+    },
+    "阵前": {
+      "appIds": {
+        "ios": 6817613979
+      },
+      "aliases": [],
+      "developer": "Dexter Everett Langston",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3f/5a/b2/3f5ab20a-8d8f-983c-f23b-2252f81f979f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "阵前",
+        "zh-cn": "阵前"
+      }
     }
   },
   "lastUpdated": "2026-10-23",
-  "totalGames": 8807
+  "totalGames": 8809
 }
