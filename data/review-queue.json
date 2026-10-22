@@ -45442,6 +45442,28 @@
         }
       ],
       "addedAt": "2026-10-22T01:18:03.754Z"
+    },
+    {
+      "title": "Manhunt: Hide & Seek",
+      "status": "single",
+      "appIds": {
+        "ios": 6560107504
+      },
+      "developer": "Integrated Reality Labs Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/1d/e5/9f1de5bf-e474-7865-293a-50bb770b52d3/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-22T06:58:57.750Z"
+    },
+    {
+      "title": "일랜시아 모바일",
+      "status": "single",
+      "appIds": {
+        "ios": 6802933822
+      },
+      "developer": "Game Duo Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4d/e1/13/4de113c4-e1ea-167d-3971-23ad429fc7ce/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-22T06:58:58.092Z"
     }
   ],
   "approved": [

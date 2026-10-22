@@ -151364,8 +151364,40 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Manhunt: Hide & Seek": {
+      "appIds": {
+        "ios": 6560107504
+      },
+      "aliases": [],
+      "developer": "Integrated Reality Labs Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/1d/e5/9f1de5bf-e474-7865-293a-50bb770b52d3/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "manhunt-hide-seek",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Manhunt: Hide & Seek",
+        "en": "Manhunt: Hide & Seek"
+      }
+    },
+    "일랜시아 모바일": {
+      "appIds": {
+        "ios": 6802933822
+      },
+      "aliases": [],
+      "developer": "Game Duo Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4d/e1/13/4de113c4-e1ea-167d-3971-23ad429fc7ce/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "일랜시아-모바일",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "일랜시아 모바일",
+        "zh-tw": "伊蘭西亞 Mobile"
+      }
     }
   },
   "lastUpdated": "2026-10-22",
-  "totalGames": 8795
+  "totalGames": 8797
 }
