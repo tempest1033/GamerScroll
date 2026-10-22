@@ -151293,16 +151293,19 @@
     },
     "キタキタ王様": {
       "appIds": {
-        "ios_jp": 6768868898
+        "ios_jp": 6768868898,
+        "android": "com.efun.jpwlxq"
       },
       "aliases": [],
       "developer": "EFUN FRONT COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/65/4b/02/654b0260-1964-c96b-19b7-6fbf963f17c5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "キタキタ王様",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "キタキタ王様",
         "ja": "キタキタ王様"
       }
     },
@@ -151469,8 +151472,82 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Don't Die: SurvivalAutoBattler": {
+      "appIds": {
+        "ios_us": 6796549577
+      },
+      "aliases": [],
+      "developer": "HK Adma Tech Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/22/57/55/225755c8-75d9-8db2-f718-c10a51fd1ad2/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "dont-die-survivalautobattler",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Don't Die: SurvivalAutoBattler"
+      }
+    },
+    "Fast Cash Bingo Dice": {
+      "appIds": {
+        "android_us": "com.greatplay.bingocash"
+      },
+      "aliases": [],
+      "developer": "GreatPlay App",
+      "icon": "https://play-lh.googleusercontent.com/Zd1Dzm6kIN21Dj-yqsygJ8wDCFBB3ITAj-UUpTATpwJrzzYQwgrQXk_0v6vOrkLHRr342JJhUcUJVQ-CwYI0Lhw",
+      "slug": "fast-cash-bingo-dice",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Fast Cash Bingo Dice"
+      }
+    },
+    "Crown Crush": {
+      "appIds": {
+        "android": "com.gl.crowncrush"
+      },
+      "aliases": [],
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/mA3KlatlyJVxkUD5hMAb0j1oGE9Is8ETQ_-KILM_GLdfmOn__m-nWnbfg21mHnp5hfd84tQn3WIaw5BuCYSr5w",
+      "slug": "crown-crush",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Crown Crush",
+        "en": "Crown Crush"
+      }
+    },
+    "ぼくのハムスター": {
+      "appIds": {
+        "ios": 6800497171
+      },
+      "aliases": [],
+      "developer": "mikito oba",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/66/58/c2665891-f311-fc4d-2693-77605bb662fd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "ぼくのハムスター",
+        "ja": "ぼくのハムスター"
+      }
+    },
+    "THE DEAD WE KNEW: Open World Survival": {
+      "appIds": {
+        "steam": "4890760"
+      },
+      "aliases": [],
+      "developer": "MAY19 STUDIO",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4890760/fb907128802e801189829972334439cbcf3dcaf3/capsule_231x87.jpg?t=1792688504",
+      "slug": "the-dead-we-knew-open-world-survival",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-22",
-  "totalGames": 8802
+  "lastUpdated": "2026-10-23",
+  "totalGames": 8807
 }

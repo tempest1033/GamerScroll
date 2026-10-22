@@ -45486,6 +45486,41 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/fb/27/c2fb2777-87be-cd91-6d6d-81e2d51d4d64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-22T12:48:55.917Z"
+    },
+    {
+      "title": "Crown Crush",
+      "status": "single",
+      "appIds": {
+        "android": "com.gl.crowncrush"
+      },
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/mA3KlatlyJVxkUD5hMAb0j1oGE9Is8ETQ_-KILM_GLdfmOn__m-nWnbfg21mHnp5hfd84tQn3WIaw5BuCYSr5w",
+      "searchResults": [
+        {
+          "title": "로얄 매치 (Royal Match)",
+          "appId": 1482155847
+        },
+        {
+          "title": "클래시 로얄 (Clash Royale)",
+          "appId": 1053012308
+        },
+        {
+          "title": "스택 점프 공",
+          "appId": 1513814902
+        }
+      ],
+      "addedAt": "2026-10-22T17:51:13.162Z"
+    },
+    {
+      "title": "ぼくのハムスター",
+      "status": "single",
+      "appIds": {
+        "ios": 6800497171
+      },
+      "developer": "mikito oba",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/66/58/c2665891-f311-fc4d-2693-77605bb662fd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-22T17:51:13.767Z"
     }
   ],
   "approved": [
