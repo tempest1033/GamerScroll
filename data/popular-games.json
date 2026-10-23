@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T22:58:24.059Z",
+  "updatedAt": "2026-10-23T00:20:49.502Z",
   "period": "30days",
   "games": [
     {
@@ -11,23 +11,19 @@
       "views": 19
     },
     {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 11
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 10
-    },
-    {
-      "slug": "레이싱-마스터",
-      "views": 10
-    },
-    {
       "slug": "이클립스-더-어웨이크닝",
       "views": 10
     },
     {
-      "slug": "wos-화이트아웃-서바이벌",
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 10
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 9
+    },
+    {
+      "slug": "레이싱-마스터",
       "views": 9
     },
     {
@@ -35,19 +31,7 @@
       "views": 8
     },
     {
-      "slug": "barotrauma",
-      "views": 8
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 8
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
-      "views": 8
-    },
-    {
-      "slug": "pixel-flow",
+      "slug": "palworld",
       "views": 8
     },
     {
@@ -55,28 +39,44 @@
       "views": 8
     },
     {
-      "slug": "sakura-school-simulator",
+      "slug": "wos-화이트아웃-서바이벌",
       "views": 8
+    },
+    {
+      "slug": "에이지-오브-엠파이어-모바일",
+      "views": 8
+    },
+    {
+      "slug": "탈출-게임-암스테르담",
+      "views": 8
+    },
+    {
+      "slug": "barotrauma",
+      "views": 7
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 7
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
+      "views": 7
+    },
+    {
+      "slug": "pixel-flow",
+      "views": 7
+    },
+    {
+      "slug": "sakura-school-simulator",
+      "views": 7
     },
     {
       "slug": "sled-surfers-슬로프-어드벤처",
-      "views": 8
+      "views": 7
     },
     {
-      "slug": "블루-프로토콜-스타-레조넌스",
-      "views": 8
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
-      "views": 8
-    },
-    {
-      "slug": "에이지-오브-제트-타워-디펜스",
-      "views": 8
-    },
-    {
-      "slug": "한게임-포커",
-      "views": 8
+      "slug": "where-winds-meet",
+      "views": 7
     }
   ]
 }

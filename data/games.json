@@ -151579,8 +151579,40 @@
         "ko": "阵前",
         "zh-cn": "阵前"
       }
+    },
+    "Picos da Coroa": {
+      "appIds": {
+        "ios": 6812326309
+      },
+      "aliases": [],
+      "developer": "Lena Tatum Barber",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2d/de/2d/2dde2de7-2b14-525f-7f18-1ab4b7939eee/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "picos-da-coroa",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Picos da Coroa",
+        "zh-cn": "Picos da Coroa"
+      }
+    },
+    "모찌 버스트": {
+      "appIds": {
+        "ios": 6792641801
+      },
+      "aliases": [],
+      "developer": "Game Duo Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/ef/72/19ef7244-519c-8079-d0ab-9037048ed9b7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "모찌-버스트",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "모찌 버스트",
+        "zh-tw": "麻糬爆擊"
+      }
     }
   },
   "lastUpdated": "2026-10-23",
-  "totalGames": 8809
+  "totalGames": 8811
 }
