@@ -44372,9 +44372,11 @@
     },
     "크레인팝 뽑기": {
       "appIds": {
-        "android": "com.nmtg.client.cromon"
+        "android": "com.nmtg.client.akmon"
       },
-      "aliases": [],
+      "aliases": [
+        "크레인팝 - 뽑기"
+      ],
       "developer": "NMTG",
       "icon": "https://play-lh.googleusercontent.com/eIKtSt4EFHvrmYCE2ctdGjNZty8Y2_A4mla7r3f78qPUgNy5-2zV2eYBvo6dYL6qObUDeoDgku78RXM5H6uqww",
       "slug": "크레인팝-뽑기",
@@ -151068,14 +151070,16 @@
     },
     "수련충 리마스터": {
       "appIds": {
-        "ios": 6803365307
+        "ios": 6803365307,
+        "android": "com.daerigame.scarecrow"
       },
       "aliases": [],
       "developer": "DAERI SOFT",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/f4/74/9af474f4-12f6-2efe-7522-169fe7f1d06d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "수련충-리마스터",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "수련충 리마스터"
@@ -151143,16 +151147,19 @@
     },
     "指尖大冒險": {
       "appIds": {
-        "ios_tw": 6800268867
+        "ios_tw": 6800268867,
+        "android": "com.gtdcgg.zjdmx"
       },
       "aliases": [],
       "developer": "Electronic Soul Interaction Entertainment (Hong Kong) Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/cb/2a/37cb2ad4-c7b7-ddaa-be27-bd70dc20f771/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "指尖大冒險",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "指尖大冒險",
         "zh-tw": "指尖大冒險"
       }
     },
@@ -151278,14 +151285,16 @@
     },
     "삼국지: 킹덤": {
       "appIds": {
-        "ios": 6760104737
+        "ios": 6760104737,
+        "android": "com.destiny3k.tmkr"
       },
       "aliases": [],
       "developer": "HotGame Center",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8d/35/d3/8d35d393-4817-ea92-1c0a-52ae1a6ddcea/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
       "slug": "삼국지-킹덤",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "삼국지: 킹덤"
@@ -151552,14 +151561,18 @@
     },
     "탕탕에이스": {
       "appIds": {
-        "ios": 6789467258
+        "ios": "6789467258",
+        "android": "com.survivor.ace"
       },
-      "aliases": [],
+      "aliases": [
+        "탕탕 에이스"
+      ],
       "developer": "Gorilla Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/e7/52/4ce75255-7f22-b360-77d6-f602880eebcd/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
       "slug": "탕탕에이스",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "탕탕에이스",
@@ -151859,8 +151872,244 @@
       "platforms": [
         "steam"
       ]
+    },
+    "땡기지_퀴즈 이벤트의 모든 것": {
+      "appIds": {
+        "ios": 6448746491
+      },
+      "aliases": [],
+      "developer": "KSEEK Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/61/26/b0/6126b02d-2082-c64d-1d0b-f77e59a3d1f6/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "땡기지퀴즈-이벤트의-모든-것",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "땡기지_퀴즈 이벤트의 모든 것"
+      }
+    },
+    "무림귀환": {
+      "appIds": {
+        "android": "com.teamarex.Wuxia01"
+      },
+      "aliases": [],
+      "developer": "teamarex",
+      "icon": "https://play-lh.googleusercontent.com/WJDN2EBfaCZd8qpdddOkl27Z6gJ5gGF-Pu2R1YianPQ4vDNANyobFzl_Pf0PaRkVf-BRgQ8IsEOwptDipWFm",
+      "slug": "무림귀환",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "무림귀환"
+      }
+    },
+    "영주님은 죽지 않는다 : 방치형 RPG": {
+      "appIds": {
+        "android": "com.dearto.cross",
+        "ios": 6798272988
+      },
+      "aliases": [],
+      "developer": "Dearto Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/6MIhtDVajVQ7qr2DuU3jwzbtUdTpHR-F3l06edTSXmGa1iJAHfCcnLrkMAr7wr4396zVY8_XaCgaQx3uP2c_sA",
+      "slug": "영주님은-죽지-않는다-방치형-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "영주님은 죽지 않는다 : 방치형 RPG"
+      }
+    },
+    "Pose Stack": {
+      "appIds": {
+        "android": "com.kayac.PoseStack"
+      },
+      "aliases": [],
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/CtjYqhjN7q0HbuwTOjS4dF3BJe_SPhmr2PzKUw3_5-xONc4HdFxeyvMr1cg_aFFE3mBydVGupEi6Lw-8Yiurtwk",
+      "slug": "pose-stack",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Pose Stack"
+      }
+    },
+    "영혼의 시대": {
+      "appIds": {
+        "android": "leyi.ageofspirits"
+      },
+      "aliases": [],
+      "developer": "LeyiGames",
+      "icon": "https://play-lh.googleusercontent.com/6QTNQbg4PAQ5ug6RYiD0hOi-mUVyF5mgi9wwY2qGg24dpmTZHqDij5o2bjAVG3PSxT3rGmsAxbptHi3Ii-LX-w",
+      "slug": "영혼의-시대",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "영혼의 시대",
+        "en": "Age of Spirits"
+      }
+    },
+    "新・都道府県ゲーム": {
+      "appIds": {
+        "ios_jp": 6823042308
+      },
+      "aliases": [],
+      "developer": "masato nishikawa",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f8/a7/7f/f8a77faa-9345-f178-afdc-933a2d819737/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "新都道府県ゲーム",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "新・都道府県ゲーム"
+      }
+    },
+    "脱出ゲーム ハロウィンの夜": {
+      "appIds": {
+        "ios": 6823125665
+      },
+      "aliases": [],
+      "developer": "daichi simada",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/57/87/fa578704-6b13-dd78-b74a-f2ea64754d03/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "脱出ゲーム ハロウィンの夜",
+        "ja": "脱出ゲーム ハロウィンの夜"
+      }
+    },
+    "Lazy Cat Sudoku": {
+      "appIds": {
+        "android": "com.lazycat.catsudukulazy"
+      },
+      "aliases": [],
+      "developer": "Blaze Praise",
+      "icon": "https://play-lh.googleusercontent.com/xwAUSUr6OgrULp5Vks5NMyavz0tk3NNUlTBbiq1OKhnJozryO8vMt6PeopTfsf3yve7N8eGg-sOWE3ibEpKlpQ",
+      "slug": "lazy-cat-sudoku",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Lazy Cat Sudoku",
+        "ja": "Lazy Cat Sudoku"
+      }
+    },
+    "方块我最强-草甸碎块记": {
+      "appIds": {
+        "ios_cn": 6809443639
+      },
+      "aliases": [],
+      "developer": "俊博 王",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/dd/56/6cdd5627-d81f-b99a-7735-9a44b671941c/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "方块我最强-草甸碎块记",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "方块我最强-草甸碎块记",
+        "zh-cn": "方块我最强-草甸碎块记"
+      }
+    },
+    "闪舞派对": {
+      "appIds": {
+        "ios_cn": 6798234697
+      },
+      "aliases": [],
+      "developer": "Beijing Linggame network&technology co.,ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3c/48/ea/3c48eac9-86cd-398d-ec13-efba1622f7e8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "闪舞派对",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "闪舞派对"
+      }
+    },
+    "마키마키 클럽": {
+      "appIds": {
+        "ios": 6817014648
+      },
+      "aliases": [],
+      "developer": "Treasure System",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/a0/e5/d5a0e57c-5530-42b3-21a3-c178ecff2d90/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "마키마키-클럽",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "마키마키 클럽",
+        "zh-tw": "捲捲俱樂部"
+      }
+    },
+    "銘文戰紀": {
+      "appIds": {
+        "android": "com.fantida.uanfaqi"
+      },
+      "aliases": [],
+      "developer": "Jiufei Game Ltd",
+      "icon": "https://play-lh.googleusercontent.com/vOavBtP3Bah2DWeMIvg5eOJkrV4QcWmxKOEWa9qV7e2yCiJl3YPPgLBA6qqSvRFfpA7_PzeQUBLRYNJ8AOSZ2gg",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "銘文戰紀",
+        "zh-tw": "銘文戰紀"
+      }
+    },
+    "Arrow Romance: Beauty Reveal": {
+      "appIds": {
+        "android": "com.arrow.beauty.reveal"
+      },
+      "aliases": [],
+      "developer": "S.H. ONG PRIVATE LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/ocGnOO4PryvkREjdmJpSiI0P7WnARMN7YgZu4GrSbdYrPWfG7_eas0YTbqGVZcJutXAq3BBgEdzgLRSFYHG04A",
+      "slug": "arrow-romance-beauty-reveal",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Romance: Beauty Reveal",
+        "zh-tw": "Arrow Romance: Beauty Reveal"
+      }
+    },
+    "Puzzle Swordsman: Match-3 RPG": {
+      "appIds": {
+        "android": "com.cannedfishgame.esl"
+      },
+      "aliases": [],
+      "developer": "fork wang",
+      "icon": "https://play-lh.googleusercontent.com/5vwyTuWWMXqEQrjcboFDGu_ZXq9n51IQN8amWXjr6PaaWkJjcu-CZC9aTQ84tmge8nez1TNOWv8HEpAnlb3_1I0",
+      "slug": "puzzle-swordsman-match-3-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Puzzle Swordsman: Match-3 RPG",
+        "zh-tw": "異世劍俠：三消RPG"
+      }
+    },
+    "냥냥스타: 머지(Merge) 힐링 고양이 스토리 게임": {
+      "appIds": {
+        "android": "com.THEBRICKSGAMES.Nyanyanstar"
+      },
+      "aliases": [],
+      "developer": "Aidian Network",
+      "icon": "https://play-lh.googleusercontent.com/nkJZKP9iKSXJ7MdPfyck-IXeVfVi6iBXIym_mKZkH9QfZqGQGbQqp54XNbMMLRm3YYsYZj7iXYxCeXnwAbfUvF8",
+      "slug": "냥냥스타-머지merge-힐링-고양이-스토리-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "냥냥스타: 머지(Merge) 힐링 고양이 스토리 게임",
+        "zh-tw": "喵喵之星-可愛貓咪並養"
+      }
     }
   },
-  "lastUpdated": "2026-10-23",
-  "totalGames": 8827
+  "lastUpdated": "2026-10-24",
+  "totalGames": 8842
 }

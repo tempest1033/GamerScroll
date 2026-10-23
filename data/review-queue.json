@@ -23162,11 +23162,24 @@
       "title": "크레인팝 뽑기",
       "status": "single",
       "appIds": {
-        "android": "com.nmtg.client.cromon"
+        "android": "com.nmtg.client.akmon"
       },
       "developer": "NMTG",
       "icon": "https://play-lh.googleusercontent.com/eIKtSt4EFHvrmYCE2ctdGjNZty8Y2_A4mla7r3f78qPUgNy5-2zV2eYBvo6dYL6qObUDeoDgku78RXM5H6uqww",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "프라고레　온라인 크레인게임 집에서 뽑기게임",
+          "appId": 1474111930
+        },
+        {
+          "title": "Clawtopia - 인형뽑기 연습게임",
+          "appId": 1594193052
+        },
+        {
+          "title": "클로머신마스터 인형뽑기・일본 정품 인형뽑기・인형뽑기",
+          "appId": 1364387056
+        }
+      ],
       "addedAt": "2026-05-23T10:53:35.798Z"
     },
     {
@@ -45275,13 +45288,19 @@
     },
     {
       "title": "수련충 리마스터",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6803365307
+        "ios": 6803365307,
+        "android": "com.daerigame.scarecrow"
       },
       "developer": "DAERI SOFT",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/f4/74/9af474f4-12f6-2efe-7522-169fe7f1d06d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "수련충 리마스터",
+          "appId": 6803365307
+        }
+      ],
       "addedAt": "2026-10-21T15:55:11.295Z"
     },
     {
@@ -45407,13 +45426,19 @@
     },
     {
       "title": "삼국지: 킹덤",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6760104737
+        "ios": 6760104737,
+        "android": "com.destiny3k.tmkr"
       },
       "developer": "HotGame Center",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8d/35/d3/8d35d393-4817-ea92-1c0a-52ae1a6ddcea/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "삼국지: 킹덤",
+          "appId": 6760104737
+        }
+      ],
       "addedAt": "2026-10-21T22:59:12.523Z"
     },
     {
@@ -45524,13 +45549,19 @@
     },
     {
       "title": "탕탕에이스",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6789467258
+        "ios": "6789467258",
+        "android": "com.survivor.ace"
       },
       "developer": "Gorilla Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/e7/52/4ce75255-7f22-b360-77d6-f602880eebcd/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "탕탕에이스",
+          "appId": "6789467258"
+        }
+      ],
       "addedAt": "2026-10-22T21:06:33.048Z"
     },
     {
@@ -45729,6 +45760,175 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/01/b9/0f01b939-ca17-0b2a-5c83-f9f9e095f3e9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-23T10:52:36.592Z"
+    },
+    {
+      "title": "땡기지_퀴즈 이벤트의 모든 것",
+      "status": "single",
+      "appIds": {
+        "ios": 6448746491
+      },
+      "developer": "KSEEK Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/61/26/b0/6126b02d-2082-c64d-1d0b-f77e59a3d1f6/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:05.236Z"
+    },
+    {
+      "title": "무림귀환",
+      "status": "single",
+      "appIds": {
+        "android": "com.teamarex.Wuxia01"
+      },
+      "developer": "teamarex",
+      "icon": "https://play-lh.googleusercontent.com/WJDN2EBfaCZd8qpdddOkl27Z6gJ5gGF-Pu2R1YianPQ4vDNANyobFzl_Pf0PaRkVf-BRgQ8IsEOwptDipWFm",
+      "searchResults": [
+        {
+          "title": "열혈강호: 귀환",
+          "appId": 6742733115
+        }
+      ],
+      "addedAt": "2026-10-23T19:45:05.559Z"
+    },
+    {
+      "title": "영주님은 죽지 않는다 : 방치형 RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "com.dearto.cross",
+        "ios": 6798272988
+      },
+      "developer": "Dearto Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/6MIhtDVajVQ7qr2DuU3jwzbtUdTpHR-F3l06edTSXmGa1iJAHfCcnLrkMAr7wr4396zVY8_XaCgaQx3uP2c_sA",
+      "searchResults": [
+        {
+          "title": "영주님은 죽지 않는다 : 방치형 RPG",
+          "appId": 6798272988
+        }
+      ],
+      "addedAt": "2026-10-23T19:45:06.242Z"
+    },
+    {
+      "title": "Pose Stack",
+      "status": "single",
+      "appIds": {
+        "android": "com.kayac.PoseStack"
+      },
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/CtjYqhjN7q0HbuwTOjS4dF3BJe_SPhmr2PzKUw3_5-xONc4HdFxeyvMr1cg_aFFE3mBydVGupEi6Lw-8Yiurtwk",
+      "searchResults": [
+        {
+          "title": "Yoga Poses Study for Training",
+          "appId": 1610089638
+        },
+        {
+          "title": "Reddit",
+          "appId": 1064216828
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        }
+      ],
+      "addedAt": "2026-10-23T19:45:06.550Z"
+    },
+    {
+      "title": "영혼의 시대",
+      "status": "single",
+      "appIds": {
+        "android": "leyi.ageofspirits"
+      },
+      "developer": "LeyiGames",
+      "icon": "https://play-lh.googleusercontent.com/6QTNQbg4PAQ5ug6RYiD0hOi-mUVyF5mgi9wwY2qGg24dpmTZHqDij5o2bjAVG3PSxT3rGmsAxbptHi3Ii-LX-w",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:07.048Z"
+    },
+    {
+      "title": "脱出ゲーム ハロウィンの夜",
+      "status": "single",
+      "appIds": {
+        "ios": 6823125665
+      },
+      "developer": "daichi simada",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/57/87/fa578704-6b13-dd78-b74a-f2ea64754d03/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:07.771Z"
+    },
+    {
+      "title": "Lazy Cat Sudoku",
+      "status": "single",
+      "appIds": {
+        "android": "com.lazycat.catsudukulazy"
+      },
+      "developer": "Blaze Praise",
+      "icon": "https://play-lh.googleusercontent.com/xwAUSUr6OgrULp5Vks5NMyavz0tk3NNUlTBbiq1OKhnJozryO8vMt6PeopTfsf3yve7N8eGg-sOWE3ibEpKlpQ",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:08.116Z"
+    },
+    {
+      "title": "마키마키 클럽",
+      "status": "single",
+      "appIds": {
+        "ios": 6817014648
+      },
+      "developer": "Treasure System",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/a0/e5/d5a0e57c-5530-42b3-21a3-c178ecff2d90/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:08.956Z"
+    },
+    {
+      "title": "銘文戰紀",
+      "status": "single",
+      "appIds": {
+        "android": "com.fantida.uanfaqi"
+      },
+      "developer": "Jiufei Game Ltd",
+      "icon": "https://play-lh.googleusercontent.com/vOavBtP3Bah2DWeMIvg5eOJkrV4QcWmxKOEWa9qV7e2yCiJl3YPPgLBA6qqSvRFfpA7_PzeQUBLRYNJ8AOSZ2gg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:09.778Z"
+    },
+    {
+      "title": "Arrow Romance: Beauty Reveal",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrow.beauty.reveal"
+      },
+      "developer": "S.H. ONG PRIVATE LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/ocGnOO4PryvkREjdmJpSiI0P7WnARMN7YgZu4GrSbdYrPWfG7_eas0YTbqGVZcJutXAq3BBgEdzgLRSFYHG04A",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:10.113Z"
+    },
+    {
+      "title": "Puzzle Swordsman: Match-3 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.cannedfishgame.esl"
+      },
+      "developer": "fork wang",
+      "icon": "https://play-lh.googleusercontent.com/5vwyTuWWMXqEQrjcboFDGu_ZXq9n51IQN8amWXjr6PaaWkJjcu-CZC9aTQ84tmge8nez1TNOWv8HEpAnlb3_1I0",
+      "searchResults": [],
+      "addedAt": "2026-10-23T19:45:10.459Z"
+    },
+    {
+      "title": "냥냥스타: 머지(Merge) 힐링 고양이 스토리 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.THEBRICKSGAMES.Nyanyanstar"
+      },
+      "developer": "Aidian Network",
+      "icon": "https://play-lh.googleusercontent.com/nkJZKP9iKSXJ7MdPfyck-IXeVfVi6iBXIym_mKZkH9QfZqGQGbQqp54XNbMMLRm3YYsYZj7iXYxCeXnwAbfUvF8",
+      "searchResults": [
+        {
+          "title": "냥금술사 - 고양이 머지 타이쿤",
+          "appId": 6499293571
+        },
+        {
+          "title": "덴버의 숲: 머지&코지",
+          "appId": 6752624756
+        },
+        {
+          "title": "고양이장원 - 정원합성 힐링시뮬레이션게임",
+          "appId": 6470771978
+        }
+      ],
+      "addedAt": "2026-10-23T19:45:11.066Z"
     }
   ],
   "approved": [
