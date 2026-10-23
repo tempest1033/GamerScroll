@@ -45929,6 +45929,30 @@
         }
       ],
       "addedAt": "2026-10-23T19:45:11.066Z"
+    },
+    {
+      "title": "DIY Bubble Tea Simulator",
+      "status": "single",
+      "appIds": {
+        "android": "com.casual.diy.drinkgame.bubble"
+      },
+      "developer": "Pageto Production",
+      "icon": "https://play-lh.googleusercontent.com/0ApXbuu8HVB9g8X02QGpMErz6XNcOZq84MnUKdBYmoEU-dmtkv7tVfjYsX8HidiP2unUrHyvZlmAu4-E4hEN_g",
+      "searchResults": [
+        {
+          "title": "Bubble Tea DIY: ASMR Simulator",
+          "appId": 6473073392
+        },
+        {
+          "title": "Bubble Tea!",
+          "appId": 1490632518
+        },
+        {
+          "title": "Boba Tea DIY: Bubble Tea",
+          "appId": 6473166041
+        }
+      ],
+      "addedAt": "2026-10-23T22:50:47.830Z"
     }
   ],
   "approved": [
