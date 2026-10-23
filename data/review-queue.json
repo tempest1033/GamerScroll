@@ -45565,6 +45565,131 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/ef/72/19ef7244-519c-8079-d0ab-9037048ed9b7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-23T00:22:02.607Z"
+    },
+    {
+      "title": "버니팜 : 좀비디펜스",
+      "status": "single",
+      "appIds": {
+        "ios": 6796890313
+      },
+      "developer": "NGU Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/d7/c3/30d7c364-b523-6cde-cb92-31c0941e07a0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T05:40:36.081Z"
+    },
+    {
+      "title": "Brave Squad",
+      "status": "single",
+      "appIds": {
+        "ios": 6450196264
+      },
+      "developer": "Orion Arcade LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/ca/4d/1bca4d48-8c12-6cc5-ae36-b145bfd3b4ea/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T05:40:36.288Z"
+    },
+    {
+      "title": "Fidget Trading: Dumpling Party",
+      "status": "single",
+      "appIds": {
+        "android": "com.fidget.dumplingparty"
+      },
+      "developer": "Novix Games",
+      "icon": "https://play-lh.googleusercontent.com/_RQFTaPpnUu7LcLqujBKZU-g-db4Z4FKxgf_QqhYnhOXp8vSM7B4uU43Iya7qMUF1kwB81S90X_-EaXLiQKa9Q",
+      "searchResults": [
+        {
+          "title": "Squishy Dumpling Unboxing ASMR",
+          "appId": 6807787701
+        },
+        {
+          "title": "말랑이 거래 3D : 팝잇 합치기, 푸시팝 키우기",
+          "appId": 1587132202
+        },
+        {
+          "title": "Fidget Trading 3D: Pop It Toy",
+          "appId": 1591010090
+        }
+      ],
+      "addedAt": "2026-10-23T05:40:37.044Z"
+    },
+    {
+      "title": "Bracelet Craft: DIY Creator",
+      "status": "single",
+      "appIds": {
+        "android": "com.casual.bracelet.diy.master"
+      },
+      "developer": "Nirvana Studios",
+      "icon": "https://play-lh.googleusercontent.com/cpZcOFKVBNi9pso3JkBu6sFBsoECA_kayvF8ZiAvDjJBCMCd5_1Rrv_RI0q-a6nd7p0607vd37OB6mznnosV",
+      "searchResults": [
+        {
+          "title": "Bracelet DIY: ASMR Charm Maker",
+          "appId": 6800308235
+        },
+        {
+          "title": "STARCAST 스타캐스트",
+          "appId": 6815940456
+        }
+      ],
+      "addedAt": "2026-10-23T05:40:37.821Z"
+    },
+    {
+      "title": "Arrow Junction: Logic Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6811773139
+      },
+      "developer": "QBA TECH LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/04/89/0204892b-8d21-c0c2-a5fe-2f65b21f9c96/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T05:40:38.065Z"
+    },
+    {
+      "title": "Jigsaw Cute: 애니 카드 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "jigsawcute.com"
+      },
+      "developer": "MadebyMizu",
+      "icon": "https://play-lh.googleusercontent.com/4LAJMpO5tv9YSwIFk9LrnGhQtYbnumnJLygREvEXAWVO15DhhG6-Tz3uXJzR84dB1ZU5cYviw73LYYqCQjJ-7w",
+      "searchResults": [
+        {
+          "title": "직솔리테어 애니: 퍼즐 대모험",
+          "appId": 6755243886
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "팬텀 로즈 2 사파이어",
+          "appId": 6502919566
+        }
+      ],
+      "addedAt": "2026-10-23T05:40:39.258Z"
+    },
+    {
+      "title": "Cupid’s Arrows",
+      "status": "single",
+      "appIds": {
+        "android": "com.cupids.arrows.game"
+      },
+      "developer": "北京雅亿信息咨询有限公司",
+      "icon": "https://play-lh.googleusercontent.com/iLrGCZDSTL9-sg3moUgZZLzeUNBum25JmwFdI8geKHP2Q2uE6MtI9Ytl2lq4qNUiuIhtEnSUlZAf9P-KsOZu",
+      "searchResults": [
+        {
+          "title": "Love Archer 3D",
+          "appId": 6443659017
+        },
+        {
+          "title": "러브 자이언트: 화살 & 바운스",
+          "appId": 6448795780
+        },
+        {
+          "title": "Cupid Clash",
+          "appId": 1344207702
+        }
+      ],
+      "addedAt": "2026-10-23T05:40:39.685Z"
     }
   ],
   "approved": [

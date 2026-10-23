@@ -151448,16 +151448,19 @@
     },
     "RO仙境傳說：口袋戰記": {
       "appIds": {
-        "ios_tw": 6762712984
+        "ios_tw": 6762712984,
+        "android": "com.rojourney.and"
       },
       "aliases": [],
       "developer": "Nuverse Pte. Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/6a/40/da6a4010-717d-6aab-6250-f9fb527d4805/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "ro仙境傳說口袋戰記",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "RO仙境傳說：口袋戰記",
         "zh-tw": "RO仙境傳說：口袋戰記"
       }
     },
@@ -151611,8 +151614,160 @@
         "ko": "모찌 버스트",
         "zh-tw": "麻糬爆擊"
       }
+    },
+    "버니팜 : 좀비디펜스": {
+      "appIds": {
+        "ios": 6796890313
+      },
+      "aliases": [],
+      "developer": "NGU Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/30/d7/c3/30d7c364-b523-6cde-cb92-31c0941e07a0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "버니팜-좀비디펜스",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "버니팜 : 좀비디펜스"
+      }
+    },
+    "Brave Squad": {
+      "appIds": {
+        "ios": 6450196264
+      },
+      "aliases": [],
+      "developer": "Orion Arcade LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/ca/4d/1bca4d48-8c12-6cc5-ae36-b145bfd3b4ea/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "brave-squad",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Brave Squad"
+      }
+    },
+    "Fidget Trading: Dumpling Party": {
+      "appIds": {
+        "android": "com.fidget.dumplingparty"
+      },
+      "aliases": [],
+      "developer": "Novix Games",
+      "icon": "https://play-lh.googleusercontent.com/_RQFTaPpnUu7LcLqujBKZU-g-db4Z4FKxgf_QqhYnhOXp8vSM7B4uU43Iya7qMUF1kwB81S90X_-EaXLiQKa9Q",
+      "slug": "fidget-trading-dumpling-party",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fidget Trading: Dumpling Party",
+        "en": "Fidget Trading: Dumpling Party"
+      }
+    },
+    "Chanced Casino": {
+      "appIds": {
+        "android_us": "com.chanced.app"
+      },
+      "aliases": [],
+      "developer": "Gold Coin Group LLC",
+      "icon": "https://play-lh.googleusercontent.com/rPGU_LXUcGfJkWG7uF4PKod3P95V0tsvGaPFP2a4Zn4aRZcA2zLsHrHsuAtFm1iB3-cntm-FplO_q2krjtooFA",
+      "slug": "chanced-casino",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Chanced Casino"
+      }
+    },
+    "Bracelet Craft: DIY Creator": {
+      "appIds": {
+        "android": "com.casual.bracelet.diy.master"
+      },
+      "aliases": [],
+      "developer": "Nirvana Studios",
+      "icon": "https://play-lh.googleusercontent.com/cpZcOFKVBNi9pso3JkBu6sFBsoECA_kayvF8ZiAvDjJBCMCd5_1Rrv_RI0q-a6nd7p0607vd37OB6mznnosV",
+      "slug": "bracelet-craft-diy-creator",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Bracelet Craft: DIY Creator",
+        "en": "Bracelet Craft: DIY Creator"
+      }
+    },
+    "Arrow Junction: Logic Puzzle": {
+      "appIds": {
+        "ios": 6811773139
+      },
+      "aliases": [],
+      "developer": "QBA TECH LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/04/89/0204892b-8d21-c0c2-a5fe-2f65b21f9c96/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "arrow-junction-logic-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Arrow Junction: Logic Puzzle",
+        "ja": "Arrow Junction: Logic Puzzle"
+      }
+    },
+    "麻辣湯屋からの脱出": {
+      "appIds": {
+        "ios_jp": 6822408526
+      },
+      "aliases": [],
+      "developer": "Kitade Fuma",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/7c/3e/fd7c3ee7-c121-c6ab-218a-e8226e3274a4/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "麻辣湯屋からの脱出",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "麻辣湯屋からの脱出"
+      }
+    },
+    "Jigsaw Cute: 애니 카드 퍼즐": {
+      "appIds": {
+        "android": "jigsawcute.com"
+      },
+      "aliases": [],
+      "developer": "MadebyMizu",
+      "icon": "https://play-lh.googleusercontent.com/4LAJMpO5tv9YSwIFk9LrnGhQtYbnumnJLygREvEXAWVO15DhhG6-Tz3uXJzR84dB1ZU5cYviw73LYYqCQjJ-7w",
+      "slug": "jigsaw-cute-애니-카드-퍼즐",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Jigsaw Cute: 애니 카드 퍼즐",
+        "zh-tw": "Jigsaw Cute：動漫卡片拼圖"
+      }
+    },
+    "Cupid’s Arrows": {
+      "appIds": {
+        "android": "com.cupids.arrows.game"
+      },
+      "aliases": [],
+      "developer": "北京雅亿信息咨询有限公司",
+      "icon": "https://play-lh.googleusercontent.com/iLrGCZDSTL9-sg3moUgZZLzeUNBum25JmwFdI8geKHP2Q2uE6MtI9Ytl2lq4qNUiuIhtEnSUlZAf9P-KsOZu",
+      "slug": "cupids-arrows",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Cupid’s Arrows",
+        "zh-tw": "Cupid’s Arrows"
+      }
+    },
+    "Dungeon Inn": {
+      "appIds": {
+        "steam": "2552310"
+      },
+      "aliases": [],
+      "developer": "Cat Society",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2552310/dd4903ea90507daa7fcc297bd7d134f17f837f3e/capsule_231x87_alt_assets_0.jpg?t=1792723472",
+      "slug": "dungeon-inn",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-23",
-  "totalGames": 8811
+  "totalGames": 8821
 }
