@@ -45690,6 +45690,45 @@
         }
       ],
       "addedAt": "2026-10-23T05:40:39.685Z"
+    },
+    {
+      "title": "원피스 그랜드 레스토랑",
+      "status": "single",
+      "appIds": {
+        "ios": "6771652722"
+      },
+      "developer": "Bandai Namco Entertainment Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/26/ae/0726aeec-4e37-1b96-365f-949a1f523ae0/AppIcon-0-0-1x_U007emarketing-0-6-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T10:52:35.826Z"
+    },
+    {
+      "title": "총잡이 디펜스",
+      "status": "matched",
+      "appIds": {
+        "android": "com.cookapps.towerroguedefense",
+        "ios": 6760276770
+      },
+      "developer": "Purplecow games",
+      "icon": "https://play-lh.googleusercontent.com/PG5hyWvfp_N5JHWbdpz0AtYRCf52Dy3t9IF7elYSi13m6nuh5GBHb5XwDvsoy1CusSlkFKxB2Ws5x13dEzyplw",
+      "searchResults": [
+        {
+          "title": "총잡이 디펜스",
+          "appId": 6760276770
+        }
+      ],
+      "addedAt": "2026-10-23T10:52:36.156Z"
+    },
+    {
+      "title": "CarLoop: Block Sort",
+      "status": "single",
+      "appIds": {
+        "ios": 6779541699
+      },
+      "developer": "UUTEAM Technology Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/01/b9/0f01b939-ca17-0b2a-5c83-f9f9e095f3e9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-23T10:52:36.592Z"
     }
   ],
   "approved": [

@@ -151766,8 +151766,101 @@
       "platforms": [
         "steam"
       ]
+    },
+    "원피스 그랜드 레스토랑": {
+      "appIds": {
+        "ios": "6771652722"
+      },
+      "aliases": [],
+      "developer": "Bandai Namco Entertainment Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/26/ae/0726aeec-4e37-1b96-365f-949a1f523ae0/AppIcon-0-0-1x_U007emarketing-0-6-85-220.png/512x512bb.jpg",
+      "slug": "원피스-그랜드-레스토랑",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "원피스 그랜드 레스토랑",
+        "ja": "ONE PIECE 海のごちそうレストラン",
+        "zh-tw": "ONE PIECE 海洋盛宴"
+      }
+    },
+    "총잡이 디펜스": {
+      "appIds": {
+        "android": "com.cookapps.towerroguedefense",
+        "ios": 6760276770
+      },
+      "aliases": [],
+      "developer": "Purplecow games",
+      "icon": "https://play-lh.googleusercontent.com/PG5hyWvfp_N5JHWbdpz0AtYRCf52Dy3t9IF7elYSi13m6nuh5GBHb5XwDvsoy1CusSlkFKxB2Ws5x13dEzyplw",
+      "slug": "총잡이-디펜스",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "총잡이 디펜스"
+      }
+    },
+    "CarLoop: Block Sort": {
+      "appIds": {
+        "ios": 6779541699
+      },
+      "aliases": [],
+      "developer": "UUTEAM Technology Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/01/b9/0f01b939-ca17-0b2a-5c83-f9f9e095f3e9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "carloop-block-sort",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "CarLoop: Block Sort",
+        "en": "CarLoop: Block Sort"
+      }
+    },
+    "日輪刀の鍛冶": {
+      "appIds": {
+        "ios_jp": 6807243442
+      },
+      "aliases": [],
+      "developer": "YANGTZE BUSINESS LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e7/26/a8/e726a8e3-7853-f6d8-3717-0640f04faab0/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "日輪刀の鍛冶",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "日輪刀の鍛冶"
+      }
+    },
+    "Gossip Garden®": {
+      "appIds": {
+        "ios_tw": 6670754245
+      },
+      "aliases": [],
+      "developer": "Smart Fun Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b0/3e/66/b03e66f4-9973-6a92-5168-171c04554f84/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "gossip-garden",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Gossip Garden®",
+        "zh-tw": "Gossip Garden®"
+      }
+    },
+    "Moon Sweepers": {
+      "appIds": {
+        "steam": "5335510"
+      },
+      "aliases": [],
+      "developer": "DragDrop Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5335510/86fae70046ddca14dc1d44312c5eeb310081eb81/capsule_231x87.jpg?t=1792738801",
+      "slug": "moon-sweepers",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-23",
-  "totalGames": 8821
+  "totalGames": 8827
 }
