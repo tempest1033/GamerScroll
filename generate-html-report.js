@@ -691,15 +691,26 @@ async function main() {
   }
 
   if (isCollectOnly) {
-    // 빈 차트는 CSV 행이 생기지 않는다 — 시간별 스냅샷 누락이 실행 요약에 보이도록 경고로 남긴다.
-    const missing = [];
-    for (const cat of ['grossing', 'free']) {
-      for (const c of ['kr', 'jp', 'us', 'cn', 'tw']) {
-        if (!rankings?.[cat]?.[c]?.ios?.length) missing.push(`ios_${c}_${cat}`);
-        if (c !== 'cn' && !rankings?.[cat]?.[c]?.android?.length) missing.push(`aos_${c}_${cat}`);
+    // 차트별 수집 개수를 실행 요약에 남긴다. 빈 차트는 CSV 행이 생기지 않으므로(이번 시간 스냅샷 누락)
+    // 부분 수집으로 경고하고 커밋 메시지에도 표시한다(GITHUB_OUTPUT missing). 200개 미만도 경고한다.
+    const charts = [];
+    for (const c of ['kr', 'jp', 'us', 'cn', 'tw']) {
+      for (const cat of ['grossing', 'free']) {
+        charts.push([`ios_${c}_${cat}`, rankings?.[cat]?.[c]?.ios?.length || 0]);
+        if (c !== 'cn') charts.push([`aos_${c}_${cat}`, rankings?.[cat]?.[c]?.android?.length || 0]);
       }
     }
-    if (missing.length) console.log(`::warning::빈 순위 차트 ${missing.length}개 (이번 시간 스냅샷 누락): ${missing.join(', ')}`);
+    const missing = charts.filter(([, n]) => n === 0).map(([k]) => k);
+    const short = charts.filter(([, n]) => n > 0 && n < 200).map(([k, n]) => `${k}=${n}`);
+    if (missing.length) console.log(`::warning::부분 수집 — 빈 순위 차트 ${missing.length}/${charts.length}개 (이번 시간 스냅샷 누락): ${missing.join(', ')}`);
+    if (short.length) console.log(`::warning::200개 미만 차트: ${short.join(', ')}`);
+    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `missing=${missing.join(' ')}\n`);
+    if (process.env.GITHUB_STEP_SUMMARY) {
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, [
+        `## 5대 마켓 순위 수집 ${new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 16).replace('T', ' ')} KST: ${missing.length ? '부분' : '완료'} (${charts.length - missing.length}/${charts.length})`,
+        '', '| 차트 | 개수 |', '| --- | --- |', ...charts.map(([k, n]) => `| ${k} | ${n} |`), ''
+      ].join('\n'));
+    }
     console.log('\n✅ 수집 완료 (--collect-only: HTML 생성 생략)');
     return;
   }

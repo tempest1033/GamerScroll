@@ -87,6 +87,7 @@ jobs:
         run: npx puppeteer browsers install chrome
 
       - name: Collect rankings
+        id: collect
         timeout-minutes: 10
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
@@ -96,10 +97,12 @@ jobs:
       - name: Commit and push collection
         # 수집 단계가 실패해도 이미 저장된 차트는 남긴다.
         if: ${{ !cancelled() }}
+        env:
+          MISSING: ${{ steps.collect.outputs.missing }}
         run: |
           git add -f data-cache.json history/ snapshots/
           git diff --staged --quiet && { echo "no changes"; exit 0; }
-          git commit -m "Collect rankings $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git commit -m "Collect rankings $(date -u +'%Y-%m-%d %H:%M') UTC${MISSING:+ (partial, missing: $MISSING)}"
           for attempt in 1 2 3; do
             if git push origin main; then exit 0; fi
             echo "::warning::push attempt $attempt failed; rebasing"
