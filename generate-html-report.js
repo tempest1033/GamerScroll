@@ -8,26 +8,13 @@ const { guardHoverRules } = require('./src/build/css-hover-guard');
 const buildCache = require('./build-cache');
 
 // 커맨드라인 인자 파싱
-let isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
+// --quick: 수집 없이 data-cache.json으로 HTML만 생성 (CI 배포 단계)
+// --collect-only: 순위·Steam(하루 첫 실행이면 뉴스·커뮤니티·유튜브·치지직까지) 수집 →
+//   data-cache.json·history·CSV 스냅샷 저장까지만 하고 종료 (CI 매시간 수집 단계)
+const isQuickMode = process.argv.includes('--quick') || process.argv.includes('-q');
+const isCollectOnly = process.argv.includes('--collect-only');
 
 // 통합 반응형 빌드 (PC/모바일 단일 빌드)
-
-// CI 환경에서 캐시가 최근 것이면 자동으로 퀵 모드 (크롤링 스킵)
-const CACHE_FRESHNESS_MINUTES = 30; // 30분 주기 - 캐시 최신이면 스킵
-if (!isQuickMode && process.env.CI && fs.existsSync('./data-cache.json')) {
-  try {
-    const cache = JSON.parse(fs.readFileSync('./data-cache.json', 'utf8'));
-    if (cache.timestamp) {
-      const cacheAge = (Date.now() - new Date(cache.timestamp).getTime()) / 1000 / 60;
-      if (cacheAge < CACHE_FRESHNESS_MINUTES) {
-        console.log(`⚡ 캐시가 최신입니다 (${Math.round(cacheAge)}분 전) - 크롤링 스킵`);
-        isQuickMode = true;
-      }
-    }
-  } catch (e) {
-    // 캐시 파싱 실패 시 일반 모드로 진행
-  }
-}
 
 // 캐시 파일 경로
 const CACHE_FILE = './data-cache.json';
@@ -703,6 +690,20 @@ async function main() {
     }
   }
 
+  if (isCollectOnly) {
+    // 빈 차트는 CSV 행이 생기지 않는다 — 시간별 스냅샷 누락이 실행 요약에 보이도록 경고로 남긴다.
+    const missing = [];
+    for (const cat of ['grossing', 'free']) {
+      for (const c of ['kr', 'jp', 'us', 'cn', 'tw']) {
+        if (!rankings?.[cat]?.[c]?.ios?.length) missing.push(`ios_${c}_${cat}`);
+        if (c !== 'cn' && !rankings?.[cat]?.[c]?.android?.length) missing.push(`aos_${c}_${cat}`);
+      }
+    }
+    if (missing.length) console.log(`::warning::빈 순위 차트 ${missing.length}개 (이번 시간 스냅샷 누락): ${missing.join(', ')}`);
+    console.log('\n✅ 수집 완료 (--collect-only: HTML 생성 생략)');
+    return;
+  }
+
   console.log('\n📄 GAMERSCROLL 일일 보고서 생성 중...');
 
   // HTML 생성
@@ -763,7 +764,7 @@ async function main() {
   // 그대로 재사용한다. src/styles에 커밋되지 않은 수정이 있으면 동결하지 않는다
   // (CSS 편집을 미리보려면 전체 빌드). git 기준 판정이라 CI/로컬 OS 차이에 무관하다.
   let cssFreezeVersion = '';
-  // CI는 동결 금지: CI가 data-cache 신선도로 isQuickMode를 켜는 경로가 있어
+  // CI는 동결 금지: CI 배포 단계는 --quick(캐시 렌더링)으로 돌기 때문에
   // process.env.CI에서는 항상 전체 CSS 파이프라인을 탄다.
   if (isQuickMode && !process.env.CI) {
     let srcStylesClean = false;
@@ -1257,4 +1258,8 @@ Sitemap: https://gamerscroll.com/sitemap.xml
 
 }
 
-main().catch(console.error);
+main().catch((e) => {
+  console.error(e);
+  // 수집 단계 실패는 실행 실패로 드러낸다 (HTML 생성 경로의 기존 동작은 그대로).
+  if (isCollectOnly) process.exitCode = 1;
+});

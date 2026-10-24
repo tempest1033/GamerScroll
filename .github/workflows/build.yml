@@ -1,20 +1,40 @@
 ﻿name: Build and Deploy Report
 
+# 매시간 한 번 실행되는 단일 잡:
+#   1) 수집(항상): 5대 마켓 순위·Steam(+하루 첫 실행이면 뉴스·커뮤니티·유튜브·치지직) → main 에 커밋.
+#      수집은 배포보다 먼저 커밋·푸시되므로 뒤이은 배포 단계가 실패하거나 시간 초과돼도 사라지지 않는다.
+#   2) 배포(마지막 deploy-gamerscroll 발행 후 2시간 45분 경과 시 = 약 3시간마다): HTML 생성 → deploy 브랜치 발행.
+#      Cloudflare Pages Free 빌드 월 500회 한도 → 하루 최대 8회(월 ~250회).
+#   3) 글로벌 순위(rankings-global.yml, 마지막 수집 후 11시간 45분 경과 시 = 약 12시간마다)를 별도 잡으로 호출.
+# Actions 사용량(비공개 전환 시 월 2,000분, 잡마다 분 단위 올림): 수집만 하는 시간 1분, 배포 시간 3~4분, 글로벌 6분.
+# 정각(분 0)은 GitHub 스케줄 지연·누락이 가장 심한 시각이라 피한다.
+
 on:
   schedule:
-    - cron: '0 * * * *'  # 1시간마다 실행 (Cloudflare Pages Free 빌드 월 500회 한도 고려)
-  workflow_dispatch:  # 수동 실행 가능
+    - cron: '17 * * * *'
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'always = 이번 실행에서 배포, auto = 마지막 배포 후 2시간 45분이 지났을 때만 배포'
+        type: choice
+        options: [always, auto]
+        default: always
 
 permissions:
   contents: write
 
 concurrency:
   group: build-deploy-gamerscroll
-  cancel-in-progress: true
+  # 실행 중인 수집을 다음 실행이 취소하지 않는다 (예전 cancel-in-progress: true 는 수집까지 버렸다).
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # 2026-10-23 KST 00시 실행이 일일 크롤링 중 멈춰 4시간 동안 다음 수집을 막은 적이 있다 — 상한을 둔다.
+    timeout-minutes: 25
+    outputs:
+      global: ${{ steps.due.outputs.global }}
 
     steps:
       - name: Checkout
@@ -30,7 +50,85 @@ jobs:
           git fetch origin main --depth=1
           git reset --hard origin/main || true
 
+      - name: Check daily crawl (first run of the KST day)
+        id: daily
+        # 오늘(KST) history 파일이 없으면 수집 단계가 뉴스 등 일일 크롤링을 한다 — 디스이즈게임이 Puppeteer 를 쓴다.
+        run: |
+          if [ -f "history/$(TZ=Asia/Seoul date +%F).json" ]; then echo "crawl=false" >> "$GITHUB_OUTPUT"; else echo "crawl=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        id: node-cache
+        with:
+          path: node_modules
+          key: node-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci --prefer-offline
+
+      - name: Cache Puppeteer browser
+        if: steps.daily.outputs.crawl == 'true'
+        uses: actions/cache@v4
+        id: puppeteer-cache
+        with:
+          path: ~/.cache/puppeteer
+          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            puppeteer-${{ runner.os }}-
+
+      - name: Install Puppeteer browser
+        if: steps.daily.outputs.crawl == 'true' && steps.puppeteer-cache.outputs.cache-hit != 'true'
+        run: npx puppeteer browsers install chrome
+
+      - name: Collect rankings
+        timeout-minutes: 10
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+        run: node generate-html-report.js --collect-only
+
+      - name: Commit and push collection
+        # 수집 단계가 실패해도 이미 저장된 차트는 남긴다.
+        if: ${{ !cancelled() }}
+        run: |
+          git add -f data-cache.json history/ snapshots/
+          git diff --staged --quiet && { echo "no changes"; exit 0; }
+          git commit -m "Collect rankings $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for attempt in 1 2 3; do
+            if git push origin main; then exit 0; fi
+            echo "::warning::push attempt $attempt failed; rebasing"
+            git pull origin main --rebase || exit 1
+          done
+          echo "::error::push failed after 3 retries"
+          exit 1
+
+      - name: Decide deploy and global collection
+        id: due
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DEPLOY_INPUT: ${{ inputs.deploy }}
+        run: |
+          now=$(date -u +%s)
+          last_deploy=$(gh api "repos/${{ github.repository }}/branches/deploy-gamerscroll" --jq .commit.commit.committer.date)
+          last_global=$(gh api "repos/${{ github.repository }}/commits?path=snapshots/global&per_page=1" --jq '.[0].commit.committer.date')
+          deploy=false; global=false
+          # 2h45m / 11h45m: 매시 17분 실행이 몇 분 늦어도 3번째 / 12번째 실행에서 걸리도록 15분 여유.
+          if [ "$DEPLOY_INPUT" = "always" ] || [ $(( now - $(date -u -d "$last_deploy" +%s) )) -ge 9900 ]; then deploy=true; fi
+          if [ $(( now - $(date -u -d "$last_global" +%s) )) -ge 42300 ]; then global=true; fi
+          echo "last deploy $last_deploy -> deploy=$deploy; last global $last_global -> global=$global"
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
+          echo "global=$global" >> "$GITHUB_OUTPUT"
+
       - name: Seed docs from deploy branch
+        id: seed
+        if: steps.due.outputs.deploy == 'true'
         # 산출물은 main이 아닌 deploy-gamerscroll에 산다. 이전 배포 트리를 워크트리에만
         # 복원(인덱스 제외 — restore --worktree)해 증분 빌드와 수동 배치 파일을 보존한다.
         run: |
@@ -40,78 +138,37 @@ jobs:
             echo "::warning::deploy-gamerscroll not found — full rebuild from scratch"
           fi
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        id: node-cache
-        with:
-          path: node_modules
-          key: node-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v4
-        id: playwright-cache
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            playwright-${{ runner.os }}-
-
-      - name: Cache Puppeteer browser
-        uses: actions/cache@v4
-        id: puppeteer-cache
-        with:
-          path: ~/.cache/puppeteer
-          key: puppeteer-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            puppeteer-${{ runner.os }}-
-
-      - name: Install dependencies
-        if: steps.node-cache.outputs.cache-hit != 'true'
-        run: npm ci --prefer-offline
-
-      - name: Install Playwright browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install chromium
-
-      - name: Install Puppeteer browser
-        if: steps.puppeteer-cache.outputs.cache-hit != 'true'
-        run: npx puppeteer browsers install chrome
-
-      - name: Check translations (all 5 editions)
-        # 배포는 막지 않는다: 누락 문구는 영어로 표시된다. 실패는 경고로만 남기고, 코드 push 시점 검사는 i18n-check.yml이 담당.
-        continue-on-error: true
-        run: node scripts/test-i18n-messages.js || { echo "::warning::번역 검사 실패 — 누락 문구는 영어로 표시됩니다. i18n-check 워크플로 결과를 확인하세요."; exit 1; }
+      # 번역 검사는 문구·템플릿 push 마다 i18n-check.yml 이 돈다 (배포를 막지 않던 중복 검사라 여기서는 뺐다).
 
       - name: Download all images (wiki, tech, issue, insight, hotpick)
+        if: steps.due.outputs.deploy == 'true'
         run: node scripts/download-images.js
 
       - name: Compress oversized images (in-place, threshold-gated)
+        if: steps.due.outputs.deploy == 'true'
         # PNG>=200KB / WebP>=300KB만 재압축, 더 작아질 때만 교체 — 실패해도 빌드 계속.
         run: node scripts/compress-oversized-images.js || echo "::warning::image compression failed (non-fatal)"
 
       - name: Generate report
+        if: steps.due.outputs.deploy == 'true'
+        # 수집은 위 단계가 끝냈다 — 여기서는 data-cache.json 으로 HTML만 만든다.
         env:
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
-          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
           GA4_SERVICE_ACCOUNT: ${{ secrets.GA4_SERVICE_ACCOUNT }}
           ADS_ENABLED: 'true'  # 광고 활성화
-        run: node generate-html-report.js
+        run: node generate-html-report.js --quick
 
       - name: Sync and enrich games
+        if: steps.due.outputs.deploy == 'true'
         run: node scripts/sync-and-enrich.js
 
       - name: Generate game pages
+        if: steps.due.outputs.deploy == 'true'
         env:
           ADS_ENABLED: 'true'  # 광고 활성화
         run: node scripts/generate-game-pages.js
 
       - name: Bundle game page renderer for Pages Functions
+        if: steps.due.outputs.deploy == 'true'
         # 게임 상세(/games/<slug>/)는 요청 시 Pages Function 이 렌더링한다. 위 단계가 docs/games-data/ 를 만들고,
         # 여기서 같은 템플릿을 functions/_lib/game-ssr.js 로 번들한다 (게시 단계가 functions/ 를 deploy 브랜치에 함께 올린다).
         env:
@@ -119,11 +176,13 @@ jobs:
         run: node scripts/build-game-ssr.js
 
       - name: Archive hourly snapshots (permanent, compressed; runs before prune)
+        if: steps.due.outputs.deploy == 'true'
         # snapshots/rankings/*.csv 를 날짜별 snapshots/archive/*.json.br 로 영구 보관.
         # CSV 는 그대로 두고(24h 실시간 차트·기사 블록이 읽음) 45일 prune 전에 압축본을 만든다.
         run: node scripts/archive-snapshots.js || echo "::warning::snapshot archive failed (non-fatal)"
 
       - name: Prune old snapshots (filename-date based; CI mtime is unreliable)
+        if: steps.due.outputs.deploy == 'true'
         run: |
           cutoff_rank=$(date -u -d '45 days ago' +%Y-%m-%d)
           cutoff_steam=$(date -u -d '7 days ago' +%Y-%m-%d)
@@ -141,6 +200,7 @@ jobs:
           true
 
       - name: Move report to docs
+        if: steps.due.outputs.deploy == 'true'
         run: |
           mkdir -p docs
           # 메인 페이지(index/rankings/steam)는 generate-html-report.js가
@@ -164,6 +224,7 @@ jobs:
           cp BingSiteAuth.xml docs/BingSiteAuth.xml
           # CNAME 제거됨 - Cloudflare Pages 사용 (GitHub Pages 비활성화)
       - name: Commit and push
+        if: steps.due.outputs.deploy == 'true'
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
@@ -208,7 +269,8 @@ jobs:
 
       - name: Publish docs to deploy branch (single-commit, no history growth)
         # Cloudflare Pages(gamerscroll) production branch = deploy-gamerscroll (2026-07-28 전환 완료).
-        if: always()
+        # 배포 단계에 들어간 실행(docs 시드 완료)이면 앞 단계 실패와 관계없이 발행한다. 취소·시간 초과로 끊긴 반쯤 만든 트리는 올리지 않는다.
+        if: ${{ !cancelled() && steps.seed.outcome == 'success' }}
         run: |
           set -e
           rm -rf /tmp/deploy-gs
@@ -229,3 +291,9 @@ jobs:
           git add -A
           git commit -q -m "Deploy GamerScroll $(date +'%Y-%m-%d %H:%M')"
           git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" deploy-gamerscroll
+
+  global:
+    # 글로벌 순위는 자체 cron 대신 이 매시간 실행에 얹어 약 12시간마다 수집한다 (같은 트리거라 누락에 덜 취약).
+    needs: build
+    if: ${{ !cancelled() && needs.build.outputs.global == 'true' }}
+    uses: ./.github/workflows/rankings-global.yml
