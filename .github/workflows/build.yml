@@ -1,6 +1,6 @@
 ﻿name: Build and Deploy Report
 
-# 트리거: 2시간마다 Cloudflare Worker "gamerscroll-cron-dispatch"(Cron Trigger "0 */2 * * *" UTC)가
+# 트리거: 2시간마다(KST 짝수 정시) Cloudflare Worker "gamerscroll-cron-dispatch"(Cron Trigger "0 1-23/2 * * *" UTC)가
 #   workflow_dispatch(deploy=auto)를 보낸다. 배포는 약 4시간마다(한 번 걸러 한 번).
 #   GitHub schedule 은 이 저장소에서 하루 4~8회만 생성돼(2026-10 실측) 쓰지 않는다 —
 #   schedule 을 다시 넣으면 Worker 와 겹쳐 중복 수집하고 월 2,000분 예산을 넘길 수 있다.
