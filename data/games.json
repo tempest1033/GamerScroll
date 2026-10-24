@@ -152221,8 +152221,64 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Cross Clues": {
+      "appIds": {
+        "ios": 6789084785
+      },
+      "aliases": [],
+      "developer": "LE TECH CO.,LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fc/6e/d3/fc6ed34b-67b3-570d-ed91-37cb467b4f2d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "cross-clues",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Cross Clues",
+        "ja": "Cross Clues"
+      }
+    },
+    "太陽神覺醒": {
+      "appIds": {
+        "ios": 6811081870
+      },
+      "aliases": [],
+      "developer": "KITANO HOLDINGS LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/a9/87/0ea98785-7456-f51e-d6ba-d6cc870d330d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "太陽神覺醒",
+        "zh-tw": "太陽神覺醒"
+      }
+    },
+    "ForgeTax": {
+      "appIds": {
+        "steam": "5245810"
+      },
+      "aliases": [],
+      "developer": "GraveYardDev",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5245810/b07737239f4189629dd481b55e8054d2dad50fd9/capsule_231x87.jpg?t=1791135247",
+      "slug": "forgetax",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "GONE Fishing": {
+      "appIds": {
+        "steam": "3645890"
+      },
+      "aliases": [],
+      "developer": "GONE Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3645890/85d2c928ab2e4c703cc4c40f6451035fdac3988a/capsule_231x87_alt_assets_0.jpg?t=1792492815",
+      "slug": "gone-fishing",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-24",
-  "totalGames": 8849
+  "totalGames": 8853
 }
