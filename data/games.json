@@ -148972,14 +148972,16 @@
     },
     "케어프리 타임": {
       "appIds": {
-        "ios": 6778022968
+        "ios": 6778022968,
+        "android": "com.simulation.manager.furry.farm.food.kr"
       },
       "aliases": [],
       "developer": "JOYGLOBE PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/a5/22/3ca522bf-fd4b-7b75-5f98-97dc1ba9713c/AppIcon-0-0-1x_U007epad-0-4-85-220.png/512x512bb.jpg",
       "slug": "케어프리-타임",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "케어프리 타임"
@@ -152140,8 +152142,87 @@
         "en": "Drunkn Bar Fight Mobile",
         "zh-tw": "Drunkn Bar Fight Mobile"
       }
+    },
+    "HideZone: GPS Hide & Seek": {
+      "appIds": {
+        "ios": 6759913726
+      },
+      "aliases": [],
+      "developer": "Robin Morgenstern",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/2c/26/802c26a9-d703-833e-b605-9254f3efc4c9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "hidezone-gps-hide-seek",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "HideZone: GPS Hide & Seek",
+        "en": "HideZone: GPS Hide & Seek"
+      }
+    },
+    "Charades Guess Game — Guessly": {
+      "appIds": {
+        "android": "io.smakapps.guessly",
+        "ios": 6473058122
+      },
+      "aliases": [
+        "Charades Guess Game · Guessly"
+      ],
+      "developer": "smak apps",
+      "icon": "https://play-lh.googleusercontent.com/8nFkCEJkL0lpRGz4uQs2g9mQkHTOKH3GHfe38b6R8sT0OawsQyydr37DRxZV_aFGummNj9m9hVHZaOaTp09P",
+      "slug": "charades-guess-game-guessly",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Charades Guess Game — Guessly",
+        "en": "Charades Guess Game — Guessly"
+      }
+    },
+    "Bungee Beat": {
+      "appIds": {
+        "ios": 6808095300
+      },
+      "aliases": [],
+      "developer": "FourM, K.K.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/52/27/a452277c-86a4-03fb-fb99-ba982d1d0ddc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "bungee-beat",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Bungee Beat",
+        "ja": "Bungee Beat"
+      }
+    },
+    "瓶瓶有喜": {
+      "appIds": {
+        "ios_cn": 6800604357
+      },
+      "aliases": [],
+      "developer": "祥仔 潘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/cd/d8/3ccdd816-a37d-7423-1de4-90523f775491/AppIcon-1x_U007ephone-0-1-0-85-220-0.png/512x512bb.jpg",
+      "slug": "瓶瓶有喜",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "瓶瓶有喜"
+      }
+    },
+    "Call of Duty Endowment (C.O.D.E.) Valor Pack": {
+      "appIds": {
+        "steam": "5008900"
+      },
+      "aliases": [],
+      "developer": "Infinity Ward",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5008900/d218bbf82caa6d7811df8cc38594ced2a91fbcdd/capsule_231x87.jpg?t=1792774872",
+      "slug": "call-of-duty-endowment-code-valor-pack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-24",
-  "totalGames": 8844
+  "totalGames": 8849
 }

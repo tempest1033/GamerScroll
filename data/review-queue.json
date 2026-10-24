@@ -43919,13 +43919,19 @@
     },
     {
       "title": "케어프리 타임",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6778022968
+        "ios": 6778022968,
+        "android": "com.simulation.manager.furry.farm.food.kr"
       },
       "developer": "JOYGLOBE PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/a5/22/3ca522bf-fd4b-7b75-5f98-97dc1ba9713c/AppIcon-0-0-1x_U007epad-0-4-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "케어프리 타임",
+          "appId": 6778022968
+        }
+      ],
       "addedAt": "2026-10-14T22:57:33.699Z"
     },
     {
@@ -45953,6 +45959,45 @@
         }
       ],
       "addedAt": "2026-10-23T22:50:47.830Z"
+    },
+    {
+      "title": "HideZone: GPS Hide & Seek",
+      "status": "single",
+      "appIds": {
+        "ios": 6759913726
+      },
+      "developer": "Robin Morgenstern",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/2c/26/802c26a9-d703-833e-b605-9254f3efc4c9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-24T06:47:32.052Z"
+    },
+    {
+      "title": "Charades Guess Game — Guessly",
+      "status": "matched",
+      "appIds": {
+        "android": "io.smakapps.guessly",
+        "ios": 6473058122
+      },
+      "developer": "smak apps",
+      "icon": "https://play-lh.googleusercontent.com/8nFkCEJkL0lpRGz4uQs2g9mQkHTOKH3GHfe38b6R8sT0OawsQyydr37DRxZV_aFGummNj9m9hVHZaOaTp09P",
+      "searchResults": [
+        {
+          "title": "Charades Guess Game · Guessly",
+          "appId": 6473058122
+        }
+      ],
+      "addedAt": "2026-10-24T06:47:32.357Z"
+    },
+    {
+      "title": "Bungee Beat",
+      "status": "single",
+      "appIds": {
+        "ios": 6808095300
+      },
+      "developer": "FourM, K.K.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/52/27/a452277c-86a4-03fb-fb99-ba982d1d0ddc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-24T06:47:32.742Z"
     }
   ],
   "approved": [
