@@ -54,5 +54,8 @@ module.exports = {
   "game.desc_steam_ccu": "{rank} in concurrent players",
   "game.desc_steam_sales": "{rank} in sales",
   "game.desc_steam_players": "{n} players online now",
-  "game.desc_steam_peak": "Its best concurrent-player rank on Steam is {rank} ({date})."
+  "game.desc_steam_peak": "Its best concurrent-player rank on Steam is {rank} ({date}).",
+  "game.related_rank_title": "Games ranked nearby",
+  "game.related_genre_title": "Similar games",
+  "game.related_dev_title": "More games by {dev}"
 };

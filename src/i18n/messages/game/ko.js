@@ -54,5 +54,8 @@ module.exports = {
   "game.desc_steam_ccu": "동시접속자 {rank}",
   "game.desc_steam_sales": "판매 {rank}",
   "game.desc_steam_players": "현재 접속자 {n}명",
-  "game.desc_steam_peak": "스팀 동시접속자 순위 최고 기록은 {date}의 {rank}입니다."
+  "game.desc_steam_peak": "스팀 동시접속자 순위 최고 기록은 {date}의 {rank}입니다.",
+  "game.related_rank_title": "순위가 비슷한 게임",
+  "game.related_genre_title": "비슷한 장르의 게임",
+  "game.related_dev_title": "{dev}의 다른 게임"
 };

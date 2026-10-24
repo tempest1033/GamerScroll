@@ -22,6 +22,8 @@ const avg = (arr) => (nums(arr).length ? nums(arr).reduce((x, y) => x + y, 0) / 
 const std = (arr) => { const v = nums(arr); if (v.length < 2) return null; const m = avg(v); return Math.sqrt(v.reduce((s, x) => s + (x - m) ** 2, 0) / v.length); };
 const fmt1 = (n) => (n == null || Number.isNaN(n) ? '-' : Number(n).toFixed(1));
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+// 개발사 이름 정규화 (스토어·games.json 표기 차이 흡수): 법인 접미어 제거, 기호 제거, 소문자
+const pubKey = (name) => String(name || '').toLowerCase().replace(/\b(corp|corporation|co|ltd|inc|pte|limited|company|llc|gmbh|sa|ag)\b\.?/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 // 수집 시각은 KST 로 고정 표기 (CI 는 UTC)
 const tsText = (ts) => formatDateTime(ts);
 const tsTime = (ts) => formatTime(ts);
@@ -264,9 +266,9 @@ function loadRankStats(options = {}) {
     rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf, displayName,
     allTimeBest, daysOnChart, streakAtOne, firstSeen, gameFirstSeen,
     movers, debutRows, monthStats, monthlyAvg, aggregateGlobal, allTimeStats,
-    util: { nums, min, avg, std, fmt1, esc, tsText, tsTime },
+    util: { nums, min, avg, std, fmt1, esc, tsText, tsTime, pubKey },
   };
   return cached;
 }
 
-module.exports = { loadRankStats, COUNTRIES, STORES, util: { nums, min, avg, std, fmt1, esc, tsText, tsTime } };
+module.exports = { loadRankStats, COUNTRIES, STORES, util: { nums, min, avg, std, fmt1, esc, tsText, tsTime, pubKey } };

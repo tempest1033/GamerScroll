@@ -6,7 +6,7 @@
  */
 
 const { t, currentEdition, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
-const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot, generatePCAdSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { describeGame, trimDescription, dominantScript } = require('../helpers/game-description');
@@ -17,6 +17,29 @@ const siteBaseUrl = 'https://gamerscroll.com';
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // 인라인 <script> 안에 안전하게 넣는 JSON
 const jsonForScript = (value) => JSON.stringify(value).replace(/</g, '\\u003c').replace(/\u2028|\u2029/g, '');
+
+// 분석 카드 아래: 가로 배너 1개 + 관련 게임 카드 (순위가 비슷한 게임 · 같은 개발사의 다른 게임).
+// 배너: PC 는 가로형 반응형 단위(최대 970px), 모바일은 300×250 단위 — 화면 폭에 맞는 하나만 요청된다(layout.js visibleAds).
+// 관련 게임 데이터(related)는 scripts/generate-game-pages.js 가 에디션별로 만든다. 링크는 localizeHtml 이 같은 에디션 경로로 바꾼다.
+function renderRelated(related, code, developer) {
+  const pcAd = generatePCAdSlot(AD_SLOTS.ResponsivePC001);
+  const mobileAd = generateHomeAdPairSlot(null, AD_SLOTS.Mobile001, { mobileOnly: true });
+  const ad = pcAd || mobileAd ? `<div class="gs-ad-inpage grid-full">${pcAd}${mobileAd}</div>` : '';
+  const mine = related && related.e && related.e[code];
+  if (!mine) return ad;
+  const row = ([index, store, rank]) => {
+    const o = related.g[index];
+    const rankText = rank ? `${t(store === 'ios' ? 'stats.app_store' : 'stats.google_play')} ${t('rank.rank_number', { p0: rank })}` : '';
+    return `<li><a class="rk-rel-item" href="/games/${encodeURIComponent(o.s)}/"><span class="rk-rel-ic">${o.i ? `<img src="${esc(resizeIcon(o.i))}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}</span><span class="rk-rel-tx"><span class="t" data-name>${esc((o.n && o.n[code]) || o.k)}</span>${o.d ? `<span class="d" data-name>${esc(o.d)}</span>` : ''}</span>${rankText ? `<span class="rk-rel-rank">${rankText}</span>` : ''}</a></li>`;
+  };
+  const near = mine.n && mine.n.length
+    ? `<div class="rk-card rk-rel-near"><h2>${t(mine.k === 'genre' ? 'game.related_genre_title' : 'game.related_rank_title')}</h2><ul class="rk-rel-list rk-rel-cols" style="--rk-rel-rows:${Math.ceil(mine.n.length / 2)}">${mine.n.map(row).join('')}</ul></div>`
+    : '';
+  const dev = mine.d && mine.d.length && developer
+    ? `<div class="rk-card rk-rel-dev"><h2>${t('game.related_dev_title', { dev: `<span data-name>${esc(developer)}</span>` })}</h2><ul class="rk-rel-list">${mine.d.map(row).join('')}</ul></div>`
+    : '';
+  return ad + (near || dev ? `<div class="rk rk-related grid-full${near && dev ? '' : ' rk-related-single'}">${near}${dev}</div>` : '');
+}
 
 /**
  * @param {object} game  games-data 한 건: { name, names, slug, platforms, developer, icon, ranked, steam, steamHistory, rank }
@@ -276,6 +299,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
           <div class="home-card-body">${summary ? summary.html : `<div class="game-empty">${t('game.no_analysis_records')}</div>`}</div>
         </div>
         ` : ''}
+        ${renderRelated(game.related, edition.code, developer)}
 
       </div>
     </section>

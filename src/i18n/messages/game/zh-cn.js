@@ -54,5 +54,8 @@ module.exports = {
   "game.desc_steam_ccu": "同时在线排名{rank}",
   "game.desc_steam_sales": "销量排名{rank}",
   "game.desc_steam_players": "当前在线{n}人",
-  "game.desc_steam_peak": "Steam同时在线人数排名的最高纪录是{date}的{rank}。"
+  "game.desc_steam_peak": "Steam同时在线人数排名的最高纪录是{date}的{rank}。",
+  "game.related_rank_title": "排名相近的游戏",
+  "game.related_genre_title": "同类型游戏",
+  "game.related_dev_title": "{dev}的其他游戏"
 };

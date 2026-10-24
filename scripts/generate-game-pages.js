@@ -14,9 +14,9 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const i18n = require('../src/i18n');
-const { loadRankStats } = require('../src/rank/stats');
+const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
-const { collectRankData, summaryMeta } = require('../src/build/game-data');
+const { collectRankData, summaryMeta, idFor } = require('../src/build/game-data');
 const { summaryDays, INDEXABLE_DAYS } = require('../src/templates/helpers/game-rank-summary');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
@@ -105,6 +105,112 @@ const namesOf = (g) => {
   return out;
 };
 
+// ---------- 관련 게임 (게임 상세 하단 '순위가 비슷한 게임' · '<개발사>의 다른 게임') ----------
+// 순위 목록: 순위 페이지(/rankings/)가 보여 주는 에디션 홈 국가의 스토어별 오늘 매출 TOP 200 중 상세 페이지가 있는 게임.
+// 결과는 data.related = { g: [{ s: slug, k: DB 이름, n: { 에디션: 이름 }, d: 개발사, i: 아이콘 }], e: { 에디션: { k: 'rank'|'genre', n: [항목], d: [항목] } } }
+// 항목 = [g 인덱스, 스토어, 순위] (현재 순위가 없으면 [g 인덱스]). 렌더링은 src/templates/pages/game.js renderRelated.
+const RELATED_CHART_LIMIT = 200;
+const RELATED_NEAR = 6;
+const RELATED_DEV = 3;
+const HANGUL = /[\uAC00-\uD7A3]/;
+const genres = loadGenres();
+const pageSlugs = new Map(); // g → slug (아래 루프와 같이 중복 slug 는 먼저 나온 게임만 페이지를 가진다)
+{
+  const taken = new Set();
+  for (const g of S.games) {
+    const slug = g.slug || createSlug(g.key, g.appIds);
+    if (!taken.has(slug)) { taken.add(slug); pageSlugs.set(g, slug); }
+  }
+}
+const byDeveloper = new Map();
+for (const g of pageSlugs.keys()) {
+  const key = pubKey(g.developer);
+  if (!key) continue;
+  if (!byDeveloper.has(key)) byDeveloper.set(key, []);
+  byDeveloper.get(key).push(g);
+}
+const charts = new Map();
+function chartOf(country) {
+  if (charts.has(country)) return charts.get(country);
+  const lists = {}, best = new Map();
+  for (const store of ['android', 'ios']) {
+    lists[store] = [];
+    (S.today.rows[country][store] || []).slice(0, RELATED_CHART_LIMIT).forEach((r, i) => {
+      const g = r && r.appId ? S.gameOf(store, r) : null;
+      if (!g || !pageSlugs.has(g) || lists[store].some((e) => e.g === g)) return;
+      const entry = { g, store, rank: i + 1 };
+      lists[store].push(entry);
+      if (!best.has(g) || entry.rank < best.get(g).rank) best.set(g, entry);
+    });
+  }
+  const chart = { lists, best, ranked: [...best.values()].sort((a, b) => a.rank - b.rank) };
+  charts.set(country, chart);
+  return chart;
+}
+const chartDaysMemo = new Map();
+function chartDays(g, country) {
+  const key = `${country}:${pageSlugs.get(g)}`;
+  if (!chartDaysMemo.has(key)) chartDaysMemo.set(key, g.appIds ? ['ios', 'android'].reduce((n, store) => { const id = idFor(g.appIds, store, country); return n + (id ? S.daysOnChart(country, store, id) : 0); }, 0) : 0);
+  return chartDaysMemo.get(key);
+}
+// 현재 에디션(i18n.setEdition) 기준. 영어·일본어·중국어판에는 한글 이름밖에 없는 게임을 넣지 않는다.
+function relatedFor(g, edition, ref) {
+  const chart = chartOf(edition.country);
+  const usable = (o) => o !== g && (edition.code === 'ko' || !HANGUL.test(S.displayName(o)));
+  let kind = null, near = [];
+  const at = chart.best.get(g);
+  if (at) {
+    // 같은 목록에서 위 3개·아래 3개. 목록 끝이라 한쪽이 모자라면 반대쪽에서 채운다.
+    const list = chart.lists[at.store];
+    const i = list.indexOf(at);
+    const above = list.slice(0, i).reverse().filter((e) => usable(e.g));
+    const below = list.slice(i + 1).filter((e) => usable(e.g));
+    const na = Math.min(above.length, RELATED_NEAR - Math.min(RELATED_NEAR / 2, below.length));
+    const nb = Math.min(below.length, RELATED_NEAR - na);
+    near = [...above.slice(0, na).reverse(), ...below.slice(0, nb)];
+    if (near.length) kind = 'rank';
+  }
+  if (!near.length) {
+    // 순위 목록에 없으면 같은 장르로 현재 목록에 오른 게임 (겹치는 장르가 많은 순, 같으면 순위 순)
+    const tags = new Set(genres.tagsFor(g));
+    if (tags.size) {
+      near = chart.ranked.map((e) => ({ e, shared: genres.tagsFor(e.g).filter((tag) => tags.has(tag)).length }))
+        .filter((x) => x.shared && usable(x.e.g))
+        .sort((a, b) => b.shared - a.shared || a.e.rank - b.e.rank)
+        .slice(0, RELATED_NEAR).map((x) => x.e);
+      if (near.length) kind = 'genre';
+    }
+  }
+  // 같은 개발사: 현재 순위가 있는 게임 먼저(순위 순), 나머지는 이 나라 차트 기록이 긴 순. 왼쪽 카드와 겹치는 게임은 뺀다.
+  const shown = new Set(near.map((e) => e.g));
+  const key = pubKey(g.developer);
+  const dev = (key ? byDeveloper.get(key) || [] : [])
+    .filter((o) => !shown.has(o) && usable(o))
+    .map((o) => chart.best.get(o) || { g: o, store: null, rank: null })
+    .sort((a, b) => (a.rank || Infinity) - (b.rank || Infinity) || chartDays(b.g, edition.country) - chartDays(a.g, edition.country) || a.g.key.localeCompare(b.g.key))
+    .slice(0, RELATED_DEV);
+  return near.length || dev.length ? { k: kind || undefined, n: near.map(ref), d: dev.map(ref) } : null;
+}
+function relatedOf(g) {
+  const pool = [], index = new Map(), byEdition = {};
+  for (const edition of i18n.EDITIONS) {
+    i18n.setEdition(edition.code);
+    const ref = (e) => {
+      if (!index.has(e.g)) {
+        index.set(e.g, pool.length);
+        pool.push({ s: pageSlugs.get(e.g), k: e.g.key, d: e.g.developer || undefined, i: e.g.icon || chartIcon.get(e.g) || undefined });
+      }
+      const at = index.get(e.g);
+      const name = S.displayName(e.g);
+      if (name !== e.g.key) (pool[at].n = pool[at].n || {})[edition.code] = name;
+      return e.rank ? [at, e.store, e.rank] : [at];
+    };
+    const related = relatedFor(g, edition, ref);
+    if (related) byEdition[edition.code] = related;
+  }
+  return pool.length ? { g: pool, e: byEdition } : null;
+}
+
 // ---------- 게임별 데이터 ----------
 fs.mkdirSync(dataDir, { recursive: true });
 const written = new Set();
@@ -145,6 +251,7 @@ for (const g of S.games) {
     steam,
     steamHistory: steamId ? (steamHistoryById.get(String(steamId)) || []) : [],
     rank,
+    related: relatedOf(g),
   };
   const json = JSON.stringify(data);
   const file = path.join(dataDir, `${slug}.json`);

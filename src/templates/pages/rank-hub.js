@@ -15,7 +15,7 @@ const { loadRankStats, COUNTRIES, STORES, util } = require('../../rank/stats');
 const { publisherMark } = require('../components/publisher-mark');
 
 const siteBaseUrl = 'https://gamerscroll.com';
-const { nums, min, avg, std, fmt1, esc, tsText } = util;
+const { nums, min, avg, std, fmt1, esc, tsText, pubKey } = util;
 
 // ---------- 공용 렌더 조각 ----------
 const trendColor = (arr) => { const v = nums(arr); if (v.length < 2) return 'var(--rk-dim)'; const d = v[0] - v[v.length - 1]; return d > 0 ? 'var(--rk-up)' : d < 0 ? 'var(--rk-down)' : 'var(--rk-dim)'; };
@@ -65,8 +65,7 @@ function subnav(S, active) {
   return `<nav class="rk-subnav rk-kinds rk-hscroll" aria-label="${tt('rank.ranking_types')}">${item('rank', '/rankings/', tt('est.revenue'))}${item('free', '/rankings/free/', tt('layout.popular_free'))}${item('genres', '/rankings/genres/', tt('layout.rankings_by_genre'))}${item('monthly', `/rankings/monthly/${S.latestMonth}/`, tt('rank.monthly'))}${item('global', '/rankings/global/', tt('layout.global'))}${item('records', '/rankings/records/', tt('layout.annual_records'))}${item('pub', '/rankings/publishers/', tt('layout.publishers'))}</nav>
 ${HSCROLL_SCRIPT}`;
 }
-// 개발사 이름 정규화 (스토어·games.json 표기 차이 흡수): 법인 접미어 제거, 기호 제거, 소문자
-const pubKey = (name) => String(name || '').toLowerCase().replace(/\b(corp|corporation|co|ltd|inc|pte|limited|company|llc|gmbh|sa|ag)\b\.?/g, ' ').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+// 개발사 이름 정규화는 src/rank/stats.js util.pubKey (게임 상세 '같은 개발사의 다른 게임'과 공유)
 const pubSlug = (name) => String(name || '').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').toLowerCase();
 // 오늘 한국 두 스토어 TOP 200 을 개발사별로 묶는다
 function publisherIndex(S, country = 'kr') {

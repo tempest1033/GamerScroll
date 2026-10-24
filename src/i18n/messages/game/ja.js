@@ -54,5 +54,8 @@ module.exports = {
   "game.desc_steam_ccu": "同時接続数{rank}",
   "game.desc_steam_sales": "販売{rank}",
   "game.desc_steam_players": "現在{n}人がプレイ中",
-  "game.desc_steam_peak": "Steamの同時接続数ランキングの最高順位は{date}の{rank}です。"
+  "game.desc_steam_peak": "Steamの同時接続数ランキングの最高順位は{date}の{rank}です。",
+  "game.related_rank_title": "順位が近いゲーム",
+  "game.related_genre_title": "同じジャンルのゲーム",
+  "game.related_dev_title": "{dev}のほかのゲーム"
 };

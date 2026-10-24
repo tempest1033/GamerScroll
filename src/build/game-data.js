@@ -40,4 +40,4 @@ function summaryMeta(S) {
   return { days: S.days.map((d) => d.date), hourlyDate: S.hourly ? S.hourly.date : '' };
 }
 
-module.exports = { collectRankData, summaryMeta };
+module.exports = { collectRankData, summaryMeta, idFor };

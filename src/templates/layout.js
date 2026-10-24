@@ -2213,7 +2213,9 @@ ${adRequestBootstrap}
     var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
     if (isTopAd && !isMobileTopAd) centerTopAdCreative(ad, wrap, iframe);
     // 상단 광고 예약 높이: PC 1160×250(빌보드) · 모바일 300×250 — ads.js·05-ads.css와 같은 값 (2026-09-09, 이전 90/100)
-    var minHeight = isTopAd ? 250 : 0;
+    // 본문 중간 PC 가로 배너(.gs-ad-inpage, 게임 상세 하단)는 크리에이티브 높이(90 등)에 맞춘다.
+    var isInPageBanner = !isMobileTopAd && !!(wrap.closest && wrap.closest('.gs-ad-inpage'));
+    var minHeight = isTopAd && !isInPageBanner ? 250 : 0;
     var targetHeight = Math.max(iframeHeight, minHeight);
     var adHeight = Math.round(ad.getBoundingClientRect().height || ad.offsetHeight || 0);
     var wrapHeight = Math.round(wrap.getBoundingClientRect().height || wrap.offsetHeight || 0);
