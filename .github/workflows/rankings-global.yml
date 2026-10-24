@@ -1,7 +1,7 @@
 name: Collect Global Rankings
 
 # 전 국가 모바일 게임 순위(iOS/Android 매출·인기 200위) 수집 → snapshots/global/ 압축 저장.
-# 자체 cron 은 없다: build.yml 의 매시간 실행이 마지막 수집 후 11시간 45분이 지났을 때 workflow_call 로 부른다(약 12시간마다).
+# 자체 cron 은 없다: build.yml 의 2시간 간격 실행이 마지막 수집 후 11시간이 지났을 때 workflow_call 로 부른다(약 12시간마다).
 # 한 번에 약 5.5분(Apple 요청을 1초 간격으로 직렬화) — 2시간마다 돌리면 월 2,000분 예산을 혼자 넘는다.
 # workflow_dispatch 로 즉시 실행 가능.
 
