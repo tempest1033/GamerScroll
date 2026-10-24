@@ -47,6 +47,10 @@ const GS_LOCALES = ["en", ...GS_LOCALE_PREFIXES];
 const GS_COUNTRY_LOCALE = { KR: "ko", JP: "ja", CN: "zh-cn", TW: "zh-tw" };
 // Path prefixes that never get the edition redirect (none: game pages are localized since they render per edition).
 const GS_LOCALE_EXCLUDED_PREFIXES = [];
+// Regional search engines get their market's edition (they ignore hreflang and index root URLs as-is).
+// Googlebot/Bingbot and all other bots are deliberately absent: they keep 200 on root URLs.
+const GS_SEARCH_ENGINE_LOCALE = { yeti: "ko", naverbot: "ko", daumoa: "ko", baiduspider: "zh-cn", sogou: "zh-cn", "360spider": "zh-cn" };
+const GS_SEARCH_ENGINE_RE = new RegExp(`(?:^|[^a-z])(${Object.keys(GS_SEARCH_ENGINE_LOCALE).join("|")})`);
 const BOT_UA_RE = /(?:^|[^a-z])(?:googlebot|bingbot|baiduspider|duckduckbot|yandexbot|naverbot|yeti|facebookexternalhit|twitterbot|whatsapp|slackbot|applebot|petalbot|sogou|seznambot|ahrefsbot|semrushbot|mj12bot|crawler|spider|scrapy|wget|curl)/;
 
 function gsLocalePrefixOf(path) {
@@ -143,6 +147,16 @@ export async function onRequest(context) {
     if (path === "/rss.xml" || path === "/feed" || path === "/feed/") return goneResponse();
     if (gsIsStaticPath(path)) return next();
     const gsUa = (request.headers.get("User-Agent") || "").toLowerCase();
+    const engineMatch = gsUa.match(GS_SEARCH_ENGINE_RE);
+    if (engineMatch) {
+      return new Response(null, {
+        status: 302,
+        headers: {
+          Location: `/${GS_SEARCH_ENGINE_LOCALE[engineMatch[1]]}${path}${url.search}`,
+          "Cache-Control": "private, no-store"
+        }
+      });
+    }
     if (BOT_UA_RE.test(gsUa)) return next();
     if (GS_LOCALE_EXCLUDED_PREFIXES.some((p) => path.startsWith(p))) return next();
 

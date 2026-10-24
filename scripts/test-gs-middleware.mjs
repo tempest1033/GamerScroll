@@ -54,6 +54,17 @@ await t("/tech/normal/x 410", async () => assert.equal((await call(G + "/tech/no
 await t("/wiki/a -> /rankings/", async () => { const r = await call(G + "/wiki/a"); assert.equal(r.status, 301); assert.equal(loc(r), "/rankings/"); });
 await t("/upcoming -> /games/", async () => { const r = await call(G + "/upcoming"); assert.equal(r.status, 301); assert.equal(loc(r), "/games/"); });
 await t("/tech/foo -> aiscroll", async () => { const r = await call(G + "/tech/foo/"); assert.equal(r.status, 301); assert.equal(r.headers.get("location"), "https://aiscroll.io/ko/"); });
+const YETI = "Mozilla/5.0 (compatible; Yeti/1.1; +https://naver.me/spd)";
+await t("Yeti /steam/ -> /ko/steam/", async () => { const r = await call(G + "/steam/", { ua: YETI }); assert.equal(r.status, 302); assert.equal(loc(r), "/ko/steam/"); assert.equal(r.headers.get("cache-control"), "private, no-store"); assert.equal(r.headers.get("set-cookie"), null); });
+await t("Yeti /steam/?x=1 keeps query", async () => { const r = await call(G + "/steam/?x=1", { ua: YETI }); assert.equal(r.status, 302); assert.equal(loc(r), "/ko/steam/?x=1"); });
+await t("Yeti Hangul slug keeps encoding", async () => { const r = await call(G + "/games/%EB%A9%94%EC%9D%B4%ED%94%8C/", { ua: YETI }); assert.equal(r.status, 302); assert.equal(r.headers.get("location"), "/ko/games/%EB%A9%94%EC%9D%B4%ED%94%8C/"); });
+await t("Daumoa -> /ko/", async () => { const r = await call(G + "/", { ua: "Mozilla/5.0 (compatible; Daumoa/4.0)" }); assert.equal(r.status, 302); assert.equal(loc(r), "/ko/"); });
+await t("Baiduspider -> /zh-cn/", async () => { const r = await call(G + "/steam/", { ua: "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)" }); assert.equal(r.status, 302); assert.equal(loc(r), "/zh-cn/steam/"); });
+await t("Yeti /ko/steam/ pass", async () => pass(await call(G + "/ko/steam/", { ua: YETI })));
+await t("Yeti robots/sitemap pass", async () => { for (const p of ["/robots.txt", "/sitemap.xml"]) pass(await call(G + p, { ua: YETI })); });
+await t("Yeti /magazine/x/ 410", async () => assert.equal((await call(G + "/magazine/x/", { ua: YETI })).status, 410));
+await t("Googlebot KR /steam/ pass", async () => pass(await call(G + "/steam/", { country: "KR", ua: "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" })));
+await t("Bingbot KR /steam/ pass", async () => pass(await call(G + "/steam/", { country: "KR", ua: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" })));
 await t("www -> bare 301", async () => { const r = await call("https://www.gamerscroll.com/rankings/?a=1"); assert.equal(r.status, 301); assert.equal(r.headers.get("location"), "https://gamerscroll.com/rankings/?a=1"); });
 await t("gs middleware leaves aiscroll host alone", async () => { const r = await call("https://aiscroll.io/", { country: "KR" }); assert.equal(r.status, 200); });
 
