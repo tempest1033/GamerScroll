@@ -147713,15 +147713,23 @@
     },
     "Mimic Party": {
       "appIds": {
-        "steam": "5053820"
+        "steam": "5053820",
+        "ios": 6813545317
       },
-      "aliases": [],
+      "aliases": [
+        "Mimic Party !"
+      ],
       "developer": "FoliesAPP",
       "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5053820/4adb5e68ffcb7785768a355dada919756e74c31c/capsule_231x87.jpg?t=1789831835",
       "slug": "mimic-party",
       "platforms": [
-        "steam"
-      ]
+        "steam",
+        "ios"
+      ],
+      "names": {
+        "ko": "Mimic Party !",
+        "zh-tw": "Mimic Party !"
+      }
     },
     "인보커스: 타이탄 레거시": {
       "appIds": {
@@ -152277,8 +152285,85 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Exponential Idle": {
+      "appIds": {
+        "ios": 1538487382
+      },
+      "aliases": [],
+      "developer": "Gilles-Philippe Paille",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/03/98/02/039802c2-38ad-9f8b-d663-51e0fc8a772f/AppIcon-1x_U007emarketing-0-7-85-220-0.png/512x512bb.jpg",
+      "slug": "exponential-idle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Exponential Idle"
+      }
+    },
+    "[スロスピ]Lパチスロ 革命機ヴァルヴレイヴ2": {
+      "appIds": {
+        "ios_jp": 6791407624
+      },
+      "aliases": [],
+      "developer": "SPIRIDGE INC.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/7a/a2/597aa280-2ca8-28b3-9b7e-9149c61b1172/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "スロスピlパチスロ-革命機ヴァルヴレイヴ2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[スロスピ]Lパチスロ 革命機ヴァルヴレイヴ2"
+      }
+    },
+    "Feather and Flower": {
+      "appIds": {
+        "ios": 6822820310
+      },
+      "aliases": [],
+      "developer": "Pranav Gokhale",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/b1/da/a3b1da67-4394-e0d4-1e9d-defdea8ed535/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "feather-and-flower",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Feather and Flower",
+        "zh-cn": "Feather and Flower"
+      }
+    },
+    "喵骑战域": {
+      "appIds": {
+        "ios_cn": 6814706023
+      },
+      "aliases": [],
+      "developer": "EasyGame Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/15/48/43/1548436b-6fcd-9936-30a7-4b6927ef5a49/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "喵骑战域",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "喵骑战域"
+      }
+    },
+    "블랙헤드 달인 - 딸기코 말끔히": {
+      "appIds": {
+        "ios": 6814175899
+      },
+      "aliases": [],
+      "developer": "Takeaki Hashimoto",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/16/d0/01/16d00119-8c40-c4bb-dc51-47342e89ca5e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "블랙헤드-달인-딸기코-말끔히",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "블랙헤드 달인 - 딸기코 말끔히",
+        "zh-tw": "拔粉刺達人 - 草莓鼻掰掰"
+      }
     }
   },
   "lastUpdated": "2026-10-25",
-  "totalGames": 8853
+  "totalGames": 8858
 }

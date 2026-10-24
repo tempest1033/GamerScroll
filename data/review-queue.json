@@ -46020,6 +46020,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/a9/87/0ea98785-7456-f51e-d6ba-d6cc870d330d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-24T11:48:43.905Z"
+    },
+    {
+      "title": "Exponential Idle",
+      "status": "single",
+      "appIds": {
+        "ios": 1538487382
+      },
+      "developer": "Gilles-Philippe Paille",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/03/98/02/039802c2-38ad-9f8b-d663-51e0fc8a772f/AppIcon-1x_U007emarketing-0-7-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-24T20:28:15.688Z"
+    },
+    {
+      "title": "Feather and Flower",
+      "status": "single",
+      "appIds": {
+        "ios": 6822820310
+      },
+      "developer": "Pranav Gokhale",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/b1/da/a3b1da67-4394-e0d4-1e9d-defdea8ed535/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-24T20:28:17.025Z"
+    },
+    {
+      "title": "블랙헤드 달인 - 딸기코 말끔히",
+      "status": "single",
+      "appIds": {
+        "ios": 6814175899
+      },
+      "developer": "Takeaki Hashimoto",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/16/d0/01/16d00119-8c40-c4bb-dc51-47342e89ca5e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-24T20:28:18.010Z"
     }
   ],
   "approved": [
