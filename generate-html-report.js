@@ -1145,8 +1145,7 @@ async function main() {
   }
 
   // Sitemaps: a sitemap index (docs/sitemap.xml) with one sitemap per edition (docs/sitemap-<code>.xml)
-  const sitemapDate = new Date().toISOString().split('T')[0];
-  const sitemapNames = writeSitemaps(DOCS_DIR, editionResults, sitemapDate);
+  const sitemapNames = writeSitemaps(DOCS_DIR, editionResults);
   console.log(`📍 Sitemap index: ${sitemapNames.length} sitemaps, ${editionResults.reduce((n, r) => n + r.sitemap.length, 0)} URLs`);
 
   // robots.txt 생성

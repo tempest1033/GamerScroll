@@ -111,6 +111,7 @@ const written = new Set();
 const dataHash = crypto.createHash('md5');
 const searchIndex = [];
 const indexable = [];
+const lastmodBySlug = {};
 let rankedCount = 0, steamCount = 0;
 
 for (const g of S.games) {
@@ -155,6 +156,13 @@ for (const g of S.games) {
 
   // 색인 허용은 에디션과 무관 (순위 이력이 가장 긴 국가의 일수 기준)
   if (summaryDays(rank, meta, 'kr') >= INDEXABLE_DAYS) indexable.push(slug);
+  // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
+  const dataDates = [
+    ...(rank ? Object.values(rank.s).flatMap((stores) => Object.values(stores).map((e) => meta.days[e.o + e.v.length - 1])) : []),
+    ...(rank && Object.keys(rank.h).length && meta.hourlyDate ? [meta.hourlyDate] : []),
+    ...data.steamHistory.map((d) => d.date),
+  ].filter(Boolean).sort();
+  if (dataDates.length) lastmodBySlug[slug] = dataDates[dataDates.length - 1];
 
   searchIndex.push({
     name: gameName,
@@ -201,9 +209,8 @@ for (const edition of i18n.EDITIONS) {
 }
 
 // ---------- 사이트맵 ----------
-const lastmod = new Date().toISOString().split('T')[0];
-const sitemapNames = writeGameSitemaps(docsDir, Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, indexable])), lastmod);
-writeSitemapIndex(docsDir, lastmod);
+const sitemapNames = writeGameSitemaps(docsDir, Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, indexable])), lastmodBySlug);
+writeSitemapIndex(docsDir);
 
 i18n.setEdition('ko');
 console.log(`✅ 게임 데이터 ${written.size}개 (순위 ${rankedCount}, 스팀 ${steamCount}) → docs/games-data (${((Date.now() - started) / 1000).toFixed(1)}s)`);
