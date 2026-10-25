@@ -63131,14 +63131,16 @@
     },
     "더 루키: 고교야구선수 키우기": {
       "appIds": {
-        "ios": 6800343219
+        "ios": 6800343219,
+        "android": "com.therookie.game"
       },
       "aliases": [],
       "developer": "The Rookie Lab",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/94/cf/9594cfc5-1aef-2ca7-b274-e9f15243d1d8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "더-루키-고교야구선수-키우기",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "더 루키: 고교야구선수 키우기",
@@ -93545,7 +93547,8 @@
     },
     "DOP 5: 한 부분 지우기": {
       "appIds": {
-        "android": "com.playstrom.dop5"
+        "android": "com.playstrom.dop5",
+        "ios": 1665861079
       },
       "aliases": [
         "DOP 5: Delete One Part"
@@ -93554,7 +93557,8 @@
       "icon": "https://play-lh.googleusercontent.com/45um93KKoZiLkM2Twt8IL1yleLcU-W0PLUz36dPi6c7oRfFEeUUV8F2OIkuHhcIbdEyaUyNRmUrx6SfOeNWWvg",
       "slug": "dop-5-delete-one-part",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "DOP 5: 한 부분 지우기",
@@ -150616,14 +150620,16 @@
     },
     "Twist Colors: Cube Smash": {
       "appIds": {
-        "ios": 6795531178
+        "ios": 6795531178,
+        "android": "cube.clear.burst.spin.sweep.puzzle.rotate"
       },
       "aliases": [],
       "developer": "Nova Games Technology Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7f/70/b9/7f70b938-8c74-95a2-f5e1-637ff9fbfc6b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "twist-colors-cube-smash",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Twist Colors: Cube Smash",
@@ -151624,14 +151630,16 @@
     },
     "모찌 버스트": {
       "appIds": {
-        "ios": 6792641801
+        "ios": 6792641801,
+        "android": "net.gameduo.eh"
       },
       "aliases": [],
       "developer": "Game Duo Co.,Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/19/ef/72/19ef7244-519c-8079-d0ab-9037048ed9b7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "모찌-버스트",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "모찌 버스트",
@@ -152362,8 +152370,103 @@
         "ko": "블랙헤드 달인 - 딸기코 말끔히",
         "zh-tw": "拔粉刺達人 - 草莓鼻掰掰"
       }
+    },
+    "픽셀 귀살대": {
+      "appIds": {
+        "android": "gumq.kreg.onei"
+      },
+      "aliases": [],
+      "developer": "Finesun",
+      "icon": "https://play-lh.googleusercontent.com/LwSqEEjeV9rjjVQcM8ScfTcaIutPqEMRIJp6afjvMmiL0i9RWTzK_JDm04ef90T3k45FYS_Dlpr_KdbirC-F_mM",
+      "slug": "픽셀-귀살대",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "픽셀 귀살대"
+      }
+    },
+    "Arrow Rush：Beautiful Secret": {
+      "appIds": {
+        "android": "com.arrowrush.beautifulsecret"
+      },
+      "aliases": [],
+      "developer": "Pelvix Operations LLC",
+      "icon": "https://play-lh.googleusercontent.com/TUmJtlwGiE4bawa8RPpsM_mQGv6ktt782V8QwAmiMI1BNwwfeIwQ_fKZEoPkEoPqWlA1lLhKlg3-hUBYPxEPXg",
+      "slug": "arrow-rushbeautiful-secret",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Rush：Beautiful Secret",
+        "ja": "Arrow Rush：Beautiful Secret"
+      }
+    },
+    "Clean Perfect OCD": {
+      "appIds": {
+        "android": "com.pl.clean.perfect.asrm.ocd"
+      },
+      "aliases": [],
+      "developer": "Funlab Games",
+      "icon": "https://play-lh.googleusercontent.com/CLyf41QR7P0ho4bqyZBq-_M2sHWNw_SZOx6zFhSDJhGVlC7nVE5z8Lx4Hku2ofBizpui57iEvEKldLmaIgTTup4",
+      "slug": "clean-perfect-ocd",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Clean Perfect OCD",
+        "en": "Clean Perfect OCD"
+      }
+    },
+    "Block Puzzle: Colors Blast": {
+      "appIds": {
+        "android": "com.jc.blockpuzzle.color.game"
+      },
+      "aliases": [],
+      "developer": "JC Puzzle Games Studio",
+      "icon": "https://play-lh.googleusercontent.com/MxEVcuffsi_uvthDBO2qimXWQiw8tHnIR6iVycQ86fmJhNlx4TLImKZpcB3qVHe8Ra-CAUTk-DiSVTtliabT",
+      "slug": "block-puzzle-colors-blast",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Block Puzzle: Colors Blast",
+        "ja": "Block Puzzle: Colors Blast"
+      }
+    },
+    "Makeover Karma: Triple Tile": {
+      "appIds": {
+        "android": "com.mago.tile.makeover"
+      },
+      "aliases": [],
+      "developer": "MAGO株式会社",
+      "icon": "https://play-lh.googleusercontent.com/9h3MekX9oK7Uzf4sRliwRL8WUdfGohD3lpnjeft-o79p99d3jfm4WB7JyD-CJnw4BA7Sz0fMZMvjVHzHPgwNfg",
+      "slug": "makeover-karma-triple-tile",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Makeover Karma: Triple Tile",
+        "ja": "Makeover Karma: Triple Tile"
+      }
+    },
+    "honeybearsue": {
+      "appIds": {
+        "ios": 6791094428
+      },
+      "aliases": [],
+      "developer": "Paola Zamrana",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fd/9e/97/fd9e97b6-1d67-b675-0a10-0a855d6d734b/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "honeybearsue",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "honeybearsue",
+        "zh-cn": "honeybearsue"
+      }
     }
   },
   "lastUpdated": "2026-10-25",
-  "totalGames": 8858
+  "totalGames": 8864
 }
