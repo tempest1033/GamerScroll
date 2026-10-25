@@ -6,7 +6,8 @@
  */
 
 const { t, currentEdition, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
-const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot, generatePCAdSlot } = require('../layout');
+const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
+const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { describeGame, trimDescription, dominantScript } = require('../helpers/game-description');
@@ -19,10 +20,11 @@ const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').
 const jsonForScript = (value) => JSON.stringify(value).replace(/</g, '\\u003c').replace(/\u2028|\u2029/g, '');
 
 // 분석 카드 아래: 가로 배너 1개 + 관련 게임 카드 (순위가 비슷한 게임 · 같은 개발사의 다른 게임).
-// 배너: PC 는 가로형 반응형 단위(최대 970px), 모바일은 300×250 단위 — 화면 폭에 맞는 하나만 요청된다(layout.js visibleAds).
+// 배너: PC 는 상단 광고와 같은 970×250 빌보드 고정 요청(250px 예약, ads.js renderDesktopOnlyHomeAd), 모바일은 300×250 단위 —
+// 화면 폭에 맞는 하나만 요청된다(layout.js visibleAds). 화면 가까이 오면 요청하고(layout.js btfObserver), unfilled 이고 화면 아래에 있으면 자리를 접는다(layout.js collapseUnfilledInPageAd).
 // 관련 게임 데이터(related)는 scripts/generate-game-pages.js 가 에디션별로 만든다. 링크는 localizeHtml 이 같은 에디션 경로로 바꾼다.
 function renderRelated(related, code, developer) {
-  const pcAd = generatePCAdSlot(AD_SLOTS.ResponsivePC001);
+  const pcAd = renderDesktopOnlyHomeAd(AD_SLOTS.ResponsivePC001);
   const mobileAd = generateHomeAdPairSlot(null, AD_SLOTS.Mobile001, { mobileOnly: true });
   const ad = pcAd || mobileAd ? `<div class="gs-ad-inpage grid-full">${pcAd}${mobileAd}</div>` : '';
   const mine = related && related.e && related.e[code];

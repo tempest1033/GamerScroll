@@ -20,13 +20,12 @@
 }
 
 /* 게임 상세 하단: 가로 배너 + 관련 게임 카드 (src/templates/pages/game.js renderRelated)
-   배너는 PC(≥769px) 가로형 반응형 카드만, 모바일은 300×250 카드(ads.js 인라인 스타일)만 보인다. */
+   배너는 PC(≥769px) 970×250 카드만, 모바일은 300×250 카드만 보인다(크기·표시는 ads.js 인라인 스타일).
+   unfilled 이고 배너가 화면 아래에 있으면 layout.js collapseUnfilledInPageAd 가 .gs-ad-collapsed 를 붙여 자리(250px)와 그리드 간격을
+   함께 접는다. 화면 안이거나 지나친 뒤라면 본문이 튀지 않게 상단 광고처럼 예약 자리를 유지한다. */
 .gs-ad-inpage { display: flex; flex-direction: column; align-items: center; min-width: 0; }
 .gs-ad-inpage .ad-card { margin: 0 auto; }
-.gs-ad-inpage > .ad-card-responsive-top { display: none; }
-@media (min-width: 769px) {
-  .gs-ad-inpage > .ad-card-responsive-top { display: flex; width: 100%; max-width: 970px; }
-}
+.page-game #game .game-page-grid > .gs-ad-inpage.gs-ad-collapsed { display: none; }
 .rk.rk-related { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; }
 .rk.rk-related.rk-related-single { grid-template-columns: minmax(0, 1fr); }
 /* 간격은 게임 상세 그리드 간격 하나만 쓴다 (게임 상세 .rk-card 의 위 여백·안쪽 여백, 제목 양끝 정렬을 이 카드에서만 끈다) */

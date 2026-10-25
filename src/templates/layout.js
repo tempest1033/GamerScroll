@@ -861,7 +861,8 @@ const lazyCardHydrationScript = `
         var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
         if (!window.__gsAdCleanupBound) {
           window.__gsAdCleanupBound = true;
-          window.addEventListener('pagehide', function() {
+          window.addEventListener('pagehide', function(e) {
+            if (e && e.persisted) return;
             while (__gsAdCleanup.length) {
               var fn = __gsAdCleanup.shift();
               try { if (typeof fn === 'function') fn(); } catch (e) {}
@@ -2067,7 +2068,9 @@ ${adRequestBootstrap}
   var __gsAdCleanup = (window.__gsAdCleanup = window.__gsAdCleanup || []);
   if (!window.__gsAdCleanupBound) {
     window.__gsAdCleanupBound = true;
-    window.addEventListener('pagehide', function() {
+    window.addEventListener('pagehide', function(e) {
+      // A page entering the back/forward cache is restored as-is: keep its observers so lazy slots still get requested.
+      if (e && e.persisted) return;
       while (__gsAdCleanup.length) {
         var fn = __gsAdCleanup.shift();
         try { if (typeof fn === 'function') fn(); } catch (e) {}
@@ -2212,10 +2215,9 @@ ${adRequestBootstrap}
     var isMobileTopAd = wrap.classList.contains('ad-card-mobile-top');
     var isTopAd = isMobileTopAd || wrap.classList.contains('ad-card-responsive-home') || wrap.classList.contains('ad-card-responsive-top');
     if (isTopAd && !isMobileTopAd) centerTopAdCreative(ad, wrap, iframe);
-    // 상단 광고 예약 높이: PC 1160×250(빌보드) · 모바일 300×250 — ads.js·05-ads.css와 같은 값 (2026-09-09, 이전 90/100)
-    // 본문 중간 PC 가로 배너(.gs-ad-inpage, 게임 상세 하단)는 크리에이티브 높이(90 등)에 맞춘다.
-    var isInPageBanner = !isMobileTopAd && !!(wrap.closest && wrap.closest('.gs-ad-inpage'));
-    var minHeight = isTopAd && !isInPageBanner ? 250 : 0;
+    // 상단 광고 예약 높이: PC 970×250(빌보드) · 모바일 300×250 — ads.js·05-ads.css와 같은 값 (2026-09-09, 이전 90/100)
+    // 게임 상세 중간 배너(.gs-ad-inpage)도 같은 카드라 같은 250px 예약을 유지한다(작은 크리에이티브는 가운데 정렬).
+    var minHeight = isTopAd ? 250 : 0;
     var targetHeight = Math.max(iframeHeight, minHeight);
     var adHeight = Math.round(ad.getBoundingClientRect().height || ad.offsetHeight || 0);
     var wrapHeight = Math.round(wrap.getBoundingClientRect().height || wrap.offsetHeight || 0);
@@ -2263,6 +2265,17 @@ ${adRequestBootstrap}
     }
   }
 
+  // 게임 상세 중간 배너(.gs-ad-inpage): unfilled 면 250px 자리를 접는다. 화면 아래에 있을 때만 접는다 —
+  // 보이는 중이거나 이미 지나친 자리를 접으면 본문이 튄다(CLS). 그때는 상단 광고처럼 예약 자리를 유지한다.
+  function collapseUnfilledInPageAd(ad) {
+    if (ad.getAttribute('data-ad-status') !== 'unfilled') return;
+    var slot = ad.closest && ad.closest('.gs-ad-inpage');
+    if (!slot || slot.classList.contains('gs-ad-collapsed')) return;
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+    if (slot.getBoundingClientRect().top < viewportHeight) return;
+    slot.classList.add('gs-ad-collapsed');
+  }
+
   function observeAdVisualSize(ad) {
     if (!ad || ad.getAttribute('data-gs-size-observed') === '1') return;
     ad.setAttribute('data-gs-size-observed', '1');
@@ -2273,6 +2286,7 @@ ${adRequestBootstrap}
       scheduled = true;
       requestAnimationFrame(function() {
         scheduled = false;
+        collapseUnfilledInPageAd(ad);
         if (maybeMarkAdEmpty(ad, false, 'mutation')) return;
         normalizeAdVisualSize(ad);
       });

@@ -41,15 +41,18 @@ async function render(code, slug) {
 
 const expectedHref = (code, slug) => `${PREFIX[code]}/games/${encodeURIComponent(slug)}/`;
 
-// 배너: 분석 카드 바로 뒤, PC 가로형 반응형 단위 + 모바일 300×250 단위. 상단 광고와 붙어 있지 않다.
+// 배너: 분석 카드 바로 뒤, PC 970×250 고정 단위(상단 광고와 같은 규격) + 모바일 300×250 단위. 상단 광고와 붙어 있지 않다.
 function checkBanner($, label) {
   const banner = $('#game .game-page-grid > .gs-ad-inpage');
   assert.equal(banner.length, 1, `${label}: one in-page banner`);
   const pc = banner.find(`ins.adsbygoogle[data-ad-slot="${AD_SLOTS.pc}"]`);
   assert.equal(pc.length, 1, `${label}: PC banner ins`);
-  assert.equal(pc.attr('data-ad-format'), 'horizontal', `${label}: PC banner is the horizontal responsive unit`);
-  assert.equal(pc.attr('data-full-width-responsive'), 'true');
-  assert.ok(pc.parent().is('.ad-card.ad-card-responsive-top'), `${label}: PC banner ad-card wrapper`);
+  assert.equal(pc.attr('data-ad-format'), undefined, `${label}: PC banner has no auto-size format`);
+  const card = pc.parent();
+  assert.ok(card.is('.ad-card.ad-card-responsive-home.gs-ad-fixed'), `${label}: PC banner uses the top-ad billboard card`);
+  const css = card.find('style').text();
+  assert.match(css, /width:970px;[^}]*height:250px/, `${label}: PC banner requests 970×250`);
+  assert.match(css, /height:250px; min-height:250px; max-height:250px/, `${label}: PC banner reserves 250px`);
   assert.equal(banner.find(`.ad-card-mobile-top ins.adsbygoogle[data-ad-slot="${AD_SLOTS.mobile}"]`).length, 1, `${label}: mobile 300×250 ins`);
   const prev = banner.prev();
   assert.ok(prev.is('.home-card.grid-full') && prev.find('.rk-game .rk-grid2').length, `${label}: banner directly follows the analysis card`);
