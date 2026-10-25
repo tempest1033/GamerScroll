@@ -151802,14 +151802,16 @@
     },
     "원피스 그랜드 레스토랑": {
       "appIds": {
-        "ios": "6771652722"
+        "ios": 6771652722,
+        "android": "com.bandainamcoent.op_restaurant"
       },
       "aliases": [],
       "developer": "Bandai Namco Entertainment Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/26/ae/0726aeec-4e37-1b96-365f-949a1f523ae0/AppIcon-0-0-1x_U007emarketing-0-6-85-220.png/512x512bb.jpg",
       "slug": "원피스-그랜드-레스토랑",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "원피스 그랜드 레스토랑",
@@ -152547,8 +152549,55 @@
         "ko": "再一下：鹽酥雞",
         "zh-tw": "再一下：鹽酥雞"
       }
+    },
+    "Block Blast Lite": {
+      "appIds": {
+        "android": "com.blockblast.lite"
+      },
+      "aliases": [],
+      "developer": "HungryStudio",
+      "icon": "https://play-lh.googleusercontent.com/egr1U9AiNnnsowUOGvAkGtxmPDc0BnQ0WR0w-no6nAkrM3EJLEkheDfzNwYLfnK2iOoI3eDMXvIswWF5eVFa",
+      "slug": "block-blast-lite",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Block Blast Lite"
+      }
+    },
+    "Go Speed: Street Rider": {
+      "appIds": {
+        "android": "com.gospeed.street.rider"
+      },
+      "aliases": [],
+      "developer": "SoftAIO",
+      "icon": "https://play-lh.googleusercontent.com/EfjUnu4pUVxRw0SEV_j-91-ncYGg-eGAjZIDPAsqJ98GozpWsMPTGKAGDgbVgVdektZibLLZ9b8G-QwKKfRkvA",
+      "slug": "go-speed-street-rider",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Go Speed: Street Rider",
+        "en": "Go Speed: Street Rider"
+      }
+    },
+    "Stickman Fight-Stick Brawl": {
+      "appIds": {
+        "android": "com.fbatlle.chiner"
+      },
+      "aliases": [],
+      "developer": "Dear Dream Game",
+      "icon": "https://play-lh.googleusercontent.com/E0GBEMLNMLbPy35l4Meyz_h-QRmyvfw7YFDOixEcHQjLuIDfLBXR5FXY9vOt-gJMrSmVc3D3JRl5N4QZ0yOJ",
+      "slug": "stickman-fight-stick-brawl",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Stickman Fight-Stick Brawl",
+        "zh-tw": "Stickman Fight-Stick Brawl"
+      }
     }
   },
   "lastUpdated": "2026-10-26",
-  "totalGames": 8869
+  "totalGames": 8872
 }

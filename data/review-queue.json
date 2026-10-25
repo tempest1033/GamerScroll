@@ -45748,13 +45748,19 @@
     },
     {
       "title": "원피스 그랜드 레스토랑",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6771652722"
+        "ios": 6771652722,
+        "android": "com.bandainamcoent.op_restaurant"
       },
       "developer": "Bandai Namco Entertainment Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/07/26/ae/0726aeec-4e37-1b96-365f-949a1f523ae0/AppIcon-0-0-1x_U007emarketing-0-6-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "원피스 그랜드 레스토랑",
+          "appId": 6771652722
+        }
+      ],
       "addedAt": "2026-10-23T10:52:35.826Z"
     },
     {
@@ -46270,6 +46276,78 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/82/c2/9782c2e8-62b3-7545-ec16-6a75b7bf8c1e/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-25T17:02:53.036Z"
+    },
+    {
+      "title": "Block Blast Lite",
+      "status": "single",
+      "appIds": {
+        "android": "com.blockblast.lite"
+      },
+      "developer": "HungryStudio",
+      "icon": "https://play-lh.googleusercontent.com/egr1U9AiNnnsowUOGvAkGtxmPDc0BnQ0WR0w-no6nAkrM3EJLEkheDfzNwYLfnK2iOoI3eDMXvIswWF5eVFa",
+      "searchResults": [
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "컬러블록 코모보 블라스트(ColorBlock)",
+          "appId": 6478063606
+        },
+        {
+          "title": "Block Blast : Top Block Puzzle",
+          "appId": 6740842493
+        }
+      ],
+      "addedAt": "2026-10-25T20:30:39.878Z"
+    },
+    {
+      "title": "Go Speed: Street Rider",
+      "status": "single",
+      "appIds": {
+        "android": "com.gospeed.street.rider"
+      },
+      "developer": "SoftAIO",
+      "icon": "https://play-lh.googleusercontent.com/EfjUnu4pUVxRw0SEV_j-91-ncYGg-eGAjZIDPAsqJ98GozpWsMPTGKAGDgbVgVdektZibLLZ9b8G-QwKKfRkvA",
+      "searchResults": [
+        {
+          "title": "Traffic Rider",
+          "appId": 951744068
+        },
+        {
+          "title": "Mario Kart Tour",
+          "appId": 1293634699
+        },
+        {
+          "title": "Street Racing EVO : Car & Moto",
+          "appId": 936603225
+        }
+      ],
+      "addedAt": "2026-10-25T20:30:40.610Z"
+    },
+    {
+      "title": "Stickman Fight-Stick Brawl",
+      "status": "single",
+      "appIds": {
+        "android": "com.fbatlle.chiner"
+      },
+      "developer": "Dear Dream Game",
+      "icon": "https://play-lh.googleusercontent.com/E0GBEMLNMLbPy35l4Meyz_h-QRmyvfw7YFDOixEcHQjLuIDfLBXR5FXY9vOt-gJMrSmVc3D3JRl5N4QZ0yOJ",
+      "searchResults": [
+        {
+          "title": "Stick Fight: Shadow Warrior 2",
+          "appId": 6475717406
+        },
+        {
+          "title": "섀도우 파이트 3 (Shadow Fight 3)",
+          "appId": 964827011
+        },
+        {
+          "title": "섀도우 파이트 2",
+          "appId": 696565994
+        }
+      ],
+      "addedAt": "2026-10-25T20:30:41.032Z"
     }
   ],
   "approved": [
