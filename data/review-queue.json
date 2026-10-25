@@ -46176,6 +46176,65 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fd/9e/97/fd9e97b6-1d67-b675-0a10-0a855d6d734b/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-25T01:02:57.813Z"
+    },
+    {
+      "title": "漢字つなぎ",
+      "status": "single",
+      "appIds": {
+        "android": "com.keepgamesimple.kc"
+      },
+      "developer": "keepgamesimple LLC",
+      "icon": "https://play-lh.googleusercontent.com/ZZlVd0YFQMO8rl6lZr1O7F1vG_P9rPU0RwBNZ-sG8l3N8AudFiitxPXmcu8qfYFjO-18iurQ41f-L9tYBW50",
+      "searchResults": [
+        {
+          "title": "花火ーことばつなぎパズル",
+          "appId": 6777846291
+        },
+        {
+          "title": "単語ドロップ - 落ちる文字で言葉を作る脳トレパズル",
+          "appId": 6755031649
+        },
+        {
+          "title": "ヨンクミ",
+          "appId": 6779121198
+        }
+      ],
+      "addedAt": "2026-10-25T13:02:50.156Z"
+    },
+    {
+      "title": "Mimik Challenge: Funny Sounds",
+      "status": "single",
+      "appIds": {
+        "ios": 6814707652
+      },
+      "developer": "GAIA TECHNOLOGY PTE. LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7c/32/cf/7c32cf9e-c59d-9ae6-d068-0c9b54cb6ba0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-25T13:02:50.756Z"
+    },
+    {
+      "title": "Pink Pour: Water Sort",
+      "status": "single",
+      "appIds": {
+        "android": "com.yourstudio.pinkpour"
+      },
+      "developer": "NEW PACE PRODUCTIONS",
+      "icon": "https://play-lh.googleusercontent.com/KOmV3RnhdayNRYXznNOU_tG_3f53hE5RAtsYFYfw8ymTviK9vOIvA2xNcaPeAGlPOwtWctXsMNTZY-5-vw6gOac",
+      "searchResults": [
+        {
+          "title": "Color Sort Puzzle - Pour Water",
+          "appId": 1549804640
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "Water Logic",
+          "appId": 6762019423
+        }
+      ],
+      "addedAt": "2026-10-25T13:02:51.147Z"
     }
   ],
   "approved": [
