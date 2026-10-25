@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T01:19:12.640Z",
+  "updatedAt": "2026-10-25T05:01:52.831Z",
   "period": "30days",
   "games": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "slug": "제우스-오만의-신",
-      "views": 18
+      "views": 16
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
@@ -19,36 +19,16 @@
       "views": 9
     },
     {
-      "slug": "레이싱-마스터",
-      "views": 9
-    },
-    {
       "slug": "이클립스-더-어웨이크닝",
       "views": 9
-    },
-    {
-      "slug": "arrow-pro-3d",
-      "views": 8
-    },
-    {
-      "slug": "palworld",
-      "views": 8
     },
     {
       "slug": "roblox",
       "views": 8
     },
     {
-      "slug": "wos-화이트아웃-서바이벌",
-      "views": 8
-    },
-    {
-      "slug": "에이지-오브-엠파이어-모바일",
-      "views": 8
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
-      "views": 8
+      "slug": "arrow-pro-3d",
+      "views": 7
     },
     {
       "slug": "barotrauma",
@@ -60,6 +40,10 @@
     },
     {
       "slug": "my-hero-ultra-rumble",
+      "views": 7
+    },
+    {
+      "slug": "palworld",
       "views": 7
     },
     {
@@ -75,7 +59,23 @@
       "views": 7
     },
     {
-      "slug": "where-winds-meet",
+      "slug": "wos-화이트아웃-서바이벌",
+      "views": 7
+    },
+    {
+      "slug": "레이싱-마스터",
+      "views": 7
+    },
+    {
+      "slug": "메이플-키우기",
+      "views": 7
+    },
+    {
+      "slug": "블루-프로토콜-스타-레조넌스",
+      "views": 7
+    },
+    {
+      "slug": "세포-특공대-전략형-타워-디펜스",
       "views": 7
     }
   ]
