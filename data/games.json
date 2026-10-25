@@ -62249,14 +62249,16 @@
     },
     "다크엔젤: 천사 강림": {
       "appIds": {
-        "android": "com.ulugame.ylnskr.google"
+        "android": "com.ulugame.ylnskr.google",
+        "ios": "6773607588"
       },
       "aliases": [],
       "developer": "게임랜드주식회사",
       "icon": "https://play-lh.googleusercontent.com/DVryEpSc8yilLqBZhJPA7IviVPoMC3m5x6xlU71tumKmKO9ga0xZsY10OkZXV-hZO3gLP4PWXhP-BhG40yVGyvk",
       "slug": "다크엔젤-천사-강림",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "다크엔젤: 천사 강림",
@@ -152513,8 +152515,40 @@
         "ko": "Pink Pour: Water Sort",
         "zh-tw": "Pink Pour: Water Sort"
       }
+    },
+    "링 마스터: 힐링 두뇌 게임": {
+      "appIds": {
+        "android": "com.ring.master"
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/DjDrgdc9B4o0WFzvihytXDDfmBepuCmZS0kj-n8pdi8x1xwHTNhV575f0CqgsQcVCDZd8yNAXkZkbUwkFq3CzrM",
+      "slug": "링-마스터-힐링-두뇌-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "링 마스터: 힐링 두뇌 게임",
+        "ja": "リングマスター: 回して外す立体脳トレパズル"
+      }
+    },
+    "再一下：鹽酥雞": {
+      "appIds": {
+        "ios": 6813990095
+      },
+      "aliases": [],
+      "developer": "Hsiangyu Hu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/82/c2/9782c2e8-62b3-7545-ec16-6a75b7bf8c1e/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "再一下：鹽酥雞",
+        "zh-tw": "再一下：鹽酥雞"
+      }
     }
   },
-  "lastUpdated": "2026-10-25",
-  "totalGames": 8867
+  "lastUpdated": "2026-10-26",
+  "totalGames": 8869
 }

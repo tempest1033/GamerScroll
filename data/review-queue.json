@@ -46235,6 +46235,41 @@
         }
       ],
       "addedAt": "2026-10-25T13:02:51.147Z"
+    },
+    {
+      "title": "링 마스터: 힐링 두뇌 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.ring.master"
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/DjDrgdc9B4o0WFzvihytXDDfmBepuCmZS0kj-n8pdi8x1xwHTNhV575f0CqgsQcVCDZd8yNAXkZkbUwkFq3CzrM",
+      "searchResults": [
+        {
+          "title": "Domino Dreams™ 도미노 드림",
+          "appId": 6444043291
+        },
+        {
+          "title": "훠궈 마스터: 푸드 퍼즐",
+          "appId": 6758488812
+        },
+        {
+          "title": "Tile Adventure: 트리플 매치 퍼즐 게임",
+          "appId": 1518953606
+        }
+      ],
+      "addedAt": "2026-10-25T17:02:52.830Z"
+    },
+    {
+      "title": "再一下：鹽酥雞",
+      "status": "single",
+      "appIds": {
+        "ios": 6813990095
+      },
+      "developer": "Hsiangyu Hu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/82/c2/9782c2e8-62b3-7545-ec16-6a75b7bf8c1e/AppIcon-0-0-1x_U007epad-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-25T17:02:53.036Z"
     }
   ],
   "approved": [
