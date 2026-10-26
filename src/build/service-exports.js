@@ -166,17 +166,17 @@ function compactStore(m, where, asof) {
     d: (m.mtd.days || []).map((row) => [dayOrThrow(row[0], `${where} mtd`), rankOrNull(row[1], where), ...(shown(row[0]) ? cells(row.slice(2, 5), `${where} mtd ${row[0]}`) : [null, null, null])]),
   } : null;
   // 14-day rank outlook: outlook14 (rev-v3..v6), or `outlook` with the same days rows [date, q10, q25, q50, q75, q90,
-  // p_out] (p_out = chance of being outside the top 200 that day; optional → null).
-  const ol = m.outlook14 || m.outlook || null;
+  // p_out] (p_out = chance of being outside the top 200 that day; optional → null; kept unrounded, the page classifies it).
+  // New games: none at all (a new-release forecast is out of scope: launch_prior did not pass its backtest).
+  const ol = l && l.nw ? null : m.outlook14 || m.outlook || null;
   const o = ol && Array.isArray(ol.days) && ol.days.length ? {
     c: ol.cutoff == null ? null : dayOrThrow(ol.cutoff, `${where} outlook`),
     d: ol.days.map((row) => {
       const r = row.slice(1, 6);
       if (!r.every((x) => x == null || finite(x)) || (row[6] != null && (!finite(row[6]) || row[6] < 0 || row[6] > 1))) throw new Error(`${where}: bad outlook row ${row[0]}`);
-      return [dayOrThrow(row[0], `${where} outlook`), ...r.map((x) => (x == null ? null : Math.round(x))), row[6] == null ? null : Math.round(row[6] * 1000) / 1000];
+      return [dayOrThrow(row[0], `${where} outlook`), ...r.map((x) => (x == null ? null : Math.round(x))), row[6] == null ? null : row[6]];
     }),
-    // New games: rank outlook only, no 14-day revenue total.
-    t: l && l.nw ? null : triple(ol.revenue_total, `${where} outlook`),
+    t: triple(ol.revenue_total, `${where} outlook`),
   } : null;
   const p = m.position || null;
   const num = (v) => (finite(v) ? v : null);
@@ -227,14 +227,13 @@ function usableCurve(kind, c) {
 /**
  * manifest.json outlook_model { name, frozen_config, backtest: { cov80, cutoffs, period } } → page data om
  * { n: number of weekly backtest cutoffs, c: share of realised ranks inside the 80% range (0–1) }, or null (absent or
- * malformed: the page then shows no accuracy number). cutoffs: a count or the list of cutoff dates; cov80: 0–1 or percent.
+ * malformed: the page then shows no accuracy number). Documented schema only: cutoffs a positive integer count, cov80 a
+ * fraction in (0, 1]; anything else (percent, lists, strings) → null.
  */
 function outlookMethod(model) {
   const b = model && typeof model === 'object' ? model.backtest : null;
   if (!b || typeof b !== 'object') return null;
-  const n = Array.isArray(b.cutoffs) ? b.cutoffs.length : b.cutoffs;
-  const c = finite(b.cov80) && b.cov80 > 1 && b.cov80 <= 100 ? b.cov80 / 100 : b.cov80;
-  return Number.isInteger(n) && n > 0 && finite(c) && c > 0 && c <= 1 ? { n, c: Math.round(c * 1000) / 1000 } : null;
+  return Number.isInteger(b.cutoffs) && b.cutoffs > 0 && finite(b.cov80) && b.cov80 > 0 && b.cov80 <= 1 ? { n: b.cutoffs, c: b.cov80 } : null;
 }
 
 function recordsOf(json) {

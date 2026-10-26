@@ -164,7 +164,8 @@ const pOutLevel = (p) => (p < P_OUT_LEVELS.POSSIBLE ? 'low' : p < P_OUT_LEVELS.L
 
 function outlookBlock(store, p, ctx) {
   const o = p.o;
-  if (!o) return '';
+  // New games: no outlook (a new-release forecast is out of scope; launch_prior did not pass its backtest).
+  if (!o || !o.d.length || (p.l && p.l.nw)) return '';
   const r10 = o.d.map((d) => d[1]).filter((v) => v != null);
   const r90 = o.d.map((d) => d[5]);
   const lo = r10.length ? C.rankText(Math.min(...r10)) : t('rev.off_chart');
@@ -172,23 +173,20 @@ function outlookBlock(store, p, ctx) {
   const ranks = lo === hi ? lo : `${lo}–${hi}`;
   const dates = dateSeq(p.d0, p.d.length);
   const history = p.d.slice(-30).map((r, i) => ({ date: dates[p.d.length - Math.min(30, p.d.length) + i], rank: r[0] }));
-  // Games now ranked 51–200: the chance of being outside the top 200 on the last outlook day (day 14).
-  const now = p.d.length ? p.d[p.d.length - 1][0] : null;
+  // Games ranked 51–200 on the cutoff day (o.c, else the day before the first outlook day): the chance of being outside
+  // the top 200 on the last outlook day (day 14).
+  const ci = dates.indexOf(o.c || addDays(o.d[0][0], -1));
+  const atCutoff = ci >= 0 ? p.d[ci][0] : null;
   const end = o.d[o.d.length - 1];
-  const pOut = now != null && now >= 51 && now <= 200 && Number.isFinite(end[6]) ? end[6] : null;
+  const pOut = atCutoff != null && atCutoff >= 51 && atCutoff <= 200 && Number.isFinite(end[6]) && end[6] >= 0 && end[6] <= 1 ? end[6] : null;
   // No percentage (calibration: low probabilities run 2–4× too high): a 3-level label from P_OUT_LEVELS.
   const pOutLine = pOut == null ? '' : `<p class="rv-text">${t('rev.p_out', { days: formatNumber(o.d.length), date: dayLong(end[0]), p: `<b>${t(`rev.p_out_${pOutLevel(pOut)}`)}</b>` })}</p>`;
   // Backtest accuracy only from the bundle's outlook_model; without it no number is shown.
   const method = ctx.om ? small(t('rev.outlook_method', { n: formatNumber(ctx.om.n), pct: C.percent(ctx.om.c) })) : '';
   const chart = C.fanChart({ history, days: o.d, label: (d) => dayShort(d), aria: t('rev.outlook_aria', { store: t(STORE_KEYS[store]), ranks }) });
   const legend = C.legend([['rv-sw-fan80', t('rev.legend_fan80')], ['rv-sw-fan50', t('rev.legend_fan50')], ['rv-sw-fanmed', t('rev.legend_fan_median')], ['rv-sw-hist', t('rev.legend_history')]]);
-  // New games: rank fan only, labelled; no revenue total.
-  const nw = Boolean(p.l && p.l.nw);
-  const headline = nw
-    ? t('rev.outlook_headline_rank', { ranks: `<b>${ranks}</b>` })
-    : t('rev.outlook_headline', { ranks: `<b>${ranks}</b>`, range: `<b>${o.t ? C.rangeHtml(o.t[0], o.t[2], ctx.cur) : t('rev.bands_hidden')}</b>` });
-  const tag = nw ? ` <span class="rv-tag rv-new">${t('rev.new_tag')}</span>` : '';
-  return block(`rv-x ${VIEW[store].cls} ${VIEW.all.cls} rv-outlook`, `<h4>${t('rev.outlook_title')} <span class="rv-beta">${t('rev.beta')}</span>${tag} <small>${t(STORE_KEYS[store])}</small></h4><p class="rv-mid">${headline}</p>${pOutLine}${small(t(nw ? 'rev.outlook_new_note' : 'rev.outlook_note'))}${chart}${legend}${method}`);
+  const headline = t('rev.outlook_headline', { ranks: `<b>${ranks}</b>`, range: `<b>${o.t ? C.rangeHtml(o.t[0], o.t[2], ctx.cur) : t('rev.bands_hidden')}</b>` });
+  return block(`rv-x ${VIEW[store].cls} ${VIEW.all.cls} rv-outlook`, `<h4>${t('rev.outlook_title')} <span class="rv-beta">${t('rev.beta')}</span> <small>${t(STORE_KEYS[store])}</small></h4><p class="rv-mid">${headline}</p>${pOutLine}${small(t('rev.outlook_note'))}${chart}${legend}${method}`);
 }
 
 function positionBlock(store, p, ctx) {

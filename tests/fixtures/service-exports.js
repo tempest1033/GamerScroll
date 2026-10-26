@@ -11,7 +11,7 @@
  *   and their week / month / MTD are null too); downloads: downloads_est tier ('verified' | 'unverified' | 'assumption' | 'partial_store' | 'hidden'),
  *   or 'unrated' (dl-v1 today: no numbers), default null; downloadsGaps: daily indexes left out (missing snapshots, as in dl-v1);
  *   downloadsBad: one malformed download row; downloadsBasis: crafted downloads_est.basis (default 'free_rank');
- *   outlookKey: 'outlook' writes a rank-only `outlook` block instead of outlook14.
+ *   outlookKey: 'outlook' writes a rank-only `outlook` block instead of outlook14; pOut14: crafted day-14 p_out (unrounded).
  * genres.json also carries `window` / `floor_rank` (basis of the approved decay note), which the real bundle does not have yet.
  */
 const fs = require('node:fs');
@@ -90,7 +90,7 @@ function marketRecord(market, store, spec, asof, game) {
   const outlook = last == null ? null : Array.from({ length: 14 }, (_, i) => {
     const r50 = Math.round(last * 1.02 ** (i + 1));
     const r90 = Math.round(r50 * 1.75);
-    return [addDays(asof, i + 1), Math.max(1, Math.round(r50 * 0.6)), Math.max(1, Math.round(r50 * 0.8)), r50, Math.round(r50 * 1.3), r90 > 200 ? null : r90, Math.round(Math.min(0.9, Math.max(0, (r50 * 1.75 - 200) / 400)) * 1000) / 1000];
+    return [addDays(asof, i + 1), Math.max(1, Math.round(r50 * 0.6)), Math.max(1, Math.round(r50 * 0.8)), r50, Math.round(r50 * 1.3), r90 > 200 ? null : r90, i === 13 && spec.pOut14 != null ? spec.pOut14 : Math.round(Math.min(0.9, Math.max(0, (r50 * 1.75 - 200) / 400)) * 1000) / 1000];
   });
   const sg = game.subgenre || 'all';
   const cohort = Boolean(game.launch_cohort);

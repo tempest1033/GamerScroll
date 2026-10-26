@@ -190,7 +190,7 @@ test('new releases: age badges, pre-release / pre-chart days, totals withheld, r
   assert.deepEqual(and.l, { rf: '2026-10-23', b: 'c', bf: 'c', fc: '2026-10-23', cz: false, nw: true, rs: '2026-10-23' });
   assert.deepEqual(ios.d[179], [null, null, null, null], 'release day before the first top-200 day: no revenue');
   assert.ok(ios.d[180][2] > 0);
-  assert.deepEqual([ios.w, ios.mo, ios.mtd.t, ios.o.t], [[], [], null, null]);
+  assert.deepEqual([ios.w, ios.mo, ios.mtd.t, ios.o, and.o], [[], [], null, null, null], 'new games: no outlook at ingestion');
   assert.equal(ios.p.dc, null);
   assert.equal(ios.p.lr, 'launch:kr:ios:Strategy');
   assert.ok(rev.cv['launch:kr:ios:Strategy']);
@@ -200,8 +200,12 @@ test('new releases: age badges, pre-release / pre-chart days, totals withheld, r
   assert.deepEqual(calls, [['kr', 'ios', '9000000009', '2026-10-22'], ['kr', 'android', 'com.example.fresh', '2026-10-23']]);
 
   const ko = withEdition('ko', () => visibleText(renderRevenueSection(rev)));
-  for (const s of ['앱스토어 · 출시 4일차', '구글플레이 · 차트 진입 3일차', '출시 전', '차트 진입 전', '신규: 아직 검증되지 않음', '집계 중', '신작', '평소대로면 앞으로 14일 순위', '인기(무료) 차트 순위: 12위', '최고 5위', '전 세계 누적 설치 10만+']) assert.ok(ko.includes(s), s);
-  assert.doesNotMatch(ko, /구글플레이 · 출시|누적 평점|매달 약|순위 [^,]*, 매출|이번 달 1일–어제 추정 매출|추정 월매출/);
+  for (const s of ['앱스토어 · 출시 4일차', '구글플레이 · 차트 진입 3일차', '출시 전', '차트 진입 전', '신규: 아직 검증되지 않음', '집계 중', '인기(무료) 차트 순위: 12위', '최고 5위', '전 세계 누적 설치 10만+']) assert.ok(ko.includes(s), s);
+  // No new-release forecast anywhere: no outlook block, no "new" outlook tag or note.
+  assert.doesNotMatch(ko, /구글플레이 · 출시|누적 평점|매달 약|앞으로 14일|14일 전망|신작|신규 게임 전망|이번 달 1일–어제 추정 매출|추정 월매출/);
+  const forced = JSON.parse(JSON.stringify(rev));
+  forced.m.kr.s.ios.o = svc.revenueFor({ android: 'com.example.fresh' }).m.kr.s.android.o || { c: '2026-10-25', d: Array.from({ length: 14 }, (_, i) => [`2026-11-${String(i + 1).padStart(2, '0')}`, 50, 55, 60, 70, 80, 0.5]), t: [1, 2, 3] };
+  for (const code of ['ko', 'en', 'ja', 'zh-cn', 'zh-tw']) assert.ok(!withEdition(code, () => renderRevenueSection(forced)).includes('rv-outlook'), `${code}: render drops a new game's outlook`);
   assert.match(withEdition('en', () => visibleText(renderRevenueSection(rev))), /App Store · Day 4 since release.*Google Play · Day 3 on the chart/);
 
   // Established games: no badge when the anchor lies before the daily window; free-chart best over the window.
@@ -387,9 +391,10 @@ test('14-day outlook: drop-out chance for ranks 51–200 only, backtest note onl
   assert.deepEqual(rev.om, { n: 33, c: 0.83 });
   assert.ok(withEdition('ko', () => outlookOf(renderRevenueSection(rev))).includes('과거 33주 백테스트에서 80% 범위 적중률 83%'));
   assert.ok(withEdition('en', () => outlookOf(renderRevenueSection(rev))).includes('In a backtest over the past 33 weeks, the 80% range held 83% of the time.'));
-  const list = loadServiceExports({ dir: bundle(t, { games, manifest: { outlook_model: { backtest: { cov80: 81, cutoffs: Array.from({ length: 30 }, (_, i) => `2026-0${1 + (i % 9)}-01`) } } } }), now: NOW });
-  assert.deepEqual(list.revenueFor({ ios: '1400000014' }).om, { n: 30, c: 0.81 });
-  for (const bad of [{ backtest: { cov80: '<img src=x>', cutoffs: 33 } }, { backtest: { cov80: 0.83 } }, { backtest: { cov80: 0.8, cutoffs: 0 } }, 'x', null]) {
+  // Documented schema only: cov80 a fraction in (0, 1], cutoffs a positive integer.
+  const exact = loadServiceExports({ dir: bundle(t, { games, manifest: { outlook_model: { backtest: { cov80: 0.8335, cutoffs: 33 } } } }), now: NOW }).revenueFor({ ios: '1400000014' });
+  assert.ok(withEdition('ko', () => outlookOf(renderRevenueSection(exact))).includes('과거 33주 백테스트에서 80% 범위 적중률 83%'));
+  for (const bad of [{ backtest: { cov80: 1.5, cutoffs: 33 } }, { backtest: { cov80: 81, cutoffs: 33 } }, { backtest: { cov80: 0.83, cutoffs: ['garbage'] } }, { backtest: { cov80: 0.83, cutoffs: Array.from({ length: 30 }, () => '2026-01-01') } }, { backtest: { cov80: 0.83, cutoffs: 33.5 } }, { backtest: { cov80: 0.83, cutoffs: '33' } }, { backtest: { cov80: 0, cutoffs: 33 } }, { backtest: { cov80: '<img src=x>', cutoffs: 33 } }, { backtest: { cov80: 0.83 } }, { backtest: { cov80: 0.8, cutoffs: 0 } }, 'x', null]) {
     const svc = loadServiceExports({ dir: bundle(t, { games, manifest: { outlook_model: bad } }), now: NOW });
     const r = svc.revenueFor({ ios: '1400000014' });
     assert.equal(r.om, undefined, JSON.stringify(bad));
@@ -398,6 +403,44 @@ test('14-day outlook: drop-out chance for ranks 51–200 only, backtest note onl
   // Render re-check of page data om.
   const page = { ...plain.revenueFor({ ios: '1400000014' }), om: { n: '33<b>', c: 0.83 } };
   assert.doesNotMatch(withEdition('ko', () => outlookOf(renderRevenueSection(page))), /백테스트/);
+  for (const om of [{ n: 33, c: 1.5 }, { n: 33, c: 81 }, { n: 0, c: 0.8 }]) assert.doesNotMatch(withEdition('ko', () => outlookOf(renderRevenueSection({ ...base, om }))), /백테스트/, JSON.stringify(om));
+});
+
+test('drop-out label: eligibility from the cutoff-day rank, not the latest rank', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Cutoff' };
+  const svc = loadServiceExports({ dir: bundle(t, { games: [{ ...game, store: 'ios', app_id: '1700000017', markets: { kr: { ranks: syntheticRanks(100) } } }] }), now: NOW });
+  const base = svc.revenueFor({ ios: '1700000017' });
+  const shown = (atCutoff, latest) => {
+    const page = JSON.parse(JSON.stringify(base));
+    const p = page.m.kr.s.ios;
+    const n = p.d.length;
+    // The cutoff is the day before the latest daily day.
+    p.o.c = new Date(Date.parse(p.d0) + (n - 2) * 86400000).toISOString().slice(0, 10);
+    p.d[n - 2][0] = atCutoff;
+    p.d[n - 1][0] = latest;
+    const html = withEdition('ko', () => renderRevenueSection(page));
+    return visibleText(html).includes('200위 밖에 있을 가능성');
+  };
+  assert.equal(shown(60, 20), true, 'cutoff 60 / latest 20 → shown');
+  assert.equal(shown(20, 60), false, 'cutoff 20 / latest 60 → not shown');
+  assert.equal(shown(51, 1), true);
+  assert.equal(shown(50, 120), false);
+  assert.equal(shown(null, 120), false, 'off chart on the cutoff day → not shown');
+});
+
+test('drop-out label: classified on the unrounded day-14 p_out (p<0.3 low, 0.3≤p<0.6 possible, p≥0.6 likely)', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Levels' };
+  const cases = [[0.2999, '낮음'], [0.29999999, '낮음'], [0.3, '가능성 있음'], [0.5999, '가능성 있음'], [0.59999999, '가능성 있음'], [0.6, '높음'], [0, '낮음'], [1, '높음']];
+  const games = cases.map(([p], i) => ({ ...game, store: 'ios', app_id: String(1800000000 + i), markets: { kr: { ranks: syntheticRanks(150), pOut14: p } } }));
+  const svc = loadServiceExports({ dir: bundle(t, { games }), now: NOW });
+  cases.forEach(([p, label], i) => {
+    const rev = svc.revenueFor({ ios: String(1800000000 + i) });
+    const o = rev.m.kr.s.ios.o;
+    assert.equal(o.d[o.d.length - 1][6], p, `p_out ${p} kept unrounded at ingestion`);
+    const text = withEdition('ko', () => visibleText(renderRevenueSection(rev)));
+    assert.equal(text.match(/200위 밖에 있을 가능성: (낮음|가능성 있음|높음)/)[1], label, `p_out ${p}`);
+    assert.doesNotMatch(text, /200위 밖에 있을 가능성: [^ ]*\d+%/, 'no percentage');
+  });
 });
 
 test('genre curves are labelled as past patterns, not a forecast', (t) => {
