@@ -304,7 +304,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
           <div class="home-card-body">${summary ? summary.html : `<div class="game-empty">${t('game.no_analysis_records')}</div>`}</div>
         </div>
         ` : ''}
-        ${revenueSection ? REVENUE_SLOT : ''}${renderRelated(game.related, edition.code, developer)}
+        ${renderRelated(game.related, edition.code, developer)}${revenueSection ? REVENUE_SLOT : ''}
 
       </div>
     </section>
