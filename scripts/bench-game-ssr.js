@@ -48,12 +48,13 @@ const fmt = (s) => `${s.p50.toFixed(1)}/${s.p99.toFixed(1)}/${s.max.toFixed(1)}`
   console.log(`renderer ${path.relative(ROOT, a.renderer)}${a.strip ? ' (revenue stripped)' : ''}; ms p50/p99/max over ${EDITIONS.length}×${a.runs} requests`);
   console.log('page | KB | parse+render | render | worst edition p99');
   for (const slug of slugs) {
-    let text = fs.readFileSync(path.join(DATA, `${slug}.json`), 'utf8');
-    if (a.strip) { const { revenue: _r, rvz: _z, ...g } = JSON.parse(text); text = JSON.stringify(g); }
+    let text = fs.readFileSync(path.join(DATA, `${slug}.json`));
+    if (a.strip) { const { revenue: _r, rvz: _z, rvb: _b, ...g } = JSON.parse(text.toString('utf8')); text = Buffer.from(JSON.stringify(g)); }
     const total = [], render = [], worst = {};
     for (const e of EDITIONS) {
-      // As functions/_lib/game-route.js: the renderer's parse (skips the browser-only half) where the bundle has one.
-      const parse = renderers[e].parse || JSON.parse;
+      // As functions/_lib/game-route.js: the response bytes through the renderer's parse (decodes only the light half)
+      // where the bundle has one, else decode + JSON.parse of the whole body.
+      const parse = renderers[e].parse || ((b) => JSON.parse(new TextDecoder().decode(b)));
       for (let i = 0; i < a.warmup; i++) renderers[e].render(parse(text), meta);
       const mine = [];
       for (let i = 0; i < a.runs; i++) {

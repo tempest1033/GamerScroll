@@ -32,8 +32,9 @@ const fmt = (ms) => `${ms.toFixed(2)} ms`;
     const coldStart = performance.now();
     const renderer = createRenderer(code);
     const cold = performance.now() - coldStart;
-    const texts = [...sample].map((f) => fs.readFileSync(path.join(dataDir, f), 'utf8'));
-    const parseGame = renderer.parse || JSON.parse; // as game-route.js: skips the browser-only revenue half
+    const texts = [...sample].map((f) => fs.readFileSync(path.join(dataDir, f)));
+    // as game-route.js: response bytes; the renderer's parse decodes only the light half
+    const parseGame = renderer.parse || ((b) => JSON.parse(new TextDecoder().decode(b)));
     renderer.render(parseGame(texts[0]), meta); // warm-up (JIT)
     const parse = [], render = [], total = [];
     let bytes = 0;

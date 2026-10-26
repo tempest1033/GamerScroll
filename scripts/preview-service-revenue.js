@@ -78,7 +78,7 @@ async function shots(outDir, count = SAMPLES.length) {
     const file = path.join(DOCS, 'games-data', `${s.slug}.json`);
     if (!fs.existsSync(file)) { console.warn(`no games-data for ${s.slug}`); continue; }
     const renderer = createRenderer(EDITION[s.market]);
-    const game = renderer.parse(fs.readFileSync(file, 'utf8'));
+    const game = renderer.parse(fs.readFileSync(file));
     const html = renderer.render(game, meta);
     const name = `${s.market}_${s.slug}`;
     fs.writeFileSync(path.join(previewDir, `${name}.html`), html);

@@ -15,7 +15,7 @@ const { loadServiceExports, verifyBundle } = require('../src/build/service-expor
 const { run } = require('./fetch-service-exports');
 const { playBucket } = require('../src/templates/components/revenue-charts');
 const { renderRevenueSection: renderSection } = require('../src/templates/components/revenue-section');
-const { splitRevenue, joinRevenue, parseGameData, HEAVY_KEY } = require('../src/templates/components/revenue-payload');
+const { splitRevenue, joinRevenue, parseGameData, stringifyGameData, HEAVY_KEY, BOUNDARY_KEY } = require('../src/templates/components/revenue-payload');
 // What a reader sees once the browser has drawn the deferred parts (charts, tables): the section with every part in place.
 const renderRevenueSection = (page) => renderSection(page, { mode: 'full' });
 const P = require('../src/templates/components/revenue-policy');
@@ -824,12 +824,70 @@ test('page data file: the server parses up to the browser-only half', () => {
   const { light, heavy } = splitRevenue(svcPage);
   assert.deepEqual(light.m.kr.s.ios.d, [[3, 1]], 'rank and a numbers marker');
   assert.deepEqual(light.cv.x.points, []);
-  const game = { name: 'quote ,"rvz": inside', names: { ko: '{"rvz":1}' }, slug: 's', revenue: light, [HEAVY_KEY]: heavy };
-  const text = JSON.stringify(game);
-  const { [HEAVY_KEY]: _heavy, ...rest } = game;
-  assert.deepEqual(parseGameData(text), rest);
-  assert.deepEqual(parseGameData(JSON.stringify({ name: 'n', revenue: null })), { name: 'n', revenue: null }, 'no heavy half');
+  const game = { name: 'quote ,"rvz": inside', names: { ko: '{"rvz":1} 한글 ,"rvb":"0000000001"' }, slug: 's', revenue: light };
+  const text = stringifyGameData(game, heavy);
+  // the server: bytes (as functions/_lib/game-route.js) or text
+  assert.deepEqual(parseGameData(Buffer.from(text)), game);
+  assert.deepEqual(parseGameData(text), game);
+  assert.deepEqual(parseGameData(stringifyGameData({ name: 'n', revenue: null }, null)), { name: 'n', revenue: null }, 'no heavy half');
   assert.deepEqual(joinRevenue(parseGameData(text).revenue, JSON.parse(text)[HEAVY_KEY]), { ...svcPage, h: light.h });
+  // Reserved keys are refused by the writer; a header that does not point at the heavy half → the file is parsed whole.
+  assert.throws(() => stringifyGameData({ [HEAVY_KEY]: 1 }, heavy), /reserved key rvz/);
+  assert.throws(() => stringifyGameData({ [BOUNDARY_KEY]: '1' }, null), /reserved key rvb/);
+  for (const bad of [text.replace(/^\{"rvb":"\d{10}"/, '{"rvb":"0000000030"'), text.replace(/^\{"rvb":"\d{10}"/, '{"rvb":"9999999999"'), text.replace(/^\{"rvb":"\d/, '{"rvb":"x')]) {
+    assert.deepEqual(parseGameData(Buffer.from(bad)), game, bad.slice(0, 20));
+  }
+});
+
+test('page data file: a referenced curve named "rvz" (or any key text) cannot move the boundary', (t) => {
+  const SG = 'Role Playing';
+  const dir = bundle(t, { mutate: (rel, j) => {
+    if (rel === 'genres.json') {
+      j.launch.rvz = j.launch[`launch:kr:ios:${SG}`];
+      j.launch[',"rvz":'] = j.launch[`launch:kr:android:${SG}`];
+      // a ref used by both kinds, and one an object key cannot hold: dropped at ingestion
+      j.launch[`decay:all:kr:android:${SG}`] = j.launch[`launch:kr:android:${SG}`];
+      Object.defineProperty(j.decay, '__proto__', { value: j.decay[`decay:all:kr:ios:${SG}`], enumerable: true, configurable: true, writable: true });
+    }
+    // ios: the decay curve first, then the launch curve "rvz" → `,"rvz":` appears as text inside the light half
+    if (rel === `games/ios/${APP.ios}.json`) j.markets.kr.position.launch_curve_ref = 'rvz';
+    if (rel === `games/android/${APP.android}.json`) j.markets.kr.position.launch_curve_ref = ',"rvz":';
+  } });
+  const warned = [];
+  t.mock.method(console, 'warn', (m) => warned.push(String(m)));
+  const svc = loadServiceExports({ dir, now: NOW });
+  assert.ok(svc, 'the bundle passes verification');
+  const revenue = svc.revenueFor(APP);
+  assert.ok(revenue.cv.rvz && revenue.cv[',"rvz":'], 'curves named like the heavy key reach the page');
+  assert.equal(revenue.cv['decay:all:kr:android:Role Playing'], undefined, 'a ref used by both kinds is dropped');
+  assert.ok(warned.some((m) => m.includes('duplicate or reserved name')));
+  const { light, heavy } = splitRevenue(revenue);
+  const file = stringifyGameData({ name: 'x', slug: 's', revenue: light }, heavy);
+  assert.ok(file.indexOf(',"rvz":') < file.lastIndexOf(',"rvz":'), 'the key text occurs before the real boundary');
+  const game = parseGameData(Buffer.from(file));
+  assert.deepEqual(game, { name: 'x', slug: 's', revenue: light });
+  for (const code of ['ko', 'en']) assert.ok(withEdition(code, () => renderSection(game.revenue, { slug: 's' })).includes('revenue-estimates'));
+  assert.deepEqual(joinRevenue(game.revenue, JSON.parse(file)[HEAVY_KEY]), { ...revenue, h: light.h });
+});
+
+// Every reader of docs/games-data/<slug>.json: the server parse (bytes), and the whole-document readers (browser
+// revenue-client fetch().json(), build-game-ssr, bench/measure/preview scripts, i18n layout and related-games tests).
+test('page data files: one JSON document for whole readers, the light half for the server', () => {
+  const svc = { a: ASOF, m: { kr: { c: 'KRW', s: { ios: { t: 'beta', d0: ASOF, d: [[3, 1, 2, 3]], w: [], mo: [], mtd: null } } } }, cv: { rvz: { n: 3, points: [[0, 1, 1, 1]] } } };
+  const check = (text, label) => {
+    const doc = JSON.parse(text);
+    const { [HEAVY_KEY]: heavy, [BOUNDARY_KEY]: _b, ...rest } = doc;
+    assert.deepEqual(parseGameData(Buffer.from(text, 'utf8')), rest, label);
+    if (doc.revenue) assert.ok(heavy && joinRevenue(rest.revenue, heavy), label);
+  };
+  const { light, heavy } = splitRevenue(svc);
+  check(stringifyGameData({ name: '가십 ,"rvz":', revenue: light }, heavy), 'fixture');
+  check(stringifyGameData({ name: 'plain' }, null), 'no revenue');
+  const dir = path.join(__dirname, '..', 'docs', 'games-data');
+  if (!fs.existsSync(dir)) return;
+  let n = 0;
+  for (const f of fs.readdirSync(dir)) if (f.endsWith('.json') && !f.startsWith('_')) { check(fs.readFileSync(path.join(dir, f), 'utf8'), f); n++; }
+  assert.ok(n > 0);
 });
 
 test('rank hub and genre cards: from the bundle, or nothing without it', (t) => {

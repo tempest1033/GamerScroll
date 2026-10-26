@@ -87,13 +87,14 @@ export async function handleGameRequest(context, code) {
 
   const data = await assetResponse(env, url, `/games-data/${encodeURIComponent(slug)}.json`);
   if (!data) return notFound(env, url, code, request.method);
-  const text = await data.text();
+  const bytes = new Uint8Array(await data.arrayBuffer());
 
   let html;
   try {
-    // The file's browser-only revenue half (charts and tables) is not parsed here (src/templates/components/revenue-payload.js).
+    // Only the bytes before the browser-only revenue half (charts and tables) are decoded and parsed here
+    // (src/templates/components/revenue-payload.js parseGameData).
     const renderer = rendererFor(code);
-    html = withNameShim(renderer.render(renderer.parse(text), meta));
+    html = withNameShim(renderer.render(renderer.parse(bytes), meta));
   } catch (error) {
     return new Response('Render failed', { status: 500, headers: { 'Cache-Control': 'no-store' } });
   }

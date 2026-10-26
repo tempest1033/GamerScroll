@@ -263,7 +263,11 @@ function createExports(dir, verified) {
   const bands = readJson(path.join(dir, 'bands.json'));
   const records = buildIndex(dir, verified.files);
   const asof = verified.manifest.asof;
-  const curves = new Map(['decay', 'launch'].flatMap((kind) => Object.entries(genres[kind] || {}).map(([ref, c]) => [ref, usableCurve(kind, c)])).filter(([, c]) => c));
+  // Curves are page data keys (`cv`, by ref): a ref used by both kinds, or one an object key cannot hold, is dropped.
+  const refs = ['decay', 'launch'].flatMap((kind) => Object.entries(genres[kind] || {}).map(([ref, c]) => [kind, ref, c]));
+  const clash = new Set(refs.map(([, ref]) => ref).filter((ref, i, all) => ref === '__proto__' || all.indexOf(ref) !== i));
+  for (const ref of clash) warn(`genre curve ${JSON.stringify(ref)}: duplicate or reserved name, dropped`);
+  const curves = new Map(refs.filter(([, ref]) => !clash.has(ref)).map(([kind, ref, c]) => [ref, usableCurve(kind, c)]).filter(([, c]) => c));
   // Basis of the approved decay note ('<year> ranking records, <months> months … counted at rank <floor>'): not in the bundle yet.
   const window = genres.window || {};
   const basis = { y: isDay(window.start) ? Number(window.start.slice(0, 4)) : null, m: finite(window.months) ? window.months : null, f: finite(genres.floor_rank) ? genres.floor_rank : null };
