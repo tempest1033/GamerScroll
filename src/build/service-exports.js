@@ -185,7 +185,7 @@ function compactStore(m, where, asof) {
     // lx days since chart entry for launch-cohort games (launch x), dc/lr curve refs into genres.json
     p: pos,
     ...(l ? { l } : {}),
-    ...(tb ? { tb } : {}),
+    tb,
     ...(de ? { de } : {}),
   });
 }

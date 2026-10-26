@@ -428,6 +428,40 @@ test('off-chart days use the explicit 51-200 band key: absent → masked, at ing
   assert.ok(P.displayStore(page.m.jp.s.ios).d.slice(0, 20).every((r) => r[1] != null));
 });
 
+test('tier_by_band missing, null, [] or "x": no band allowed → no revenue numbers, at ingestion and render', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'No bands' };
+  const ranks = syntheticRanks(8, { gap: 20 }); // off-chart days, then ranked days
+  const cases = { '6600000001': undefined, '6600000002': null, '6600000003': [], '6600000004': 'x', '6600000005': { x: 'wide' } };
+  const svc = loadServiceExports({ dir: bundle(t, { games: Object.entries(cases).map(([app_id, tierByBand]) => ({ ...game, store: 'ios', app_id, markets: { kr: { ranks, tierByBand } } })) }), now: NOW });
+  const hiddenLabel = withEdition('ko', () => i18n.t('rev.bands_hidden'));
+  const noNumbers = (p, where) => {
+    assert.ok(p.d.length && p.d.every((r) => r[1] == null && r[2] == null && r[3] == null), `${where}: days`);
+    assert.ok(p.d.some((r) => r[0] != null), `${where}: ranks kept`);
+    for (const r of [...p.w, ...p.mo]) assert.ok(r.slice(1).every((x) => x == null), `${where}: period ${r[0]}`);
+    if (p.mtd) { assert.equal(p.mtd.t, null, `${where}: mtd`); assert.ok(p.mtd.d.every((r) => r.slice(2).every((x) => x == null))); }
+    if (p.o) assert.equal(p.o.t, null, `${where}: outlook total`);
+  };
+  for (const app of Object.keys(cases)) {
+    const rev = svc.revenueFor({ ios: app });
+    assert.ok(rev, app);
+    noNumbers(rev.m.kr.s.ios, `ingestion ${app}`);
+    const html = withEdition('ko', () => renderRevenueSection(rev));
+    assert.ok(visibleText(html).includes(hiddenLabel), `${app}: hidden note`);
+  }
+  // Render: page data with numbers but tb removed / null / [] / "x" / malformed rows → masked.
+  const good = loadServiceExports({ dir: bundle(t), now: NOW }).revenueFor(APP);
+  assert.ok(good.m.kr.s.ios.d.some((r) => r[1] != null) && good.m.kr.s.ios.mo.some((r) => r[1] != null));
+  for (const tb of [undefined, null, [], 'x', [['1', '200', 'wide']]]) {
+    const page = JSON.parse(JSON.stringify(good));
+    for (const x of Object.values(page.m)) for (const p of Object.values(x.s)) { if (tb === undefined) delete p.tb; else p.tb = tb; }
+    const ios = P.displayStore(page.m.kr.s.ios);
+    noNumbers(ios, `render ${JSON.stringify(tb)}`);
+    assert.deepEqual(P.displayStore(ios), ios, 'idempotent');
+    const html = withEdition('ko', () => renderRevenueSection(page));
+    assert.ok(visibleText(html).includes(hiddenLabel), `render ${JSON.stringify(tb)}: hidden note`);
+  }
+});
+
 // Bundle strings (titles, developer, genres, currency, dates, tiers, band names, notes) never reach the HTML as markup:
 // bad currency / dates drop the record or cell at ingestion, the rest is escaped at render.
 const XSS = '"><img src=x onerror=alert(1)>';

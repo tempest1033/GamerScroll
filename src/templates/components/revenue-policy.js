@@ -19,16 +19,19 @@ const NULL3 = [null, null, null];
 const revenueShown = (tier) => REVENUE_TIERS.includes(tier);
 const downloadsShown = (de) => Boolean(de && DOWNLOAD_TIERS.includes(de.t));
 
-// tier_by_band { 'lo-hi': tier } → [[lo, hi, tier]] by rank, or null without one (the market tier then governs).
+// tier_by_band { 'lo-hi': tier } → [[lo, hi, tier]] by rank. Missing, non-object, empty or without one valid key → []
+// (no band allowed: every number is masked).
 function bandTiers(byBand) {
-  if (!byBand || typeof byBand !== 'object' || Array.isArray(byBand)) return null;
+  if (!byBand || typeof byBand !== 'object' || Array.isArray(byBand)) return [];
   return Object.entries(byBand).map(([k, v]) => { const m = /^(\d+)-(\d+)$/.exec(k); return m ? [Number(m[1]), Number(m[2]), v] : null; })
     .filter(Boolean).sort((a, b) => a[0] - b[0]);
 }
+// Page-data tb → only well-formed [lo, hi, tier] rows; anything else → [] (nothing allowed).
+const validTb = (tb) => (Array.isArray(tb) ? tb.filter((b) => Array.isArray(b) && Number.isInteger(b[0]) && Number.isInteger(b[1]) && typeof b[2] === 'string') : []);
 // A rank's band must have a shown tier; off-chart days (rank null) use the OFF_CHART_BAND key exactly. A rank outside
-// every band is not shown.
+// every band, or no bands at all, is not shown.
 function bandShown(tb, rank) {
-  if (!tb) return true;
+  if (!Array.isArray(tb)) return false;
   const band = rank == null ? tb.find(([lo, hi]) => lo === OFF_CHART_BAND[0] && hi === OFF_CHART_BAND[1]) : tb.find(([lo, hi]) => rank >= lo && rank <= hi);
   return Boolean(band && revenueShown(band[2]));
 }
@@ -37,10 +40,18 @@ const addDays = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 864000
 
 // Compact store payload (see service-exports.js compactStore) with per-band tiers tb: days in a band that is not shown
 // lose their numbers, and so do the week / month / month-to-date totals containing one, and the 14-day revenue total
-// when any outlook median rank falls in such a band. Idempotent.
+// when any outlook median rank falls in such a band. No (valid) bands → every number masked. Idempotent.
 function maskBands(p) {
-  if (!p.tb) return p;
-  const tb = p.tb;
+  const tb = validTb(p.tb);
+  if (!tb.length) {
+    const blank = (r) => [r[0], ...NULL3];
+    return {
+      ...p, tb,
+      d: (p.d || []).map((r) => [r[0], ...NULL3]), w: (p.w || []).map(blank), mo: (p.mo || []).map(blank),
+      mtd: p.mtd ? { ...p.mtd, t: null, d: p.mtd.d.map((r) => [r[0], r[1], ...NULL3]) } : p.mtd,
+      o: p.o ? { ...p.o, t: null } : p.o,
+    };
+  }
   const bad = [];
   const d = p.d.map((r, i) => { if (bandShown(tb, r[0])) return r; bad.push(addDays(p.d0, i)); return [r[0], ...NULL3]; });
   const hit = (from, to) => bad.some((x) => x >= from && x <= to);
@@ -51,7 +62,7 @@ function maskBands(p) {
     t: p.mtd.d.some((r) => !bandShown(tb, r[1])) || hit(`${p.mtd.m}-01`, p.mtd.th || `${p.mtd.m}-31`) ? null : p.mtd.t,
   } : p.mtd;
   const o = p.o && p.o.t && p.o.d.some((r) => !bandShown(tb, r[3])) ? { ...p.o, t: null } : p.o;
-  return { ...p, d, w: p.w.map((r) => period(r, r[0], addDays(r[0], 6))), mo: p.mo.map((r) => period(r, `${r[0]}-01`, `${r[0]}-31`)), mtd, o };
+  return { ...p, tb, d, w: p.w.map((r) => period(r, r[0], addDays(r[0], 6))), mo: p.mo.map((r) => period(r, `${r[0]}-01`, `${r[0]}-31`)), mtd, o };
 }
 
 // Page-data store payload → what may be rendered: revenue only for shown tiers (per band), downloads only for shown
