@@ -152754,8 +152754,20 @@
         "ko": "逐鹿風雲",
         "zh-tw": "逐鹿風雲"
       }
+    },
+    "Pirate101": {
+      "appIds": {
+        "steam": "620620"
+      },
+      "aliases": [],
+      "developer": "KingsIsle Entertainment",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/620620/capsule_231x87.jpg?t=1765399657",
+      "slug": "pirate101",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-27",
-  "totalGames": 8882
+  "totalGames": 8883
 }
