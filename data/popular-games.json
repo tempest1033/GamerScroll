@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T05:01:52.831Z",
+  "updatedAt": "2026-10-26T09:01:46.248Z",
   "period": "30days",
   "games": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "slug": "제우스-오만의-신",
-      "views": 16
+      "views": 15
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
@@ -19,19 +19,35 @@
       "views": 9
     },
     {
-      "slug": "이클립스-더-어웨이크닝",
-      "views": 9
+      "slug": "barotrauma",
+      "views": 8
     },
     {
       "slug": "roblox",
       "views": 8
     },
     {
-      "slug": "arrow-pro-3d",
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 8
+    },
+    {
+      "slug": "세포-특공대-전략형-타워-디펜스",
+      "views": 8
+    },
+    {
+      "slug": "에이지-오브-제트-타워-디펜스",
+      "views": 8
+    },
+    {
+      "slug": "이클립스-더-어웨이크닝",
+      "views": 8
+    },
+    {
+      "slug": "3d운전교실",
       "views": 7
     },
     {
-      "slug": "barotrauma",
+      "slug": "arrow-pro-3d",
       "views": 7
     },
     {
@@ -55,27 +71,11 @@
       "views": 7
     },
     {
-      "slug": "sled-surfers-슬로프-어드벤처",
+      "slug": "skate",
       "views": 7
     },
     {
-      "slug": "wos-화이트아웃-서바이벌",
-      "views": 7
-    },
-    {
-      "slug": "레이싱-마스터",
-      "views": 7
-    },
-    {
-      "slug": "메이플-키우기",
-      "views": 7
-    },
-    {
-      "slug": "블루-프로토콜-스타-레조넌스",
-      "views": 7
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
+      "slug": "snipers-duel",
       "views": 7
     }
   ]
