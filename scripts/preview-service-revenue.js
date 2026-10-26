@@ -72,7 +72,9 @@ async function shots(outDir, count = SAMPLES.length) {
   fs.mkdirSync(previewDir, { recursive: true });
   fs.mkdirSync(outDir, { recursive: true });
   const pages = [];
-  for (const s of SAMPLES.slice(0, count)) {
+  // PREVIEW_PAGES="kr:slug,us:slug" overrides the sample list (shots of other real pages).
+  const list = process.env.PREVIEW_PAGES ? process.env.PREVIEW_PAGES.split(',').map((x) => { const [market, ...rest] = x.split(':'); return { market, slug: rest.join(':') }; }) : SAMPLES.slice(0, count);
+  for (const s of list) {
     const file = path.join(DOCS, 'games-data', `${s.slug}.json`);
     if (!fs.existsSync(file)) { console.warn(`no games-data for ${s.slug}`); continue; }
     const game = JSON.parse(fs.readFileSync(file, 'utf8'));

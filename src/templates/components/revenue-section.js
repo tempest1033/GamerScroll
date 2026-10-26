@@ -234,17 +234,21 @@ const DL_WEAK = new Set(['unverified', 'assumption']);
 const DL_BASES = ['free_rank', 'below_free_200'];
 const combinable = (a, b) => a.tier !== 'partial_store' && b.tier !== 'partial_store';
 const combinedDownloads = (a, b) => ({ tier: DL_TIERS[Math.max(DL_TIERS.indexOf(a.tier), DL_TIERS.indexOf(b.tier))], bases: [...new Set([...a.bases, ...b.bases])], daily: sumBy(a.daily, b.daily, 'date'), weekly: sumBy(a.weekly, b.weekly, 'date'), monthly: sumBy(a.monthly, b.monthly, 'month') });
-const tierBadge = (tier) => (DL_TIERS.includes(tier) ? `<span class="rv-tag rv-dl-tier rv-dl-tier-${tier}">${t(`rev.dl_tier_${tier}`)}</span>` : '');
+// The assumption label depends on the market: CN iOS has its own level (no CN Google Play to convert from).
+const tierKey = (tier, market) => (tier === 'assumption' && market === 'cn' ? 'assumption_cn' : tier);
+const tierBadge = (tier, market) => (DL_TIERS.includes(tier) ? `<span class="rv-tag rv-dl-tier rv-dl-tier-${tier}">${t(`rev.dl_tier_${tierKey(tier, market)}`)}</span>` : '');
 // Basis of the estimate (localised from the allowlisted code, never the raw bundle string).
 const basisLines = (bases) => bases.filter((b) => DL_BASES.includes(b)).map((b) => small(t(`rev.dl_basis_${b}`))).join('');
 
 function downloadView(series, view, ctx) {
   const { market, asofMonth } = ctx;
   const parts = [];
-  const badge = tierBadge(series.tier);
+  const badge = tierBadge(series.tier, market);
+  const note = small(t(`rev.dl_note_${tierKey(series.tier, market)}`));
+  // Units: downloads per day; the month row is the mean per day of that month (dl-v1), shown as such.
   const last = series.monthly.filter((m) => m.month < asofMonth).pop();
-  if (last && last.q) parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}<span class="rv-eyebrow">${t('rev.headline_ctx', { month: yearMonth(last.month), store: storeName(view) })}</span><p class="rv-mid">${t('rev.dl_monthly_headline', { range: `<b>${C.countRange(last.q[0], last.q[2])}</b>`, mid: `<b>${C.count(last.q[1])}</b>` })}</p>${small(t(`rev.dl_note_${series.tier}`))}${basisLines(series.bases)}</div>`);
-  else parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}${small(t(`rev.dl_note_${series.tier}`))}${basisLines(series.bases)}</div>`);
+  if (last && last.q) parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}<span class="rv-eyebrow">${t('rev.headline_ctx', { month: yearMonth(last.month), store: storeName(view) })}</span><p class="rv-mid">${t('rev.dl_monthly_headline', { range: `<b>${C.countRange(last.q[0], last.q[2])}</b>`, mid: `<b>${C.count(last.q[1])}</b>` })}</p>${note}${basisLines(series.bases)}</div>`);
+  else parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}${note}${basisLines(series.bases)}</div>`);
   const label = (v) => C.count(v, 2);
   const aria = (rows, period) => { const med = medians(rows); return t('rev.dl_chart_aria', { market: marketName(market), store: storeName(view), period, lo: C.count(Math.min(...med), 2), hi: C.count(Math.max(...med), 2) }); };
   const charts = [];
@@ -253,7 +257,7 @@ function downloadView(series, view, ctx) {
   if (charts.length) {
     const both = charts.length === 2;
     const toggle = both ? `<div class="rv-seg rv-period"><label for="rv-p-d" class="rv-pl-d">${t('rev.daily')}</label><label for="rv-p-w" class="rv-pl-w">${t('rev.weekly')}</label></div>` : '';
-    parts.push(`<div class="rv-chartbox${both ? '' : ' rv-single'}${DL_WEAK.has(series.tier) ? ' rv-weak' : ''}">${toggle}${charts.join('')}${C.legend([['rv-sw-band', t('rev.legend_band')], ['rv-sw-med', t('rev.legend_median')]])}</div>`);
+    parts.push(`<div class="rv-chartbox${both ? '' : ' rv-single'}${DL_WEAK.has(series.tier) ? ' rv-weak' : ''}">${toggle}${charts.join('')}${C.legend([['rv-sw-band', t('rev.legend_band')], ['rv-sw-med', t('rev.legend_median')]])}${small(t('rev.dl_units'))}</div>`);
   }
   if (series.monthly.length) {
     const rows = series.monthly.slice().reverse().map((m) => `<tr><td>${yearMonth(m.month)}${m.month >= asofMonth ? ` <span class="rv-tag">${t('rev.in_progress')}</span>` : ''}</td>${m.q ? `<td class="r"><b>${C.count(m.q[1])}</b></td><td class="r">${C.countRange(m.q[0], m.q[2])}</td>` : hiddenCells()}</tr>`).join('');

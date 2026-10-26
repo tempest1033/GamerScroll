@@ -107,7 +107,10 @@ const periodRows = (list, key, where) => (list || []).map((row) => { if (!key.te
 // 'pending_prospective', all-null rows) are dropped, so the page shows "not available" with the fallback indicators.
 // basis (forecast/downloads_model.py): 'free_rank' (from this storefront's free-chart rank) | 'below_free_200' (off the
 // free top 200: a share of the rank-200 level). Only these codes are kept (shown as localised text, never raw).
+// dl-v1 writes "<code>; <free English text>": the code is the text before the first ';' (trimmed); the free text is never kept.
+// Units (dl-v1 `units`): downloads per day; weekly / monthly rows are the mean per day of that week / month.
 const DL_BASES = ['free_rank', 'below_free_200'];
+const basisCode = (basis) => (typeof basis === 'string' ? basis.split(';')[0].trim() : null);
 function compactDownloads(e, where) {
   if (!e || typeof e !== 'object') return null;
   if (e.tier === 'hidden') return { t: 'hidden' };
@@ -120,7 +123,7 @@ function compactDownloads(e, where) {
     d.push(quantiles(row.slice(1, 4), `${where} downloads ${row[0]}`));
   });
   const out = {
-    t: e.tier, ...(DL_BASES.includes(e.basis) ? { b: e.basis } : {}), d0: d.length ? e.daily[0][0] : null, d,
+    t: e.tier, ...(DL_BASES.includes(basisCode(e.basis)) ? { b: basisCode(e.basis) } : {}), d0: d.length ? e.daily[0][0] : null, d,
     w: periodRows(e.weekly, /^\d{4}-\d{2}-\d{2}$/, `${where} downloads`), mo: periodRows(e.monthly, /^\d{4}-\d{2}$/, `${where} downloads`),
   };
   const any = d.some(Boolean) || [...out.w, ...out.mo].some((r) => r[1] != null);

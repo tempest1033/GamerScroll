@@ -168,7 +168,7 @@ test('download estimates: missing snapshot days stay unknown, a malformed estima
   const text = withEdition('ko', () => visibleText(renderRevenueSection(unrated)));
   assert.match(text, /이 스토어 누적 평점 4,321개/);
   assert.ok(text.includes('시장별 다운로드: 제공 안 함') && text.includes('이 시장·스토어에 대한 다운로드 추정이 아직 없습니다.'));
-  assert.doesNotMatch(text, /추정 월 다운로드|검증 전 추정/);
+  assert.doesNotMatch(text, /추정 하루 평균 다운로드|검증 전 추정/);
   const bad = svc.revenueFor({ ios: '7000000007' }).m.kr.s.ios;
   assert.equal(bad.de, undefined);
   assert.equal(bad.d.length, 183, 'revenue estimate kept');
@@ -275,7 +275,7 @@ test('hidden tier shows a note instead of numbers; small curves are not drawn', 
   assert.ok(text.includes('이 스토어는 추정 정확도가 충분하지 않아 매출 추정을 표시하지 않습니다.'));
   assert.ok(text.includes('한 스토어의 추정을 표시하지 않아 두 스토어 합계도 표시하지 않습니다.'));
   assert.ok(text.includes('이 스토어는 다운로드 추정 정확도가 충분하지 않아 표시하지 않습니다.'));
-  assert.match(text, /추정 월 다운로드 [\d.]+만–[\d.]+만 \(중앙값 [\d.]+만\)/, 'Google Play download estimate');
+  assert.match(text, /추정 하루 평균 다운로드 [\d.]+만–[\d.]+만 \(중앙값 [\d.]+만\)/, 'Google Play download estimate');
   const us = withEdition('en', () => renderRevenueSection(svc.revenueFor({ ios: '3000000003' })));
   assert.ok(!us.includes('rv-position'), 'curves with n < 10 are hidden');
   assert.ok(!us.includes('id="rv-usd"'), 'USD market needs no USD switch');
@@ -286,12 +286,12 @@ test('per-market download estimates: tiered labels, charts, fallback where the m
   const html = withEdition('ko', () => renderRevenueSection(svc.revenueFor(APP)));
   const jp = html.slice(html.indexOf('rv-mp-jp'));
   const kr = html.slice(html.indexOf('rv-mp-kr'), html.indexOf('rv-mp-jp'));
-  assert.match(visibleText(jp), /추정 월 다운로드 [\d.]+만?–[\d.]+만? \(중앙값 [\d.]+만?\)/);
-  assert.ok(visibleText(jp).includes('검증 전 추정 · 범위가 넓습니다'), 'unverified tier badge');
+  assert.match(visibleText(jp), /추정 하루 평균 다운로드 [\d.]+만?–[\d.]+만? \(중앙값 [\d.]+만?\)/);
+  assert.ok(visibleText(jp).includes('검증 전 추정 · 전 세계 설치 수로 검증, 시장 배분은 가정 · 범위가 넓습니다'), 'unverified tier badge');
   assert.ok(visibleText(jp).includes('공식 자료로 아직 검증하지 않았습니다'), 'unverified tier note');
   assert.match(jp, /<div class="rv-chartbox[^"]* rv-weak">/, 'lighter band');
-  assert.match(jp, /aria-label="일본 앱스토어 일별 추정 다운로드: 중앙값 [^"]+"/);
-  assert.ok(visibleText(jp).includes('월별 추정 다운로드'));
+  assert.match(jp, /aria-label="일본 앱스토어 일별 하루 평균 추정 다운로드: 중앙값 [^"]+"/);
+  assert.ok(visibleText(jp).includes('월별 하루 평균 추정 다운로드'));
   assert.ok(visibleText(jp).includes('이 스토어 누적 평점 678개'), 'cumulative fallback kept beside the estimate');
   assert.ok(!visibleText(jp).includes('제공 안 함'));
   assert.ok(visibleText(kr).includes('이 스토어 누적 평점 12,345개') && visibleText(kr).includes('전 세계 누적 설치 500만+'), 'fallback without a model');
@@ -303,7 +303,7 @@ test('per-market download estimates: tiered labels, charts, fallback where the m
   assert.ok(verified.includes('근거: 이 스토어 무료(인기) 차트 순위로 추정했습니다.'), 'basis text');
   assert.ok(verified.includes('이 스토어는 추정 정확도가 충분하지 않아 매출 추정을 표시하지 않습니다.'));
   const en = withEdition('en', () => visibleText(renderRevenueSection(svc.revenueFor(APP))));
-  assert.match(en, /Estimated monthly downloads [\d.]+K?–[\d.]+K? \(median [\d.]+K?\)/);
+  assert.match(en, /Estimated average daily downloads [\d.]+K?–[\d.]+K? \(median [\d.]+K?\)/);
 });
 
 test('download evidence tiers: assumption iOS + verified Play, partial-store Play, CN iOS only, non-display tiers', (t) => {
@@ -323,7 +323,7 @@ test('download evidence tiers: assumption iOS + verified Play, partial-store Pla
   const cn = html.slice(html.indexOf('rv-mp-cn'));
   const view = (part, cls) => part.split('<div class="rv-x ').filter((x) => x.startsWith(cls)).map(visibleText).join(' ');
   // Both stores summed: the less certain tier (assumption) labels the sum, with both bases.
-  assert.ok(view(kr, 'rv-x-all').includes('가정 기반 추정 · 같은 게임의 Google Play 자료로 환산'));
+  assert.ok(view(kr, 'rv-x-all').includes('가정 기반 추정 · 같은 시장 Google Play 자료로 환산 · 범위가 매우 넓습니다'));
   assert.ok(view(kr, 'rv-x-all').includes('근거: 이 스토어 무료(인기) 차트 순위로 추정했습니다.') && view(kr, 'rv-x-all').includes('근거: 무료 차트 200위 밖이라'));
   assert.ok(view(kr, 'rv-x-ios').includes('가정 기반 추정') && view(kr, 'rv-x-ios').includes('이 스토어 누적 평점 500개'));
   assert.doesNotMatch(view(kr, 'rv-x-and'), /가정 기반|검증 전|제공 안 함/);
@@ -331,22 +331,22 @@ test('download evidence tiers: assumption iOS + verified Play, partial-store Pla
   assert.ok(view(kr, 'rv-x-and').includes('전 세계 누적 설치 100만+') && view(kr, 'rv-x-and').includes('인기(무료) 차트 순위: 33위'));
   // Partial store: own badge, not summed with the other store.
   assert.ok(view(us, 'rv-x-and').includes('일부 스토어만 반영'));
-  assert.ok(view(us, 'rv-x-all').includes('일부 스토어만 반영') && view(us, 'rv-x-all').includes('검증 전 추정 · 범위가 넓습니다'));
+  assert.ok(view(us, 'rv-x-all').includes('일부 스토어만 반영') && view(us, 'rv-x-all').includes('검증 전 추정 · 전 세계 설치 수로 검증, 시장 배분은 가정 · 범위가 넓습니다'));
   // CN: App Store only, said plainly; iOS pending → "not available", never a number; Android: no estimate.
   assert.ok(visibleText(cn).includes('중국에는 Google Play가 없어, 다운로드 추정은 중국 App Store(iOS)만 다룹니다.'));
   assert.ok(!visibleText(kr).includes('중국에는 Google Play가 없어'), 'CN note on the CN panel only');
   assert.ok(view(cn, 'rv-x-ios').includes('시장별 다운로드: 제공 안 함'));
-  assert.doesNotMatch(visibleText(cn), /추정 월 다운로드/);
+  assert.doesNotMatch(visibleText(cn), /추정 하루 평균 다운로드/);
   // Render re-check: CN Android page data that still carries an estimate shows none.
   const page = JSON.parse(JSON.stringify(rev));
   page.m.cn.s.android.de = svc.revenueFor({ android: 'com.example.tiers' }).m.kr.s.android.de;
-  assert.doesNotMatch(visibleText(withEdition('ko', () => renderRevenueSection(page)).split('rv-mp-cn')[1]), /추정 월 다운로드/);
+  assert.doesNotMatch(visibleText(withEdition('ko', () => renderRevenueSection(page)).split('rv-mp-cn')[1]), /추정 하루 평균 다운로드/);
   // A basis outside the allowlist is dropped, never shown raw.
   const cnIos = svc.revenueFor({ ios: '1300000013' });
   assert.equal(cnIos.m.cn.s.ios.de.b, undefined);
   const cnHtml = withEdition('ko', () => renderRevenueSection(cnIos));
   assert.ok(!/<img/i.test(cnHtml) && !visibleText(cnHtml).includes('근거:'));
-  assert.match(visibleText(cnHtml), /추정 월 다운로드 [\d.]+만?–/, 'CN iOS estimate shown');
+  assert.match(visibleText(cnHtml), /추정 하루 평균 다운로드 [\d.]+만?–/, 'CN iOS estimate shown');
   for (const code of ['en', 'ja', 'zh-cn', 'zh-tw']) {
     const text = withEdition(code, () => visibleText(renderRevenueSection(rev)));
     assert.deepEqual(text.match(/[\uAC00-\uD7A3]+/g) || [], [], `no Hangul in ${code}`);
@@ -406,6 +406,34 @@ test('14-day outlook: drop-out chance for ranks 51–200 only, backtest note onl
   for (const om of [{ n: 33, c: 1.5 }, { n: 33, c: 81 }, { n: 0, c: 0.8 }]) assert.doesNotMatch(withEdition('ko', () => outlookOf(renderRevenueSection({ ...base, om }))), /백테스트/, JSON.stringify(om));
 });
 
+test('dl-v1 basis "<code>; <free text>": code kept, free text never rendered; tier labels by market; per-day units', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Basis' };
+  const free = 'unverified: Play global installs validated <img src=x onerror=alert(1)>';
+  const svc = loadServiceExports({ dir: bundle(t, { games: [
+    { ...game, store: 'android', app_id: 'com.example.basis', markets: { kr: { ranks: syntheticRanks(30), downloads: 'unverified', downloadsBasis: `free_rank; ${free}` } }, play_bucket_min: 1000000 },
+    { ...game, store: 'ios', app_id: '1900000019', markets: { kr: { ranks: syntheticRanks(30), downloads: 'assumption', downloadsBasis: ' below_free_200 ;x' }, cn: { ranks: syntheticRanks(30), downloads: 'assumption', downloadsBasis: 'free_rank; assumption: CN iOS' } } },
+    { ...game, store: 'ios', app_id: '1900000020', markets: { kr: { ranks: syntheticRanks(30), downloads: 'assumption', downloadsBasis: 'mystery; free_rank' } } },
+  ] }), now: NOW });
+  const and = svc.revenueFor({ android: 'com.example.basis' });
+  const ios = svc.revenueFor({ ios: '1900000019', ios_cn: '1900000019' });
+  assert.equal(and.m.kr.s.android.de.b, 'free_rank');
+  assert.equal(ios.m.kr.s.ios.de.b, 'below_free_200');
+  assert.equal(svc.revenueFor({ ios: '1900000020' }).m.kr.s.ios.de.b, undefined, 'unknown code dropped');
+  const ko = withEdition('ko', () => renderRevenueSection(and));
+  assert.ok(!ko.includes('validated') && !ko.includes('<img'), 'free text never rendered');
+  assert.ok(visibleText(ko).includes('검증 전 추정 · 전 세계 설치 수로 검증, 시장 배분은 가정 · 범위가 넓습니다'));
+  assert.ok(visibleText(ko).includes('근거: 이 스토어 무료(인기) 차트 순위로 추정했습니다.'));
+  const kios = visibleText(withEdition('ko', () => renderRevenueSection(ios)));
+  assert.ok(kios.includes('가정 기반 추정 · 같은 시장 Google Play 자료로 환산 · 범위가 매우 넓습니다'));
+  assert.ok(kios.includes('가정 기반 추정 · 중국 iOS 자체 수준 가정 · 범위가 매우 넓습니다'));
+  assert.ok(kios.includes('추정 하루 평균 다운로드') && kios.includes('하루 평균입니다') && !kios.includes('추정 월 다운로드'));
+  for (const code of ['en', 'ja', 'zh-cn', 'zh-tw']) {
+    const text = visibleText(withEdition(code, () => renderRevenueSection(ios)));
+    for (const k of ['rev.dl_tier_assumption', 'rev.dl_tier_assumption_cn', 'rev.dl_units']) assert.ok(text.includes(withEdition(code, () => i18n.t(k))), `${code} ${k}`);
+    assert.doesNotMatch(text, /[\uAC00-\uD7A3]{2}/, code);
+  }
+});
+
 test('drop-out label: eligibility from the cutoff-day rank, not the latest rank', (t) => {
   const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Cutoff' };
   const svc = loadServiceExports({ dir: bundle(t, { games: [{ ...game, store: 'ios', app_id: '1700000017', markets: { kr: { ranks: syntheticRanks(100) } } }] }), now: NOW });
@@ -455,7 +483,7 @@ test('genre curves are labelled as past patterns, not a forecast', (t) => {
 
 // Tier allowlists (revenue: beta, wide; downloads: verified, unverified, assumption, partial_store): crafted bundles whose
 // numbers are present but whose tier is unrated, unknown or missing must show no numbers, at ingestion and at render.
-const MONEY = /추정 월매출|추정 월 다운로드|이번 달 1일–어제 추정 매출/;
+const MONEY = /추정 월매출|추정 하루 평균 다운로드|이번 달 1일–어제 추정 매출/;
 const hasNumbers = (p) => Boolean(p && (p.d || p.w || p.mo || p.mtd || p.o));
 
 test('revenue tiers outside beta/wide (unrated, unknown, missing) keep no numbers, at ingestion and render', (t) => {
@@ -702,7 +730,7 @@ test('download tiers outside the allowlist (unrated with numbers, unknown, missi
   const rev = svc.revenueFor({ ios: '6400000004', android: 'com.example.dl' });
   for (const p of [rev.m.kr.s.ios, rev.m.kr.s.android, rev.m.jp.s.ios]) assert.equal(p.de, undefined, 'dropped at ingestion');
   const text = visibleText(withEdition('ko', () => renderRevenueSection(rev)));
-  assert.doesNotMatch(text, /추정 월 다운로드/);
+  assert.doesNotMatch(text, /추정 하루 평균 다운로드/);
   assert.ok(text.includes('시장별 다운로드: 제공 안 함') && text.includes('이 스토어 누적 평점 77개') && text.includes('전 세계 누적 설치 100만+'));
 
   // Render layer: a numeric estimate with a non-allowlisted tier in the page data.
@@ -713,7 +741,7 @@ test('download tiers outside the allowlist (unrated with numbers, unknown, missi
     if (tier === undefined) delete page.m.jp.s.ios.de.t; else page.m.jp.s.ios.de.t = tier;
     const html = withEdition('ko', () => renderRevenueSection(page));
     const jp = visibleText(html.slice(html.indexOf('rv-mp-jp')));
-    assert.doesNotMatch(jp, /추정 월 다운로드/, `render: download tier ${tier}`);
+    assert.doesNotMatch(jp, /추정 하루 평균 다운로드/, `render: download tier ${tier}`);
     assert.ok(jp.includes('시장별 다운로드: 제공 안 함'));
   }
 });
