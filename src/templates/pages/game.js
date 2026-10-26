@@ -12,8 +12,10 @@ const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { describeGame, trimDescription, dominantScript } = require('../helpers/game-description');
 const { renderGameRankSummary, summaryDays, INDEXABLE_DAYS } = require('../helpers/game-rank-summary');
+const { renderRevenueSection } = require('../components/revenue-section');
 
 const siteBaseUrl = 'https://gamerscroll.com';
+const REVENUE_SLOT = '<rv-slot></rv-slot>';
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // 인라인 <script> 안에 안전하게 넣는 JSON
@@ -44,7 +46,7 @@ function renderRelated(related, code, developer) {
 }
 
 /**
- * @param {object} game  games-data 한 건: { name, names, slug, platforms, developer, icon, ranked, steam, steamHistory, rank }
+ * @param {object} game  games-data 한 건: { name, names, slug, platforms, developer, icon, ranked, steam, steamHistory, rank, revenue? }
  * @param {object} meta  { days, hourlyDate }
  */
 function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
@@ -66,6 +68,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const showMobileRanking = hasMobilePlatform || ranked;
 
   const summary = renderGameRankSummary(rank, meta, plainName, edition.country);
+  const revenueSection = renderRevenueSection(game.revenue);
   const overview = describeGame(game, meta, edition.country);
   const overviewHtml = overview.length
     ? `<div class="home-card grid-full game-overview">
@@ -301,7 +304,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
           <div class="home-card-body">${summary ? summary.html : `<div class="game-empty">${t('game.no_analysis_records')}</div>`}</div>
         </div>
         ` : ''}
-        ${renderRelated(game.related, edition.code, developer)}
+        ${revenueSection ? REVENUE_SLOT : ''}${renderRelated(game.related, edition.code, developer)}
 
       </div>
     </section>
@@ -343,7 +346,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const operatingSystems = [...new Set(platforms.map(p => osMap[p]).filter(Boolean))];
   const operatingSystem = operatingSystems.length > 0 ? operatingSystems.join(', ') : null;
 
-  return wrapWithLayout(content, {
+  const html = wrapWithLayout(content, {
     currentPage: 'game',
     title: seoTitle,
     description: seoDescription,
@@ -358,6 +361,9 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
     ],
     softwareSchema: indexable ? { name: plainName, description: seoDescription, image: icon || null, operatingSystem } : null  // noindex 페이지는 스키마 생략
   });
+  // The revenue section (up to ~250 KB of charts, no links, images or names to post-process) joins after the layout's
+  // whole-page passes, which would otherwise rescan it within the Workers CPU budget.
+  return revenueSection ? html.replace(REVENUE_SLOT, () => revenueSection) : html;
 }
 
 module.exports = { generateGamePage, summaryDays };

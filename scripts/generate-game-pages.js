@@ -20,6 +20,7 @@ const { collectRankData, summaryMeta, idFor } = require('../src/build/game-data'
 const { summaryDays, INDEXABLE_DAYS } = require('../src/templates/helpers/game-rank-summary');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
+const { loadServiceExports, coverage } = require('../src/build/service-exports');
 
 const ROOT = path.join(__dirname, '..');
 const docsDir = path.join(ROOT, 'docs');
@@ -211,6 +212,16 @@ function relatedOf(g) {
   return pool.length ? { g: pool, e: byEdition } : null;
 }
 
+// ---------- 매출·다운로드 추정 (forecast 저장소 service-exports 번들, scripts/fetch-service-exports.js) ----------
+// 번들이 없거나 검증에 실패하면 null → revenue 필드를 넣지 않아 상세 페이지는 그 섹션 없이 그대로 렌더링된다.
+const serviceExports = loadServiceExports();
+// 다운로드 지표: 사이트 인기(무료) 차트의 최신 순위와 since(신규 게임은 revenue_from, 그 외는 추정 기간 시작) 이후 최고 순위.
+const freeRank = (market, store, appId, since) => {
+  const series = S.freeSeriesOf(market, store, appId);
+  const seen = series.filter((r, i) => r != null && S.days[i].date >= since);
+  return { r: series[series.length - 1], b: seen.length ? Math.min(...seen) : null };
+};
+
 // ---------- 게임별 데이터 ----------
 fs.mkdirSync(dataDir, { recursive: true });
 const written = new Set();
@@ -218,7 +229,8 @@ const dataHash = crypto.createHash('md5');
 const searchIndex = [];
 const indexable = [];
 const lastmodBySlug = {};
-let rankedCount = 0, steamCount = 0;
+let rankedCount = 0, steamCount = 0, revenueCount = 0;
+const revenueBySlug = new Map();
 
 for (const g of S.games) {
   const gameName = g.key;
@@ -253,6 +265,8 @@ for (const g of S.games) {
     rank,
     related: relatedOf(g),
   };
+  const revenue = serviceExports && serviceExports.revenueFor(g.appIds, { freeRank });
+  if (revenue) { data.revenue = revenue; revenueCount++; revenueBySlug.set(slug, revenue); }
   const json = JSON.stringify(data);
   const file = path.join(dataDir, `${slug}.json`);
   if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== json) fs.writeFileSync(file, json, 'utf8');
@@ -321,6 +335,17 @@ writeSitemapIndex(docsDir);
 
 i18n.setEdition('ko');
 console.log(`✅ 게임 데이터 ${written.size}개 (순위 ${rankedCount}, 스팀 ${steamCount}) → docs/games-data (${((Date.now() - started) / 1000).toFixed(1)}s)`);
+console.log(serviceExports ? `💰 매출·다운로드 추정: ${revenueCount}개 게임 (번들 ${serviceExports.asof}, 레코드 ${serviceExports.records.size}개, 건너뜀 ${serviceExports.skipped})` : '💰 매출·다운로드 추정: 번들 없음 — 섹션 생략');
+if (serviceExports) {
+  // 출시 기준: 5개 시장 × 스토어 매출 TOP 200 게임 모두 매출 추정과 시장별 다운로드 추정이 보여야 한다.
+  const rows = coverage(S, revenueBySlug, (g) => (written.has(pageSlugs.get(g)) ? pageSlugs.get(g) : undefined));
+  for (const r of rows) {
+    console.log(`   ${r.market}/${r.store}: TOP ${r.chart} 중 상세 페이지 ${r.page} · 매출 추정 ${r.revenue} · 다운로드 추정 ${r.downloads}`);
+    if (r.missing.length) console.log(`      빠짐: ${r.missing.map((x) => `#${x.rank} ${x.appId || '?'} (${x.why})`).join(', ')}`);
+  }
+  const short = rows.filter((r) => r.revenue < r.chart || r.downloads < r.chart);
+  if (short.length) console.warn(`${process.env.GITHUB_ACTIONS ? '::warning::' : '  ⚠️ '}출시 기준 미달 (TOP 200 전부 매출·다운로드 추정): ${short.map((r) => `${r.market}/${r.store} ${r.revenue}·${r.downloads}/${r.chart}`).join(', ')}`);
+}
 console.log(`🧹 옛 정적 상세 디렉토리 ${removedDirs}개 제거`);
 console.log(`🔑 검색 인덱스 버전: ${searchIndexVersion}, 데이터 버전: ${version}`);
 console.log(`📍 사이트맵: 색인 허용 ${indexable.length}개 × ${i18n.EDITIONS.length}개 에디션 → ${sitemapNames.length}개 파일`);

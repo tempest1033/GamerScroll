@@ -28,7 +28,9 @@ const OVERFLOW_ALLOW = [
   ['.rk-card.rk-country-period', 'game page "rankings by country" card: 6-column table with two sparkline columns scrolls inside its card on phones (overflow-x:auto, min-width:max-content by design)'],
   ['.rk-card.rk-game-months', 'game page monthly-trend card: same horizontally scrolling table card as above'],
   ['.rk-card.rk-month-records', 'steam game page monthly-records card: 6 numeric columns with long metric headings scroll inside the card on phones (overflow-x:auto by design)'],
-  ['.rk-interactive-chart', 'game detail chart panel: fixed-width plot scrolls horizontally on phones by design'],
+  ['.rv-scroll', 'revenue-estimate band/genre tables (5 market columns) scroll horizontally on phones by design (overflow-x:auto)'],
+  ['.rv-tabs', 'revenue-estimate market tab row scrolls horizontally on phones by design (overflow-x:auto)'],
+  ['.rk-interactive-chart','game detail chart panel: fixed-width plot scrolls horizontally on phones by design'],
   ['svg, canvas', 'chart drawings: not DOM text boxes, clipped by their own viewBox'],
   ['.visually-hidden', 'screen-reader-only 1px boxes'],
 ];

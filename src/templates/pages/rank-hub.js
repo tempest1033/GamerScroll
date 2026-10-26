@@ -210,7 +210,7 @@ ${links}`;
 ${subnav(S, 'rank')}
 <div class="rk-toolbar">${countryTabs(country)}</div>
 ${hl}
-${cols}`;
+${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
   const canonical = `${siteBaseUrl}${countryHref(country)}`;
   return shell(S, {
     body,

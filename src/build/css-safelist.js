@@ -8,7 +8,8 @@ module.exports = {
     // body class is built as `page-${currentPage}` for game pages (rendered on request), so the literal never appears in scanned sources
     'page-game',
   ],
-  deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/, /^rk-/],
-  greedy: [/^gs-ad-/, /^rk-/],
+  // rv-: revenue estimate section of the game pages (rendered on request, src/templates/components/revenue-section.js)
+  deep: [/^search-/, /^is-/, /^has-/, /^apexcharts-/, /^ad-/, /^rk-/, /^rv-/],
+  greedy: [/^gs-ad-/, /^rk-/, /^rv-/],
   variables: [/^--font-/, /^--data-/, /^--line$/, /^--chip-bg$/, /^--fs-/, /^--fw-/],
 };
