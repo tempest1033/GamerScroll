@@ -9,6 +9,7 @@
  */
 const { t, currentEdition, formatDay, formatDate, formatMonthDay, formatYearMonth, formatNumber } = require('../../i18n');
 const C = require('./revenue-charts');
+const P = require('./revenue-policy');
 
 const MARKETS = ['kr', 'jp', 'us', 'tw', 'cn'];
 const MARKET_KEYS = { kr: 'stats.korea', jp: 'stats.japan', us: 'stats.united_states', tw: 'stats.taiwan', cn: 'stats.china' };
@@ -274,7 +275,7 @@ function noEstimateItem(store, p, market) {
 function downloadsBlock(dl, market, data, ctx) {
   const all = ['ios', 'android'];
   const stores = all.filter((s) => data.s[s]);
-  const est = Object.fromEntries(stores.filter((s) => data.s[s].de && data.s[s].de.t !== 'hidden').map((s) => [s, downloadSeries(data.s[s].de)]));
+  const est = Object.fromEntries(stores.filter((s) => P.downloadsShown(data.s[s].de)).map((s) => [s, downloadSeries(data.s[s].de)]));
   const extras = (list) => { const items = list.map((s) => fallbackItem(s, dl, market) + freeItem(s, data.s[s], market)).filter(Boolean); return items.length ? `<div class="rv-dl-grid">${items.join('')}</div>` : ''; };
   const content = (list) => {
     const missing = list.filter((s) => !est[s]).map((s) => noEstimateItem(s, data.s[s], market));
@@ -312,7 +313,7 @@ const badges = (stores, data, asof) => { const html = stores.map((s) => ageBadge
 
 function marketPanel(market, data, rev, ctx, options) {
   const stores = ['ios', 'android'].filter((s) => data.s[s]);
-  const visible = stores.filter((s) => data.s[s].t !== 'hidden');
+  const visible = stores.filter((s) => P.revenueShown(data.s[s].t));
   const mctx = { ...ctx, market, cur: { c: data.c, fx: data.fx } };
   const views = [];
   const series = {};
@@ -320,7 +321,7 @@ function marketPanel(market, data, rev, ctx, options) {
   // Store views (also shown for 'both' when the market has a single store).
   for (const store of stores) {
     const classes = `rv-x ${VIEW[store].cls}${stores.length === 1 ? ` ${VIEW.all.cls}` : ''}`;
-    views.push(block(classes, data.s[store].t === 'hidden' ? small(t('rev.hidden')) : badges([store], data, rev.a) + trendBlock(series[store], store, mctx) + mtdBlock(series[store], mctx)));
+    views.push(block(classes, !P.revenueShown(data.s[store].t) ? small(t('rev.hidden')) : badges([store], data, rev.a) + trendBlock(series[store], store, mctx) + mtdBlock(series[store], mctx)));
   }
   if (stores.length === 2) {
     const both = visible.length === 2 ? combined(series.ios, series.android) : null;
@@ -332,8 +333,10 @@ function marketPanel(market, data, rev, ctx, options) {
   return `<div class="rv-mp ${MARKET_PANEL[market]}"${C.hasUsd(mctx.cur) ? ` data-fx="${mctx.cur.fx}"` : ''}>${views.join('')}${outlook}${position}${downloadsBlock(rev.dl, market, data, mctx)}</div>`;
 }
 
-function renderRevenueSection(rev) {
-  if (!rev || !rev.m) return '';
+function renderRevenueSection(page) {
+  if (!page || !page.m) return '';
+  // Display allowlists again at render (revenue-policy.js): numbers only for shown tiers, per rank band.
+  const rev = { ...page, m: Object.fromEntries(Object.entries(page.m).map(([k, x]) => [k, { ...x, s: Object.fromEntries(Object.entries(x.s || {}).map(([s, p]) => [s, P.displayStore(p)])) }])) };
   const home = currentEdition().country;
   const markets = [home, ...MARKETS.filter((m) => m !== home)].filter((m) => rev.m[m]);
   if (!markets.length) return '';
@@ -342,7 +345,7 @@ function renderRevenueSection(rev) {
   const options = [...(markets.some((m) => storesAt(m).length === 2) ? ['all'] : []), ...['ios', 'android'].filter((s) => anyStore.has(s))];
   const ctx = { asofMonth: String(rev.a).slice(0, 7), basis: rev.b, curves: rev.cv || {} };
   const panels = markets.map((m) => marketPanel(m, rev.m[m], rev, ctx, options));
-  const usd = markets.some((m) => C.hasUsd({ c: rev.m[m].c, fx: rev.m[m].fx }) && storesAt(m).some((s) => rev.m[m].s[s].t !== 'hidden'));
+  const usd = markets.some((m) => C.hasUsd({ c: rev.m[m].c, fx: rev.m[m].fx }) && storesAt(m).some((s) => P.revenueShown(rev.m[m].s[s].t)));
   const defaultStore = options[0];
   const inputs = [
     ...markets.map((m, i) => `<input type="radio" name="rv-m" id="${MARKET_ID[m]}" class="rv-ctl"${i === 0 ? ' checked' : ''} aria-label="${C.esc(marketName(m))}">`),

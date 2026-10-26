@@ -9,7 +9,7 @@
  *   games/<ios|android>/<app_id>.json, games_index.json, genres.json (launch / decay curve maps, see usableCurve),
  *   bands.json (cells: market × store × rank band day/week/month30 q10–q90, tier, coverage80).
  * Record: { app_id, store, title, developer, genre ('Games'), subgenre, release_date, asof, downloads: { asof, play_bucket_min,
- *   ios_ratings: { <market>: n } }, markets: { <market>: { title, tier ('wide'|'beta'|'hidden'), tier_by_band, best_rank,
+ *   ios_ratings: { <market>: n } }, markets: { <market>: { title, tier ('wide'|'beta' shown; anything else → no numbers), tier_by_band, best_rank,
  *   currency, fx_usd: { 'YYYY-MM': local per USD }, daily: [[date, rank|null, q10, q50, q90]] (183 days), no_list_days,
  *   weekly, monthly, mtd, outlook14|null, downloads_est|null, position } } }
  * Hidden tier is per rank band: a hidden day has null quantiles, a week/month/MTD containing one is null; a market with
@@ -29,6 +29,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { idFor } = require('./game-data');
+const { revenueShown, downloadsShown, bandTiers, maskBands } = require('../templates/components/revenue-policy');
 
 const ROOT = path.resolve(__dirname, '../..');
 const DEFAULT_DIR = path.join(ROOT, 'cache', 'service-exports');
@@ -101,11 +102,10 @@ const periodRows = (list, key, where) => (list || []).map((row) => { if (!key.te
 // Evidence tiers that show numbers (owner decision 2026-10-26): verified, unverified, assumption (iOS converted from the
 // same game's Google Play data), partial_store (CN Android: one store only). Other tiers (dl-v1 'unrated',
 // 'pending_prospective', all-null rows) are dropped, so the page shows "not available" with the fallback indicators.
-const DOWNLOAD_TIERS = ['verified', 'unverified', 'assumption', 'partial_store'];
 function compactDownloads(e, where) {
   if (!e || typeof e !== 'object') return null;
   if (e.tier === 'hidden') return { t: 'hidden' };
-  if (!DOWNLOAD_TIERS.includes(e.tier)) return null;
+  if (!downloadsShown({ t: e.tier })) return null;
   // dl-v1 omits days without a snapshot: the gap stays a null (unknown) cell so the series keeps one row per day.
   const d = [];
   (e.daily || []).forEach((row, i, daily) => {
@@ -144,7 +144,9 @@ function compactStore(m, where, asof) {
   // A bad download estimate drops only that estimate (fallback indicators show), never the revenue estimate.
   let de = null;
   try { de = compactDownloads(m.downloads_est, where); } catch (error) { warn(error.message); }
-  if (m.tier === 'hidden') return de ? { t: 'hidden', de } : { t: 'hidden' };
+  // Revenue numbers only for the production tiers (beta, wide); any other, unknown or missing tier keeps none.
+  if (!revenueShown(m.tier)) return de ? { t: 'hidden', de } : { t: 'hidden' };
+  const tb = bandTiers(m.tier_by_band);
   const daily = m.daily || [];
   consecutive(daily, where);
   const l = lifeOf(m, daily, asof);
@@ -172,15 +174,17 @@ function compactStore(m, where, asof) {
   const pos = p && (l && l.nw
     ? { k: p.genre_key || null, ds: num(p.days_since_launch), rf: null, dx: null, lx: p.launch_cohort ? num(p.launch_curve_x) : null, dc: null, lr: p.launch_cohort ? p.launch_curve_ref || null : null }
     : { k: p.genre_key || null, ds: num(p.days_since_launch), rf: finite(p.rel_to_first30) ? sig(p.rel_to_first30) : null, dx: num(p.decay_x), lx: num(p.launch_curve_x), dc: p.decay_curve_ref || null, lr: p.launch_curve_ref || null });
-  return {
-    t: m.tier || null, d0: daily.length ? daily[0][0] : null, d,
+  // Per-band tiers (tb) mask days, periods and totals touching a band that is not shown (revenue-policy.js maskBands).
+  return maskBands({
+    t: m.tier, d0: daily.length ? daily[0][0] : null, d,
     w: rows(m.weekly, /^\d{4}-\d{2}-\d{2}$/), mo: rows(m.monthly, /^\d{4}-\d{2}$/), mtd, o,
     // ds days since store release, rf revenue vs the first 30 chart days, dx months since the first chart day (decay x),
     // lx days since chart entry for launch-cohort games (launch x), dc/lr curve refs into genres.json
     p: pos,
     ...(l ? { l } : {}),
+    ...(tb ? { tb } : {}),
     ...(de ? { de } : {}),
-  };
+  });
 }
 // fx_usd: local currency per USD by month ({ 'YYYY-MM': rate }); the page multiplies by USD per local unit of the asof month.
 function usdPerUnit(fx, asof) {
@@ -189,7 +193,7 @@ function usdPerUnit(fx, asof) {
   const months = Object.keys(fx).filter((k) => k <= asof.slice(0, 7) && finite(fx[k]) && fx[k] > 0).sort();
   return months.length ? Number((1 / fx[months[months.length - 1]]).toPrecision(4)) : null;
 }
-const shownDownloads = (p) => Boolean(p && p.de && p.de.t !== 'hidden');
+const shownDownloads = (p) => Boolean(p && downloadsShown(p.de));
 
 /**
  * genres.json curves → { kind, market, store, genre (store subgenre | 'all'), cohort, n, md, unit, points: [[x, q50, q25, q75]] }.
@@ -269,7 +273,7 @@ function createExports(dir, verified) {
           if (fr && (fr.r != null || fr.b != null)) payload.fr = fr;
         }
         s[store] = payload;
-        if (payload.t !== 'hidden') {
+        if (revenueShown(payload.t)) {
           currency = currency || record.markets[market].currency;
           fx = fx || usdPerUnit(record.markets[market].fx_usd, asof);
           for (const ref of [payload.p && payload.p.dc, payload.p && payload.p.lr]) if (ref && curves.has(ref)) cv[ref] = curves.get(ref);
@@ -277,7 +281,7 @@ function createExports(dir, verified) {
       }
       if (Object.keys(s).length || r[market] != null) m[market] = { c: currency, fx: finite(fx) ? fx : null, s };
     }
-    const shown = Object.values(m).some((x) => Object.values(x.s).some((p) => p.t !== 'hidden' || shownDownloads(p)));
+    const shown = Object.values(m).some((x) => Object.values(x.s).some((p) => revenueShown(p.t) || shownDownloads(p)));
     if (!shown && play == null && !Object.keys(r).length) return null;
     return { a: asof, b: basis, dl: { p: play, r }, m, cv };
   }
@@ -287,8 +291,8 @@ function createExports(dir, verified) {
     // bands.json cells: one game's revenue at a rank in [lo, hi] per day/week/30 days (local q10/q50/q90), tier, coverage80
     bands: (bands.cells || []).filter((b) => MARKETS.includes(b.market) && STORES.includes(b.store) && Number.isInteger(b.lo) && Number.isInteger(b.hi)).map((b) => ({
       market: b.market, store: b.store, lo: b.lo, hi: b.hi, currency: b.currency, tier: b.tier,
-      day: b.tier === 'hidden' || !Array.isArray(b.day) ? null : b.day, month30: b.tier === 'hidden' || !Array.isArray(b.month30) ? null : b.month30,
-      usd: finite(b.day_usd_q50) && Array.isArray(b.day) && b.day[1] > 0 ? b.day_usd_q50 / b.day[1] : null,
+      day: !revenueShown(b.tier) || !Array.isArray(b.day) ? null : b.day, month30: !revenueShown(b.tier) || !Array.isArray(b.month30) ? null : b.month30,
+      usd: revenueShown(b.tier) && finite(b.day_usd_q50) && Array.isArray(b.day) && b.day[1] > 0 ? b.day_usd_q50 / b.day[1] : null,
       coverage: b.coverage80 && finite(b.coverage80.revenue_daily) ? b.coverage80.revenue_daily : null, coverageN: b.coverage80 ? b.coverage80.n_games : null,
     })),
     revenueFor,
@@ -329,7 +333,7 @@ function coverage(S, revenueBySlug, slugOf) {
         if (!slug) { missing.push({ rank: i + 1, appId: row.appId || null, why: 'page' }); return; }
         page++;
         const p = revenueBySlug.get(slug) && revenueBySlug.get(slug).m[market] && revenueBySlug.get(slug).m[market].s[store];
-        const rv = Boolean(p && p.t !== 'hidden'), dl = shownDownloads(p);
+        const rv = Boolean(p && revenueShown(p.t)), dl = shownDownloads(p);
         if (rv) revenue++;
         if (dl) downloads++;
         if (!rv || !dl) missing.push({ rank: i + 1, appId: row.appId, slug, why: !p ? 'no-record' : [!rv && 'revenue-hidden', !dl && 'downloads'].filter(Boolean).join('+') });

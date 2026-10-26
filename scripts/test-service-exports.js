@@ -15,6 +15,7 @@ const { loadServiceExports, verifyBundle } = require('../src/build/service-expor
 const { run } = require('./fetch-service-exports');
 const { playBucket } = require('../src/templates/components/revenue-charts');
 const { renderRevenueSection } = require('../src/templates/components/revenue-section');
+const P = require('../src/templates/components/revenue-policy');
 
 const ASOF = '2026-10-25';
 const NOW = new Date('2026-10-26T03:00:00Z'); // 12:00 KST, one day after asof
@@ -31,6 +32,7 @@ function bundle(t, overrides = {}) {
   const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Example RPG' };
   writeFixture(dir, {
     asof: ASOF,
+    bandTiers: overrides.bandTiers,
     games: [
       // kr: no download model (downloads_est null as in the real bundle → fallback indicators); jp: download estimate (unverified tier)
       { ...game, store: 'ios', app_id: APP.ios, markets: { kr: { ranks: syntheticRanks(12) }, jp: { ranks: syntheticRanks(40, { gap: 20 }), downloads: 'unverified' } }, ios_ratings: { kr: 12345, jp: 678 } },
@@ -325,6 +327,96 @@ test('download evidence tiers: assumption iOS + verified Play, partial-store CN 
     const text = withEdition(code, () => visibleText(renderRevenueSection(rev)));
     assert.deepEqual(text.match(/[\uAC00-\uD7A3]+/g) || [], [], `no Hangul in ${code}`);
     for (const key of ['rev.dl_tier_assumption', 'rev.dl_tier_partial_store', 'rev.dl_none']) assert.ok(text.includes(withEdition(code, () => i18n.t(key))), `${code} ${key}`);
+  }
+});
+
+// Tier allowlists (revenue: beta, wide; downloads: verified, unverified, assumption, partial_store): crafted bundles whose
+// numbers are present but whose tier is unrated, unknown or missing must show no numbers, at ingestion and at render.
+const MONEY = /추정 월매출|추정 월 다운로드|이번 달 1일–어제 추정 매출/;
+const hasNumbers = (p) => Boolean(p && (p.d || p.w || p.mo || p.mtd || p.o));
+
+test('revenue tiers outside beta/wide (unrated, unknown, missing) keep no numbers, at ingestion and render', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Tiers' };
+  const svc = loadServiceExports({ dir: bundle(t, { bandTiers: { 'kr|ios|1': 'unrated', 'kr|ios|2': 'mystery' }, games: [
+    { ...game, store: 'ios', app_id: '6100000001', markets: { kr: { ranks: syntheticRanks(12), tier: 'unrated' } }, ios_ratings: { kr: 10 } },
+    { ...game, store: 'android', app_id: 'com.example.unknown', markets: { kr: { ranks: syntheticRanks(12), tier: 'mystery' } }, play_bucket_min: 1000000 },
+    { ...game, store: 'ios', app_id: '6200000002', markets: { jp: { ranks: syntheticRanks(12), tier: undefined, tierByBand: undefined } } },
+  ] }), now: NOW });
+  const rev = svc.revenueFor({ ios: '6100000001', ios_jp: '6200000002', android: 'com.example.unknown' });
+  for (const p of [rev.m.kr.s.ios, rev.m.kr.s.android, rev.m.jp.s.ios]) {
+    assert.equal(p.t, 'hidden');
+    assert.ok(!hasNumbers(p), 'numbers dropped at ingestion');
+  }
+  const text = visibleText(withEdition('ko', () => renderRevenueSection(rev)));
+  assert.doesNotMatch(text, MONEY);
+  assert.ok(text.includes(withEdition('ko', () => i18n.t('rev.hidden'))));
+  // bands.json: cells with a tier outside the allowlist lose their numbers.
+  const cell = (lo) => svc.bands.find((b) => b.market === 'kr' && b.store === 'ios' && b.lo === lo);
+  for (const lo of [1, 2]) assert.deepEqual([cell(lo).day, cell(lo).month30, cell(lo).usd], [null, null, null]);
+  assert.ok(cell(3).day);
+
+  // Render layer on its own: page data that slipped through with numbers and a non-production tier.
+  const good = loadServiceExports({ dir: bundle(t), now: NOW }).revenueFor(APP);
+  for (const tier of ['unrated', 'mystery', undefined]) {
+    const page = JSON.parse(JSON.stringify(good));
+    for (const s of Object.values(page.m.kr.s)) { if (tier === undefined) delete s.t; else s.t = tier; }
+    assert.ok(hasNumbers(good.m.kr.s.ios));
+    const html = withEdition('ko', () => renderRevenueSection(page));
+    const kr = visibleText(html.slice(html.indexOf('rv-mp-kr'), html.indexOf('rv-mp-jp') > 0 ? html.indexOf('rv-mp-jp') : undefined));
+    assert.doesNotMatch(kr, /추정 월매출|이번 달 1일–어제 추정 매출|매출 [\d.,]+/, `render: tier ${tier}`);
+    assert.ok(!html.slice(html.indexOf('rv-mp-kr')).split('rv-mp-jp')[0].includes('rv-band'), `no band chart: tier ${tier}`);
+  }
+});
+
+test('per-band tiers (tier_by_band): days, periods and totals touching a non-shown band lose their numbers', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Bands' };
+  const ranks = syntheticRanks(12); // ranks around 5–15: both sides of 10
+  const svc = loadServiceExports({ dir: bundle(t, { games: [
+    { ...game, store: 'ios', app_id: '6300000003', markets: { kr: { ranks, tierByBand: { '1-10': 'wide', '11-50': 'unrated', '51-200': 'beta' } } } },
+    // a band missing from tier_by_band counts as not shown
+    { ...game, store: 'android', app_id: 'com.example.partial', markets: { kr: { ranks, tierByBand: { '1-10': 'beta' } } } },
+  ] }), now: NOW });
+  const rev = svc.revenueFor({ ios: '6300000003', android: 'com.example.partial' });
+  for (const p of [rev.m.kr.s.ios, rev.m.kr.s.android]) {
+    const masked = p.d.filter((r) => r[0] > 10);
+    assert.ok(masked.length && masked.every((r) => r[1] == null), 'days in the band have no numbers');
+    assert.ok(p.d.some((r) => r[0] <= 10 && r[1] != null), 'days in a shown band keep theirs');
+    const bad = p.d.map((r, i) => (r[0] > 10 ? Date.parse(p.d0) + i * 864e5 : null)).filter((x) => x != null);
+    for (const w of p.w) if (bad.some((x) => x >= Date.parse(w[0]) && x < Date.parse(w[0]) + 7 * 864e5)) assert.equal(w[1], null, `week ${w[0]}`);
+    for (const m of p.mo) if (bad.some((x) => new Date(x).toISOString().startsWith(m[0]))) assert.equal(m[1], null, `month ${m[0]}`);
+    if (p.mtd && p.mtd.d.some((r) => r[1] > 10)) assert.equal(p.mtd.t, null);
+    if (p.o && p.o.d.some((r) => r[3] > 10)) assert.equal(p.o.t, null);
+  }
+  // Render layer re-applies the band mask to page data that carries numbers in a non-shown band.
+  const good = loadServiceExports({ dir: bundle(t), now: NOW }).revenueFor(APP).m.kr.s.ios;
+  const shown = P.displayStore({ ...good, tb: [[1, 10, 'wide'], [11, 200, 'pending']] });
+  assert.ok(shown.d.filter((r) => r[0] > 10).every((r) => r[1] == null));
+  assert.ok(shown.d.filter((r) => r[0] != null && r[0] <= 10).every((r) => r[1] != null));
+  assert.deepEqual(P.displayStore(shown), shown, 'idempotent');
+});
+
+test('download tiers outside the allowlist (unrated with numbers, unknown, missing) show "not available", at ingestion and render', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'DL tiers' };
+  const svc = loadServiceExports({ dir: bundle(t, { games: [
+    { ...game, store: 'ios', app_id: '6400000004', markets: { kr: { ranks: syntheticRanks(12), downloads: 'verified', downloadsTier: 'unrated' }, jp: { ranks: syntheticRanks(12), downloads: 'verified', downloadsTier: undefined } }, ios_ratings: { kr: 77 } },
+    { ...game, store: 'android', app_id: 'com.example.dl', markets: { kr: { ranks: syntheticRanks(12), downloads: 'verified', downloadsTier: 'pending_prospective' } }, play_bucket_min: 1000000 },
+  ] }), now: NOW });
+  const rev = svc.revenueFor({ ios: '6400000004', android: 'com.example.dl' });
+  for (const p of [rev.m.kr.s.ios, rev.m.kr.s.android, rev.m.jp.s.ios]) assert.equal(p.de, undefined, 'dropped at ingestion');
+  const text = visibleText(withEdition('ko', () => renderRevenueSection(rev)));
+  assert.doesNotMatch(text, /추정 월 다운로드/);
+  assert.ok(text.includes('시장별 다운로드: 제공 안 함') && text.includes('이 스토어 누적 평점 77개') && text.includes('전 세계 누적 설치 100만+'));
+
+  // Render layer: a numeric estimate with a non-allowlisted tier in the page data.
+  const good = loadServiceExports({ dir: bundle(t), now: NOW }).revenueFor(APP);
+  assert.ok(P.downloadsShown(good.m.jp.s.ios.de));
+  for (const tier of ['unrated', 'pending_prospective', 'reference', undefined]) {
+    const page = JSON.parse(JSON.stringify(good));
+    if (tier === undefined) delete page.m.jp.s.ios.de.t; else page.m.jp.s.ios.de.t = tier;
+    const html = withEdition('ko', () => renderRevenueSection(page));
+    const jp = visibleText(html.slice(html.indexOf('rv-mp-jp')));
+    assert.doesNotMatch(jp, /추정 월 다운로드/, `render: download tier ${tier}`);
+    assert.ok(jp.includes('시장별 다운로드: 제공 안 함'));
   }
 });
 

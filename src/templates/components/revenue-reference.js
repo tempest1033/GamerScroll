@@ -8,6 +8,7 @@
  */
 const { t, formatDay, formatNumber, currentEdition } = require('../../i18n');
 const C = require('./revenue-charts');
+const P = require('./revenue-policy');
 const { loadServiceExports, MARKETS } = require('../../build/service-exports');
 
 const MARKET_KEYS = { kr: 'stats.korea', jp: 'stats.japan', us: 'stats.united_states', tw: 'stats.taiwan', cn: 'stats.china' };
@@ -39,7 +40,7 @@ function renderBandTable(home) {
     const rows = ranges.filter((r) => markets.some((m) => cell.has(`${m}|${store}|${key(r)}`))).map((r) => `<tr><th scope="row">${bandLabel(r)}</th>${markets.map((m) => {
       const b = cell.get(`${m}|${store}|${key(r)}`);
       if (!b) return '<td class="r">-</td>';
-      if (!b.day) return `<td class="r"><small>${t('rev.bands_hidden')}</small></td>`;
+      if (!b.day || !P.revenueShown(b.tier)) return `<td class="r"><small>${t('rev.bands_hidden')}</small></td>`;
       const cur = curOf(m);
       return `<td class="r"${C.hasUsd(cur) ? ` data-fx="${cur.fx}"` : ''}><b>${C.moneyHtml(b.day[1], cur)}</b><small>${C.rangeHtml(b.day[0], b.day[2], cur)}</small>${Number.isFinite(b.coverage) ? `<small>${t('rev.coverage', { pct: C.percent(b.coverage) })}</small>` : ''}</td>`;
     }).join('')}</tr>`).join('');

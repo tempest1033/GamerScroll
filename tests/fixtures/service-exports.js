@@ -7,7 +7,7 @@
  *
  *   writeFixture(dir, { asof: 'YYYY-MM-DD', games: [{ store, app_id, title, developer, subgenre, release_date,
  *     markets: { <market>: { ranks: [183 ranks|null], tier, hiddenDays, downloads } }, play_bucket_min, ios_ratings: { <market>: n } }] })
- *   tier: 'wide' (default) | 'beta' | 'hidden'; hiddenDays: the last n days fall in a hidden rank band (null quantiles,
+ *   tier: 'wide' (default) | 'beta' | 'hidden' | any crafted value; tierByBand, downloadsTier: crafted overrides; hiddenDays: the last n days fall in a hidden rank band (null quantiles,
  *   and their week / month / MTD are null too); downloads: downloads_est tier ('verified' | 'unverified' | 'assumption' | 'partial_store' | 'hidden'),
  *   or 'unrated' (dl-v1 today: no numbers), default null; downloadsGaps: daily indexes left out (missing snapshots, as in dl-v1);
  *   downloadsBad: one malformed download row.
@@ -50,14 +50,19 @@ function downloadsEst(market, store, spec, dates) {
   const weekly = [];
   for (let i = dates.findIndex((d) => new Date(d).getUTCDay() === 1); i >= 0 && i + 7 <= DAYS; i += 7) weekly.push([dates[i], ...q(sum(daily.slice(i, i + 7), 2), 0.65, 1.5)]);
   const months = [...new Set(dates.map((d) => d.slice(0, 7)))];
-  return { tier: spec.downloads, daily, weekly, monthly: months.map((m) => [m, ...q(sum(daily.filter((r) => r[0].startsWith(m)), 2), 0.7, 1.45)]) };
+  const est = { tier: spec.downloads, daily, weekly, monthly: months.map((m) => [m, ...q(sum(daily.filter((r) => r[0].startsWith(m)), 2), 0.7, 1.45)]) };
+  // downloadsTier: crafted tier on a numeric estimate (undefined → no tier field)
+  if ('downloadsTier' in spec) { if (spec.downloadsTier === undefined) delete est.tier; else est.tier = spec.downloadsTier; }
+  return est;
 }
 
 function marketRecord(market, store, spec, asof, game) {
   const [currency] = CURRENCY[market];
   const dates = Array.from({ length: DAYS }, (_, i) => addDays(asof, i - DAYS + 1));
-  const tier = spec.tier || 'wide';
-  const base = { title: game.title, tier, tier_by_band: { '1-10': tier, '11-50': tier, '51-200': tier }, currency, fx_usd: fxMap(market, asof) };
+  // crafted tiers: tier key present but undefined → no tier field; tierByBand replaces tier_by_band (undefined → none)
+  const tier = 'tier' in spec ? spec.tier : 'wide';
+  const byBand = 'tierByBand' in spec ? spec.tierByBand : { '1-10': tier, '11-50': tier, '51-200': tier };
+  const base = { title: game.title, ...(tier === undefined ? {} : { tier }), ...(byBand === undefined ? {} : { tier_by_band: byBand }), currency, fx_usd: fxMap(market, asof) };
   if (tier === 'hidden') return { ...base, downloads_est: downloadsEst(market, store, spec, dates) };
   const hiddenFrom = DAYS - (spec.hiddenDays || 0);
   // Anchor (new_release_ko.md §4): iOS from the store release date, Google Play from the first grossing-chart day.
@@ -120,7 +125,7 @@ function genresJson(asof) {
   };
 }
 
-function bandsJson(asof) {
+function bandsJson(asof, bandTiers = {}) {
   const cells = [];
   for (const market of Object.keys(CURRENCY)) {
     for (const store of ['ios', 'android']) {
@@ -130,7 +135,7 @@ function bandsJson(asof) {
         const hidden = market === 'us' && store === 'android' && lo > 180;
         const day = q(daily50(market, store, mid), 0.45, 2.2);
         const group = hi <= 10 ? '1-10' : hi <= 50 ? '11-50' : '51-200';
-        cells.push({ market, store, band: lo === hi ? String(lo) : `${lo}-${hi}`, lo, hi, currency: CURRENCY[market][0], tier: hidden ? 'hidden' : lo <= 10 ? 'wide' : 'beta',
+        cells.push({ market, store, band: lo === hi ? String(lo) : `${lo}-${hi}`, lo, hi, currency: CURRENCY[market][0], tier: bandTiers[`${market}|${store}|${lo}`] || (hidden ? 'hidden' : lo <= 10 ? 'wide' : 'beta'),
           ...(hidden ? {} : { day, week: q(day[1] * 7, 0.55, 1.9), month30: q(day[1] * 30, 0.6, 1.7), day_usd_q50: round(day[1] / CURRENCY[market][1]) }),
           coverage80: { band_group: group, window: '1-14', n_games: 120, n_cutoffs: 32, revenue_total: 0.78, revenue_daily: group === '1-10' ? 0.829 : group === '11-50' ? 0.81 : 0.792, rank_daily: 0.8 } });
       }
@@ -139,7 +144,8 @@ function bandsJson(asof) {
   return { schema_version: 1, asof, model_version: 'fixture', bands: 'band_table granularity: 1..10 single ranks, 11-50 by 5, 51-100 by 10, 101-200 by 20', notes: [], cells };
 }
 
-function writeFixture(dir, { asof, games }) {
+// bandTiers: { '<market>|<store>|<lo>': tier } crafted bands.json tiers (numbers kept)
+function writeFixture(dir, { asof, games, bandTiers }) {
   fs.rmSync(dir, { recursive: true, force: true });
   const files = {};
   const write = (rel, value) => {
@@ -156,7 +162,7 @@ function writeFixture(dir, { asof, games }) {
   }
   write('games_index.json', { schema_version: 1, asof, columns: ['store', 'app_id', 'title', 'markets'], games: games.map((g) => [g.store, g.app_id, g.title, Object.keys(g.markets)]) });
   write('genres.json', genresJson(asof));
-  write('bands.json', bandsJson(asof));
+  write('bands.json', bandsJson(asof, bandTiers));
   fs.writeFileSync(path.join(dir, 'manifest.json'), JSON.stringify({ schema_version: 1, asof, generated_at: `${asof}T00:00:00Z`, model_version: 'fixture', n_games: games.length, window_days: DAYS, outlook_days: 14, files }, null, 1));
   return dir;
 }
