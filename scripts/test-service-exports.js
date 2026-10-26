@@ -34,6 +34,7 @@ function bundle(t, overrides = {}) {
     asof: ASOF,
     bandTiers: overrides.bandTiers,
     mutate: overrides.mutate,
+    manifest: overrides.manifest,
     games: [
       // kr: no download model (downloads_est null as in the real bundle → fallback indicators); jp: download estimate (unverified tier)
       { ...game, store: 'ios', app_id: APP.ios, markets: { kr: { ranks: syntheticRanks(12) }, jp: { ranks: syntheticRanks(40, { gap: 20 }), downloads: 'unverified' } }, ios_ratings: { kr: 12345, jp: 678 } },
@@ -293,41 +294,119 @@ test('per-market download estimates: tiered labels, charts, fallback where the m
   assert.ok(visibleText(kr).includes('시장별 다운로드: 제공 안 함'));
   const verified = withEdition('ko', () => visibleText(renderRevenueSection(svc.revenueFor({ ios: '4000000004' }))));
   assert.ok(verified.includes('이 시장의 신규 설치 수를 공개 자료로 보정해 추정한 범위입니다.'), 'verified tier note');
-  assert.doesNotMatch(verified, /검증 전|가정 기반/, 'verified: no tier badge');
+  assert.doesNotMatch(verified, /검증 전|가정 기반/, 'verified: no weak-tier badge');
+  assert.ok(verified.includes('검증된 추정'), 'verified: its own evidence badge');
+  assert.ok(verified.includes('근거: 이 스토어 무료(인기) 차트 순위로 추정했습니다.'), 'basis text');
   assert.ok(verified.includes('이 스토어는 추정 정확도가 충분하지 않아 매출 추정을 표시하지 않습니다.'));
   const en = withEdition('en', () => visibleText(renderRevenueSection(svc.revenueFor(APP))));
   assert.match(en, /Estimated monthly downloads [\d.]+K?–[\d.]+K? \(median [\d.]+K?\)/);
 });
 
-test('download evidence tiers: assumption iOS + verified Play, partial-store CN Android, non-display tiers', (t) => {
+test('download evidence tiers: assumption iOS + verified Play, partial-store Play, CN iOS only, non-display tiers', (t) => {
   const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Tiers' };
   const svc = loadServiceExports({ dir: bundle(t, { games: [
-    { ...game, store: 'ios', app_id: '1100000011', markets: { kr: { ranks: syntheticRanks(20), downloads: 'assumption' } }, ios_ratings: { kr: 500 } },
-    { ...game, store: 'android', app_id: 'com.example.tiers', markets: { kr: { ranks: syntheticRanks(25), downloads: 'verified' }, cn: { ranks: syntheticRanks(30), downloads: 'partial_store' } }, play_bucket_min: 1000000 },
+    { ...game, store: 'ios', app_id: '1100000011', markets: { kr: { ranks: syntheticRanks(20), downloads: 'assumption' }, us: { ranks: syntheticRanks(22), downloads: 'unverified' } }, ios_ratings: { kr: 500 } },
+    { ...game, store: 'android', app_id: 'com.example.tiers', markets: { kr: { ranks: syntheticRanks(25), downloads: 'verified', downloadsBasis: 'below_free_200' }, us: { ranks: syntheticRanks(28), downloads: 'partial_store' }, cn: { ranks: syntheticRanks(30), downloads: 'verified' } }, play_bucket_min: 1000000 },
     { ...game, store: 'ios', app_id: '1200000012', markets: { cn: { ranks: syntheticRanks(15), downloads: 'pending_prospective' } } },
+    { ...game, store: 'ios', app_id: '1300000013', markets: { cn: { ranks: syntheticRanks(16), downloads: 'verified', downloadsBasis: '<img src=x onerror=alert(1)>' } } },
   ] }), now: NOW });
   const rev = svc.revenueFor({ ios: '1100000011', ios_cn: '1200000012', android: 'com.example.tiers' }, { freeRank: () => ({ r: 33, b: 7 }) });
   assert.equal(rev.m.cn.s.ios.de, undefined, 'pending_prospective: no numbers');
+  assert.equal(rev.m.cn.s.android.de, undefined, 'CN Android downloads are never estimated');
   const html = withEdition('ko', () => renderRevenueSection(rev));
-  const kr = html.slice(html.indexOf('rv-mp-kr'), html.indexOf('rv-mp-cn'));
+  const kr = html.slice(html.indexOf('rv-mp-kr'), html.indexOf('rv-mp-us'));
+  const us = html.slice(html.indexOf('rv-mp-us'), html.indexOf('rv-mp-cn'));
   const cn = html.slice(html.indexOf('rv-mp-cn'));
   const view = (part, cls) => part.split('<div class="rv-x ').filter((x) => x.startsWith(cls)).map(visibleText).join(' ');
-  // Both stores summed: the less certain tier (assumption) labels the sum.
+  // Both stores summed: the less certain tier (assumption) labels the sum, with both bases.
   assert.ok(view(kr, 'rv-x-all').includes('가정 기반 추정 · 같은 게임의 Google Play 자료로 환산'));
+  assert.ok(view(kr, 'rv-x-all').includes('근거: 이 스토어 무료(인기) 차트 순위로 추정했습니다.') && view(kr, 'rv-x-all').includes('근거: 무료 차트 200위 밖이라'));
   assert.ok(view(kr, 'rv-x-ios').includes('가정 기반 추정') && view(kr, 'rv-x-ios').includes('이 스토어 누적 평점 500개'));
   assert.doesNotMatch(view(kr, 'rv-x-and'), /가정 기반|검증 전|제공 안 함/);
+  assert.ok(view(kr, 'rv-x-and').includes('검증된 추정'), 'verified badge');
   assert.ok(view(kr, 'rv-x-and').includes('전 세계 누적 설치 100만+') && view(kr, 'rv-x-and').includes('인기(무료) 차트 순위: 33위'));
-  // CN: Android covers one store only (not summed with iOS); iOS pending → "not available", never a number.
-  assert.ok(view(cn, 'rv-x-and').includes('应用宝 한 곳의 누적 다운로드'));
-  assert.match(view(cn, 'rv-x-and'), /추정 월 다운로드 [\d.]+만?–/);
+  // Partial store: own badge, not summed with the other store.
+  assert.ok(view(us, 'rv-x-and').includes('일부 스토어만 반영'));
+  assert.ok(view(us, 'rv-x-all').includes('일부 스토어만 반영') && view(us, 'rv-x-all').includes('검증 전 추정 · 범위가 넓습니다'));
+  // CN: App Store only, said plainly; iOS pending → "not available", never a number; Android: no estimate.
+  assert.ok(visibleText(cn).includes('중국에는 Google Play가 없어, 다운로드 추정은 중국 App Store(iOS)만 다룹니다.'));
+  assert.ok(!visibleText(kr).includes('중국에는 Google Play가 없어'), 'CN note on the CN panel only');
   assert.ok(view(cn, 'rv-x-ios').includes('시장별 다운로드: 제공 안 함'));
-  assert.doesNotMatch(view(cn, 'rv-x-ios'), /추정 월 다운로드/);
-  assert.ok(view(cn, 'rv-x-all').includes('应用宝 한 곳의 누적 다운로드') && view(cn, 'rv-x-all').includes('시장별 다운로드: 제공 안 함'));
-  assert.ok(!cn.includes('rv-weak'), 'partial store keeps the normal band');
+  assert.doesNotMatch(visibleText(cn), /추정 월 다운로드/);
+  // Render re-check: CN Android page data that still carries an estimate shows none.
+  const page = JSON.parse(JSON.stringify(rev));
+  page.m.cn.s.android.de = svc.revenueFor({ android: 'com.example.tiers' }).m.kr.s.android.de;
+  assert.doesNotMatch(visibleText(withEdition('ko', () => renderRevenueSection(page)).split('rv-mp-cn')[1]), /추정 월 다운로드/);
+  // A basis outside the allowlist is dropped, never shown raw.
+  const cnIos = svc.revenueFor({ ios: '1300000013' });
+  assert.equal(cnIos.m.cn.s.ios.de.b, undefined);
+  const cnHtml = withEdition('ko', () => renderRevenueSection(cnIos));
+  assert.ok(!/<img/i.test(cnHtml) && !visibleText(cnHtml).includes('근거:'));
+  assert.match(visibleText(cnHtml), /추정 월 다운로드 [\d.]+만?–/, 'CN iOS estimate shown');
   for (const code of ['en', 'ja', 'zh-cn', 'zh-tw']) {
     const text = withEdition(code, () => visibleText(renderRevenueSection(rev)));
     assert.deepEqual(text.match(/[\uAC00-\uD7A3]+/g) || [], [], `no Hangul in ${code}`);
-    for (const key of ['rev.dl_tier_assumption', 'rev.dl_tier_partial_store', 'rev.dl_none']) assert.ok(text.includes(withEdition(code, () => i18n.t(key))), `${code} ${key}`);
+    for (const key of ['rev.dl_tier_assumption', 'rev.dl_tier_partial_store', 'rev.dl_tier_verified', 'rev.dl_none', 'rev.dl_cn_ios_only', 'rev.dl_basis_below_free_200']) assert.ok(text.includes(withEdition(code, () => i18n.t(key))), `${code} ${key}`);
+  }
+});
+
+test('14-day outlook: drop-out chance for ranks 51–200 only, backtest note only from outlook_model, `outlook` key', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Outlook' };
+  const games = [
+    { ...game, store: 'ios', app_id: '1400000014', markets: { kr: { ranks: syntheticRanks(150) } } },
+    { ...game, store: 'ios', app_id: '1500000015', markets: { kr: { ranks: syntheticRanks(12) } } },
+    { ...game, store: 'ios', app_id: '1600000016', markets: { kr: { ranks: syntheticRanks(140), outlookKey: 'outlook' } } },
+  ];
+  const outlookOf = (html) => visibleText(html.slice(html.indexOf('rv-outlook'), html.indexOf('rv-position') > 0 ? html.indexOf('rv-position') : undefined));
+  const plain = loadServiceExports({ dir: bundle(t, { games }), now: NOW });
+  const low = withEdition('ko', () => outlookOf(renderRevenueSection(plain.revenueFor({ ios: '1400000014' }))));
+  assert.match(low, /14일째\([^)]+\)에 매출 순위 200위 밖에 있을 가능성: (낮음|가능성 있음|높음)/);
+  // Day-14 value only, mapped at 0.3 / 0.6.
+  const base = plain.revenueFor({ ios: '1400000014' });
+  const level = (p, mid = 0.95) => {
+    const page = JSON.parse(JSON.stringify(base));
+    page.m.kr.s.ios.o.d = page.m.kr.s.ios.o.d.map((r, i, a) => [...r.slice(0, 6), i === a.length - 1 ? p : mid]);
+    const text = withEdition('ko', () => outlookOf(renderRevenueSection(page)));
+    return text.match(/가능성: (낮음|가능성 있음|높음)/)[1];
+  };
+  assert.deepEqual([level(0), level(0.299), level(0.3), level(0.599), level(0.6), level(1)], ['낮음', '낮음', '가능성 있음', '가능성 있음', '높음', '높음']);
+  for (const code of ['en', 'ja', 'zh-cn', 'zh-tw']) {
+    const text = withEdition(code, () => outlookOf(renderRevenueSection(base)));
+    const labels = ['low', 'possible', 'likely'].map((k) => withEdition(code, () => i18n.t(`rev.p_out_${k}`)));
+    const head = withEdition(code, () => i18n.t('rev.p_out')).split('{p}')[0].replace(/\{days\}/, '14').split('{date}')[0];
+    assert.ok(text.includes(head) && labels.some((l) => text.includes(l)), code);
+  }
+  const top = withEdition('ko', () => outlookOf(renderRevenueSection(plain.revenueFor({ ios: '1500000015' }))));
+  assert.ok(top.includes('평소대로면 앞으로 14일 순위') && !top.includes('200위 밖에 있을 확률'), 'top 50: no drop-out line');
+  assert.doesNotMatch(low + top, /백테스트|적중률/, 'no outlook_model → no accuracy number');
+  const alt = plain.revenueFor({ ios: '1600000016' });
+  assert.ok(alt.m.kr.s.ios.o && alt.m.kr.s.ios.o.d.length === 14, 'outlook key read');
+  // outlook_model in the manifest → method note; malformed → none.
+  const withModel = loadServiceExports({ dir: bundle(t, { games, manifest: { outlook_model: { name: 'rank-outlook', frozen_config: 'x', backtest: { cov80: 0.83, cutoffs: 33, period: '2026-02-01/2026-09-30' } } } }), now: NOW });
+  const rev = withModel.revenueFor({ ios: '1400000014' });
+  assert.deepEqual(rev.om, { n: 33, c: 0.83 });
+  assert.ok(withEdition('ko', () => outlookOf(renderRevenueSection(rev))).includes('과거 33주 백테스트에서 80% 범위 적중률 83%'));
+  assert.ok(withEdition('en', () => outlookOf(renderRevenueSection(rev))).includes('In a backtest over the past 33 weeks, the 80% range held 83% of the time.'));
+  const list = loadServiceExports({ dir: bundle(t, { games, manifest: { outlook_model: { backtest: { cov80: 81, cutoffs: Array.from({ length: 30 }, (_, i) => `2026-0${1 + (i % 9)}-01`) } } } }), now: NOW });
+  assert.deepEqual(list.revenueFor({ ios: '1400000014' }).om, { n: 30, c: 0.81 });
+  for (const bad of [{ backtest: { cov80: '<img src=x>', cutoffs: 33 } }, { backtest: { cov80: 0.83 } }, { backtest: { cov80: 0.8, cutoffs: 0 } }, 'x', null]) {
+    const svc = loadServiceExports({ dir: bundle(t, { games, manifest: { outlook_model: bad } }), now: NOW });
+    const r = svc.revenueFor({ ios: '1400000014' });
+    assert.equal(r.om, undefined, JSON.stringify(bad));
+    assert.doesNotMatch(withEdition('ko', () => outlookOf(renderRevenueSection(r))), /백테스트/);
+  }
+  // Render re-check of page data om.
+  const page = { ...plain.revenueFor({ ios: '1400000014' }), om: { n: '33<b>', c: 0.83 } };
+  assert.doesNotMatch(withEdition('ko', () => outlookOf(renderRevenueSection(page))), /백테스트/);
+});
+
+test('genre curves are labelled as past patterns, not a forecast', (t) => {
+  const svc = loadServiceExports({ dir: bundle(t), now: NOW });
+  for (const code of ['ko', 'en', 'ja', 'zh-cn', 'zh-tw']) {
+    const html = withEdition(code, () => renderRevenueSection(svc.revenueFor(APP)));
+    const pos = visibleText(html.slice(html.indexOf('rv-position')));
+    assert.ok(html.includes('rv-position'));
+    assert.ok(pos.includes(withEdition(code, () => i18n.t('rev.past_pattern'))) && pos.includes(withEdition(code, () => i18n.t('rev.past_pattern_note'))), code);
   }
 });
 

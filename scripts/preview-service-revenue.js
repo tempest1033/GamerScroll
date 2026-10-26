@@ -3,7 +3,7 @@
 /**
  * Local preview of the revenue estimate section on five sample game pages (one per market). Not part of the build.
  *   node scripts/preview-service-revenue.js fixture <dir>   synthetic bundle (tests/fixtures/service-exports.js) from the samples' real chart ranks
- *   node scripts/preview-service-revenue.js shots <dir>     render the samples with the Workers bundle and screenshot #revenue-estimates
+ *   node scripts/preview-service-revenue.js shots <dir> [n] render the (first n) samples with the Workers bundle and screenshot #revenue-estimates
  *                                                            at 1440×900 and 390×844 → <dir>/<market>_<slug>_{desktop,mobile}.png
  * Pipeline: fixture (skip with the real bundle) → SERVICE_EXPORTS_DIR=<bundle> node generate-html-report.js --quick
  *   → SERVICE_EXPORTS_DIR=<bundle> node scripts/generate-game-pages.js → node scripts/build-game-ssr.js → shots.
@@ -65,14 +65,14 @@ function serve(root) {
   return new Promise((resolve) => server.listen(0, '127.0.0.1', () => resolve(server)));
 }
 
-async function shots(outDir) {
+async function shots(outDir, count = SAMPLES.length) {
   const { createRenderer } = await import(`file:///${path.join(ROOT, 'functions', '_lib', 'game-ssr.js').replace(/\\/g, '/')}`);
   const meta = JSON.parse(fs.readFileSync(path.join(DOCS, 'games-data', '_meta.json'), 'utf8'));
   const previewDir = path.join(DOCS, '_rv-preview');
   fs.mkdirSync(previewDir, { recursive: true });
   fs.mkdirSync(outDir, { recursive: true });
   const pages = [];
-  for (const s of SAMPLES) {
+  for (const s of SAMPLES.slice(0, count)) {
     const file = path.join(DOCS, 'games-data', `${s.slug}.json`);
     if (!fs.existsSync(file)) { console.warn(`no games-data for ${s.slug}`); continue; }
     const game = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -114,7 +114,7 @@ async function shots(outDir) {
   console.table(report);
 }
 
-const [mode, dir] = process.argv.slice(2);
+const [mode, dir, count] = process.argv.slice(2);
 if (mode === 'fixture' && dir) fixture(path.resolve(dir));
-else if (mode === 'shots' && dir) shots(path.resolve(dir)).catch((e) => { console.error(e); process.exit(1); });
-else { console.error('usage: node scripts/preview-service-revenue.js fixture|shots <dir>'); process.exit(1); }
+else if (mode === 'shots' && dir) shots(path.resolve(dir), count ? Number(count) : undefined).catch((e) => { console.error(e); process.exit(1); });
+else { console.error('usage: node scripts/preview-service-revenue.js fixture <dir> | shots <dir> [first n samples]'); process.exit(1); }

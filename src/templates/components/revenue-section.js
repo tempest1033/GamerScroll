@@ -158,6 +158,10 @@ function mtdBlock(series, ctx) {
   return `<div class="rv-sub rv-mtd">${title}${head}${chart}</div>`;
 }
 
+// Day-14 chance of being outside the top 200 (outlook last row p_out) → label: below POSSIBLE low, below LIKELY possible, else likely.
+const P_OUT_LEVELS = { POSSIBLE: 0.3, LIKELY: 0.6 };
+const pOutLevel = (p) => (p < P_OUT_LEVELS.POSSIBLE ? 'low' : p < P_OUT_LEVELS.LIKELY ? 'possible' : 'likely');
+
 function outlookBlock(store, p, ctx) {
   const o = p.o;
   if (!o) return '';
@@ -168,7 +172,14 @@ function outlookBlock(store, p, ctx) {
   const ranks = lo === hi ? lo : `${lo}–${hi}`;
   const dates = dateSeq(p.d0, p.d.length);
   const history = p.d.slice(-30).map((r, i) => ({ date: dates[p.d.length - Math.min(30, p.d.length) + i], rank: r[0] }));
-  const pMax = Math.max(...o.d.map((d) => d[6]));
+  // Games now ranked 51–200: the chance of being outside the top 200 on the last outlook day (day 14).
+  const now = p.d.length ? p.d[p.d.length - 1][0] : null;
+  const end = o.d[o.d.length - 1];
+  const pOut = now != null && now >= 51 && now <= 200 && Number.isFinite(end[6]) ? end[6] : null;
+  // No percentage (calibration: low probabilities run 2–4× too high): a 3-level label from P_OUT_LEVELS.
+  const pOutLine = pOut == null ? '' : `<p class="rv-text">${t('rev.p_out', { days: formatNumber(o.d.length), date: dayLong(end[0]), p: `<b>${t(`rev.p_out_${pOutLevel(pOut)}`)}</b>` })}</p>`;
+  // Backtest accuracy only from the bundle's outlook_model; without it no number is shown.
+  const method = ctx.om ? small(t('rev.outlook_method', { n: formatNumber(ctx.om.n), pct: C.percent(ctx.om.c) })) : '';
   const chart = C.fanChart({ history, days: o.d, label: (d) => dayShort(d), aria: t('rev.outlook_aria', { store: t(STORE_KEYS[store]), ranks }) });
   const legend = C.legend([['rv-sw-fan80', t('rev.legend_fan80')], ['rv-sw-fan50', t('rev.legend_fan50')], ['rv-sw-fanmed', t('rev.legend_fan_median')], ['rv-sw-hist', t('rev.legend_history')]]);
   // New games: rank fan only, labelled; no revenue total.
@@ -177,7 +188,7 @@ function outlookBlock(store, p, ctx) {
     ? t('rev.outlook_headline_rank', { ranks: `<b>${ranks}</b>` })
     : t('rev.outlook_headline', { ranks: `<b>${ranks}</b>`, range: `<b>${o.t ? C.rangeHtml(o.t[0], o.t[2], ctx.cur) : t('rev.bands_hidden')}</b>` });
   const tag = nw ? ` <span class="rv-tag rv-new">${t('rev.new_tag')}</span>` : '';
-  return block(`rv-x ${VIEW[store].cls} ${VIEW.all.cls} rv-outlook`, `<h4>${t('rev.outlook_title')} <span class="rv-beta">${t('rev.beta')}</span>${tag} <small>${t(STORE_KEYS[store])}</small></h4><p class="rv-mid">${headline}</p>${small(t(nw ? 'rev.outlook_new_note' : 'rev.outlook_note'))}${chart}${legend}${pMax >= 0.005 ? small(t('rev.below_chart', { p: C.percent(pMax) })) : ''}`);
+  return block(`rv-x ${VIEW[store].cls} ${VIEW.all.cls} rv-outlook`, `<h4>${t('rev.outlook_title')} <span class="rv-beta">${t('rev.beta')}</span>${tag} <small>${t(STORE_KEYS[store])}</small></h4><p class="rv-mid">${headline}</p>${pOutLine}${small(t(nw ? 'rev.outlook_new_note' : 'rev.outlook_note'))}${chart}${legend}${method}`);
 }
 
 function positionBlock(store, p, ctx) {
@@ -189,7 +200,8 @@ function positionBlock(store, p, ctx) {
   const { basis, market, cur } = ctx;
   const genre = C.subgenreName((decay || launch).genre);
   const parts = [];
-  if (decay && decay.md > 0) {
+  // The sentence needs a decline that reads as at least 1% a month ("about 0%" says nothing).
+  if (decay && Math.round(decay.md * 100) >= 1) {
     parts.push(`<p class="rv-mid">${t('rev.decay_sentence', { genre: C.esc(genre), pct: Math.round(decay.md * 100), n: formatNumber(decay.n) })}</p>`);
     if (basis && basis.y && basis.m && basis.f) parts.push(small(t('rev.decay_note', { year: C.esc(basis.y), months: C.esc(basis.m), floor: C.esc(basis.f) })));
   }
@@ -205,7 +217,8 @@ function positionBlock(store, p, ctx) {
     launch ? fig(launch, t('rev.launch_chart'), (n) => t('rev.x_days', { n }), pos.lx != null && usdNow != null ? { x: pos.lx, v: usdNow } : null) : '',
   ].filter(Boolean);
   parts.push(`<div class="rv-figs${figs.length > 1 ? ' rv-figs2' : ''}">${figs.join('')}</div>`);
-  return block(`rv-x ${VIEW[store].cls} ${VIEW.all.cls} rv-position`, `<h4>${t('rev.position_title')} <small>${t(STORE_KEYS[store])}</small></h4>${parts.join('')}`);
+  // Genre curves are past patterns of other games, not a forecast for this one.
+  return block(`rv-x ${VIEW[store].cls} ${VIEW.all.cls} rv-position`, `<h4>${t('rev.position_title')} <span class="rv-tag rv-past">${t('rev.past_pattern')}</span> <small>${t(STORE_KEYS[store])}</small></h4>${small(t('rev.past_pattern_note'))}${parts.join('')}`);
 }
 
 // ---------- downloads ----------
@@ -213,24 +226,27 @@ function positionBlock(store, p, ctx) {
 // Google Play worldwide install bucket and the App Store rating count of this storefront.
 function downloadSeries(p) {
   const dates = dateSeq(p.d0, p.d.length);
-  return { tier: p.t, daily: p.d.map((q, i) => ({ date: dates[i], q })), weekly: p.w.map((r) => ({ date: r[0], q: qOf(r.slice(1)) })), monthly: p.mo.map((r) => ({ month: r[0], q: qOf(r.slice(1)) })) };
+  return { tier: p.t, bases: p.b ? [p.b] : [], daily: p.d.map((q, i) => ({ date: dates[i], q })), weekly: p.w.map((r) => ({ date: r[0], q: qOf(r.slice(1)) })), monthly: p.mo.map((r) => ({ month: r[0], q: qOf(r.slice(1)) })) };
 }
-// Evidence tiers (downloads_est.tier), least to most uncertain: verified (plain range), partial_store (CN Android, one
-// store only), unverified and assumption (badge + lighter band). Two stores are summed only when both cover the whole
-// store; the sum takes the less certain tier.
+// Evidence tiers (downloads_est.tier), least to most uncertain, each with a visible badge: verified, partial_store (part
+// of the store's downloads only), unverified and assumption (lighter band). Two stores are summed only when both cover
+// the whole store; the sum takes the less certain tier and both bases.
 const DL_TIERS = ['verified', 'partial_store', 'unverified', 'assumption'];
 const DL_WEAK = new Set(['unverified', 'assumption']);
+const DL_BASES = ['free_rank', 'below_free_200'];
 const combinable = (a, b) => a.tier !== 'partial_store' && b.tier !== 'partial_store';
-const combinedDownloads = (a, b) => ({ tier: DL_TIERS[Math.max(DL_TIERS.indexOf(a.tier), DL_TIERS.indexOf(b.tier))], daily: sumBy(a.daily, b.daily, 'date'), weekly: sumBy(a.weekly, b.weekly, 'date'), monthly: sumBy(a.monthly, b.monthly, 'month') });
-const tierBadge = (tier) => (tier === 'verified' ? '' : `<span class="rv-tag rv-dl-tier rv-dl-tier-${tier}">${t(`rev.dl_tier_${tier}`)}</span>`);
+const combinedDownloads = (a, b) => ({ tier: DL_TIERS[Math.max(DL_TIERS.indexOf(a.tier), DL_TIERS.indexOf(b.tier))], bases: [...new Set([...a.bases, ...b.bases])], daily: sumBy(a.daily, b.daily, 'date'), weekly: sumBy(a.weekly, b.weekly, 'date'), monthly: sumBy(a.monthly, b.monthly, 'month') });
+const tierBadge = (tier) => (DL_TIERS.includes(tier) ? `<span class="rv-tag rv-dl-tier rv-dl-tier-${tier}">${t(`rev.dl_tier_${tier}`)}</span>` : '');
+// Basis of the estimate (localised from the allowlisted code, never the raw bundle string).
+const basisLines = (bases) => bases.filter((b) => DL_BASES.includes(b)).map((b) => small(t(`rev.dl_basis_${b}`))).join('');
 
 function downloadView(series, view, ctx) {
   const { market, asofMonth } = ctx;
   const parts = [];
   const badge = tierBadge(series.tier);
   const last = series.monthly.filter((m) => m.month < asofMonth).pop();
-  if (last && last.q) parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}<span class="rv-eyebrow">${t('rev.headline_ctx', { month: yearMonth(last.month), store: storeName(view) })}</span><p class="rv-mid">${t('rev.dl_monthly_headline', { range: `<b>${C.countRange(last.q[0], last.q[2])}</b>`, mid: `<b>${C.count(last.q[1])}</b>` })}</p>${small(t(`rev.dl_note_${series.tier}`))}</div>`);
-  else parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}${small(t(`rev.dl_note_${series.tier}`))}</div>`);
+  if (last && last.q) parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}<span class="rv-eyebrow">${t('rev.headline_ctx', { month: yearMonth(last.month), store: storeName(view) })}</span><p class="rv-mid">${t('rev.dl_monthly_headline', { range: `<b>${C.countRange(last.q[0], last.q[2])}</b>`, mid: `<b>${C.count(last.q[1])}</b>` })}</p>${small(t(`rev.dl_note_${series.tier}`))}${basisLines(series.bases)}</div>`);
+  else parts.push(`<div class="rv-head">${badge ? `<p class="rv-badges">${badge}</p>` : ''}${small(t(`rev.dl_note_${series.tier}`))}${basisLines(series.bases)}</div>`);
   const label = (v) => C.count(v, 2);
   const aria = (rows, period) => { const med = medians(rows); return t('rev.dl_chart_aria', { market: marketName(market), store: storeName(view), period, lo: C.count(Math.min(...med), 2), hi: C.count(Math.max(...med), 2) }); };
   const charts = [];
@@ -294,7 +310,8 @@ function downloadsBlock(dl, market, data, ctx) {
     for (const s of stores) views.push(`<div class="rv-x ${VIEW[s].cls}${stores.length === 1 ? ` ${VIEW.all.cls}` : ''}">${content([s])}</div>`);
     if (stores.length === 2) views.push(`<div class="rv-x ${VIEW.all.cls}">${content(stores)}</div>`);
   }
-  return views.length ? block('rv-dl', `<h4>${t('rev.dl_title')}</h4>${views.join('')}`) : '';
+  // No Google Play in China: the CN figure covers the App Store only.
+  return views.length ? block('rv-dl', `<h4>${t('rev.dl_title')}</h4>${market === 'cn' ? small(t('rev.dl_cn_ios_only')) : ''}${views.join('')}`) : '';
 }
 
 // Age badge: iOS "day n since release" (store release date), otherwise "day n on the chart" (first chart day; never
@@ -341,15 +358,21 @@ function renderRevenueSection(page) {
   const rev = { ...page, m: Object.fromEntries(Object.entries(page.m).filter(([k]) => MARKETS.includes(k)).map(([k, x]) => {
     const ok = x.c === P.MARKET_CURRENCY[k];
     const fx = typeof x.fx === 'number' && Number.isFinite(x.fx) && x.fx > 0 ? x.fx : null;
-    return [k, { c: P.MARKET_CURRENCY[k], fx, s: Object.fromEntries(Object.entries(x.s || {}).map(([s, p]) => [s, P.displayStore(ok ? p : { ...p, t: null })])) }];
+    return [k, { c: P.MARKET_CURRENCY[k], fx, s: Object.fromEntries(Object.entries(x.s || {}).map(([s, p]) => {
+      const v = P.displayStore(ok ? p : { ...p, t: null });
+      if (k === 'cn' && s === 'android') delete v.de; // CN Android downloads are not estimated
+      return [s, v];
+    })) }];
   })) };
+  // Outlook backtest accuracy (page data om): a positive integer cutoff count and a 0–1 share, else none.
+  const om = page.om && Number.isInteger(page.om.n) && page.om.n > 0 && Number.isFinite(page.om.c) && page.om.c > 0 && page.om.c <= 1 ? { n: page.om.n, c: page.om.c } : null;
   const home = currentEdition().country;
   const markets = [home, ...MARKETS.filter((m) => m !== home)].filter((m) => rev.m[m]);
   if (!markets.length) return '';
   const storesAt = (m) => ['ios', 'android'].filter((s) => rev.m[m].s[s]);
   const anyStore = new Set(markets.flatMap(storesAt));
   const options = [...(markets.some((m) => storesAt(m).length === 2) ? ['all'] : []), ...['ios', 'android'].filter((s) => anyStore.has(s))];
-  const ctx = { asofMonth: String(rev.a).slice(0, 7), basis: rev.b, curves: rev.cv || {} };
+  const ctx = { asofMonth: String(rev.a).slice(0, 7), basis: rev.b, curves: rev.cv || {}, om };
   const panels = markets.map((m) => marketPanel(m, rev.m[m], rev, ctx, options));
   const usd = markets.some((m) => C.hasUsd({ c: rev.m[m].c, fx: rev.m[m].fx }) && storesAt(m).some((s) => P.revenueShown(rev.m[m].s[s].t)));
   const defaultStore = options[0];

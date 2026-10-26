@@ -16,13 +16,14 @@
  * tier 'hidden' keeps no revenue numbers in page data.
  *
  * Page data (docs/games-data/<slug>.json → `revenue`, rendered by src/templates/components/revenue-section.js):
- *   { a: asof, b: { y, m, f } basis of the decay note (genres.window / floor_rank, absent from rev-v3), dl: { p: play bucket min, r: { <market>: iOS rating count } },
+ *   { a: asof, b: { y, m, f } basis of the decay note (genres.window / floor_rank, absent from rev-v3),
+ *     om?: { n, c } outlook backtest (manifest outlook_model, see outlookMethod), dl: { p: play bucket min, r: { <market>: iOS rating count } },
  *     m: { <market>: { c: currency, fx: USD per local unit, s: { ios|android: StorePayload | { t: 'hidden' } } } }, cv: { <ref>: curve } }
  *   StorePayload = { t: tier, d0: first day, d: [[rank|null, q10, q50, q90]] (consecutive days), w: [[week_start, q10, q50, q90]],
  *     mo: [[YYYY-MM, q10, q50, q90]], mtd: { m, th, t: [q10, q50, q90] | null, d: [[date, rank|null, q10, q50, q90]] } | null,
  *     o: { c: cutoff, d: [[date, r10, r25, r50, r75, r90, p_below_chart]], t: [q10, q50, q90] | null } | null,
  *     p: { k, ds, rf, dx, lx, dc, lr } | null (see compactStore),   hidden cells are [null, null, null]
- *     de?: { t: tier, d0, d: [[q10, q50, q90]], w, mo } | { t: 'hidden' } }   per-market download estimate (markets.<m>.downloads_est);
+ *     de?: { t: tier, b?: basis, d0, d: [[q10, q50, q90]], w, mo } | { t: 'hidden' } }   per-market download estimate (markets.<m>.downloads_est; never CN Android);
  *   kept on a hidden-revenue store too ({ t: 'hidden', de }), since the two estimates have their own tiers.
  */
 const fs = require('node:fs');
@@ -104,6 +105,9 @@ const periodRows = (list, key, where) => (list || []).map((row) => { if (!key.te
 // Evidence tiers that show numbers (owner decision 2026-10-26): verified, unverified, assumption (iOS converted from the
 // same game's Google Play data), partial_store (CN Android: one store only). Other tiers (dl-v1 'unrated',
 // 'pending_prospective', all-null rows) are dropped, so the page shows "not available" with the fallback indicators.
+// basis (forecast/downloads_model.py): 'free_rank' (from this storefront's free-chart rank) | 'below_free_200' (off the
+// free top 200: a share of the rank-200 level). Only these codes are kept (shown as localised text, never raw).
+const DL_BASES = ['free_rank', 'below_free_200'];
 function compactDownloads(e, where) {
   if (!e || typeof e !== 'object') return null;
   if (e.tier === 'hidden') return { t: 'hidden' };
@@ -116,7 +120,7 @@ function compactDownloads(e, where) {
     d.push(quantiles(row.slice(1, 4), `${where} downloads ${row[0]}`));
   });
   const out = {
-    t: e.tier, d0: d.length ? e.daily[0][0] : null, d,
+    t: e.tier, ...(DL_BASES.includes(e.basis) ? { b: e.basis } : {}), d0: d.length ? e.daily[0][0] : null, d,
     w: periodRows(e.weekly, /^\d{4}-\d{2}-\d{2}$/, `${where} downloads`), mo: periodRows(e.monthly, /^\d{4}-\d{2}$/, `${where} downloads`),
   };
   const any = d.some(Boolean) || [...out.w, ...out.mo].some((r) => r[1] != null);
@@ -161,15 +165,18 @@ function compactStore(m, where, asof) {
     m: m.mtd.month, th: dayOrThrow(m.mtd.through, `${where} mtd`), t: l && l.nw ? null : triple(m.mtd.total, `${where} mtd`),
     d: (m.mtd.days || []).map((row) => [dayOrThrow(row[0], `${where} mtd`), rankOrNull(row[1], where), ...(shown(row[0]) ? cells(row.slice(2, 5), `${where} mtd ${row[0]}`) : [null, null, null])]),
   } : null;
-  const o = m.outlook14 && m.outlook14.days && m.outlook14.days.length ? {
-    c: dayOrThrow(m.outlook14.cutoff, `${where} outlook`),
-    d: m.outlook14.days.map((row) => {
+  // 14-day rank outlook: outlook14 (rev-v3..v6), or `outlook` with the same days rows [date, q10, q25, q50, q75, q90,
+  // p_out] (p_out = chance of being outside the top 200 that day; optional → null).
+  const ol = m.outlook14 || m.outlook || null;
+  const o = ol && Array.isArray(ol.days) && ol.days.length ? {
+    c: ol.cutoff == null ? null : dayOrThrow(ol.cutoff, `${where} outlook`),
+    d: ol.days.map((row) => {
       const r = row.slice(1, 6);
-      if (!r.every((x) => x == null || finite(x)) || !finite(row[6]) || row[6] < 0 || row[6] > 1) throw new Error(`${where}: bad outlook row ${row[0]}`);
-      return [dayOrThrow(row[0], `${where} outlook`), ...r.map((x) => (x == null ? null : Math.round(x))), Math.round(row[6] * 1000) / 1000];
+      if (!r.every((x) => x == null || finite(x)) || (row[6] != null && (!finite(row[6]) || row[6] < 0 || row[6] > 1))) throw new Error(`${where}: bad outlook row ${row[0]}`);
+      return [dayOrThrow(row[0], `${where} outlook`), ...r.map((x) => (x == null ? null : Math.round(x))), row[6] == null ? null : Math.round(row[6] * 1000) / 1000];
     }),
     // New games: rank outlook only, no 14-day revenue total.
-    t: l && l.nw ? null : triple(m.outlook14.revenue_total, `${where} outlook`),
+    t: l && l.nw ? null : triple(ol.revenue_total, `${where} outlook`),
   } : null;
   const p = m.position || null;
   const num = (v) => (finite(v) ? v : null);
@@ -217,6 +224,19 @@ function usableCurve(kind, c) {
   return { kind, market: c.market, store: c.store, genre: c.genre, cohort: c.cohort || null, n: c.n_listings, md: c.fit && finite(c.fit.monthly_decline) ? c.fit.monthly_decline : null, unit: kind === 'decay' ? 'rel' : 'usd', points };
 }
 
+/**
+ * manifest.json outlook_model { name, frozen_config, backtest: { cov80, cutoffs, period } } → page data om
+ * { n: number of weekly backtest cutoffs, c: share of realised ranks inside the 80% range (0–1) }, or null (absent or
+ * malformed: the page then shows no accuracy number). cutoffs: a count or the list of cutoff dates; cov80: 0–1 or percent.
+ */
+function outlookMethod(model) {
+  const b = model && typeof model === 'object' ? model.backtest : null;
+  if (!b || typeof b !== 'object') return null;
+  const n = Array.isArray(b.cutoffs) ? b.cutoffs.length : b.cutoffs;
+  const c = finite(b.cov80) && b.cov80 > 1 && b.cov80 <= 100 ? b.cov80 / 100 : b.cov80;
+  return Number.isInteger(n) && n > 0 && finite(c) && c > 0 && c <= 1 ? { n, c: Math.round(c * 1000) / 1000 } : null;
+}
+
 function recordsOf(json) {
   if (Array.isArray(json)) return json;
   if (json && Array.isArray(json.games)) return json.games;
@@ -245,6 +265,7 @@ function createExports(dir, verified) {
   // Basis of the approved decay note ('<year> ranking records, <months> months … counted at rank <floor>'): not in the bundle yet.
   const window = genres.window || {};
   const basis = { y: isDay(window.start) ? Number(window.start.slice(0, 4)) : null, m: finite(window.months) ? window.months : null, f: finite(genres.floor_rank) ? genres.floor_rank : null };
+  const om = outlookMethod(verified.manifest.outlook_model);
   let skipped = 0;
 
   // Per market: the game's App Store and Google Play ids for that storefront (games.json appIds, see game-data.js idFor).
@@ -273,6 +294,8 @@ function createExports(dir, verified) {
         let payload;
         try { payload = compactStore(record.markets[market], `${store}:${id} ${market}`, asof); } catch (error) { skipped++; warn(error.message); continue; }
         if (!payload) continue;
+        // No Google Play in China: CN download estimates cover the App Store only (CN Android is not estimated).
+        if (market === 'cn' && store === 'android') delete payload.de;
         // New games: no iOS rating count (read as downloads, and too noisy in the first week).
         if (store === 'ios' && payload.l && payload.l.nw) delete r[market];
         // Free-chart rank (latest; best since revenue_from for new games, over the window otherwise) for the downloads block.
@@ -291,11 +314,11 @@ function createExports(dir, verified) {
     }
     const shown = Object.values(m).some((x) => Object.values(x.s).some((p) => revenueShown(p.t) || shownDownloads(p)));
     if (!shown && play == null && !Object.keys(r).length) return null;
-    return { a: asof, b: basis, dl: { p: play, r }, m, cv };
+    return { a: asof, b: basis, ...(om ? { om } : {}), dl: { p: play, r }, m, cv };
   }
 
   return {
-    asof, dir, basis, records, curves,
+    asof, dir, basis, om, records, curves,
     // bands.json cells: one game's revenue at a rank in [lo, hi] per day/week/30 days (local q10/q50/q90), tier, coverage80
     // (cells with a currency other than the market's are dropped)
     bands: (bands.cells || []).filter((b) => MARKETS.includes(b.market) && STORES.includes(b.store) && Number.isInteger(b.lo) && Number.isInteger(b.hi) && b.currency === MARKET_CURRENCY[b.market]).map((b) => ({

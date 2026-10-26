@@ -20,6 +20,8 @@ const VIEW = { ios: { id: 'rv-s-ios', cls: 'rv-x-ios', tab: 'rv-st-ios' }, andro
 const CURVE_CLASS = { ios: 'rv-c-ios', android: 'rv-c-and' };
 const marketName = (m) => t(MARKET_KEYS[m]);
 const ordered = (home, present) => [home, ...MARKETS.filter((m) => m !== home)].filter((m) => present.has(m));
+// Genre curves are past patterns of the genre's games, never a forecast for one game.
+const pastPattern = () => `<p class="rv-badges"><span class="rv-tag rv-past">${t('rev.past_pattern')}</span></p><p class="rv-small">${t('rev.past_pattern_note')}</p>`;
 const card = (cls, title, asof, body) => `<section class="rk-card rv-ref-card ${cls}"><h2>${title} <span class="rv-beta">${t('rev.beta')}</span></h2><p class="rv-asof">${t('rev.asof', { date: C.esc(formatDay(asof)) })}</p>${body}</section>`;
 
 function renderBandTable(home) {
@@ -61,7 +63,7 @@ const isListed = (c) => MARKETS.includes(c.market) && STORE_KEYS[c.store] && (c.
 const curvesOf = (svc, id) => [...svc.curves.values()].filter((c) => isListed(c) && (SITE_SUBGENRES[id] || []).includes(c.genre));
 
 function decaySentences(curves, svc) {
-  const lines = curves.filter((c) => c.kind === 'decay' && c.md > 0).map((c) => `<p class="rv-mid"><span class="rv-eyebrow">${t(STORE_KEYS[c.store])}</span>${t('rev.decay_sentence', { genre: C.esc(C.subgenreName(c.genre)), pct: Math.round(c.md * 100), n: formatNumber(c.n) })}</p>`);
+  const lines = curves.filter((c) => c.kind === 'decay' && Math.round(c.md * 100) >= 1).map((c) => `<p class="rv-mid"><span class="rv-eyebrow">${t(STORE_KEYS[c.store])}</span>${t('rev.decay_sentence', { genre: C.esc(C.subgenreName(c.genre)), pct: Math.round(c.md * 100), n: formatNumber(c.n) })}</p>`);
   const b = svc.basis;
   return lines.length ? lines.join('') + (b.y && b.m && b.f ? `<p class="rv-small">${t('rev.decay_note', { year: C.esc(b.y), months: C.esc(b.m), floor: C.esc(b.f) })}</p>` : '') : '';
 }
@@ -89,7 +91,7 @@ function genreCurvesCard(svc, id, home) {
   }).join('')}</div>`).join('');
   const inputs = markets.map((m, i) => `<input type="radio" name="rv-m" id="${MARKET_ID[m]}" class="rv-ctl"${i === 0 ? ' checked' : ''} aria-label="${C.esc(marketName(m))}">`).join('');
   const tabs = `<div class="rv-tabs" role="group" aria-label="${t('rev.market_aria')}">${markets.map((m) => `<label for="${MARKET_ID[m]}" class="${MARKET_TAB[m]}">${marketName(m)}</label>`).join('')}</div>`;
-  return card('rv-curves', t('rev.curves_title'), svc.asof, `<div class="rv">${inputs}<div class="rv-body"><div class="rv-bar">${tabs}</div>${panels}</div></div>`);
+  return card('rv-curves', t('rev.curves_title'), svc.asof, `<div class="rv">${inputs}<div class="rv-body">${pastPattern()}<div class="rv-bar">${tabs}</div>${panels}</div></div>`);
 }
 
 // All-genres page: monthly decline of every store subgenre by market and store (links to the matching site genre page).
@@ -109,7 +111,7 @@ function genreDecayTable(svc, home) {
     }).join('')}</tr>`;
   })).join('');
   const b = svc.basis;
-  return card('rv-curves', t('rev.curves_title'), svc.asof, `<div class="rv"><div class="rv-scroll"><table class="rk-table rv-table rv-ref-table"><thead><tr><th>${t('rev.col_genre')}</th><th>${t('rev.store_aria')}</th>${markets.map((m) => `<th class="r">${marketName(m)} <small>${t('rev.col_decay')}</small></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>${b.y && b.m && b.f ? `<p class="rv-small">${t('rev.decay_note', { year: C.esc(b.y), months: C.esc(b.m), floor: C.esc(b.f) })}</p>` : ''}</div>`);
+  return card('rv-curves', t('rev.curves_title'), svc.asof, `<div class="rv">${pastPattern()}<div class="rv-scroll"><table class="rk-table rv-table rv-ref-table"><thead><tr><th>${t('rev.col_genre')}</th><th>${t('rev.store_aria')}</th>${markets.map((m) => `<th class="r">${marketName(m)} <small>${t('rev.col_decay')}</small></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>${b.y && b.m && b.f ? `<p class="rv-small">${t('rev.decay_note', { year: C.esc(b.y), months: C.esc(b.m), floor: C.esc(b.f) })}</p>` : ''}</div>`);
 }
 
 function renderGenreCurves(id, home) {

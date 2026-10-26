@@ -10,7 +10,8 @@
  *   tier: 'wide' (default) | 'beta' | 'hidden' | any crafted value; tierByBand, downloadsTier: crafted overrides; hiddenDays: the last n days fall in a hidden rank band (null quantiles,
  *   and their week / month / MTD are null too); downloads: downloads_est tier ('verified' | 'unverified' | 'assumption' | 'partial_store' | 'hidden'),
  *   or 'unrated' (dl-v1 today: no numbers), default null; downloadsGaps: daily indexes left out (missing snapshots, as in dl-v1);
- *   downloadsBad: one malformed download row.
+ *   downloadsBad: one malformed download row; downloadsBasis: crafted downloads_est.basis (default 'free_rank');
+ *   outlookKey: 'outlook' writes a rank-only `outlook` block instead of outlook14.
  * genres.json also carries `window` / `floor_rank` (basis of the approved decay note), which the real bundle does not have yet.
  */
 const fs = require('node:fs');
@@ -50,7 +51,8 @@ function downloadsEst(market, store, spec, dates) {
   const weekly = [];
   for (let i = dates.findIndex((d) => new Date(d).getUTCDay() === 1); i >= 0 && i + 7 <= DAYS; i += 7) weekly.push([dates[i], ...q(sum(daily.slice(i, i + 7), 2), 0.65, 1.5)]);
   const months = [...new Set(dates.map((d) => d.slice(0, 7)))];
-  const est = { tier: spec.downloads, daily, weekly, monthly: months.map((m) => [m, ...q(sum(daily.filter((r) => r[0].startsWith(m)), 2), 0.7, 1.45)]) };
+  // basis: forecast/downloads_model.py codes ('free_rank' | 'below_free_200'); downloadsBasis: crafted value
+  const est = { tier: spec.downloads, basis: 'downloadsBasis' in spec ? spec.downloadsBasis : 'free_rank', daily, weekly, monthly: months.map((m) => [m, ...q(sum(daily.filter((r) => r[0].startsWith(m)), 2), 0.7, 1.45)]) };
   // downloadsTier: crafted tier on a numeric estimate (undefined → no tier field)
   if ('downloadsTier' in spec) { if (spec.downloadsTier === undefined) delete est.tier; else est.tier = spec.downloadsTier; }
   return est;
@@ -95,7 +97,10 @@ function marketRecord(market, store, spec, asof, game) {
   return {
     ...base, best_rank: ranked.length ? Math.min(...ranked) : null, ...anchor, daily, no_list_days: [], weekly, monthly,
     mtd: mtdDays.length ? { month, through: asof, total: total(mtdDays.filter((r) => r[0] >= revenueFrom), 3, 0.7, 1.5), days: mtdDays.map((r) => [r[0], r[1], r[2], r[3], r[4]]) } : null,
-    outlook14: outlook && { cutoff: asof, days: outlook, revenue_total: q(outlook.reduce((s, d) => s + daily50(market, store, d[3]), 0), 0.4, 2.4), revenue_daily: outlook.map((d) => [d[0], ...q(daily50(market, store, d[3]), 0.35, 2.8)]) },
+    // outlookKey 'outlook': the rank-only `outlook` block ({ days }) instead of outlook14
+    ...(spec.outlookKey === 'outlook'
+      ? { outlook14: null, outlook: outlook && { days: outlook } }
+      : { outlook14: outlook && { cutoff: asof, days: outlook, revenue_total: q(outlook.reduce((s, d) => s + daily50(market, store, d[3]), 0), 0.4, 2.4), revenue_daily: outlook.map((d) => [d[0], ...q(daily50(market, store, d[3]), 0.35, 2.8)]) } }),
     downloads_est: downloadsEst(market, store, spec, dates),
     position: { genre_key: sg, days_since_launch: Math.round((Date.parse(asof) - Date.parse(game.release_date)) / DAY_MS), launch_cohort: cohort, launch_curve_x: cohort ? 40 : null, rel_to_first30: 0.45, decay_x: cohort ? 1 : 5, decay_curve_ref: `decay:all:${market}:${store}:${sg}`, launch_curve_ref: `launch:${market}:${store}:${sg}` },
   };
@@ -145,8 +150,9 @@ function bandsJson(asof, bandTiers = {}) {
 }
 
 // bandTiers: { '<market>|<store>|<lo>': tier } crafted bands.json tiers (numbers kept);
-// mutate(rel, json): edits a file's JSON before it is hashed into the manifest (crafted strings and fields)
-function writeFixture(dir, { asof, games, bandTiers, mutate }) {
+// mutate(rel, json): edits a file's JSON before it is hashed into the manifest (crafted strings and fields);
+// manifest: extra top-level manifest fields (e.g. outlook_model)
+function writeFixture(dir, { asof, games, bandTiers, mutate, manifest }) {
   fs.rmSync(dir, { recursive: true, force: true });
   const files = {};
   const write = (rel, value) => {
@@ -164,7 +170,7 @@ function writeFixture(dir, { asof, games, bandTiers, mutate }) {
   write('games_index.json', { schema_version: 1, asof, columns: ['store', 'app_id', 'title', 'markets'], games: games.map((g) => [g.store, g.app_id, g.title, Object.keys(g.markets)]) });
   write('genres.json', genresJson(asof));
   write('bands.json', bandsJson(asof, bandTiers));
-  fs.writeFileSync(path.join(dir, 'manifest.json'), JSON.stringify({ schema_version: 1, asof, generated_at: `${asof}T00:00:00Z`, model_version: 'fixture', n_games: games.length, window_days: DAYS, outlook_days: 14, files }, null, 1));
+  fs.writeFileSync(path.join(dir, 'manifest.json'), JSON.stringify({ schema_version: 1, asof, generated_at: `${asof}T00:00:00Z`, model_version: 'fixture', n_games: games.length, window_days: DAYS, outlook_days: 14, ...(manifest || {}), files }, null, 1));
   return dir;
 }
 
