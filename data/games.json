@@ -152596,8 +152596,23 @@
         "ko": "Stickman Fight-Stick Brawl",
         "zh-tw": "Stickman Fight-Stick Brawl"
       }
+    },
+    "烈焰觉醒-全新跨界情缘周年庆震撼首发": {
+      "appIds": {
+        "ios_cn": 6470270669
+      },
+      "aliases": [],
+      "developer": "Hangzhou Yuanshuang Network Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/10/ff/a610ff24-acfc-8353-d3b4-4b7faf8a04f0/ShadowHeavenAppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "烈焰觉醒-全新跨界情缘周年庆震撼首发",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "烈焰觉醒-全新跨界情缘周年庆震撼首发"
+      }
     }
   },
   "lastUpdated": "2026-10-26",
-  "totalGames": 8872
+  "totalGames": 8873
 }
