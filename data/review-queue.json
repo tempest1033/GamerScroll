@@ -46348,6 +46348,28 @@
         }
       ],
       "addedAt": "2026-10-25T20:30:41.032Z"
+    },
+    {
+      "title": "Undawn(언던)",
+      "status": "single",
+      "appIds": {
+        "ios": "1502942724"
+      },
+      "developer": "Level Infinite",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/5f/c1/ac5fc1e7-38a4-fb1a-450d-3f7edcf937ce/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-26T05:03:00.870Z"
+    },
+    {
+      "title": "Armor Sandbox",
+      "status": "single",
+      "appIds": {
+        "ios": 6821128741
+      },
+      "developer": "Vitor Japiassu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/19/7b/ed197b5d-cd35-1025-057f-7f2da7c6c4ab/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-26T05:03:01.254Z"
     }
   ],
   "approved": [

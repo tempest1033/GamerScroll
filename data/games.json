@@ -152611,8 +152611,39 @@
       "names": {
         "zh-cn": "烈焰觉醒-全新跨界情缘周年庆震撼首发"
       }
+    },
+    "Undawn(언던)": {
+      "appIds": {
+        "ios": "1502942724"
+      },
+      "aliases": [],
+      "developer": "Level Infinite",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/5f/c1/ac5fc1e7-38a4-fb1a-450d-3f7edcf937ce/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "undawn언던",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Undawn(언던)"
+      }
+    },
+    "Armor Sandbox": {
+      "appIds": {
+        "ios": 6821128741
+      },
+      "aliases": [],
+      "developer": "Vitor Japiassu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/19/7b/ed197b5d-cd35-1025-057f-7f2da7c6c4ab/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "armor-sandbox",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Armor Sandbox",
+        "en": "Armor Sandbox"
+      }
     }
   },
   "lastUpdated": "2026-10-26",
-  "totalGames": 8873
+  "totalGames": 8875
 }
