@@ -29,7 +29,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const { idFor } = require('./game-data');
-const { revenueShown, downloadsShown, bandTiers, maskBands } = require('../templates/components/revenue-policy');
+const { revenueShown, downloadsShown, bandTiers, maskBands, MARKET_CURRENCY } = require('../templates/components/revenue-policy');
 
 const ROOT = path.resolve(__dirname, '../..');
 const DEFAULT_DIR = path.join(ROOT, 'cache', 'service-exports');
@@ -91,6 +91,8 @@ const quantiles = (q, where) => {
 const triple = (q, where) => (q == null ? null : quantiles(q, where));
 // Inside row arrays a hidden triple stays three nulls (the page reads q10 == null as hidden).
 const cells = (q, where) => quantiles(q, where) || [null, null, null];
+const isMonth = (value) => typeof value === 'string' && /^\d{4}-\d{2}$/.test(value);
+const dayOrThrow = (value, where) => { if (!isDay(value)) throw new Error(`${where}: bad date ${JSON.stringify(value)}`); return value; };
 const rankOrNull = (r, where) => { if (r == null) return null; if (!Number.isInteger(r) || r < 1) throw new Error(`${where}: bad rank ${r}`); return r; };
 
 const consecutive = (daily, where) => daily.forEach((row, i) => {
@@ -154,16 +156,17 @@ function compactStore(m, where, asof) {
   const shown = (date) => !l || (l.rs != null && date >= l.rs);
   const d = daily.map((row) => [rankOrNull(row[1], where), ...(shown(row[0]) ? cells(row.slice(2, 5), `${where} ${row[0]}`) : [null, null, null])]);
   const rows = (list, key) => (l && l.nw ? [] : periodRows(list, key, where));
+  if (m.mtd && !isMonth(m.mtd.month)) throw new Error(`${where}: bad mtd month ${JSON.stringify(m.mtd.month)}`);
   const mtd = m.mtd ? {
-    m: m.mtd.month, th: m.mtd.through, t: l && l.nw ? null : triple(m.mtd.total, `${where} mtd`),
-    d: (m.mtd.days || []).map((row) => [row[0], rankOrNull(row[1], where), ...(shown(row[0]) ? cells(row.slice(2, 5), `${where} mtd ${row[0]}`) : [null, null, null])]),
+    m: m.mtd.month, th: dayOrThrow(m.mtd.through, `${where} mtd`), t: l && l.nw ? null : triple(m.mtd.total, `${where} mtd`),
+    d: (m.mtd.days || []).map((row) => [dayOrThrow(row[0], `${where} mtd`), rankOrNull(row[1], where), ...(shown(row[0]) ? cells(row.slice(2, 5), `${where} mtd ${row[0]}`) : [null, null, null])]),
   } : null;
   const o = m.outlook14 && m.outlook14.days && m.outlook14.days.length ? {
-    c: m.outlook14.cutoff,
+    c: dayOrThrow(m.outlook14.cutoff, `${where} outlook`),
     d: m.outlook14.days.map((row) => {
       const r = row.slice(1, 6);
       if (!r.every((x) => x == null || finite(x)) || !finite(row[6]) || row[6] < 0 || row[6] > 1) throw new Error(`${where}: bad outlook row ${row[0]}`);
-      return [row[0], ...r.map((x) => (x == null ? null : Math.round(x))), Math.round(row[6] * 1000) / 1000];
+      return [dayOrThrow(row[0], `${where} outlook`), ...r.map((x) => (x == null ? null : Math.round(x))), Math.round(row[6] * 1000) / 1000];
     }),
     // New games: rank outlook only, no 14-day revenue total.
     t: l && l.nw ? null : triple(m.outlook14.revenue_total, `${where} outlook`),
@@ -203,6 +206,8 @@ const shownDownloads = (p) => Boolean(p && downloadsShown(p.de));
  */
 function usableCurve(kind, c) {
   if (!c || !finite(c.n_listings) || c.n_listings < MIN_CURVE_N || !Array.isArray(c.points)) return null;
+  // Keys the pages select and label by: known market / store, a string subgenre (escaped wherever it is shown).
+  if (!MARKETS.includes(c.market) || !STORES.includes(c.store) || typeof c.genre !== 'string' || (c.cohort != null && typeof c.cohort !== 'string')) return null;
   const cols = kind === 'decay' ? [2, 3, 4] : [5, 6, 7];
   const all = c.points.filter((p) => finite(p[0]) && finite(p[1]) && p[1] >= MIN_CURVE_N && finite(p[cols[0]])).map((p) => [p[0], ...cols.map((i) => sig(p[i]))]);
   if (all.length < 2) return null;
@@ -262,6 +267,9 @@ function createExports(dir, verified) {
         const dl = record.downloads || {};
         if (store === 'android' && play == null && finite(dl.play_bucket_min)) play = dl.play_bucket_min;
         if (store === 'ios' && dl.ios_ratings && finite(dl.ios_ratings[market])) r[market] = dl.ios_ratings[market];
+        // Currency is fixed per market; a record with a shown tier and any other currency is dropped.
+        const rec = record.markets[market];
+        if (rec && revenueShown(rec.tier) && rec.currency !== MARKET_CURRENCY[market]) { skipped++; warn(`${store}:${id} ${market}: currency ${JSON.stringify(rec.currency)} is not ${MARKET_CURRENCY[market]}`); continue; }
         let payload;
         try { payload = compactStore(record.markets[market], `${store}:${id} ${market}`, asof); } catch (error) { skipped++; warn(error.message); continue; }
         if (!payload) continue;
@@ -274,7 +282,7 @@ function createExports(dir, verified) {
         }
         s[store] = payload;
         if (revenueShown(payload.t)) {
-          currency = currency || record.markets[market].currency;
+          currency = MARKET_CURRENCY[market];
           fx = fx || usdPerUnit(record.markets[market].fx_usd, asof);
           for (const ref of [payload.p && payload.p.dc, payload.p && payload.p.lr]) if (ref && curves.has(ref)) cv[ref] = curves.get(ref);
         }
@@ -289,8 +297,9 @@ function createExports(dir, verified) {
   return {
     asof, dir, basis, records, curves,
     // bands.json cells: one game's revenue at a rank in [lo, hi] per day/week/30 days (local q10/q50/q90), tier, coverage80
-    bands: (bands.cells || []).filter((b) => MARKETS.includes(b.market) && STORES.includes(b.store) && Number.isInteger(b.lo) && Number.isInteger(b.hi)).map((b) => ({
-      market: b.market, store: b.store, lo: b.lo, hi: b.hi, currency: b.currency, tier: b.tier,
+    // (cells with a currency other than the market's are dropped)
+    bands: (bands.cells || []).filter((b) => MARKETS.includes(b.market) && STORES.includes(b.store) && Number.isInteger(b.lo) && Number.isInteger(b.hi) && b.currency === MARKET_CURRENCY[b.market]).map((b) => ({
+      market: b.market, store: b.store, lo: b.lo, hi: b.hi, currency: MARKET_CURRENCY[b.market], tier: b.tier,
       day: !revenueShown(b.tier) || !Array.isArray(b.day) ? null : b.day, month30: !revenueShown(b.tier) || !Array.isArray(b.month30) ? null : b.month30,
       usd: revenueShown(b.tier) && finite(b.day_usd_q50) && Array.isArray(b.day) && b.day[1] > 0 ? b.day_usd_q50 / b.day[1] : null,
       coverage: b.coverage80 && finite(b.coverage80.revenue_daily) ? b.coverage80.revenue_daily : null, coverageN: b.coverage80 ? b.coverage80.n_games : null,

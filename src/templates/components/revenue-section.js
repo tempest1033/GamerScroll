@@ -37,9 +37,10 @@ const memo = (kind, value, make) => {
   return out;
 };
 const monthLabel = (date) => memo('m', date.slice(0, 7), (m) => C.esc(formatDate(`${m}-01`, { month: 'short' })));
-const yearMonth = (m) => memo('ym', m, formatYearMonth);
+const yearMonth = (m) => memo('ym', m, (x) => C.esc(formatYearMonth(x)));
 const dayShort = (d) => memo('ds', d, (x) => C.esc(formatMonthDay(x, true)));
-const dayLong = (d) => memo('dl', d, formatDay);
+// i18n formatters pass non-dates through unchanged: escape their output (page data strings come from the bundle).
+const dayLong = (d) => memo('dl', d, (x) => C.esc(formatDay(x)));
 const storeName = (store) => (store === 'all' ? t('rev.store_all') : t(STORE_KEYS[store]));
 const marketName = (market) => t(MARKET_KEYS[market]);
 // x labels at month starts only (the partial first month stays unlabeled so labels never collide)
@@ -190,7 +191,7 @@ function positionBlock(store, p, ctx) {
   const parts = [];
   if (decay && decay.md > 0) {
     parts.push(`<p class="rv-mid">${t('rev.decay_sentence', { genre: C.esc(genre), pct: Math.round(decay.md * 100), n: formatNumber(decay.n) })}</p>`);
-    if (basis && basis.y && basis.m && basis.f) parts.push(small(t('rev.decay_note', { year: basis.y, months: basis.m, floor: basis.f })));
+    if (basis && basis.y && basis.m && basis.f) parts.push(small(t('rev.decay_note', { year: C.esc(basis.y), months: C.esc(basis.m), floor: C.esc(basis.f) })));
   }
   // Launch-cohort games only: their first 30 chart days are their launch (other games' history is left-truncated).
   if (pos.lx != null && pos.rf != null) parts.push(`<p class="rv-text">${t('rev.position_now', { days: formatNumber(pos.lx), pct: C.percent(pos.rf) })}</p>`);
@@ -335,8 +336,13 @@ function marketPanel(market, data, rev, ctx, options) {
 
 function renderRevenueSection(page) {
   if (!page || !page.m) return '';
-  // Display allowlists again at render (revenue-policy.js): numbers only for shown tiers, per rank band.
-  const rev = { ...page, m: Object.fromEntries(Object.entries(page.m).map(([k, x]) => [k, { ...x, s: Object.fromEntries(Object.entries(x.s || {}).map(([s, p]) => [s, P.displayStore(p)])) }])) };
+  // Display allowlists again at render (revenue-policy.js): numbers only for shown tiers, per rank band; the market's own
+  // currency only (any other → no revenue numbers there), a numeric USD rate.
+  const rev = { ...page, m: Object.fromEntries(Object.entries(page.m).filter(([k]) => MARKETS.includes(k)).map(([k, x]) => {
+    const ok = x.c === P.MARKET_CURRENCY[k];
+    const fx = typeof x.fx === 'number' && Number.isFinite(x.fx) && x.fx > 0 ? x.fx : null;
+    return [k, { c: P.MARKET_CURRENCY[k], fx, s: Object.fromEntries(Object.entries(x.s || {}).map(([s, p]) => [s, P.displayStore(ok ? p : { ...p, t: null })])) }];
+  })) };
   const home = currentEdition().country;
   const markets = [home, ...MARKETS.filter((m) => m !== home)].filter((m) => rev.m[m]);
   if (!markets.length) return '';

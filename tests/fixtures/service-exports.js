@@ -144,14 +144,15 @@ function bandsJson(asof, bandTiers = {}) {
   return { schema_version: 1, asof, model_version: 'fixture', bands: 'band_table granularity: 1..10 single ranks, 11-50 by 5, 51-100 by 10, 101-200 by 20', notes: [], cells };
 }
 
-// bandTiers: { '<market>|<store>|<lo>': tier } crafted bands.json tiers (numbers kept)
-function writeFixture(dir, { asof, games, bandTiers }) {
+// bandTiers: { '<market>|<store>|<lo>': tier } crafted bands.json tiers (numbers kept);
+// mutate(rel, json): edits a file's JSON before it is hashed into the manifest (crafted strings and fields)
+function writeFixture(dir, { asof, games, bandTiers, mutate }) {
   fs.rmSync(dir, { recursive: true, force: true });
   const files = {};
   const write = (rel, value) => {
     const file = path.join(dir, rel);
     fs.mkdirSync(path.dirname(file), { recursive: true });
-    const bytes = Buffer.from(JSON.stringify(value));
+    const bytes = Buffer.from(JSON.stringify(mutate ? mutate(rel.replace(/\\/g, '/'), value) || value : value));
     fs.writeFileSync(file, bytes);
     files[rel.replace(/\\/g, '/')] = { sha256: crypto.createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length };
   };

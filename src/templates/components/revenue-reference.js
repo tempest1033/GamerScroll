@@ -18,11 +18,9 @@ const MARKET_PANEL = { kr: 'rv-mp-kr', jp: 'rv-mp-jp', us: 'rv-mp-us', tw: 'rv-m
 const MARKET_TAB = { kr: 'rv-tab-kr', jp: 'rv-tab-jp', us: 'rv-tab-us', tw: 'rv-tab-tw', cn: 'rv-tab-cn' };
 const VIEW = { ios: { id: 'rv-s-ios', cls: 'rv-x-ios', tab: 'rv-st-ios' }, android: { id: 'rv-s-and', cls: 'rv-x-and', tab: 'rv-st-and' } };
 const CURVE_CLASS = { ios: 'rv-c-ios', android: 'rv-c-and' };
-// bands.json cells carry the currency; fallback per market.
-const MARKET_CURRENCY = { kr: 'KRW', jp: 'JPY', us: 'USD', tw: 'TWD', cn: 'CNY' };
 const marketName = (m) => t(MARKET_KEYS[m]);
 const ordered = (home, present) => [home, ...MARKETS.filter((m) => m !== home)].filter((m) => present.has(m));
-const card = (cls, title, asof, body) => `<section class="rk-card rv-ref-card ${cls}"><h2>${title} <span class="rv-beta">${t('rev.beta')}</span></h2><p class="rv-asof">${t('rev.asof', { date: formatDay(asof) })}</p>${body}</section>`;
+const card = (cls, title, asof, body) => `<section class="rk-card rv-ref-card ${cls}"><h2>${title} <span class="rv-beta">${t('rev.beta')}</span></h2><p class="rv-asof">${t('rev.asof', { date: C.esc(formatDay(asof)) })}</p>${body}</section>`;
 
 function renderBandTable(home) {
   const svc = loadServiceExports();
@@ -33,7 +31,8 @@ function renderBandTable(home) {
   const cell = new Map(svc.bands.map((b) => [`${b.market}|${b.store}|${key(b)}`, b]));
   const ranges = [...new Map(svc.bands.map((b) => [key(b), b])).values()].sort((a, b) => a.lo - b.lo || a.hi - b.hi);
   // USD per local unit from the band's own USD median (bands.json day_usd_q50).
-  const curOf = (m) => { const b = svc.bands.find((x) => x.market === m && x.usd); return { c: (svc.bands.find((x) => x.market === m && x.currency) || {}).currency || MARKET_CURRENCY[m], fx: b ? b.usd : null }; };
+  // Currency fixed per market (cells with another one were dropped at ingestion).
+  const curOf = (m) => { const b = svc.bands.find((x) => x.market === m && x.usd); return { c: P.MARKET_CURRENCY[m], fx: b && Number.isFinite(b.usd) ? b.usd : null }; };
   const usd = markets.some((m) => C.hasUsd(curOf(m)));
   const bandLabel = (b) => (b.lo === b.hi ? C.rankText(b.lo) : `${C.rankText(b.lo)}–${C.rankText(b.hi)}`);
   const table = (store) => {
@@ -45,7 +44,7 @@ function renderBandTable(home) {
       return `<td class="r"${C.hasUsd(cur) ? ` data-fx="${cur.fx}"` : ''}><b>${C.moneyHtml(b.day[1], cur)}</b><small>${C.rangeHtml(b.day[0], b.day[2], cur)}</small>${Number.isFinite(b.coverage) ? `<small>${t('rev.coverage', { pct: C.percent(b.coverage) })}</small>` : ''}</td>`;
     }).join('')}</tr>`).join('');
     const classes = `rv-x ${VIEW[store].cls}${stores.length === 1 ? ' rv-x-all' : ''}`;
-    return `<div class="${classes}"><div class="rv-scroll"><table class="rk-table rv-table rv-ref-table"><thead><tr><th>${t('rev.col_band')}</th>${markets.map((m) => `<th class="r">${marketName(m)} <small>${curOf(m).c}</small></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></div>`;
+    return `<div class="${classes}"><div class="rv-scroll"><table class="rk-table rv-table rv-ref-table"><thead><tr><th>${t('rev.col_band')}</th>${markets.map((m) => `<th class="r">${marketName(m)} <small>${C.esc(curOf(m).c)}</small></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div></div>`;
   };
   const inputs = stores.map((s, i) => `<input type="radio" name="rv-s" id="${VIEW[s].id}" class="rv-ctl"${i === 0 ? ' checked' : ''} aria-label="${C.esc(t(STORE_KEYS[s]))}">`).join('') + (usd ? '<input type="checkbox" id="rv-usd" class="rv-ctl">' : '');
   const seg = stores.length > 1 ? `<div class="rv-seg rv-stores" role="group" aria-label="${t('rev.store_aria')}">${stores.map((s) => `<label for="${VIEW[s].id}" class="${VIEW[s].tab}">${t(STORE_KEYS[s])}</label>`).join('')}</div>` : '';
@@ -64,7 +63,7 @@ const curvesOf = (svc, id) => [...svc.curves.values()].filter((c) => isListed(c)
 function decaySentences(curves, svc) {
   const lines = curves.filter((c) => c.kind === 'decay' && c.md > 0).map((c) => `<p class="rv-mid"><span class="rv-eyebrow">${t(STORE_KEYS[c.store])}</span>${t('rev.decay_sentence', { genre: C.esc(C.subgenreName(c.genre)), pct: Math.round(c.md * 100), n: formatNumber(c.n) })}</p>`);
   const b = svc.basis;
-  return lines.length ? lines.join('') + (b.y && b.m && b.f ? `<p class="rv-small">${t('rev.decay_note', { year: b.y, months: b.m, floor: b.f })}</p>` : '') : '';
+  return lines.length ? lines.join('') + (b.y && b.m && b.f ? `<p class="rv-small">${t('rev.decay_note', { year: C.esc(b.y), months: C.esc(b.m), floor: C.esc(b.f) })}</p>` : '') : '';
 }
 
 function curveFigure(curves, kind, genre, market) {
@@ -110,7 +109,7 @@ function genreDecayTable(svc, home) {
     }).join('')}</tr>`;
   })).join('');
   const b = svc.basis;
-  return card('rv-curves', t('rev.curves_title'), svc.asof, `<div class="rv"><div class="rv-scroll"><table class="rk-table rv-table rv-ref-table"><thead><tr><th>${t('rev.col_genre')}</th><th>${t('rev.store_aria')}</th>${markets.map((m) => `<th class="r">${marketName(m)} <small>${t('rev.col_decay')}</small></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>${b.y && b.m && b.f ? `<p class="rv-small">${t('rev.decay_note', { year: b.y, months: b.m, floor: b.f })}</p>` : ''}</div>`);
+  return card('rv-curves', t('rev.curves_title'), svc.asof, `<div class="rv"><div class="rv-scroll"><table class="rk-table rv-table rv-ref-table"><thead><tr><th>${t('rev.col_genre')}</th><th>${t('rev.store_aria')}</th>${markets.map((m) => `<th class="r">${marketName(m)} <small>${t('rev.col_decay')}</small></th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div>${b.y && b.m && b.f ? `<p class="rv-small">${t('rev.decay_note', { year: C.esc(b.y), months: C.esc(b.m), floor: C.esc(b.f) })}</p>` : ''}</div>`);
 }
 
 function renderGenreCurves(id, home) {

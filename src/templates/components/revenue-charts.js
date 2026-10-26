@@ -52,7 +52,7 @@ const USD_SCRIPT = `<script>(function(){var r=document.currentScript.closest('[d
 const count = (v, digits = 3, roundingMode) => (v == null ? '-' : nf('count', '', digits, roundingMode).format(v));
 const countRange = (lo, hi) => `${count(lo, 2, 'floor')}–${count(hi, 2, 'ceil')}`;
 const percent = (v, digits = 0) => formatNumber(v, { style: 'percent', maximumFractionDigits: digits });
-const rankText = (r) => t('rank.rank_number', { p0: r });
+const rankText = (r) => t('rank.rank_number', { p0: esc(r) });
 // Store subgenre of the bundle ('Role Playing', 'Strategy', … App Store genre ids 7001–7019 / Play categories) in the edition.
 const subgenreName = (name) => { const key = `rev.sg_${String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '_')}`; return has(key) ? t(key) : String(name || ''); };
 

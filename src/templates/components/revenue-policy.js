@@ -9,6 +9,11 @@
  */
 const REVENUE_TIERS = ['beta', 'wide'];
 const DOWNLOAD_TIERS = ['verified', 'unverified', 'assumption', 'partial_store'];
+// The only currency per market: a record or band cell with any other currency string is dropped (never rendered).
+const MARKET_CURRENCY = { kr: 'KRW', jp: 'JPY', us: 'USD', tw: 'TWD', cn: 'CNY' };
+// tier_by_band key of the chart floor: off-chart days (rank null) are estimated at the 181–200 band revenue (genres.json
+// caveats), which the bundle's '51-200' band carries. Absent or not shown → those days are masked.
+const OFF_CHART_BAND = [51, 200];
 const NULL3 = [null, null, null];
 
 const revenueShown = (tier) => REVENUE_TIERS.includes(tier);
@@ -20,11 +25,11 @@ function bandTiers(byBand) {
   return Object.entries(byBand).map(([k, v]) => { const m = /^(\d+)-(\d+)$/.exec(k); return m ? [Number(m[1]), Number(m[2]), v] : null; })
     .filter(Boolean).sort((a, b) => a[0] - b[0]);
 }
-// A rank's band must have a shown tier; off-chart days (rank null) are estimated at the floor, so the lowest band applies.
-// A rank outside every band is not shown.
+// A rank's band must have a shown tier; off-chart days (rank null) use the OFF_CHART_BAND key exactly. A rank outside
+// every band is not shown.
 function bandShown(tb, rank) {
   if (!tb) return true;
-  const band = rank == null ? tb[tb.length - 1] : tb.find(([lo, hi]) => rank >= lo && rank <= hi);
+  const band = rank == null ? tb.find(([lo, hi]) => lo === OFF_CHART_BAND[0] && hi === OFF_CHART_BAND[1]) : tb.find(([lo, hi]) => rank >= lo && rank <= hi);
   return Boolean(band && revenueShown(band[2]));
 }
 
@@ -57,4 +62,4 @@ function displayStore(p) {
   return de ? { ...rest, de } : rest;
 }
 
-module.exports = { REVENUE_TIERS, DOWNLOAD_TIERS, revenueShown, downloadsShown, bandTiers, bandShown, maskBands, displayStore };
+module.exports = { REVENUE_TIERS, DOWNLOAD_TIERS, MARKET_CURRENCY, OFF_CHART_BAND, revenueShown, downloadsShown, bandTiers, bandShown, maskBands, displayStore };

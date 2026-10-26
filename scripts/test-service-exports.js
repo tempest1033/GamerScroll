@@ -33,6 +33,7 @@ function bundle(t, overrides = {}) {
   writeFixture(dir, {
     asof: ASOF,
     bandTiers: overrides.bandTiers,
+    mutate: overrides.mutate,
     games: [
       // kr: no download model (downloads_est null as in the real bundle → fallback indicators); jp: download estimate (unverified tier)
       { ...game, store: 'ios', app_id: APP.ios, markets: { kr: { ranks: syntheticRanks(12) }, jp: { ranks: syntheticRanks(40, { gap: 20 }), downloads: 'unverified' } }, ios_ratings: { kr: 12345, jp: 678 } },
@@ -393,6 +394,147 @@ test('per-band tiers (tier_by_band): days, periods and totals touching a non-sho
   assert.ok(shown.d.filter((r) => r[0] > 10).every((r) => r[1] == null));
   assert.ok(shown.d.filter((r) => r[0] != null && r[0] <= 10).every((r) => r[1] != null));
   assert.deepEqual(P.displayStore(shown), shown, 'idempotent');
+});
+
+test('off-chart days use the explicit 51-200 band key: absent → masked, at ingestion and render', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Off chart' };
+  // iOS (revenue from the store release date, so off-chart days carry estimates), ranks 1–8 after 20 off-chart days
+  const svc = loadServiceExports({ dir: bundle(t, { games: [
+    { ...game, store: 'ios', app_id: '6500000005', markets: { kr: { ranks: syntheticRanks(5, { gap: 20 }), tierByBand: { '1-10': 'wide' } } } },
+  ] }), now: NOW });
+  const p = svc.revenueFor({ ios: '6500000005' }).m.kr.s.ios;
+  assert.ok(p.d.slice(0, 20).every((r) => r[0] == null && r[1] == null && r[3] == null), 'off-chart days masked');
+  assert.ok(p.d.slice(20).every((r) => r[0] <= 10 && r[1] != null), 'ranked days in 1-10 kept');
+  assert.equal(p.mo[0][1], null, 'month with off-chart days hidden');
+  assert.equal(p.w[0][1], null, 'week with off-chart days hidden');
+  assert.ok(p.mo[p.mo.length - 1][1] != null);
+
+  // Render: page data whose off-chart days carry numbers, with a tb lacking the 51-200 key.
+  const good = loadServiceExports({ dir: bundle(t), now: NOW }).revenueFor(APP);
+  const jp = good.m.jp.s.ios; // 20 off-chart days, then ranks ~24–43
+  assert.ok(jp.d.slice(0, 20).every((r) => r[0] == null && r[1] != null), 'the fixture estimates off-chart days');
+  const page = JSON.parse(JSON.stringify(good));
+  page.m.jp.s.ios.tb = [[1, 50, 'wide']];
+  const shown = P.displayStore(page.m.jp.s.ios);
+  assert.ok(shown.d.slice(0, 20).every((r) => r[1] == null), 'render masks off-chart days');
+  assert.ok(shown.d.slice(20).every((r) => r[1] != null));
+  assert.equal(shown.mo[0][1], null);
+  const jpText = (rev) => { const html = withEdition('ko', () => renderRevenueSection(rev)); return visibleText(html.slice(html.indexOf('rv-mp-jp'))); };
+  const hiddenLabel = withEdition('ko', () => i18n.t('rev.bands_hidden'));
+  assert.ok(!jpText(good).includes(hiddenLabel));
+  assert.ok(jpText(page).includes(hiddenLabel), 'months with off-chart days show the hidden note');
+  // the declared key with a shown tier keeps them
+  page.m.jp.s.ios.tb = [[1, 50, 'wide'], [51, 200, 'beta']];
+  assert.ok(P.displayStore(page.m.jp.s.ios).d.slice(0, 20).every((r) => r[1] != null));
+});
+
+// Bundle strings (titles, developer, genres, currency, dates, tiers, band names, notes) never reach the HTML as markup:
+// bad currency / dates drop the record or cell at ingestion, the rest is escaped at render.
+const XSS = '"><img src=x onerror=alert(1)>';
+const assertNoMarkup = (html, where) => { assert.ok(!/<img/i.test(html), `raw markup in ${where}`); assert.ok(!html.includes(XSS), where); };
+const EDITIONS = ['ko', 'en', 'ja', 'zh-cn', 'zh-tw'];
+
+test('crafted bundle strings: dropped or escaped in the game section', (t) => {
+  t.mock.method(console, 'warn', () => {});
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'XSS' };
+  const svc = loadServiceExports({ dir: bundle(t, {
+    games: [
+      { ...game, store: 'ios', app_id: '8000000001', markets: { kr: { ranks: syntheticRanks(12), downloads: 'unverified' }, jp: { ranks: syntheticRanks(12) } }, ios_ratings: { kr: 5, jp: 6 } },
+      { ...game, store: 'android', app_id: 'com.example.xss', markets: { kr: { ranks: syntheticRanks(14), downloads: 'verified' } }, play_bucket_min: 1000000 },
+      { ...game, store: 'ios', app_id: '8000000003', markets: { kr: { ranks: syntheticRanks(12) } } },
+      { ...game, store: 'ios', app_id: '8000000004', markets: { kr: { ranks: syntheticRanks(12) } } },
+    ],
+    mutate: (rel, j) => {
+      if (rel === 'games/ios/8000000001.json') {
+        Object.assign(j, { title: XSS, developer: XSS, genre: XSS, subgenre: XSS });
+        Object.assign(j.markets.kr, { title: XSS, best_rank: XSS });
+        j.markets.kr.position.genre_key = XSS;
+        j.markets.jp.currency = XSS; // → the jp record is dropped
+      }
+      if (rel === 'games/android/com.example.xss.json') { j.markets.kr.downloads_est.tier = XSS; j.markets.kr.title = XSS; }
+      if (rel === 'games/ios/8000000003.json') j.markets.kr.mtd.month = XSS;
+      if (rel === 'games/ios/8000000004.json') j.markets.kr.outlook14.days[0][0] = XSS;
+      if (rel === 'genres.json') {
+        j.caveats = [XSS];
+        for (const c of [...Object.values(j.decay), ...Object.values(j.launch)]) if (c.market === 'kr') c.genre += XSS;
+      }
+      if (rel === 'bands.json') {
+        Object.assign(j, { notes: [XSS], bands: XSS });
+        j.cells[0].band = XSS;
+        j.cells.find((c) => c.market === 'jp' && c.store === 'ios' && c.lo === 5).currency = XSS;
+      }
+    },
+  }), now: NOW });
+  const rev = svc.revenueFor({ ios: '8000000001', android: 'com.example.xss' });
+  assert.ok(!rev.m.jp || !rev.m.jp.s.ios, 'record with a foreign currency dropped');
+  assert.equal(rev.m.kr.c, 'KRW');
+  assert.equal(rev.m.kr.s.android.de, undefined, 'crafted download tier: no estimate');
+  for (const id of ['8000000003', '8000000004']) { const r = svc.revenueFor({ ios: id }); assert.ok(!r || !r.m.kr || !r.m.kr.s.ios, `bad date drops ${id}`); }
+  assert.equal(svc.skipped, 3);
+  assert.ok(!svc.bands.some((b) => b.market === 'jp' && b.store === 'ios' && b.lo === 5), 'band cell with a foreign currency dropped');
+  for (const code of EDITIONS) {
+    const html = withEdition(code, () => renderRevenueSection(rev));
+    assertNoMarkup(html, `section ${code}`);
+    assert.ok(html.includes('&lt;img'), 'the crafted curve genre is rendered escaped');
+  }
+
+  // Render layer on its own: crafted strings in the page data.
+  const good = loadServiceExports({ dir: bundle(t), now: NOW }).revenueFor(APP);
+  const page = JSON.parse(JSON.stringify(good));
+  page.a = XSS;
+  page.b = { y: XSS, m: XSS, f: XSS };
+  page.m.kr.fx = XSS;
+  const ios = page.m.kr.s.ios;
+  Object.assign(ios.mtd, { m: XSS, th: XSS });
+  ios.mtd.d[0][0] = XSS;
+  ios.mo[0][0] = XSS;
+  ios.fr = { r: XSS, b: XSS };
+  page.m.kr.s.android.de = { ...page.m.jp.s.ios.de, t: XSS };
+  for (const c of Object.values(page.cv)) c.genre = XSS;
+  page.m[XSS] = page.m.us;
+  // a foreign currency in the page data: no revenue numbers in that market
+  const foreign = JSON.parse(JSON.stringify(good));
+  foreign.m.kr.c = XSS;
+  for (const code of EDITIONS) {
+    const html = withEdition(code, () => renderRevenueSection(page));
+    assertNoMarkup(html, `page data ${code}`);
+    assert.ok(!html.includes('data-fx="' + XSS), 'fx');
+    const kr = withEdition(code, () => renderRevenueSection(foreign));
+    assertNoMarkup(kr, `currency ${code}`);
+    const panel = kr.slice(kr.indexOf('rv-mp-kr')).split('rv-mp-jp')[0];
+    assert.ok(!panel.includes('rv-band') && panel.includes(withEdition(code, () => i18n.t('rev.hidden'))), `foreign currency hides kr revenue (${code})`);
+  }
+});
+
+test('crafted bundle strings: dropped or escaped in the rank hub and genre cards', (t) => {
+  const dir = bundle(t);
+  const reference = () => { delete require.cache[require.resolve('../src/templates/components/revenue-reference')]; return require('../src/templates/components/revenue-reference'); };
+  const previous = process.env.SERVICE_EXPORTS_DIR;
+  t.after(() => { if (previous === undefined) delete process.env.SERVICE_EXPORTS_DIR; else process.env.SERVICE_EXPORTS_DIR = previous; });
+  const today = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+  const crafted = path.join(dir, '..', 'crafted');
+  writeFixture(crafted, { asof: today, games: [], mutate: (rel, j) => {
+    if (rel === 'genres.json') {
+      j.caveats = [XSS];
+      for (const c of [...Object.values(j.decay), ...Object.values(j.launch)]) if (c.market === 'kr') c.genre += XSS;
+      j.decay[Object.keys(j.decay)[0]].market = XSS;
+    }
+    if (rel === 'bands.json') {
+      Object.assign(j, { notes: [XSS], bands: XSS });
+      for (const c of j.cells) c.band = XSS;
+      for (const c of j.cells.filter((x) => x.market === 'jp')) c.currency = XSS; // the whole jp column
+    }
+  } });
+  process.env.SERVICE_EXPORTS_DIR = crafted;
+  const { renderBandTable, renderGenreCurves } = reference();
+  for (const code of EDITIONS) {
+    const bands = withEdition(code, () => renderBandTable('kr'));
+    assertNoMarkup(bands, `bands ${code}`);
+    assert.ok(bands.includes('<small>KRW</small>') && !/<th class="r">[^<]*<small>(?!KRW|USD|TWD|CNY)/.test(bands), 'fixed currencies only');
+    assert.ok(!bands.includes(withEdition(code, () => i18n.t('stats.japan'))), 'jp cells with a foreign currency dropped');
+    for (const id of ['rpg', 'all', 'strategy-defense']) assertNoMarkup(withEdition(code, () => renderGenreCurves(id, 'kr')), `genre ${id} ${code}`);
+  }
+  assert.ok(withEdition('ko', () => renderGenreCurves('all', 'kr')).includes('&lt;img'), 'crafted genre names escaped in the decay table');
 });
 
 test('download tiers outside the allowlist (unrated with numbers, unknown, missing) show "not available", at ingestion and render', (t) => {
