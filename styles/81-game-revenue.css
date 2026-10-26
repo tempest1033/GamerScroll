@@ -61,6 +61,8 @@
 .rv .rv-period { position: absolute; right: 0; top: 0; z-index: 1; }
 .rv .rv-plot { position: relative; height: 210px; margin: 12px 0 26px 58px; }
 .rv .rv-plot.rv-plot-r { margin-right: 50px; }
+/* placeholder of a chart the browser has not drawn yet (same box) */
+.rv .rv-plot[data-rv] { background: var(--rk-bg2, #f4f4f5); border-radius: 6px; }
 .rv .rv-plot svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; display: block; }
 .rv .rv-plot path, .rv .rv-plot line { vector-effect: non-scaling-stroke; }
 .rv .rv-yl, .rv .rv-yr, .rv .rv-xt { position: absolute; font-size: 11px; line-height: 1; color: var(--rk-dim); white-space: nowrap; }

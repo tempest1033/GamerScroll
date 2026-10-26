@@ -9,7 +9,10 @@ module.exports = function createEditionRenderer(code) {
   i18n.setEdition(code);
   const layout = require('../templates/layout');
   const { generateGamePage } = require('../templates/pages/game');
+  const { parseGameData } = require('../templates/components/revenue-payload');
   return {
+    // docs/games-data/<slug>.json text → game data without the browser-only revenue half (revenue-payload.js)
+    parse: parseGameData,
     // game = docs/games-data/<slug>.json, meta = docs/games-data/_meta.json
     render(game, meta) {
       layout.setCssFilename('/styles-core.css');

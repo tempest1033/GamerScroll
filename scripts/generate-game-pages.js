@@ -21,6 +21,7 @@ const { summaryDays, INDEXABLE_DAYS } = require('../src/templates/helpers/game-r
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
 const { loadServiceExports, coverage } = require('../src/build/service-exports');
+const { splitRevenue, HEAVY_KEY } = require('../src/templates/components/revenue-payload');
 
 const ROOT = path.join(__dirname, '..');
 const docsDir = path.join(ROOT, 'docs');
@@ -266,7 +267,14 @@ for (const g of S.games) {
     related: relatedOf(g),
   };
   const revenue = serviceExports && serviceExports.revenueFor(g.appIds, { freeRank });
-  if (revenue) { data.revenue = revenue; revenueCount++; revenueBySlug.set(slug, revenue); }
+  if (revenue) {
+    // Light half for the server render, heavy half (charts, tables) as the file's last key for the browser only.
+    const { light, heavy } = splitRevenue(revenue);
+    data.revenue = light;
+    data[HEAVY_KEY] = heavy;
+    revenueCount++;
+    revenueBySlug.set(slug, revenue);
+  }
   const json = JSON.stringify(data);
   const file = path.join(dataDir, `${slug}.json`);
   if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== json) fs.writeFileSync(file, json, 'utf8');

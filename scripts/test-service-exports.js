@@ -14,7 +14,10 @@ const { writeFixture, syntheticRanks } = require('../tests/fixtures/service-expo
 const { loadServiceExports, verifyBundle } = require('../src/build/service-exports');
 const { run } = require('./fetch-service-exports');
 const { playBucket } = require('../src/templates/components/revenue-charts');
-const { renderRevenueSection } = require('../src/templates/components/revenue-section');
+const { renderRevenueSection: renderSection } = require('../src/templates/components/revenue-section');
+const { splitRevenue, joinRevenue, parseGameData, HEAVY_KEY } = require('../src/templates/components/revenue-payload');
+// What a reader sees once the browser has drawn the deferred parts (charts, tables): the section with every part in place.
+const renderRevenueSection = (page) => renderSection(page, { mode: 'full' });
 const P = require('../src/templates/components/revenue-policy');
 
 const ASOF = '2026-10-25';
@@ -773,6 +776,60 @@ test('pages without estimate data render unchanged', (t) => {
   assert.equal(renderRevenueSection({ a: ASOF, m: {} }), '');
   const withData = generateGamePage({ ...game, revenue: loadServiceExports({ dir: bundle(t), now: NOW }).revenueFor(APP) });
   assert.ok(withData.includes('id="revenue-estimates"'));
+});
+
+test('server render: text summary with placeholders; the browser parts (same keys) complete it to the full section', (t) => {
+  const game = { subgenre: 'Role Playing', release_date: '2026-03-02', title: 'Mid' };
+  const svc = loadServiceExports({ dir: bundle(t, { games: [{ ...game, store: 'ios', app_id: '1900000019', markets: { kr: { ranks: syntheticRanks(150), pOut14: 0.7 } } }] }), now: NOW });
+  const ids = [APP, { ios: '1900000019' }, { ios: '5000000005' }, { android: 'com.example.new' }, { ios: '2000000002', android: 'com.example.mixed' }, { ios: '3000000003' }];
+  const loader = /<script>\(function\(\)\{var r=document\.currentScript\.closest\('\.rv'\),d=0;[\s\S]*?<\/script>/;
+  for (const page of ids.map((x) => svc.revenueFor(x))) {
+    const { light, heavy } = splitRevenue(page);
+    assert.deepEqual(joinRevenue(light, heavy), { ...page, h: light.h }, 'join restores the payload');
+    assert.ok(JSON.stringify(light).length < JSON.stringify(page).length / 2, 'the server half is the small one');
+    for (const code of ['ko', 'en', 'ja', 'zh-cn', 'zh-tw']) withEdition(code, () => {
+      const ssr = renderSection(light, { slug: 'a b/c' });
+      assert.equal(renderSection({ ...page, h: light.h }, { slug: 'a b/c' }), ssr, `${code}: the light half renders what the whole payload renders`);
+      assert.doesNotMatch(ssr, /<svg|role="img"/, `${code}: no chart on the server`);
+      assert.ok(ssr.includes(`data-rv-src="/games-data/a%20b%2Fc.json" data-rv-h="${light.h}"`), 'page data file and payload hash');
+      assert.match(ssr, loader, 'browser loader');
+      assert.ok(ssr.includes(`/assets/${code === 'en' ? '' : `${code}/`}revenue-section.js?v=`), 'edition asset');
+      // The browser: collect mode on the joined payload yields one part per server placeholder, same placeholder markup.
+      const { parts } = renderSection(joinRevenue(light, heavy), { mode: 'collect' });
+      assert.deepEqual([...ssr.matchAll(/ data-rv="(\d+)"/g)].map((m) => m[1]), [...parts.keys()], `${code}: placeholders ↔ parts`);
+      let filled = ssr;
+      for (const part of parts.values()) { assert.ok(filled.includes(part.ph)); filled = filled.replace(part.ph, () => part.make()); }
+      assert.doesNotMatch(filled, / data-rv="/, 'parts render whole (no nested placeholders)');
+      assert.equal(filled.replace(/ data-rv-src="[^"]*" data-rv-h="[^"]*"/, '').replace(loader, ''), renderRevenueSection(page), `${code}: filled = full section`);
+    });
+  }
+  // What the server text says (ko): headline, month to date, outlook + drop-out level, downloads range + tier, past pattern.
+  const ko = (ids) => withEdition('ko', () => visibleText(renderSection(splitRevenue(svc.revenueFor(ids)).light, { slug: 's' })));
+  const app = ko(APP);
+  assert.match(app, /추정 월매출 ₩[\d.]+억–₩[\d.]+억 \(중앙값 ₩[\d.]+억\)/);
+  assert.match(app, /이번 달 1일–어제 추정 매출 ₩[\d.]+억–₩[\d.]+억/);
+  assert.match(app, /평소대로면 앞으로 14일 순위 \d+위–\d+위, 매출 ₩[\d.]+억–₩[\d.]+억/);
+  assert.match(app, /추정 하루 평균 다운로드 [\d.]+만?–[\d.]+만? \(중앙값 [\d.]+만?\)/);
+  assert.ok(app.includes('검증 전 추정 · 전 세계 설치 수로 검증, 시장 배분은 가정 · 범위가 넓습니다'));
+  assert.ok(app.includes('과거 패턴') && /RPG · 한국 앱스토어 · 표본 \d+개/.test(app), 'past-pattern tag and curve caption');
+  assert.match(ko({ ios: '1900000019' }), /200위 밖에 있을 가능성: 높음/);
+  // Month tables: rows on the server (the box keeps its height), numbers from the browser.
+  const html = withEdition('ko', () => renderSection(splitRevenue(svc.revenueFor(APP)).light, { slug: 's' }));
+  assert.match(html, /<table class="rk-table rv-table" data-rv="\d+"><thead>[^]*?<tbody><tr><td>2026년 10월 <span class="rv-tag">진행 중<\/span><\/td><td class="r"><\/td><td class="r"><\/td><\/tr>/);
+  assert.match(html, /<div class="rv-plot rv-plot-r" data-rv="\d+"><\/div>/, 'plot box placeholder');
+});
+
+test('page data file: the server parses up to the browser-only half', () => {
+  const svcPage = { a: ASOF, m: { kr: { c: 'KRW', s: { ios: { t: 'beta', d0: ASOF, d: [[3, 1, 2, 3]], w: [], mo: [], mtd: null } } } }, cv: { x: { n: 3, points: [[0, 1, 1, 1]] } } };
+  const { light, heavy } = splitRevenue(svcPage);
+  assert.deepEqual(light.m.kr.s.ios.d, [[3, 1]], 'rank and a numbers marker');
+  assert.deepEqual(light.cv.x.points, []);
+  const game = { name: 'quote ,"rvz": inside', names: { ko: '{"rvz":1}' }, slug: 's', revenue: light, [HEAVY_KEY]: heavy };
+  const text = JSON.stringify(game);
+  const { [HEAVY_KEY]: _heavy, ...rest } = game;
+  assert.deepEqual(parseGameData(text), rest);
+  assert.deepEqual(parseGameData(JSON.stringify({ name: 'n', revenue: null })), { name: 'n', revenue: null }, 'no heavy half');
+  assert.deepEqual(joinRevenue(parseGameData(text).revenue, JSON.parse(text)[HEAVY_KEY]), { ...svcPage, h: light.h });
 });
 
 test('rank hub and genre cards: from the bundle, or nothing without it', (t) => {

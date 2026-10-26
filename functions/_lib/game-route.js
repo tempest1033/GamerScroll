@@ -32,9 +32,13 @@ try {
   for (const code of Object.keys(PREFIX)) rendererFor(code).render(WARMUP.game, WARMUP.meta);
 } catch { /* see above */ }
 
-async function assetJson(env, url, path) {
+async function assetResponse(env, url, path) {
   const response = await env.ASSETS.fetch(new Request(new URL(path, url)));
-  return response.ok ? response.json() : null;
+  return response.ok ? response : null;
+}
+async function assetJson(env, url, path) {
+  const response = await assetResponse(env, url, path);
+  return response ? response.json() : null;
 }
 
 async function loadMeta(env, url) {
@@ -81,11 +85,16 @@ export async function handleGameRequest(context, code) {
     return hit;
   }
 
-  const game = await assetJson(env, url, `/games-data/${encodeURIComponent(slug)}.json`);
-  if (!game) return notFound(env, url, code, request.method);
+  const data = await assetResponse(env, url, `/games-data/${encodeURIComponent(slug)}.json`);
+  if (!data) return notFound(env, url, code, request.method);
+  const text = await data.text();
 
   let html;
-  try { html = withNameShim(rendererFor(code).render(game, meta)); } catch (error) {
+  try {
+    // The file's browser-only revenue half (charts and tables) is not parsed here (src/templates/components/revenue-payload.js).
+    const renderer = rendererFor(code);
+    html = withNameShim(renderer.render(renderer.parse(text), meta));
+  } catch (error) {
     return new Response('Render failed', { status: 500, headers: { 'Cache-Control': 'no-store' } });
   }
   const response = new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': HTML_CACHE_CONTROL, 'Content-Language': code } });

@@ -68,7 +68,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const showMobileRanking = hasMobilePlatform || ranked;
 
   const summary = renderGameRankSummary(rank, meta, plainName, edition.country);
-  const revenueSection = renderRevenueSection(game.revenue);
+  const revenueSection = renderRevenueSection(game.revenue, { slug });
   const overview = describeGame(game, meta, edition.country);
   const overviewHtml = overview.length
     ? `<div class="home-card grid-full game-overview">
@@ -361,8 +361,8 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
     ],
     softwareSchema: indexable ? { name: plainName, description: seoDescription, image: icon || null, operatingSystem } : null  // noindex 페이지는 스키마 생략
   });
-  // The revenue section (up to ~250 KB of charts, no links, images or names to post-process) joins after the layout's
-  // whole-page passes, which would otherwise rescan it within the Workers CPU budget.
+  // The revenue section (no links, images or names to post-process; its charts and tables render in the browser) joins
+  // after the layout's whole-page passes, which would otherwise rescan it within the Workers CPU budget.
   return revenueSection ? html.replace(REVENUE_SLOT, () => revenueSection) : html;
 }
 

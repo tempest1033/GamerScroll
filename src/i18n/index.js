@@ -172,16 +172,24 @@ function formatDate(value, options = { year: 'numeric', month: 'long', day: 'num
 }
 
 const ISO_DAY = /^\d{4}-\d{2}-\d{2}/;
-// Display forms of machine-readable ISO values; non-dates pass through unchanged.
+// Display forms of machine-readable ISO values; non-dates pass through unchanged. Each form is formatted once per locale
+// and process: a request-time game page (Workers CPU limit) formats a few hundred days, mostly the same recent ones.
+const dayForms = new Map();
+function dayForm(kind, day, options) {
+  const key = `${current.intl}|${kind}|${day}`;
+  let out = dayForms.get(key);
+  if (out === undefined) { out = formatDate(day, options); dayForms.set(key, out); }
+  return out;
+}
 function formatDay(value) {
-  return ISO_DAY.test(String(value ?? '')) ? formatDate(String(value).slice(0, 10)) : (value ?? '');
+  return ISO_DAY.test(String(value ?? '')) ? dayForm('d', String(value).slice(0, 10)) : (value ?? '');
 }
 // `numeric` gives the compact locale form (1/1, 1. 1.) for narrow table cells.
 function formatMonthDay(value, numeric = false) {
-  return ISO_DAY.test(String(value ?? '')) ? formatDate(String(value).slice(0, 10), { month: numeric ? 'numeric' : 'short', day: 'numeric' }) : (value ?? '');
+  return ISO_DAY.test(String(value ?? '')) ? dayForm(numeric ? 'mn' : 'ms', String(value).slice(0, 10), { month: numeric ? 'numeric' : 'short', day: 'numeric' }) : (value ?? '');
 }
 function formatYearMonth(value) {
-  return /^\d{4}-\d{2}$/.test(String(value ?? '')) ? formatDate(`${value}-01`, { year: 'numeric', month: 'long' }) : (value ?? '');
+  return /^\d{4}-\d{2}$/.test(String(value ?? '')) ? dayForm('ym', `${value}-01`, { year: 'numeric', month: 'long' }) : (value ?? '');
 }
 // Collection timestamps are shown in KST (CI runs in UTC), formatted for the edition.
 function formatStamp(ts, options) {

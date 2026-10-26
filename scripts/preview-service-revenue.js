@@ -77,8 +77,9 @@ async function shots(outDir, count = SAMPLES.length) {
   for (const s of list) {
     const file = path.join(DOCS, 'games-data', `${s.slug}.json`);
     if (!fs.existsSync(file)) { console.warn(`no games-data for ${s.slug}`); continue; }
-    const game = JSON.parse(fs.readFileSync(file, 'utf8'));
-    const html = createRenderer(EDITION[s.market]).render(game, meta);
+    const renderer = createRenderer(EDITION[s.market]);
+    const game = renderer.parse(fs.readFileSync(file, 'utf8'));
+    const html = renderer.render(game, meta);
     const name = `${s.market}_${s.slug}`;
     fs.writeFileSync(path.join(previewDir, `${name}.html`), html);
     pages.push({ name, hasSection: html.includes('id="revenue-estimates"'), bytes: Buffer.byteLength(html), dataBytes: Buffer.byteLength(JSON.stringify(game.revenue || null)) });
@@ -94,8 +95,17 @@ async function shots(outDir, count = SAMPLES.length) {
       await page.setViewport(viewport);
       await page.setRequestInterception(true);
       page.on('request', (r) => (r.url().startsWith(base) || r.url().startsWith('data:') ? r.continue() : r.abort()));
+      const errors = [];
+      page.on('pageerror', (e) => errors.push(String(e.message || e)));
+      // Layout shifts (CLS sum) while the browser half fills the section.
+      await page.evaluateOnNewDocument(() => { window.__cls = 0; new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); });
       for (const p of pages) {
+        errors.length = 0;
         await page.goto(`${base}/_rv-preview/${encodeURIComponent(p.name)}.html`, { waitUntil: 'networkidle0' });
+        // Charts and tables come from the browser half (src/build/revenue-client.js) once the section nears the viewport.
+        await page.evaluate(() => { const s = document.getElementById('revenue-estimates'); if (s) s.scrollIntoView(); });
+        const filled = await page.waitForFunction(() => !document.querySelector('#revenue-estimates [data-rv]'), { timeout: 15000 }).then(() => true, () => false);
+        const drawn = await page.evaluate(() => ({ plots: document.querySelectorAll('#revenue-estimates .rv-plot svg').length, cls: Math.round(window.__cls * 1000) / 1000 }));
         const section = await page.$('#revenue-estimates');
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
         const file = path.join(outDir, `${p.name}_${kind}.png`);
@@ -105,7 +115,7 @@ async function shots(outDir, count = SAMPLES.length) {
           await section.screenshot({ path: file });
           await page.setViewport(viewport);
         }
-        report.push({ page: p.name, kind, section: Boolean(section), overflowPx: overflow, file: section ? file : null, htmlKB: Math.round(p.bytes / 1024), revenueJsonKB: Math.round(p.dataBytes / 1024) });
+        report.push({ page: p.name, kind, section: Boolean(section), filled, plots: drawn.plots, cls: drawn.cls, errors: errors.join(' | '), overflowPx: overflow, file: section ? file : null, htmlKB: Math.round(p.bytes / 1024), revenueJsonKB: Math.round(p.dataBytes / 1024) });
       }
       await page.close();
     }

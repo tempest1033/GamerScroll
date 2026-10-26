@@ -33,12 +33,13 @@ const fmt = (ms) => `${ms.toFixed(2)} ms`;
     const renderer = createRenderer(code);
     const cold = performance.now() - coldStart;
     const texts = [...sample].map((f) => fs.readFileSync(path.join(dataDir, f), 'utf8'));
-    renderer.render(JSON.parse(texts[0]), meta); // warm-up (JIT)
+    const parseGame = renderer.parse || JSON.parse; // as game-route.js: skips the browser-only revenue half
+    renderer.render(parseGame(texts[0]), meta); // warm-up (JIT)
     const parse = [], render = [], total = [];
     let bytes = 0;
     for (const text of texts) {
       const t0 = performance.now();
-      const game = JSON.parse(text);
+      const game = parseGame(text);
       const t1 = performance.now();
       const html = renderer.render(game, meta);
       const t2 = performance.now();

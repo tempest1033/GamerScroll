@@ -37,6 +37,35 @@ function bandShown(tb, rank) {
 }
 
 const addDays = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
+// Consecutive days from d0, built once per isolate (request-time CPU is capped; most pages share the same d0).
+const sequences = new Map();
+function dateSeq(d0, n) {
+  let seq = sequences.get(d0);
+  if (!seq || seq.length < n) { seq = Array.from({ length: n }, (_, i) => addDays(d0, i)); sequences.set(d0, seq); }
+  return seq;
+}
+// rows.map(f), or rows itself when f keeps every row (re-rendered pages are mostly unmasked: no copies).
+function remap(rows, f) {
+  let out = rows;
+  for (let i = 0; i < rows.length; i++) {
+    const r = f(rows[i], i);
+    if (r !== rows[i]) { if (out === rows) out = rows.slice(); out[i] = r; }
+  }
+  return out;
+}
+// Last day of the week starting on `day` (week starts are shared by every page: computed once per isolate).
+const weekEnds = new Map();
+function weekEnd(day) {
+  let end = weekEnds.get(day);
+  if (end === undefined) { end = addDays(day, 6); weekEnds.set(day, end); }
+  return end;
+}
+// First index i < n with dates[i] > day (after) or >= day (otherwise); dates ascending ISO strings.
+function bound(dates, n, day, after) {
+  let lo = 0, hi = n;
+  while (lo < hi) { const mid = (lo + hi) >> 1; if (after ? dates[mid] <= day : dates[mid] < day) lo = mid + 1; else hi = mid; }
+  return lo;
+}
 
 // Compact store payload (see service-exports.js compactStore) with per-band tiers tb: days in a band that is not shown
 // lose their numbers, and so do the week / month / month-to-date totals containing one, and the 14-day revenue total
@@ -52,17 +81,18 @@ function maskBands(p) {
       o: p.o ? { ...p.o, t: null } : p.o,
     };
   }
-  const bad = [];
-  const d = p.d.map((r, i) => { if (bandShown(tb, r[0])) return r; bad.push(addDays(p.d0, i)); return [r[0], ...NULL3]; });
-  const hit = (from, to) => bad.some((x) => x >= from && x <= to);
+  // bad[i]: masked days before index i; a period [from, to] (inclusive ISO strings) is hit when it holds one.
+  const n = p.d.length, dates = dateSeq(p.d0, n), bad = new Int32Array(n + 1);
+  const d = remap(p.d, (r, i) => { const ok = bandShown(tb, r[0]); bad[i + 1] = bad[i] + (ok ? 0 : 1); return ok ? r : [r[0], ...NULL3]; });
+  const hit = (from, to) => bad[n] > 0 && bad[bound(dates, n, to, true)] - bad[bound(dates, n, from, false)] > 0;
   const period = (r, from, to) => (hit(from, to) ? [r[0], ...NULL3] : r);
   const mtd = p.mtd ? {
     ...p.mtd,
-    d: p.mtd.d.map((r) => (bandShown(tb, r[1]) ? r : [r[0], r[1], ...NULL3])),
+    d: remap(p.mtd.d, (r) => (bandShown(tb, r[1]) ? r : [r[0], r[1], ...NULL3])),
     t: p.mtd.d.some((r) => !bandShown(tb, r[1])) || hit(`${p.mtd.m}-01`, p.mtd.th || `${p.mtd.m}-31`) ? null : p.mtd.t,
   } : p.mtd;
   const o = p.o && p.o.t && p.o.d.some((r) => !bandShown(tb, r[3])) ? { ...p.o, t: null } : p.o;
-  return { ...p, tb, d, w: p.w.map((r) => period(r, r[0], addDays(r[0], 6))), mo: p.mo.map((r) => period(r, `${r[0]}-01`, `${r[0]}-31`)), mtd, o };
+  return { ...p, tb, d, w: remap(p.w, (r) => period(r, r[0], weekEnd(r[0]))), mo: remap(p.mo, (r) => period(r, `${r[0]}-01`, `${r[0]}-31`)), mtd, o };
 }
 
 // Page-data store payload → what may be rendered: revenue only for shown tiers (per band), downloads only for shown
@@ -73,4 +103,4 @@ function displayStore(p) {
   return de ? { ...rest, de } : rest;
 }
 
-module.exports = { REVENUE_TIERS, DOWNLOAD_TIERS, MARKET_CURRENCY, OFF_CHART_BAND, revenueShown, downloadsShown, bandTiers, bandShown, maskBands, displayStore };
+module.exports = { REVENUE_TIERS, DOWNLOAD_TIERS, MARKET_CURRENCY, OFF_CHART_BAND, revenueShown, downloadsShown, bandTiers, bandShown, maskBands, displayStore, dateSeq };
