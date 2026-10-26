@@ -122754,16 +122754,19 @@
     },
     "Billionaire Casino Slots 777": {
       "appIds": {
-        "android_us": "com.huuuge.casino.texas"
+        "android_us": "com.huuuge.casino.texas",
+        "ios_tw": "1098617974"
       },
       "aliases": [
-        "億萬富翁娛樂城 賭場遊戲"
+        "億萬富翁娛樂城 賭場遊戲",
+        "億萬富翁娛樂城™ 賭場遊戲"
       ],
       "developer": "Huuuge Games - Play Together",
       "icon": "https://play-lh.googleusercontent.com/qQtXm0MkyLjGXxXTrGxDPl3ynP7euLwwnIRjSoKx-BX8t-_ZAcMn2YBUfpZ9HVNOqFAK_o6pySgmIWdjTb1h",
       "slug": "billionaire-casino-slots-777",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "en": "Billionaire Casino Slots 777",
@@ -150012,14 +150015,16 @@
     },
     "용사는 오늘도 지하근무": {
       "appIds": {
-        "android": "net.gameduo.lb"
+        "android": "net.gameduo.lb",
+        "ios": 6815304121
       },
       "aliases": [],
       "developer": "Gameduo",
       "icon": "https://play-lh.googleusercontent.com/YlTezgQjVnJn6_D32meBqCOcx6xkp9Mb2PIMAFE6mB9QKVRkaufiVpjIyTo6q4uqLpk8OCPqznf-Ns7sNQ9y4w",
       "slug": "용사는-오늘도-지하근무",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "용사는 오늘도 지하근무",
@@ -152670,8 +152675,87 @@
       "platforms": [
         "steam"
       ]
+    },
+    "미카: 던전 백패커": {
+      "appIds": {
+        "ios": 6761421604
+      },
+      "aliases": [],
+      "developer": "Tae won Go",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/10/2c/1c102c98-30da-bd1c-1ed4-19fe53a916ab/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "미카-던전-백패커",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "미카: 던전 백패커",
+        "ja": "ミカ：ダンジョンの旅人",
+        "zh-tw": "米卡：地城背包客"
+      }
+    },
+    "아이러브레스토랑 : 고양이와 매장 경영": {
+      "appIds": {
+        "ios": 6792678112
+      },
+      "aliases": [],
+      "developer": "SONEW",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/dc/53/c2dc5347-6f26-e115-eb1a-4fa7cd688219/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "아이러브레스토랑-고양이와-매장-경영",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "아이러브레스토랑 : 고양이와 매장 경영"
+      }
+    },
+    "Slimee - Slime Puzzle Game": {
+      "appIds": {
+        "ios": 6820156980
+      },
+      "aliases": [],
+      "developer": "D-oneApp",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0a/dd/e2/0adde2ba-95e4-5fc0-2aa0-2d61ab7eedf4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "slimee-slime-puzzle-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Slimee - Slime Puzzle Game",
+        "ja": "Slimee - Slime Puzzle Game"
+      }
+    },
+    "道友請渡劫-修仙刷寶割草爽遊": {
+      "appIds": {
+        "ios_tw": 6795823290
+      },
+      "aliases": [],
+      "developer": "HongKongSkyhorseCulturalInnovationCo.,Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/3c/51/613c519c-653c-f473-125e-fef489a9be62/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "道友請渡劫-修仙刷寶割草爽遊",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "道友請渡劫-修仙刷寶割草爽遊"
+      }
+    },
+    "逐鹿風雲": {
+      "appIds": {
+        "ios": 6761166737
+      },
+      "aliases": [],
+      "developer": "Ozak Demirci",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/f7/70/56f770ee-257a-05d7-443b-171f0935ea30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "逐鹿風雲",
+        "zh-tw": "逐鹿風雲"
+      }
     }
   },
   "lastUpdated": "2026-10-26",
-  "totalGames": 8877
+  "totalGames": 8882
 }

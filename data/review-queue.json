@@ -46381,6 +46381,50 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/37/36/bf3736a3-a93b-946b-c681-3400987b1e14/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-26T09:02:31.058Z"
+    },
+    {
+      "title": "미카: 던전 백패커",
+      "status": "single",
+      "appIds": {
+        "ios": 6761421604
+      },
+      "developer": "Tae won Go",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/10/2c/1c102c98-30da-bd1c-1ed4-19fe53a916ab/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-26T13:08:55.735Z"
+    },
+    {
+      "title": "아이러브레스토랑 : 고양이와 매장 경영",
+      "status": "single",
+      "appIds": {
+        "ios": 6792678112
+      },
+      "developer": "SONEW",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/dc/53/c2dc5347-6f26-e115-eb1a-4fa7cd688219/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-26T13:08:55.921Z"
+    },
+    {
+      "title": "Slimee - Slime Puzzle Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6820156980
+      },
+      "developer": "D-oneApp",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0a/dd/e2/0adde2ba-95e4-5fc0-2aa0-2d61ab7eedf4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-26T13:08:56.266Z"
+    },
+    {
+      "title": "逐鹿風雲",
+      "status": "single",
+      "appIds": {
+        "ios": 6761166737
+      },
+      "developer": "Ozak Demirci",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/f7/70/56f770ee-257a-05d7-443b-171f0935ea30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-26T13:08:57.214Z"
     }
   ],
   "approved": [
