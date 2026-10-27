@@ -152903,8 +152903,87 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Makeup ASMR: Makeover Story": {
+      "appIds": {
+        "ios": 6465175605
+      },
+      "aliases": [],
+      "developer": "Makeup Games for FUN",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/09/00/87090013-96d8-6cd7-32f8-af7656f234cf/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "makeup-asmr-makeover-story",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Makeup ASMR: Makeover Story",
+        "en": "Makeup ASMR: Makeover Story"
+      }
+    },
+    "開拓うさぎ": {
+      "appIds": {
+        "ios_jp": 6808466426
+      },
+      "aliases": [],
+      "developer": "Kurashiru, Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/73/3b/97733b3d-2662-0343-f272-1b5538f7e2da/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "開拓うさぎ",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "開拓うさぎ"
+      }
+    },
+    "Meiern – Mäxchen & Schocken": {
+      "appIds": {
+        "ios": 6810730807
+      },
+      "aliases": [],
+      "developer": "lab73 GmbH",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/d0/5d/55d05dc0-2bfd-88c7-eaed-0b7f24ae0040/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "meiern-mxchen-schocken",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Meiern – Mäxchen & Schocken",
+        "zh-cn": "Meiern – Mäxchen & Schocken"
+      }
+    },
+    "네모난 창조 모래상자 세계": {
+      "appIds": {
+        "ios": 1127855320
+      },
+      "aliases": [],
+      "developer": "Ding Fan",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/0e/cb/d1/0ecbd15c-3dc0-8da2-c328-b5e2e4083999/pr_source.jpg/512x512bb.jpg",
+      "slug": "네모난-창조-모래상자-세계",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "네모난 창조 모래상자 세계",
+        "zh-cn": "方块创造沙盒世界"
+      }
+    },
+    "DraftBattle": {
+      "appIds": {
+        "ios": 6766989829
+      },
+      "aliases": [],
+      "developer": "Pedro Marques",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/69/17/70/6917708d-ca03-0e95-78fb-d2ba663ac497/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "draftbattle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "DraftBattle",
+        "zh-tw": "DraftBattle"
+      }
     }
   },
   "lastUpdated": "2026-10-27",
-  "totalGames": 8892
+  "totalGames": 8897
 }

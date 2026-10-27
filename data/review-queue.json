@@ -46543,6 +46543,50 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/5e/f4/4a/5ef44ad4-e53c-6025-6f53-03865320ec20/AppIcon-1x_U007emarketing-0-85-220-0-9.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-27T09:02:33.719Z"
+    },
+    {
+      "title": "Makeup ASMR: Makeover Story",
+      "status": "single",
+      "appIds": {
+        "ios": 6465175605
+      },
+      "developer": "Makeup Games for FUN",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/09/00/87090013-96d8-6cd7-32f8-af7656f234cf/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T13:02:59.854Z"
+    },
+    {
+      "title": "Meiern – Mäxchen & Schocken",
+      "status": "single",
+      "appIds": {
+        "ios": 6810730807
+      },
+      "developer": "lab73 GmbH",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/d0/5d/55d05dc0-2bfd-88c7-eaed-0b7f24ae0040/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T13:03:00.606Z"
+    },
+    {
+      "title": "네모난 창조 모래상자 세계",
+      "status": "single",
+      "appIds": {
+        "ios": 1127855320
+      },
+      "developer": "Ding Fan",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/0e/cb/d1/0ecbd15c-3dc0-8da2-c328-b5e2e4083999/pr_source.jpg/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T13:03:01.039Z"
+    },
+    {
+      "title": "DraftBattle",
+      "status": "single",
+      "appIds": {
+        "ios": 6766989829
+      },
+      "developer": "Pedro Marques",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/69/17/70/6917708d-ca03-0e95-78fb-d2ba663ac497/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T13:03:01.508Z"
     }
   ],
   "approved": [

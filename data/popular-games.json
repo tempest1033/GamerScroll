@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T09:01:46.248Z",
+  "updatedAt": "2026-10-27T13:01:46.391Z",
   "period": "30days",
   "games": [
     {
@@ -8,7 +8,7 @@
     },
     {
       "slug": "제우스-오만의-신",
-      "views": 15
+      "views": 16
     },
     {
       "slug": "쿠키런-키우기-쿠키런-크럼블",
@@ -17,6 +17,10 @@
     {
       "slug": "monopoly-go-모노폴리-go",
       "views": 9
+    },
+    {
+      "slug": "arrow-pro-3d",
+      "views": 8
     },
     {
       "slug": "barotrauma",
@@ -39,15 +43,7 @@
       "views": 8
     },
     {
-      "slug": "이클립스-더-어웨이크닝",
-      "views": 8
-    },
-    {
       "slug": "3d운전교실",
-      "views": 7
-    },
-    {
-      "slug": "arrow-pro-3d",
       "views": 7
     },
     {
@@ -76,6 +72,10 @@
     },
     {
       "slug": "snipers-duel",
+      "views": 7
+    },
+    {
+      "slug": "where-winds-meet",
       "views": 7
     }
   ]
