@@ -80,9 +80,9 @@ test('fetch without a deploy key omits the bundle and logs a warning', async (t)
 });
 
 test('fetch clones the branch over SSH with only the deploy key, verifies it and keeps it; a tampered bundle is dropped', async (t) => {
-  // A local repository stands in for git@github.com:owner/forecast.git, branch service-exports.
+  // A local repository stands in for git@github.com:owner/forecast.git, branch service-exports (bundle under exports/service/).
   const origin = path.join(tmp(t, 'origin'), 'forecast');
-  fs.cpSync(bundle(t), origin, { recursive: true });
+  fs.cpSync(bundle(t), path.join(origin, 'exports', 'service'), { recursive: true });
   const sh = (...args) => { const r = spawnSync('git', ['-C', origin, '-c', 'user.name=t', '-c', 'user.email=t@example.com', ...args], { encoding: 'utf8' }); assert.equal(r.status, 0, r.stderr); };
   sh('init', '-q', '-b', 'service-exports');
   sh('add', '-A');
@@ -120,10 +120,11 @@ test('fetch clones the branch over SSH with only the deploy key, verifies it and
   assert.equal(fs.existsSync(path.dirname(call.keyFile)), false, 'temp directory removed');
   assert.ok(fs.existsSync(path.join(dest, 'genres.json')));
   assert.equal(fs.existsSync(path.join(dest, '.git')), false, 'no git metadata in the bundle');
+  assert.equal(fs.existsSync(`${dest}.repo`), false, 'checkout removed');
   assert.ok(logs.some((m) => /owner\/forecast asof 2026-10-25, \d+ files verified/.test(m)));
 
   // One game file altered after the manifest was written.
-  fs.appendFileSync(path.join(origin, 'games', 'ios', `${APP.ios}.json`), ' ');
+  fs.appendFileSync(path.join(origin, 'exports', 'service', 'games', 'ios', `${APP.ios}.json`), ' ');
   sh('commit', '-qam', 'tamper');
   const bad = await run({ env, dest, now: NOW, git });
   assert.equal(bad.ok, false);

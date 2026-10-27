@@ -44,8 +44,13 @@ function sshCommand(keyFile, knownHosts) {
   ].join(' ');
 }
 
+// Where the forecast repo's daily export writes the bundle on the service-exports branch.
+const BUNDLE_PATH = ['exports', 'service'];
+
 function clone({ repo, key, branch, dest, git }) {
   const work = fs.mkdtempSync(path.join(os.tmpdir(), 'service-exports-ssh-'));
+  const checkout = `${dest}.repo`; // beside dest, so the bundle moves by rename on the same file system
+  fs.rmSync(checkout, { recursive: true, force: true });
   try {
     const keyFile = path.join(work, 'deploy_key'), knownHosts = path.join(work, 'known_hosts');
     // Secrets pasted on Windows may carry CRLF or lose the final newline; ssh rejects both.
@@ -53,14 +58,17 @@ function clone({ repo, key, branch, dest, git }) {
     fs.chmodSync(keyFile, 0o600);
     fs.writeFileSync(knownHosts, GITHUB_HOST_KEYS.map((k) => `github.com ${k}\n`).join(''));
     const { FORECAST_EXPORT_DEPLOY_KEY: _key, ...inherited } = process.env;
-    const result = git(['clone', '--quiet', '--depth', '1', '--single-branch', '--no-tags', '--branch', branch, `git@github.com:${repo}.git`, dest], {
+    const result = git(['clone', '--quiet', '--depth', '1', '--single-branch', '--no-tags', '--branch', branch, `git@github.com:${repo}.git`, checkout], {
       env: { ...inherited, GIT_SSH_COMMAND: sshCommand(keyFile, knownHosts), GIT_TERMINAL_PROMPT: '0' },
     });
     const detail = (result.error && result.error.message) || String(result.stderr || '').split(/\r?\n/).map((l) => l.trim()).filter(Boolean).slice(-4).join(' | ');
     if (result.error || result.status !== 0) throw new Error(`git clone ${repo}@${branch} failed (exit ${result.status}): ${detail}`);
-    fs.rmSync(path.join(dest, '.git'), { recursive: true, force: true });
+    const bundle = path.join(checkout, ...BUNDLE_PATH);
+    if (!fs.existsSync(bundle)) throw new Error(`${repo}@${branch} has no ${BUNDLE_PATH.join('/')}/`);
+    fs.renameSync(bundle, dest);
   } finally {
     fs.rmSync(work, { recursive: true, force: true });
+    fs.rmSync(checkout, { recursive: true, force: true });
   }
 }
 
