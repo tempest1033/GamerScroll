@@ -158,13 +158,14 @@ jobs:
       - name: Fetch revenue estimate bundle (forecast repo, service-exports branch)
         if: steps.due.outputs.deploy == 'true'
         # 비공개 forecast 저장소의 매출·다운로드 추정 번들 → cache/service-exports (커밋하지 않음). 페이지 생성 단계들이 읽는다.
-        # 토큰(FORECAST_EXPORT_TOKEN 시크릿)·저장소(FORECAST_EXPORT_REPO 변수)가 없거나 manifest sha256·신선도(asof 2일 이내) 검사에
-        # 실패하면 경고만 남기고 끝난다 → 게임 상세·순위 허브·장르 페이지는 매출 추정 섹션 없이 그대로 빌드된다.
-        # 시간 초과·예외로 끝나도 배포는 계속한다 (번들 없이 빌드).
+        # 읽기 전용 SSH deploy key(FORECAST_EXPORT_DEPLOY_KEY 시크릿)로 service-exports 브랜치를 얕게 git clone 한다
+        # (키는 0600 임시 파일 → 끝나면 삭제, github.com 호스트 키 고정). 키·저장소(FORECAST_EXPORT_REPO 변수)가 없거나
+        # clone·manifest sha256·신선도(asof 2일 이내) 검사에 실패하면 경고만 남기고 끝난다 → 게임 상세·순위 허브·장르 페이지는
+        # 매출 추정 섹션 없이 그대로 빌드된다. 시간 초과·예외로 끝나도 배포는 계속한다 (번들 없이 빌드).
         continue-on-error: true
         timeout-minutes: 3
         env:
-          FORECAST_EXPORT_TOKEN: ${{ secrets.FORECAST_EXPORT_TOKEN }}
+          FORECAST_EXPORT_DEPLOY_KEY: ${{ secrets.FORECAST_EXPORT_DEPLOY_KEY }}
           FORECAST_EXPORT_REPO: ${{ vars.FORECAST_EXPORT_REPO }}
         run: node scripts/fetch-service-exports.js
 

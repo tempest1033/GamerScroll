@@ -9,6 +9,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { pathToFileURL } = require('node:url');
 const i18n = require('../src/i18n');
 const { writeFixture, syntheticRanks } = require('../tests/fixtures/service-exports');
 const { loadServiceExports, verifyBundle } = require('../src/build/service-exports');
@@ -61,47 +62,81 @@ const visibleText = (html) => html.replace(/<script[\s\S]*?<\/script>|<style[\s\
 // Ad slots are numbered per render (layout counter); everything else must match byte for byte.
 const sameAds = (html) => html.replace(/ad-home-(pc|mo)-\d+/g, 'ad-home-$1-N');
 
-test('fetch without a token omits the bundle and logs a warning', async (t) => {
+test('fetch without a deploy key omits the bundle and logs a warning', async (t) => {
   const dest = path.join(tmp(t, 'dest'), 'service-exports');
   fs.mkdirSync(dest, { recursive: true });
   fs.writeFileSync(path.join(dest, 'manifest.json'), '{}'); // a stale bundle from an earlier run must not survive
   const warnings = [];
   t.mock.method(console, 'warn', (m) => warnings.push(String(m)));
-  const result = await run({ env: {}, dest, now: NOW, fetchImpl: () => { throw new Error('must not download'); } });
-  assert.equal(result.ok, false);
-  assert.match(result.reason, /FORECAST_EXPORT_TOKEN/);
-  assert.equal(fs.existsSync(dest), false);
+  const git = () => { throw new Error('must not clone'); };
+  for (const env of [{}, { FORECAST_EXPORT_DEPLOY_KEY: ' \n', FORECAST_EXPORT_REPO: 'owner/forecast' }]) {
+    const result = await run({ env, dest, now: NOW, git });
+    assert.equal(result.ok, false);
+    assert.match(result.reason, /FORECAST_EXPORT_DEPLOY_KEY/);
+    assert.equal(fs.existsSync(dest), false);
+  }
   assert.ok(warnings.some((w) => /revenue sections omitted/.test(w)));
   assert.equal(loadServiceExports({ dir: dest, now: NOW, quiet: true }), null);
 });
 
-test('fetch downloads the branch tarball, verifies it and keeps it; a tampered bundle is dropped', async (t) => {
-  const source = bundle(t);
-  const work = tmp(t, 'tar');
-  // GitHub tarballs wrap the tree in one <owner>-<repo>-<sha>/ directory.
-  fs.cpSync(source, path.join(work, 'owner-forecast-abc123'), { recursive: true });
-  const tarball = path.join(work, 'b.tar.gz');
-  assert.equal(spawnSync('tar', ['-czf', tarball, '-C', work, 'owner-forecast-abc123']).status, 0);
-  const requests = [];
-  const fetchImpl = async (url, init) => { requests.push({ url, auth: init.headers.Authorization }); return new Response(fs.readFileSync(tarball)); };
+test('fetch clones the branch over SSH with only the deploy key, verifies it and keeps it; a tampered bundle is dropped', async (t) => {
+  // A local repository stands in for git@github.com:owner/forecast.git, branch service-exports.
+  const origin = path.join(tmp(t, 'origin'), 'forecast');
+  fs.cpSync(bundle(t), origin, { recursive: true });
+  const sh = (...args) => { const r = spawnSync('git', ['-C', origin, '-c', 'user.name=t', '-c', 'user.email=t@example.com', ...args], { encoding: 'utf8' }); assert.equal(r.status, 0, r.stderr); };
+  sh('init', '-q', '-b', 'service-exports');
+  sh('add', '-A');
+  sh('commit', '-qm', 'bundle');
+  const KEY = '-----BEGIN OPENSSH PRIVATE KEY-----\r\nb3BlbnNzaC1rZXktdjEAAAAAtest\r\n-----END OPENSSH PRIVATE KEY-----';
+  const env = { FORECAST_EXPORT_DEPLOY_KEY: KEY, FORECAST_EXPORT_REPO: 'owner/forecast' };
+  const calls = [];
+  const git = (args, options) => {
+    const keyFile = /-i "([^"]+)"/.exec(options.env.GIT_SSH_COMMAND)[1];
+    const knownHosts = /UserKnownHostsFile="([^"]+)"/.exec(options.env.GIT_SSH_COMMAND)[1];
+    calls.push({ args, options, keyFile, key: fs.readFileSync(keyFile, 'utf8'), mode: fs.statSync(keyFile).mode & 0o777, knownHosts: fs.readFileSync(knownHosts, 'utf8') });
+    const local = args.map((a) => (a === 'git@github.com:owner/forecast.git' ? pathToFileURL(origin).href : a));
+    return spawnSync('git', local, { encoding: 'utf8', env: options.env });
+  };
+  const logs = [];
+  t.mock.method(console, 'log', (m) => logs.push(String(m)));
+  t.mock.method(console, 'warn', (m) => logs.push(String(m)));
+  const saved = process.env.FORECAST_EXPORT_DEPLOY_KEY;
+  process.env.FORECAST_EXPORT_DEPLOY_KEY = KEY; // as on the runner, where the step env is process.env
+  t.after(() => { if (saved === undefined) delete process.env.FORECAST_EXPORT_DEPLOY_KEY; else process.env.FORECAST_EXPORT_DEPLOY_KEY = saved; });
   const dest = path.join(tmp(t, 'dest'), 'service-exports');
-  t.mock.method(console, 'log', () => {});
-  const ok = await run({ env: { FORECAST_EXPORT_TOKEN: 'tok', FORECAST_EXPORT_REPO: 'owner/forecast' }, dest, now: NOW, fetchImpl });
-  assert.equal(ok.ok, true, ok.reason);
-  assert.equal(requests[0].url, 'https://api.github.com/repos/owner/forecast/tarball/service-exports');
-  assert.equal(requests[0].auth, 'Bearer tok');
-  assert.ok(fs.existsSync(path.join(dest, 'genres.json')));
 
-  // Same tarball, but one game file altered after the manifest was written.
-  fs.appendFileSync(path.join(work, 'owner-forecast-abc123', 'games', 'ios', `${APP.ios}.json`), ' ');
-  assert.equal(spawnSync('tar', ['-czf', tarball, '-C', work, 'owner-forecast-abc123']).status, 0);
-  const warnings = [];
-  t.mock.method(console, 'warn', (m) => warnings.push(String(m)));
-  const bad = await run({ env: { FORECAST_EXPORT_TOKEN: 'tok', FORECAST_EXPORT_REPO: 'owner/forecast' }, dest, now: NOW, fetchImpl });
+  const ok = await run({ env, dest, now: NOW, git });
+  assert.equal(ok.ok, true, ok.reason);
+  const [call] = calls;
+  assert.deepEqual(call.args.slice(0, 9), ['clone', '--quiet', '--depth', '1', '--single-branch', '--no-tags', '--branch', 'service-exports', 'git@github.com:owner/forecast.git']);
+  assert.ok(!call.args.some((a) => a.includes('PRIVATE KEY')), 'key never on the command line');
+  assert.equal(call.key, '-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAAtest\n-----END OPENSSH PRIVATE KEY-----\n', 'LF line ends, final newline');
+  if (process.platform !== 'win32') assert.equal(call.mode, 0o600);
+  for (const option of ['IdentitiesOnly=yes', 'IdentityAgent=none', 'BatchMode=yes', 'StrictHostKeyChecking=yes', 'GlobalKnownHostsFile=/dev/null']) assert.ok(call.options.env.GIT_SSH_COMMAND.includes(`-o ${option}`), option);
+  assert.deepEqual(call.knownHosts.trim().split('\n').map((l) => l.split(' ').slice(0, 2).join(' ')), ['github.com ssh-ed25519', 'github.com ecdsa-sha2-nistp256', 'github.com ssh-rsa'], 'only github.com, pinned');
+  assert.equal(call.options.env.FORECAST_EXPORT_DEPLOY_KEY, undefined, 'key not passed to git / ssh');
+  assert.equal(call.options.env.GIT_TERMINAL_PROMPT, '0');
+  assert.equal(fs.existsSync(call.keyFile), false, 'key file removed');
+  assert.equal(fs.existsSync(path.dirname(call.keyFile)), false, 'temp directory removed');
+  assert.ok(fs.existsSync(path.join(dest, 'genres.json')));
+  assert.equal(fs.existsSync(path.join(dest, '.git')), false, 'no git metadata in the bundle');
+  assert.ok(logs.some((m) => /owner\/forecast asof 2026-10-25, \d+ files verified/.test(m)));
+
+  // One game file altered after the manifest was written.
+  fs.appendFileSync(path.join(origin, 'games', 'ios', `${APP.ios}.json`), ' ');
+  sh('commit', '-qam', 'tamper');
+  const bad = await run({ env, dest, now: NOW, git });
   assert.equal(bad.ok, false);
   assert.match(bad.reason, /sha256 mismatch/);
   assert.equal(fs.existsSync(dest), false);
-  assert.ok(warnings.some((w) => /sha256 mismatch/.test(w)));
+
+  // Clone failure (wrong key / no access): warning, no bundle, key file still removed.
+  const denied = await run({ env, dest, now: NOW, git: (args, options) => { calls.push({ keyFile: /-i "([^"]+)"/.exec(options.env.GIT_SSH_COMMAND)[1] }); return { status: 128, stderr: 'git@github.com: Permission denied (publickey).\nfatal: Could not read from remote repository.\n' }; } });
+  assert.equal(denied.ok, false);
+  assert.match(denied.reason, /git clone owner\/forecast@service-exports failed \(exit 128\): .*Permission denied/);
+  assert.equal(fs.existsSync(calls.at(-1).keyFile), false);
+  assert.equal(fs.existsSync(dest), false);
+  assert.ok(!logs.some((m) => m.includes('PRIVATE KEY') || m.includes('b3BlbnNzaC1rZXktdjEAAAAAtest')), 'key never logged');
 });
 
 test('verification rejects stale bundles and accepts a local override', async (t) => {
