@@ -152982,8 +152982,107 @@
         "ko": "DraftBattle",
         "zh-tw": "DraftBattle"
       }
+    },
+    "Mini Soccer Star 2027": {
+      "appIds": {
+        "ios": 1636072966
+      },
+      "aliases": [],
+      "developer": "VIVA GAMES S.L.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c8/56/c2/c856c27d-78b8-31e5-cb61-62a1eed98c77/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "mini-soccer-star-2027",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Mini Soccer Star 2027",
+        "ja": "Mini Soccer Star 2027"
+      }
+    },
+    "魔神英雄传-正版授权": {
+      "appIds": {
+        "ios_cn": 6812671122
+      },
+      "aliases": [],
+      "developer": "Hangzhou Jiulan Network Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/fb/24/4afb24c1-52db-7f81-0219-f5904b7216a3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "魔神英雄传-正版授权",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "魔神英雄传-正版授权"
+      }
+    },
+    "2PG: 2 Players Game": {
+      "appIds": {
+        "ios": 6825192321
+      },
+      "aliases": [],
+      "developer": "Youci Huang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/2e/b2/c12eb297-c757-85bd-89e4-fba22ed8da0f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "2pg-2-players-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "2PG: 2 Players Game",
+        "zh-tw": "兩人遊戲"
+      }
+    },
+    "PPSSPP - PSP emulator": {
+      "appIds": {
+        "ios": 6496972903
+      },
+      "aliases": [],
+      "developer": "Henrik Rydgård",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/a0/86/6da08633-7f30-28e5-5148-c3bad17ac83c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "ppsspp-psp-emulator",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "PPSSPP - PSP emulator",
+        "zh-tw": "PPSSPP - PSP emulator"
+      }
+    },
+    "Culdcept BEGINS": {
+      "appIds": {
+        "steam": "3322630"
+      },
+      "aliases": [],
+      "developer": "Neos Corporation",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3322630/99b06320f63645eacb74f190b6b937992df7450e/capsule_231x87.jpg?t=1793111634",
+      "slug": "culdcept-begins",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "ArcheAge Chronicles": {
+      "appIds": {
+        "steam": "3218230"
+      },
+      "aliases": [],
+      "developer": "XLGAMES",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3218230/ae498bdbfdf5498ce0f2201779531b8c1043db5b/capsule_231x87.jpg?t=1793118286",
+      "slug": "archeage-chronicles",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Shadow of the Tomb Raider: Definitive Edition": {
+      "appIds": {
+        "steam": "750920"
+      },
+      "aliases": [],
+      "developer": "Eidos-Montréal",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/750920/2af42f886b327c6d175c4e87af0a6950f9466561/capsule_231x87_alt_assets_0.jpg?t=1792675045",
+      "slug": "shadow-of-the-tomb-raider-definitive-edition",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-27",
-  "totalGames": 8897
+  "lastUpdated": "2026-10-28",
+  "totalGames": 8904
 }

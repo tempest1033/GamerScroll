@@ -46587,6 +46587,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/69/17/70/6917708d-ca03-0e95-78fb-d2ba663ac497/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-27T13:03:01.508Z"
+    },
+    {
+      "title": "Mini Soccer Star 2027",
+      "status": "single",
+      "appIds": {
+        "ios": 1636072966
+      },
+      "developer": "VIVA GAMES S.L.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c8/56/c2/c856c27d-78b8-31e5-cb61-62a1eed98c77/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T17:03:57.060Z"
+    },
+    {
+      "title": "2PG: 2 Players Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6825192321
+      },
+      "developer": "Youci Huang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/2e/b2/c12eb297-c757-85bd-89e4-fba22ed8da0f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T17:03:57.699Z"
+    },
+    {
+      "title": "PPSSPP - PSP emulator",
+      "status": "single",
+      "appIds": {
+        "ios": 6496972903
+      },
+      "developer": "Henrik Rydgård",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/a0/86/6da08633-7f30-28e5-5148-c3bad17ac83c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T17:03:57.953Z"
     }
   ],
   "approved": [
