@@ -152843,8 +152843,68 @@
       "platforms": [
         "steam"
       ]
+    },
+    "광전사 키우기: 방치형 rpg": {
+      "appIds": {
+        "android": "com.cookapps.berserkidle",
+        "ios": 1635339933
+      },
+      "aliases": [],
+      "developer": "CookApps",
+      "icon": "https://play-lh.googleusercontent.com/NrwGIDp_EyJ1SOdQD9I7IN5n2QIt6TbKRQMRzvAYUBVF9wjH3Lu4IrO27uuL0a3_e5PIrGh7RZJyCXt62pxf6Q",
+      "slug": "광전사-키우기-방치형-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "광전사 키우기: 방치형 rpg"
+      }
+    },
+    "스타 터렛": {
+      "appIds": {
+        "android": "com.superbean.starturret"
+      },
+      "aliases": [],
+      "developer": "Super Bean",
+      "icon": "https://play-lh.googleusercontent.com/yz9bXSJ2RFPayc1Vkbx_-dRbUNCN4N1G7NV0w7lo_29blwm5VCdiULUu3h_l5AJj0KCiHDqKBaXbU8fqrepB",
+      "slug": "스타-터렛",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "스타 터렛"
+      }
+    },
+    "Wire de Coins 2": {
+      "appIds": {
+        "ios": 1138586148
+      },
+      "aliases": [],
+      "developer": "marge co., ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/5e/f4/4a/5ef44ad4-e53c-6025-6f53-03865320ec20/AppIcon-1x_U007emarketing-0-85-220-0-9.png/512x512bb.jpg",
+      "slug": "wire-de-coins-2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Wire de Coins 2",
+        "ja": "ワイヤーでコイン2"
+      }
+    },
+    "ShredDead": {
+      "appIds": {
+        "steam": "4704520"
+      },
+      "aliases": [],
+      "developer": "Weird Penguin Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4704520/fffe895f9ff83764fd437188ea0e7d93fe0d6848/capsule_231x87.jpg?t=1793034266",
+      "slug": "shreddead",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-27",
-  "totalGames": 8888
+  "totalGames": 8892
 }

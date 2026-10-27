@@ -46483,6 +46483,66 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/04/02/2b040250-b486-ec27-fb67-bec6800016a8/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-27T05:03:07.991Z"
+    },
+    {
+      "title": "광전사 키우기: 방치형 rpg",
+      "status": "matched",
+      "appIds": {
+        "android": "com.cookapps.berserkidle",
+        "ios": 1635339933
+      },
+      "developer": "CookApps",
+      "icon": "https://play-lh.googleusercontent.com/NrwGIDp_EyJ1SOdQD9I7IN5n2QIt6TbKRQMRzvAYUBVF9wjH3Lu4IrO27uuL0a3_e5PIrGh7RZJyCXt62pxf6Q",
+      "searchResults": [
+        {
+          "title": "광전사 키우기: 방치형 rpg",
+          "appId": 1635339933
+        },
+        {
+          "title": "군주 키우기 : 방치형 RPG",
+          "appId": 6738901416
+        },
+        {
+          "title": "해적선 키우기 : 방치형RPG",
+          "appId": 6449081140
+        }
+      ],
+      "addedAt": "2026-10-27T09:02:32.469Z"
+    },
+    {
+      "title": "스타 터렛",
+      "status": "single",
+      "appIds": {
+        "android": "com.superbean.starturret"
+      },
+      "developer": "Super Bean",
+      "icon": "https://play-lh.googleusercontent.com/yz9bXSJ2RFPayc1Vkbx_-dRbUNCN4N1G7NV0w7lo_29blwm5VCdiULUu3h_l5AJj0KCiHDqKBaXbU8fqrepB",
+      "searchResults": [
+        {
+          "title": "터렛 키우기 TD",
+          "appId": 1434216737
+        },
+        {
+          "title": "우주선 키우기 - 함선 키우기 (배틀 쉽)",
+          "appId": 1185378667
+        },
+        {
+          "title": "솔저 키우기",
+          "appId": 1451946558
+        }
+      ],
+      "addedAt": "2026-10-27T09:02:32.727Z"
+    },
+    {
+      "title": "Wire de Coins 2",
+      "status": "single",
+      "appIds": {
+        "ios": 1138586148
+      },
+      "developer": "marge co., ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple125/v4/5e/f4/4a/5ef44ad4-e53c-6025-6f53-03865320ec20/AppIcon-1x_U007emarketing-0-85-220-0-9.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T09:02:33.719Z"
     }
   ],
   "approved": [
