@@ -152766,8 +152766,23 @@
       "platforms": [
         "steam"
       ]
+    },
+    "桃园：将帅录": {
+      "appIds": {
+        "ios_cn": 6812216260
+      },
+      "aliases": [],
+      "developer": "Zhejiang UmarkNetwork Technology Co.,Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/59/03/c05903fc-ff2c-4c8c-dbd9-9942248740a9/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "桃园将帅录",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "桃园：将帅录"
+      }
     }
   },
   "lastUpdated": "2026-10-27",
-  "totalGames": 8883
+  "totalGames": 8884
 }
