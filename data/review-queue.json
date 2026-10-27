@@ -46384,13 +46384,19 @@
     },
     {
       "title": "미카: 던전 백패커",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6761421604
+        "ios": 6761421604,
+        "android": "com.davestudio.mika"
       },
       "developer": "Tae won Go",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/10/2c/1c102c98-30da-bd1c-1ed4-19fe53a916ab/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "미카: 던전 백패커",
+          "appId": 6761421604
+        }
+      ],
       "addedAt": "2026-10-26T13:08:55.735Z"
     },
     {
@@ -46620,6 +46626,53 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6d/a0/86/6da08633-7f30-28e5-5148-c3bad17ac83c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-27T17:03:57.953Z"
+    },
+    {
+      "title": "BLEACH Mirrors High",
+      "status": "single",
+      "appIds": {
+        "ios": 6758332966
+      },
+      "developer": "Bandai Namco Entertainment Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ce/8a/a6/ce8aa6e7-4330-966e-b816-a746fda2a5f9/AppIcon-0-0-1x_U007emarketing-0-8-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T21:02:59.009Z"
+    },
+    {
+      "title": "오프라인 게임 - WiFi 없이",
+      "status": "single",
+      "appIds": {
+        "ios": 6450197549
+      },
+      "developer": "光辉 丁",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/64/df/63/64df633e-65d2-c448-2512-7f06edfa126c/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T21:03:00.270Z"
+    },
+    {
+      "title": "Your Happy Ant",
+      "status": "matched",
+      "appIds": {
+        "android": "flow.color.puzzle.colony.marble.pixel.loop.jigsaw",
+        "ios": 6793877893
+      },
+      "developer": "POP STONE GAME TECHNOLOGY LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/PZFpIIPjic6zb9qCXA35EopNbNLxBX0cqMycUsFDR1wnWirI3gx8XkQaggNmwL2bUAF1mgNp7affn1iwESD4",
+      "searchResults": [
+        {
+          "title": "Your Happy Ant",
+          "appId": 6793877893
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "Google",
+          "appId": 284815942
+        }
+      ],
+      "addedAt": "2026-10-27T21:03:01.304Z"
     }
   ],
   "approved": [
