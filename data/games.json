@@ -66016,14 +66016,16 @@
     },
     "Business Empire: RichMan": {
       "appIds": {
-        "ios": "6451208928"
+        "ios": 6451208928,
+        "android": "com.ttterbagames.businesssimulator"
       },
       "aliases": [],
       "developer": "NewPubCo, Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/18/d3/41/18d3413f-c5a1-d563-4b09-e5cf5bfe24a8/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
       "slug": "business-empire-richman",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Business Empire: RichMan",
@@ -152781,8 +152783,68 @@
       "names": {
         "zh-cn": "桃园：将帅录"
       }
+    },
+    "Flashback: 까다로운 재미있는 수수께끼": {
+      "appIds": {
+        "ios": 1630338576
+      },
+      "aliases": [],
+      "developer": "Radiant Cat Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/fb/02/b3fb02d1-595f-c975-5e8c-05327e23d9ee/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "flashback-까다로운-재미있는-수수께끼",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Flashback: 까다로운 재미있는 수수께끼",
+        "en": "Flashback: Tricky Fun Riddles"
+      }
+    },
+    "Cube Smash - Puzzle Game": {
+      "appIds": {
+        "ios": 6786206777
+      },
+      "aliases": [],
+      "developer": "Combo Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/11/21/7c/11217cc0-8d73-68aa-7294-fb18891f6c40/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "cube-smash-puzzle-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Cube Smash - Puzzle Game",
+        "ja": "Cube Smash - Puzzle Game"
+      }
+    },
+    "Light Up: 논리 퍼즐": {
+      "appIds": {
+        "ios": 6780401631
+      },
+      "aliases": [],
+      "developer": "Oakever Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/04/02/2b040250-b486-ec27-fb67-bec6800016a8/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "light-up-논리-퍼즐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Light Up: 논리 퍼즐",
+        "ja": "Light Up: 論理パズル"
+      }
+    },
+    "CRACK": {
+      "appIds": {
+        "steam": "4312190"
+      },
+      "aliases": [],
+      "developer": "Rafoli",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4312190/b15bda06f34e27dfacfb1ac5f240d126375de8d4/capsule_231x87.jpg?t=1793035699",
+      "slug": "crack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-27",
-  "totalGames": 8884
+  "totalGames": 8888
 }

@@ -46425,6 +46425,64 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/56/f7/70/56f770ee-257a-05d7-443b-171f0935ea30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-26T13:08:57.214Z"
+    },
+    {
+      "title": "Flashback: 까다로운 재미있는 수수께끼",
+      "status": "single",
+      "appIds": {
+        "ios": 1630338576
+      },
+      "developer": "Radiant Cat Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/fb/02/b3fb02d1-595f-c975-5e8c-05327e23d9ee/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T05:03:06.481Z"
+    },
+    {
+      "title": "Business Empire: RichMan",
+      "status": "matched",
+      "appIds": {
+        "ios": 6451208928,
+        "android": "com.ttterbagames.businesssimulator"
+      },
+      "developer": "NewPubCo, Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/18/d3/41/18d3413f-c5a1-d563-4b09-e5cf5bfe24a8/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Business Empire: RichMan",
+          "appId": 6451208928
+        },
+        {
+          "title": "Idle Guy: 인생 시뮬레이션 리치 억만장자",
+          "appId": 1612163874
+        },
+        {
+          "title": "Business Empire Tycoon: Idle",
+          "appId": 6739007418
+        }
+      ],
+      "addedAt": "2026-10-27T05:03:07.167Z"
+    },
+    {
+      "title": "Cube Smash - Puzzle Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6786206777
+      },
+      "developer": "Combo Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/11/21/7c/11217cc0-8d73-68aa-7294-fb18891f6c40/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T05:03:07.573Z"
+    },
+    {
+      "title": "Light Up: 논리 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6780401631
+      },
+      "developer": "Oakever Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/04/02/2b040250-b486-ec27-fb67-bec6800016a8/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-27T05:03:07.991Z"
     }
   ],
   "approved": [
