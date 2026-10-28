@@ -153178,8 +153178,39 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Hot Spin 777": {
+      "appIds": {
+        "android_us": "com.huirongsheng.hotspin"
+      },
+      "aliases": [],
+      "developer": "HUIRONGSHENG LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/IK2mvhO-QXf2oNFBKDT-qn6R1MzTEoJI1f6mmiiFiEdbscxAOIf5_R8js0QFELeT0ZJCK2n48dCJTcT26EYDJbk",
+      "slug": "hot-spin-777",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Hot Spin 777"
+      }
+    },
+    "백팩 셰프": {
+      "appIds": {
+        "android": "com.wizelynco.tkw"
+      },
+      "aliases": [],
+      "developer": "GAME OVEN",
+      "icon": "https://play-lh.googleusercontent.com/1GehxgxAi7O7RydrFA85g0tQ3rXrqXc0ob8LsrQzRsInTfZH6gsKgVgXPybzPSqjMGcr0tFkLGPVNuFvytdvUNY",
+      "slug": "백팩-셰프",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "백팩 셰프",
+        "zh-tw": "背包廚神"
+      }
     }
   },
   "lastUpdated": "2026-10-28",
-  "totalGames": 8910
+  "totalGames": 8912
 }

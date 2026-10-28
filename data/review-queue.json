@@ -46673,6 +46673,17 @@
         }
       ],
       "addedAt": "2026-10-27T21:03:01.304Z"
+    },
+    {
+      "title": "백팩 셰프",
+      "status": "single",
+      "appIds": {
+        "android": "com.wizelynco.tkw"
+      },
+      "developer": "GAME OVEN",
+      "icon": "https://play-lh.googleusercontent.com/1GehxgxAi7O7RydrFA85g0tQ3rXrqXc0ob8LsrQzRsInTfZH6gsKgVgXPybzPSqjMGcr0tFkLGPVNuFvytdvUNY",
+      "searchResults": [],
+      "addedAt": "2026-10-28T01:02:58.313Z"
     }
   ],
   "approved": [
