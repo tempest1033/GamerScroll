@@ -153375,6 +153375,21 @@
       "platforms": [
         "steam"
       ]
+    },
+    "보도보도": {
+      "appIds": {
+        "ios": 6823592745
+      },
+      "aliases": [],
+      "developer": "Kisun Kim",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/5d/d9/a45dd96e-2a9f-9642-6f36-71214c0dcedd/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "보도보도",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "보도보도"
+      }
     }
   },
   "lastUpdated": "2026-10-28",
