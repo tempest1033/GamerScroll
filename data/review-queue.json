@@ -46629,13 +46629,28 @@
     },
     {
       "title": "BLEACH Mirrors High",
-      "status": "single",
+      "status": "conflict",
       "appIds": {
-        "ios": 6758332966
+        "ios": 6758332966,
+        "ios_jp": 6747328897,
+        "android": "com.bandainamcoent.bleach_mh"
       },
       "developer": "Bandai Namco Entertainment Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ce/8a/a6/ce8aa6e7-4330-966e-b816-a746fda2a5f9/AppIcon-0-0-1x_U007emarketing-0-8-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "BLEACH Mirrors High",
+          "appId": 6758332966
+        },
+        {
+          "title": "Bleach:Brave Souls Anime Games",
+          "appId": 1003168863
+        },
+        {
+          "title": "DRAGON BALL LEGENDS-드래곤 볼 레전즈-",
+          "appId": 1358222641
+        }
+      ],
       "addedAt": "2026-10-27T21:02:59.009Z"
     },
     {
@@ -46706,6 +46721,61 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/88/da/aa/88daaa7b-14e5-ea3b-8ec0-828deee0dd22/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-28T05:02:45.701Z"
+    },
+    {
+      "title": "몬스터헌터 아웃랜더스",
+      "status": "single",
+      "appIds": {
+        "ios": 6763262759
+      },
+      "developer": "Garena Online Private Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/97/68/059768c7-93fd-660e-b99a-a757bc0db5c0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-28T09:03:06.029Z"
+    },
+    {
+      "title": "드래곤 나이트 키우기",
+      "status": "single",
+      "appIds": {
+        "ios": 6776891493
+      },
+      "developer": "Ryong Game Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/a9/80/1fa98014-8bb2-5dae-36dd-230a03ffa291/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-28T09:03:06.232Z"
+    },
+    {
+      "title": "픽스글로우: 컬러 소트 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6764057351
+      },
+      "developer": "Playdayy",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/72/a9/1f72a9bf-5c6d-925c-3e03-d5373caa7c84/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-28T09:03:06.968Z"
+    },
+    {
+      "title": "Arrow Puzzle 3D - 화살퍼즐게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6777942798
+      },
+      "developer": "Easybrain Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/89/74/73/8974730d-8a04-fd7f-b685-43553e9a0068/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-28T09:03:07.233Z"
+    },
+    {
+      "title": "開拓うさぎ by クラシル",
+      "status": "single",
+      "appIds": {
+        "android": "com.kurashiru.kaitaku.usagi"
+      },
+      "developer": "Kurashiru, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/xTqMfN19kAIBLPg1faIH319s8HLRQf7djTP9X6OIjhEZP9Wv-YAfSIUB2eOY26hCqZUH0JDnkK5YUwtbOlJ8eg",
+      "searchResults": [],
+      "addedAt": "2026-10-28T09:03:08.048Z"
     }
   ],
   "approved": [

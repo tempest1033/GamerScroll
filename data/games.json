@@ -153087,7 +153087,8 @@
     "BLEACH Mirrors High": {
       "appIds": {
         "ios": 6758332966,
-        "ios_jp": 6747328897
+        "ios_jp": 6747328897,
+        "android": "com.bandainamcoent.bleach_mh"
       },
       "aliases": [
         "BLEACH Mirrors High【ミラハイ】"
@@ -153096,7 +153097,8 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ce/8a/a6/ce8aa6e7-4330-966e-b816-a746fda2a5f9/AppIcon-0-0-1x_U007emarketing-0-8-85-220.png/512x512bb.jpg",
       "slug": "bleach-mirrors-high",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "BLEACH Mirrors High",
@@ -153280,8 +153282,117 @@
       "platforms": [
         "steam"
       ]
+    },
+    "몬스터헌터 아웃랜더스": {
+      "appIds": {
+        "ios": 6763262759
+      },
+      "aliases": [],
+      "developer": "Garena Online Private Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/97/68/059768c7-93fd-660e-b99a-a757bc0db5c0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "몬스터헌터-아웃랜더스",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "몬스터헌터 아웃랜더스",
+        "zh-tw": "魔物獵人：旅人"
+      }
+    },
+    "드래곤 나이트 키우기": {
+      "appIds": {
+        "ios": 6776891493
+      },
+      "aliases": [],
+      "developer": "Ryong Game Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/a9/80/1fa98014-8bb2-5dae-36dd-230a03ffa291/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "드래곤-나이트-키우기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "드래곤 나이트 키우기"
+      }
+    },
+    "Monster Hunter Outlanders": {
+      "appIds": {
+        "ios_us": 6444520814
+      },
+      "aliases": [
+        "モンスターハンターアウトランダーズ"
+      ],
+      "developer": "PROXIMA BETA PTE.LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/73/e0/0073e0c8-a9e4-1956-8966-f83a136ee71e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "monster-hunter-outlanders",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Monster Hunter Outlanders",
+        "ja": "モンスターハンターアウトランダーズ"
+      }
+    },
+    "픽스글로우: 컬러 소트 퍼즐": {
+      "appIds": {
+        "ios": 6764057351
+      },
+      "aliases": [],
+      "developer": "Playdayy",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/72/a9/1f72a9bf-5c6d-925c-3e03-d5373caa7c84/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "픽스글로우-컬러-소트-퍼즐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "픽스글로우: 컬러 소트 퍼즐",
+        "en": "PixGlow: Color Sort Puzzle"
+      }
+    },
+    "Arrow Puzzle 3D - 화살퍼즐게임": {
+      "appIds": {
+        "ios": 6777942798
+      },
+      "aliases": [],
+      "developer": "Easybrain Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/89/74/73/8974730d-8a04-fd7f-b685-43553e9a0068/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "arrow-puzzle-3d-화살퍼즐게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Arrow Puzzle 3D - 화살퍼즐게임",
+        "en": "Arrow Puzzle 3D - Arrows Game"
+      }
+    },
+    "開拓うさぎ by クラシル": {
+      "appIds": {
+        "android": "com.kurashiru.kaitaku.usagi"
+      },
+      "aliases": [],
+      "developer": "Kurashiru, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/xTqMfN19kAIBLPg1faIH319s8HLRQf7djTP9X6OIjhEZP9Wv-YAfSIUB2eOY26hCqZUH0JDnkK5YUwtbOlJ8eg",
+      "slug": "by",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "開拓うさぎ by クラシル",
+        "ja": "開拓うさぎ by クラシル"
+      }
+    },
+    "Nomad Drive": {
+      "appIds": {
+        "steam": "2223980"
+      },
+      "aliases": [],
+      "developer": "Indie Devil",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2223980/04914cfd8e7f5a07e474acdf42ca9b5762fac7af/capsule_231x87.jpg?t=1793144594",
+      "slug": "nomad-drive",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-28",
-  "totalGames": 8917
+  "totalGames": 8924
 }
