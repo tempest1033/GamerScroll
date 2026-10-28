@@ -1743,12 +1743,9 @@
     "MLB 라이벌": {
       "appIds": {
         "ios": "1580691683",
-        "android": "com.wildcaly.chbaseball.global",
-        "android:kr": "com.com2us.futuremlb.android.google.global.normal"
+        "android": "com.com2us.futuremlb.android.google.global.normal"
       },
-      "aliases": [
-        "MLB 클러치 히트 베이스볼"
-      ],
+      "aliases": [],
       "developer": "Com2uS Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/94/38/0a/94380aff-df7f-654f-4fc1-7cc575da4fb7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
       "slug": "mlb-라이벌",
@@ -8861,9 +8858,13 @@
     "MLB 클러치 히트 베이스볼 25": {
       "appIds": {
         "ios": "6462846417",
-        "android": "com.wildcaly.chbaseball.jkt"
+        "android": "com.wildcaly.chbaseball.jkt",
+        "android_us": "com.wildcaly.chbaseball.global"
       },
-      "aliases": [],
+      "aliases": [
+        "MLB 클러치 히트 베이스볼",
+        "MLB Clutch Hit Baseball 26"
+      ],
       "developer": "WILD CALY PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/09/8b/29/098b2909-01ea-8499-ec07-3fbe1d0da26a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
       "slug": "mlb-클러치-히트-베이스볼-25",
@@ -66076,16 +66077,19 @@
     },
     "Charade Guessing Game: Guessly": {
       "appIds": {
-        "ios": "6473058122"
+        "ios": "6473058122",
+        "android": "io.smakapps.guessly"
       },
       "aliases": [
-        "Charades Guess Game · Guessly"
+        "Charades Guess Game · Guessly",
+        "Charades Guess Game — Guessly"
       ],
       "developer": "SMAK APPS SP ZOO",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/df/73/52df7353-dd07-9ccb-7c00-bde3c2bd1420/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.jpeg/512x512bb.jpg",
       "slug": "charades-guess-game-guessly",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Charade Guessing Game: Guessly",
@@ -152184,26 +152188,6 @@
       "names": {
         "ko": "HideZone: GPS Hide & Seek",
         "en": "HideZone: GPS Hide & Seek"
-      }
-    },
-    "Charades Guess Game — Guessly": {
-      "appIds": {
-        "android": "io.smakapps.guessly",
-        "ios": 6473058122
-      },
-      "aliases": [
-        "Charades Guess Game · Guessly"
-      ],
-      "developer": "smak apps",
-      "icon": "https://play-lh.googleusercontent.com/8nFkCEJkL0lpRGz4uQs2g9mQkHTOKH3GHfe38b6R8sT0OawsQyydr37DRxZV_aFGummNj9m9hVHZaOaTp09P",
-      "slug": "charades-guess-game-guessly",
-      "platforms": [
-        "android",
-        "ios"
-      ],
-      "names": {
-        "ko": "Charades Guess Game — Guessly",
-        "en": "Charades Guess Game — Guessly"
       }
     },
     "Bungee Beat": {
