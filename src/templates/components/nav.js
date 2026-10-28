@@ -7,11 +7,13 @@
 const { t: tt } = require('../../i18n');
 const navItems = [
   { id: 'rankings', label: tt('nav.mobile'), href: '/rankings/' },
-  { id: 'analysis', label: tt('nav.metrics'), href: '/analysis/' },
+  { id: 'analysis', label: tt('nav.metrics'), href: '/analysis/', badge: 'NEW' },
   { id: 'trending', label: tt('nav.trending'), href: '/trending/' },
   { id: 'steam', label: tt('layout.steam'), href: '/steam/' },
   { id: 'games', label: tt('layout.game_db'), href: '/games/' }
 ];
+// 새 메뉴 표시 배지 (스타일: header.js .gs-nav-new)
+const navBadge = (item) => (item.badge ? `<i class="gs-nav-new">${item.badge}</i>` : '');
 // 페이지 ID → 내비 항목 (게임 상세는 게임 DB를 활성화. 홈은 활성 항목 없음)
 const NAV_ALIAS = { game: 'games' };
 const navIdOf = (currentPage) => NAV_ALIAS[currentPage] || currentPage;
@@ -25,7 +27,7 @@ function generateNav(currentPage = 'home') {
   <nav class="nav">
     <div class="nav-inner">
       ${navItems.map(item => `
-      <a class="nav-item${item.id === activeId ? ' active' : ''}" href="${item.href}">${item.label}</a>`).join('')}
+      <a class="nav-item${item.id === activeId ? ' active' : ''}${item.badge ? ' gs-nav-badged' : ''}" href="${item.href}">${item.label}${navBadge(item)}</a>`).join('')}
     </div>
   </nav>
   <script>
@@ -63,4 +65,4 @@ function generateNav(currentPage = 'home') {
   </script>`;
 }
 
-module.exports = { generateNav, navItems, navIdOf };
+module.exports = { generateNav, navItems, navIdOf, navBadge };

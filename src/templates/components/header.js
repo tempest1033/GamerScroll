@@ -4,7 +4,7 @@
 
 const { t } = require('../../i18n');
 const { renderEditionSelector, editionSelectorStyle } = require('./edition-selector');
-const { navItems, navIdOf } = require('./nav');
+const { navItems, navIdOf, navBadge } = require('./nav');
 
 // 상단 바 오른쪽 상태 문구 (마지막 수집 시각). 빌드 스크립트가 데이터 로드 후 넣는다.
 let headerStatus = '';
@@ -36,6 +36,13 @@ function generateHeader(currentPage = 'home', pagePath = '/') {
     .gs-nav a { font-size: 15px; font-weight: 600; color: var(--text-muted); text-decoration: none; white-space: nowrap; padding: 4px 0; position: relative; }
     .gs-nav a:hover, .gs-nav a.active { color: var(--primary); }
     .gs-nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -23px; height: 3px; border-radius: 3px 3px 0 0; background: var(--primary); }
+    .gs-nav-new { display: inline-block; vertical-align: 1px; font-style: normal; font-size: 9.5px; font-weight: 800; line-height: 15px; color: #fff; background: #d92d20; border-radius: 4px; padding: 0 4px; margin-left: 4px; }
+    .nav-item.gs-nav-badged { flex-direction: row; flex-wrap: nowrap; }
+    /* 모바일 내비는 5칸 균등: 배지는 칸을 넓히지 않고 글자 오른쪽 위에 얹는다. */
+    @media (max-width: 768px) {
+      body .nav .nav-inner .nav-item.gs-nav-badged { position: relative; overflow: visible; }
+      .nav-item .gs-nav-new { position: absolute; top: 4px; right: 0; margin: 0; font-size: 8px; line-height: 12px; padding: 0 3px; }
+    }
     .gs-status { margin-left: 0; font-size: 11px; color: var(--text-muted); white-space: nowrap; }
     @media (max-width: 1120px) { .gs-status { display: none; } .gs-header-inner { gap: 22px; } .gs-nav { gap: 18px; } }
     .gs-search { position: relative; flex-shrink: 0; width: 240px; margin-left: auto; }
@@ -105,7 +112,7 @@ function generateHeader(currentPage = 'home', pagePath = '/') {
           ${LOGO_SVG}
         </a>
       </div>
-      <nav class="gs-nav" aria-label="${t('header.main_menu')}">${navItems.map((it) => `<a class="${it.id === activeId ? 'active' : ''}" href="${it.href}">${it.label}</a>`).join('')}</nav>
+      <nav class="gs-nav" aria-label="${t('header.main_menu')}">${navItems.map((it) => `<a class="${it.id === activeId ? 'active' : ''}" href="${it.href}">${it.label}${navBadge(it)}</a>`).join('')}</nav>
       <div class="gs-search">
         <div class="search-box">
           <input type="text" class="search-input" aria-label="${t('header.search_games')}" placeholder="${t('header.search_games')}" autocomplete="off">
