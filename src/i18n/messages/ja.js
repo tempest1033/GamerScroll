@@ -201,6 +201,7 @@ module.exports = {
   "layout.wiki": "ウィキ",
   "list.show_top_only": "上位{visible}件のみ表示",
   "list.view_full_ranking": "ランキング全体を見る · {count}",
+  "nav.metrics": "指標分析",
   "nav.mobile": "モバイル",
   "notfound.back_to_home": "ホームへ戻る",
   "notfound.page_not_found": "ページが見つかりません",

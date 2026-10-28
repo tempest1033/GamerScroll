@@ -201,6 +201,7 @@ module.exports = {
   "layout.wiki": "百科",
   "list.show_top_only": "仅显示前 {visible} 名",
   "list.view_full_ranking": "查看完整榜单 · {count}",
+  "nav.metrics": "指标分析",
   "nav.mobile": "手游",
   "notfound.back_to_home": "返回首页",
   "notfound.page_not_found": "页面不存在",

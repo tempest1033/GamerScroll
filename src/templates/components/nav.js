@@ -2,10 +2,12 @@
  * 네비게이션 컴포넌트
  */
 
-// 순위 데이터 사이트 내비 4개: 모바일 · 트렌딩 · 스팀 · 게임 DB. 홈(/)은 로고로 간다.
+// 순위 데이터 사이트 내비: 모바일 · 지표 분석 · 트렌딩 · 스팀 · 게임 DB. 홈(/)은 로고로 간다.
+// 지표 분석(/analysis/)은 별도 Worker가 모든 에디션 경로로 내려주는 페이지다.
 const { t: tt } = require('../../i18n');
 const navItems = [
   { id: 'rankings', label: tt('nav.mobile'), href: '/rankings/' },
+  { id: 'analysis', label: tt('nav.metrics'), href: '/analysis/' },
   { id: 'trending', label: tt('nav.trending'), href: '/trending/' },
   { id: 'steam', label: tt('layout.steam'), href: '/steam/' },
   { id: 'games', label: tt('layout.game_db'), href: '/games/' }

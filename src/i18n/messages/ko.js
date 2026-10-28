@@ -201,6 +201,7 @@ module.exports = {
   "layout.wiki": "위키",
   "list.show_top_only": "상위 {visible}개만 보기",
   "list.view_full_ranking": "전체 순위 보기 · {count}개",
+  "nav.metrics": "지표 분석",
   "nav.mobile": "모바일",
   "notfound.back_to_home": "홈으로",
   "notfound.page_not_found": "페이지를 찾을 수 없습니다",

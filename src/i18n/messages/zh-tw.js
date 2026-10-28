@@ -201,6 +201,7 @@ module.exports = {
   "layout.wiki": "維基",
   "list.show_top_only": "只顯示前 {visible} 名",
   "list.view_full_ranking": "查看完整排行 · {count}",
+  "nav.metrics": "指標分析",
   "nav.mobile": "手機",
   "notfound.back_to_home": "回到首頁",
   "notfound.page_not_found": "找不到頁面",

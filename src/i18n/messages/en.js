@@ -201,6 +201,7 @@ module.exports = {
   "layout.wiki": "Wiki",
   "list.show_top_only": "Show top {visible} only",
   "list.view_full_ranking": "View full ranking · {count}",
+  "nav.metrics": "Metrics",
   "nav.mobile": "Mobile",
   "notfound.back_to_home": "Back to home",
   "notfound.page_not_found": "Page not found",
