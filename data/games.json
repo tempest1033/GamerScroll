@@ -153209,8 +153209,79 @@
         "ko": "백팩 셰프",
         "zh-tw": "背包廚神"
       }
+    },
+    "競輪人生3D": {
+      "appIds": {
+        "ios_jp": 6819018049
+      },
+      "aliases": [],
+      "developer": "Shuhei Torisaki",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/69/05/ae6905d1-493f-c000-3a4b-a377365a2abd/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "競輪人生3d",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "競輪人生3D"
+      }
+    },
+    "Dark Hunter - Hunter Hero RPG": {
+      "appIds": {
+        "ios": 6795450808
+      },
+      "aliases": [],
+      "developer": "HongKong Daocheng Network Technology Co. Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fd/d2/46/fdd246a4-2022-9c9f-0c88-8ec9f1173453/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "dark-hunter-hunter-hero-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Dark Hunter - Hunter Hero RPG",
+        "zh-tw": "Dark Hunter - Hunter Hero RPG"
+      }
+    },
+    "創界龍神：神部之戰": {
+      "appIds": {
+        "ios": 6810664490
+      },
+      "aliases": [],
+      "developer": "BESTWARE PRODUCTS CO., LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/88/da/aa/88daaa7b-14e5-ea3b-8ec0-828deee0dd22/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "創界龍神：神部之戰",
+        "zh-tw": "創界龍神：神部之戰"
+      }
+    },
+    "PC Cafe Simulator": {
+      "appIds": {
+        "steam": "3375990"
+      },
+      "aliases": [],
+      "developer": "Sangwoon Jin",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3375990/cbe849bdadeadd536a3c7ab8ef07c68bf4b7f8ee/capsule_231x87.jpg?t=1793152808",
+      "slug": "pc-cafe-simulator",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Life Is a Dungeon: Lean into It.": {
+      "appIds": {
+        "steam": "5062910"
+      },
+      "aliases": [],
+      "developer": "Anonymous Works",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5062910/8714e1b21957889e61a1bcf4089e814af7ffe89c/capsule_231x87.jpg?t=1793055609",
+      "slug": "life-is-a-dungeon-lean-into-it",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-28",
-  "totalGames": 8912
+  "totalGames": 8917
 }
