@@ -46949,6 +46949,56 @@
         }
       ],
       "addedAt": "2026-10-28T19:03:27.799Z"
+    },
+    {
+      "title": "루나 모바일(12): 부스팅 서버 소환권 1000장",
+      "status": "single",
+      "appIds": {
+        "android": "com.t3.luna"
+      },
+      "developer": "soulgames",
+      "icon": "https://play-lh.googleusercontent.com/HUHCG6JlIRLCQO0onE1FrxjEGTCNhR8oaSDHtolNtjSdoGvg9ssNsN_ybEWxmcXAb4FPctIc-0s-nvKcvRKVb-4",
+      "searchResults": [],
+      "addedAt": "2026-10-28T20:38:42.739Z"
+    },
+    {
+      "title": "제패: 정치 선거 시뮬레이션",
+      "status": "matched",
+      "appIds": {
+        "android": "com.jepe.game",
+        "ios": 6822578966
+      },
+      "developer": "Jin Ocean",
+      "icon": "https://play-lh.googleusercontent.com/Q_OVpMorAI3CB2BA5Xq0wG3KlDYGpshyGnph9bsfOAbUDCr6NmM3V9B_EhvfSmSGo2D-3kioKJdh2-f-jz4szQ",
+      "searchResults": [
+        {
+          "title": "제패: 정치 선거 시뮬레이션",
+          "appId": 6822578966
+        }
+      ],
+      "addedAt": "2026-10-28T20:38:43.220Z"
+    },
+    {
+      "title": "패스 레이어스(Path Layers) – 길 탈출 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.path.layers"
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/HANWaS92-b5KsOYB7pkwhzkT28lnCz9ORSN68HxosLCT1eDhFI_4myz1Jo3JHIPca5rnfqXWHabekK2AlGrfe2M",
+      "searchResults": [],
+      "addedAt": "2026-10-28T20:38:44.106Z"
+    },
+    {
+      "title": "Sailing: Pirate Oath",
+      "status": "single",
+      "appIds": {
+        "android": "zaroo.glmen.teenata"
+      },
+      "developer": "Ava Jewels",
+      "icon": "https://play-lh.googleusercontent.com/N_mvctymRgDBHPrAUEuIxbEU66h_8ACtIJZRw82_H6SHtOf1n4RQE_jykEZytOwNvV9p-yMSGE-q6rz7DtVF",
+      "searchResults": [],
+      "addedAt": "2026-10-28T20:38:44.604Z"
     }
   ],
   "approved": [

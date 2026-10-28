@@ -153575,8 +153575,74 @@
         "ko": "三國幻想錄:開局送5星關羽",
         "zh-tw": "三國幻想錄:開局送5星關羽"
       }
+    },
+    "루나 모바일(12): 부스팅 서버 소환권 1000장": {
+      "appIds": {
+        "android": "com.t3.luna"
+      },
+      "aliases": [],
+      "developer": "soulgames",
+      "icon": "https://play-lh.googleusercontent.com/HUHCG6JlIRLCQO0onE1FrxjEGTCNhR8oaSDHtolNtjSdoGvg9ssNsN_ybEWxmcXAb4FPctIc-0s-nvKcvRKVb-4",
+      "slug": "루나-모바일12-부스팅-서버-소환권-1000장",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "루나 모바일(12): 부스팅 서버 소환권 1000장"
+      }
+    },
+    "제패: 정치 선거 시뮬레이션": {
+      "appIds": {
+        "android": "com.jepe.game",
+        "ios": 6822578966
+      },
+      "aliases": [
+        "제패: 정치·선거 시뮬레이션"
+      ],
+      "developer": "Jin Ocean",
+      "icon": "https://play-lh.googleusercontent.com/Q_OVpMorAI3CB2BA5Xq0wG3KlDYGpshyGnph9bsfOAbUDCr6NmM3V9B_EhvfSmSGo2D-3kioKJdh2-f-jz4szQ",
+      "slug": "제패-정치-선거-시뮬레이션",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "제패: 정치·선거 시뮬레이션"
+      }
+    },
+    "패스 레이어스(Path Layers) – 길 탈출 퍼즐": {
+      "appIds": {
+        "android": "com.path.layers"
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/HANWaS92-b5KsOYB7pkwhzkT28lnCz9ORSN68HxosLCT1eDhFI_4myz1Jo3JHIPca5rnfqXWHabekK2AlGrfe2M",
+      "slug": "패스-레이어스path-layers-길-탈출-퍼즐",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "패스 레이어스(Path Layers) – 길 탈출 퍼즐",
+        "ja": "パスレイヤー：脱出パズル"
+      }
+    },
+    "Sailing: Pirate Oath": {
+      "appIds": {
+        "android": "zaroo.glmen.teenata"
+      },
+      "aliases": [],
+      "developer": "Ava Jewels",
+      "icon": "https://play-lh.googleusercontent.com/N_mvctymRgDBHPrAUEuIxbEU66h_8ACtIJZRw82_H6SHtOf1n4RQE_jykEZytOwNvV9p-yMSGE-q6rz7DtVF",
+      "slug": "sailing-pirate-oath",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sailing: Pirate Oath",
+        "zh-tw": "啟航：海賊誓約"
+      }
     }
   },
   "lastUpdated": "2026-10-29",
-  "totalGames": 8936
+  "totalGames": 8940
 }
