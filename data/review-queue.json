@@ -46481,13 +46481,19 @@
     },
     {
       "title": "Light Up: 논리 퍼즐",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6780401631
+        "ios": 6780401631,
+        "android": "com.oakever.akari"
       },
       "developer": "Oakever Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/04/02/2b040250-b486-ec27-fb67-bec6800016a8/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Light Up: 論理パズル",
+          "appId": 6780401631
+        }
+      ],
       "addedAt": "2026-10-27T05:03:07.991Z"
     },
     {
@@ -46798,6 +46804,151 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/35/3d/43/353d4314-2909-6233-b574-aa2f1be00713/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-28T15:04:45.133Z"
+    },
+    {
+      "title": "클래시 오브 킹즈 (Clash of kings)",
+      "status": "matched",
+      "appIds": {
+        "ios": 945274928,
+        "android": "com.hcg.cok.gp"
+      },
+      "developer": "ELEX Technology Holdings Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/8e/c6/878ec6c3-6230-c1f0-6bd0-136fc0740071/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "클래시 오브 킹즈 (Clash of kings)",
+          "appId": 945274928
+        },
+        {
+          "title": "체스 온라인 전략 - 클 래시 오브 킹 즈",
+          "appId": 1495016534
+        },
+        {
+          "title": "Clash of Kings: The West",
+          "appId": 1140837908
+        }
+      ],
+      "addedAt": "2026-10-28T19:03:23.147Z"
+    },
+    {
+      "title": "버블 슈터 보석 퍼즐 팝",
+      "status": "matched",
+      "appIds": {
+        "android": "com.pop.bubbleshooter.gem.classic.games",
+        "ios": 6464024556
+      },
+      "developer": "Lynn Mobile Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/9nif51jcjd8Zg-qxxZtfMKuNza2GHIgUslpc-m63fBg1xAzb8PEyDdtF-ZjPUjNb7osNZhYzKIMVv6t-rhCn",
+      "searchResults": [
+        {
+          "title": "버블 슈터",
+          "appId": 412192869
+        },
+        {
+          "title": "버블 슈터 보석 퍼즐 팝",
+          "appId": 6464024556
+        },
+        {
+          "title": "Panda Pop- 판다 팝",
+          "appId": 700970012
+        }
+      ],
+      "addedAt": "2026-10-28T19:03:24.015Z"
+    },
+    {
+      "title": "ASMR Satisfy: House Deep Clean",
+      "status": "single",
+      "appIds": {
+        "android": "tidy.cat.asmr.pefect.satis.puzzles"
+      },
+      "developer": "Amazuro Studio",
+      "icon": "https://play-lh.googleusercontent.com/kLkMbFZUTXrwXwGKVtDJV40JTTGfRcXyjYlwjf0ru016NO27RfRD9_pg7MN2LsifSA3I0UgK24Smy9B4cKcXcjM",
+      "searchResults": [
+        {
+          "title": "Home Restoration",
+          "appId": 1500564080
+        },
+        {
+          "title": "청소 ASMR 릴렉싱 게임",
+          "appId": 6742195843
+        },
+        {
+          "title": "Deep Clean Inc. 3D Fun Cleanup",
+          "appId": 1548691100
+        }
+      ],
+      "addedAt": "2026-10-28T19:03:24.687Z"
+    },
+    {
+      "title": "Color Car Jam: 자동차 게임",
+      "status": "single",
+      "appIds": {
+        "android": "bus.match.traffic.car.puzzles.parking"
+      },
+      "developer": "Gloryway Puzzle",
+      "icon": "https://play-lh.googleusercontent.com/u-N7NH0bIArfEaTfUsltICBMU7bPeycpkKV08cu-df7UREaimnWWBIRLpvftYCzeQj3dvmOWzGdcwKmak_lFONQ",
+      "searchResults": [
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 트래픽 피버",
+          "appId": 6505095234
+        },
+        {
+          "title": "Parking Jam 3D",
+          "appId": 1498229533
+        },
+        {
+          "title": "Bus Rush: 주차 게임",
+          "appId": 6737542739
+        }
+      ],
+      "addedAt": "2026-10-28T19:03:25.343Z"
+    },
+    {
+      "title": "That's Not My Co-Worker",
+      "status": "single",
+      "appIds": {
+        "android": "com.colleagues.humans.mys"
+      },
+      "developer": "Medess",
+      "icon": "https://play-lh.googleusercontent.com/0ujoBM5MErm-UwbNn-VGN6oELfH8RBXx0eEitJwdRDEjF-ZfCSu2UmKcNlZtDvFXuuZNAt_y9QkLU7ueP4aWlg",
+      "searchResults": [],
+      "addedAt": "2026-10-28T19:03:26.821Z"
+    },
+    {
+      "title": "진화·전설의 여정",
+      "status": "single",
+      "appIds": {
+        "android": "com.ted.arianafilmapptv"
+      },
+      "developer": "Raiesi Sadegh",
+      "icon": "https://play-lh.googleusercontent.com/qI7RlJKzomiKpUvaW_PRl46rO2Kx9f4-38m8mcFeD0cCMsRwbl-fuJoPvExAH2vVOlPdEDGg4BfXFm2prJUU_g",
+      "searchResults": [],
+      "addedAt": "2026-10-28T19:03:27.274Z"
+    },
+    {
+      "title": "三國幻想錄:開局送5星關羽",
+      "status": "matched",
+      "appIds": {
+        "android": "san.ccomm.gptw",
+        "ios": 6817645832
+      },
+      "developer": "DECHO GAME",
+      "icon": "https://play-lh.googleusercontent.com/UyHRyESXMn7hwm_U9QZU8ggbDXEwsPzzv5V6Sgfi6wytyCP1_7WTf3cT8xzRQ8enJsjInWTFdHM8Xtgn7etm",
+      "searchResults": [
+        {
+          "title": "三國幻想錄:開局送5星關羽",
+          "appId": 6817645832
+        },
+        {
+          "title": "三国龙凤将 - 首款原创放置养成卡牌三国单机",
+          "appId": 6450618488
+        },
+        {
+          "title": "无双帝国梦-摸鱼守天下",
+          "appId": 6748385307
+        }
+      ],
+      "addedAt": "2026-10-28T19:03:27.799Z"
     }
   ],
   "approved": [

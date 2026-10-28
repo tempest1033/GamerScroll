@@ -87147,7 +87147,8 @@
     },
     "클래시 오브 킹즈 (Clash of kings)": {
       "appIds": {
-        "ios": "945274928"
+        "ios": 945274928,
+        "android": "com.hcg.cok.gp"
       },
       "aliases": [
         "COK列王的紛爭"
@@ -87156,7 +87157,8 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/8e/c6/878ec6c3-6230-c1f0-6bd0-136fc0740071/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/512x512bb.jpg",
       "slug": "clash-of-kings-cok",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "클래시 오브 킹즈 (Clash of kings)",
@@ -152804,14 +152806,18 @@
     },
     "Light Up: 논리 퍼즐": {
       "appIds": {
-        "ios": 6780401631
+        "ios": 6780401631,
+        "android": "com.oakever.akari"
       },
-      "aliases": [],
+      "aliases": [
+        "Light Up: 論理パズル"
+      ],
       "developer": "Oakever Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/04/02/2b040250-b486-ec27-fb67-bec6800016a8/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "light-up-논리-퍼즐",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Light Up: 논리 퍼즐",
@@ -153454,8 +153460,123 @@
       "platforms": [
         "steam"
       ]
+    },
+    "버블 슈터 보석 퍼즐 팝": {
+      "appIds": {
+        "android": "com.pop.bubbleshooter.gem.classic.games",
+        "ios": 6464024556
+      },
+      "aliases": [],
+      "developer": "Lynn Mobile Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/9nif51jcjd8Zg-qxxZtfMKuNza2GHIgUslpc-m63fBg1xAzb8PEyDdtF-ZjPUjNb7osNZhYzKIMVv6t-rhCn",
+      "slug": "버블-슈터-보석-퍼즐-팝",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "버블 슈터 보석 퍼즐 팝"
+      }
+    },
+    "ASMR Satisfy: House Deep Clean": {
+      "appIds": {
+        "android": "tidy.cat.asmr.pefect.satis.puzzles"
+      },
+      "aliases": [],
+      "developer": "Amazuro Studio",
+      "icon": "https://play-lh.googleusercontent.com/kLkMbFZUTXrwXwGKVtDJV40JTTGfRcXyjYlwjf0ru016NO27RfRD9_pg7MN2LsifSA3I0UgK24Smy9B4cKcXcjM",
+      "slug": "asmr-satisfy-house-deep-clean",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ASMR Satisfy: House Deep Clean",
+        "en": "ASMR Satisfy: House Deep Clean"
+      }
+    },
+    "Color Car Jam: 자동차 게임": {
+      "appIds": {
+        "android": "bus.match.traffic.car.puzzles.parking"
+      },
+      "aliases": [],
+      "developer": "Gloryway Puzzle",
+      "icon": "https://play-lh.googleusercontent.com/u-N7NH0bIArfEaTfUsltICBMU7bPeycpkKV08cu-df7UREaimnWWBIRLpvftYCzeQj3dvmOWzGdcwKmak_lFONQ",
+      "slug": "color-car-jam-자동차-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Color Car Jam: 자동차 게임",
+        "ja": "Color Car Jam: カーパーキング"
+      }
+    },
+    "解救猪猪": {
+      "appIds": {
+        "ios_cn": 6824811299
+      },
+      "aliases": [],
+      "developer": "德水 郝",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9a/10/f4/9a10f46c-468d-f59e-cb2a-8fb18628e181/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "解救猪猪",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "解救猪猪",
+        "zh-cn": "解救猪猪"
+      }
+    },
+    "That's Not My Co-Worker": {
+      "appIds": {
+        "android": "com.colleagues.humans.mys"
+      },
+      "aliases": [],
+      "developer": "Medess",
+      "icon": "https://play-lh.googleusercontent.com/0ujoBM5MErm-UwbNn-VGN6oELfH8RBXx0eEitJwdRDEjF-ZfCSu2UmKcNlZtDvFXuuZNAt_y9QkLU7ueP4aWlg",
+      "slug": "thats-not-my-co-worker",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "That's Not My Co-Worker",
+        "zh-tw": "That's Not My Co-Worker"
+      }
+    },
+    "진화·전설의 여정": {
+      "appIds": {
+        "android": "com.ted.arianafilmapptv"
+      },
+      "aliases": [],
+      "developer": "Raiesi Sadegh",
+      "icon": "https://play-lh.googleusercontent.com/qI7RlJKzomiKpUvaW_PRl46rO2Kx9f4-38m8mcFeD0cCMsRwbl-fuJoPvExAH2vVOlPdEDGg4BfXFm2prJUU_g",
+      "slug": "진화전설의-여정",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "진화·전설의 여정",
+        "zh-tw": "進化傳奇之旅"
+      }
+    },
+    "三國幻想錄:開局送5星關羽": {
+      "appIds": {
+        "android": "san.ccomm.gptw",
+        "ios": 6817645832
+      },
+      "aliases": [],
+      "developer": "DECHO GAME",
+      "icon": "https://play-lh.googleusercontent.com/UyHRyESXMn7hwm_U9QZU8ggbDXEwsPzzv5V6Sgfi6wytyCP1_7WTf3cT8xzRQ8enJsjInWTFdHM8Xtgn7etm",
+      "slug": "5",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "三國幻想錄:開局送5星關羽",
+        "zh-tw": "三國幻想錄:開局送5星關羽"
+      }
     }
   },
   "lastUpdated": "2026-10-29",
-  "totalGames": 8929
+  "totalGames": 8936
 }
