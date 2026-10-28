@@ -153402,8 +153402,60 @@
       "platforms": [
         "steam"
       ]
+    },
+    "クレトレ - クレーンゲーム練習シミュレーター": {
+      "appIds": {
+        "ios": 6819570474
+      },
+      "aliases": [],
+      "developer": "Yuto Otani",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/35/3d/43/353d4314-2909-6233-b574-aa2f1be00713/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "クレトレ - クレーンゲーム練習シミュレーター",
+        "ja": "クレトレ - クレーンゲーム練習シミュレーター"
+      }
+    },
+    "Probably Stolen - Cyberpunk Shopkeeper Sim": {
+      "appIds": {
+        "steam": "4348910"
+      },
+      "aliases": [],
+      "developer": "Questing Goose Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4348910/b34bac92cd37260ecead20b181eda3d0f928a373/capsule_231x87.jpg?t=1793194696",
+      "slug": "probably-stolen-cyberpunk-shopkeeper-sim",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "DRAPLINE": {
+      "appIds": {
+        "steam": "3103780"
+      },
+      "aliases": [],
+      "developer": "KANAWO",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3103780/432cd96534e19e7a703a016cf5b39011c1d91bf9/capsule_231x87.jpg?t=1792980911",
+      "slug": "drapline",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "ANOMALITH": {
+      "appIds": {
+        "steam": "4017880"
+      },
+      "aliases": [],
+      "developer": "FURYU CORPORATION",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4017880/b3d7f7618b99d1c94cb91c765645ba59d9b6b7b9/capsule_231x87.jpg?t=1793199681",
+      "slug": "anomalith",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-28",
-  "totalGames": 8925
+  "lastUpdated": "2026-10-29",
+  "totalGames": 8929
 }
