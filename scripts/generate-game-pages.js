@@ -16,7 +16,7 @@ const crypto = require('crypto');
 const i18n = require('../src/i18n');
 const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
-const { collectRankData, summaryMeta, idFor } = require('../src/build/game-data');
+const { collectRankData, summaryMeta, idFor, createSlug } = require('../src/build/game-data');
 const { summaryDays, INDEXABLE_DAYS } = require('../src/templates/helpers/game-rank-summary');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
@@ -33,25 +33,6 @@ const md5 = (text) => crypto.createHash('md5').update(text).digest('hex');
 const normalize = (name) => name.toLowerCase().trim().replace(/\s+/g, ' ');
 
 // URL-safe 슬러그 생성 (games.json 에 slug 가 없는 게임용: 앱 ID 우선, 없으면 이름 기반)
-function createSlug(name, appIds = null) {
-  if (appIds) {
-    if (appIds.android) return String(appIds.android).toLowerCase().replace(/\./g, '-');
-    if (appIds.ios && String(appIds.ios).startsWith('com.')) return String(appIds.ios).toLowerCase().replace(/\./g, '-');
-  }
-  let slug = name
-    .toLowerCase()
-    .replace(/[\u3040-\u30ff\u4e00-\u9faf\u3400-\u4dbf]/g, '')
-    .replace(/[^a-z0-9가-힣]/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-  if (slug.length < 2) {
-    let hash = 0;
-    for (let i = 0; i < name.length; i++) hash = (((hash << 5) - hash) + name.charCodeAt(i)) & 0xffffffff;
-    slug = 'game-' + Math.abs(hash).toString(36);
-  }
-  return slug;
-}
-
 function countFiles(dir) {
   let n = 0;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) n += entry.isDirectory() ? countFiles(path.join(dir, entry.name)) : 1;

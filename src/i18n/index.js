@@ -68,7 +68,7 @@ function t(key, params) {
 
 // ---------- links ----------
 // First path segments that belong to the localized site. Assets, CSS and the manifest are shared.
-const LOCALIZED_SEGMENTS = ['rankings', 'trending', 'steam', 'games', 'about', 'privacy'];
+const LOCALIZED_SEGMENTS = ['rankings', 'trending', 'steam', 'games', 'about', 'privacy', 'analysis'];
 const SEGMENT_PATTERN = LOCALIZED_SEGMENTS.join('|');
 const EDITION_PREFIX_RE = /^\/(ja|zh-cn|ko|zh-tw)(?=\/|$)/;
 

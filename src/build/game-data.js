@@ -40,4 +40,18 @@ function summaryMeta(S) {
   return { days: S.days.map((d) => d.date), hourlyDate: S.hourly ? S.hourly.date : '' };
 }
 
-module.exports = { collectRankData, summaryMeta, idFor };
+function createSlug(name, appIds = null) {
+  if (appIds) {
+    if (appIds.android) return String(appIds.android).toLowerCase().replace(/\./g, '-');
+    if (appIds.ios && String(appIds.ios).startsWith('com.')) return String(appIds.ios).toLowerCase().replace(/\./g, '-');
+  }
+  let slug = name.toLowerCase().replace(/[\u3040-\u30ff\u4e00-\u9faf\u3400-\u4dbf]/g, '')
+    .replace(/[^a-z0-9가-힣]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  if (slug.length < 2) {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) hash = (((hash << 5) - hash) + name.charCodeAt(i)) & 0xffffffff;
+    slug = 'game-' + Math.abs(hash).toString(36);
+  }
+  return slug;
+}
+module.exports = { collectRankData, summaryMeta, idFor, createSlug };

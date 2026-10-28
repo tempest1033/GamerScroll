@@ -25,10 +25,15 @@ const jsonForScript = (value) => JSON.stringify(value).replace(/</g, '\\u003c').
 // 배너: PC 는 상단 광고와 같은 970×250 빌보드 고정 요청(250px 예약, ads.js renderDesktopOnlyHomeAd), 모바일은 300×250 단위 —
 // 화면 폭에 맞는 하나만 요청된다(layout.js visibleAds). 화면 가까이 오면 요청하고(layout.js btfObserver), unfilled 이고 화면 아래에 있으면 자리를 접는다(layout.js collapseUnfilledInPageAd).
 // 관련 게임 데이터(related)는 scripts/generate-game-pages.js 가 에디션별로 만든다. 링크는 localizeHtml 이 같은 에디션 경로로 바꾼다.
-function renderRelated(related, code, developer) {
+// 본문 중간 광고 1개 (관련 게임 위, 지표 분석 탭의 패널 아래). extraClass: 지표 분석은 ga-ad.
+function renderInPageAd(extraClass = '') {
   const pcAd = renderDesktopOnlyHomeAd(AD_SLOTS.ResponsivePC001);
   const mobileAd = generateHomeAdPairSlot(null, AD_SLOTS.Mobile001, { mobileOnly: true });
-  const ad = pcAd || mobileAd ? `<div class="gs-ad-inpage grid-full">${pcAd}${mobileAd}</div>` : '';
+  return pcAd || mobileAd ? `<div class="gs-ad-inpage grid-full${extraClass ? ` ${extraClass}` : ''}">${pcAd}${mobileAd}</div>` : '';
+}
+
+function renderRelated(related, code, developer) {
+  const ad = renderInPageAd();
   const mine = related && related.e && related.e[code];
   if (!mine) return ad;
   const row = ([index, store, rank]) => {
@@ -49,7 +54,7 @@ function renderRelated(related, code, developer) {
  * @param {object} game  games-data 한 건: { name, names, slug, platforms, developer, icon, ranked, steam, steamHistory, rank, revenue? }
  * @param {object} meta  { days, hourlyDate }
  */
-function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
+function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {}) {
   const { slug = '', platforms = [], developer = '', icon = null, ranked = false, steamHistory = [], steam = null, rank = null } = game;
   const edition = currentEdition();
   const plainName = (game.names && game.names[edition.code]) || game.name;
@@ -68,7 +73,11 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   const showMobileRanking = hasMobilePlatform || ranked;
 
   const summary = renderGameRankSummary(rank, meta, plainName, edition.country);
-  const revenueSection = renderRevenueSection(game.revenue, { slug });
+  // Metrics renderers live outside this repository and are supplied only by the local preview server, never by the public Worker.
+  const previewEnabled = preview.localPreview === true && Boolean(game.revenue) && Boolean(preview.generateAnalysisTabs);
+  const analysisPage = previewEnabled && preview.active === 'analysis';
+  if (preview.active === 'analysis' && !analysisPage) return null;
+  const revenueSection = previewEnabled ? '' : renderRevenueSection(game.revenue, { slug });
   const overview = describeGame(game, meta, edition.country);
   const overviewHtml = overview.length
     ? `<div class="home-card grid-full game-overview">
@@ -242,7 +251,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
 
   const players = steam && steam.currentPlayers ? formatNumber(steam.currentPlayers) : '-';
 
-  const content = `
+  let content = `
     <section class="section active" id="game">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
       <div class="page-container game-page-grid">
@@ -259,6 +268,8 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
             ${summary && summary.hero ? summary.hero : ''}
           </div>
         </div>
+        ${previewEnabled ? preview.generateAnalysisTabs(game, { lang: edition.code, active: analysisPage ? 'analysis' : 'rank' }) : ''}
+        <!-- rank-content-start -->
         ${overviewHtml}
             ${isSteamOnly && steam ? `
         <div class="home-card grid-full game-steam-summary">
@@ -310,6 +321,14 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
     </section>
   `;
 
+  if (analysisPage) {
+    content = content.slice(0, content.indexOf('<!-- rank-content-start -->')) +
+      preview.generateAnalysisContent(game, { lang: edition.code, genreName: require('../components/revenue-charts').subgenreName, ad: () => renderInPageAd('ga-ad'),
+        lock: preview.lock || null }) + '</div></section>';
+    content = content.replace(`<span data-name>${esc(plainName)}</span></div>`,
+      `<a href="${href(`/games/${encodeURIComponent(slug)}/`)}" data-name>${esc(plainName)}</a><span>›</span><span>${esc(preview.analysisText(edition.code).tabAnalysis)}</span></div>`);
+  }
+
   // 최근 본 게임 저장
   const pageScripts = `<script>
     (function() {
@@ -339,7 +358,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
     : t(hasMobilePlatform ? 'game.seo_desc_mobile' : 'game.seo_desc_steam', { name: plainName });
   const seoKeywords = t(hasMobilePlatform ? 'game.seo_keywords_mobile' : 'game.seo_keywords_steam', { name: plainName });
 
-  const canonicalUrl = `${siteBaseUrl}${href(`/games/${encodeURIComponent(slug)}/`)}`;
+  const canonicalUrl = `${siteBaseUrl}${href(analysisPage ? `/analysis/${encodeURIComponent(slug)}/` : `/games/${encodeURIComponent(slug)}/`)}`;
 
   // 플랫폼에 따른 운영체제 목록 생성
   const osMap = { ios: 'iOS', android: 'Android', pc: 'Windows', steam: 'Windows', ps5: 'PlayStation 5', xbox: 'Xbox', switch: 'Nintendo Switch' };
@@ -353,7 +372,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
     keywords: seoKeywords,
     canonical: canonicalUrl,
     pageScripts,
-    noindex: !indexable,
+    noindex: previewEnabled || !indexable,
     breadcrumbs: [
       { name: t('game.home'), url: `${siteBaseUrl}${href('/')}` },
       { name: t('game.games_db'), url: `${siteBaseUrl}${href('/games/')}` },
@@ -366,4 +385,4 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }) {
   return revenueSection ? html.replace(REVENUE_SLOT, () => revenueSection) : html;
 }
 
-module.exports = { generateGamePage, summaryDays };
+module.exports = { generateGamePage, summaryDays, renderInPageAd };

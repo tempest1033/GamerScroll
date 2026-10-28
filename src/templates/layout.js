@@ -2707,12 +2707,12 @@ function buildLayoutRuntimeBundle(options = {}) {
   const searchIndexVersion = String(options.searchIndexVersion || globalSearchIndexVersion || 'v1');
   const searchCacheKey = `gs_si_${searchIndexVersion}`;
   const scripts = [
-    navigationPrefetchScript,
+    options.localPreview ? '' : navigationPrefetchScript,
     footerModalScript,
-    adLazyLoadScript,
+    options.localPreview ? '' : adLazyLoadScript,
     imageFallbackScript,
     fontAndEmojiScript,
-    searchBarScript.replace(/gamerscroll_search_index_v1/g, searchCacheKey),
+    options.localPreview ? '' : searchBarScript.replace(/gamerscroll_search_index_v1/g, searchCacheKey),
     swipeScript,
     mobileScrollHideScript,
     mobileSidePanelScript,
