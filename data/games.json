@@ -153390,8 +153390,20 @@
       "names": {
         "ko": "보도보도"
       }
+    },
+    "Rise of the Tomb Raider™": {
+      "appIds": {
+        "steam": "391220"
+      },
+      "aliases": [],
+      "developer": "Crystal Dynamics",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391220/d811b86e2960ea42903774f4ec447d79494e8ef4/capsule_231x87_alt_assets_0.jpg?t=1792675385",
+      "slug": "rise-of-the-tomb-raider",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-28",
-  "totalGames": 8924
+  "totalGames": 8925
 }
