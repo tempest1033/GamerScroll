@@ -25,6 +25,14 @@ const ASOF = '2026-10-25';
 const NOW = new Date('2026-10-26T03:00:00Z'); // 12:00 KST, one day after asof
 const APP = { ios: '1000000001', android: 'com.example.rpg' };
 
+test('public estimates remain unpublished without reading any cached bundle', (t) => {
+  const { DEFAULT_DIR } = require('../src/build/service-exports');
+  require('../src/templates/components/revenue-publication');
+  const read = t.mock.method(fs, 'readFileSync', () => { throw new Error('public bundle must not be read'); });
+  assert.equal(loadServiceExports({ dir: DEFAULT_DIR, now: NOW }), null);
+  assert.equal(read.mock.callCount(), 0);
+});
+
 function tmp(t, name) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), `svc-${name}-`));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));

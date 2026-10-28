@@ -156,7 +156,8 @@ jobs:
         run: node scripts/compress-oversized-images.js || echo "::warning::image compression failed (non-fatal)"
 
       - name: Fetch revenue estimate bundle (forecast repo, service-exports branch)
-        if: steps.due.outputs.deploy == 'true'
+        # 소유자의 명시적 OK 전까지 추정 기능은 공개하지 않는다.
+        if: ${{ false }}
         # 비공개 forecast 저장소의 매출·다운로드 추정 번들 → cache/service-exports (커밋하지 않음). 페이지 생성 단계들이 읽는다.
         # 읽기 전용 SSH deploy key(FORECAST_EXPORT_DEPLOY_KEY 시크릿)로 service-exports 브랜치를 얕게 git clone 한다
         # (키는 0600 임시 파일 → 끝나면 삭제, github.com 호스트 키 고정). 키·저장소(FORECAST_EXPORT_REPO 변수)가 없거나

@@ -341,6 +341,7 @@ function createExports(dir, verified) {
 const cache = new Map();
 /** The verified bundle, or null (with a warning) when there is none or it fails verification: pages then omit the sections. */
 function loadServiceExports({ dir = exportsDir(), now = new Date(), quiet = false } = {}) {
+  if (dir === DEFAULT_DIR && !require('../templates/components/revenue-publication').enabled) return null;
   if (cache.has(dir)) return cache.get(dir);
   let value = null;
   try {
