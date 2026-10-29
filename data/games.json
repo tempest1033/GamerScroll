@@ -23776,16 +23776,22 @@
     },
     "No Man's Sky": {
       "appIds": {
-        "steam": "275850"
+        "steam": "275850",
+        "ios": 1615755735
       },
       "aliases": [],
       "developer": "Hello Games",
       "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/275850/dffb47593c175a04304b0d0e4d8cbd6e27a2fe9c/capsule_231x87.jpg?t=1765800348",
       "slug": "no-mans-sky",
       "platforms": [
-        "steam"
+        "steam",
+        "ios"
       ],
-      "names": {}
+      "names": {
+        "ko": "No Man's Sky",
+        "ja": "No Man's Sky",
+        "zh-tw": "No Man's Sky"
+      }
     },
     "재탄생 레스토랑: 합성 & 스토리 게임": {
       "appIds": {
@@ -153275,14 +153281,16 @@
     },
     "몬스터헌터 아웃랜더스": {
       "appIds": {
-        "ios": 6763262759
+        "ios": 6763262759,
+        "android": "com.garena.game.mho"
       },
       "aliases": [],
       "developer": "Garena Online Private Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/97/68/059768c7-93fd-660e-b99a-a757bc0db5c0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "몬스터헌터-아웃랜더스",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "몬스터헌터 아웃랜더스",
@@ -153306,7 +153314,8 @@
     },
     "Monster Hunter Outlanders": {
       "appIds": {
-        "ios_us": 6444520814
+        "ios_us": 6444520814,
+        "android": "com.tencent.mhadv"
       },
       "aliases": [
         "モンスターハンターアウトランダーズ"
@@ -153315,9 +153324,11 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/73/e0/0073e0c8-a9e4-1956-8966-f83a136ee71e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "monster-hunter-outlanders",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "Monster Hunter Outlanders",
         "en": "Monster Hunter Outlanders",
         "ja": "モンスターハンターアウトランダーズ"
       }
@@ -153641,8 +153652,24 @@
         "ko": "Sailing: Pirate Oath",
         "zh-tw": "啟航：海賊誓約"
       }
+    },
+    "捷運規劃大師": {
+      "appIds": {
+        "ios": 6823047296
+      },
+      "aliases": [],
+      "developer": "Youci Huang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/65/c5/f0/65c5f0e0-acbd-9b7b-7244-f1ff109acd36/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "捷運規劃大師",
+        "zh-tw": "捷運規劃大師"
+      }
     }
   },
   "lastUpdated": "2026-10-29",
-  "totalGames": 8940
+  "totalGames": 8941
 }

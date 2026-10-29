@@ -46730,13 +46730,19 @@
     },
     {
       "title": "몬스터헌터 아웃랜더스",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6763262759
+        "ios": 6763262759,
+        "android": "com.garena.game.mho"
       },
       "developer": "Garena Online Private Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/97/68/059768c7-93fd-660e-b99a-a757bc0db5c0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "몬스터헌터 아웃랜더스",
+          "appId": 6763262759
+        }
+      ],
       "addedAt": "2026-10-28T09:03:06.029Z"
     },
     {
@@ -46999,6 +47005,17 @@
       "icon": "https://play-lh.googleusercontent.com/N_mvctymRgDBHPrAUEuIxbEU66h_8ACtIJZRw82_H6SHtOf1n4RQE_jykEZytOwNvV9p-yMSGE-q6rz7DtVF",
       "searchResults": [],
       "addedAt": "2026-10-28T20:38:44.604Z"
+    },
+    {
+      "title": "捷運規劃大師",
+      "status": "single",
+      "appIds": {
+        "ios": 6823047296
+      },
+      "developer": "Youci Huang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/65/c5/f0/65c5f0e0-acbd-9b7b-7244-f1ff109acd36/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-29T01:02:52.740Z"
     }
   ],
   "approved": [
