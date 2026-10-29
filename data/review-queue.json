@@ -47016,6 +47016,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/65/c5/f0/65c5f0e0-acbd-9b7b-7244-f1ff109acd36/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-29T01:02:52.740Z"
+    },
+    {
+      "title": "Words of Wonders: Search",
+      "status": "single",
+      "appIds": {
+        "ios": 1483222663
+      },
+      "developer": "FUGO BILISIM TEKNOLOJILERI VE YAZILIM TICARET ANONIM SIRKETI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/7b/14/467b14b3-0d40-a368-7b04-4a485204f8dc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-29T05:03:03.203Z"
+    },
+    {
+      "title": "개나소나고양이나",
+      "status": "single",
+      "appIds": {
+        "android": "com.billionairegames.woofmoomeow"
+      },
+      "developer": "BillionaireGames",
+      "icon": "https://play-lh.googleusercontent.com/L_ibKFuCGEEvoZm020MIVAT8QfoSzn0e8jshYJUt6fUoFIA_rvdJZdtGoPeJRJrlxL2AZxc5Z7CjqV-pTlVmaOU",
+      "searchResults": [],
+      "addedAt": "2026-10-29T05:03:03.680Z"
     }
   ],
   "approved": [

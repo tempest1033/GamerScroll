@@ -153668,8 +153668,40 @@
         "ko": "捷運規劃大師",
         "zh-tw": "捷運規劃大師"
       }
+    },
+    "Words of Wonders: Search": {
+      "appIds": {
+        "ios": 1483222663
+      },
+      "aliases": [],
+      "developer": "FUGO BILISIM TEKNOLOJILERI VE YAZILIM TICARET ANONIM SIRKETI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/7b/14/467b14b3-0d40-a368-7b04-4a485204f8dc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "words-of-wonders-search",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Words of Wonders: Search",
+        "en": "Words of Wonders: Search"
+      }
+    },
+    "개나소나고양이나": {
+      "appIds": {
+        "android": "com.billionairegames.woofmoomeow"
+      },
+      "aliases": [],
+      "developer": "BillionaireGames",
+      "icon": "https://play-lh.googleusercontent.com/L_ibKFuCGEEvoZm020MIVAT8QfoSzn0e8jshYJUt6fUoFIA_rvdJZdtGoPeJRJrlxL2AZxc5Z7CjqV-pTlVmaOU",
+      "slug": "개나소나고양이나",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "개나소나고양이나",
+        "zh-tw": "汪哞喵：動物放置型RPG"
+      }
     }
   },
   "lastUpdated": "2026-10-29",
-  "totalGames": 8941
+  "totalGames": 8943
 }
