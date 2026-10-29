@@ -153700,8 +153700,65 @@
         "ko": "개나소나고양이나",
         "zh-tw": "汪哞喵：動物放置型RPG"
       }
+    },
+    "마이 리틀 킹덤 (My Little Kingdom)": {
+      "appIds": {
+        "ios": 6792247779
+      },
+      "aliases": [],
+      "developer": "youngjae sim",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/14/0f/70140f08-3e32-c9d5-c941-91ec6acf9f30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "마이-리틀-킹덤-my-little-kingdom",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "마이 리틀 킹덤 (My Little Kingdom)"
+      }
+    },
+    "드래곤 나이트 키우기 : 방치형 RPG": {
+      "appIds": {
+        "android": "com.ryonggame.dragonknightidle"
+      },
+      "aliases": [],
+      "developer": "RyongGames",
+      "icon": "https://play-lh.googleusercontent.com/kT-XLUyO3crdy2KpBXK9wDkrw-o_LtxMTUZ-udm0mqrJ0yRhRxwWhfY0vUEFtb8JLp8GcpX1DG3WGWp5psVwsFE",
+      "slug": "드래곤-나이트-키우기-방치형-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "드래곤 나이트 키우기 : 방치형 RPG"
+      }
+    },
+    "捉詭 : 江湖異聞": {
+      "appIds": {
+        "ios_tw": 6812740135
+      },
+      "aliases": [],
+      "developer": "芷绮 刘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5e/4c/f6/5e4cf648-10cd-054d-c53e-e456ca51fcf6/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "捉詭-江湖異聞",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "捉詭 : 江湖異聞"
+      }
+    },
+    "PUMP IT UP RISE - EZ2ON REBOOT : R PACK": {
+      "appIds": {
+        "steam": "5344930"
+      },
+      "aliases": [],
+      "developer": "ANDAMIRO",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5344930/4e8cabf7f2f3c0481c08310bc1bf0a753dd69d62/capsule_231x87.jpg?t=1793250340",
+      "slug": "pump-it-up-rise-ez2on-reboot-r-pack",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-29",
-  "totalGames": 8943
+  "totalGames": 8947
 }

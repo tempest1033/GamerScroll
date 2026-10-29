@@ -47038,6 +47038,41 @@
       "icon": "https://play-lh.googleusercontent.com/L_ibKFuCGEEvoZm020MIVAT8QfoSzn0e8jshYJUt6fUoFIA_rvdJZdtGoPeJRJrlxL2AZxc5Z7CjqV-pTlVmaOU",
       "searchResults": [],
       "addedAt": "2026-10-29T05:03:03.680Z"
+    },
+    {
+      "title": "마이 리틀 킹덤 (My Little Kingdom)",
+      "status": "single",
+      "appIds": {
+        "ios": 6792247779
+      },
+      "developer": "youngjae sim",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/14/0f/70140f08-3e32-c9d5-c941-91ec6acf9f30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-29T09:02:34.428Z"
+    },
+    {
+      "title": "드래곤 나이트 키우기 : 방치형 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.ryonggame.dragonknightidle"
+      },
+      "developer": "RyongGames",
+      "icon": "https://play-lh.googleusercontent.com/kT-XLUyO3crdy2KpBXK9wDkrw-o_LtxMTUZ-udm0mqrJ0yRhRxwWhfY0vUEFtb8JLp8GcpX1DG3WGWp5psVwsFE",
+      "searchResults": [
+        {
+          "title": "중년기사 김봉식",
+          "appId": 987072755
+        },
+        {
+          "title": "드래곤 나이트 키우기",
+          "appId": 6776891493
+        },
+        {
+          "title": "포켓 나이트2: 드래곤 전쟁",
+          "appId": 1238544522
+        }
+      ],
+      "addedAt": "2026-10-29T09:02:35.042Z"
     }
   ],
   "approved": [
