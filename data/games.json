@@ -153880,8 +153880,112 @@
       "platforms": [
         "steam"
       ]
+    },
+    "剑网3无界": {
+      "appIds": {
+        "ios_cn": "6446313004"
+      },
+      "aliases": [],
+      "developer": "Chengdu Seasun Shiyou Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/49/40/74494015-475e-5ddb-1b8c-b3c856bbbb34/AppIcon-1x_U007emarketing-0-8-85-220-0.jpeg/512x512bb.jpg",
+      "slug": "剑网3无界",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "剑网3无界"
+      }
+    },
+    "脱出ゲーム　モルディブの島からの脱出": {
+      "appIds": {
+        "ios_jp": 6823824643
+      },
+      "aliases": [],
+      "developer": "Yoshihide Ueda",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3f/97/ce/3f97cefe-377b-373c-fd45-a45c017796e2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "脱出ゲーム-モルディブの島からの脱出",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "脱出ゲーム　モルディブの島からの脱出"
+      }
+    },
+    "自得亿满-觅王棋途": {
+      "appIds": {
+        "ios": 6800662858
+      },
+      "aliases": [],
+      "developer": "鹏飞 史",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b9/6b/75/b96b7520-7c6a-4283-f9a8-4f71cbe7acad/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "自得亿满-觅王棋途",
+        "zh-cn": "自得亿满-觅王棋途"
+      }
+    },
+    "正中靶心2": {
+      "appIds": {
+        "ios_cn": 6795378556
+      },
+      "aliases": [],
+      "developer": "Beijing Jinhai Buluo Culture Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/33/26/363326a8-9a41-5860-63b4-b1d6e6d6cec3/xgw_icon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "正中靶心2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "正中靶心2"
+      }
+    },
+    "影劍風雲傳": {
+      "appIds": {
+        "ios_tw": 6801368462
+      },
+      "aliases": [],
+      "developer": "HK PINGKE LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/61/96/3d6196ea-4993-1361-814b-f595ad8e91da/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "影劍風雲傳",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "影劍風雲傳"
+      }
+    },
+    "80억 중 하나의 삶 - 8B Re Life": {
+      "appIds": {
+        "ios": 6826068199
+      },
+      "aliases": [],
+      "developer": "CHONG MING CHU",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/6d/90/c16d9063-6b51-1221-e85b-11b45124f6ca/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "80억-중-하나의-삶-8b-re-life",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "80억 중 하나의 삶 - 8B Re Life",
+        "zh-tw": "八十億萬之一的人生 - 8B Re Life"
+      }
+    },
+    "Age of Empires IV: Raiders of the North": {
+      "appIds": {
+        "steam": "4336170"
+      },
+      "aliases": [],
+      "developer": "World's Edge",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4336170/6513e363e79eedc68770cfe26bef0b813e966c90/capsule_231x87.jpg?t=1790702027",
+      "slug": "age-of-empires-iv-raiders-of-the-north",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-29",
-  "totalGames": 8955
+  "lastUpdated": "2026-10-30",
+  "totalGames": 8962
 }

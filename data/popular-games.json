@@ -1,25 +1,17 @@
 {
-  "updatedAt": "2026-10-28T15:03:33.912Z",
+  "updatedAt": "2026-10-29T17:02:04.731Z",
   "period": "30days",
   "games": [
     {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 19
+      "views": 18
     },
     {
       "slug": "제우스-오만의-신",
-      "views": 14
-    },
-    {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 10
+      "views": 11
     },
     {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 9
-    },
-    {
-      "slug": "pixel-flow",
       "views": 9
     },
     {
@@ -27,55 +19,63 @@
       "views": 9
     },
     {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 9
+    },
+    {
       "slug": "arrow-pro-3d",
       "views": 8
     },
     {
-      "slug": "barotrauma",
+      "slug": "pixel-flow",
       "views": 8
+    },
+    {
+      "slug": "barotrauma",
+      "views": 7
     },
     {
       "slug": "go-go-고양이-홉핑",
-      "views": 8
+      "views": 7
+    },
+    {
+      "slug": "palworld",
+      "views": 7
     },
     {
       "slug": "sakura-school-simulator",
-      "views": 8
+      "views": 7
     },
     {
       "slug": "sled-surfers-슬로프-어드벤처",
-      "views": 8
+      "views": 7
+    },
+    {
+      "slug": "where-winds-meet",
+      "views": 7
     },
     {
       "slug": "라스트-라이트",
-      "views": 8
+      "views": 7
     },
     {
       "slug": "레이싱-마스터",
-      "views": 8
+      "views": 7
+    },
+    {
+      "slug": "로드러쉬",
+      "views": 7
+    },
+    {
+      "slug": "메이플-키우기",
+      "views": 7
     },
     {
       "slug": "세포-특공대-전략형-타워-디펜스",
-      "views": 8
-    },
-    {
-      "slug": "에이지-오브-제트-타워-디펜스",
-      "views": 8
-    },
-    {
-      "slug": "한게임-포커",
-      "views": 8
-    },
-    {
-      "slug": "3d운전교실",
       "views": 7
     },
     {
-      "slug": "mistfall-hunter",
-      "views": 7
-    },
-    {
-      "slug": "my-hero-ultra-rumble",
+      "slug": "에이지-오브-엠파이어-모바일",
       "views": 7
     }
   ]
