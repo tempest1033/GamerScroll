@@ -152314,16 +152314,19 @@
     },
     "[スロスピ]Lパチスロ 革命機ヴァルヴレイヴ2": {
       "appIds": {
-        "ios_jp": 6791407624
+        "ios_jp": 6791407624,
+        "android_jp": "com.spiridge.ss.snk0037"
       },
       "aliases": [],
       "developer": "SPIRIDGE INC.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/59/7a/a2/597aa280-2ca8-28b3-9b7e-9149c61b1172/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "slug": "スロスピlパチスロ-革命機ヴァルヴレイヴ2",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "en": "[スロスピ]Lパチスロ 革命機ヴァルヴレイヴ2",
         "ja": "[スロスピ]Lパチスロ 革命機ヴァルヴレイヴ2"
       }
     },
@@ -153757,8 +153760,128 @@
       "platforms": [
         "steam"
       ]
+    },
+    "천상비M": {
+      "appIds": {
+        "ios": "1636438292"
+      },
+      "aliases": [],
+      "developer": "Sesisoft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/54/bb/ad/54bbad02-08e0-9f22-0990-c8cb2fad4f5d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "천상비m",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "천상비M"
+      }
+    },
+    "パチスロ L 東京喰種": {
+      "appIds": {
+        "ios_jp": "6785720250"
+      },
+      "aliases": [],
+      "developer": "Commseed Corporation",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ca/10/a0/ca10a074-bb2c-13e6-d50b-d2d52507deff/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "パチスロ-l-東京喰種",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "パチスロ L 東京喰種"
+      }
+    },
+    "검신제로": {
+      "appIds": {
+        "ios": 6762593520
+      },
+      "aliases": [],
+      "developer": "Neptune Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/14/5a/c1145a19-f987-f3a8-1c30-3f0304d5416f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "검신제로",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "검신제로",
+        "en": "Dawn's Wake",
+        "ja": "剣神ゼロ",
+        "zh-tw": "劍之川"
+      }
+    },
+    "포격크루: 턴제 PvP": {
+      "appIds": {
+        "ios": 6739907881
+      },
+      "aliases": [],
+      "developer": "VNG Game Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/af/57/a5af57c8-7178-213e-a0bb-1010f8847e3c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "포격크루-턴제-pvp",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "포격크루: 턴제 PvP"
+      }
+    },
+    "Cozy Cat Hotel": {
+      "appIds": {
+        "ios_jp": 6747732855
+      },
+      "aliases": [
+        "ねこ宿日和"
+      ],
+      "developer": "HONGKONG HEILI LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/62/b9/5d/62b95d90-648b-f53f-b408-b0fda17a3863/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "cozy-cat-hotel",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Cozy Cat Hotel",
+        "ja": "ねこ宿日和"
+      }
+    },
+    "我在三國當村長": {
+      "appIds": {
+        "ios_tw": 6788646803
+      },
+      "aliases": [],
+      "developer": "Interserv International Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/3d/82/b23d821b-6e3c-fa64-612f-dee449aaee3a/NativeTwAppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "我在三國當村長",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "我在三國當村長"
+      }
+    },
+    "Hunting Simulator 3": {
+      "appIds": {
+        "steam": "2482760"
+      },
+      "aliases": [],
+      "developer": "Nacon Studio Ghent",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2482760/78e536b2d4459769aba45197fb53189ad042b573/capsule_231x87_alt_assets_1.jpg?t=1793264644",
+      "slug": "hunting-simulator-3",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Ghost in the SQL Data": {
+      "appIds": {
+        "steam": "5072430"
+      },
+      "aliases": [],
+      "developer": "Isaac MENARD",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5072430/68f0d273de2d8da9c13f6cf314089ec320eb377d/capsule_231x87.jpg?t=1793261054",
+      "slug": "ghost-in-the-sql-data",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-29",
-  "totalGames": 8947
+  "totalGames": 8955
 }

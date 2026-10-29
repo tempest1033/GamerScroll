@@ -47073,6 +47073,39 @@
         }
       ],
       "addedAt": "2026-10-29T09:02:35.042Z"
+    },
+    {
+      "title": "천상비M",
+      "status": "single",
+      "appIds": {
+        "ios": "1636438292"
+      },
+      "developer": "Sesisoft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/54/bb/ad/54bbad02-08e0-9f22-0990-c8cb2fad4f5d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-29T13:02:56.390Z"
+    },
+    {
+      "title": "검신제로",
+      "status": "single",
+      "appIds": {
+        "ios": 6762593520
+      },
+      "developer": "Neptune Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/14/5a/c1145a19-f987-f3a8-1c30-3f0304d5416f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-29T13:02:58.763Z"
+    },
+    {
+      "title": "포격크루: 턴제 PvP",
+      "status": "single",
+      "appIds": {
+        "ios": 6739907881
+      },
+      "developer": "VNG Game Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/af/57/a5af57c8-7178-213e-a0bb-1010f8847e3c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-29T13:02:59.016Z"
     }
   ],
   "approved": [
