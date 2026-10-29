@@ -153984,8 +153984,147 @@
       "platforms": [
         "steam"
       ]
+    },
+    "무림소녀 키우기: 리바이브": {
+      "appIds": {
+        "android": "com.game2gather.mgr",
+        "ios": 6807325506
+      },
+      "aliases": [],
+      "developer": "Game2gather",
+      "icon": "https://play-lh.googleusercontent.com/BwGh5WbtIwoOShFRc7w1gksajPrL96DhvlMzFerT0gkqShEZtNfZ_OhAXRxDg9EOsRAicZOBcIm_u_IR6jQxrA",
+      "slug": "무림소녀-키우기-리바이브",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "무림소녀 키우기: 리바이브"
+      }
+    },
+    "세계수의 노래": {
+      "appIds": {
+        "android": "com.end9games.worldtreeggl",
+        "ios": 6775679985
+      },
+      "aliases": [],
+      "developer": "End9 Games Corp.",
+      "icon": "https://play-lh.googleusercontent.com/u2wVXIiWdAWM19gyu7EHEj2bxJmQdQ6oxub1iGL-IZK367hZCUfIby44twNIJnX9rttUaOcDLHJDTbKOwKZj",
+      "slug": "세계수의-노래",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "세계수의 노래"
+      }
+    },
+    "위스퍼 캐슬: 합성 & 스토리 게임": {
+      "appIds": {
+        "android": "com.mf.coffee",
+        "ios": 6749889618
+      },
+      "aliases": [],
+      "developer": "Microfun Limited",
+      "icon": "https://play-lh.googleusercontent.com/SaZgqXq2jWqVp_7UxFvB0rp7_B5p2P6BHFz6MqFL9pAv7JxKL8qedPFIenyFicUJb8KbpqDSrIkjLS-LV0tf",
+      "slug": "위스퍼-캐슬-합성-스토리-게임",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "위스퍼 캐슬: 합성 & 스토리 게임"
+      }
+    },
+    "Bolt Out - Puzzle Game": {
+      "appIds": {
+        "android": "com.gl.unbolt"
+      },
+      "aliases": [],
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/mzMw2Ob7YM4SWr4rPu4AfCyjeY0BS1VNARPWT4CiPOaNbwkDYzqr2ADKl040encQxM2qF-02fSKOszuh3rVq-g",
+      "slug": "bolt-out-puzzle-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Bolt Out - Puzzle Game",
+        "en": "Bolt Out - Puzzle Game"
+      }
+    },
+    "Mahjong Tile Match": {
+      "appIds": {
+        "android": "com.mahjong.tile.match.xixi.game"
+      },
+      "aliases": [],
+      "developer": "HONG KONG XINGXI",
+      "icon": "https://play-lh.googleusercontent.com/hWSWYdoLa8xJ60icFy7-Oaw7v3FIUdr-eumphrbk1RV73IGvVtxMqVvRReqdR2m7WzgVb3L5XVNLU1jhcadIhA",
+      "slug": "mahjong-tile-match",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Mahjong Tile Match",
+        "ja": "Mahjong Tile Match"
+      }
+    },
+    "Dino Dig Tycoon": {
+      "appIds": {
+        "android": "com.pdd.sfungames"
+      },
+      "aliases": [],
+      "developer": "SFungames",
+      "icon": "https://play-lh.googleusercontent.com/UTCNAnf1ig7iamaUzO_-9PHpVbMcziY1_F1M05spbTK0ORdJz55FSNuiOzribYCcrMeEbq4T9xgoXstrIowfkw",
+      "slug": "dino-dig-tycoon",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Dino Dig Tycoon",
+        "zh-tw": "恐龍挖掘大亨"
+      }
+    },
+    "Coin Bounce": {
+      "appIds": {
+        "android": "com.mobsmile.coinbounce"
+      },
+      "aliases": [],
+      "developer": "Mobsmile Games AS",
+      "icon": "https://play-lh.googleusercontent.com/W0oUfjfBeLgNzeDn_dzFsXm4YSxYdcBuT5znEslgFMw_HIWl3ROrptL40ItmxLSngrp_CdK6HHLk4f4pB3ZW",
+      "slug": "coin-bounce",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Coin Bounce",
+        "zh-tw": "Coin Bounce"
+      }
+    },
+    "Football Manager 27": {
+      "appIds": {
+        "steam": "4530370"
+      },
+      "aliases": [],
+      "developer": "Sports Interactive",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4530370/3d06aef381c925bb6c091f13be44dd294b205a72/capsule_231x87.jpg?t=1793296899",
+      "slug": "football-manager-27",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Epic Seven": {
+      "appIds": {
+        "steam": "5019180"
+      },
+      "aliases": [],
+      "developer": "Smilegate",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5019180/bb198e38698a469c0af46e637ce3aebe01f8aca3/capsule_231x87.jpg?t=1793256460",
+      "slug": "epic-seven",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-30",
-  "totalGames": 8962
+  "totalGames": 8971
 }

@@ -47128,6 +47128,161 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/6d/90/c16d9063-6b51-1221-e85b-11b45124f6ca/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-29T17:03:28.477Z"
+    },
+    {
+      "title": "무림소녀 키우기: 리바이브",
+      "status": "matched",
+      "appIds": {
+        "android": "com.game2gather.mgr",
+        "ios": 6807325506
+      },
+      "developer": "Game2gather",
+      "icon": "https://play-lh.googleusercontent.com/BwGh5WbtIwoOShFRc7w1gksajPrL96DhvlMzFerT0gkqShEZtNfZ_OhAXRxDg9EOsRAicZOBcIm_u_IR6jQxrA",
+      "searchResults": [
+        {
+          "title": "무림소녀 키우기: 리바이브",
+          "appId": 6807325506
+        }
+      ],
+      "addedAt": "2026-10-29T21:02:55.514Z"
+    },
+    {
+      "title": "세계수의 노래",
+      "status": "matched",
+      "appIds": {
+        "android": "com.end9games.worldtreeggl",
+        "ios": 6775679985
+      },
+      "developer": "End9 Games Corp.",
+      "icon": "https://play-lh.googleusercontent.com/u2wVXIiWdAWM19gyu7EHEj2bxJmQdQ6oxub1iGL-IZK367hZCUfIby44twNIJnX9rttUaOcDLHJDTbKOwKZj",
+      "searchResults": [
+        {
+          "title": "세계수의 노래",
+          "appId": 6775679985
+        }
+      ],
+      "addedAt": "2026-10-29T21:02:55.765Z"
+    },
+    {
+      "title": "위스퍼 캐슬: 합성 & 스토리 게임",
+      "status": "matched",
+      "appIds": {
+        "android": "com.mf.coffee",
+        "ios": 6749889618
+      },
+      "developer": "Microfun Limited",
+      "icon": "https://play-lh.googleusercontent.com/SaZgqXq2jWqVp_7UxFvB0rp7_B5p2P6BHFz6MqFL9pAv7JxKL8qedPFIenyFicUJb8KbpqDSrIkjLS-LV0tf",
+      "searchResults": [
+        {
+          "title": "위스퍼 캐슬: 합성 & 스토리 게임",
+          "appId": 6749889618
+        },
+        {
+          "title": "Google Gemini",
+          "appId": 6477489729
+        },
+        {
+          "title": "머지 테이스티: 합성 & 쿠킹 퍼즐 게임",
+          "appId": 6781564118
+        }
+      ],
+      "addedAt": "2026-10-29T21:02:56.102Z"
+    },
+    {
+      "title": "Bolt Out - Puzzle Game",
+      "status": "single",
+      "appIds": {
+        "android": "com.gl.unbolt"
+      },
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/mzMw2Ob7YM4SWr4rPu4AfCyjeY0BS1VNARPWT4CiPOaNbwkDYzqr2ADKl040encQxM2qF-02fSKOszuh3rVq-g",
+      "searchResults": [
+        {
+          "title": "Screw Sort 3D 나사 빼기 매치 &볼트 퍼즐",
+          "appId": 6633425539
+        },
+        {
+          "title": "3D Screw Out: Bolt Sort Master",
+          "appId": 6759823464
+        },
+        {
+          "title": "나사 매치 - 볼트업 퍼즐게임",
+          "appId": 6499293031
+        }
+      ],
+      "addedAt": "2026-10-29T21:02:56.683Z"
+    },
+    {
+      "title": "Mahjong Tile Match",
+      "status": "single",
+      "appIds": {
+        "android": "com.mahjong.tile.match.xixi.game"
+      },
+      "developer": "HONG KONG XINGXI",
+      "icon": "https://play-lh.googleusercontent.com/hWSWYdoLa8xJ60icFy7-Oaw7v3FIUdr-eumphrbk1RV73IGvVtxMqVvRReqdR2m7WzgVb3L5XVNLU1jhcadIhA",
+      "searchResults": [
+        {
+          "title": "Mahjong Tile Match : Puzzle",
+          "appId": 6745481370
+        },
+        {
+          "title": "Mahjong City Tours: Tile Match",
+          "appId": 1217925171
+        },
+        {
+          "title": "Zen Match - Relaxing Puzzle",
+          "appId": 1560124228
+        }
+      ],
+      "addedAt": "2026-10-29T21:02:57.179Z"
+    },
+    {
+      "title": "Dino Dig Tycoon",
+      "status": "single",
+      "appIds": {
+        "android": "com.pdd.sfungames"
+      },
+      "developer": "SFungames",
+      "icon": "https://play-lh.googleusercontent.com/UTCNAnf1ig7iamaUzO_-9PHpVbMcziY1_F1M05spbTK0ORdJz55FSNuiOzribYCcrMeEbq4T9xgoXstrIowfkw",
+      "searchResults": [
+        {
+          "title": "공룡박물관 타이쿤",
+          "appId": 1460645640
+        },
+        {
+          "title": "Dino Quest 2: 쥐라기 박물관",
+          "appId": 1580107903
+        },
+        {
+          "title": "아쿠아리움 랜드 - 물고기 게임",
+          "appId": 1613175018
+        }
+      ],
+      "addedAt": "2026-10-29T21:02:57.659Z"
+    },
+    {
+      "title": "Coin Bounce",
+      "status": "single",
+      "appIds": {
+        "android": "com.mobsmile.coinbounce"
+      },
+      "developer": "Mobsmile Games AS",
+      "icon": "https://play-lh.googleusercontent.com/W0oUfjfBeLgNzeDn_dzFsXm4YSxYdcBuT5znEslgFMw_HIWl3ROrptL40ItmxLSngrp_CdK6HHLk4f4pB3ZW",
+      "searchResults": [
+        {
+          "title": "Coin Bounce –2 PlayerPartyGame",
+          "appId": 6759018988
+        },
+        {
+          "title": "너구리.",
+          "appId": 594348770
+        },
+        {
+          "title": "Money Bounce 3D!",
+          "appId": 6503707449
+        }
+      ],
+      "addedAt": "2026-10-29T21:02:58.155Z"
     }
   ],
   "approved": [
