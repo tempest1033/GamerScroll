@@ -1,25 +1,17 @@
 {
-  "updatedAt": "2026-10-29T17:02:04.731Z",
+  "updatedAt": "2026-10-30T21:01:58.150Z",
   "period": "30days",
   "games": [
     {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 18
+      "views": 19
     },
     {
       "slug": "제우스-오만의-신",
-      "views": 11
+      "views": 10
     },
     {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 9
-    },
-    {
-      "slug": "roblox",
-      "views": 9
-    },
-    {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 9
     },
     {
@@ -27,7 +19,23 @@
       "views": 8
     },
     {
+      "slug": "palworld",
+      "views": 8
+    },
+    {
       "slug": "pixel-flow",
+      "views": 8
+    },
+    {
+      "slug": "에이지-오브-엠파이어-모바일",
+      "views": 8
+    },
+    {
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "views": 8
+    },
+    {
+      "slug": "탈출-게임-암스테르담",
       "views": 8
     },
     {
@@ -36,10 +44,6 @@
     },
     {
       "slug": "go-go-고양이-홉핑",
-      "views": 7
-    },
-    {
-      "slug": "palworld",
       "views": 7
     },
     {
@@ -52,6 +56,10 @@
     },
     {
       "slug": "where-winds-meet",
+      "views": 7
+    },
+    {
+      "slug": "단어-찾기-단어-게임",
       "views": 7
     },
     {
@@ -68,14 +76,6 @@
     },
     {
       "slug": "메이플-키우기",
-      "views": 7
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
-      "views": 7
-    },
-    {
-      "slug": "에이지-오브-엠파이어-모바일",
       "views": 7
     }
   ]

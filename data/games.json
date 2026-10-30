@@ -70636,7 +70636,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -153819,14 +153819,16 @@
     },
     "포격크루: 턴제 PvP": {
       "appIds": {
-        "ios": 6739907881
+        "ios": 6739907881,
+        "android": "com.vnggames.ballistichero"
       },
       "aliases": [],
       "developer": "VNG Game Studios",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/af/57/a5af57c8-7178-213e-a0bb-1010f8847e3c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "포격크루-턴제-pvp",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "포격크루: 턴제 PvP"
@@ -153952,16 +153954,19 @@
     },
     "影劍風雲傳": {
       "appIds": {
-        "ios_tw": 6801368462
+        "ios_tw": 6801368462,
+        "android": "com.hkpk.yjfyz"
       },
       "aliases": [],
       "developer": "HK PINGKE LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/61/96/3d6196ea-4993-1361-814b-f595ad8e91da/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "影劍風雲傳",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "影劍風雲傳",
         "zh-tw": "影劍風雲傳"
       }
     },
@@ -154307,8 +154312,73 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Fruit Farm: Harvest Match": {
+      "appIds": {
+        "android": "com.fruit.farm.harvest.match",
+        "ios": 6803384851
+      },
+      "aliases": [],
+      "developer": "Baby Tigress",
+      "icon": "https://play-lh.googleusercontent.com/y-1MZQstU9oQT9blRxUT0YniI3n596dXmfwa5SwXAxYKLO6ahAVhX0pIXLmUwSlOsjBEhLNYBBAEPESPZ0zXJg",
+      "slug": "fruit-farm-harvest-match",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Fruit Farm: Harvest Match"
+      }
+    },
+    "ReLevel": {
+      "appIds": {
+        "android": "work.ponix.relevel"
+      },
+      "aliases": [],
+      "developer": "PONIX",
+      "icon": "https://play-lh.googleusercontent.com/MDr7Fn1aiIlWVmho5KQ9iOAImHof06LQMPO7K1dUp1DVACc7JRPBUaaW5MitLbQnUkL9q0HURlNI3gRNa1n-4Q",
+      "slug": "relevel",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ReLevel",
+        "ja": "ReLevel ループ系インフレRPG"
+      }
+    },
+    "Mahjong Pair Crush": {
+      "appIds": {
+        "android": "com.ew.mahjongpair"
+      },
+      "aliases": [],
+      "developer": "EWG STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/Z3eiL_-Ny2gcn2Fp13QXZwSnIIMWaB_HtZnQcWbmvCS5V5egwbspNsKy3hgaAL5GojQu0pqg2hnnJBy1Q0S36Y8",
+      "slug": "mahjong-pair-crush",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Mahjong Pair Crush",
+        "ja": "Mahjong Pair Crush"
+      }
+    },
+    "RunxPetrersz": {
+      "appIds": {
+        "ios": 6827915306
+      },
+      "aliases": [],
+      "developer": "Leah Teoh",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e3/43/6d/e3436d45-5c5f-8494-fa3d-86b0832b4acf/AppIcon-0-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "runxpetrersz",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "RunxPetrersz",
+        "zh-cn": "RunxPetrersz"
+      }
     }
   },
   "lastUpdated": "2026-10-31",
-  "totalGames": 8983
+  "totalGames": 8987
 }

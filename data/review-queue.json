@@ -47124,13 +47124,19 @@
     },
     {
       "title": "포격크루: 턴제 PvP",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6739907881
+        "ios": 6739907881,
+        "android": "com.vnggames.ballistichero"
       },
       "developer": "VNG Game Studios",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/af/57/a5af57c8-7178-213e-a0bb-1010f8847e3c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "포격크루: 턴제 PvP",
+          "appId": 6739907881
+        }
+      ],
       "addedAt": "2026-10-29T13:02:59.016Z"
     },
     {
@@ -47358,7 +47364,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -47375,6 +47381,90 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/57/74/805774fd-0443-7176-8fbb-2dd052d37c3f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-30T17:03:08.272Z"
+    },
+    {
+      "title": "Fruit Farm: Harvest Match",
+      "status": "matched",
+      "appIds": {
+        "android": "com.fruit.farm.harvest.match",
+        "ios": 6803384851
+      },
+      "developer": "Baby Tigress",
+      "icon": "https://play-lh.googleusercontent.com/y-1MZQstU9oQT9blRxUT0YniI3n596dXmfwa5SwXAxYKLO6ahAVhX0pIXLmUwSlOsjBEhLNYBBAEPESPZ0zXJg",
+      "searchResults": [
+        {
+          "title": "Fruit Farm: Harvest Match",
+          "appId": 6803384851
+        },
+        {
+          "title": "Fruit Juice Farm",
+          "appId": 6753985785
+        },
+        {
+          "title": "팜히어로사가",
+          "appId": 608206510
+        }
+      ],
+      "addedAt": "2026-10-30T21:03:19.001Z"
+    },
+    {
+      "title": "ReLevel",
+      "status": "single",
+      "appIds": {
+        "android": "work.ponix.relevel"
+      },
+      "developer": "PONIX",
+      "icon": "https://play-lh.googleusercontent.com/MDr7Fn1aiIlWVmho5KQ9iOAImHof06LQMPO7K1dUp1DVACc7JRPBUaaW5MitLbQnUkL9q0HURlNI3gRNa1n-4Q",
+      "searchResults": [
+        {
+          "title": "Re:Level1 - 10일의 생명",
+          "appId": 1632251913
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "Color Fill 3D",
+          "appId": 1473024868
+        }
+      ],
+      "addedAt": "2026-10-30T21:03:19.803Z"
+    },
+    {
+      "title": "Mahjong Pair Crush",
+      "status": "single",
+      "appIds": {
+        "android": "com.ew.mahjongpair"
+      },
+      "developer": "EWG STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/Z3eiL_-Ny2gcn2Fp13QXZwSnIIMWaB_HtZnQcWbmvCS5V5egwbspNsKy3hgaAL5GojQu0pqg2hnnJBy1Q0S36Y8",
+      "searchResults": [
+        {
+          "title": "3 Tiles - 매직 게임 타일",
+          "appId": 1525211513
+        },
+        {
+          "title": "Mahjong Pair : Matching Puzzle",
+          "appId": 6744814252
+        },
+        {
+          "title": "푸시마작 - 최고에 뇌훈련위한 추천게임",
+          "appId": 1003080640
+        }
+      ],
+      "addedAt": "2026-10-30T21:03:20.408Z"
+    },
+    {
+      "title": "RunxPetrersz",
+      "status": "single",
+      "appIds": {
+        "ios": 6827915306
+      },
+      "developer": "Leah Teoh",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e3/43/6d/e3436d45-5c5f-8494-fa3d-86b0832b4acf/AppIcon-0-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-30T21:03:20.871Z"
     }
   ],
   "approved": [
