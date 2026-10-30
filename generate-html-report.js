@@ -1218,6 +1218,12 @@ Sitemap: https://gamerscroll.com/sitemap.xml
   //  - HTML 페이지 전부 (www→bare 301, 로캘 302, 레거시 301/410, 게임 상세 /games/<slug>/)
   //  - /assets/privacy-content(.html): noindex 헤더를 미들웨어가 붙인다 → /assets/* 통째 제외 금지, 하위 폴더 파일(/assets/*/*.*)과 확장자로만 제외
   //  - /rss.xml (410), 레거시 구간(/magazine /reports /tech …) 아래의 이미지 URL(410/301) → /*.xml, /*.png 같은 이미지·XML 확장자 와일드카드는 쓰지 않는다
+  // 언어판(/ko /ja /zh-cn /zh-tw) 트리는 미들웨어가 레거시 구간 검사 뒤 next()만 하고(www→bare 301은 2026-10-31부터 Cloudflare
+  // Redirect Rule이 맡는다), 함수가 렌더하는 것은 게임 상세(/<언어>/games/<slug>/)뿐이다. 그래서 레거시 구간과 게임 상세를 뺀
+  // 언어판 페이지(홈, 순위, 스팀, 트렌딩, 게임 DB 목록, 소개, 개인정보)를 제외한다. /<언어>/* 통째 제외는 게임 상세까지 삼키므로 금지.
+  const localeStatic = ['ko', 'ja', 'zh-cn', 'zh-tw'].flatMap((p) => [
+    `/${p}`, `/${p}/`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/*`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
+  ]);
   try {
     const routes = {
       version: 1,
@@ -1238,7 +1244,8 @@ Sitemap: https://gamerscroll.com/sitemap.xml
         '/*.css',
         '/*.js',
         '/*.txt',
-        '/*.map'
+        '/*.map',
+        ...localeStatic
       ]
     };
     fs.writeFileSync(`${DOCS_DIR}/_routes.json`, JSON.stringify(routes, null, 2) + '\n', 'utf8');
