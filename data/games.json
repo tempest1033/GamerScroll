@@ -151448,14 +151448,16 @@
     },
     "소드마스터 스토리": {
       "appIds": {
-        "ios": 1521447065
+        "ios": 1521447065,
+        "android": "com.sword.master"
       },
       "aliases": [],
       "developer": "SuperPlanet",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/88/68/c8/8868c81f-62f5-3e67-9269-158f5336ee20/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "소드마스터-스토리",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "소드마스터 스토리"
