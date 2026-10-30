@@ -153793,14 +153793,16 @@
     },
     "검신제로": {
       "appIds": {
-        "ios": 6762593520
+        "ios": 6762593520,
+        "android": "com.neptune.dawnsedge"
       },
       "aliases": [],
       "developer": "Neptune Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/14/5a/c1145a19-f987-f3a8-1c30-3f0304d5416f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "검신제로",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "검신제로",
@@ -154123,8 +154125,55 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Color Rings：Rotate & Earn": {
+      "appIds": {
+        "android_jp": "com.colorrings.rotate.earn"
+      },
+      "aliases": [],
+      "developer": "Hesapplication",
+      "icon": "https://play-lh.googleusercontent.com/h8mYjnqfHo8FuGkDEnvxpViCY-cu3pWIBXaclqWl8lxrYOTYtVtJ_E3vyZV3d2-2rZODtRbQXYZ4soNdgDHnZQ",
+      "slug": "color-ringsrotate-earn",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Color Rings：Rotate & Earn",
+        "ja": "Color Rings：Rotate & Earn"
+      }
+    },
+    "沙画大师": {
+      "appIds": {
+        "ios_cn": 6805463377
+      },
+      "aliases": [],
+      "developer": "小林 陈",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/9d/e8/969de866-bb97-75e4-c711-fd54e1f0e764/AppIcon-1x_U007ephone-0-1-0-85-220-0.png/512x512bb.jpg",
+      "slug": "沙画大师",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "沙画大师"
+      }
+    },
+    "捉詭：江湖異聞": {
+      "appIds": {
+        "android": "com.and.gt.zgrj"
+      },
+      "aliases": [],
+      "developer": "Sany Games",
+      "icon": "https://play-lh.googleusercontent.com/K9YnmcNIQzvEeVmrgPxqggyR2Cpe_pFI6ffR9aQrAQJKJzqwD821lOyTjEtA0XKYNisGxSGiLMjEYhYi2ncE",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "捉詭：江湖異聞",
+        "zh-tw": "捉詭：江湖異聞"
+      }
     }
   },
   "lastUpdated": "2026-10-30",
-  "totalGames": 8971
+  "totalGames": 8974
 }

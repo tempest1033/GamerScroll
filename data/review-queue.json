@@ -47087,13 +47087,19 @@
     },
     {
       "title": "검신제로",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6762593520
+        "ios": 6762593520,
+        "android": "com.neptune.dawnsedge"
       },
       "developer": "Neptune Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c1/14/5a/c1145a19-f987-f3a8-1c30-3f0304d5416f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "검신제로",
+          "appId": 6762593520
+        }
+      ],
       "addedAt": "2026-10-29T13:02:58.763Z"
     },
     {
@@ -47283,6 +47289,17 @@
         }
       ],
       "addedAt": "2026-10-29T21:02:58.155Z"
+    },
+    {
+      "title": "捉詭：江湖異聞",
+      "status": "single",
+      "appIds": {
+        "android": "com.and.gt.zgrj"
+      },
+      "developer": "Sany Games",
+      "icon": "https://play-lh.googleusercontent.com/K9YnmcNIQzvEeVmrgPxqggyR2Cpe_pFI6ffR9aQrAQJKJzqwD821lOyTjEtA0XKYNisGxSGiLMjEYhYi2ncE",
+      "searchResults": [],
+      "addedAt": "2026-10-30T01:02:56.059Z"
     }
   ],
   "approved": [
