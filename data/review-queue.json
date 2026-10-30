@@ -47358,12 +47358,23 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
       "searchResults": [],
       "addedAt": "2026-10-30T13:02:46.880Z"
+    },
+    {
+      "title": "야구선수 키우기, 블루칩스타",
+      "status": "single",
+      "appIds": {
+        "ios": 6805327940
+      },
+      "developer": "Anyone Company Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/57/74/805774fd-0443-7176-8fbb-2dd052d37c3f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-30T17:03:08.272Z"
     }
   ],
   "approved": [

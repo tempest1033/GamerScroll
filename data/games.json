@@ -70636,7 +70636,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154280,8 +154280,35 @@
       "platforms": [
         "steam"
       ]
+    },
+    "야구선수 키우기, 블루칩스타": {
+      "appIds": {
+        "ios": 6805327940
+      },
+      "aliases": [],
+      "developer": "Anyone Company Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/80/57/74/805774fd-0443-7176-8fbb-2dd052d37c3f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "야구선수-키우기-블루칩스타",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "야구선수 키우기, 블루칩스타"
+      }
+    },
+    "EZ2ON REBOOT : R - Lucent Soirée": {
+      "appIds": {
+        "steam": "4039770"
+      },
+      "aliases": [],
+      "developer": "SQUARE PIXELS",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4039770/42a1ee1ea983ccfcf0248bf3642cade7924e09de/capsule_231x87.jpg?t=1788118727",
+      "slug": "ez2on-reboot-r-lucent-soire",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-10-30",
-  "totalGames": 8981
+  "lastUpdated": "2026-10-31",
+  "totalGames": 8983
 }
