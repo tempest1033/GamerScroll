@@ -70636,9 +70636,11 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
-      "aliases": [],
+      "aliases": [
+        "我在三國當村長-經營養成系RPG"
+      ],
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
       "slug": "ドラゴンクエストスマッシュグロウ-ドラクエローグライトrpg",
@@ -150013,14 +150015,16 @@
     },
     "웰다이버": {
       "appIds": {
-        "android": "com.loadcomplete.welldiver"
+        "android": "com.loadcomplete.welldiver",
+        "ios": 6782862607
       },
       "aliases": [],
       "developer": "LoadComplete",
       "icon": "https://play-lh.googleusercontent.com/8bJP3ldszPniJWJkoLigQ69gwes185IzXi0LBQ9aVL5sAtL8PcS-ua8ZEidIO6nCzmJpCWoyTkaWSTTmBFqx",
       "slug": "웰다이버",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "웰다이버",
@@ -154204,8 +154208,80 @@
       "names": {
         "zh-tw": "大富豪3：商業帝國"
       }
+    },
+    "オレネミー": {
+      "appIds": {
+        "ios": 6825802847
+      },
+      "aliases": [],
+      "developer": "TAKOLIGHT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/19/14/2b19145f-d8e4-6841-d1a2-9e93e6091051/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "オレネミー",
+        "ja": "オレネミー"
+      }
+    },
+    "もぐもぐ くしもり": {
+      "appIds": {
+        "ios": 6822588273
+      },
+      "aliases": [],
+      "developer": "GlobalGearLab Co. Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/af/d2/c8afd24b-8e24-a70c-96de-8f1d4e6f7913/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "もぐもぐ くしもり",
+        "ja": "もぐもぐ くしもり"
+      }
+    },
+    "疯狂消方块：鸭鸭来解谜": {
+      "appIds": {
+        "ios_cn": 6825755236
+      },
+      "aliases": [],
+      "developer": "轩 殷",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/b4/26/b4b4261c-a6d4-815b-966f-3a5fda7bef38/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "疯狂消方块鸭鸭来解谜",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "疯狂消方块：鸭鸭来解谜",
+        "zh-cn": "疯狂消方块：鸭鸭来解谜"
+      }
+    },
+    "EZ2ON REBOOT : R - PUMP IT UP RISE Collaboration DLC": {
+      "appIds": {
+        "steam": "5445520"
+      },
+      "aliases": [],
+      "developer": "SQUARE PIXELS",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5445520/61d9f114b812780414f337d70a3554e3a7c72152/capsule_231x87.jpg?t=1793352444",
+      "slug": "ez2on-reboot-r-pump-it-up-rise-collaboration-dlc",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Expedition of the Guild": {
+      "appIds": {
+        "steam": "4261080"
+      },
+      "aliases": [],
+      "developer": "Chubby Meow Game",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4261080/fa0de2fd69235295501c8475900a3b02c5efa7c2/capsule_231x87.jpg?t=1793365001",
+      "slug": "expedition-of-the-guild",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-10-30",
-  "totalGames": 8976
+  "totalGames": 8981
 }

@@ -44646,13 +44646,19 @@
     },
     {
       "title": "웰다이버",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "android": "com.loadcomplete.welldiver"
+        "android": "com.loadcomplete.welldiver",
+        "ios": 6782862607
       },
       "developer": "LoadComplete",
       "icon": "https://play-lh.googleusercontent.com/8bJP3ldszPniJWJkoLigQ69gwes185IzXi0LBQ9aVL5sAtL8PcS-ua8ZEidIO6nCzmJpCWoyTkaWSTTmBFqx",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "웰다이버",
+          "appId": "com.loadcomplete.welldiver"
+        }
+      ],
       "addedAt": "2026-10-17T19:58:27.986Z"
     },
     {
@@ -47325,6 +47331,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ba/91/36/ba913644-5eab-0dc9-d57b-449ac599f625/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-30T05:03:03.649Z"
+    },
+    {
+      "title": "オレネミー",
+      "status": "single",
+      "appIds": {
+        "ios": 6825802847
+      },
+      "developer": "TAKOLIGHT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/19/14/2b19145f-d8e4-6841-d1a2-9e93e6091051/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-30T13:02:45.936Z"
+    },
+    {
+      "title": "もぐもぐ くしもり",
+      "status": "single",
+      "appIds": {
+        "ios": 6822588273
+      },
+      "developer": "GlobalGearLab Co. Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/af/d2/c8afd24b-8e24-a70c-96de-8f1d4e6f7913/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-30T13:02:46.265Z"
+    },
+    {
+      "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.interserv.L3K"
+      },
+      "developer": "SQUARE ENIX Co.,Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
+      "searchResults": [],
+      "addedAt": "2026-10-30T13:02:46.880Z"
     }
   ],
   "approved": [
