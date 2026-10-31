@@ -45505,13 +45505,19 @@
     },
     {
       "title": "일랜시아 모바일",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6802933822
+        "ios": 6802933822,
+        "android": "net.gameduo.el"
       },
       "developer": "Game Duo Co.,Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4d/e1/13/4de113c4-e1ea-167d-3971-23ad429fc7ce/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "일랜시아 모바일",
+          "appId": 6802933822
+        }
+      ],
       "addedAt": "2026-10-22T06:58:58.092Z"
     },
     {
@@ -47618,6 +47624,17 @@
         }
       ],
       "addedAt": "2026-10-31T08:52:56.627Z"
+    },
+    {
+      "title": "Tile Blast",
+      "status": "single",
+      "appIds": {
+        "ios": 6459058008
+      },
+      "developer": "Loop Games Oyun Teknolojileri Anonim Sirketi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/b2/49/9a/b2499a01-005c-cb4e-7bb4-32531385b5a5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T13:02:56.051Z"
     }
   ],
   "approved": [
