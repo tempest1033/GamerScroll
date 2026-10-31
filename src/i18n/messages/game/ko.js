@@ -7,7 +7,6 @@ module.exports = {
   "game.tabs_label": "게임 메뉴",
   "game.tab_rank": "순위 기록",
   "game.tab_analysis": "지표 분석",
-  "game.tab_analysis_short": "지표",
   "game.steam_analysis": "스팀 순위 분석",
   "game.stat_ccu_rank": "동시접속자 순위",
   "game.stat_sales_rank": "판매 순위",
