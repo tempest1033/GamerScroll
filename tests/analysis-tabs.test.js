@@ -27,3 +27,19 @@ test('public game page shows the metrics tab only for editions that have the pag
   assert.doesNotMatch(render('ko', { ...game, analysis: undefined }), /<nav class="game-tabs/);
   i18n.setEdition('en');
 });
+
+test('a failed sitemap refresh drops the previous list instead of keeping stale tabs', () => {
+  const fs = require('node:fs');
+  const os = require('node:os');
+  const path = require('node:path');
+  const { execFileSync } = require('node:child_process');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'analysis-pages-'));
+  const file = path.join(dir, 'analysis-pages.json');
+  fs.writeFileSync(file, JSON.stringify({ 'removed-game': ['ko'] }));
+  const stub = path.join(dir, 'fetch-404.js');
+  fs.writeFileSync(stub, 'globalThis.fetch = async () => ({ ok: false, status: 404 });');
+  execFileSync(process.execPath, ['-r', stub, path.join(__dirname, '..', 'scripts', 'fetch-analysis-pages.js')],
+    { env: { ...process.env, ANALYSIS_PAGES_FILE: file }, stdio: 'pipe' });
+  assert.deepEqual(JSON.parse(fs.readFileSync(file, 'utf8')), {});
+  fs.rmSync(dir, { recursive: true, force: true });
+});

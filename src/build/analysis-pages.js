@@ -3,15 +3,15 @@
 /**
  * Which games have a metrics ("지표 분석") page, per edition. The pages live in a separate Worker; its sitemap
  * (https://gamerscroll.com/analysis/sitemap.xml, absolute URLs of /<prefix>/analysis/<slug>/) is the single source.
- * scripts/fetch-analysis-pages.js stores the parsed list in data/analysis-pages.json (committed, so a failed fetch keeps the
- * last known list) and scripts/generate-game-pages.js puts each game's edition codes into its games-data JSON.
+ * scripts/fetch-analysis-pages.js stores the parsed list in data/analysis-pages.json (a failed fetch empties it, so no tab
+ * can link to a removed page) and scripts/generate-game-pages.js puts each game's edition codes into its games-data JSON.
  */
 const fs = require('fs');
 const path = require('path');
 const i18n = require('../i18n');
 
 const ANALYSIS_SITEMAP_URL = `${i18n.SITE_ORIGIN}/analysis/sitemap.xml`;
-const PAGES_FILE = path.join(__dirname, '..', '..', 'data', 'analysis-pages.json');
+const PAGES_FILE = process.env.ANALYSIS_PAGES_FILE || path.join(__dirname, '..', '..', 'data', 'analysis-pages.json');
 
 const unxml = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 

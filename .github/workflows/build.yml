@@ -184,8 +184,8 @@ jobs:
 
       - name: Fetch metrics page list
         if: steps.due.outputs.deploy == 'true'
-        # 지표 분석 페이지가 있는 게임 목록(data/analysis-pages.json)을 공개 지표 사이트맵에서 갱신한다. 실패하면 마지막으로
-        # 커밋된 목록을 그대로 쓴다 (아래 "Commit and push"가 data/ 를 커밋). 게임 상세의 "지표 분석" 탭이 이 목록만 따른다.
+        # 지표 분석 페이지가 있는 게임 목록(data/analysis-pages.json)을 공개 지표 사이트맵에서 갱신한다. 실패하면 목록을 비워
+        # 그 빌드에서는 탭을 내지 않는다(지워진 페이지로 가는 링크 방지; 아래 "Commit and push"가 data/ 를 커밋). 게임 상세의 "지표 분석" 탭이 이 목록만 따른다.
         continue-on-error: true
         timeout-minutes: 2
         run: node scripts/fetch-analysis-pages.js
