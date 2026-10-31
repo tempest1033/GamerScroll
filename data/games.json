@@ -153385,8 +153385,44 @@
         "zh-cn": "Tile Blast",
         "zh-tw": "Tile Blast"
       }
+    },
+    "타인의 폰 - 방탈출 추리 게임": {
+      "appIds": {
+        "ios": 6824876279
+      },
+      "aliases": [],
+      "developer": "Beomjin In",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/c4/d9/fac4d97c-9552-63cb-e4f5-0cc5b883e6c0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "타인의-폰-방탈출-추리-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "타인의 폰 - 방탈출 추리 게임",
+        "en": "Someone Else's Phone: Mystery",
+        "ja": "他人のスマホ - 謎解き脱出推理ゲーム",
+        "zh-tw": "타인의 폰 - 방탈출 추리 게임"
+      }
+    },
+    "Horror Playtime : Multiplayer": {
+      "appIds": {
+        "ios": 6760079433
+      },
+      "aliases": [],
+      "developer": "ARDA SAYIR",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/53/42/b0/5342b07b-e4c5-a375-a5f3-6b39c6bd9fbc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "horror-playtime-multiplayer",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Horror Playtime : Multiplayer",
+        "en": "Horror Playtime : Multiplayer",
+        "ja": "Horror Playtime : Multiplayer",
+        "zh-tw": "Horror Playtime : Multiplayer"
+      }
     }
   },
   "lastUpdated": "2026-10-31",
-  "totalGames": 9001
+  "totalGames": 9003
 }

@@ -47635,6 +47635,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/b2/49/9a/b2499a01-005c-cb4e-7bb4-32531385b5a5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-31T13:02:56.051Z"
+    },
+    {
+      "title": "타인의 폰 - 방탈출 추리 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6824876279
+      },
+      "developer": "Beomjin In",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/c4/d9/fac4d97c-9552-63cb-e4f5-0cc5b883e6c0/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T14:27:34.252Z"
+    },
+    {
+      "title": "Horror Playtime : Multiplayer",
+      "status": "single",
+      "appIds": {
+        "ios": 6760079433
+      },
+      "developer": "ARDA SAYIR",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/53/42/b0/5342b07b-e4c5-a375-a5f3-6b39c6bd9fbc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T14:27:34.585Z"
     }
   ],
   "approved": [
