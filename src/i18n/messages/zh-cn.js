@@ -51,7 +51,7 @@ module.exports = {
   "footer.about": "关于我们",
   "footer.gamerscroll": "© {year} GamerScroll",
   "footer.privacy_policy": "隐私政策",
-  "games.all_games": "全部游戏（{length}）",
+  "games.all_games": "有排行记录的游戏（{length}）",
   "games.back_to_top": "返回顶部",
   "games.game_database": "游戏数据库",
   "games.game_db_game_search_mobile": "游戏数据库，游戏搜索，手游排名走势，游戏畅销榜历史记录",

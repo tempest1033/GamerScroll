@@ -17,7 +17,7 @@ const i18n = require('../src/i18n');
 const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
 const { collectRankData, summaryMeta, idFor, createSlug } = require('../src/build/game-data');
-const { summaryDays, INDEXABLE_DAYS } = require('../src/templates/helpers/game-rank-summary');
+const { isIndexableRank } = require('../src/templates/helpers/game-rank-summary');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
 const { loadServiceExports, coverage } = require('../src/build/service-exports');
@@ -271,7 +271,7 @@ for (const g of S.games) {
   if (steam) steamCount++;
 
   // 색인 허용은 에디션과 무관 (순위 이력이 가장 긴 국가의 일수 기준)
-  if (summaryDays(rank, meta, 'kr') >= INDEXABLE_DAYS) indexable.push(slug);
+  if (isIndexableRank(rank, meta)) indexable.push(slug);
   // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
   const dataDates = [
     ...(rank ? Object.values(rank.s).flatMap((stores) => Object.values(stores).map((e) => meta.days[e.o + e.v.length - 1])) : []),

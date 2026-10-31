@@ -79,9 +79,10 @@ function getInitialOrder() {
  * @param {Object} options
  * @param {Array} options.games - games.json의 게임 목록
  * @param {Array} options.popularGames - GA4 인기 게임 TOP 10 [{slug, views}]
+ * @param {Set<string>|null} [options.listedSlugs] - 가나다 전체 목록에 링크할 게임 (없으면 전부). 나머지는 검색으로 찾는다.
  */
 function generateGamesHubPage(options = {}) {
-  const { games = [], popularGames = [], searchIndexVersion = '' } = options;
+  const { games = [], popularGames = [], searchIndexVersion = '', listedSlugs = null } = options;
 
   // 게임 데이터를 배열로 변환
   // Edition-local game names (names[edition] → home-country chart title → DB name)
@@ -96,8 +97,9 @@ function generateGamesHubPage(options = {}) {
     appIds: data.appIds || {}
   }));
 
-  // 초성별 그룹화
-  const grouped = groupGamesByInitial(gamesList);
+  // 초성별 그룹화 (전체 목록에 링크할 게임만)
+  const listedGames = listedSlugs ? gamesList.filter((g) => listedSlugs.has(g.slug)) : gamesList;
+  const grouped = groupGamesByInitial(listedGames);
   const initialOrder = getInitialOrder();
 
   // 인기 게임 TOP 10 (게임 정보 매칭 - slug만)
@@ -196,7 +198,7 @@ function generateGamesHubPage(options = {}) {
   // 전체 게임 목록 섹션
   const allGamesSection = `
     <section class="games-hub-all">
-      <h2 class="games-hub-section-title">${t('games.all_games', { length: gamesList.length })}</h2>
+      <h2 class="games-hub-section-title">${t('games.all_games', { length: listedGames.length })}</h2>
       ${initialNav}
       <div class="games-hub-groups">
         ${existingInitials.map((initial, groupIndex) => `

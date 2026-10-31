@@ -67,6 +67,10 @@ function summaryDays(rank, meta, home) {
   return rank ? countryDays(rank, pickCountry(rank, home, meta.days.length), meta.days.length) : 0;
 }
 
+// Whether a game's page is indexable, for every edition alike (pickCountry's fallback): the game sitemaps and the games
+// hub list use it. rank needs only its daily series `s`.
+const isIndexableRank = (rank, meta) => summaryDays(rank, meta, 'kr') >= INDEXABLE_DAYS;
+
 function renderGameRankSummary(rank, meta, name, home) {
   if (!rank) return null;
   const days = meta.days;
@@ -202,4 +206,4 @@ ${countryCard}
   return { html, text, cur, baseStore, days: present.length, hero };
 }
 
-module.exports = { renderGameRankSummary, summaryDays, pickCountry, expand, INDEXABLE_DAYS };
+module.exports = { renderGameRankSummary, summaryDays, isIndexableRank, pickCountry, expand, INDEXABLE_DAYS };

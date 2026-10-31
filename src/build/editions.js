@@ -131,6 +131,14 @@ function buildEditions(ctx) {
   const steamStats = (() => { try { return require('../rank/steam-stats').loadSteamStats(); } catch (e) { return null; } })();
   const lastDate = (days) => (days && days.length ? days[days.length - 1].date : null);
   const rankDate = rankStats ? lastDate(rankStats.days) : null;
+  // Games hub A-Z list: only the games whose page is indexable (the game sitemaps' rule). The other game pages stay
+  // reachable through the hub search and the rank pages, without sending crawlers to thousands of noindex pages.
+  const hubSlugs = rankStats ? (() => {
+    const { rankSeries, summaryMeta } = require('./game-data');
+    const { isIndexableRank } = require('../templates/helpers/game-rank-summary');
+    const meta = summaryMeta(rankStats);
+    return new Set(rankStats.games.filter((g) => g.slug && isIndexableRank({ s: rankSeries(rankStats, g.appIds) }, meta)).map((g) => g.slug));
+  })() : null;
   const steamDate = steamStats ? lastDate(steamStats.days) : null;
   const homeDate = [rankDate, steamDate].filter(Boolean).sort().pop() || null;
   const steamGameDate = (id) => lastDate(steamStats.days.filter((d) => steamStats.ccuOf(d, id) != null || steamStats.sellOf(d, id) != null));
@@ -195,7 +203,7 @@ function buildEditions(ctx) {
     const steamHtml = attempt('steam', () => m.steamHub.renderSteamHub())
       || attempt('steam (legacy)', () => m.steam.generateSteamPage({ ...data, cacheVersion: ctx.steamCacheVersion }));
     if (steamHtml) write('steam/index.html', steamHtml, '0.8', steamDate);
-    const hubHtml = attempt('games hub', () => m.gamesHub.generateGamesHubPage({ games: gamesData, popularGames: popularGames || [], searchIndexVersion: searchVersion }));
+    const hubHtml = attempt('games hub', () => m.gamesHub.generateGamesHubPage({ games: gamesData, popularGames: popularGames || [], searchIndexVersion: searchVersion, listedSlugs: hubSlugs }));
     if (hubHtml) write('games/index.html', hubHtml, '0.8', rankDate);
     const notFoundHtml = attempt('404', () => m.notFound.generate404Page());
     if (notFoundHtml) write('404.html', notFoundHtml);

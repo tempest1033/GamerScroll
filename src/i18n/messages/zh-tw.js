@@ -51,7 +51,7 @@ module.exports = {
   "footer.about": "關於我們",
   "footer.gamerscroll": "© {year} GamerScroll",
   "footer.privacy_policy": "隱私權政策",
-  "games.all_games": "全部遊戲（{length}）",
+  "games.all_games": "有排行紀錄的遊戲（{length}）",
   "games.back_to_top": "回到頂端",
   "games.game_database": "遊戲資料庫",
   "games.game_db_game_search_mobile": "遊戲資料庫, 遊戲搜尋, 手機遊戲排名走勢, 遊戲營收排行紀錄",

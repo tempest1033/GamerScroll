@@ -49,7 +49,8 @@ async function main() {
           }
           if (route.endsWith('/games/')) {
             const count = await page.locator('.game-item').count();
-            assert.ok(count > 3000);
+            // The A-Z list links only games with an indexable page (30+ chart days), still several hundred.
+            assert.ok(count > 500);
             assert.equal(await page.locator('.game-item img').count(), 0);
             const group = page.locator('.games-hub-group').first();
             await group.locator('summary').click();

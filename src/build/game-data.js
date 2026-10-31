@@ -19,20 +19,34 @@ function trim(series) {
   return { o: first, v: series.slice(first, end) };
 }
 
-function collectRankData(S, appIds) {
-  if (!appIds || (!appIds.ios && !appIds.android)) return null;
-  const s = {}, h = {};
+// Daily grossing-rank series per country and store ({country: {store: {o, v}}}); {} without app IDs.
+function rankSeries(S, appIds) {
+  const s = {};
+  if (!appIds) return s;
   for (const country of Object.keys(S.COUNTRIES)) {
     for (const store of STORES) {
       const id = idFor(appIds, store, country);
       if (!id) continue;
       const series = trim(S.seriesOf(country, store, id));
       if (series) (s[country] = s[country] || {})[store] = series;
+    }
+  }
+  return s;
+}
+
+// null without any App Store / Google Play ID; regional slots (ios_jp, android_tw, ...) count like the base ones.
+function collectRankData(S, appIds) {
+  if (!appIds || !Object.keys(appIds).some((key) => STORES.includes(key.split('_')[0]))) return null;
+  const h = {};
+  for (const country of Object.keys(S.COUNTRIES)) {
+    for (const store of STORES) {
+      const id = idFor(appIds, store, country);
+      if (!id) continue;
       const hourly = S.hourlyRanks(store, country, id);
       if (hourly && hourly.some((x) => x.rank != null)) (h[country] = h[country] || {})[store] = hourly.map((x) => [x.time, x.rank]);
     }
   }
-  return { s, h };
+  return { s: rankSeries(S, appIds), h };
 }
 
 // Shared by every game: the chart days and the archived hourly day.
@@ -54,4 +68,4 @@ function createSlug(name, appIds = null) {
   }
   return slug;
 }
-module.exports = { collectRankData, summaryMeta, idFor, createSlug };
+module.exports = { collectRankData, rankSeries, summaryMeta, idFor, createSlug };

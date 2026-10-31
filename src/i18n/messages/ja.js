@@ -51,7 +51,7 @@ module.exports = {
   "footer.about": "サイトについて",
   "footer.gamerscroll": "© {year} GamerScroll",
   "footer.privacy_policy": "プライバシーポリシー",
-  "games.all_games": "すべてのゲーム（{length}）",
+  "games.all_games": "ランキング履歴のあるゲーム（{length}）",
   "games.back_to_top": "トップへ戻る",
   "games.game_database": "ゲームデータベース",
   "games.game_db_game_search_mobile": "ゲームDB、ゲーム検索、モバイルゲームランキング推移、ゲーム売上ランキング記録",

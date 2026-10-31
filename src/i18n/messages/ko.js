@@ -51,7 +51,7 @@ module.exports = {
   "footer.about": "소개",
   "footer.gamerscroll": "© {year} 게이머스크롤",
   "footer.privacy_policy": "개인정보처리방침",
-  "games.all_games": "전체 게임 ({length}개)",
+  "games.all_games": "순위 기록이 있는 게임 ({length}개)",
   "games.back_to_top": "맨 위로",
   "games.game_database": "게임 데이터베이스",
   "games.game_db_game_search_mobile": "게임 DB, 게임 검색, 모바일 게임 순위 추이, 게임 매출 순위 기록",

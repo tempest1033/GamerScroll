@@ -51,7 +51,7 @@ module.exports = {
   "footer.about": "About",
   "footer.gamerscroll": "© {year} GamerScroll",
   "footer.privacy_policy": "Privacy Policy",
-  "games.all_games": "All games ({length})",
+  "games.all_games": "Games with ranking history ({length})",
   "games.back_to_top": "Back to top",
   "games.game_database": "Game database",
   "games.game_db_game_search_mobile": "game DB, game search, mobile game ranking trends, game revenue ranking records",
