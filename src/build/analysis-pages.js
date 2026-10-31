@@ -45,4 +45,13 @@ function readAnalysisPages(file = PAGES_FILE) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return {}; }
 }
 
-module.exports = { ANALYSIS_SITEMAP_URL, ANALYSIS_PAGES_URL, PAGES_FILE, parseAnalysisSitemap, readAnalysisPages };
+// Same rule as the game page tab (game.analysis): the game has a metrics page in this edition.
+let pagesCache;
+function hasAnalysisPage(slug, editionCode) {
+  if (!slug) return false;
+  if (!pagesCache) pagesCache = readAnalysisPages();
+  const editions = pagesCache[String(slug).normalize('NFC')];
+  return Array.isArray(editions) && editions.includes(editionCode);
+}
+
+module.exports = { ANALYSIS_SITEMAP_URL, ANALYSIS_PAGES_URL, PAGES_FILE, parseAnalysisSitemap, readAnalysisPages, hasAnalysisPage };

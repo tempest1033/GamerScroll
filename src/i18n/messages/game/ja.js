@@ -7,6 +7,7 @@ module.exports = {
   "game.tabs_label": "ゲームメニュー",
   "game.tab_rank": "ランキング推移",
   "game.tab_analysis": "指標分析",
+  "game.tab_analysis_short": "指標",
   "game.steam_analysis": "Steamランキング分析",
   "game.stat_ccu_rank": "同時接続者数ランキング",
   "game.stat_sales_rank": "販売ランキング",

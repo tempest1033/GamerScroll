@@ -13,6 +13,7 @@ const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout'
 const { resizeIcon } = require('../../utils/resize-icon');
 const { loadRankStats, COUNTRIES, STORES, util } = require('../../rank/stats');
 const { publisherMark } = require('../components/publisher-mark');
+const { hasAnalysisPage } = require('../../build/analysis-pages');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { nums, min, avg, std, fmt1, esc, tsText, pubKey } = util;
@@ -101,6 +102,12 @@ function publisherIndex(S, country = 'kr') {
 }
 const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs rk-country-tabs" role="navigation" aria-label="${tt('rank.country')}">${orderedCountries().map((c) => `<a class="${c === active ? 'active' : ''}" href="${countryHref(c, chart)}">${COUNTRIES[c]}</a>`).join('')}</div>`;
 
+// Metrics ("지표 분석") entry of a ranking row: only for games with a metrics page in this edition. The single
+// swappable visual piece — change the markup/class here (styles: .rk-metrics in 60-rank-chart.css). Link prefixing is done by localizeHtml.
+const METRICS_ICON = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13.5h12"/><path d="M4 10.5v-2"/><path d="M7 10.5V5"/><path d="M10 10.5V7"/><path d="M13 10.5V3"/></svg>';
+const metricsEntry = (g, name) => (g && g.slug && hasAnalysisPage(g.slug, require('../../i18n').currentEdition().code)
+  ? `<a class="rk-metrics" href="/analysis/${encodeURIComponent(g.slug)}/" aria-label="${esc(`${name} ${tt('game.tab_analysis')}`)}">${METRICS_ICON}${tt('game.tab_analysis_short')}</a>` : '');
+
 // 두 스토어 리스트 한 열 (매출/인기 공용). 최대 200위까지 접지 않고 표시한다.
 function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit = 200, preview = null, withinCategory = false, defaultKey = null, listClass = '', podium = false } = {}) {
   const { today, yday, days } = S;
@@ -123,7 +130,7 @@ function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit 
     const name = preview ? `<button type="button" data-name data-rk-preview="${esc(key)}"${defaultKey != null && key === defaultKey ? ' data-rk-default' : ''} aria-controls="rk-home-preview" aria-pressed="false">${esc(S.nameOf(s, r))}</button>` : C.nameLink(s, r);
     const detail = preview ? ` · <a href="${C.hrefOf(g) || countryHref(country)}">${tt('home.details')}</a>` : '';
     const displayRank = withinCategory ? categoryIndex + 1 : rank;
-    return `<li${podium && displayRank <= 3 ? ` class="rk-pod rk-pod${displayRank}"` : ''}><span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">${tt('rank.overall_2', { rank })}</span> · ` : ''}<span data-name>${esc(r.developer || (g && g.developer) || '')}</span>${extra}${detail}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}</li>`;
+    return `<li${podium && displayRank <= 3 ? ` class="rk-pod rk-pod${displayRank}"` : ''}><span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">${tt('rank.overall_2', { rank })}</span> · ` : ''}<span data-name>${esc(r.developer || (g && g.developer) || '')}</span>${extra}${detail}</span></div><div class="rt">${chg(rank, prev)}${preview ? '' : metricsEntry(g, S.nameOf(s, r))}</div>${sparkline(week, { color: trendColor(week) })}</li>`;
   };
   return `<ol class="rk-list${podium ? ' rk-pods' : ''}${listClass ? ` ${esc(listClass)}` : ''}">${items.map(li).join('') || tt('rank.no_matching_games')}</ol>`;
 }

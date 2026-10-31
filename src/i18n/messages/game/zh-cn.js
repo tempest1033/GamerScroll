@@ -7,6 +7,7 @@ module.exports = {
   "game.tabs_label": "游戏菜单",
   "game.tab_rank": "排名记录",
   "game.tab_analysis": "指标分析",
+  "game.tab_analysis_short": "指标",
   "game.steam_analysis": "Steam 排行分析",
   "game.stat_ccu_rank": "同时在线排名",
   "game.stat_sales_rank": "销量排名",

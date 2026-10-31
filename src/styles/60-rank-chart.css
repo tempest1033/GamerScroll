@@ -257,3 +257,15 @@
   .rk .rk-stat { padding: 10px 0; }
   .rk .rk-stat .v { font-size: 24px; }
 }
+
+/* Metrics entry at the end of a ranking row (rank-hub.js metricsEntry): change indicator and chip side by side. */
+.rk .rk-list .rt:has(.rk-metrics) { flex-direction: row; align-items: center; gap: 8px; }
+.rk .rk-list .rk-metrics { position: relative; display: inline-flex; align-items: center; gap: 3px; height: 26px; padding: 0 9px; border-radius: 7px; background: var(--rk-accent-bg); color: var(--rk-accent); font-size: 12px; font-weight: 650; line-height: 1; white-space: nowrap; }
+.rk .rk-list .rk-metrics::after { content: ""; position: absolute; inset: -9px -4px; }
+.rk .rk-list .rk-metrics:hover { background: #e3edff; }
+.rk .rk-list .rk-metrics:focus-visible { outline: 2px solid var(--rk-accent); outline-offset: 2px; }
+.rk .rk-list .rk-metrics svg { width: 12px; height: 12px; flex: none; }
+/* Mobile: the chip narrows the name column, so keep chip rows on one line (the full name stays in the link title) to leave row height unchanged. */
+@media (max-width: 768px) {
+  html body .site-container .rk .rk-list li:has(.rk-metrics) .nm > a { -webkit-line-clamp: 1; }
+}
