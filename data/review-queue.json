@@ -47813,6 +47813,74 @@
       "icon": "https://play-lh.googleusercontent.com/SREmsiqmmWWtrVUrrQvz8U8BWk-dBMOXBdIX3_6iykMn4ijAA-1bkk-RHVhMq1L0eSpxqWeFHx_B1_vek5ReBg",
       "searchResults": [],
       "addedAt": "2026-10-31T19:02:24.118Z"
+    },
+    {
+      "title": "풀팟 홀덤 : 텍사스 홀덤, 포커, 토너먼트, 오마하",
+      "status": "single",
+      "appIds": {
+        "android": "com.me2on.fulpotgenius"
+      },
+      "developer": "ME2ON Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/jt7EYK0oojXkrbBKH-Ct4SX1P1-LKXrRAAG_wqcoNwAQtC9QbP3ymeRNmuG5ik0KSkraVyA89CoZBxInxZqMUQ",
+      "searchResults": [
+        {
+          "title": "풀팟 홀덤 포커: 텍사스 홀덤, 오마하, 토너먼트",
+          "appId": 1166415380
+        },
+        {
+          "title": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고",
+          "appId": 1507872328
+        },
+        {
+          "title": "한게임 로얄홀덤",
+          "appId": 6443477650
+        }
+      ],
+      "addedAt": "2026-10-31T23:03:04.484Z"
+    },
+    {
+      "title": "SCRAM: 숨바꼭질",
+      "status": "single",
+      "appIds": {
+        "ios": 6817314923
+      },
+      "developer": "Moveera Pty Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/28/0d/af/280daff9-3780-efff-c813-8bd6ca863819/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T23:03:05.855Z"
+    },
+    {
+      "title": "이심전심 − 둘이서 케미 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6795802709
+      },
+      "developer": "RYOTA UEMATSU",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/78/df/a8/78dfa862-105b-882c-f965-582d9e7a8cc4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T23:03:06.240Z"
+    },
+    {
+      "title": "Trio em Ordem",
+      "status": "single",
+      "appIds": {
+        "ios": 6816901919
+      },
+      "developer": "Charles Steven Hernandez",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/c9/2a/a6c92a50-d10c-1766-27fd-810ae3ec856b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T23:03:06.637Z"
+    },
+    {
+      "title": "主公別破防",
+      "status": "single",
+      "appIds": {
+        "android": "com.cloudrift.honorgp"
+      },
+      "developer": "SPIRIT FOX NETWORK TECHNOLOGY CO.,LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/OV7rr-drZLGZffsM1VRzNTwOhqndZATMoMzYbcJkl99LwTjp9IwX4YtusPcUZ1t2lxtiOxFlJVz3CAoPHzfb",
+      "searchResults": [],
+      "addedAt": "2026-10-31T23:03:07.054Z"
     }
   ],
   "approved": [

@@ -153586,8 +153586,113 @@
         "ja": "Mystic Muses Animie TCG",
         "zh-tw": "Mystic Muses Animie TCG"
       }
+    },
+    "풀팟 홀덤 : 텍사스 홀덤, 포커, 토너먼트, 오마하": {
+      "appIds": {
+        "android": "com.me2on.fulpotgenius"
+      },
+      "aliases": [],
+      "developer": "ME2ON Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/jt7EYK0oojXkrbBKH-Ct4SX1P1-LKXrRAAG_wqcoNwAQtC9QbP3ymeRNmuG5ik0KSkraVyA89CoZBxInxZqMUQ",
+      "slug": "풀팟-홀덤-텍사스-홀덤-포커-토너먼트-오마하",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "풀팟 홀덤 : 텍사스 홀덤, 포커, 토너먼트, 오마하",
+        "en": "Fulpot Poker-Texas Holdem Game",
+        "ja": "フルポットホールデム：ホールデム、ポーカー、トーナメント",
+        "zh-tw": "富吧撲克 - 德州撲克, 奧馬哈, 錦標賽, 無限注"
+      }
+    },
+    "航海王强者之路-正版授权": {
+      "appIds": {
+        "ios_cn": "1068435609"
+      },
+      "aliases": [],
+      "developer": "Shanghai Lvbing Technology Co,. Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/30/00/06/300006e0-a064-c3ab-f050-087e658c7d83/AppIcon-0-0-1x_U007emarketing-0-8-85-220.png/512x512bb.jpg",
+      "slug": "航海王强者之路-正版授权",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "航海王强者之路-正版授权"
+      }
+    },
+    "SCRAM: 숨바꼭질": {
+      "appIds": {
+        "ios": 6817314923
+      },
+      "aliases": [],
+      "developer": "Moveera Pty Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/28/0d/af/280daff9-3780-efff-c813-8bd6ca863819/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "scram-숨바꼭질",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "SCRAM: 숨바꼭질",
+        "en": "SCRAM: Hide and Seek",
+        "ja": "SCRAM：かくれんぼ",
+        "zh-tw": "SCRAM: Hide and Seek"
+      }
+    },
+    "이심전심 − 둘이서 케미 게임": {
+      "appIds": {
+        "ios": 6795802709
+      },
+      "aliases": [],
+      "developer": "RYOTA UEMATSU",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/78/df/a8/78dfa862-105b-882c-f965-582d9e7a8cc4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "이심전심-둘이서-케미-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "이심전심 − 둘이서 케미 게임",
+        "en": "MindMatch: Games for Two",
+        "ja": "以心伝心 − ふたりの相性診断ゲーム",
+        "zh-cn": "心有灵犀 − 双人默契游戏",
+        "zh-tw": "以心伝心 − ふたりの相性診断ゲーム"
+      }
+    },
+    "Trio em Ordem": {
+      "appIds": {
+        "ios": 6816901919
+      },
+      "aliases": [],
+      "developer": "Charles Steven Hernandez",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/c9/2a/a6c92a50-d10c-1766-27fd-810ae3ec856b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "trio-em-ordem",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Trio em Ordem",
+        "en": "Trio em Ordem",
+        "ja": "Trio em Ordem",
+        "zh-cn": "Trio em Ordem",
+        "zh-tw": "Trio em Ordem"
+      }
+    },
+    "主公別破防": {
+      "appIds": {
+        "android": "com.cloudrift.honorgp"
+      },
+      "aliases": [],
+      "developer": "SPIRIT FOX NETWORK TECHNOLOGY CO.,LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/OV7rr-drZLGZffsM1VRzNTwOhqndZATMoMzYbcJkl99LwTjp9IwX4YtusPcUZ1t2lxtiOxFlJVz3CAoPHzfb",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "主公別破防",
+        "zh-tw": "主公別破防"
+      }
     }
   },
   "lastUpdated": "2026-11-01",
-  "totalGames": 9012
+  "totalGames": 9018
 }
