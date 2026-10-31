@@ -32,6 +32,13 @@ function renderInPageAd(extraClass = '') {
   return pcAd || mobileAd ? `<div class="gs-ad-inpage grid-full${extraClass ? ` ${extraClass}` : ''}">${pcAd}${mobileAd}</div>` : '';
 }
 
+// "순위 기록 | 지표 분석" tab bar of the public page. `analysis` (games-data/<slug>.json) lists the editions that have a metrics
+// page for this game (scripts/fetch-analysis-pages.js from the metrics sitemap); no entry for the page's edition → no bar.
+function renderGameTabs(analysis, slug, code) {
+  if (!Array.isArray(analysis) || !analysis.includes(code)) return '';
+  return `<nav class="game-tabs grid-full" aria-label="${esc(t('game.tabs_label'))}"><a href="/games/${encodeURIComponent(slug)}/" aria-current="page">${esc(t('game.tab_rank'))}</a><a href="/analysis/${encodeURIComponent(slug)}/">${esc(t('game.tab_analysis'))}<i class="game-tabs-new">NEW</i></a></nav>`;
+}
+
 function renderRelated(related, code, developer) {
   const ad = renderInPageAd();
   const mine = related && related.e && related.e[code];
@@ -268,7 +275,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
             ${summary && summary.hero ? summary.hero : ''}
           </div>
         </div>
-        ${previewEnabled ? preview.generateAnalysisTabs(game, { lang: edition.code, active: analysisPage ? 'analysis' : 'rank' }) : ''}
+        ${previewEnabled ? preview.generateAnalysisTabs(game, { lang: edition.code, active: analysisPage ? 'analysis' : 'rank' }) : renderGameTabs(game.analysis, slug, edition.code)}
         <!-- rank-content-start -->
         ${overviewHtml}
             ${isSteamOnly && steam ? `

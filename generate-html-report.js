@@ -25,6 +25,7 @@ const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir } = require('./src/build/utils');
 const i18n = require('./src/i18n');
 const { buildEditions, writeSitemaps } = require('./src/build/editions');
+const { ANALYSIS_SITEMAP_URL } = require('./src/build/analysis-pages');
 const { CSS_ASSET_FILES, computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
 const { buildServiceWorker } = require('./src/build/service-worker');
 let currentCssAssetVersion = '';
@@ -1169,6 +1170,7 @@ Allow: /
 
 # Sitemap
 Sitemap: https://gamerscroll.com/sitemap.xml
+Sitemap: ${ANALYSIS_SITEMAP_URL}
 `;
   fs.writeFileSync(`${DOCS_DIR}/robots.txt`, robotsTxt, 'utf8');
   console.log('🤖 robots.txt 생성 완료');

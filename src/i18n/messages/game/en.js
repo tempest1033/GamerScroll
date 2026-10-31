@@ -4,6 +4,9 @@
 module.exports = {
   "game.home": "Home",
   "game.games_db": "Game DB",
+  "game.tabs_label": "Game menu",
+  "game.tab_rank": "Rank history",
+  "game.tab_analysis": "Metrics",
   "game.steam_analysis": "Steam ranking analysis",
   "game.stat_ccu_rank": "Concurrent players rank",
   "game.stat_sales_rank": "Sales rank",

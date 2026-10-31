@@ -10,6 +10,7 @@ const path = require('path');
 const crypto = require('crypto');
 const i18n = require('../i18n');
 const { ensureDir, externalizeDeferredJsonFromHtml } = require('./utils');
+const { ANALYSIS_SITEMAP_URL } = require('./analysis-pages');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const TEMPLATES_DIR = path.join(ROOT, 'src', 'templates') + path.sep;
@@ -291,11 +292,13 @@ function writeSitemaps(docsDir, results) {
 }
 
 // docs/sitemap.xml lists every docs/sitemap-*.xml (page sitemaps and the game sitemaps written by scripts/generate-game-pages.js).
-// A child's <lastmod> is the newest <lastmod> of its URLs (omitted when it has none).
+// A child's <lastmod> is the newest <lastmod> of its URLs (omitted when it has none). The metrics pages' sitemap is served by
+// another Worker (not in docs/) and is always listed.
 function writeSitemapIndex(docsDir) {
   const names = fs.readdirSync(docsDir).filter((f) => /^sitemap-[\w-]+\.xml$/.test(f)).sort();
   const newest = (n) => [...fs.readFileSync(path.join(docsDir, n), 'utf8').matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((x) => x[1]).sort().pop();
-  const index = names.map((n) => `  <sitemap>\n    <loc>${i18n.SITE_ORIGIN}/${n}</loc>${lastmodTag(newest(n))}\n  </sitemap>`).join('\n');
+  const locs = [...names.map((n) => `  <sitemap>\n    <loc>${i18n.SITE_ORIGIN}/${n}</loc>${lastmodTag(newest(n))}\n  </sitemap>`), `  <sitemap>\n    <loc>${ANALYSIS_SITEMAP_URL}</loc>\n  </sitemap>`];
+  const index = locs.join('\n');
   fs.writeFileSync(path.join(docsDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${index}\n</sitemapindex>\n`, 'utf8');
   return names;
 }

@@ -22,6 +22,7 @@ const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = requir
 const { computeCssAssetVersion } = require('../src/build/css-version');
 const { loadServiceExports, coverage } = require('../src/build/service-exports');
 const { splitRevenue, stringifyGameData } = require('../src/templates/components/revenue-payload');
+const { readAnalysisPages } = require('../src/build/analysis-pages');
 
 const ROOT = path.join(__dirname, '..');
 const docsDir = path.join(ROOT, 'docs');
@@ -204,6 +205,9 @@ const freeRank = (market, store, appId, since) => {
   return { r: series[series.length - 1], b: seen.length ? Math.min(...seen) : null };
 };
 
+// ---------- 지표 분석 페이지가 있는 게임 (data/analysis-pages.json ← scripts/fetch-analysis-pages.js) ----------
+const analysisPages = readAnalysisPages();
+
 // ---------- 게임별 데이터 ----------
 fs.mkdirSync(dataDir, { recursive: true });
 const written = new Set();
@@ -247,6 +251,7 @@ for (const g of S.games) {
     rank,
     related: relatedOf(g),
   };
+  if (analysisPages[slug.normalize('NFC')]) data.analysis = analysisPages[slug.normalize('NFC')];
   const revenue = serviceExports && serviceExports.revenueFor(g.appIds, { freeRank });
   let heavy = null;
   if (revenue) {
