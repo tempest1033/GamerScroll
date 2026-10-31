@@ -373,11 +373,13 @@ async function pool(items, size, fn) {
 }
 
 // iTunes lookup 배치 (콤마 구분 최대 200개) → Map(appId -> {title, developer, icon})
-async function lookupIosBatch(ids, cc) {
+// iTunes 는 그 국가 스토어에 출시된 앱만 돌려준다. failed(Set)를 넘기면 재시도가 모두 실패한 id 를 기록한다.
+async function lookupIosBatch(ids, cc, failed) {
   const out = new Map();
   for (let i = 0; i < ids.length; i += 200) {
     const chunk = ids.slice(i, i + 200);
-    for (let attempt = 0; attempt < 4; attempt++) {
+    let ok = false;
+    for (let attempt = 0; attempt < 4 && !ok; attempt++) {
       try {
         const { data } = await axios.get('https://itunes.apple.com/lookup', {
           params: { id: chunk.join(','), country: cc },
@@ -393,27 +395,30 @@ async function lookupIosBatch(ids, cc) {
             });
           }
         }
-        break;
+        ok = true;
       } catch (e) {
         await sleep(2000 * (attempt + 1) * (attempt + 1));
       }
     }
+    if (!ok && failed) for (const id of chunk) failed.add(`ios|${cc}|${id}`);
   }
   return out;
 }
 
-async function lookupAndroid(appId, cc) {
+// google-play 는 미출시 국가에도 상세를 내려주므로 available(그 국가 스토어 출시 여부)이 false 면 없는 것으로 본다
+async function lookupAndroid(appId, cc, failed) {
   const gp = MARKETS[cc]?.gp;
   if (!gp) return null;
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const r = await gplay.app({ appId, ...gp });
-      return r?.title ? { title: r.title, developer: r.developer || '', icon: r.icon || '' } : null;
+      return r?.title && r.available !== false ? { title: r.title, developer: r.developer || '', icon: r.icon || '' } : null;
     } catch (e) {
       if (e?.status === 404 || /not found/i.test(e?.message || '')) return null;
       await sleep(1500);
     }
   }
+  if (failed) failed.add(`android|${cc}|${appId}`);
   return null;
 }
 
@@ -670,10 +675,62 @@ function backfillNames(gamesData, latest) {
   let changed = 0;
   for (const [name, g] of Object.entries(gamesData.games)) {
     const next = mergeNames(g.names, patches[name]);
-    if (JSON.stringify(next) !== JSON.stringify(g.names)) changed++;
+    if (JSON.stringify(next) === JSON.stringify(g.names || {})) continue;
+    changed++;
     g.names = next;
   }
   return changed;
+}
+
+// 시장별 현재 스토어 이름 (출시된 시장만): 시장마다 iOS 배치 조회, iOS 에 없으면 Android 개별 조회 (cn 은 iOS 만).
+// 반환 Map(게임 키 -> { 이름 언어: 제목 | null }) — null 은 그 시장에 없음, 조회 실패로 모르는 시장은 키를 넣지 않는다.
+// iOS/Android id 가 없는 게임(Steam 등)은 결과에 넣지 않는다. cache 는 `${store}|${cc}|${id}` -> 제목|null.
+async function lookupMarketTitles(games, keys, cache = {}) {
+  const ck = (store, cc, id) => `${store}|${cc}|${id}`;
+  const idsOf = (g, store) => Object.entries(g.appIds || {})
+    .filter(([k]) => k === store || k.startsWith(store + '_')).map(([, v]) => String(v));
+  const mobile = keys.filter(k => idsOf(games[k], 'ios').length || idsOf(games[k], 'android').length);
+  const failed = new Set();
+  for (const cc of Object.keys(MARKETS)) {
+    const todo = [...new Set(mobile.flatMap(k => idsOf(games[k], 'ios')))].filter(id => !(ck('ios', cc, id) in cache));
+    if (!todo.length) continue;
+    const found = await lookupIosBatch(todo, cc, failed);
+    for (const id of todo) if (!failed.has(ck('ios', cc, id))) cache[ck('ios', cc, id)] = found.get(id)?.title || null;
+  }
+  const firstTitle = (g, store, cc) => idsOf(g, store).map(id => cache[ck(store, cc, id)]).find(Boolean) || null;
+  const jobs = [];
+  for (const k of mobile) {
+    for (const cc of Object.keys(MARKETS)) {
+      if (!MARKETS[cc].gp || firstTitle(games[k], 'ios', cc)) continue;
+      for (const id of idsOf(games[k], 'android')) if (!(ck('android', cc, id) in cache)) jobs.push({ cc, id });
+    }
+  }
+  const seen = new Set();
+  await pool(jobs.filter(j => !seen.has(ck('android', j.cc, j.id)) && seen.add(ck('android', j.cc, j.id))), 6, async ({ cc, id }) => {
+    const hit = await lookupAndroid(id, cc, failed);
+    if (!failed.has(ck('android', cc, id))) cache[ck('android', cc, id)] = hit ? hit.title : null;
+  });
+  const out = new Map();
+  for (const k of mobile) {
+    const g = games[k];
+    const titles = {};
+    for (const [cc, m] of Object.entries(MARKETS)) {
+      const title = firstTitle(g, 'ios', cc) || firstTitle(g, 'android', cc);
+      const unknown = ['ios', 'android'].some(store => idsOf(g, store).some(id => failed.has(ck(store, cc, id))));
+      if (title || !unknown) titles[m.name] = title;
+    }
+    out.set(k, titles);
+  }
+  return out;
+}
+
+// 한 시장의 이름 정리: 그 시장의 근거(현재 스토어 이름, 그 시장 차트에 실린 제목)와 맞는 이름만 남긴다.
+// storeTitle: 제목 | null(그 시장 미출시) | undefined(조회 실패로 모름 → 기존 값 유지). 반환 null 은 이름 삭제.
+function resolveMarketName(current, storeTitle, chartTitles) {
+  if (storeTitle === undefined) return current || chartTitles[0] || null;
+  const evidence = [storeTitle, ...chartTitles].filter(Boolean);
+  if (!evidence.length) return null;
+  return current && evidence.includes(current) ? current : evidence[0];
 }
 
 // 같은 appId 중복 제거 + 진입한 모든 국가의 차트 행 수집 (KR 진입 앱은 region=kr 우선)
@@ -951,6 +1008,7 @@ async function main() {
   // targetName 기준으로 마지막 상태만 저장
   const pendingMap = new Map();
   const globalPairs = buildGlobalPairs(uniqueGames);
+  const appIdsBefore = new Map(Object.entries(gamesData.games).map(([k, g]) => [k, JSON.stringify(g.appIds || {})]));
 
   // 각 게임 처리
   let nonKrProcessed = 0;
@@ -1005,6 +1063,17 @@ async function main() {
     }
   }
 
+  // 시장별 이름 빈 칸 채우기: 이번 실행에 등록·연결된 게임은 출시된 시장의 스토어 이름,
+  // 그 밖에는 오늘 그 시장 차트에 실린 제목 (기존 이름은 유지)
+  const changedKeys = Object.keys(gamesData.games)
+    .filter(k => appIdsBefore.get(k) !== JSON.stringify(gamesData.games[k].appIds || {}));
+  for (const [k, titles] of await lookupMarketTitles(gamesData.games, changedKeys)) {
+    gamesData.games[k].names = mergeNames(gamesData.games[k].names, titles);
+  }
+  const todayRows = new Map(todayGames.filter(g => g.platform !== 'steam' && g.appId && g.title)
+    .map(g => [`${g.platform}|${g.appId}|${g.region}`, { title: g.title, date: dateStr }]));
+  console.log('시장별 이름 보강:', changedKeys.length, '개 게임 스토어 조회,', backfillNames(gamesData, todayRows), '개 게임 차트 제목');
+
   // pending 추가/업데이트 (targetName 단위 1건만 유지)
   upsertPending(reviewQueue, Array.from(pendingMap.values()));
 
@@ -1030,7 +1099,7 @@ async function main() {
 module.exports = {
   MARKETS, NAME_KEYS, REGION_PREF, rowsFromHistory, dedupeRows, mergeNames, buildAppIdIndex,
   buildAliasIndex, addAliases, normalizeNameKey, slugifyTitle, uniqueSlug, marketsOfGame, lookupOne, getRegCtx, registerCandidate, lookupIosBatch, lookupAndroid, upsertPending,
-  loadLatestChartRows, backfillNames, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool
+  loadLatestChartRows, backfillNames, lookupMarketTitles, resolveMarketName, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool
 };
 
 if (require.main === module) {

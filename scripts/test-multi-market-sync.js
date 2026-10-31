@@ -85,9 +85,17 @@ write('2026-01-01', { grossing: { kr: { ios: [row('10', '옛 이름')] }, tw: { 
 write('2026-01-02', { grossing: { kr: { ios: [row('10', '새 이름')] }, us: { ios: [row('11', 'Old Game US')] } } });
 const bf = { games: { 'G': { appIds: { ios: '10', android: 'com.tw', ios_us: '11' }, aliases: [] }, 'H': { appIds: { steam: 5 } } } };
 const changed = S.backfillNames(bf, S.loadLatestChartRows(dir));
-assert.equal(changed, 2);
+assert.equal(changed, 1);
 assert.deepEqual(bf.games.G.names, { ko: '새 이름', en: 'Old Game US', 'zh-tw': '舊名' });
-assert.deepEqual(bf.games.H.names, {});
+assert.equal(bf.games.H.names, undefined);
 fs.rmSync(dir, { recursive: true, force: true });
+
+// 4. 시장 이름 정리: 그 시장 근거(스토어 이름·차트 제목)와 맞는 이름만 남기고, 미출시 시장 이름은 지운다
+assert.equal(S.resolveMarketName('超異域公主連結！Re:Dive', null, []), null);
+assert.equal(S.resolveMarketName('앙상블스타즈!!', '앙상블스타즈!!', []), '앙상블스타즈!!');
+assert.equal(S.resolveMarketName('옛 차트 이름', '스토어 이름', ['옛 차트 이름']), '옛 차트 이름');
+assert.equal(S.resolveMarketName('다른 시장 이름', '鳴潮', []), '鳴潮');
+assert.equal(S.resolveMarketName(null, null, ['차트 이름']), '차트 이름');
+assert.equal(S.resolveMarketName('조회 실패', undefined, []), '조회 실패');
 
 console.log('multi-market sync tests passed');
