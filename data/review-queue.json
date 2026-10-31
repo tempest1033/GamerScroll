@@ -47370,7 +47370,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -47561,6 +47561,63 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/99/f0/0599f062-03e6-cb6c-2534-92848aa783dc/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-31T07:03:00.674Z"
+    },
+    {
+      "title": "Nebulous.io",
+      "status": "single",
+      "appIds": {
+        "ios": 1069691018
+      },
+      "developer": "Simplicial Software, LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/29/69/3d29690a-1d4b-fc87-d635-824688472d8b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T08:52:55.300Z"
+    },
+    {
+      "title": "砍價大偵探：放大鏡找茬腦筋急轉彎",
+      "status": "single",
+      "appIds": {
+        "ios": 6757791740
+      },
+      "developer": "polly",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/d7/1c/b2d71c08-d360-c45e-703f-7a567350be59/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T08:52:55.571Z"
+    },
+    {
+      "title": "Fashion Makeover Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6803813939
+      },
+      "developer": "Supersasa Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/fc/ca/dffcca93-ddd3-99c8-a835-22b8bf28f0a6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T08:52:55.817Z"
+    },
+    {
+      "title": "Blossom Mania - Sort Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.feiyu.blossom.mania.sort"
+      },
+      "developer": "Dream Spark",
+      "icon": "https://play-lh.googleusercontent.com/yhiL3iuMMmnUvftPjkDqhsMWlnrAEB6z-Y_qoIgGdU4y9zdRGL9RM9EoDY_eh-zCcSbSqCuJnrxcg8GUhr-QKA",
+      "searchResults": [
+        {
+          "title": "Flower Merge -블라썸 매치게임 꽃이피다 정렬",
+          "appId": 6742394601
+        },
+        {
+          "title": "매직 쥬얼",
+          "appId": 1032443533
+        },
+        {
+          "title": "Sushi Sort - 스시 정렬 퍼즐 게임",
+          "appId": 6745091349
+        }
+      ],
+      "addedAt": "2026-10-31T08:52:56.627Z"
     }
   ],
   "approved": [

@@ -70209,7 +70209,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -70221,6 +70221,8 @@
         "android"
       ],
       "names": {
+        "ko": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
+        "ja": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
         "zh-tw": "我在三國當村長-經營養成系RPG"
       }
     },
@@ -153167,16 +153169,19 @@
     },
     "最強劍尊：吃最軟的飯，做最硬的劍": {
       "appIds": {
-        "ios_tw": 6812674614
+        "ios_tw": 6812674614,
+        "android": "com.zones.gptw"
       },
       "aliases": [],
       "developer": "SPGame Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/31/e6/ae31e604-4016-6483-cedc-f7c9b2b11dfd/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "最強劍尊吃最軟的飯做最硬的劍",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "最強劍尊：吃最軟的飯，做最硬的劍",
         "zh-tw": "最強劍尊：吃最軟的飯，做最硬的劍"
       }
     },
@@ -153287,8 +153292,80 @@
         "zh-cn": "DEATH STRANDING ODRADEK",
         "zh-tw": "DEATH STRANDING ODRADEK"
       }
+    },
+    "Nebulous.io": {
+      "appIds": {
+        "ios": 1069691018
+      },
+      "aliases": [],
+      "developer": "Simplicial Software, LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/29/69/3d29690a-1d4b-fc87-d635-824688472d8b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "nebulousio",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Nebulous.io",
+        "en": "Nebulous.io",
+        "ja": "Nebulous.io",
+        "zh-tw": "Nebulous.io"
+      }
+    },
+    "砍價大偵探：放大鏡找茬腦筋急轉彎": {
+      "appIds": {
+        "ios": 6757791740
+      },
+      "aliases": [],
+      "developer": "polly",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b2/d7/1c/b2d71c08-d360-c45e-703f-7a567350be59/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "砍價大偵探：放大鏡找茬腦筋急轉彎",
+        "en": "Haggle Sleuth: Spot Anomaly!",
+        "ja": "砍價大偵探：放大鏡找茬腦筋急轉彎",
+        "zh-tw": "砍價大偵探：放大鏡找茬腦筋急轉彎"
+      }
+    },
+    "Fashion Makeover Puzzle": {
+      "appIds": {
+        "ios": 6803813939
+      },
+      "aliases": [],
+      "developer": "Supersasa Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/df/fc/ca/dffcca93-ddd3-99c8-a835-22b8bf28f0a6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "fashion-makeover-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Fashion Makeover Puzzle",
+        "en": "Fashion Makeover Puzzle",
+        "ja": "Fashion Makeover Puzzle",
+        "zh-tw": "超玩美派對：腦洞穿搭解謎"
+      }
+    },
+    "Blossom Mania - Sort Puzzle": {
+      "appIds": {
+        "android": "com.feiyu.blossom.mania.sort"
+      },
+      "aliases": [],
+      "developer": "Dream Spark",
+      "icon": "https://play-lh.googleusercontent.com/yhiL3iuMMmnUvftPjkDqhsMWlnrAEB6z-Y_qoIgGdU4y9zdRGL9RM9EoDY_eh-zCcSbSqCuJnrxcg8GUhr-QKA",
+      "slug": "blossom-mania-sort-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Blossom Mania - Sort Puzzle",
+        "en": "Blossom Mania - Sort Puzzle",
+        "ja": "Blossom Mania - Sort Puzzle",
+        "zh-tw": "Blossom Mania - Sort Puzzle"
+      }
     }
   },
   "lastUpdated": "2026-10-31",
-  "totalGames": 8996
+  "totalGames": 9000
 }
