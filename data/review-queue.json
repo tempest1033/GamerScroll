@@ -47351,20 +47351,26 @@
     },
     {
       "title": "もぐもぐ くしもり",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6822588273
+        "ios": 6822588273,
+        "android": "jp.globalgear.lab.g272"
       },
       "developer": "GlobalGearLab Co. Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c8/af/d2/c8afd24b-8e24-a70c-96de-8f1d4e6f7913/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "もぐもぐ くしもり",
+          "appId": 6822588273
+        }
+      ],
       "addedAt": "2026-10-30T13:02:46.265Z"
     },
     {
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -47511,6 +47517,50 @@
         }
       ],
       "addedAt": "2026-10-31T01:03:05.663Z"
+    },
+    {
+      "title": "Enjoy(엔조이) - AI 타운",
+      "status": "single",
+      "appIds": {
+        "ios": "6468901311"
+      },
+      "developer": "Enjoy Global, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f4/1c/34/f41c3491-0fde-4d69-50eb-569a0b98cf4a/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T07:02:59.665Z"
+    },
+    {
+      "title": "Tribal Clash",
+      "status": "single",
+      "appIds": {
+        "ios": 6777958774
+      },
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/6b/b8/aa6bb82a-a739-848e-3ba1-ae1dd691ea87/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T07:03:00.168Z"
+    },
+    {
+      "title": "Parking Loop",
+      "status": "single",
+      "appIds": {
+        "ios": 6802383216
+      },
+      "developer": "Loop Games Oyun Teknolojileri Anonim Sirketi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/a1/5c/65a15c7c-9422-7a8a-9886-20a38099b565/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T07:03:00.388Z"
+    },
+    {
+      "title": "DEATH STRANDING ODRADEK",
+      "status": "single",
+      "appIds": {
+        "ios": 6820410624
+      },
+      "developer": "Niantic Spatial, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/99/f0/0599f062-03e6-cb6c-2534-92848aa783dc/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T07:03:00.674Z"
     }
   ],
   "approved": [
