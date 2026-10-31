@@ -20924,14 +20924,16 @@
     },
     "땡땡 마법사": {
       "appIds": {
-        "ios": "6467103305"
+        "ios": 6467103305,
+        "android": "com.doodlemagic.android"
       },
       "aliases": [],
-      "developer": "",
-      "icon": "",
+      "developer": "MOREFUN（H.K.) LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/LLyCIrzaDVjRfl_rHhKHbJ7YkFbAsgGKbz1ngdEI8PB4qO5Whcp3_LF7QXqSMCXbKFE6-i17UNbNC2nzYHfBU_A",
       "slug": "땡땡-마법사",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "땡땡 마법사",
@@ -153421,8 +153423,171 @@
         "ja": "Horror Playtime : Multiplayer",
         "zh-tw": "Horror Playtime : Multiplayer"
       }
+    },
+    "ArrowIQ: Logic Puzzle": {
+      "appIds": {
+        "android": "com.arrowiq.logic.puzzle.game"
+      },
+      "aliases": [],
+      "developer": "Adaric Music",
+      "icon": "https://play-lh.googleusercontent.com/cGzq6r094-bXJgHtsURrRNOMuctYIecEOQ70bQCbSRk9LemCmgEjmd5w1yogu_xd3laJeTaJ0rkma99SFZp7",
+      "slug": "arrowiq-logic-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ArrowIQ: Logic Puzzle",
+        "en": "ArrowIQ: Logic Puzzle",
+        "ja": "ArrowIQ: Logic Puzzle",
+        "zh-tw": "ArrowIQ: Logic Puzzle"
+      }
+    },
+    "우드 스택 소트: 컬러 퍼즐": {
+      "appIds": {
+        "android": "com.actionfit.wood.sort.stack.aos"
+      },
+      "aliases": [],
+      "developer": "ACTIONFIT Inc.",
+      "icon": "https://play-lh.googleusercontent.com/bLQkvewgl3kxFeXWcB3iaK_iGPHtr9Zq2bLdhRtd9IMSpECfb6RXBdadvyLS38Zk7tgp6S-x-u4GqV4cIFR1",
+      "slug": "우드-스택-소트-컬러-퍼즐",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "우드 스택 소트: 컬러 퍼즐",
+        "en": "Wood Stack Sort: Color Puzzle",
+        "ja": "ウッドスタックソート：色分けパズル",
+        "zh-tw": "木塊分類大師"
+      }
+    },
+    "스도쿠": {
+      "appIds": {
+        "android": "com.splendapps.sudoku"
+      },
+      "aliases": [],
+      "developer": "Splend Apps",
+      "icon": "https://play-lh.googleusercontent.com/lmw1xBIXMOko5ojkor1vPKTLEIQD5M3pj0zIxH2H3jKYNN44iL5rF2QG0j5-bf0W7Ps5ekGVBF7pj2-mgd8ssg",
+      "slug": "스도쿠",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "스도쿠",
+        "en": "Sudoku",
+        "ja": "数独",
+        "zh-tw": "數獨"
+      }
+    },
+    "얌토피아(Yumtopia): 합성 & 요리": {
+      "appIds": {
+        "android": "com.merge.foodie.cooking.restaurant",
+        "ios": 6754022871
+      },
+      "aliases": [],
+      "developer": "Playchamp Games",
+      "icon": "https://play-lh.googleusercontent.com/3jlzxYzWzDFD7xrAjruxY6peH1ca3b8QOC181XQzCtYmxGgzphZlP2aloqAU1XXyDszQZXVmAy2X5bZDrv3SPg",
+      "slug": "얌토피아yumtopia-합성-요리",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "얌토피아(Yumtopia): 합성 & 요리",
+        "en": "Yumtopia: Merge & Cook",
+        "ja": "グルメトピア(Yumtopia)：合成 & 料理",
+        "zh-tw": "Yumtopia：美食合併物語"
+      }
+    },
+    "ウミガメラボ − 元東大生による水平思考クイズ": {
+      "appIds": {
+        "ios": 6816770388
+      },
+      "aliases": [],
+      "developer": "FORLIVER LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/35/48/5c35486c-3dbb-c45f-3d25-2b68d97d3a0e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "ウミガメラボ − 元東大生による水平思考クイズ",
+        "en": "ウミガメラボ − 元東大生による水平思考クイズ",
+        "ja": "ウミガメラボ − 元東大生による水平思考クイズ",
+        "zh-tw": "ウミガメラボ − 元東大生による水平思考クイズ"
+      }
+    },
+    "상품정렬 마스터: 정리게임": {
+      "appIds": {
+        "android": "com.perfectvillageentertainment.goodspuzzlemaster"
+      },
+      "aliases": [],
+      "developer": "PerfectVillage",
+      "icon": "https://play-lh.googleusercontent.com/3Z0PdY4TnNvx9Pkdo7UG1KTCvKwfzs0Q4bdWjncEd4XVnSGLN1t0Yw1FXwpJx9q03-egPG8roDCo-VwObwi9T-A",
+      "slug": "상품정렬-마스터-정리게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "상품정렬 마스터: 정리게임",
+        "en": "Goods Puzzle Master: Sort Game",
+        "ja": "グッズソート達人 - 整理ゲーム"
+      }
+    },
+    "Big 2": {
+      "appIds": {
+        "android": "big.two.poker.pusoy.dos.capsa.banting.thirteen.multiplayer.game"
+      },
+      "aliases": [],
+      "developer": "Fruit Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/gwSm6nuvekTijoQxh2f5RWKly3Ui3yfV6RkY5wFzQYWpk9HguHZ2X8LZJD7dc7UV_gtw4qYAneAh4MI3-p6xVg",
+      "slug": "big-2",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Big 2",
+        "zh-tw": "Big 2"
+      }
+    },
+    "YoYa Perfecook: ASMR Kitchen": {
+      "appIds": {
+        "android": "com.yoyaworld.perfectcooking",
+        "ios": 6761358914
+      },
+      "aliases": [],
+      "developer": "YoYa World",
+      "icon": "https://play-lh.googleusercontent.com/Jxtqzr-qKbhXr0_VueMOIPjCgGBhQ21r4-GaL4MAHeucKErqHZd3UwkdZwKFBW8xKwj2Ebu28bOxyltqmrE7Hzs",
+      "slug": "yoya-perfecook-asmr-kitchen",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "YoYa Perfecook: ASMR Kitchen",
+        "en": "YoYa Perfecook: ASMR Kitchen",
+        "ja": "YoYa Perfecook: ASMR Kitchen",
+        "zh-tw": "YoYa Perfecook: ASMR Kitchen"
+      }
+    },
+    "Mystic Muses Animie TCG": {
+      "appIds": {
+        "android": "com.mysticmuses.animetcg.rpg.gp"
+      },
+      "aliases": [],
+      "developer": "Xpress System Solutions (P)",
+      "icon": "https://play-lh.googleusercontent.com/SREmsiqmmWWtrVUrrQvz8U8BWk-dBMOXBdIX3_6iykMn4ijAA-1bkk-RHVhMq1L0eSpxqWeFHx_B1_vek5ReBg",
+      "slug": "mystic-muses-animie-tcg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Mystic Muses Animie TCG",
+        "en": "Mystic Muses Animie TCG",
+        "ja": "Mystic Muses Animie TCG",
+        "zh-tw": "Mystic Muses Animie TCG"
+      }
     }
   },
-  "lastUpdated": "2026-10-31",
-  "totalGames": 9003
+  "lastUpdated": "2026-11-01",
+  "totalGames": 9012
 }

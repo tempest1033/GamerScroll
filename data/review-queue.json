@@ -400,12 +400,13 @@
     },
     {
       "title": "땡땡 마법사",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6467103305"
+        "ios": 6467103305,
+        "android": "com.doodlemagic.android"
       },
-      "developer": "",
-      "icon": "",
+      "developer": "MOREFUN（H.K.) LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/LLyCIrzaDVjRfl_rHhKHbJ7YkFbAsgGKbz1ngdEI8PB4qO5Whcp3_LF7QXqSMCXbKFE6-i17UNbNC2nzYHfBU_A",
       "searchResults": [
         {
           "title": "Doodle Magic: Wizard vs Slime",
@@ -47657,6 +47658,161 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/53/42/b0/5342b07b-e4c5-a375-a5f3-6b39c6bd9fbc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-31T14:27:34.585Z"
+    },
+    {
+      "title": "ArrowIQ: Logic Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrowiq.logic.puzzle.game"
+      },
+      "developer": "Adaric Music",
+      "icon": "https://play-lh.googleusercontent.com/cGzq6r094-bXJgHtsURrRNOMuctYIecEOQ70bQCbSRk9LemCmgEjmd5w1yogu_xd3laJeTaJ0rkma99SFZp7",
+      "searchResults": [],
+      "addedAt": "2026-10-31T19:02:20.069Z"
+    },
+    {
+      "title": "우드 스택 소트: 컬러 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.actionfit.wood.sort.stack.aos"
+      },
+      "developer": "ACTIONFIT Inc.",
+      "icon": "https://play-lh.googleusercontent.com/bLQkvewgl3kxFeXWcB3iaK_iGPHtr9Zq2bLdhRtd9IMSpECfb6RXBdadvyLS38Zk7tgp6S-x-u4GqV4cIFR1",
+      "searchResults": [
+        {
+          "title": "우드 스택 소트",
+          "appId": 6764525062
+        }
+      ],
+      "addedAt": "2026-10-31T19:02:20.318Z"
+    },
+    {
+      "title": "스도쿠",
+      "status": "single",
+      "appIds": {
+        "android": "com.splendapps.sudoku"
+      },
+      "developer": "Splend Apps",
+      "icon": "https://play-lh.googleusercontent.com/lmw1xBIXMOko5ojkor1vPKTLEIQD5M3pj0zIxH2H3jKYNN44iL5rF2QG0j5-bf0W7Ps5ekGVBF7pj2-mgd8ssg",
+      "searchResults": [
+        {
+          "title": "스도쿠 - 클래식 로직 퍼즐 게임",
+          "appId": 1193508329
+        },
+        {
+          "title": "스도쿠 - 광고 없음 스도쿠",
+          "appId": 1533935003
+        },
+        {
+          "title": "스도쿠 - 클래식 스도쿠",
+          "appId": 1442749804
+        }
+      ],
+      "addedAt": "2026-10-31T19:02:20.776Z"
+    },
+    {
+      "title": "얌토피아(Yumtopia): 합성 & 요리",
+      "status": "matched",
+      "appIds": {
+        "android": "com.merge.foodie.cooking.restaurant",
+        "ios": 6754022871
+      },
+      "developer": "Playchamp Games",
+      "icon": "https://play-lh.googleusercontent.com/3jlzxYzWzDFD7xrAjruxY6peH1ca3b8QOC181XQzCtYmxGgzphZlP2aloqAU1XXyDszQZXVmAy2X5bZDrv3SPg",
+      "searchResults": [
+        {
+          "title": "얌토피아(Yumtopia): 합성 & 요리",
+          "appId": 6754022871
+        }
+      ],
+      "addedAt": "2026-10-31T19:02:21.007Z"
+    },
+    {
+      "title": "ウミガメラボ − 元東大生による水平思考クイズ",
+      "status": "single",
+      "appIds": {
+        "ios": 6816770388
+      },
+      "developer": "FORLIVER LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/35/48/5c35486c-3dbb-c45f-3d25-2b68d97d3a0e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T19:02:21.782Z"
+    },
+    {
+      "title": "상품정렬 마스터: 정리게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.perfectvillageentertainment.goodspuzzlemaster"
+      },
+      "developer": "PerfectVillage",
+      "icon": "https://play-lh.googleusercontent.com/3Z0PdY4TnNvx9Pkdo7UG1KTCvKwfzs0Q4bdWjncEd4XVnSGLN1t0Yw1FXwpJx9q03-egPG8roDCo-VwObwi9T-A",
+      "searchResults": [
+        {
+          "title": "트리플 상품 매치:Triple Goods 3D물품 매칭",
+          "appId": 6473152241
+        },
+        {
+          "title": "포켓 정렬 (Pocket Sort): 동전 병합 퍼즐",
+          "appId": 6755425214
+        },
+        {
+          "title": "Dream Hex: 3D 매치 색상 정렬",
+          "appId": 6633422058
+        }
+      ],
+      "addedAt": "2026-10-31T19:02:22.255Z"
+    },
+    {
+      "title": "Big 2",
+      "status": "single",
+      "appIds": {
+        "android": "big.two.poker.pusoy.dos.capsa.banting.thirteen.multiplayer.game"
+      },
+      "developer": "Fruit Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/gwSm6nuvekTijoQxh2f5RWKly3Ui3yfV6RkY5wFzQYWpk9HguHZ2X8LZJD7dc7UV_gtw4qYAneAh4MI3-p6xVg",
+      "searchResults": [
+        {
+          "title": "大老二",
+          "appId": 863356939
+        },
+        {
+          "title": "Big 2 Poker!",
+          "appId": 1065356412
+        },
+        {
+          "title": "Big Deuce - Big 2 Classic",
+          "appId": 323375748
+        }
+      ],
+      "addedAt": "2026-10-31T19:02:23.363Z"
+    },
+    {
+      "title": "YoYa Perfecook: ASMR Kitchen",
+      "status": "matched",
+      "appIds": {
+        "android": "com.yoyaworld.perfectcooking",
+        "ios": 6761358914
+      },
+      "developer": "YoYa World",
+      "icon": "https://play-lh.googleusercontent.com/Jxtqzr-qKbhXr0_VueMOIPjCgGBhQ21r4-GaL4MAHeucKErqHZd3UwkdZwKFBW8xKwj2Ebu28bOxyltqmrE7Hzs",
+      "searchResults": [
+        {
+          "title": "YoYa Perfecook: ASMR Kitchen",
+          "appId": 6761358914
+        }
+      ],
+      "addedAt": "2026-10-31T19:02:23.770Z"
+    },
+    {
+      "title": "Mystic Muses Animie TCG",
+      "status": "single",
+      "appIds": {
+        "android": "com.mysticmuses.animetcg.rpg.gp"
+      },
+      "developer": "Xpress System Solutions (P)",
+      "icon": "https://play-lh.googleusercontent.com/SREmsiqmmWWtrVUrrQvz8U8BWk-dBMOXBdIX3_6iykMn4ijAA-1bkk-RHVhMq1L0eSpxqWeFHx_B1_vek5ReBg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T19:02:24.118Z"
     }
   ],
   "approved": [
