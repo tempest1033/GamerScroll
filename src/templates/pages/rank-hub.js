@@ -106,7 +106,9 @@ const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs rk-coun
 // swappable visual piece — change the markup/class here (styles: .rk-metrics in 60-rank-chart.css). Link prefixing is done by localizeHtml.
 const METRICS_ICON = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13.5h12"/><path d="M4 10.5v-2"/><path d="M7 10.5V5"/><path d="M10 10.5V7"/><path d="M13 10.5V3"/></svg>';
 const metricsEntry = (g, name) => (g && g.slug && hasAnalysisPage(g.slug, require('../../i18n').currentEdition().code)
-  ? `<a class="rk-metrics" href="/analysis/${encodeURIComponent(g.slug)}/" aria-label="${esc(`${name} ${tt('game.tab_analysis')}`)}" title="${esc(tt('game.tab_analysis'))}">${METRICS_ICON}</a>` : '');
+  ? `<a class="rk-metrics" href="/analysis/${encodeURIComponent(g.slug)}/" aria-label="${esc(`${name} ${tt('game.tab_analysis')}`)}" title="${esc(tt('game.tab_analysis'))}">${METRICS_ICON}</a>`
+  // Empty cell keeps the rank numbers of rows without a metrics page aligned with the rest of the list.
+  : '<span class="rk-metrics-none" aria-hidden="true"></span>');
 
 // 두 스토어 리스트 한 열 (매출/인기 공용). 최대 200위까지 접지 않고 표시한다.
 function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit = 200, preview = null, withinCategory = false, defaultKey = null, listClass = '', podium = false } = {}) {
