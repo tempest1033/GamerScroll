@@ -70636,7 +70636,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154377,8 +154377,86 @@
         "ko": "RunxPetrersz",
         "zh-cn": "RunxPetrersz"
       }
+    },
+    "紫禁繁花 - 夢幻家裝慶典": {
+      "appIds": {
+        "ios_tw": "1442053164"
+      },
+      "aliases": [],
+      "developer": "GALAXY INTERACTION (HONG KONG) LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/4d/21/50/4d215096-573e-ff24-a99f-4448832c825b/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "紫禁繁花-夢幻家裝慶典",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "紫禁繁花 - 夢幻家裝慶典"
+      }
+    },
+    "War Machines：Battle Tank Games": {
+      "appIds": {
+        "ios": 1058528141
+      },
+      "aliases": [],
+      "developer": "Wildlife Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/df/b7/9b/dfb79bdc-45de-8a61-d610-b134aa76a53a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "war-machinesbattle-tank-games",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "War Machines：Battle Tank Games",
+        "en": "War Machines：Battle Tank Games"
+      }
+    },
+    "最強劍尊：吃最軟的飯，做最硬的劍": {
+      "appIds": {
+        "ios_tw": 6812674614
+      },
+      "aliases": [],
+      "developer": "SPGame Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ae/31/e6/ae31e604-4016-6483-cedc-f7c9b2b11dfd/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "最強劍尊吃最軟的飯做最硬的劍",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "最強劍尊：吃最軟的飯，做最硬的劍"
+      }
+    },
+    "Dreamy Beauty Ball Sorting": {
+      "appIds": {
+        "android": "com.kaede.dreamy.beauty.ball.sorting"
+      },
+      "aliases": [],
+      "developer": "Ioger Studio",
+      "icon": "https://play-lh.googleusercontent.com/b9xUYyxh-D78P83q9mHbJH2f2tfRJEpD2Zodjkq7GmFc241iF9PiwUi-cj32uF1iLrnmiGpko1EFcgqaq93TsA",
+      "slug": "dreamy-beauty-ball-sorting",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Dreamy Beauty Ball Sorting",
+        "zh-tw": "Dreamy Beauty Ball Sorting"
+      }
+    },
+    "블레이드X: 라스트 로드": {
+      "appIds": {
+        "android": "com.xblade.gp.ht"
+      },
+      "aliases": [],
+      "developer": "K3GAMES",
+      "icon": "https://play-lh.googleusercontent.com/YwGGecUrVZdEflg0Yn9d1zugw4B8JhJDfUjQOfJIXizBdbHXey9lY-GSrtkwO_fOtkRrDV7mQbhVMc_cnxJ5rQ",
+      "slug": "블레이드x-라스트-로드",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "블레이드X: 라스트 로드",
+        "zh-tw": "刀鋒領主"
+      }
     }
   },
   "lastUpdated": "2026-10-31",
-  "totalGames": 8987
+  "totalGames": 8992
 }

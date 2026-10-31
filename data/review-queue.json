@@ -47364,7 +47364,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -47465,6 +47465,52 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e3/43/6d/e3436d45-5c5f-8494-fa3d-86b0832b4acf/AppIcon-0-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-10-30T21:03:20.871Z"
+    },
+    {
+      "title": "War Machines：Battle Tank Games",
+      "status": "single",
+      "appIds": {
+        "ios": 1058528141
+      },
+      "developer": "Wildlife Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/df/b7/9b/dfb79bdc-45de-8a61-d610-b134aa76a53a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-10-31T01:03:04.184Z"
+    },
+    {
+      "title": "Dreamy Beauty Ball Sorting",
+      "status": "single",
+      "appIds": {
+        "android": "com.kaede.dreamy.beauty.ball.sorting"
+      },
+      "developer": "Ioger Studio",
+      "icon": "https://play-lh.googleusercontent.com/b9xUYyxh-D78P83q9mHbJH2f2tfRJEpD2Zodjkq7GmFc241iF9PiwUi-cj32uF1iLrnmiGpko1EFcgqaq93TsA",
+      "searchResults": [],
+      "addedAt": "2026-10-31T01:03:05.072Z"
+    },
+    {
+      "title": "블레이드X: 라스트 로드",
+      "status": "single",
+      "appIds": {
+        "android": "com.xblade.gp.ht"
+      },
+      "developer": "K3GAMES",
+      "icon": "https://play-lh.googleusercontent.com/YwGGecUrVZdEflg0Yn9d1zugw4B8JhJDfUjQOfJIXizBdbHXey9lY-GSrtkwO_fOtkRrDV7mQbhVMc_cnxJ5rQ",
+      "searchResults": [
+        {
+          "title": "레드 데드 리뎀션 NETFLIX",
+          "appId": 6743944297
+        },
+        {
+          "title": "Akinator",
+          "appId": 933135994
+        },
+        {
+          "title": "Stack",
+          "appId": 1080487957
+        }
+      ],
+      "addedAt": "2026-10-31T01:03:05.663Z"
     }
   ],
   "approved": [
