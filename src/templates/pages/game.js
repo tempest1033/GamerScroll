@@ -33,7 +33,7 @@ function renderInPageAd(extraClass = '') {
 }
 
 // "순위 기록 | 지표 분석" tab bar of the public page. `analysis` (games-data/<slug>.json) lists the editions that have a metrics
-// page for this game (scripts/fetch-analysis-pages.js from the metrics sitemap); no entry for the page's edition → no bar.
+// page for this game (scripts/fetch-analysis-pages.js from the metrics page list); no entry for the page's edition → no bar.
 function renderGameTabs(analysis, slug, code) {
   if (!Array.isArray(analysis) || !analysis.includes(code)) return '';
   return `<nav class="game-tabs grid-full" aria-label="${esc(t('game.tabs_label'))}"><a href="/games/${encodeURIComponent(slug)}/" aria-current="page">${esc(t('game.tab_rank'))}</a><a href="/analysis/${encodeURIComponent(slug)}/">${esc(t('game.tab_analysis'))}<i class="game-tabs-new">NEW</i></a></nav>`;
