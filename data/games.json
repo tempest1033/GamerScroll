@@ -153749,8 +153749,27 @@
         "ja": "Arrow Launcher",
         "zh-tw": "Arrow Launcher"
       }
+    },
+    "Manhunt: Chase with Friends": {
+      "appIds": {
+        "ios": 6809771773
+      },
+      "aliases": [],
+      "developer": "Ben Luca Krastel",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/7f/b1/ae7fb1d8-ab0d-cdcc-91ed-fecde994ded6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "manhunt-chase-with-friends",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Manhunt: Chase with Friends",
+        "en": "Manhunt: Chase with Friends",
+        "ja": "Manhunt: Chase with Friends",
+        "zh-cn": "Manhunt: Chase with Friends",
+        "zh-tw": "Manhunt: Chase with Friends"
+      }
     }
   },
   "lastUpdated": "2026-11-01",
-  "totalGames": 9021
+  "totalGames": 9022
 }

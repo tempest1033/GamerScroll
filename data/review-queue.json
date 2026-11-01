@@ -47935,6 +47935,17 @@
         }
       ],
       "addedAt": "2026-11-01T03:03:07.097Z"
+    },
+    {
+      "title": "Manhunt: Chase with Friends",
+      "status": "single",
+      "appIds": {
+        "ios": 6809771773
+      },
+      "developer": "Ben Luca Krastel",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/7f/b1/ae7fb1d8-ab0d-cdcc-91ed-fecde994ded6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-01T04:52:42.077Z"
     }
   ],
   "approved": [
