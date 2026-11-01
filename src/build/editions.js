@@ -131,13 +131,14 @@ function buildEditions(ctx) {
   const steamStats = (() => { try { return require('../rank/steam-stats').loadSteamStats(); } catch (e) { return null; } })();
   const lastDate = (days) => (days && days.length ? days[days.length - 1].date : null);
   const rankDate = rankStats ? lastDate(rankStats.days) : null;
-  // Games hub A-Z list: only the games whose page is indexable (the game sitemaps' rule). The other game pages stay
+  // Games hub A-Z list: only the games whose page is indexable (isIndexableGame, the game sitemaps' rule). The other game pages stay
   // reachable through the hub search and the rank pages, without sending crawlers to thousands of noindex pages.
   const hubSlugs = rankStats ? (() => {
-    const { rankSeries, summaryMeta } = require('./game-data');
-    const { isIndexableRank } = require('../templates/helpers/game-rank-summary');
+    const { rankSeries, summaryMeta, loadLatestSteam, steamLists, chartingNow } = require('./game-data');
+    const { isIndexableGame } = require('../templates/helpers/game-rank-summary');
     const meta = summaryMeta(rankStats);
-    return new Set(rankStats.games.filter((g) => g.slug && isIndexableRank({ s: rankSeries(rankStats, g.appIds) }, meta)).map((g) => g.slug));
+    const lists = steamLists(loadLatestSteam(path.join(__dirname, '..', '..', 'history')));
+    return new Set(rankStats.games.filter((g) => g.slug && isIndexableGame({ s: rankSeries(rankStats, g.appIds) }, chartingNow(rankStats, g, lists), meta)).map((g) => g.slug));
   })() : null;
   const steamDate = steamStats ? lastDate(steamStats.days) : null;
   const homeDate = [rankDate, steamDate].filter(Boolean).sort().pop() || null;

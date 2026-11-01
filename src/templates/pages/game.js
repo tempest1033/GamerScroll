@@ -11,7 +11,7 @@ const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { describeGame, trimDescription, dominantScript } = require('../helpers/game-description');
-const { renderGameRankSummary, summaryDays, INDEXABLE_DAYS } = require('../helpers/game-rank-summary');
+const { renderGameRankSummary, summaryDays, isIndexableGame } = require('../helpers/game-rank-summary');
 const { renderRevenueSection } = require('../components/revenue-section');
 
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -352,8 +352,8 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     })();
   </script>`;
 
-  // 순위 이력이 30일 미만이면 noindex (thin content 방지). 30일 이상이면 순위 요약만으로도 고유 콘텐츠가 충분하다.
-  const indexable = Boolean(summary && summary.days >= INDEXABLE_DAYS);
+  // 순위 이력이 30일 미만이고 지금 어떤 차트에도 없으면 noindex (thin content 방지). 사이트맵·게임 허브와 같은 규칙(isIndexableGame).
+  const indexable = isIndexableGame(rank, game.charting, meta);
 
   // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎
   const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: titleName });

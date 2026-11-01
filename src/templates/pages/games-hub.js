@@ -331,6 +331,9 @@ function generateGamesHubPage(options = {}) {
     return url;
   }
 
+  // The link is assembled here so the page source holds no literal game link with an unrendered placeholder.
+  const gameHrefAttr = (slug) => 'href="' + '/games/' + encodeURIComponent(slug) + '/"';
+
   const pendingGroups = new WeakMap();
   async function loadGroupIcons(group) {
     if (!group.open || group.dataset.iconsReady || pendingGroups.has(group)) return;
@@ -392,7 +395,7 @@ function generateGamesHubPage(options = {}) {
               <path d="M18 6L6 18M6 6l12 12"/>
             </svg>
           </button>
-          <a href="/games/\${game.slug}/" class="recent-link">
+          <a \${gameHrefAttr(game.slug)} class="recent-link">
             <img src="\${resizeIconUrl(iconUrl)}" alt="\${game.name}" class="recent-icon" loading="lazy" data-slug="\${game.slug}"\${needsIcon} data-img-fallback-src="/icon-192.png">
             <span class="recent-name" data-name>\${game.name}</span>
           </a>
@@ -476,7 +479,7 @@ function generateGamesHubPage(options = {}) {
         grid.innerHTML = '<p class="search-no-results">${t('games.no_matching_games_try_another')}</p>';
       } else {
         grid.innerHTML = results.slice(0, 50).map(game => \`
-          <a href="/games/\${game.slug}/" class="games-hub-recent-card">
+          <a \${gameHrefAttr(game.slug)} class="games-hub-recent-card">
             <img src="\${resizeIconUrl(game.icon) || '/icon-192.png'}" alt="\${game.name}" class="recent-icon" loading="lazy" data-img-fallback-src="/icon-192.png">
             <span class="recent-name" data-name>\${game.name}</span>
           </a>

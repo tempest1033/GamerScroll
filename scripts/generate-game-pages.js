@@ -16,8 +16,8 @@ const crypto = require('crypto');
 const i18n = require('../src/i18n');
 const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
-const { collectRankData, summaryMeta, idFor, createSlug } = require('../src/build/game-data');
-const { isIndexableRank } = require('../src/templates/helpers/game-rank-summary');
+const { collectRankData, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow } = require('../src/build/game-data');
+const { isIndexableGame } = require('../src/templates/helpers/game-rank-summary');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
 const { loadServiceExports, coverage } = require('../src/build/service-exports');
@@ -30,8 +30,6 @@ const historyDir = path.join(ROOT, 'history');
 const dataDir = path.join(docsDir, 'games-data');
 const gamesDir = path.join(docsDir, 'games');
 const md5 = (text) => crypto.createHash('md5').update(text).digest('hex');
-
-const normalize = (name) => name.toLowerCase().trim().replace(/\s+/g, ' ');
 
 // URL-safe 슬러그 생성 (games.json 에 slug 가 없는 게임용: 앱 ID 우선, 없으면 이름 기반)
 function countFiles(dir) {
@@ -62,10 +60,7 @@ for (const file of historyFiles) {
   for (const [id, d] of days) { if (!steamHistoryById.has(id)) steamHistoryById.set(id, []); steamHistoryById.get(id).push(d); }
   latestSteam = { mostPlayed: steam.mostPlayed || [], topSellers: steam.topSellers || [] };
 }
-const byId = (items) => new Map(items.filter((i) => i.appid).map((i) => [String(i.appid), i]));
-const byName = (items) => new Map(items.filter((i) => i.name).map((i) => [normalize(i.name), i]));
-const mpById = byId(latestSteam.mostPlayed), mpByName = byName(latestSteam.mostPlayed);
-const tsById = byId(latestSteam.topSellers), tsByName = byName(latestSteam.topSellers);
+const steamChartLists = steamLists(latestSteam);
 
 // ---------- 차트 아이콘 (games.json 에 icon 이 없는 게임용) ----------
 const chartIcon = new Map();
@@ -229,13 +224,12 @@ for (const g of S.games) {
 
   // 스팀 (현재 + 이력)
   const steamId = appIds['steam:global'] || appIds.steam;
-  const names = [gameName, ...(g.aliases || [])].map(normalize);
-  const pick = (idMap, nameMap) => (steamId && idMap.get(String(steamId))) || names.map((n) => nameMap.get(n)).find(Boolean) || null;
-  const mp = pick(mpById, mpByName), ts = pick(tsById, tsByName);
+  const { mp, ts } = steamMatch(g, steamChartLists);
   let steam = null;
   if (mp) steam = { currentPlayers: mp.ccu || mp.currentPlayers, rank: mp.rank, img: mp.img };
   if (ts) { steam = steam || { img: ts.img }; steam.salesRank = ts.rank; steam.price = ts.price || ''; steam.discount = ts.discount || ''; }
   const icon = g.icon || chartIcon.get(g) || (steam && steam.img) || null;
+  const charting = chartingNow(S, g, steamChartLists);
 
   const data = {
     name: gameName,
@@ -250,6 +244,7 @@ for (const g of S.games) {
     steamHistory: steamId ? (steamHistoryById.get(String(steamId)) || []) : [],
     rank,
     related: relatedOf(g),
+    ...(charting ? { charting: true } : {}),
   };
   if (analysisPages[slug.normalize('NFC')]) data.analysis = analysisPages[slug.normalize('NFC')];
   const revenue = serviceExports && serviceExports.revenueFor(g.appIds, { freeRank });
@@ -270,8 +265,8 @@ for (const g of S.games) {
   if (ranked) rankedCount++;
   if (steam) steamCount++;
 
-  // 색인 허용은 에디션과 무관 (순위 이력이 가장 긴 국가의 일수 기준)
-  if (isIndexableRank(rank, meta)) indexable.push(slug);
+  // 색인 허용은 에디션과 무관 (순위 이력 30일 이상 또는 지금 차트에 있음)
+  if (isIndexableGame(rank, charting, meta)) indexable.push(slug);
   // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
   const dataDates = [
     ...(rank ? Object.values(rank.s).flatMap((stores) => Object.values(stores).map((e) => meta.days[e.o + e.v.length - 1])) : []),
