@@ -153262,14 +153262,16 @@
     },
     "Parking Loop": {
       "appIds": {
-        "ios": 6802383216
+        "ios": 6802383216,
+        "android": "com.loop.packedloop"
       },
       "aliases": [],
       "developer": "Loop Games Oyun Teknolojileri Anonim Sirketi",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/a1/5c/65a15c7c-9422-7a8a-9886-20a38099b565/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "parking-loop",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Parking Loop",
@@ -153691,8 +153693,64 @@
         "ko": "主公別破防",
         "zh-tw": "主公別破防"
       }
+    },
+    "포차 문라이트: 음식 정렬 퍼즐": {
+      "appIds": {
+        "android": "com.pongvn.pm",
+        "ios": 6815580362
+      },
+      "aliases": [],
+      "developer": "Pong Studio Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/-C0zcjTqjxflezlN9W3NbWMe7LYPFCgD1iQWDfq7enRqT6Yd7T33eQ--Xs9Y-tAUlfd_SKEqa4xdTIT25pxJK-8",
+      "slug": "포차-문라이트-음식-정렬-퍼즐",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "포차 문라이트: 음식 정렬 퍼즐",
+        "en": "Pocha Moonlight: Sort Puzzle",
+        "ja": "月あかり屋台：フードソート",
+        "zh-tw": "月光小攤：美食整理"
+      }
+    },
+    "Hunting Game: GPS Manhunt": {
+      "appIds": {
+        "ios": 6471968553
+      },
+      "aliases": [],
+      "developer": "Jasper Aelvoet",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9e/3c/5f/9e3c5ff3-9c37-5258-03ef-8b18a7c4ea97/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "hunting-game-gps-manhunt",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Hunting Game: GPS Manhunt",
+        "en": "Hunting Game: GPS Manhunt",
+        "ja": "Hunting Game: GPS Manhunt",
+        "zh-tw": "Hunting Game: GPS Manhunt"
+      }
+    },
+    "Arrow Launcher": {
+      "appIds": {
+        "android": "com.mftytr.arrow.launcher"
+      },
+      "aliases": [],
+      "developer": "Hewey Lane",
+      "icon": "https://play-lh.googleusercontent.com/0ZK3Tr1Pl_O7Qk7hq49qzYhQ6bRAGCS5mptDNS6gnM7UZHP5A4PvPvyo4ebWImupapLv22K5dhk0nMG9U2qiCA",
+      "slug": "arrow-launcher",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Launcher",
+        "en": "Arrow Launcher",
+        "ja": "Arrow Launcher",
+        "zh-tw": "Arrow Launcher"
+      }
     }
   },
   "lastUpdated": "2026-11-01",
-  "totalGames": 9018
+  "totalGames": 9021
 }

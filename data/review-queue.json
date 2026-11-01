@@ -47549,13 +47549,19 @@
     },
     {
       "title": "Parking Loop",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6802383216
+        "ios": 6802383216,
+        "android": "com.loop.packedloop"
       },
       "developer": "Loop Games Oyun Teknolojileri Anonim Sirketi",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/a1/5c/65a15c7c-9422-7a8a-9886-20a38099b565/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Parking Loop",
+          "appId": 6802383216
+        }
+      ],
       "addedAt": "2026-10-31T07:03:00.388Z"
     },
     {
@@ -47881,6 +47887,54 @@
       "icon": "https://play-lh.googleusercontent.com/OV7rr-drZLGZffsM1VRzNTwOhqndZATMoMzYbcJkl99LwTjp9IwX4YtusPcUZ1t2lxtiOxFlJVz3CAoPHzfb",
       "searchResults": [],
       "addedAt": "2026-10-31T23:03:07.054Z"
+    },
+    {
+      "title": "포차 문라이트: 음식 정렬 퍼즐",
+      "status": "matched",
+      "appIds": {
+        "android": "com.pongvn.pm",
+        "ios": 6815580362
+      },
+      "developer": "Pong Studio Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/-C0zcjTqjxflezlN9W3NbWMe7LYPFCgD1iQWDfq7enRqT6Yd7T33eQ--Xs9Y-tAUlfd_SKEqa4xdTIT25pxJK-8",
+      "searchResults": [
+        {
+          "title": "포차 문라이트: 음식 정렬 퍼즐",
+          "appId": 6815580362
+        }
+      ],
+      "addedAt": "2026-11-01T03:03:05.838Z"
+    },
+    {
+      "title": "Hunting Game: GPS Manhunt",
+      "status": "single",
+      "appIds": {
+        "ios": 6471968553
+      },
+      "developer": "Jasper Aelvoet",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9e/3c/5f/9e3c5ff3-9c37-5258-03ef-8b18a7c4ea97/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-01T03:03:06.418Z"
+    },
+    {
+      "title": "Arrow Launcher",
+      "status": "single",
+      "appIds": {
+        "android": "com.mftytr.arrow.launcher"
+      },
+      "developer": "Hewey Lane",
+      "icon": "https://play-lh.googleusercontent.com/0ZK3Tr1Pl_O7Qk7hq49qzYhQ6bRAGCS5mptDNS6gnM7UZHP5A4PvPvyo4ebWImupapLv22K5dhk0nMG9U2qiCA",
+      "searchResults": [
+        {
+          "title": "구해줄거냥? : 고양이 마을 퍼즐",
+          "appId": 6761253603
+        },
+        {
+          "title": "CrazyArrow: Arrow Rush",
+          "appId": 6803562243
+        }
+      ],
+      "addedAt": "2026-11-01T03:03:07.097Z"
     }
   ],
   "approved": [
