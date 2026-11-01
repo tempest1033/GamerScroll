@@ -203,7 +203,6 @@ function generateHead(options = {}) {
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">${noindex ? `
 	  <meta name="robots" content="noindex, follow">` : `
 	  <meta name="robots" content="max-image-preview:large">`}
-	  <meta name="naver-site-verification" content="ac28f58a1b26d8581d2075dd641a284029f93130">
 	  <meta name="msvalidate.01" content="3FD2DD8D1E23A4C5F002FD08F89B5F19">
 	  <!-- preconnect: AdSense / 광고 서빙 — preload·async script보다 먼저 연결 핸드셰이크 시작 -->${ADS_ENABLED ? `
 	  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
