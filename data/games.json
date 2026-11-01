@@ -148824,14 +148824,16 @@
     },
     "市長選舉模擬": {
       "appIds": {
-        "ios_tw": 6818957178
+        "ios_tw": 6818957178,
+        "android": "com.walkingtech.electionlife"
       },
       "aliases": [],
       "developer": "Walking technology Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/2b/0a/b72b0a4a-bd4e-2e8b-2f6c-62af2037e6a1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "市長選舉模擬",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "동쏸! 대만 시장 선거 시뮬레이션",
@@ -153877,8 +153879,170 @@
         "ja": "Ludo Go! - ルドーボードゲーム",
         "zh-tw": "Ludo Go!——骰子桌遊"
       }
+    },
+    "Secret Jigsaw Charm": {
+      "appIds": {
+        "android": "com.secret.jigsaw.charm"
+      },
+      "aliases": [],
+      "developer": "Pelvix Operations LLC",
+      "icon": "https://play-lh.googleusercontent.com/o-DCN2zoV718qFwADx2E2CuBPHeQ8WqsI3dqiSlGeejEMgtmmop27e6-Yj8kSBm_ZOJ1CvVq6Y4AmslM2HkvOA",
+      "slug": "secret-jigsaw-charm",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Secret Jigsaw Charm",
+        "en": "Secret Jigsaw Charm",
+        "ja": "Secret Jigsaw Charm",
+        "zh-tw": "Secret Jigsaw Charm"
+      }
+    },
+    "Block Puncher": {
+      "appIds": {
+        "android": "com.kayac.BlockPuncher"
+      },
+      "aliases": [],
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/ZKd_XzmMs1txMdUQwUbf1uJN1c28gkf8Clp2wYp4LGqJ3zX4suIf5qrWH3UvnVYHQo1vOzMrv3t-vehCD9U3AA",
+      "slug": "block-puncher",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Block Puncher",
+        "en": "Block Puncher",
+        "ja": "Block Puncher",
+        "zh-tw": "Block Puncher"
+      }
+    },
+    "레트로 스파이더 솔리테어": {
+      "appIds": {
+        "android": "com.worthyjourney.spider"
+      },
+      "aliases": [],
+      "developer": "Worthy Journey",
+      "icon": "https://play-lh.googleusercontent.com/hzs-XpjTRX-sjaeaHu4Ph8BJVUPkEyyDI44raci28ZpKXEl4zxoCn71fSdUp0xwTjlIPu4kDBBaoJ_V271wECg",
+      "slug": "레트로-스파이더-솔리테어",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "레트로 스파이더 솔리테어",
+        "en": "Spider Solitaire - Retro Card",
+        "ja": "レトロスパイダーソリティア",
+        "zh-tw": "復古蜘蛛紙牌"
+      }
+    },
+    "Last Human: Final Stand": {
+      "appIds": {
+        "android": "com.avenue.zombie.gp"
+      },
+      "aliases": [],
+      "developer": "Iterflor Pte Ltd",
+      "icon": "https://play-lh.googleusercontent.com/6ioSpKK1U0GcD7gYceYRj4CvU_cYpXVcr48t0glzaSkVurM04wOPCLeqbfnVEJJbAV8Hnzh-JmLiIueOCtdXdno",
+      "slug": "last-human-final-stand",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Last Human: Final Stand",
+        "en": "Last Human: Final Stand",
+        "ja": "Last Human: Final Stand",
+        "zh-tw": "Last Human: Final Stand"
+      }
+    },
+    "心動房客": {
+      "appIds": {
+        "android": "com.actiongameyourstudio.ourstory"
+      },
+      "aliases": [],
+      "developer": "FutureGoStudio",
+      "icon": "https://play-lh.googleusercontent.com/Z1-DHslLWY2CsInxnwe6-UOuVosoK8vePrgPCg3QJy8WKaNscrOFGhQoJrwIXxqvJUxJCanNX2VAKgGy3LBIM5Q",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "心動房客",
+        "en": "心動房客",
+        "ja": "心動房客",
+        "zh-tw": "心動房客"
+      }
+    },
+    "Steal Eggs: Monster Escape": {
+      "appIds": {
+        "android": "com.Steal.Eggs.Monster.Escape"
+      },
+      "aliases": [],
+      "developer": "H2T GLOBAL PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/ZayG0OSk-CenLZ5ew0UN7upMJudpmgGyzb3e62mVf5FxpipokBhxdpcnHzZ9gGRQ4WvaaunQE3ddBCp29eF9nA",
+      "slug": "steal-eggs-monster-escape",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Steal Eggs: Monster Escape",
+        "en": "Steal Eggs: Monster Escape",
+        "ja": "Steal Eggs: Monster Escape",
+        "zh-tw": "Steal Eggs: Monster Escape"
+      }
+    },
+    "롤러코스터: 카트 라이드 게임": {
+      "appIds": {
+        "android": "com.maxdigitart.obby.cart.ride.sandbox"
+      },
+      "aliases": [],
+      "developer": "PSV Apps&Games",
+      "icon": "https://play-lh.googleusercontent.com/jXGqUhCN3t5zgqmG0urjHazzeEl1M1bpu474cMXyZ3A6Aro6Vq2D9ubx7Jx9m1FWc_2U637mW_SVzMu0RcgX_A",
+      "slug": "롤러코스터-카트-라이드-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "롤러코스터: 카트 라이드 게임",
+        "en": "Cart Ride Obby: Sandbox Game",
+        "ja": "ジェットコースター：トロッコ レース",
+        "zh-tw": "Cart Ride Obby: 雲霄飛車"
+      }
+    },
+    "Cube Solver：큐브 퍼즐 해결사 앱": {
+      "appIds": {
+        "android": "cn.com.delta.cube.solver"
+      },
+      "aliases": [],
+      "developer": "Delta Software",
+      "icon": "https://play-lh.googleusercontent.com/pwEzB5N9M1P0ayqImDbJJBo_v6uVS_-tVvFfE9jqFSLBdhIk8ZeEthi3B17jddKKnECVn554bJgPYVv5QK0yGg",
+      "slug": "cube-solver큐브-퍼즐-해결사-앱",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Cube Solver：큐브 퍼즐 해결사 앱",
+        "en": "Cube Solver - Magic Cube 3D",
+        "ja": "Cube Solver：3Dマジックキューブソルバー",
+        "zh-tw": "Cube Solver：魔術方塊還原器"
+      }
+    },
+    "Hair Salon Makeover Studio": {
+      "appIds": {
+        "android": "com.mrxvip.hair.salon"
+      },
+      "aliases": [],
+      "developer": "MR. PROXY CORE",
+      "icon": "https://play-lh.googleusercontent.com/2jfqDtG0APfuLGY-LgiWBwRs5imEks0v-a37S7c6JI17EapuFtRtSNAQ51Vf-PKXTGK0DI-FRoLv4cbR9cfglho",
+      "slug": "hair-salon-makeover-studio",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Hair Salon Makeover Studio",
+        "en": "Hair Salon Makeover Studio",
+        "ja": "Hair Salon Makeover Studio",
+        "zh-tw": "Hair Salon Makeover Studio"
+      }
     }
   },
   "lastUpdated": "2026-11-02",
-  "totalGames": 9028
+  "totalGames": 9037
 }

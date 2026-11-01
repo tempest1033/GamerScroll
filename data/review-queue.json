@@ -48027,6 +48027,150 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7b/42/de/7b42de08-786d-3935-7209-453b74903827/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-01T17:00:55.356Z"
+    },
+    {
+      "title": "Secret Jigsaw Charm",
+      "status": "single",
+      "appIds": {
+        "android": "com.secret.jigsaw.charm"
+      },
+      "developer": "Pelvix Operations LLC",
+      "icon": "https://play-lh.googleusercontent.com/o-DCN2zoV718qFwADx2E2CuBPHeQ8WqsI3dqiSlGeejEMgtmmop27e6-Yj8kSBm_ZOJ1CvVq6Y4AmslM2HkvOA",
+      "searchResults": [],
+      "addedAt": "2026-11-01T21:03:00.441Z"
+    },
+    {
+      "title": "Block Puncher",
+      "status": "single",
+      "appIds": {
+        "android": "com.kayac.BlockPuncher"
+      },
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/ZKd_XzmMs1txMdUQwUbf1uJN1c28gkf8Clp2wYp4LGqJ3zX4suIf5qrWH3UvnVYHQo1vOzMrv3t-vehCD9U3AA",
+      "searchResults": [],
+      "addedAt": "2026-11-01T21:03:00.705Z"
+    },
+    {
+      "title": "레트로 스파이더 솔리테어",
+      "status": "single",
+      "appIds": {
+        "android": "com.worthyjourney.spider"
+      },
+      "developer": "Worthy Journey",
+      "icon": "https://play-lh.googleusercontent.com/hzs-XpjTRX-sjaeaHu4Ph8BJVUPkEyyDI44raci28ZpKXEl4zxoCn71fSdUp0xwTjlIPu4kDBBaoJ_V271wECg",
+      "searchResults": [
+        {
+          "title": "솔리테어 클론다이크 클래식",
+          "appId": 1628542227
+        }
+      ],
+      "addedAt": "2026-11-01T21:03:01.085Z"
+    },
+    {
+      "title": "Last Human: Final Stand",
+      "status": "single",
+      "appIds": {
+        "android": "com.avenue.zombie.gp"
+      },
+      "developer": "Iterflor Pte Ltd",
+      "icon": "https://play-lh.googleusercontent.com/6ioSpKK1U0GcD7gYceYRj4CvU_cYpXVcr48t0glzaSkVurM04wOPCLeqbfnVEJJbAV8Hnzh-JmLiIueOCtdXdno",
+      "searchResults": [
+        {
+          "title": "라스트 Z: 서바이벌 슈터",
+          "appId": 6503272652
+        }
+      ],
+      "addedAt": "2026-11-01T21:03:01.533Z"
+    },
+    {
+      "title": "心動房客",
+      "status": "single",
+      "appIds": {
+        "android": "com.actiongameyourstudio.ourstory"
+      },
+      "developer": "FutureGoStudio",
+      "icon": "https://play-lh.googleusercontent.com/Z1-DHslLWY2CsInxnwe6-UOuVosoK8vePrgPCg3QJy8WKaNscrOFGhQoJrwIXxqvJUxJCanNX2VAKgGy3LBIM5Q",
+      "searchResults": [],
+      "addedAt": "2026-11-01T21:03:01.859Z"
+    },
+    {
+      "title": "Steal Eggs: Monster Escape",
+      "status": "single",
+      "appIds": {
+        "android": "com.Steal.Eggs.Monster.Escape"
+      },
+      "developer": "H2T GLOBAL PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/ZayG0OSk-CenLZ5ew0UN7upMJudpmgGyzb3e62mVf5FxpipokBhxdpcnHzZ9gGRQ4WvaaunQE3ddBCp29eF9nA",
+      "searchResults": [
+        {
+          "title": "Steal the Egg: Pet Grow",
+          "appId": 6810896819
+        },
+        {
+          "title": "Monster Squad Rush",
+          "appId": 1624476041
+        }
+      ],
+      "addedAt": "2026-11-01T21:03:02.352Z"
+    },
+    {
+      "title": "롤러코스터: 카트 라이드 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.maxdigitart.obby.cart.ride.sandbox"
+      },
+      "developer": "PSV Apps&Games",
+      "icon": "https://play-lh.googleusercontent.com/jXGqUhCN3t5zgqmG0urjHazzeEl1M1bpu474cMXyZ3A6Aro6Vq2D9ubx7Jx9m1FWc_2U637mW_SVzMu0RcgX_A",
+      "searchResults": [],
+      "addedAt": "2026-11-01T21:03:02.739Z"
+    },
+    {
+      "title": "Cube Solver：큐브 퍼즐 해결사 앱",
+      "status": "single",
+      "appIds": {
+        "android": "cn.com.delta.cube.solver"
+      },
+      "developer": "Delta Software",
+      "icon": "https://play-lh.googleusercontent.com/pwEzB5N9M1P0ayqImDbJJBo_v6uVS_-tVvFfE9jqFSLBdhIk8ZeEthi3B17jddKKnECVn554bJgPYVv5QK0yGg",
+      "searchResults": [
+        {
+          "title": "CubeSolver AI：큐브 퍼즐 해결사 앱",
+          "appId": 6446157329
+        },
+        {
+          "title": "큐브 맞추기",
+          "appId": 6446096806
+        },
+        {
+          "title": "Solviks: 루빅스 큐브 솔버",
+          "appId": 1660925812
+        }
+      ],
+      "addedAt": "2026-11-01T21:03:03.360Z"
+    },
+    {
+      "title": "Hair Salon Makeover Studio",
+      "status": "single",
+      "appIds": {
+        "android": "com.mrxvip.hair.salon"
+      },
+      "developer": "MR. PROXY CORE",
+      "icon": "https://play-lh.googleusercontent.com/2jfqDtG0APfuLGY-LgiWBwRs5imEks0v-a37S7c6JI17EapuFtRtSNAQ51Vf-PKXTGK0DI-FRoLv4cbR9cfglho",
+      "searchResults": [
+        {
+          "title": "Hair Salon Makeover Games",
+          "appId": 1197143974
+        },
+        {
+          "title": "슈퍼 스타일리스트",
+          "appId": 1441648201
+        },
+        {
+          "title": "머지 스튜디오",
+          "appId": 1615964753
+        }
+      ],
+      "addedAt": "2026-11-01T21:03:03.915Z"
     }
   ],
   "approved": [
