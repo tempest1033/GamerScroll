@@ -229,7 +229,8 @@
   margin-left: 4px;
 }
 @media (max-width: 760px) {
-  .game-tabs { gap: 0; }
+  /* 탭 바는 화면 가장자리까지, 두 탭은 50/50 */
+  .game-tabs { gap: 0; width: 100vw; margin-left: calc(50% - 50vw); }
   .game-tabs a { flex: 1; justify-content: center; }
 }
 
