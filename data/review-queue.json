@@ -47946,6 +47946,65 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/7f/b1/ae7fb1d8-ab0d-cdcc-91ed-fecde994ded6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-01T04:52:42.077Z"
+    },
+    {
+      "title": "Tokyo Brew Tycoon: 카페 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6822935249
+      },
+      "developer": "Giuseppe Lupo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/b2/5a/42b25a30-77e9-36ff-7903-749d2bc2cc36/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-01T09:02:29.965Z"
+    },
+    {
+      "title": "Driving Pro: 주차 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6791947020
+      },
+      "developer": "Terafort US LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/14/5f/83145ff3-51d2-d19e-b527-c48966446a26/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-01T09:02:30.149Z"
+    },
+    {
+      "title": "골프 임팩트 - 리얼 골프 게임",
+      "status": "matched",
+      "appIds": {
+        "android": "com.neowiz.game.golflegends",
+        "ios": 1532689217
+      },
+      "developer": "QuickwinStudio",
+      "icon": "https://play-lh.googleusercontent.com/ae6KRfzcmrGCPZ1cSdOz0-FKuM6sEduowkgG7TboCMiIaQ_HzVZNBP0jnzPAQIF_KFfOhLFKLc6evrEfu3DbtgQ",
+      "searchResults": [
+        {
+          "title": "골프 임팩트 - 리얼 골프 게임",
+          "appId": 1532689217
+        },
+        {
+          "title": "미라클 골프",
+          "appId": 6462591709
+        }
+      ],
+      "addedAt": "2026-11-01T09:02:30.415Z"
+    },
+    {
+      "title": "Arrow Glide Merge Quest",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrowglide.mergequest"
+      },
+      "developer": "HLP Health IT",
+      "icon": "https://play-lh.googleusercontent.com/qspl509cTe2f-i0UQHIOmU1JTkdv4Rbi8D1GNJyzvnXBdAAc6k1A5vYwgp-YRKGkuRSei50TK2hJHU5DIOP95PE",
+      "searchResults": [
+        {
+          "title": "Jigsaw Tumble : Solitaire Puzz",
+          "appId": 6807609776
+        }
+      ],
+      "addedAt": "2026-11-01T09:02:30.768Z"
     }
   ],
   "approved": [

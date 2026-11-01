@@ -153768,8 +153768,81 @@
         "zh-cn": "Manhunt: Chase with Friends",
         "zh-tw": "Manhunt: Chase with Friends"
       }
+    },
+    "Tokyo Brew Tycoon: 카페 게임": {
+      "appIds": {
+        "ios": 6822935249
+      },
+      "aliases": [],
+      "developer": "Giuseppe Lupo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/b2/5a/42b25a30-77e9-36ff-7903-749d2bc2cc36/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "tokyo-brew-tycoon-카페-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Tokyo Brew Tycoon: 카페 게임",
+        "en": "Tokyo Brew Tycoon: Coffee Shop",
+        "ja": "Tokyo Brew Tycoon: 喫茶店ゲーム",
+        "zh-tw": "Tokyo Brew Tycoon: Coffee Shop"
+      }
+    },
+    "Driving Pro: 주차 게임": {
+      "appIds": {
+        "ios": 6791947020
+      },
+      "aliases": [],
+      "developer": "Terafort US LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/83/14/5f/83145ff3-51d2-d19e-b527-c48966446a26/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "driving-pro-주차-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Driving Pro: 주차 게임",
+        "en": "Driving Pro: Car Parking Game",
+        "ja": "Driving Pro: 駐車ゲーム",
+        "zh-tw": "Driving Pro: 停車遊戲"
+      }
+    },
+    "골프 임팩트 - 리얼 골프 게임": {
+      "appIds": {
+        "android": "com.neowiz.game.golflegends",
+        "ios": 1532689217
+      },
+      "aliases": [],
+      "developer": "QuickwinStudio",
+      "icon": "https://play-lh.googleusercontent.com/ae6KRfzcmrGCPZ1cSdOz0-FKuM6sEduowkgG7TboCMiIaQ_HzVZNBP0jnzPAQIF_KFfOhLFKLc6evrEfu3DbtgQ",
+      "slug": "골프-임팩트-리얼-골프-게임",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "골프 임팩트 - 리얼 골프 게임",
+        "en": "Golf Impact - Real Golf Game",
+        "ja": "GOLF IMPACT - リアルゴルフ",
+        "zh-tw": "Golf Impact - 真正的高爾夫遊戲"
+      }
+    },
+    "Arrow Glide Merge Quest": {
+      "appIds": {
+        "android": "com.arrowglide.mergequest"
+      },
+      "aliases": [],
+      "developer": "HLP Health IT",
+      "icon": "https://play-lh.googleusercontent.com/qspl509cTe2f-i0UQHIOmU1JTkdv4Rbi8D1GNJyzvnXBdAAc6k1A5vYwgp-YRKGkuRSei50TK2hJHU5DIOP95PE",
+      "slug": "arrow-glide-merge-quest",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Glide Merge Quest",
+        "en": "Arrow Glide Merge Quest",
+        "ja": "Arrow Glide Merge Quest"
+      }
     }
   },
   "lastUpdated": "2026-11-01",
-  "totalGames": 9022
+  "totalGames": 9026
 }
