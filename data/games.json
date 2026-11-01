@@ -153859,8 +153859,26 @@
         "ja": "Fill It: Organize Puzzle",
         "zh-tw": "Fill It: Organize Puzzle"
       }
+    },
+    "Ludo Go! - 루도 보드게임": {
+      "appIds": {
+        "ios": 6815260519
+      },
+      "aliases": [],
+      "developer": "Easybrain Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7b/42/de/7b42de08-786d-3935-7209-453b74903827/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ludo-go-루도-보드게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Ludo Go! - 루도 보드게임",
+        "en": "Ludo Go! - Dice Board Games",
+        "ja": "Ludo Go! - ルドーボードゲーム",
+        "zh-tw": "Ludo Go!——骰子桌遊"
+      }
     }
   },
-  "lastUpdated": "2026-11-01",
-  "totalGames": 9027
+  "lastUpdated": "2026-11-02",
+  "totalGames": 9028
 }
