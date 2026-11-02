@@ -154168,8 +154168,20 @@
         "zh-cn": "果汁瓶瓶乐",
         "zh-tw": "果汁瓶瓶乐"
       }
+    },
+    "Legend of Defenders": {
+      "appIds": {
+        "steam": "4740930"
+      },
+      "aliases": [],
+      "developer": "KaiPlay Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4740930/c039f0eefcde5abda7dd71d5cf6f18422d0b2d5a/capsule_231x87_alt_assets_1.jpg?t=1793610024",
+      "slug": "legend-of-defenders",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-02",
-  "totalGames": 9044
+  "totalGames": 9045
 }
