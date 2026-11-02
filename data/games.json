@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154182,6 +154182,6 @@
       ]
     }
   },
-  "lastUpdated": "2026-11-02",
+  "lastUpdated": "2026-11-03",
   "totalGames": 9045
 }
