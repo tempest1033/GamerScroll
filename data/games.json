@@ -154041,8 +154041,99 @@
         "ja": "Hair Salon Makeover Studio",
         "zh-tw": "Hair Salon Makeover Studio"
       }
+    },
+    "Snake VS Blocks": {
+      "appIds": {
+        "android": "com.phtech.stash"
+      },
+      "aliases": [],
+      "developer": "Ph techlab",
+      "icon": "https://play-lh.googleusercontent.com/wuUsrn-DuBWyrykp1dHkPQwPwygxCA51s4whKgEFPrGgAowPYIR9Fji7v-pi-TC_ONnsjKZ33Y_CFwV3f8XEOqQ",
+      "slug": "snake-vs-blocks",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Snake VS Blocks",
+        "en": "Snake VS Blocks",
+        "ja": "Snake VS Blocks",
+        "zh-tw": "Snake VS Blocks"
+      }
+    },
+    "全民来找茬 - 地下の世界": {
+      "appIds": {
+        "ios": 1659247824
+      },
+      "aliases": [],
+      "developer": "华 曾",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/eb/f7/2bebf708-5e57-9683-6b99-1431bd034d7d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "全民来找茬 - 地下の世界",
+        "en": "全民来找茬 - 地下の世界",
+        "ja": "全民来找茬 - 地下の世界",
+        "zh-cn": "全民来找茬 - 地下の世界",
+        "zh-tw": "全民来找茬 - 地下の世界"
+      }
+    },
+    "Playground Sandbox: Forest": {
+      "appIds": {
+        "android": "com.playground.sandbox.forest"
+      },
+      "aliases": [],
+      "developer": "Planettech",
+      "icon": "https://play-lh.googleusercontent.com/26Ntlr7oAYJckhGXrSgqWVKMAsTmmpWfPj1BWyJRMk77xC7HMjDN6-6h-Z-HFUmoiCVUHLFL7erK1Yl8LCJE",
+      "slug": "playground-sandbox-forest",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Playground Sandbox: Forest",
+        "en": "Playground Sandbox: Forest",
+        "ja": "Playground Sandbox: Forest",
+        "zh-tw": "Playground Sandbox: Forest"
+      }
+    },
+    "Obby ASMR: Keyboard Run": {
+      "appIds": {
+        "android": "casual.obby.asmr.keyboard.run"
+      },
+      "aliases": [],
+      "developer": "Shelton Gumentol",
+      "icon": "https://play-lh.googleusercontent.com/U6v7LWcwCvj21WkpTx_H2suRdX7lUJSImPvVT8pX4KD_XR4_UJOOtuc0b5oSKILkKbxPLsZId9rCE-EI6Ir2hA",
+      "slug": "obby-asmr-keyboard-run",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Obby ASMR: Keyboard Run",
+        "en": "Obby ASMR: Keyboard Run",
+        "ja": "Obby ASMR: Keyboard Run",
+        "zh-tw": "Obby ASMR: Keyboard Run"
+      }
+    },
+    "美式加油站經營模擬器": {
+      "appIds": {
+        "android": "com.kaiyou.kaddoil1a"
+      },
+      "aliases": [],
+      "developer": "AiYou Tech",
+      "icon": "https://play-lh.googleusercontent.com/ATrTPj2U6Agvm2BH33dqhEkQC02QzD-uFZeIUaJ8mrs5_bRmp9wUAFhF4qYbLcw7xeQ8tZI1OyVI-us8BI41Ng",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "美式加油站經營模擬器",
+        "en": "美式加油站經營模擬器",
+        "ja": "美式加油站經營模擬器",
+        "zh-tw": "美式加油站經營模擬器"
+      }
     }
   },
   "lastUpdated": "2026-11-02",
-  "totalGames": 9037
+  "totalGames": 9042
 }

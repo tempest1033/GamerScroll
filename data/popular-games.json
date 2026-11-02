@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T23:01:50.405Z",
+  "updatedAt": "2026-11-02T01:01:49.989Z",
   "period": "30days",
   "games": [
     {
@@ -11,23 +11,23 @@
       "views": 9
     },
     {
-      "slug": "제우스-오만의-신",
-      "views": 9
+      "slug": "barotrauma",
+      "views": 8
     },
     {
       "slug": "pixel-flow",
       "views": 8
     },
     {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
+      "slug": "sled-surfers-슬로프-어드벤처",
       "views": 8
     },
     {
-      "slug": "arrow-pro-3d",
+      "slug": "3d운전교실",
       "views": 7
     },
     {
-      "slug": "barotrauma",
+      "slug": "arrow-pro-3d",
       "views": 7
     },
     {
@@ -43,7 +43,11 @@
       "views": 7
     },
     {
-      "slug": "sled-surfers-슬로프-어드벤처",
+      "slug": "skate",
+      "views": 7
+    },
+    {
+      "slug": "snipers-duel",
       "views": 7
     },
     {
@@ -63,19 +67,15 @@
       "views": 7
     },
     {
-      "slug": "에이지-오브-엠파이어-모바일",
+      "slug": "배틀그라운드",
       "views": 7
     },
     {
-      "slug": "에이지-오브-제트-타워-디펜스",
+      "slug": "산너머-도원마을",
       "views": 7
     },
     {
-      "slug": "탈출-게임-암스테르담",
-      "views": 7
-    },
-    {
-      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "slug": "세포-특공대-전략형-타워-디펜스",
       "views": 7
     }
   ]
