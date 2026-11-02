@@ -154132,8 +154132,44 @@
         "ja": "美式加油站經營模擬器",
         "zh-tw": "美式加油站經營模擬器"
       }
+    },
+    "다크슬레이어X건버드2": {
+      "appIds": {
+        "ios": 6446265751
+      },
+      "aliases": [],
+      "developer": "studiobreeze",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/f4/f6/42f4f61e-8d2a-47f7-6d63-34faf187c62b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "다크슬레이어x건버드2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "다크슬레이어X건버드2",
+        "en": "DarkSlayer AFK RPG",
+        "ja": "ダークスレイヤーXガンバード2",
+        "zh-tw": "黑暗殺手X戰鳥2"
+      }
+    },
+    "果汁瓶瓶乐": {
+      "appIds": {
+        "ios_cn": 6801521772
+      },
+      "aliases": [],
+      "developer": "龙飞 刘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ab/ec/36/abec36e5-bf95-b949-5dbe-0870a379c470/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "果汁瓶瓶乐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "果汁瓶瓶乐",
+        "ja": "果汁瓶瓶乐",
+        "zh-cn": "果汁瓶瓶乐",
+        "zh-tw": "果汁瓶瓶乐"
+      }
     }
   },
   "lastUpdated": "2026-11-02",
-  "totalGames": 9042
+  "totalGames": 9044
 }

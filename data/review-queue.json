@@ -48266,6 +48266,17 @@
         }
       ],
       "addedAt": "2026-11-02T01:03:04.038Z"
+    },
+    {
+      "title": "다크슬레이어X건버드2",
+      "status": "single",
+      "appIds": {
+        "ios": 6446265751
+      },
+      "developer": "studiobreeze",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/f4/f6/42f4f61e-8d2a-47f7-6d63-34faf187c62b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-02T09:02:43.846Z"
     }
   ],
   "approved": [
