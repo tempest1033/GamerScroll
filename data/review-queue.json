@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48277,6 +48277,37 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/42/f4/f6/42f4f61e-8d2a-47f7-6d63-34faf187c62b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-02T09:02:43.846Z"
+    },
+    {
+      "title": "ARMSX2 (PS2 Emulator)",
+      "status": "single",
+      "appIds": {
+        "android": "come.nanodata.armsx2"
+      },
+      "developer": "ARMSX",
+      "icon": "https://play-lh.googleusercontent.com/DvGcNKCGM1S83Sr3V0gBV4g0ZqCmSPoC_fBN3CK4ZqPMrzHuSXb7tnkNkO4UluGIGkIUnB-zTKJIHZobpghd",
+      "searchResults": [
+        {
+          "title": "RTM-EMU : PS2 XB360 PS4 PS1",
+          "appId": 6756944097
+        },
+        {
+          "title": "GameX Emulator - PS2",
+          "appId": 6761678763
+        }
+      ],
+      "addedAt": "2026-11-02T21:03:09.097Z"
+    },
+    {
+      "title": "Escape Game: STARLIGHT ATM",
+      "status": "single",
+      "appIds": {
+        "android": "com.kingin.atm1"
+      },
+      "developer": "KinGin Studio",
+      "icon": "https://play-lh.googleusercontent.com/OqTOKUUWw0F4lfjhVFcYfVjXgkSG7G3ciZTbcyZj_hhK54fYD5tWH2R1EwDF1nGEh0xG8x3NXzHoT1F12GilFw",
+      "searchResults": [],
+      "addedAt": "2026-11-02T21:03:09.444Z"
     }
   ],
   "approved": [

@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154180,8 +154180,68 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ARMSX2 (PS2 Emulator)": {
+      "appIds": {
+        "android": "come.nanodata.armsx2"
+      },
+      "aliases": [],
+      "developer": "ARMSX",
+      "icon": "https://play-lh.googleusercontent.com/DvGcNKCGM1S83Sr3V0gBV4g0ZqCmSPoC_fBN3CK4ZqPMrzHuSXb7tnkNkO4UluGIGkIUnB-zTKJIHZobpghd",
+      "slug": "armsx2-ps2-emulator",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ARMSX2 (PS2 Emulator)",
+        "en": "ARMSX2 (PS2 Emulator)",
+        "ja": "ARMSX2 (PS2 Emulator)",
+        "zh-tw": "ARMSX2 (PS2 Emulator)"
+      }
+    },
+    "Escape Game: STARLIGHT ATM": {
+      "appIds": {
+        "android": "com.kingin.atm1"
+      },
+      "aliases": [],
+      "developer": "KinGin Studio",
+      "icon": "https://play-lh.googleusercontent.com/OqTOKUUWw0F4lfjhVFcYfVjXgkSG7G3ciZTbcyZj_hhK54fYD5tWH2R1EwDF1nGEh0xG8x3NXzHoT1F12GilFw",
+      "slug": "escape-game-starlight-atm",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Escape Game: STARLIGHT ATM",
+        "en": "Escape Game: STARLIGHT ATM",
+        "ja": "脱出ゲーム 星空ATM",
+        "zh-tw": "Escape Game: STARLIGHT ATM"
+      }
+    },
+    "Brotato: Primal Dread": {
+      "appIds": {
+        "steam": "4498220"
+      },
+      "aliases": [],
+      "developer": "Blobfish Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4498220/f468707436aa35c6e507eab1c3d89f347b6bedbf/capsule_231x87.jpg?t=1793640854",
+      "slug": "brotato-primal-dread",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Message From Aliens": {
+      "appIds": {
+        "steam": "1858720"
+      },
+      "aliases": [],
+      "developer": "Artless Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1858720/4eb11f4fc1cd86b537e5580a8b2bb755e282c59b/capsule_231x87.jpg?t=1793590725",
+      "slug": "message-from-aliens",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-03",
-  "totalGames": 9045
+  "totalGames": 9049
 }
