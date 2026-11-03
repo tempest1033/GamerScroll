@@ -1223,37 +1223,26 @@ Sitemap: ${ANALYSIS_SITEMAP_URL}
   // 언어판(/ko /ja /zh-cn /zh-tw) 트리는 미들웨어가 레거시 구간 검사 뒤 next()만 하고(www→bare 301은 2026-10-31부터 Cloudflare
   // Redirect Rule이 맡는다), 함수가 렌더하는 것은 게임 상세(/<언어>/games/<slug>/)뿐이다. 그래서 레거시 구간과 게임 상세를 뺀
   // 언어판 페이지(홈, 순위, 스팀, 트렌딩, 게임 DB 목록, 소개, 개인정보)를 제외한다. /<언어>/* 통째 제외는 게임 상세까지 삼키므로 금지.
-  const localeStatic = ['ko', 'ja', 'zh-cn', 'zh-tw'].flatMap((p) => [
-    `/${p}`, `/${p}/`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/*`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
-  ]);
   try {
-    const routes = {
-      version: 1,
-      include: ['/*'],
-      exclude: [
-        '/assets/*/*.*',
-        '/games-data/*',
-        '/images/*',
-        '/styles/*',
-        '/styles-*',
-        '/favicon*',
-        '/icon-*',
-        '/apple-touch-icon*',
-        '/og-image.png',
-        '/naver*',
-        '/sitemap*',
-        '/*.json',
-        '/*.css',
-        '/*.js',
-        '/*.txt',
-        '/*.map',
-        ...localeStatic
-      ]
-    };
+    const routes = require('./src/build/routing').routesJson();
     fs.writeFileSync(`${DOCS_DIR}/_routes.json`, JSON.stringify(routes, null, 2) + '\n', 'utf8');
     console.log('🧭 _routes.json 생성 완료');
   } catch (err) {
     console.warn('⚠️ _routes.json 생성 실패:', err.message);
+  }
+
+  // Localized rankings pages are excluded from Functions above, so removed genre/publisher/month pages of an edition cannot be
+  // redirected by the middleware: static Pages redirects (301) generated from the same per-edition plan do it instead.
+  try {
+    const plansFile = `${DOCS_DIR}/games-data/_pages.json`;
+    if (fs.existsSync(plansFile)) {
+      const prefixes = Object.fromEntries(require('./src/i18n').EDITIONS.map((e) => [e.code, e.prefix]));
+      const text = require('./src/build/routing').redirectsText(JSON.parse(fs.readFileSync(plansFile, 'utf8')), prefixes);
+      if (text) fs.writeFileSync(`${DOCS_DIR}/_redirects`, text, 'utf8');
+      console.log(`↪️ _redirects ${text ? text.trim().split('\n').length : 0}건 생성 (에디션별 미생성 마켓 페이지 301)`);
+    }
+  } catch (err) {
+    console.warn('⚠️ _redirects 생성 실패:', err.message);
   }
 
   // Service Worker 전체 생성 (template literal)

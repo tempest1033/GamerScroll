@@ -52,4 +52,27 @@ function serialize(plan) {
   return { genres: [...plan.genres], publisherHub: plan.publisherHub, publishers: [...plan.publishers], monthly: [...plan.monthly], records: plan.records };
 }
 
-module.exports = { isMarketPath, available, parentOf, nearestBuilt, builtSomewhere, serialize };
+// Static Pages redirect rules ("from to 301") for every localized URL that some edition builds and this one does not:
+// the localized rankings tree is excluded from Functions in _routes.json, so the middleware never sees these requests.
+// prefixes = { <edition code>: '/ko' | ... }; the unprefixed edition is served by the middleware and not listed.
+function redirectRules(plans, prefixes) {
+  const candidates = new Set(['/rankings/genres/', '/rankings/publishers/', '/rankings/monthly/', '/rankings/records/']);
+  for (const plan of Object.values(plans)) {
+    for (const id of plan.genres) candidates.add(`/rankings/genres/${id === 'all' ? '' : id + '/'}`);
+    for (const slug of plan.publishers) candidates.add(`/rankings/publishers/${slug}/`);
+    for (const mo of plan.monthly) candidates.add(`/rankings/monthly/${mo}/`);
+  }
+  const rules = new Set();
+  for (const [code, prefix] of Object.entries(prefixes)) {
+    if (!prefix || !plans[code]) continue;
+    for (const p of candidates) {
+      if (available(plans[code], p)) continue;
+      const to = prefix + nearestBuilt(plans[code], p);
+      rules.add(`${prefix}${p} ${to} 301`);
+      if (encodeURI(p) !== p) rules.add(`${prefix}${encodeURI(p)} ${to} 301`);
+    }
+  }
+  return [...rules].sort();
+}
+
+module.exports = { isMarketPath, available, parentOf, nearestBuilt, builtSomewhere, serialize, redirectRules };

@@ -14,7 +14,8 @@ const { onRequest } = await import(pathToFileURL(outfile).href);
 // zh-cn builds no 'idle' genre, no 'bilibili' publisher; ja builds both; 'zz' is built in ja only.
 const plan = (genres, publishers) => ({ genres: ['all', ...genres], publisherHub: true, publishers, monthly: ['2026-10'], records: true });
 const plans = { en: plan(['rpg', 'tcg', 'idle'], []), ja: plan(['rpg', 'idle', 'zz'], ['bilibili']), 'zh-cn': plan(['rpg'], []), ko: plan(['rpg', 'idle'], []), 'zh-tw': plan(['rpg'], []) };
-const ASSETS = { fetch: async (req) => (new URL(req.url).pathname === '/games-data/_pages.json' ? new Response(JSON.stringify(plans)) : new Response('nope', { status: 404 })) };
+let served = plans; // what /games-data/_pages.json currently returns (null = missing)
+const ASSETS = { fetch: async (req) => (served && new URL(req.url).pathname === '/games-data/_pages.json' ? new Response(JSON.stringify(served)) : new Response('nope', { status: 404 })) };
 
 async function visit(pathname, { country = '', ua = 'Mozilla/5.0', cookie = '' } = {}) {
   const headers = { host: 'gamerscroll.com', 'CF-IPCountry': country, 'User-Agent': ua };
@@ -40,3 +41,22 @@ test('removed market pages 301 to the edition\'s nearest built parent; unknown U
 });
 
 
+
+test('the plan is re-read after the TTL; a failed refresh keeps the last good plan', async () => {
+  const realNow = Date.now;
+  try {
+    const t0 = realNow();
+    const updated = { ...plans, 'zh-cn': plan(['rpg', 'idle'], []) };
+    served = updated;
+    Date.now = () => t0 + 60 * 1000; // within the TTL: cached plan still applies
+    assert.equal((await visit('/zh-cn/rankings/genres/idle/')).status, 301);
+    Date.now = () => t0 + 10 * 60 * 1000; // past the TTL: the new plan is picked up
+    assert.equal((await visit('/zh-cn/rankings/genres/idle/')).status, 200);
+    served = null; // file missing during a later refresh
+    Date.now = () => t0 + 20 * 60 * 1000;
+    assert.equal((await visit('/zh-cn/rankings/genres/idle/')).status, 200);
+    assert.equal((await visit('/zh-cn/rankings/genres/zz/')).status, 301);
+  } finally {
+    Date.now = realNow;
+  }
+});

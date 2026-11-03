@@ -4,23 +4,33 @@
 import marketPlan from "./_lib/market-plan.js";
 
 let aiscrollArticleIndexPromise = null;
-let marketPlansPromise = null;
+const MARKET_PLANS_TTL_MS = 5 * 60 * 1000;
+let marketPlans = null;
+let marketPlansAt = 0;
+let marketPlansLoading = null;
 
 // Per-edition market page plan written by the build (docs/games-data/_pages.json). null = unavailable (routing then ignores it).
+// Re-read after a short TTL so a stale plan, or a deploy that was briefly missing the file, recovers without a new isolate;
+// a failed refresh keeps the last good plan.
 async function loadMarketPlans(context, url) {
-  if (!marketPlansPromise) {
-    marketPlansPromise = (async () => {
+  if (marketPlans && Date.now() - marketPlansAt < MARKET_PLANS_TTL_MS) return marketPlans;
+  if (!marketPlansLoading) {
+    marketPlansLoading = (async () => {
       try {
         const res = await context.env.ASSETS.fetch(new Request(new URL("/games-data/_pages.json", url)));
-        return res.ok ? await res.json() : null;
+        if (res.ok) {
+          marketPlans = await res.json();
+          marketPlansAt = Date.now();
+        }
       } catch {
-        return null;
+        // keep the previous plan
+      } finally {
+        marketPlansLoading = null;
       }
     })();
   }
-  const plans = await marketPlansPromise;
-  if (!plans) marketPlansPromise = null;
-  return plans;
+  await marketPlansLoading;
+  return marketPlans;
 }
 
 // Path (without edition prefix) of the page in an edition: itself, or its nearest built parent when the edition does not build it.
