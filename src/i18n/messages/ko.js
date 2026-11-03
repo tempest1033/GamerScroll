@@ -85,7 +85,7 @@ module.exports = {
   "genres.mobile_game_revenue_rankings_top": "{p0} 모바일 게임 매출 순위 TOP {p1} ({date}) | 게이머스크롤",
   "genres.monthly_combined_basis": "월간 통합 기준",
   "genres.monthly_top_10": "{latestMonth} {label} 월간 TOP 10",
-  "genres.rankings_of_games_in_the": "{date} 한국 앱스토어·구글플레이 매출 TOP 200 중 {label} 게임 {p2}개의 순위{p3}{p4}. {latestMonth} 월간 TOP 10과 전체 매출 순위를 함께 제공합니다.",
+  "genres.rankings_of_games_in_the": "{date} {cname} 앱스토어·구글플레이 매출 TOP 200 중 {label} 게임 {p2}개의 순위{p3}{p4}. {latestMonth} 월간 TOP 10과 전체 매출 순위를 함께 제공합니다.",
   "genres.theme_style": "테마·방식",
   "genres.there_are_no_monthly_ranking": "<tr><td colspan=\"5\">이 분류의 월간 순위 기록이 없습니다.</td></tr>",
   "head.daily_records_and_analysis_of": "앱스토어·구글플레이·스팀 게임 순위를 매일 기록하고 분석합니다. 매출 순위, 동접자, 월간·글로벌 통합 순위와 게임별 순위 추이.",

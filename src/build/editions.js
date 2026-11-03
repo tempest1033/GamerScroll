@@ -144,6 +144,13 @@ function buildEditions(ctx) {
   const homeDate = [rankDate, steamDate].filter(Boolean).sort().pop() || null;
   const steamGameDate = (id) => lastDate(steamStats.days.filter((d) => steamStats.ccuOf(d, id) != null || steamStats.sellOf(d, id) != null));
 
+  // Per-edition market plan, known before any page renders so hreflang and in-page links only name pages that get built.
+  const plans = rankStats ? Object.fromEntries(i18n.EDITIONS.map((e) => {
+    i18n.setEdition(e.code);
+    return [e.code, require('../templates/pages/rank-hub').marketPages(rankStats, e.country)];
+  })) : {};
+  i18n.setPageAvailability(rankStats ? require('../templates/pages/rank-hub').marketAvailability(plans) : null);
+
   for (const edition of i18n.EDITIONS) {
     const started = Date.now();
     i18n.setEdition(edition.code);
@@ -227,19 +234,22 @@ function buildEditions(ctx) {
       }
       sub('free', hub.renderRankingsHub(home, 'free'));
       sub('subculture', hub.renderSubculture('kr'));
-      sub('genres', hub.renderGenre('all'));
-      const categories = require('../rank/genres').loadGenres().categories;
-      for (const category of categories) sub(`genres/${category.id}`, hub.renderGenre(category.id));
+      // Genre, publisher, records and monthly pages show the edition's home market; a page the market has no data for is not built.
+      const plan = plans[edition.code];
+      const categories = require('../rank/genres').loadGenres().categories.filter((c) => plan.genres.has(c.id));
+      if (plan.genres.has('all')) sub('genres', hub.renderGenre('all', home));
+      for (const category of categories) sub(`genres/${category.id}`, hub.renderGenre(category.id, home));
       sub('global', hub.renderGlobal());
       sub('about', hub.renderAbout());
-      sub('publishers', hub.renderPublishers('kr'));
-      const pubs = hub.publisherPages(hub.publisherIndex(S, 'kr'));
-      for (const p of pubs) sub(`publishers/${p.slug}`, hub.renderPublisher(p, 'kr'));
+      if (plan.publisherHub) sub('publishers', hub.renderPublishers(home));
+      const pubs = hub.publisherPages(hub.publisherIndex(S, home));
+      for (const p of pubs) sub(`publishers/${p.slug}`, hub.renderPublisher(p, home));
       removeOrphanDirs(path.join(outDir, 'rankings', 'publishers'), new Set(pubs.map((p) => p.slug)), () => true, `${edition.code}/rankings/publishers`);
       removeOrphanDirs(path.join(outDir, 'rankings', 'genres'), new Set(categories.map((c) => c.id)), () => true, `${edition.code}/rankings/genres`);
-      sub('records', hub.renderRecords('kr'));
-      for (const mo of S.builtMonths) {
-        const html = hub.renderMonthly(mo, 'kr');
+      removeOrphanDirs(path.join(outDir, 'rankings', 'monthly'), plan.monthly, (name) => /^\d{4}-\d{2}$/.test(name), `${edition.code}/rankings/monthly`);
+      if (plan.records) sub('records', hub.renderRecords(home));
+      for (const mo of plan.monthly) {
+        const html = hub.renderMonthly(mo, home);
         if (html) sub(`monthly/${mo}`, html, undefined, lastDate(S.daysIn(mo)));
       }
       // /rankings/monthly/ used to be a 404 → redirect page to the latest month (noindex, not in the sitemap)
@@ -289,7 +299,7 @@ function writeSitemaps(docsDir, results) {
   for (const r of results) {
     const entries = r.sitemap.map((e) => {
       const alt = (code) => xmlEscape(encodeURI(i18n.absoluteUrl(code, i18n.alternatePath(code, e.path, r.code))));
-      const alternates = [...i18n.EDITIONS.map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${alt(x.code)}"/>`), `    <xhtml:link rel="alternate" hreflang="x-default" href="${alt('en')}"/>`].join('\n');
+      const alternates = [...i18n.EDITIONS.filter((x) => i18n.editionHasPage(x.code, e.path)).map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${alt(x.code)}"/>`), ...(i18n.editionHasPage('en', e.path) ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${alt('en')}"/>`] : [])].join('\n');
       return `  <url>\n    <loc>${xmlEscape(encodeURI(e.loc))}</loc>${lastmodTag(e.lastmod)}\n    <priority>${e.priority}</priority>\n${alternates}\n  </url>`;
     }).join('\n');
     const name = `sitemap-${r.code}.xml`;

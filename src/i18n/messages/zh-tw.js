@@ -85,7 +85,7 @@ module.exports = {
   "genres.mobile_game_revenue_rankings_top": "{p0}手機遊戲營收排行 TOP {p1}（{date}）| GamerScroll",
   "genres.monthly_combined_basis": "月度綜合基準",
   "genres.monthly_top_10": "{latestMonth} {label}月榜 TOP 10",
-  "genres.rankings_of_games_in_the": "{date} 韓國 App Store 與 Google Play 營收 TOP 200 中，{label}遊戲 {p2} 款的排行{p3}{p4}。並提供 {latestMonth} 榜單 TOP 10 與完整營收排行。",
+  "genres.rankings_of_games_in_the": "{date} {cname} App Store 與 Google Play 營收 TOP 200 中，{label}遊戲 {p2} 款的排行{p3}{p4}。並提供 {latestMonth} 榜單 TOP 10 與完整營收排行。",
   "genres.theme_style": "題材 · 風格",
   "genres.there_are_no_monthly_ranking": "<tr><td colspan=\"5\">此類別尚無月榜紀錄。</td></tr>",
   "head.daily_records_and_analysis_of": "每日記錄與分析 App Store、Google Play 與 Steam 的遊戲排行。提供營收排行、同時在線人數、每月與全球綜合排行，以及各遊戲的排名走勢。",

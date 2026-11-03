@@ -62,7 +62,8 @@ const HSCROLL_SCRIPT = `<script>(function(){var n=document.currentScript.previou
 // 순위 종류: 한 줄 칩 메뉴.
 // '산출 방법'은 순위 종류가 아니라 설명 페이지라 메뉴에서 뺐다 (2026-09-28). 푸터·사이트 소개에서 연결된다.
 function subnav(S, active) {
-  const item = (id, href, label) => `<a class="${active === id ? 'active' : ''}"${active === id ? ' aria-current="page"' : ''} href="${href}">${label}</a>`;
+  const i18n = require('../../i18n');
+  const item = (id, href, label) => !i18n.editionHasPage(i18n.currentEdition().code, href) ? '' : `<a class="${active === id ? 'active' : ''}"${active === id ? ' aria-current="page"' : ''} href="${href}">${label}</a>`;
   return `<nav class="rk-subnav rk-kinds rk-hscroll" aria-label="${tt('rank.ranking_types')}">${item('rank', '/rankings/', tt('est.revenue'))}${item('free', '/rankings/free/', tt('layout.popular_free'))}${item('genres', '/rankings/genres/', tt('layout.rankings_by_genre'))}${item('monthly', `/rankings/monthly/${S.latestMonth}/`, tt('rank.monthly'))}${item('global', '/rankings/global/', tt('layout.global'))}${item('records', '/rankings/records/', tt('layout.annual_records'))}${item('pub', '/rankings/publishers/', tt('layout.publishers'))}</nav>
 ${HSCROLL_SCRIPT}`;
 }
@@ -286,7 +287,7 @@ function renderMonthly(month, country = 'kr') {
   const S = loadRankStats();
   const C = makeCtx(S);
   const cur = S.monthStats(month, country);
-  if (!cur) return null;
+  if (!cur || !cur.list.length) return null;
   const [y, m] = month.split('-').map(Number);
   const prevMonth = `${m === 1 ? y - 1 : y}-${String(m === 1 ? 12 : m - 1).padStart(2, '0')}`;
   const prev = S.monthStats(prevMonth, country);
@@ -319,7 +320,7 @@ function renderMonthly(month, country = 'kr') {
 <div><dt>${tt('rank.most_days_at_1_on')}</dt><dd>${ones[0] ? `<strong data-name>${nameA(ones[0])}</strong><span>${tt('rank.days_8', { ones: ones[0].ones })}</span>` : tt('rank.no_record_at_1')}</dd></div>
 </dl></aside>`;
 
-  const monthLinks = S.builtMonths;
+  const monthLinks = S.builtMonths.filter((mo) => require('../../i18n').editionHasPage(require('../../i18n').currentEdition().code, `/rankings/monthly/${mo}/`));
   const lead = `${tt('rank.monthly_combined_ranking_for_in', { y, m, p2: COUNTRIES[country], p3: nameA(top), p4: cur.list[1] ? nameA(cur.list[1]) : '-', p5: cur.list[2] ? nameA(cur.list[2]) : '-', n: cur.n, length: cur.list.filter((a) => a.rank <= 100 && !prevRank.has(a.key)).length })}`;
   const body = `<div class="rk-head"><h1>${tt('rank.game_revenue_rankings_2', { y, m })}</h1></div>
 ${subnav(S, 'monthly')}
@@ -388,7 +389,7 @@ function renderRecords(country = 'kr') {
   }).join('');
   const debuts = all.filter((a) => a.debut != null).sort((x, y) => x.debut - y.debut).slice(0, 8);
   const debutsT = debuts.length ? t(tt('rank.first_recorded_rank_this_year'), tt('rank.app_store_based_on_first'), tt('rank.first_rank_first_recorded_current'), debuts.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, 'ios')}</td><td class="c"><b>${tt('rank.debut_rank_number', { debut: a.debut })}</b></td><td class="c">${formatDay(a.debutDay)}</td><td class="c">${S.rankOf(today, country, 'ios', a.row.appId) ?? tt('rank.out_of_chart')}</td></tr>`).join(''), 'rk-mh-4') : '';
-  const crownT = `<div class="rk-card"><h2>${tt('rank.monthly_top_3')} <small>${tt('rank.app_store_cumulative_points')}</small></h2><div class="rk-record-scroll"><table class="rk-table rk-month-top3"><thead><tr><th>${tt('rank.month')}</th><th>${tt('rank.1')}</th><th>${tt('rank.2')}</th><th>${tt('rank.3')}</th></tr></thead><tbody>${crown.slice().reverse().map(mo => `<tr><td>${S.builtMonths.includes(mo.mo) ? `<a href="/rankings/monthly/${mo.mo}/">${formatYearMonth(mo.mo)}</a>` : formatYearMonth(mo.mo)}</td>${[0, 1, 2].map(i => `<td>${mo.top[i] ? `${C.appCell(mo.top[i].row, 'ios')}<small class="rk-dim">${tt('rank.pts', { p0: mo.top[i].pts.toLocaleString(require('../../i18n').currentEdition().intl) })}</small>` : tt('chart.no_record')}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`;
+  const crownT = `<div class="rk-card"><h2>${tt('rank.monthly_top_3')} <small>${tt('rank.app_store_cumulative_points')}</small></h2><div class="rk-record-scroll"><table class="rk-table rk-month-top3"><thead><tr><th>${tt('rank.month')}</th><th>${tt('rank.1')}</th><th>${tt('rank.2')}</th><th>${tt('rank.3')}</th></tr></thead><tbody>${crown.slice().reverse().map(mo => `<tr><td>${S.builtMonths.includes(mo.mo) && require('../../i18n').editionHasPage(require('../../i18n').currentEdition().code, `/rankings/monthly/${mo.mo}/`) ? `<a href="/rankings/monthly/${mo.mo}/">${formatYearMonth(mo.mo)}</a>` : formatYearMonth(mo.mo)}</td>${[0, 1, 2].map(i => `<td>${mo.top[i] ? `${C.appCell(mo.top[i].row, 'ios')}<small class="rk-dim">${tt('rank.pts', { p0: mo.top[i].pts.toLocaleString(require('../../i18n').currentEdition().intl) })}</small>` : tt('chart.no_record')}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`;
   const longest = all.slice().sort((x, y) => y.bestStreak - x.bestStreak)[0];
   const rec = (label, a, val) => (a ? C.tick(label, a.row, 'ios', val) : '');
   const ticker = `<div class="rk-ticker">${rec(tt('rank.most_days_at_1'), ones[0], `<span class="rk-chg same">${tt('rank.days_4', { p0: ones[0] ? ones[0].ones : 0 })}</span>`)}${rec(tt('rank.longest_1_streak'), longest, `<span class="rk-chg same">${tt('rank.days_4', { p0: longest ? longest.bestStreak : 0 })}</span>`)}${rec(tt('rank.most_cumulative_points'), pts[0], `<span class="rk-chg same">${pts[0] ? pts[0].pts.toLocaleString(require('../../i18n').currentEdition().intl) : ''}</span>`)}</div>`;
@@ -415,6 +416,33 @@ ${debutsT}`;
 const PUB_PAGE_MIN_GAMES = 2;
 const PUB_PAGE_MAX = 80;
 function publisherPages(list) { return list.filter((p) => p.games.size >= PUB_PAGE_MIN_GAMES).slice(0, PUB_PAGE_MAX); }
+// What a market can publish: the genre/publisher/monthly/records pages that have data for it (the build's single plan).
+function marketPages(S, country) {
+  const pubList = publisherIndex(S, country);
+  const year = S.today.date.slice(0, 4);
+  return {
+    genres: new Set(require('./genres').genreIdsWithData(country, S)),
+    publisherHub: pubList.length > 0,
+    publishers: new Set(publisherPages(pubList).map((p) => p.slug)),
+    monthly: new Set(S.builtMonths.filter((mo) => { const ms = S.monthStats(mo, country); return ms && ms.list.length > 0; })),
+    records: require('../../rank/annual-records').annualRecords(S.days, country, 'ios', year).all.length > 0,
+  };
+}
+// i18n page-availability predicate over the plans { <edition code>: marketPages }.
+function marketAvailability(plans) {
+  return (code, p) => {
+    const plan = plans[code];
+    let m;
+    if (!plan) return true;
+    if (p === '/rankings/genres/') return plan.genres.has('all');
+    if ((m = /^\/rankings\/genres\/([^/]+)\/$/.exec(p))) return plan.genres.has(decodeURIComponent(m[1]));
+    if (p === '/rankings/publishers/') return plan.publisherHub;
+    if ((m = /^\/rankings\/publishers\/([^/]+)\/$/.exec(p))) return plan.publishers.has(decodeURIComponent(m[1]));
+    if ((m = /^\/rankings\/monthly\/(\d{4}-\d{2})\/$/.exec(p))) return plan.monthly.has(m[1]);
+    if (p === '/rankings/records/') return plan.records;
+    return true;
+  };
+}
 function publisherPageSet(list) { return new Set(publisherPages(list).map((p) => p.slug)); }
 function renderPublishers(country = 'kr') {
   const S = loadRankStats();
@@ -632,4 +660,4 @@ function renderGameRankSummary(gameInfo, slug) {
   return require('../helpers/game-rank-summary').renderGameRankSummary(rank, summaryMeta(S), gameInfo.key || gameInfo.name || slug, homeCountry());
 }
 
-module.exports = { renderTrending, renderRankingsHub, renderSubculture: () => require('./genres').renderGenre('subculture'), renderGenre: id => require('./genres').renderGenre(id), renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };
+module.exports = { renderTrending, renderRankingsHub, renderSubculture: () => require('./genres').renderGenre('subculture'), renderGenre: (id, country = 'kr') => require('./genres').renderGenre(id, country), marketPages, marketAvailability, renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };

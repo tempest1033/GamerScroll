@@ -85,7 +85,7 @@ module.exports = {
   "genres.mobile_game_revenue_rankings_top": "{p0} Mobile Game Revenue Rankings TOP {p1} ({date}) | GamerScroll",
   "genres.monthly_combined_basis": "Monthly combined basis",
   "genres.monthly_top_10": "{latestMonth} {label} monthly TOP 10",
-  "genres.rankings_of_games_in_the": "Rankings of {p2} {label} games in the {date} Korea App Store and Google Play revenue TOP 200{p3}{p4}. Includes the {latestMonth} monthly TOP 10 and the full revenue ranking.",
+  "genres.rankings_of_games_in_the": "Rankings of {p2} {label} games in the {date} {cname} App Store and Google Play revenue TOP 200{p3}{p4}. Includes the {latestMonth} monthly TOP 10 and the full revenue ranking.",
   "genres.theme_style": "Theme · style",
   "genres.there_are_no_monthly_ranking": "<tr><td colspan=\"5\">There are no monthly ranking records for this category.</td></tr>",
   "head.daily_records_and_analysis_of": "Daily records and analysis of App Store, Google Play and Steam game rankings. Revenue rankings, concurrent players, monthly and global combined rankings, and per-game ranking trends.",

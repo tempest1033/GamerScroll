@@ -103,6 +103,13 @@ function alternatePath(targetCode, pathname, sourceCode) {
   return target && target.country === country ? `/${m[1]}/` : `/${m[1]}/${country}/`;
 }
 
+// Market pages (genres, publishers, monthly, records) are built per edition from its home market, so a page may exist in
+// some editions only. The build registers a predicate (code, pathname) → boolean; hreflang, sitemaps and in-page links
+// use editionHasPage so they only name built pages. Without a predicate every page exists.
+let pageAvailability = null;
+function setPageAvailability(fn) { pageAvailability = fn; }
+function editionHasPage(code, pathname) { return !pageAvailability || pageAvailability(code, stripEditionPrefix(pathname)) !== false; }
+
 function absoluteUrl(code, pathname) {
   return SITE_ORIGIN + editionPath(code, pathname);
 }
@@ -202,6 +209,8 @@ const formatTime = (ts) => formatStamp(ts, { hour: 'numeric', minute: '2-digit' 
 
 module.exports = {
   alternatePath,
+  setPageAvailability,
+  editionHasPage,
   formatDay,
   formatMonthDay,
   formatYearMonth,

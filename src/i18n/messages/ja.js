@@ -85,7 +85,7 @@ module.exports = {
   "genres.mobile_game_revenue_rankings_top": "{p0}モバイルゲーム売上ランキング TOP {p1}（{date}） | GamerScroll",
   "genres.monthly_combined_basis": "月間総合基準",
   "genres.monthly_top_10": "{latestMonth} {label} 月間TOP 10",
-  "genres.rankings_of_games_in_the": "{date}時点の韓国App Store・Google Play売上TOP 200に入っている{label}ゲーム{p2}タイトルのランキング{p3}{p4}。{latestMonth}の月間TOP 10と売上ランキング全体を掲載しています。",
+  "genres.rankings_of_games_in_the": "{date}時点の{cname}App Store・Google Play売上TOP 200に入っている{label}ゲーム{p2}タイトルのランキング{p3}{p4}。{latestMonth}の月間TOP 10と売上ランキング全体を掲載しています。",
   "genres.theme_style": "テーマ・スタイル",
   "genres.there_are_no_monthly_ranking": "<tr><td colspan=\"5\">このカテゴリの月間ランキング記録はありません。</td></tr>",
   "head.daily_records_and_analysis_of": "App Store・Google Play・Steamのゲームランキングを毎日記録・分析。売上ランキング、同時接続者数、月間・グローバル総合ランキング、ゲーム別ランキング推移をチェックできます。",

@@ -85,7 +85,7 @@ module.exports = {
   "genres.mobile_game_revenue_rankings_top": "{p0}手游畅销榜 TOP {p1}（{date}）| GamerScroll",
   "genres.monthly_combined_basis": "按月度综合排名计算",
   "genres.monthly_top_10": "{latestMonth} {label}月榜 TOP 10",
-  "genres.rankings_of_games_in_the": "{date} 韩国 App Store 和 Google Play 畅销榜 TOP 200 中{p2}款{label}游戏的排名{p3}{p4}。包含{latestMonth}榜单 TOP 10 和完整畅销榜。",
+  "genres.rankings_of_games_in_the": "{date} {cname} App Store 和 Google Play 畅销榜 TOP 200 中{p2}款{label}游戏的排名{p3}{p4}。包含{latestMonth}榜单 TOP 10 和完整畅销榜。",
   "genres.theme_style": "题材 · 风格",
   "genres.there_are_no_monthly_ranking": "<tr><td colspan=\"5\">该分类暂无月度排名记录。</td></tr>",
   "head.daily_records_and_analysis_of": "每日记录并分析 App Store、Google Play 和 Steam 的游戏排行榜。涵盖畅销榜、同时在线人数、月度与全球综合榜单，以及每款游戏的排名走势。",

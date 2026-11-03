@@ -5,7 +5,14 @@
  * (en, ja, zh-cn, ko, zh-tw — contract order). Each option is a plain link to the same page in that
  * edition; the runtime script stores the choice in the gs_locale cookie before navigating.
  */
-const { EDITIONS, currentEdition, editionPath, RAW_LINK_MARK, t } = require('../../i18n');
+const { EDITIONS, currentEdition, editionPath, editionHasPage, stripEditionPrefix, RAW_LINK_MARK, t } = require('../../i18n');
+
+// Same page in the target edition; when that edition does not build it (market without data) its nearest built parent page.
+function selectorPath(code, path) {
+  let p = stripEditionPrefix(path);
+  while (p !== '/' && !editionHasPage(code, p)) p = p.replace(/[^/]+\/$/, '');
+  return p;
+}
 
 // Edition labels are the native country names (한국, 日本, ...): marked data-name like other proper names.
 // Small inline flags (flag emoji render as letters on Windows). Simplified artwork at 18x12.
@@ -35,7 +42,7 @@ const editionSelectorStyle = `
 
 function renderEditionSelector({ path = '/', variant = '' } = {}) {
   const current = currentEdition();
-  const items = EDITIONS.map((e) => `<li><a href="${RAW_LINK_MARK}${editionPath(e.code, path)}" data-edition-link data-edition="${e.code}" data-prefix="${e.prefix}" lang="${e.htmlLang}" hreflang="${e.hreflang}"${e.code === current.code ? ' aria-current="true"' : ''}>${FLAGS[e.flag]}<span data-name>${e.label}</span></a></li>`).join('');
+  const items = EDITIONS.map((e) => `<li><a href="${RAW_LINK_MARK}${editionPath(e.code, selectorPath(e.code, path))}" data-edition-link data-edition="${e.code}"${selectorPath(e.code, path) !== stripEditionPrefix(path) ? ` data-path="${selectorPath(e.code, path)}"` : ''} data-prefix="${e.prefix}" lang="${e.htmlLang}" hreflang="${e.hreflang}"${e.code === current.code ? ' aria-current="true"' : ''}>${FLAGS[e.flag]}<span data-name>${e.label}</span></a></li>`).join('');
   // Mobile variant: compact flag + short country code (US/JP/CN/KR/TW); full labels stay in the dropdown.
   const currentText = variant === 'mobile' ? `<span class="gs-lang-code">${current.flag.toUpperCase()}</span>` : `<span class="gs-lang-label" data-name>${current.label}</span>`;
   return `<div class="gs-lang${variant ? ` gs-lang-${variant}` : ''}" data-edition-selector>
@@ -61,7 +68,7 @@ const editionSelectorScript = `<script>
     var link = event.target.closest && event.target.closest('[data-edition-link]');
     if (link) {
       event.preventDefault();
-      var path = location.pathname.replace(PREFIX_RE, '') || '/';
+      var path = link.getAttribute('data-path') || location.pathname.replace(PREFIX_RE, '') || '/';
       var target = (link.getAttribute('data-prefix') || '') + path + location.search + location.hash;
       document.cookie = 'gs_locale=' + link.getAttribute('data-edition') + '; Path=/; Max-Age=31536000; SameSite=Lax; Secure';
       location.href = target;
