@@ -28,6 +28,7 @@ const pubKey = (name) => String(name || '').toLowerCase().replace(/\b(corp|corpo
 const tsText = (ts) => formatDateTime(ts);
 const tsTime = (ts) => formatTime(ts);
 
+const MONTH_PAGE_MIN_DAYS = 7;
 let cached = null;
 
 function loadRankStats(options = {}) {
@@ -122,7 +123,9 @@ function loadRankStats(options = {}) {
   const daysIn = (mo) => days.filter((d) => d.date.startsWith(mo));
   // 최신 "완성" 월: 15일 이상 집계된 마지막 달 (월초에는 전월)
   const fullMonths = months.filter((mo) => daysIn(mo).length >= 15);
-  const latestMonth = fullMonths[fullMonths.length - 1] || months[months.length - 1];
+  // Months that get a /rankings/monthly/<month>/ page; every link to a monthly page must use this list.
+  const builtMonths = months.filter((mo) => daysIn(mo).length >= MONTH_PAGE_MIN_DAYS);
+  const latestMonth = fullMonths[fullMonths.length - 1] || builtMonths[builtMonths.length - 1] || months[months.length - 1];
 
   // ---------- 시간별 아카이브 (가장 최근 날) ----------
   let hourly = null;
@@ -262,7 +265,7 @@ function loadRankStats(options = {}) {
 
   cached = {
     COUNTRIES, STORES, games, byApp, bySlug, byTitle, isSub,
-    days, today, yday, months, latestMonth, daysIn, hourly, hourlyRanks,
+    days, today, yday, months, builtMonths, latestMonth, daysIn, hourly, hourlyRanks,
     rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf, displayName,
     allTimeBest, daysOnChart, streakAtOne, firstSeen, gameFirstSeen,
     movers, debutRows, monthStats, monthlyAvg, aggregateGlobal, allTimeStats,

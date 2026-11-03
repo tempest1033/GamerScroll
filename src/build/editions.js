@@ -238,8 +238,7 @@ function buildEditions(ctx) {
       removeOrphanDirs(path.join(outDir, 'rankings', 'publishers'), new Set(pubs.map((p) => p.slug)), () => true, `${edition.code}/rankings/publishers`);
       removeOrphanDirs(path.join(outDir, 'rankings', 'genres'), new Set(categories.map((c) => c.id)), () => true, `${edition.code}/rankings/genres`);
       sub('records', hub.renderRecords('kr'));
-      for (const mo of S.months) {
-        if (S.daysIn(mo).length < 7) continue;
+      for (const mo of S.builtMonths) {
         const html = hub.renderMonthly(mo, 'kr');
         if (html) sub(`monthly/${mo}`, html, undefined, lastDate(S.daysIn(mo)));
       }
