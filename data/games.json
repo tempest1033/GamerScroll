@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -71875,14 +71875,18 @@
     },
     "Water Power!": {
       "appIds": {
-        "ios": "1659387585"
+        "ios": 1659387585,
+        "android": "com.mountaincreekgames.waterpower"
       },
-      "aliases": [],
+      "aliases": [
+        "Water Power"
+      ],
       "developer": "Voodoo",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/97/30/709730f6-41f1-0cf8-7f98-8e3f48c94b66/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "water-power",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Water Power!",
@@ -154465,8 +154469,138 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Path Walker: 자동전투 로그라이크 RPG": {
+      "appIds": {
+        "android": "net.ekgames.pathwalker"
+      },
+      "aliases": [],
+      "developer": "EKGAMES",
+      "icon": "https://play-lh.googleusercontent.com/fOC1d5vM4sYiDvhhHAZXhB8q2O_L4pg_EZ1Io_uaB6NjhnQ7Yv6A0ONNFw2T3NtNMOD6FYcleI4Kbv4LB37pJ1k",
+      "slug": "path-walker-자동전투-로그라이크-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Path Walker: 자동전투 로그라이크 RPG",
+        "en": "Path Walker: Roguelike RPG",
+        "ja": "PathWalker: 自動バトル ローグライクRPG",
+        "zh-tw": "PathWalker: 自動戰鬥肉鴿RPG"
+      }
+    },
+    "운빨해적단": {
+      "appIds": {
+        "android": "com.STUCKPIXEL.NOC",
+        "ios": 6754063550
+      },
+      "aliases": [],
+      "developer": "STUCKPIXEL",
+      "icon": "https://play-lh.googleusercontent.com/XZnKqJwd71xDuzaxQhjAe9-17jfcBYowunzgJgIZaSHG1tFUDRmlPKB4UMsJK9frntLTsXobglDd8CH_QZjcIg",
+      "slug": "운빨해적단",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "운빨해적단",
+        "en": "Lucky Pirates - Ahoy",
+        "ja": "Lucky Pirates - Ahoy",
+        "zh-tw": "Lucky Pirates - Ahoy"
+      }
+    },
+    "ディズニー スパークリンク・スターズ": {
+      "appIds": {
+        "ios_jp": 6760274605
+      },
+      "aliases": [],
+      "developer": "coly Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c5/d1/d2/c5d1d2a9-aca4-7b59-73ce-d04b2ef567b1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ディズニー-スパークリンクスターズ",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ディズニー スパークリンク・スターズ"
+      }
+    },
+    "誰ガ為のアルケミスト ポートマスターズ": {
+      "appIds": {
+        "ios_jp": 6781944992
+      },
+      "aliases": [],
+      "developer": "KMS INC.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/73/57/8f73573b-6524-8e0e-b307-4b09fd70ea97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "誰ガ為のアルケミスト-ポートマスターズ",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "誰ガ為のアルケミスト ポートマスターズ"
+      }
+    },
+    "一路生金": {
+      "appIds": {
+        "ios": 6803427539
+      },
+      "aliases": [],
+      "developer": "思晴 魏",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/ef/6a/06ef6a42-e10d-bf6e-c152-cf3185f4155d/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "一路生金",
+        "en": "一路生金",
+        "ja": "一路生金",
+        "zh-cn": "一路生金",
+        "zh-tw": "一路生金"
+      }
+    },
+    "魔導書の騎士": {
+      "appIds": {
+        "ios_tw": 6825271961
+      },
+      "aliases": [],
+      "developer": "Guiyang Xiawan Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5a/43/b9/5a43b955-21b1-0ead-1002-88ba32cf2025/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "魔導書の騎士",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "魔導書の騎士"
+      }
+    },
+    "Ultraman Legend of Heroes 2": {
+      "appIds": {
+        "android": "com.joymore.atmlegend2"
+      },
+      "aliases": [],
+      "developer": "JoyMore GAME",
+      "icon": "https://play-lh.googleusercontent.com/rMOKFcDgoEPSifUkewjva4Unx5CalaWCBbX0W4jk4RUP7qA_gYr0ZmL0PLlQHcWAnK0YBPrK_ud4Lne5OPMJTQ",
+      "slug": "ultraman-legend-of-heroes-2",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Ultraman Legend of Heroes 2",
+        "zh-tw": "超人力霸王：傳奇英雄2"
+      }
+    },
+    "Echoes of Central Park DLC - Tom Clancy’s The Division 2": {
+      "appIds": {
+        "steam": "5109260"
+      },
+      "aliases": [],
+      "developer": "Ubisoft",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5109260/b5d7bb04988603a0027d03b282bbccbd21a9d116/capsule_231x87.jpg?t=1793696705",
+      "slug": "echoes-of-central-park-dlc-tom-clancys-the-division-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-04",
-  "totalGames": 9064
+  "totalGames": 9072
 }

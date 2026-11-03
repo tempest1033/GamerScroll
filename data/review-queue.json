@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48417,6 +48417,91 @@
         }
       ],
       "addedAt": "2026-11-03T19:04:31.869Z"
+    },
+    {
+      "title": "Path Walker: 자동전투 로그라이크 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "net.ekgames.pathwalker"
+      },
+      "developer": "EKGAMES",
+      "icon": "https://play-lh.googleusercontent.com/fOC1d5vM4sYiDvhhHAZXhB8q2O_L4pg_EZ1Io_uaB6NjhnQ7Yv6A0ONNFw2T3NtNMOD6FYcleI4Kbv4LB37pJ1k",
+      "searchResults": [
+        {
+          "title": "킹갓캐슬: 빛의 운명",
+          "appId": 1526791430
+        },
+        {
+          "title": "매직 디펜스: TD",
+          "appId": 6475539174
+        },
+        {
+          "title": "오토 켜놨더니 죽음 : 오토배틀 로그라이크",
+          "appId": 6786484095
+        }
+      ],
+      "addedAt": "2026-11-03T23:03:14.764Z"
+    },
+    {
+      "title": "운빨해적단",
+      "status": "matched",
+      "appIds": {
+        "android": "com.STUCKPIXEL.NOC",
+        "ios": 6754063550
+      },
+      "developer": "STUCKPIXEL",
+      "icon": "https://play-lh.googleusercontent.com/XZnKqJwd71xDuzaxQhjAe9-17jfcBYowunzgJgIZaSHG1tFUDRmlPKB4UMsJK9frntLTsXobglDd8CH_QZjcIg",
+      "searchResults": [
+        {
+          "title": "운빨해적단",
+          "appId": 6754063550
+        }
+      ],
+      "addedAt": "2026-11-03T23:03:15.042Z"
+    },
+    {
+      "title": "Water Power!",
+      "status": "matched",
+      "appIds": {
+        "ios": 1659387585,
+        "android": "com.mountaincreekgames.waterpower"
+      },
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/97/30/709730f6-41f1-0cf8-7f98-8e3f48c94b66/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Water Power!",
+          "appId": 1659387585
+        }
+      ],
+      "addedAt": "2026-11-03T23:03:15.334Z"
+    },
+    {
+      "title": "一路生金",
+      "status": "single",
+      "appIds": {
+        "ios": 6803427539
+      },
+      "developer": "思晴 魏",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/ef/6a/06ef6a42-e10d-bf6e-c152-cf3185f4155d/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-03T23:03:17.576Z"
+    },
+    {
+      "title": "Ultraman Legend of Heroes 2",
+      "status": "single",
+      "appIds": {
+        "android": "com.joymore.atmlegend2"
+      },
+      "developer": "JoyMore GAME",
+      "icon": "https://play-lh.googleusercontent.com/rMOKFcDgoEPSifUkewjva4Unx5CalaWCBbX0W4jk4RUP7qA_gYr0ZmL0PLlQHcWAnK0YBPrK_ud4Lne5OPMJTQ",
+      "searchResults": [
+        {
+          "title": "Ultraman : 전설의 영웅",
+          "appId": 1494087034
+        }
+      ],
+      "addedAt": "2026-11-03T23:03:18.643Z"
     }
   ],
   "approved": [
