@@ -16,7 +16,7 @@ const crypto = require('crypto');
 const i18n = require('../src/i18n');
 const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
-const { collectRankData, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow } = require('../src/build/game-data');
+const { gameLastmod, collectRankData, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow } = require('../src/build/game-data');
 const { isIndexableGame } = require('../src/templates/helpers/game-rank-summary');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
@@ -273,7 +273,8 @@ for (const g of S.games) {
     ...(rank && Object.keys(rank.h).length && meta.hourlyDate ? [meta.hourlyDate] : []),
     ...data.steamHistory.map((d) => d.date),
   ].filter(Boolean).sort();
-  if (dataDates.length) lastmodBySlug[slug] = dataDates[dataDates.length - 1];
+  const lastmod = gameLastmod(dataDates, charting, S.today.date);
+  if (lastmod) lastmodBySlug[slug] = lastmod;
 
   searchIndex.push({
     name: gameName,

@@ -99,6 +99,14 @@ function summaryMeta(S) {
   return { days: S.days.map((d) => d.date), hourlyDate: S.hourly ? S.hourly.date : '', builtMonthsByEdition: Object.fromEntries(require('../i18n').EDITIONS.map((e) => [e.code, S.builtMonthsFor(e.country)])) };
 }
 
+// Sitemap <lastmod> of a game: its newest data date. A game that is charting but has no dated series (e.g. only on the free-popularity
+// chart or a Steam list) is in the latest chart day's data. null when there is nothing truthful to say.
+function gameLastmod(dataDates, charting, latestChartDay) {
+  const dates = dataDates.filter(Boolean).sort();
+  if (dates.length) return dates[dates.length - 1];
+  return charting ? latestChartDay : null;
+}
+
 function createSlug(name, appIds = null) {
   if (appIds) {
     if (appIds.android) return String(appIds.android).toLowerCase().replace(/\./g, '-');
@@ -113,4 +121,4 @@ function createSlug(name, appIds = null) {
   }
   return slug;
 }
-module.exports = { collectRankData, rankSeries, summaryMeta, idFor, createSlug, loadLatestSteam, steamLists, steamMatch, chartingNow };
+module.exports = { gameLastmod, collectRankData, rankSeries, summaryMeta, idFor, createSlug, loadLatestSteam, steamLists, steamMatch, chartingNow };
