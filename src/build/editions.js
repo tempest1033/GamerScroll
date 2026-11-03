@@ -10,7 +10,7 @@ const path = require('path');
 const crypto = require('crypto');
 const i18n = require('../i18n');
 const { ensureDir, externalizeDeferredJsonFromHtml } = require('./utils');
-const { ANALYSIS_SITEMAP_URL } = require('./analysis-pages');
+const { ANALYSIS_SITEMAP_URL, readAnalysisLastmod } = require('./analysis-pages');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const TEMPLATES_DIR = path.join(ROOT, 'src', 'templates') + path.sep;
@@ -324,7 +324,7 @@ function writeSitemaps(docsDir, results) {
 function writeSitemapIndex(docsDir) {
   const names = fs.readdirSync(docsDir).filter((f) => /^sitemap-[\w-]+\.xml$/.test(f)).sort();
   const newest = (n) => [...fs.readFileSync(path.join(docsDir, n), 'utf8').matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((x) => x[1]).sort().pop();
-  const locs = [...names.map((n) => `  <sitemap>\n    <loc>${i18n.SITE_ORIGIN}/${n}</loc>${lastmodTag(newest(n))}\n  </sitemap>`), `  <sitemap>\n    <loc>${ANALYSIS_SITEMAP_URL}</loc>\n  </sitemap>`];
+  const locs = [...names.map((n) => `  <sitemap>\n    <loc>${i18n.SITE_ORIGIN}/${n}</loc>${lastmodTag(newest(n))}\n  </sitemap>`), `  <sitemap>\n    <loc>${ANALYSIS_SITEMAP_URL}</loc>${lastmodTag(readAnalysisLastmod())}\n  </sitemap>`];
   const index = locs.join('\n');
   fs.writeFileSync(path.join(docsDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${index}\n</sitemapindex>\n`, 'utf8');
   return names;

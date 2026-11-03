@@ -16,6 +16,8 @@ const ANALYSIS_SITEMAP_URL = `${i18n.SITE_ORIGIN}/analysis/sitemap.xml`;
 const ANALYSIS_PAGES_URL = `${i18n.SITE_ORIGIN}/analysis/pages.xml`;
 const PAGES_FILE = process.env.ANALYSIS_PAGES_FILE || path.join(__dirname, '..', '..', 'data', 'analysis-pages.json');
 
+const LASTMOD_FILE = process.env.ANALYSIS_LASTMOD_FILE || path.join(__dirname, '..', '..', 'data', 'analysis-lastmod.json');
+
 const unxml = (s) => s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&');
 
 // sitemap XML → { <slug (NFC)>: [edition code, ...] }. Only <urlset> entries on the site origin shaped /[<prefix>/]analysis/<slug>/ count.
@@ -40,6 +42,17 @@ function parseAnalysisSitemap(xml) {
   return Object.fromEntries(Object.keys(pages).sort().map((slug) => [slug, pages[slug].sort()]));
 }
 
+// Newest <lastmod> (YYYY-MM-DD) of the metrics sitemap: the as-of date of the analysis data. null when it carries none.
+function newestLastmod(xml) {
+  const dates = [...xml.matchAll(/<lastmod>\s*(\d{4}-\d{2}-\d{2})[^<]*<\/lastmod>/g)].map((m) => m[1]).sort();
+  return dates.length ? dates[dates.length - 1] : null;
+}
+
+// Stored by scripts/fetch-analysis-pages.js; null when unknown (the sitemap index then lists the metrics sitemap without <lastmod>).
+function readAnalysisLastmod(file = LASTMOD_FILE) {
+  try { const { lastmod } = JSON.parse(fs.readFileSync(file, 'utf8')); return /^\d{4}-\d{2}-\d{2}$/.test(lastmod) ? lastmod : null; } catch { return null; }
+}
+
 // The committed list; {} when absent or unreadable (no tabs).
 function readAnalysisPages(file = PAGES_FILE) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return {}; }
@@ -54,4 +67,4 @@ function hasAnalysisPage(slug, editionCode) {
   return Array.isArray(editions) && editions.includes(editionCode);
 }
 
-module.exports = { ANALYSIS_SITEMAP_URL, ANALYSIS_PAGES_URL, PAGES_FILE, parseAnalysisSitemap, readAnalysisPages, hasAnalysisPage };
+module.exports = { ANALYSIS_SITEMAP_URL, ANALYSIS_PAGES_URL, PAGES_FILE, LASTMOD_FILE, newestLastmod, readAnalysisLastmod, parseAnalysisSitemap, readAnalysisPages, hasAnalysisPage };
