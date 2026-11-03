@@ -125,6 +125,8 @@ function loadRankStats(options = {}) {
   const fullMonths = months.filter((mo) => daysIn(mo).length >= 15);
   // Months that get a /rankings/monthly/<month>/ page; every link to a monthly page must use this list.
   const builtMonths = months.filter((mo) => daysIn(mo).length >= MONTH_PAGE_MIN_DAYS);
+  // Built months of one market: its monthly page needs ranked games in that month.
+  const builtMonthsFor = (country) => builtMonths.filter((mo) => { const ms = monthStats(mo, country); return ms && ms.list.length > 0; });
   const latestMonth = fullMonths[fullMonths.length - 1] || builtMonths[builtMonths.length - 1] || months[months.length - 1];
 
   // ---------- 시간별 아카이브 (가장 최근 날) ----------
@@ -265,7 +267,7 @@ function loadRankStats(options = {}) {
 
   cached = {
     COUNTRIES, STORES, games, byApp, bySlug, byTitle, isSub,
-    days, today, yday, months, builtMonths, latestMonth, daysIn, hourly, hourlyRanks,
+    days, today, yday, months, builtMonths, builtMonthsFor, latestMonth, daysIn, hourly, hourlyRanks,
     rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf, displayName,
     allTimeBest, daysOnChart, streakAtOne, firstSeen, gameFirstSeen,
     movers, debutRows, monthStats, monthlyAvg, aggregateGlobal, allTimeStats,

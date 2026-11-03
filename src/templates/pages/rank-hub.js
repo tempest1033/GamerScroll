@@ -417,6 +417,7 @@ const PUB_PAGE_MIN_GAMES = 2;
 const PUB_PAGE_MAX = 80;
 function publisherPages(list) { return list.filter((p) => p.games.size >= PUB_PAGE_MIN_GAMES).slice(0, PUB_PAGE_MAX); }
 // What a market can publish: the genre/publisher/monthly/records pages that have data for it (the build's single plan).
+const marketPlan = require('../../../functions/_lib/market-plan');
 function marketPages(S, country) {
   const pubList = publisherIndex(S, country);
   const year = S.today.date.slice(0, 4);
@@ -424,25 +425,12 @@ function marketPages(S, country) {
     genres: new Set(require('./genres').genreIdsWithData(country, S)),
     publisherHub: pubList.length > 0,
     publishers: new Set(publisherPages(pubList).map((p) => p.slug)),
-    monthly: new Set(S.builtMonths.filter((mo) => { const ms = S.monthStats(mo, country); return ms && ms.list.length > 0; })),
+    monthly: new Set(S.builtMonthsFor(country)),
     records: require('../../rank/annual-records').annualRecords(S.days, country, 'ios', year).all.length > 0,
   };
 }
-// i18n page-availability predicate over the plans { <edition code>: marketPages }.
-function marketAvailability(plans) {
-  return (code, p) => {
-    const plan = plans[code];
-    let m;
-    if (!plan) return true;
-    if (p === '/rankings/genres/') return plan.genres.has('all');
-    if ((m = /^\/rankings\/genres\/([^/]+)\/$/.exec(p))) return plan.genres.has(decodeURIComponent(m[1]));
-    if (p === '/rankings/publishers/') return plan.publisherHub;
-    if ((m = /^\/rankings\/publishers\/([^/]+)\/$/.exec(p))) return plan.publishers.has(decodeURIComponent(m[1]));
-    if ((m = /^\/rankings\/monthly\/(\d{4}-\d{2})\/$/.exec(p))) return plan.monthly.has(m[1]);
-    if (p === '/rankings/records/') return plan.records;
-    return true;
-  };
-}
+// i18n page-availability predicate over the plans { <edition code>: marketPages } (shared with the Pages middleware).
+const marketAvailability = (plans) => (code, p) => marketPlan.available(plans[code], p);
 function publisherPageSet(list) { return new Set(publisherPages(list).map((p) => p.slug)); }
 function renderPublishers(country = 'kr') {
   const S = loadRankStats();

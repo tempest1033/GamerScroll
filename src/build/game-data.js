@@ -96,7 +96,7 @@ function chartingNow(S, g, lists) {
 
 // Shared by every game: the chart days and the archived hourly day.
 function summaryMeta(S) {
-  return { days: S.days.map((d) => d.date), hourlyDate: S.hourly ? S.hourly.date : '', builtMonths: S.builtMonths };
+  return { days: S.days.map((d) => d.date), hourlyDate: S.hourly ? S.hourly.date : '', builtMonthsByEdition: Object.fromEntries(require('../i18n').EDITIONS.map((e) => [e.code, S.builtMonthsFor(e.country)])) };
 }
 
 function createSlug(name, appIds = null) {

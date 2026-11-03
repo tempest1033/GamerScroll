@@ -9,7 +9,7 @@
  *     h: ranks by collection time of the latest archived day
  *   meta = { days: ['YYYY-MM-DD', ...], hourlyDate }   (shared by every game, docs/games-data/_meta.json)
  */
-const { t: tt, formatDay, formatMonthDay, formatYearMonth } = require('../../i18n');
+const { t: tt, formatDay, formatMonthDay, formatYearMonth, currentEdition } = require('../../i18n');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { hourlyRankChart } = require('../components/hourly-rank-chart');
 
@@ -173,7 +173,7 @@ function renderGameRankSummary(rank, meta, name, home) {
     const idx = days.map((d, i) => i).filter((i) => days[i].startsWith(mo));
     return { mo, iosAvg: avg(idx.map((i) => kr[i])), andAvg: avg(idx.map((i) => krA[i])), best: min(idx.map((i) => base[i])), ones: idx.filter((i) => base[i] === 1).length };
   });
-  const monthlyCard = `<div class="rk-card rk-game-months"><h2>${tt('rank.monthly_trend')} <small>${tt('game.sum_avg_sub', { c })}</small></h2><table class="rk-table"><thead><tr><th>${tt('rank.month')}</th><th class="c">${stores.ios}</th><th class="c">${tt('rank.prev_month')}</th><th class="c">${stores.android}</th><th class="c">${tt('rank.best')}</th><th class="c">${tt('rank.days_at_1')}</th></tr></thead><tbody>${mrow.slice().reverse().map((r, i, arr) => { if (r.iosAvg == null && r.andAvg == null) return ''; const p = arr[i + 1]; const d = p && p.iosAvg != null && r.iosAvg != null ? p.iosAvg - r.iosAvg : null; return `<tr><td>${(meta.builtMonths || []).includes(r.mo) ? `<a href="/rankings/monthly/${r.mo}/">${formatYearMonth(r.mo)}</a>` : formatYearMonth(r.mo)}</td><td class="c">${fmt1(r.iosAvg)}</td><td class="c">${d == null ? '-' : d > 0 ? `<span class="rk-chg up">▲${d.toFixed(1)}</span>` : d < 0 ? `<span class="rk-chg down">▼${(-d).toFixed(1)}</span>` : '='}</td><td class="c">${fmt1(r.andAvg)}</td><td class="c">${r.best ?? '-'}</td><td class="c">${r.ones || '-'}</td></tr>`; }).join('') || tt('rank.there_are_no_monthly_ranking')}</tbody></table></div>`;
+  const monthlyCard = `<div class="rk-card rk-game-months"><h2>${tt('rank.monthly_trend')} <small>${tt('game.sum_avg_sub', { c })}</small></h2><table class="rk-table"><thead><tr><th>${tt('rank.month')}</th><th class="c">${stores.ios}</th><th class="c">${tt('rank.prev_month')}</th><th class="c">${stores.android}</th><th class="c">${tt('rank.best')}</th><th class="c">${tt('rank.days_at_1')}</th></tr></thead><tbody>${mrow.slice().reverse().map((r, i, arr) => { if (r.iosAvg == null && r.andAvg == null) return ''; const p = arr[i + 1]; const d = p && p.iosAvg != null && r.iosAvg != null ? p.iosAvg - r.iosAvg : null; return `<tr><td>${((meta.builtMonthsByEdition || {})[currentEdition().code] || []).includes(r.mo) ? `<a href="/rankings/monthly/${r.mo}/">${formatYearMonth(r.mo)}</a>` : formatYearMonth(r.mo)}</td><td class="c">${fmt1(r.iosAvg)}</td><td class="c">${d == null ? '-' : d > 0 ? `<span class="rk-chg up">▲${d.toFixed(1)}</span>` : d < 0 ? `<span class="rk-chg down">▼${(-d).toFixed(1)}</span>` : '='}</td><td class="c">${fmt1(r.andAvg)}</td><td class="c">${r.best ?? '-'}</td><td class="c">${r.ones || '-'}</td></tr>`; }).join('') || tt('rank.there_are_no_monthly_ranking')}</tbody></table></div>`;
 
   // 기록 타임라인
   const events = [];

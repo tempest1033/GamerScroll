@@ -237,28 +237,30 @@ function buildEditions(ctx) {
       // Genre, publisher, records and monthly pages show the edition's home market; a page the market has no data for is not built.
       const plan = plans[edition.code];
       const categories = require('../rank/genres').loadGenres().categories.filter((c) => plan.genres.has(c.id));
-      if (plan.genres.has('all')) sub('genres', hub.renderGenre('all', home));
+      const removeStale = (rel) => fs.rmSync(path.join(outDir, 'rankings', rel, 'index.html'), { force: true }); // deployed output is seeded from the previous deploy
+      if (plan.genres.has('all')) sub('genres', hub.renderGenre('all', home)); else removeStale('genres');
       for (const category of categories) sub(`genres/${category.id}`, hub.renderGenre(category.id, home));
       sub('global', hub.renderGlobal());
       sub('about', hub.renderAbout());
-      if (plan.publisherHub) sub('publishers', hub.renderPublishers(home));
+      if (plan.publisherHub) sub('publishers', hub.renderPublishers(home)); else removeStale('publishers');
       const pubs = hub.publisherPages(hub.publisherIndex(S, home));
       for (const p of pubs) sub(`publishers/${p.slug}`, hub.renderPublisher(p, home));
       removeOrphanDirs(path.join(outDir, 'rankings', 'publishers'), new Set(pubs.map((p) => p.slug)), () => true, `${edition.code}/rankings/publishers`);
       removeOrphanDirs(path.join(outDir, 'rankings', 'genres'), new Set(categories.map((c) => c.id)), () => true, `${edition.code}/rankings/genres`);
       removeOrphanDirs(path.join(outDir, 'rankings', 'monthly'), plan.monthly, (name) => /^\d{4}-\d{2}$/.test(name), `${edition.code}/rankings/monthly`);
-      if (plan.records) sub('records', hub.renderRecords(home));
+      if (plan.records) sub('records', hub.renderRecords(home)); else removeStale('records');
       for (const mo of plan.monthly) {
         const html = hub.renderMonthly(mo, home);
         if (html) sub(`monthly/${mo}`, html, undefined, lastDate(S.daysIn(mo)));
       }
       // /rankings/monthly/ used to be a 404 → redirect page to the latest month (noindex, not in the sitemap)
-      if (S.latestMonth) {
-        const latest = `/rankings/monthly/${S.latestMonth}/`;
+      const latestBuilt = [...plan.monthly].pop(); // the edition's latest built month
+      if (latestBuilt) {
+        const latest = `/rankings/monthly/${latestBuilt}/`;
         const localized = i18n.editionPath(edition.code, latest);
         const t = i18n.t;
-        write('rankings/monthly/index.html', `<!DOCTYPE html><html lang="${edition.htmlLang}"><head><meta charset="utf-8"><meta name="robots" content="noindex, follow"><meta http-equiv="refresh" content="0; url=${localized}"><link rel="canonical" href="${i18n.absoluteUrl(edition.code, latest)}"><title>${t('build.monthly_redirect_title')}</title></head><body><p>${t('build.monthly_redirect_notice')} <a href="${localized}">${t('build.monthly_redirect_link', { month: i18n.formatYearMonth(S.latestMonth) })}</a></p></body></html>`);
-      }
+        write('rankings/monthly/index.html', `<!DOCTYPE html><html lang="${edition.htmlLang}"><head><meta charset="utf-8"><meta name="robots" content="noindex, follow"><meta http-equiv="refresh" content="0; url=${localized}"><link rel="canonical" href="${i18n.absoluteUrl(edition.code, latest)}"><title>${t('build.monthly_redirect_title')}</title></head><body><p>${t('build.monthly_redirect_notice')} <a href="${localized}">${t('build.monthly_redirect_link', { month: i18n.formatYearMonth(latestBuilt) })}</a></p></body></html>`);
+      } else removeStale('monthly');
     });
 
     // ----- Steam game pages -----
@@ -283,6 +285,13 @@ function buildEditions(ctx) {
     console.log(`  ✅ [${edition.code}] ${pages} pages → ${path.relative(ROOT, outDir) || 'docs'} (${results[results.length - 1].seconds}s)`);
   }
   // The request-time game pages (functions/_lib/game-route.js) reference the same runtime bundles and search index versions.
+  if (rankStats) {
+    // Read by functions/_middleware.js: the edition redirect and the 301s of removed pages follow the same plan as the build.
+    const marketPlan = require('../../functions/_lib/market-plan');
+    const pagesFile = path.join(docsDir, 'games-data', '_pages.json');
+    ensureDir(path.dirname(pagesFile));
+    fs.writeFileSync(pagesFile, JSON.stringify(Object.fromEntries(Object.entries(plans).map(([code, plan]) => [code, marketPlan.serialize(plan)]))), 'utf8');
+  }
   const editionsFile = path.join(docsDir, 'games-data', '_editions.json');
   ensureDir(path.dirname(editionsFile));
   fs.writeFileSync(editionsFile, JSON.stringify(Object.fromEntries(results.map((r) => [r.code, { runtime: r.assets.version, search: r.searchVersion }]))), 'utf8');

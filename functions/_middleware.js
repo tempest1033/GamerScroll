@@ -1,7 +1,37 @@
 // Cloudflare Pages middleware for GamerScroll (gamerscroll.com) only: edition routing + legacy redirects.
 // AIScroll has its own middleware in functions-aiscroll/_middleware.js; the two share no code.
 
+import marketPlan from "./_lib/market-plan.js";
+
 let aiscrollArticleIndexPromise = null;
+let marketPlansPromise = null;
+
+// Per-edition market page plan written by the build (docs/games-data/_pages.json). null = unavailable (routing then ignores it).
+async function loadMarketPlans(context, url) {
+  if (!marketPlansPromise) {
+    marketPlansPromise = (async () => {
+      try {
+        const res = await context.env.ASSETS.fetch(new Request(new URL("/games-data/_pages.json", url)));
+        return res.ok ? await res.json() : null;
+      } catch {
+        return null;
+      }
+    })();
+  }
+  const plans = await marketPlansPromise;
+  if (!plans) marketPlansPromise = null;
+  return plans;
+}
+
+// Path (without edition prefix) of the page in an edition: itself, or its nearest built parent when the edition does not build it.
+// Pages built nowhere are not ours to redirect (they stay a plain 404).
+function marketTarget(plans, code, bare) {
+  const withSlash = bare.endsWith("/") ? bare : bare + "/";
+  if (!plans || !plans[code] || !marketPlan.isMarketPath(withSlash)) return null;
+  if (marketPlan.available(plans[code], withSlash)) return null;
+  if (!marketPlan.builtSomewhere(plans, withSlash)) return null;
+  return marketPlan.nearestBuilt(plans[code], withSlash);
+}
 
 // AIScroll 검색 인덱스(현재 빌드된 기사 slug→category). 성공 응답만 isolate에 캐시하고
 // 실패는 다음 요청에서 다시 시도한다 (실패를 빈 목록으로 캐시하면 모든 슬러그가 "없음"이 됨).
@@ -142,7 +172,12 @@ export async function onRequest(context) {
         return response;
       }
     }
-    if (gsLocalePrefixOf(path)) return next();
+    const plans = await loadMarketPlans(context, url);
+    // A market page this edition does not build (removed genre/publisher/month, or the edition's market lacks data): 301 to its nearest built parent.
+    const ownPrefix = gsLocalePrefixOf(path);
+    const removedTarget = marketTarget(plans, ownPrefix || "en", ownPrefix ? path.slice(ownPrefix.length + 1) || "/" : path);
+    if (removedTarget) return Response.redirect(`${url.origin}${ownPrefix ? "/" + ownPrefix : ""}${removedTarget}${url.search}`, 301);
+    if (ownPrefix) return next();
     // RSS 피드는 리포트 섹션과 함께 없어졌다 (2026-10): 404 대신 410
     if (path === "/rss.xml" || path === "/feed" || path === "/feed/") return goneResponse();
     if (gsIsStaticPath(path)) return next();
@@ -152,7 +187,7 @@ export async function onRequest(context) {
       return new Response(null, {
         status: 302,
         headers: {
-          Location: `/${GS_SEARCH_ENGINE_LOCALE[engineMatch[1]]}${path}${url.search}`,
+          Location: `/${GS_SEARCH_ENGINE_LOCALE[engineMatch[1]]}${marketTarget(plans, GS_SEARCH_ENGINE_LOCALE[engineMatch[1]], path) || path}${url.search}`,
           "Cache-Control": "private, no-store"
         }
       });
@@ -169,7 +204,7 @@ export async function onRequest(context) {
 
     if (preferred !== "en") {
       const headers = new Headers({
-        Location: `/${preferred}${path}${url.search}`,
+        Location: `/${preferred}${marketTarget(plans, preferred, path) || path}${url.search}`,
         "Cache-Control": "private, no-store"
       });
       if (hasQuery) headers.append("Set-Cookie", setCookie);
