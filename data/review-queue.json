@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48376,6 +48376,47 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/41/12/10/411210be-9820-9825-8e28-9cd6540b9fb1/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-03T15:04:06.138Z"
+    },
+    {
+      "title": "Shoot Die Repeat",
+      "status": "matched",
+      "appIds": {
+        "ios": 6774321349,
+        "android": "com.WalkTalk.UpgradeApocalypse"
+      },
+      "developer": "Heseri Games Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/06/c5/d0/06c5d026-9ad0-f261-639f-a64af11b317a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Shoot Die Repeat",
+          "appId": 6774321349
+        }
+      ],
+      "addedAt": "2026-11-03T19:04:31.446Z"
+    },
+    {
+      "title": "Match Muse: Dress & Decor",
+      "status": "single",
+      "appIds": {
+        "android": "com.hzmr.dragon"
+      },
+      "developer": "DRAGONIS PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/UdtxY1RSud1fcoqOzEPCA9gXmdm73yM4_oxbkauM3cplDMzapU2g0dHXRI8iHmYDGfs9vMCO673R-xCsOigw",
+      "searchResults": [
+        {
+          "title": "Toca Boca World: 집꾸미기",
+          "appId": 1208138685
+        },
+        {
+          "title": "Pinterest (핀터레스트): 수백만개의 아이디어",
+          "appId": 429047995
+        },
+        {
+          "title": "Grok",
+          "appId": 6670324846
+        }
+      ],
+      "addedAt": "2026-11-03T19:04:31.869Z"
     }
   ],
   "approved": [

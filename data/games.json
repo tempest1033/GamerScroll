@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -79563,14 +79563,16 @@
     },
     "Shoot Die Repeat": {
       "appIds": {
-        "ios": "6774321349"
+        "ios": 6774321349,
+        "android": "com.WalkTalk.UpgradeApocalypse"
       },
       "aliases": [],
       "developer": "Heseri Games Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/06/c5/d0/06c5d026-9ad0-f261-639f-a64af11b317a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "shoot-die-repeat",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Shoot Die Repeat",
@@ -154421,8 +154423,50 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Match Muse: Dress & Decor": {
+      "appIds": {
+        "android": "com.hzmr.dragon"
+      },
+      "aliases": [],
+      "developer": "DRAGONIS PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/UdtxY1RSud1fcoqOzEPCA9gXmdm73yM4_oxbkauM3cplDMzapU2g0dHXRI8iHmYDGfs9vMCO673R-xCsOigw",
+      "slug": "match-muse-dress-decor",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Match Muse: Dress & Decor",
+        "en": "Match Muse: Dress & Decor",
+        "ja": "Match Muse: Dress & Decor",
+        "zh-tw": "Match Muse: Dress & Decor"
+      }
+    },
+    "Loftia": {
+      "appIds": {
+        "steam": "2320980"
+      },
+      "aliases": [],
+      "developer": "Qloud Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2320980/6ff52a8a7a58aa161b11b838cb6f14abcb68f620/capsule_231x87.jpg?t=1793732506",
+      "slug": "loftia",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Potato Please": {
+      "appIds": {
+        "steam": "5266240"
+      },
+      "aliases": [],
+      "developer": " Golden Horn Studios",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5266240/b01dc513eb9df69b0944e4a2f2d9e628ec53ac0d/capsule_231x87.jpg?t=1793717995",
+      "slug": "potato-please",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-04",
-  "totalGames": 9061
+  "totalGames": 9064
 }
