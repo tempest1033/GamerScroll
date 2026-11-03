@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154312,8 +154312,117 @@
       "platforms": [
         "steam"
       ]
+    },
+    "소드 x 스태프: 화산귀환 콜라보": {
+      "appIds": {
+        "ios": 6762359394
+      },
+      "aliases": [],
+      "developer": "Boltray Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/de/74/4ade7404-81d6-7039-2764-a517bae2b28c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "소드-x-스태프-화산귀환-콜라보",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "소드 x 스태프: 화산귀환 콜라보"
+      }
+    },
+    "저리가 꼬꼬댁 : 서바이벌 디펜스": {
+      "appIds": {
+        "ios": 6762341163
+      },
+      "aliases": [],
+      "developer": "Dreamplay Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dd/f7/7f/ddf77fb4-29b0-cf70-c230-d493ea841764/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "저리가-꼬꼬댁-서바이벌-디펜스",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "저리가 꼬꼬댁 : 서바이벌 디펜스",
+        "en": "Cluck Survivor : Farm Defense",
+        "ja": "コケコッコ・サバイバー",
+        "zh-tw": "咕咕求生"
+      }
+    },
+    "甲子園への道 - 高校野球育成シミュレーション": {
+      "appIds": {
+        "ios_jp": 6815127582
+      },
+      "aliases": [],
+      "developer": "akira fukuda",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/f8/52/3df85212-55c1-45f0-a9bd-b1ff2af880ab/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "甲子園への道-高校野球育成シミュレーション",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "甲子園への道 - 高校野球育成シミュレーション"
+      }
+    },
+    "Fish3 - pro": {
+      "appIds": {
+        "ios": 881528249
+      },
+      "aliases": [],
+      "developer": "Han-Chung Lin",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/41/12/10/411210be-9820-9825-8e28-9cd6540b9fb1/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg",
+      "slug": "fish3-pro",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Fish3 - pro",
+        "en": "Fish3 - pro",
+        "ja": "Fish3 - pro",
+        "zh-cn": "Fish3 - pro",
+        "zh-tw": "Fish3 - pro"
+      }
+    },
+    "都成麻将": {
+      "appIds": {
+        "ios_cn": 6445879695
+      },
+      "aliases": [],
+      "developer": "Chengdu Licheng Xiangfei Network Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/a5/ae/05/a5ae056f-ee0c-d2d2-2074-345df65dcd07/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "都成麻将",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "都成麻将"
+      }
+    },
+    "格鬥天王：拳面出擊 - SNK正版授權": {
+      "appIds": {
+        "ios_tw": 6791082427
+      },
+      "aliases": [],
+      "developer": "JOYMAKER GAMES PTE. LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2c/67/86/2c678613-7b5e-766f-4053-1b15c80a1d09/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "格鬥天王拳面出擊-snk正版授權",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "格鬥天王：拳面出擊 - SNK正版授權"
+      }
+    },
+    "Echoes of Central Park Deluxe DLC - Tom Clancy’s The Division 2": {
+      "appIds": {
+        "steam": "5109220"
+      },
+      "aliases": [],
+      "developer": "Ubisoft",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5109220/6190f642a000eb945f6e7b6f25cbbf6c4ee48cc5/capsule_231x87.jpg?t=1793696813",
+      "slug": "echoes-of-central-park-deluxe-dlc-tom-clancys-the-division-2",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-03",
-  "totalGames": 9054
+  "lastUpdated": "2026-11-04",
+  "totalGames": 9061
 }

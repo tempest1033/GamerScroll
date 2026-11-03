@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48343,6 +48343,39 @@
       "icon": "https://play-lh.googleusercontent.com/WOlUrSRMXoodTsdoEC2KKMK8xaz6q1c9xrmFU-Rvp3sd4pFy_wYl-221zjaJe0my3sFq-Pf2rjvJTWXbw8pp1A",
       "searchResults": [],
       "addedAt": "2026-11-03T09:03:02.283Z"
+    },
+    {
+      "title": "소드 x 스태프: 화산귀환 콜라보",
+      "status": "single",
+      "appIds": {
+        "ios": 6762359394
+      },
+      "developer": "Boltray Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/de/74/4ade7404-81d6-7039-2764-a517bae2b28c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-03T15:04:05.381Z"
+    },
+    {
+      "title": "저리가 꼬꼬댁 : 서바이벌 디펜스",
+      "status": "single",
+      "appIds": {
+        "ios": 6762341163
+      },
+      "developer": "Dreamplay Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dd/f7/7f/ddf77fb4-29b0-cf70-c230-d493ea841764/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-03T15:04:05.619Z"
+    },
+    {
+      "title": "Fish3 - pro",
+      "status": "single",
+      "appIds": {
+        "ios": 881528249
+      },
+      "developer": "Han-Chung Lin",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/41/12/10/411210be-9820-9825-8e28-9cd6540b9fb1/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-03T15:04:06.138Z"
     }
   ],
   "approved": [
