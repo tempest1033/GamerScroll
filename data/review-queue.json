@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48332,6 +48332,17 @@
         }
       ],
       "addedAt": "2026-11-03T05:02:28.468Z"
+    },
+    {
+      "title": "Tilemeow - Match Puzzle Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.triple.match.cat"
+      },
+      "developer": "Adaric Music",
+      "icon": "https://play-lh.googleusercontent.com/WOlUrSRMXoodTsdoEC2KKMK8xaz6q1c9xrmFU-Rvp3sd4pFy_wYl-221zjaJe0my3sFq-Pf2rjvJTWXbw8pp1A",
+      "searchResults": [],
+      "addedAt": "2026-11-03T09:03:02.283Z"
     }
   ],
   "approved": [
