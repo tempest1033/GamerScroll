@@ -10,7 +10,7 @@ const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout'
 const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
-const { describeGame, trimDescription, dominantScript } = require('../helpers/game-description');
+const { describeGame, trimDescription, cleanDescription, dominantScript } = require('../helpers/game-description');
 const { renderGameRankSummary, summaryDays, isIndexableGame } = require('../helpers/game-rank-summary');
 const { renderRevenueSection } = require('../components/revenue-section');
 
@@ -385,7 +385,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
       { name: t('game.games_db'), url: `${siteBaseUrl}${href('/games/')}` },
       { name: plainName, url: canonicalUrl }
     ],
-    softwareSchema: indexable ? { name: plainName, description: seoDescription, image: icon || null, operatingSystem } : null  // noindex 페이지는 스키마 생략
+    softwareSchema: indexable ? { name: plainName, description: cleanDescription(seoDescription, overview, t('game.desc_join')), image: icon || null, operatingSystem } : null  // noindex 페이지는 스키마 생략
   });
   // The revenue section (no links, images or names to post-process; its charts and tables render in the browser) joins
   // after the layout's whole-page passes, which would otherwise rescan it within the Workers CPU budget.
