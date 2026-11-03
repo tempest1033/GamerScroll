@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154240,8 +154240,35 @@
       "platforms": [
         "steam"
       ]
+    },
+    "화살 미로": {
+      "appIds": {
+        "android": "com.arrownori.norikr"
+      },
+      "aliases": [],
+      "developer": "Tenma Tec",
+      "icon": "https://play-lh.googleusercontent.com/29EJbWa25PO2W432xrFgdYwwKAE-uo7xU9EAAFcGvZy37ue3OW2LBaPO4ACnbVB1E0U6jdKAvDqZJT9q9qqyhw",
+      "slug": "화살-미로",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "화살 미로"
+      }
+    },
+    "Modern Warships": {
+      "appIds": {
+        "steam": "3144230"
+      },
+      "aliases": [],
+      "developer": "Artstorm FZE",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3144230/9bcb93a8f4179c2a6c672b7d4b0aa362de1e09e4/capsule_231x87.jpg?t=1790873757",
+      "slug": "modern-warships",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-03",
-  "totalGames": 9049
+  "totalGames": 9051
 }

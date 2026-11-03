@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48308,6 +48308,30 @@
       "icon": "https://play-lh.googleusercontent.com/OqTOKUUWw0F4lfjhVFcYfVjXgkSG7G3ciZTbcyZj_hhK54fYD5tWH2R1EwDF1nGEh0xG8x3NXzHoT1F12GilFw",
       "searchResults": [],
       "addedAt": "2026-11-02T21:03:09.444Z"
+    },
+    {
+      "title": "화살 미로",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrownori.norikr"
+      },
+      "developer": "Tenma Tec",
+      "icon": "https://play-lh.googleusercontent.com/29EJbWa25PO2W432xrFgdYwwKAE-uo7xU9EAAFcGvZy37ue3OW2LBaPO4ACnbVB1E0U6jdKAvDqZJT9q9qqyhw",
+      "searchResults": [
+        {
+          "title": "화살 탈출: 미로 퍼즐",
+          "appId": 6762194009
+        },
+        {
+          "title": "미로 화살 퍼즐: 동물 구출",
+          "appId": 6788731225
+        },
+        {
+          "title": "화살 퍼즐 - 미로 탈출",
+          "appId": 6789477835
+        }
+      ],
+      "addedAt": "2026-11-03T05:02:28.468Z"
     }
   ],
   "approved": [
