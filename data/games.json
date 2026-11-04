@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154726,8 +154726,35 @@
         "ja": "LastCamp : Defense",
         "zh-tw": "LastCamp : Defense"
       }
+    },
+    "熱血大作戦！- 三国志キングダムRPG": {
+      "appIds": {
+        "ios_jp": 6779548466
+      },
+      "aliases": [],
+      "developer": "FURYWING PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/20/24/1b2024b9-cce8-683e-c8a3-fe3c77183f39/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "熱血大作戦-三国志キングダムrpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "熱血大作戦！- 三国志キングダムRPG"
+      }
+    },
+    "Hull Rupture": {
+      "appIds": {
+        "steam": "4358660"
+      },
+      "aliases": [],
+      "developer": "Konfa Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4358660/8fb42f14d0685333affb6ac23f85cecfd96bd411/capsule_231x87_alt_assets_4.jpg?t=1793808075",
+      "slug": "hull-rupture",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-04",
-  "totalGames": 9079
+  "lastUpdated": "2026-11-05",
+  "totalGames": 9081
 }
