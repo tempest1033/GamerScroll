@@ -2,13 +2,14 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { trimDescription, cleanDescription } = require('../src/templates/helpers/game-description');
+const { fitSentences } = require('../src/templates/helpers/fit-description');
 
 const sentences = ['Short lead.', 'A second sentence that is quite long and pushes the joined text well beyond the one hundred fifty five character limit of a meta description tag.'];
 
-test('meta description keeps its ellipsis cut, JSON-LD description never ends with one', () => {
-  const meta = trimDescription(sentences, ' ');
-  assert.ok(meta.endsWith('…'), 'meta behavior unchanged');
-  assert.equal(cleanDescription(meta, sentences, ' '), 'Short lead.');
+test('meta description keeps whole sentences only, never an ellipsis', () => {
+  assert.equal(trimDescription(sentences, ' '), 'Short lead.');
+  assert.equal(fitSentences(sentences.join(' ')), 'Short lead.');
+  assert.equal(fitSentences('一。' + '二'.repeat(80) + '。'), '一。');
 });
 
 test('a first sentence over the limit stays whole; untruncated text is untouched', () => {

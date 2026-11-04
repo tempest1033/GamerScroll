@@ -9,6 +9,7 @@ const { t } = i18n;
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const { renderCssLinks } = require('../../build/css-links');
 const { lazyImageLoaderScript } = require('../../build/lazy-images');
+const { fitSentences } = require('../helpers/fit-description');
 
 function generateHead(options = {}) {
   const {
@@ -61,10 +62,8 @@ function generateHead(options = {}) {
   const SITE_SUFFIX = t('head.gamerscroll_2');
   const needsSuffix = !title.includes(t('head.gamerscroll'));
   const pageTitleText = needsSuffix ? escapeHtmlText(title + SITE_SUFFIX) : safeTitle;
-  // Description 155자 제한
-  const trimmedDescription = description.length > 155
-    ? description.slice(0, 152).replace(/\s+\S*$/, '') + '...'
-    : description;
+  // Description: whole sentences within ~155 columns (CJK counts double), no "..." cut
+  const trimmedDescription = fitSentences(description);
   const safeDescription = escapeHtmlAttr(trimmedDescription);
   const safeKeywords = escapeHtmlAttr(keywords || '');
   const keywordTags = articleSchema && keywords

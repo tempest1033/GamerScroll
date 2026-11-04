@@ -19,7 +19,7 @@ module.exports = {
   "game.period_week": "周",
   "game.period_month": "月",
   "game.chart_note": "各时段已收录记录中的最高排名 · 数字越小排名越靠前",
-  "game.seo_title_mobile": "{name} 畅销榜排名走势 — App Store 与 Google Play 历史排名",
+  "game.seo_title_mobile": "{name} 手游畅销榜排名走势 — App Store 与 Google Play",
   "game.seo_title_steam": "{name} Steam 排名走势 — 同时在线与销量历史",
   "game.seo_desc_mobile": "查看 {name} 在 App Store 和 Google Play 的畅销榜排名走势及历史最高排名记录。",
   "game.seo_desc_steam": "查看 {name} 的 Steam 同时在线人数与销量排名走势及历史排名记录。",

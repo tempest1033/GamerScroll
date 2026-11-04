@@ -19,7 +19,7 @@ module.exports = {
   "game.period_week": "週",
   "game.period_month": "月",
   "game.chart_note": "各期間に収集した記録のうち最高順位 · 数字が小さいほど上位",
-  "game.seo_title_mobile": "{name}の売上ランキング推移 — App Store・Google Playの履歴",
+  "game.seo_title_mobile": "{name}の売上ランキング推移 — スマホゲーム App Store・Google Play",
   "game.seo_title_steam": "{name}のSteamランキング推移 — 同時接続者数・販売履歴",
   "game.seo_desc_mobile": "{name}のApp StoreとGoogle Playの売上ランキング推移と、過去のランキング記録を掲載しています。",
   "game.seo_desc_steam": "{name}のSteam同時接続者数と販売ランキングの推移、過去のランキング記録を掲載しています。",

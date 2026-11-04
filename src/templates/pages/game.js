@@ -10,7 +10,7 @@ const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout'
 const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
-const { describeGame, trimDescription, cleanDescription, dominantScript } = require('../helpers/game-description');
+const { describeGame, trimDescription, cleanDescription } = require('../helpers/game-description');
 const { renderGameRankSummary, summaryDays, isIndexableGame } = require('../helpers/game-rank-summary');
 const { renderRevenueSection } = require('../components/revenue-section');
 
@@ -65,10 +65,8 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
   const { slug = '', platforms = [], developer = '', icon = null, ranked = false, steamHistory = [], steam = null, rank = null } = game;
   const edition = currentEdition();
   const plainName = (game.names && game.names[edition.code]) || game.name;
-  // Localized name (only when the data has one) shown together with the original name.
-  const lowerLocal = plainName.toLowerCase(), lowerOrig = String(game.name).toLowerCase();
-  const titleName = !lowerLocal.includes(lowerOrig) && !lowerOrig.includes(lowerLocal) && dominantScript(plainName) !== dominantScript(String(game.name)) ? `${plainName} (${game.name})` : plainName;
-  const name = esc(titleName);
+  // One name per edition (rank/stats.js displayName); the DB name is never appended in parentheses.
+  const name = esc(plainName);
 
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
@@ -356,7 +354,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
   const indexable = isIndexableGame(rank, game.charting, meta);
 
   // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎
-  const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: titleName });
+  const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: plainName });
   // The data-derived overview replaces the formulaic rank-summary / generic description.
   const seoDescription = overview.length
     ? trimDescription(overview, t('game.desc_join'))

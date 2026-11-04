@@ -19,7 +19,7 @@ module.exports = {
   "game.period_week": "W",
   "game.period_month": "M",
   "game.chart_note": "Best rank among the records collected in each period · lower numbers rank higher",
-  "game.seo_title_mobile": "{name} revenue ranking trend — App Store & Google Play history",
+  "game.seo_title_mobile": "{name} Revenue Ranking History — App Store & Google Play",
   "game.seo_title_steam": "{name} Steam ranking trend — players & sales history",
   "game.seo_desc_mobile": "{name} App Store and Google Play revenue ranking trend and all-time ranking records.",
   "game.seo_desc_steam": "{name} Steam concurrent players and sales ranking trend with all-time ranking records.",

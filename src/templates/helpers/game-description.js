@@ -7,6 +7,7 @@
  */
 const { t, has, formatDay, formatNumber, currentEdition } = require('../../i18n');
 const { expand, pickCountry } = require('./game-rank-summary');
+const { width, MAX_WIDTH } = require('./fit-description');
 
 const COUNTRIES = ['kr', 'jp', 'us', 'cn', 'tw'];
 const COUNTRY_KEYS = { kr: 'stats.korea', jp: 'stats.japan', us: 'stats.united_states', cn: 'stats.china', tw: 'stats.taiwan' };
@@ -97,17 +98,12 @@ function describeGame(game, meta, home) {
   return out.slice(0, 4).map((s) => s.replace(/([.。])[.。]+$/, '$1'));
 }
 
-// Meta description: whole sentences up to the limit (CJK text is denser), hard cut with an ellipsis if the first one is too long.
-function trimDescription(sentences, joiner, { ellipsis = true } = {}) {
-  const limit = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/.test(sentences.join('')) ? 120 : 155; // components/head.js cuts anything over 155 chars with "..."
+// Meta description: whole sentences up to the width budget (helpers/fit-description.js); the first sentence is kept whole even if it is long.
+function trimDescription(sentences, joiner) {
   let text = '';
   for (const s of sentences) {
     const next = text ? text + joiner + s : s;
-    if (next.length > limit) {
-      // A short lead sentence alone is a weak description: fill up to the limit with the next sentence, cut with an ellipsis.
-      if (text.length < limit * 0.8) text = ellipsis ? next.slice(0, limit - 1).trimEnd() + '…' : text || s; // without the ellipsis: whole sentences only
-      break;
-    }
+    if (text && width(next) > MAX_WIDTH) break;
     text = next;
   }
   return text;
@@ -117,20 +113,11 @@ function trimDescription(sentences, joiner, { ellipsis = true } = {}) {
 // the meta description tag is trimmed separately by components/head.js).
 function cleanDescription(text, sentences, joiner) {
   if (!/(…|\.\.\.)$/.test(text)) return text;
-  const whole = sentences && sentences.length ? trimDescription(sentences, joiner, { ellipsis: false }) : '';
+  const whole = sentences && sentences.length ? trimDescription(sentences, joiner) : '';
   if (whole) return whole;
   const body = text.replace(/(…|\.\.\.)$/, '').trimEnd();
   const cut = body.match(/^[\s\S]*[.!?。！？]/);
   return cut ? cut[0] : body;
 }
 
-// Script of a name: 'ja' when it has kana, else the most frequent of Hangul / Han / Latin letters ('' if none).
-function dominantScript(text) {
-  const s = String(text);
-  if (/[\u3040-\u30ff]/.test(s)) return 'ja';
-  const counts = { ko: (s.match(/[\uac00-\ud7af]/g) || []).length, han: (s.match(/[\u3400-\u9fff]/g) || []).length, latin: (s.match(/[A-Za-z]/g) || []).length };
-  const [script, n] = Object.entries(counts).sort((a, b) => b[1] - a[1])[0];
-  return n ? script : '';
-}
-
-module.exports = { describeGame, trimDescription, cleanDescription, dominantScript };
+module.exports = { describeGame, trimDescription, cleanDescription };

@@ -19,7 +19,7 @@ module.exports = {
   "game.period_week": "週",
   "game.period_month": "月",
   "game.chart_note": "各期間內所蒐集紀錄中的最佳名次 · 數字越小排名越高",
-  "game.seo_title_mobile": "{name} 營收排行趨勢：App Store 與 Google Play 歷史排名",
+  "game.seo_title_mobile": "{name} 暢銷榜營收排行趨勢 — App Store 與 Google Play",
   "game.seo_title_steam": "{name} Steam 排行趨勢：同時在線與銷售歷史排名",
   "game.seo_desc_mobile": "查看 {name} 在 App Store 與 Google Play 的營收排行趨勢及歷來排名紀錄。",
   "game.seo_desc_steam": "查看 {name} 的 Steam 同時在線人數與銷售排行趨勢，以及歷來排名紀錄。",
