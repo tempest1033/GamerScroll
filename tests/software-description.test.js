@@ -19,3 +19,17 @@ test('a first sentence over the limit stays whole; untruncated text is untouched
   assert.equal(cleanDescription('One. Two cut off…', null, ' '), 'One.');
   assert.equal(cleanDescription('No boundary here…', null, ' '), 'No boundary here');
 });
+
+test('an over-budget first sentence is replaced by the complete fallback sentence, in both helpers', () => {
+  const fallback = 'Short fallback sentence.';
+  const long = 'A '.repeat(150) + 'sentence.';
+  assert.equal(fitSentences(long, fallback), fallback);
+  assert.equal(trimDescription([long, 'Second.'], ' ', fallback), fallback);
+  assert.equal(fitSentences('日'.repeat(100) + '。', fallback), fallback);
+});
+
+test('structured sentences keep names with punctuation intact', () => {
+  const lead = 'MONOPOLY GO! revenue ranking history for the Scopely casual game.';
+  const out = trimDescription([lead, 'It is at its all-time high right now: #1 on the United States App Store top-grossing chart for a long stretch.'], ' ', 'x.');
+  assert.equal(out, lead);
+});

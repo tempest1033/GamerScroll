@@ -12,6 +12,7 @@ const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { describeGame, trimDescription, cleanDescription } = require('../helpers/game-description');
 const { renderGameRankSummary, summaryDays, isIndexableGame } = require('../helpers/game-rank-summary');
+const { fitSentences, width, MAX_WIDTH } = require('../helpers/fit-description');
 const { renderRevenueSection } = require('../components/revenue-section');
 
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -356,11 +357,14 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
   // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎
   const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: plainName });
   // The data-derived overview replaces the formulaic rank-summary / generic description.
+  // Short complete sentence used when the data-derived text does not fit the meta budget (a name-free site line if the name makes even this too long).
+  const nameDescription = t(hasMobilePlatform ? 'game.seo_desc_mobile' : 'game.seo_desc_steam', { name: plainName });
+  const fallbackDescription = width(nameDescription) <= MAX_WIDTH ? nameDescription : t('head.daily_records_and_analysis_of');
   const seoDescription = overview.length
-    ? trimDescription(overview, t('game.desc_join'))
+    ? trimDescription(overview, t('game.desc_join'), fallbackDescription)
     : summary && summary.text
-    ? summary.text
-    : t(hasMobilePlatform ? 'game.seo_desc_mobile' : 'game.seo_desc_steam', { name: plainName });
+    ? fitSentences(summary.text, fallbackDescription)
+    : fallbackDescription;
   const seoKeywords = t(hasMobilePlatform ? 'game.seo_keywords_mobile' : 'game.seo_keywords_steam', { name: plainName });
 
   const canonicalUrl = `${siteBaseUrl}${href(analysisPage ? `/analysis/${encodeURIComponent(slug)}/` : `/games/${encodeURIComponent(slug)}/`)}`;

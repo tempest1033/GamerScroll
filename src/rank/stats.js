@@ -31,6 +31,8 @@ const tsTime = (ts) => formatTime(ts);
 const MONTH_PAGE_MIN_DAYS = 7;
 let cached = null;
 
+const { HANGUL, KANA, CJK, fitsEdition } = require('./name-script');
+
 function loadRankStats(options = {}) {
   if (cached && !options.force) return cached;
   const historyDir = options.historyDir || path.join(ROOT, 'history');
@@ -117,22 +119,12 @@ function loadRankStats(options = {}) {
   // so a candidate is usable in an edition only when its script belongs there. Order of preference: the market's own store
   // name → English store name → another edition's Latin name → an alias in the edition's script or Latin → the DB key
   // without its " (developer)" disambiguator. When nothing fits, the first candidate stands (no localized name exists).
-  const HANGUL = /[\uAC00-\uD7A3]/, KANA = /[\u3040-\u30FF]/, CJK = /[\u3040-\u30FF\u3400-\u9FFF\uAC00-\uD7A3]/;
-  const fitsEdition = (name, code, simplified) => {
-    if (HANGUL.test(name) && code !== 'ko') return false;
-    if (KANA.test(name) && code !== 'ja') return false;
-    if (code === 'en' && CJK.test(name)) return false;
-    return !(code === 'zh-tw' && name === simplified);
-  };
   const displayName = (g, fallback) => {
     if (!g) return fallback;
     const edition = currentEdition();
     const code = edition.code;
     const names = g.names || {};
-    // The zh-cn store name (or the key of a game that exists only in the CN stores) is Simplified script: not for zh-tw.
-    const ids = Object.keys(g.appIds || {});
-    const simplified = names['zh-cn'] || (ids.some((k) => /_cn$/.test(k)) && !ids.some((k) => /_tw$/.test(k)) ? g.key : null);
-    const nativeAlias = (g.aliases || []).find((a) => (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !KANA.test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsEdition(a, code, simplified));
+    const nativeAlias = (g.aliases || []).find((a) => (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !KANA.test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsEdition(a, code));
     const latin = (x) => x && !CJK.test(x);
     const developerSuffix = g.developer ? ` (${g.developer})` : null;
     const key = developerSuffix && g.key.endsWith(developerSuffix) ? g.key.slice(0, -developerSuffix.length) : g.key;
@@ -140,7 +132,7 @@ function loadRankStats(options = {}) {
       names[code], homeTitleOf(g, edition.country), names.en,
       Object.values(names).find(latin), nativeAlias, (g.aliases || []).find(latin), key,
     ].filter(Boolean);
-    return candidates.find((c) => fitsEdition(c, code, simplified)) || candidates[0];
+    return candidates.find((c) => fitsEdition(c, code)) || candidates[0];
   };
   const nameOf = (s, r) => { const g = gameOf(s, r); return g ? displayName(g) : r.title; };
   const months = [...new Set(days.map((d) => d.date.slice(0, 7)))];

@@ -98,17 +98,20 @@ function describeGame(game, meta, home) {
   return out.slice(0, 4).map((s) => s.replace(/([.。])[.。]+$/, '$1'));
 }
 
-// Meta description: whole sentences up to the width budget (helpers/fit-description.js); the first sentence is kept whole even if it is long.
-function trimDescription(sentences, joiner) {
+// Meta description: the leading sentences that fit the width budget (helpers/fit-description.js). If the first sentence alone is
+// over budget, `fallback` (a short complete sentence) replaces it; without one the first sentence stays whole.
+function trimDescription(sentences, joiner, fallback) {
   let text = '';
   for (const s of sentences) {
     const next = text ? text + joiner + s : s;
-    if (text && width(next) > MAX_WIDTH) break;
+    if (width(next) > MAX_WIDTH) {
+      if (!text && fallback) text = fallback;
+      break;
+    }
     text = next;
   }
-  return text;
+  return text || (sentences[0] || '');
 }
-
 // JSON-LD description: never cut with an ellipsis. Text that was cut becomes whole sentences (a first sentence over the limit stays whole;
 // the meta description tag is trimmed separately by components/head.js).
 function cleanDescription(text, sentences, joiner) {

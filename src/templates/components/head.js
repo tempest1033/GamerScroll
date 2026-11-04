@@ -1,4 +1,4 @@
-﻿/**
+/**
  * HTML <head> 컴포넌트
  * SEO 메타, 스타일, Firebase Analytics 등
  */
@@ -63,7 +63,7 @@ function generateHead(options = {}) {
   const needsSuffix = !title.includes(t('head.gamerscroll'));
   const pageTitleText = needsSuffix ? escapeHtmlText(title + SITE_SUFFIX) : safeTitle;
   // Description: whole sentences within ~155 columns (CJK counts double), no "..." cut
-  const trimmedDescription = fitSentences(description);
+  const trimmedDescription = fitSentences(description, t('head.daily_records_and_analysis_of'));
   const safeDescription = escapeHtmlAttr(trimmedDescription);
   const safeKeywords = escapeHtmlAttr(keywords || '');
   const keywordTags = articleSchema && keywords
