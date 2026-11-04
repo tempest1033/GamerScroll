@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48568,6 +48568,17 @@
       "icon": "https://play-lh.googleusercontent.com/_Zt_n521H-MQHuC1tOZ4aBM19WwblDdHkfRGX5TpOJB1q0kDQGmytX_s23_wausjEJCuzNjebDIDuDITTkj6FQw",
       "searchResults": [],
       "addedAt": "2026-11-04T07:03:08.157Z"
+    },
+    {
+      "title": "LastCamp : Defense",
+      "status": "single",
+      "appIds": {
+        "ios": 6797364577
+      },
+      "developer": "SeungHo Chung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/de/bb/e4/debbe478-f855-6622-3194-a0258265f225/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-04T10:39:53.497Z"
     }
   ],
   "approved": [

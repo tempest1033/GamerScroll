@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -147733,14 +147733,16 @@
     },
     "Meowpop: Cat Sort Puzzle": {
       "appIds": {
-        "android": "jam.bubble.sort"
+        "android": "jam.bubble.sort",
+        "ios": 6813400580
       },
       "aliases": [],
       "developer": "Hyper Surfer Games",
       "icon": "https://play-lh.googleusercontent.com/GKiKSvM41i-Ok9JjP4yldrkj8Y3XN_k0AzwaWzgk4OdX83wXg2kipiPo24VnLopACeLYPUPkLwpv_UId0aYX4co",
       "slug": "meowpop-cat-sort-puzzle",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "Meowpop: 고양이 분류 퍼즐",
@@ -154706,8 +154708,26 @@
         "ja": "恋するタイル",
         "zh-tw": "Honey Tiles"
       }
+    },
+    "LastCamp : Defense": {
+      "appIds": {
+        "ios": 6797364577
+      },
+      "aliases": [],
+      "developer": "SeungHo Chung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/de/bb/e4/debbe478-f855-6622-3194-a0258265f225/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "lastcamp-defense",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "LastCamp : Defense",
+        "en": "LastCamp : Defense",
+        "ja": "LastCamp : Defense",
+        "zh-tw": "LastCamp : Defense"
+      }
     }
   },
   "lastUpdated": "2026-11-04",
-  "totalGames": 9078
+  "totalGames": 9079
 }
