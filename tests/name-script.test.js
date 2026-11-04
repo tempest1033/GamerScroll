@@ -19,3 +19,8 @@ test('Hangul, kana and CJK stay out of the other editions', () => {
 test('Traditional characters valid in Taiwan are never treated as Simplified (OpenCC variants, Big5)', () => {
   for (const name of ['泛舟', '洪水氾濫', '秘密', '群英', '巔峰']) assert.equal(fitsEdition(name, 'zh-tw'), true, name);
 });
+
+test('Supplementary-plane characters (emoji, CJK Ext B) do not trigger the Simplified check', () => {
+  for (const name of ['王者榮耀😀', '𠮷野家']) assert.equal(fitsEdition(name, 'zh-tw'), true, name);
+  assert.equal(fitsEdition('王者荣耀😀', 'zh-tw'), false);
+});
