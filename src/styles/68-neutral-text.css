@@ -46,7 +46,6 @@ body .site-container .tab-btn.active,
 body .nav .nav-item.active { color: var(--text) !important; }
 body .site-container .blog-content a { text-decoration: underline; text-underline-offset: 3px; }
 body .site-container .rk .rk-btn:not(.primary) { color: var(--text-secondary) !important; }
-body .site-container .rk .rk-btn.primary,
-body .site-container .rk .rk-preview-link { color: #fff !important; }
+body .site-container .rk .rk-btn.primary { color: #fff !important; }
 body .site-container .rk .gs-list-action,
 body .site-container .rk .gs-list-action:hover { color: var(--text-secondary) !important; }

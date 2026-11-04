@@ -106,8 +106,10 @@ const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs rk-coun
 // Metrics ("지표 분석") entry of a ranking row: only for games with a metrics page in this edition. The single
 // swappable visual piece — change the markup/class here (styles: .rk-metrics in 60-rank-chart.css). Link prefixing is done by localizeHtml.
 const METRICS_ICON = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13.5h12"/><path d="M4 10.5v-2"/><path d="M7 10.5V5"/><path d="M10 10.5V7"/><path d="M13 10.5V3"/></svg>';
-const metricsEntry = (g, name) => (g && g.slug && hasAnalysisPage(g.slug, require('../../i18n').currentEdition().code)
-  ? `<a class="rk-metrics" href="/analysis/${encodeURIComponent(g.slug)}/" aria-label="${esc(`${name} ${tt('game.tab_analysis')}`)}" title="${esc(tt('game.tab_analysis'))}">${METRICS_ICON}</a>`
+// Metrics page of a game in the current edition, or null when that edition has none.
+const metricsHref = (g) => (g && g.slug && hasAnalysisPage(g.slug, require('../../i18n').currentEdition().code) ? `/analysis/${encodeURIComponent(g.slug)}/` : null);
+const metricsEntry = (g, name) => (metricsHref(g)
+  ? `<a class="rk-metrics" href="${metricsHref(g)}" aria-label="${esc(`${name} ${tt('game.tab_analysis')}`)}" title="${esc(tt('game.tab_analysis'))}">${METRICS_ICON}</a>`
   // Empty cell keeps the rank numbers of rows without a metrics page aligned with the rest of the list.
   : '<span class="rk-metrics-none" aria-hidden="true"></span>');
 
@@ -131,9 +133,9 @@ function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit 
     const g = S.gameOf(s, r);
     const key = preview ? preview(r, rank, g) : null;
     const name = preview ? `<button type="button" data-name data-rk-preview="${esc(key)}"${defaultKey != null && key === defaultKey ? ' data-rk-default' : ''} aria-controls="rk-home-preview" aria-pressed="false">${esc(S.nameOf(s, r))}</button>` : C.nameLink(s, r);
-    const detail = preview ? ` · <a href="${C.hrefOf(g) || countryHref(country)}">${tt('home.details')}</a>` : '';
     const displayRank = withinCategory ? categoryIndex + 1 : rank;
-    return `<li${podium && displayRank <= 3 ? ` class="rk-pod rk-pod${displayRank}"` : ''}>${preview ? '' : metricsEntry(g, S.nameOf(s, r))}<span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">${tt('rank.overall_2', { rank })}</span> · ` : ''}<span data-name>${esc(r.developer || (g && g.developer) || '')}</span>${extra}${detail}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}</li>`;
+    // Preview rows only switch the home panel; the panel carries the links. The chevron marks the selected row.
+    return `<li${podium && displayRank <= 3 ? ` class="rk-pod rk-pod${displayRank}"` : ''}>${preview ? '' : metricsEntry(g, S.nameOf(s, r))}<span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">${tt('rank.overall_2', { rank })}</span> · ` : ''}<span data-name>${esc(r.developer || (g && g.developer) || '')}</span>${extra}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}${preview ? '<span class="rk-chev" aria-hidden="true">›</span>' : ''}</li>`;
   };
   return `<ol class="rk-list${podium ? ' rk-pods' : ''}${listClass ? ` ${esc(listClass)}` : ''}">${items.map(li).join('') || tt('rank.no_matching_games')}</ol>`;
 }
@@ -648,4 +650,4 @@ function renderGameRankSummary(gameInfo, slug) {
   return require('../helpers/game-rank-summary').renderGameRankSummary(rank, summaryMeta(S), gameInfo.key || gameInfo.name || slug, homeCountry());
 }
 
-module.exports = { renderTrending, renderRankingsHub, renderSubculture: () => require('./genres').renderGenre('subculture'), renderGenre: (id, country = 'kr') => require('./genres').renderGenre(id, country), marketPages, marketAvailability, renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };
+module.exports = { metricsHref, renderTrending, renderRankingsHub, renderSubculture: () => require('./genres').renderGenre('subculture'), renderGenre: (id, country = 'kr') => require('./genres').renderGenre(id, country), marketPages, marketAvailability, renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };

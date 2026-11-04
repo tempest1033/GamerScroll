@@ -113,7 +113,6 @@
 .rk .rk-preview-kpis { display: grid; grid-template-columns: 1fr 1fr; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); gap: 12px; }
 .rk .rk-preview-kpis span { display: block; color: var(--text-muted); font-size: 12px; }
 .rk .rk-preview-kpis b { display: block; margin-top: 6px; font-size: 19px; font-weight: 650; }
-.rk .rk-preview-link { display: block; margin-top: 20px; padding: 13px; text-align: center; color: var(--primary); background: var(--rk-accent-bg); border-radius: 10px; font-size: 13px; font-weight: 650; }
 .rk .rk-preview-help { font-size: 12px; color: var(--text-muted); margin-top: 20px; line-height: 1.65; }
 .rk .rk-hmovers { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
 .rk .rk-hmovers .rk-hcard .mrow { height: 44px; }

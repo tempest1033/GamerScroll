@@ -46,8 +46,7 @@ body .site-container .rk .rk-h2,
 body .site-container .rk .rk-card h2,
 body .site-container .rk .rk-colh h2,
 body .site-container .rk .rk-home-sec > h2,
-body .site-container .rk .rk-preview-label span:first-child,
-body .site-container .rk .rk-preview-link { font-weight: var(--fw-semibold); }
+body .site-container .rk .rk-preview-label span:first-child { font-weight: var(--fw-semibold); }
 
 /* ---------- 크기: 반 단계 값 제거 ---------- */
 /* 11.5 → 12 */

@@ -65,13 +65,14 @@ body .site-container .rk-home .rk-hmovers.three { grid-template-columns: repeat(
   .rk-home .rk-kpi .k, .rk-home .rk-kpi .s { font-size: 11px; }
   .rk-home .rk-kpi .s { padding: 2px 8px; }
 
-  /* 일간 순위: 탭 → 국가 → 10위까지 → TOP 200 전체 보기 → 분석 */
+  /* 일간 순위: 탭 → 국가 → 안내 → 10위까지 → TOP 200 전체 보기 → 분석 */
   .rk-home .rk-hcountry { grid-column: 1; grid-row: 2; justify-content: flex-start; padding: 0 0 12px; }
   .rk-home #ht-ccu:checked ~ .rk-hcountry,
   .rk-home #ht-sell:checked ~ .rk-hcountry { display: none; }
-  .rk-home .rk-hpanel > .rk-list { grid-row: 3; }
-  .rk-home .rk-hpanel > .rk-hmore { grid-row: 4; }
-  .rk-home .rk-preview { grid-row: 5; }
+  .rk-home .rk-hhint { grid-row: 3; }
+  .rk-home .rk-hpanel > .rk-list { grid-row: 4; }
+  .rk-home .rk-hpanel > .rk-hmore { grid-row: 5; }
+  .rk-home .rk-preview { grid-row: 6; }
 
   /* 오늘의 변동: 열마다 3줄 */
   body .site-container .rk-home .rk-hmovers.three { grid-template-columns: minmax(0, 1fr); }

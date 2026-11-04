@@ -45,7 +45,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
         await page.locator('label[for="ht-ccu"]').click();
         assert.equal(await page.locator('.rk-hpanel.ccu .rk-list').isVisible(), true);
         assert.match(await page.locator('#rk-home-preview').textContent(), /스팀 동접자/);
-        const detail = await page.locator('#rk-home-preview .rk-preview-link').getAttribute('href');
+        const detail = await page.locator('#rk-home-preview .rk-preview-acts .rk-btn.primary').getAttribute('href');
         await visit(detail);
         assert.ok(await page.locator('h1').isVisible());
         assert.equal(await page.locator('.rk-chartsvg').count() > 0, true);
@@ -76,7 +76,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
             assert.equal(await row.locator('[data-rk-preview]').getAttribute('aria-pressed'), 'true');
           }
         }
-        const detail = page.locator('.rk-hpanel.sell .nm a').first();
+        const detail = page.locator('#rk-home-preview a.rk-preview-title');
         const href = await detail.getAttribute('href');
         await detail.click();
         await page.waitForURL(new URL(href, baseURL).href);
@@ -194,7 +194,8 @@ const homeOnly = process.env.HOME_ONLY === '1';
           const rows = page.locator(`.rk-hpanel.${id} .rk-list:visible li`);
           assert.equal(await rows.count(), 10);
           if (width <= 768) continue;
-          const first = await rows.first().boundingBox();
+          // 분석 박스 상단은 목록 위 안내 줄(.rk-hhint)에 맞춘다.
+          const first = await page.locator('.rk-hhint').boundingBox();
           const last = await rows.last().boundingBox();
           // 목록 열은 10행 + '전체 보기' 버튼(.rk-hmore)까지가 한 덩어리 — 분석 박스는 그 바닥선에 맞춘다.
           const more = page.locator(`.rk-hpanel.${id} .rk-hmore`);

@@ -275,6 +275,10 @@ html body .site-container .rk .rk-chart,
 html body.page-games .games-hub-popular-card,
 html body.page-games .games-hub-recent-card { background: #fff; border: 1px solid var(--rk-line, #e5e5e9); border-radius: 14px; box-shadow: none; }
 html body .site-container .rk .rk-hl-card { border-radius: 14px; }
+/* 홈 게임별 추이 패널의 링크 글자색: 공통 링크색(68, 회색 !important) 대신 게임명·보조 버튼은 검정, 제공하지 않는 항목은 흐리게 */
+html body .site-container .rk-home a.rk-preview-title,
+html body .site-container .rk-home .rk-preview-acts a.rk-btn:not(.primary) { color: var(--text) !important; }
+html body .site-container .rk-home .rk-preview-acts .rk-btn-off { color: var(--text-muted) !important; }
 html body.page-games .games-hub-popular-card:hover,
 html body.page-games .games-hub-recent-card:hover { background: #fff; border-color: #b9bcc4; }
 /* 섹션 제목 크기: 홈만 26px 이던 것을 다른 페이지와 같은 24px 로 */

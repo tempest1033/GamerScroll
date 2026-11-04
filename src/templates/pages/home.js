@@ -12,7 +12,7 @@ const { listLink } = require('../components/list-actions');
 const { loadRankStats, STORES, COUNTRIES, util } = require('../../rank/stats');
 const { clientTranslator, currentEdition, formatDay, formatYearMonth } = require('../../i18n');
 const { loadSteamStats } = require('../../rank/steam-stats');
-const { makeCtx, storeList, countryHref, homeCountry, orderedCountries, chg, sparkline } = require('./rank-hub');
+const { makeCtx, storeList, countryHref, homeCountry, orderedCountries, chg, sparkline, metricsHref } = require('./rank-hub');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { esc, tsText, tsTime, avg, fmt1 } = util;
@@ -41,30 +41,43 @@ function rankChart(series, dates, { w = 560, h = 230, ranked = true, mobile = fa
   const present = vals.filter((v) => v != null);
   if (present.length < 2) return mobile ? '' : tt('home.not_enough_records_to_show');
   const lo = ranked ? 1 : 0; const hi = Math.max(ranked ? 10 : 1, ...present);
-  const padL = mobile ? 40 : 36; const padR = 14; const padT = 14; const padB = 28;
   const fs = mobile ? 12 : 10; const fsX = mobile ? 12 : 11; const xTicks = mobile ? 4 : 6;
+  const ticks = [lo, Math.round(lo + (hi - lo) / 3), Math.round(lo + (2 * (hi - lo)) / 3), hi].filter((t, i, a) => a.indexOf(t) === i);
+  const tickText = (t) => (ranked ? `${tt('home.axis_rank', { t })}` : t >= 10000 ? `${tt('home.0k', { p0: (t / 10000).toFixed(0) })}` : fmt(t));
+  // The left padding fits the widest axis label (wide CJK glyphs ≈ 1em, others ≈ 0.6em) so it is never cut off.
+  const textWidth = (s) => Array.from(s).reduce((sum, ch) => sum + (/[\u3000-\u9fff\uac00-\ud7a3]/.test(ch) ? fs : fs * 0.6), 0);
+  const padL = Math.max(mobile ? 40 : 36, Math.ceil(Math.max(...ticks.map((t) => textWidth(tickText(t))))) + 10); const padR = 14; const padT = 14; const padB = 28;
   const x = (i) => padL + (i / Math.max(1, vals.length - 1)) * (w - padL - padR);
   const y = (v) => padT + (ranked ? (v - lo) / (hi - lo) : 1 - (v - lo) / (hi - lo)) * (h - padT - padB);
-  const ticks = [lo, Math.round(lo + (hi - lo) / 3), Math.round(lo + (2 * (hi - lo)) / 3), hi].filter((t, i, a) => a.indexOf(t) === i);
-  const grid = ticks.map((t) => `<line x1="${padL}" x2="${w - padR}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="var(--rk-line)" /><text x="${padL - 8}" y="${(y(t) + 4).toFixed(1)}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="end">${ranked ? `${tt('home.axis_rank', { t })}` : t >= 10000 ? `${tt('home.0k', { p0: (t / 10000).toFixed(0) })}` : fmt(t)}</text>`).join('');
-  const step = Math.max(1, Math.ceil(vals.length / xTicks));
-  const labels = dates.map((d, i) => (i % step === 0 || i === dates.length - 1 ? `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="${fsX}" fill="var(--rk-dim)" text-anchor="middle">${new Intl.DateTimeFormat(currentEdition().intl, { timeZone: 'UTC', month: 'short', day: 'numeric' }).format(new Date(`${d}T00:00:00Z`))}</text>` : '')).join('');
+  const grid = ticks.map((t) => `<line x1="${padL}" x2="${w - padR}" y1="${y(t).toFixed(1)}" y2="${y(t).toFixed(1)}" stroke="var(--rk-line)" /><text x="${padL - 8}" y="${(y(t) + 4).toFixed(1)}" font-size="${fs}" fill="var(--rk-dim)" text-anchor="end">${tickText(t)}</text>`).join('');
+  const li = vals.length - 1; const lv = vals[li];
+  // Date labels evenly spaced from the first to the last day; the end labels anchor inward so they neither overlap
+  // their neighbour nor run past the chart edge.
+  const tickIdx = [...new Set(Array.from({ length: xTicks }, (_, k) => Math.round((k * li) / (xTicks - 1))))];
+  const labels = tickIdx.map((i) => `<text x="${x(i).toFixed(1)}" y="${h - 8}" font-size="${fsX}" fill="var(--rk-dim)" text-anchor="${i === 0 ? 'start' : i === li ? 'end' : 'middle'}">${new Intl.DateTimeFormat(currentEdition().intl, { timeZone: 'UTC', month: 'short', day: 'numeric' }).format(new Date(`${dates[i]}T00:00:00Z`))}</text>`).join('');
   let d = ''; let open = false;
   vals.forEach((v, i) => { if (v == null) { open = false; return; } d += (open ? 'L' : 'M') + `${x(i).toFixed(1)},${y(v).toFixed(1)}`; open = true; });
-  const li = vals.length - 1; const lv = vals[li];
   return `<svg class="rk-chartsvg${mobile ? ' rk-chartsvg-m' : ''}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${tt('home.last_days_trend', { length: series.length, p1: ranked ? tt('layout.rankings') : tt('home.concurrent_players') })}">${grid}${labels}<path d="${d}" fill="none" stroke="var(--rk-accent)" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>${lv != null ? `<circle cx="${x(li).toFixed(1)}" cy="${y(lv).toFixed(1)}" r="4" fill="var(--rk-accent)"/>` : ''}</svg>`;
 }
 
 // 선택한 게임 분석 패널. 첫 화면(서버)과 선택 변경(브라우저)이 같은 함수를 쓴다.
 // 브라우저에는 소스를 그대로 넣으므로 esc · fmt · fmt1 · rankChart 외의 바깥 이름을 참조하지 않는다.
+// Links: href = the game's rank history (Steam record page for Steam games), metrics = its metrics page in this edition.
+// A game without a page links to its country's TOP 200 list (list, country) instead.
 function previewHtml(e) {
   const unit = e.ranked ? tt('chart.rank_unit') : tt('home.players');
-  return `<div class="rk-preview-label"><span>${tt('home.trend_by_game')}</span><span>${esc(e.label)}</span></div>
-<div class="rk-preview-title"><img src="${esc(e.icon)}" alt=""><div><h2 data-name>${esc(e.name)}</h2><p data-name>${esc(e.developer)}</p></div></div>
+  const arrow = ' <span aria-hidden="true">→</span>';
+  const title = `<img src="${esc(e.icon)}" alt=""><div><h2 data-name>${esc(e.name)}</h2><p data-name>${esc(e.developer)}</p></div>`;
+  const off = (text, hint) => `<span class="rk-btn rk-btn-off"${hint ? ` title="${esc(hint)}"` : ''}>${text}</span>`;
+  const actions = !e.href
+    ? `<a class="rk-btn" href="${esc(e.list)}">${tt('home.revenue_top_200', { p0: esc(e.country) })}${arrow}</a>${off(tt('home.no_detail_records'))}`
+    : `<a class="rk-btn primary" href="${esc(e.href)}">${tt('game.tab_rank')}${arrow}</a>${e.steam ? off(tt('home.metrics_not_offered'), tt('home.metrics_mobile_only')) : e.metrics ? `<a class="rk-btn" href="${esc(e.metrics)}">${tt('game.tab_analysis')} <span class="rk-btn-new">NEW</span>${arrow}</a>` : off(tt('home.no_metrics_page'))}`;
+  return `<div class="rk-preview-label"><span>${tt('home.trend_by_game')}<span class="rk-preview-store-m"> · ${esc(e.label)}</span></span><span class="rk-preview-store">${esc(e.label)}</span><button type="button" class="rk-preview-back" data-rk-back><span aria-hidden="true">↑</span> ${tt('home.back_to_list')}</button></div>
+${e.href ? `<a class="rk-preview-title" href="${esc(e.href)}" title="${esc(tt('home.view_rank_history'))}">${title}</a>` : `<div class="rk-preview-title">${title}</div>`}
+<div class="rk-preview-acts">${actions}</div>
 <div class="rk-preview-value"><strong>${e.value == null ? tt('chart.no_record') : `${fmt(e.value)}<small>${unit}</small>`}</strong>${e.change}</div>
 <div class="rk-preview-chart">${rankChart(e.series, e.dates, { ranked: e.ranked })}${rankChart(e.series, e.dates, { ranked: e.ranked, w: 330, h: 200, mobile: true })}</div>
-<div class="rk-preview-kpis"><div><span>${tt('home.30_day', { p0: e.ranked ? tt('home.best_rank') : tt('home.peak_concurrent_players') })}</span><b>${e.best == null ? tt('chart.no_record') : `${fmt(e.best)}${unit}`}</b></div><div><span>${tt('home.30_day_average_days_recorded', { count: e.count })}</span><b>${e.mean == null ? tt('chart.no_record') : `${e.ranked ? fmt1(e.mean) : fmt(e.mean)}${unit}`}</b></div></div>
-<a class="rk-preview-link" href="${esc(e.href)}">${tt('home.view_detailed_records')}</a>`;
+<div class="rk-preview-kpis"><div><span>${tt('home.30_day', { p0: e.ranked ? tt('home.best_rank') : tt('home.peak_concurrent_players') })}</span><b>${e.best == null ? tt('chart.no_record') : `${fmt(e.best)}${unit}`}</b></div><div><span>${tt('home.30_day_average_days_recorded', { count: e.count })}</span><b>${e.mean == null ? tt('chart.no_record') : `${e.ranked ? fmt1(e.mean) : fmt(e.mean)}${unit}`}</b></div></div>`;
 }
 
 function renderHome() {
@@ -123,7 +136,9 @@ function renderHome() {
   const rankPreview = (c, s) => (r, rank, g) => {
     const key = `${c}-${s}-${r.appId}`;
     const series = S.seriesOf(c, s, r.appId).slice(-30);
-    previews[key] = { name: S.nameOf(s, r), icon: C.iconOf(r, g), developer: r.developer || (g && g.developer) || '', label: `${tt('home.revenue', { p0: HOME_COUNTRIES[c], p1: STORES[s] })}`, value: rank, change: chg(rank, rankOf(yday, c, s, r.appId)), series, d: 'm', ranked: true, href: C.hrefOf(g) || countryHref(c), ...summary(series, true) };
+    const href = C.hrefOf(g);
+    const links = href ? { href, metrics: metricsHref(g) } : { href: null, list: countryHref(c), country: HOME_COUNTRIES[c] };
+    previews[key] = { name: S.nameOf(s, r), icon: C.iconOf(r, g), developer: r.developer || (g && g.developer) || '', label: `${tt('home.revenue', { p0: HOME_COUNTRIES[c], p1: STORES[s] })}`, value: rank, change: chg(rank, rankOf(yday, c, s, r.appId)), series, d: 'm', ranked: true, ...links, ...summary(series, true) };
     return key;
   };
   // 목록별 처음 선택: TOP 10 중 30일 순위 폭이 가장 큰 게임 (늘 1위인 게임의 평평한 차트 대신 움직임이 보이게)
@@ -151,11 +166,11 @@ function renderHome() {
       const key = `steam-${m.appid}`;
       const series = ST.series(m.appid).slice(-30);
       const ccu = ST.ccuOf(T, m.appid);
-      previews[key] = { name: m.name, icon: m.img, developer: m.developer || '', label: tt('home.steam_concurrent_players_2'), value: ccu, change: ccu == null ? tt('home.outside_concurrent_top_100') : '', series, d: 's', ranked: false, href: `/steam/${m.appid}/`, ...summary(series, false) };
-      return `<li><span class="rk-rk ${r.rank <= 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm"><button type="button" data-name data-rk-preview="${key}" aria-controls="rk-home-preview" aria-pressed="false">${esc(m.name)}</button><span class="dv"><span data-name>${esc(m.developer)}</span> · <a href="/steam/${m.appid}/">${tt('home.details')}</a></span></div><div class="rt">${rt}</div>${spark}</li>`;
+      previews[key] = { name: m.name, icon: m.img, developer: m.developer || '', label: tt('home.steam_concurrent_players_2'), value: ccu, change: ccu == null ? tt('home.outside_concurrent_top_100') : '', series, d: 's', ranked: false, href: `/steam/${m.appid}/`, steam: true, ...summary(series, false) };
+      return `<li><span class="rk-rk ${r.rank <= 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm"><button type="button" data-name data-rk-preview="${key}" aria-controls="rk-home-preview" aria-pressed="false">${esc(m.name)}</button><span class="dv" data-name>${esc(m.developer)}</span></div><div class="rt">${rt}</div>${spark}<span class="rk-chev" aria-hidden="true">›</span></li>`;
     };
     const ccu = T.mp.slice(0, 10).map((r) => li(r, ST.info(r.appid), `${chg(r.rank, ST.rankOf(Y, r.appid))}<span class="sub">${tt('home.concurrent', { p0: fmt(r.ccu) })}</span>`, sparkUp(ST.series(r.appid).slice(-30), { w: 72, h: 22, color: 'var(--rk-text2)' }))).join('');
-    const sell = T.sellers.slice(0, 10).map((r) => li(r, ST.info(r.appid), `${chg(r.rank, ST.sellOf(Y, r.appid))}<span class="sub">${esc(r.price || '')}${r.discount ? ` · ${esc(r.discount)}` : ''}</span>`, '<span></span>')).join('');
+    const sell = T.sellers.slice(0, 10).map((r) => li(r, ST.info(r.appid), `${chg(r.rank, ST.sellOf(Y, r.appid))}<span class="sub">${esc(r.price || '')}${r.discount ? ` · ${esc(r.discount)}` : ''}</span>`, '<span class="rk-spark"></span>')).join('');
     panels.push({ id: 'ccu', label: tt('home.steam_concurrent_players'), body: `<ol class="rk-list">${ccu}</ol>${listLink('/steam/', tt('home.view_full_steam_concurrent_players'), 'rk-hmore')}` });
     panels.push({ id: 'sell', label: tt('home.steam_sales'), body: `<ol class="rk-list">${sell}</ol>${listLink('/steam/#sell', tt('home.view_full_steam_sales_top'), 'rk-hmore')}` });
   }
@@ -164,6 +179,7 @@ ${panels.map((p, i) => `<input type="radio" name="rk-ht" id="ht-${p.id}" class="
 ${Object.keys(HOME_COUNTRIES).map((c, i) => `<input type="radio" name="rk-hc" id="hc-${c}" class="rk-control"${i === 0 ? ' checked' : ''}>`).join('')}
 <div class="rk-htabs">${panels.map((p) => `<label for="ht-${p.id}">${p.label}</label>`).join('')}<span class="upd">${tt('home.updated', { p0: tsText(today.ts) })}</span></div>
 <div class="rk-hcountry">${Object.entries(HOME_COUNTRIES).map(([c, n]) => `<label for="hc-${c}">${n}</label>`).join('')}</div>
+<p class="rk-hhint"><i aria-hidden="true">i</i><span class="rk-hhint-side">${tt('home.select_hint_side')}</span><span class="rk-hhint-below">${tt('home.select_hint_below')}</span></p>
 <div class="rk-hpanels">${panels.map((p) => `<div class="rk-hpanel ${p.id}">${p.body}</div>`).join('')}</div>`;
 
   const dates = { m: days.slice(-30).map((d) => d.date), s: ST ? ST.days.slice(-30).map((d) => d.date) : [] };
@@ -220,8 +236,16 @@ ${Object.keys(HOME_COUNTRIES).map((c, i) => `<input type="radio" name="rk-hc" id
     const list = Array.prototype.find.call(workspace.querySelectorAll('.rk-hpanel .rk-list'), function(l) { return l.offsetParent !== null; });
     return list && (list.querySelector('[data-rk-default]') || list.querySelector('[data-rk-preview]'));
   }
+  // Mobile '↑ List': back to the selected row, keeping keyboard focus on it.
+  preview.addEventListener('click', function(event) {
+    if (!event.target.closest('[data-rk-back]')) return;
+    const pressed = workspace.querySelector('[data-rk-preview][aria-pressed="true"]');
+    if (!pressed) return;
+    pressed.focus({ preventScroll: true });
+    pressed.closest('li').scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'center' });
+  });
   workspace.addEventListener('click', function(event) {
-    if (event.target.closest('a')) return;
+    if (event.target.closest('a, [data-rk-back]')) return;
     const row = event.target.closest('.rk-hpanel .rk-list li');
     const button = event.target.closest('[data-rk-preview]') || (row && row.querySelector('[data-rk-preview]'));
     if (button) select(button, true);
@@ -312,4 +336,4 @@ ${monthSec}
   });
 }
 
-module.exports = { renderHome };
+module.exports = { renderHome, previewHtml };
