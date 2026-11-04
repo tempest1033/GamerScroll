@@ -167,7 +167,7 @@ module.exports = {
   "home.back_to_list": "一覧",
   "home.view_rank_history": "ランキング推移を見る",
   "home.no_metrics_page": "指標分析なし",
-  "home.metrics_not_offered": "指標分析は非対応",
+  "home.metrics_not_offered": "指標分析非対応",
   "home.metrics_mobile_only": "指標分析はモバイルゲームのみ対応しています",
   "home.no_detail_records": "詳細記録なし",
   "home.revenue_top_200": "{p0}売上TOP 200",

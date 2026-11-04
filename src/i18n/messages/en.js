@@ -167,7 +167,7 @@ module.exports = {
   "home.back_to_list": "List",
   "home.view_rank_history": "View rank history",
   "home.no_metrics_page": "No metrics",
-  "home.metrics_not_offered": "Metrics not available",
+  "home.metrics_not_offered": "Metrics unavailable",
   "home.metrics_mobile_only": "Metrics are available for mobile games only",
   "home.no_detail_records": "No detailed records",
   "home.revenue_top_200": "{p0} revenue TOP 200",
