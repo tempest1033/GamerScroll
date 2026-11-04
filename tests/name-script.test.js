@@ -15,3 +15,7 @@ test('Hangul, kana and CJK stay out of the other editions', () => {
   assert.equal(fitsEdition('リネージュM', 'ja'), true);
   assert.equal(fitsEdition('원신', 'ko'), true);
 });
+
+test('Traditional characters valid in Taiwan are never treated as Simplified (OpenCC variants, Big5)', () => {
+  for (const name of ['泛舟', '洪水氾濫', '秘密', '群英', '巔峰']) assert.equal(fitsEdition(name, 'zh-tw'), true, name);
+});

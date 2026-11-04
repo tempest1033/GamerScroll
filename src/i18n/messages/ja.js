@@ -90,7 +90,7 @@ module.exports = {
   "genres.rankings_of_games_in_the": "{date}時点の{cname}App Store・Google Play売上TOP 200に入っている{label}ゲーム{p2}タイトルのランキング{p3}{p4}。{latestMonth}の月間TOP 10と売上ランキング全体を掲載しています。",
   "genres.theme_style": "テーマ・スタイル",
   "genres.there_are_no_monthly_ranking": "<tr><td colspan=\"5\">このカテゴリの月間ランキング記録はありません。</td></tr>",
-  "head.daily_records_and_analysis_of": "App Store・Google Play・Steamのゲームランキングを毎日記録・分析。売上ランキング、同時接続者数、月間・グローバル総合ランキング、ゲーム別ランキング推移をチェックできます。",
+  "head.daily_records_and_analysis_of": "App Store・Google Play・Steamのゲームランキングを毎日記録・分析。売上ランキング、同時接続者数、ゲーム別の推移を確認できます。",
   "head.game_rankings_mobile_game_revenue": "ゲームランキング、モバイルゲーム売上ランキング、App Storeランキング、Google Playランキング、Steamランキング、ゲームランキング分析、GamerScroll",
   "head.gamer_scroll": "Gamer Scroll",
   "head.gamerscroll": "GamerScroll",

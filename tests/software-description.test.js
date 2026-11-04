@@ -38,3 +38,15 @@ test('prose with "NAME! lowercase" is not split at the name', () => {
   const long = 'MONOPOLY GO! ' + 'revenue ranking history '.repeat(12) + 'end.';
   assert.equal(fitSentences(long, 'Fallback.'), 'Fallback.');
 });
+
+test('every site/game fallback description is a complete sentence within the budget in all editions', () => {
+  const i18n = require('../src/i18n');
+  const { width, MAX_WIDTH } = require('../src/templates/helpers/fit-description');
+  for (const edition of i18n.EDITIONS) {
+    i18n.setEdition(edition.code);
+    const text = i18n.t('head.daily_records_and_analysis_of');
+    assert.ok(width(text) <= MAX_WIDTH, `${edition.code}: ${width(text)} columns`);
+    assert.match(text, /[.!?。！？]$/);
+    for (const key of ['game.seo_desc_mobile', 'game.seo_desc_steam']) assert.ok(width(i18n.t(key, { name: '' })) <= MAX_WIDTH, `${edition.code} ${key}`);
+  }
+});
