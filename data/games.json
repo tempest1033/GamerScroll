@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154321,14 +154321,16 @@
     },
     "소드 x 스태프: 화산귀환 콜라보": {
       "appIds": {
-        "ios": 6762359394
+        "ios": 6762359394,
+        "android": "com.zjcs.android.kr"
       },
       "aliases": [],
       "developer": "Boltray Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/de/74/4ade7404-81d6-7039-2764-a517bae2b28c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "소드-x-스태프-화산귀환-콜라보",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "소드 x 스태프: 화산귀환 콜라보"
@@ -154599,8 +154601,93 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Krillion Today: Trivia & Quiz": {
+      "appIds": {
+        "ios": 6819295797
+      },
+      "aliases": [],
+      "developer": "Celian Ghelid",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6b/c4/ca/6bc4ca9b-f5ed-ec2d-eda1-533b99706c9f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "krillion-today-trivia-quiz",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Krillion Today: Trivia & Quiz",
+        "en": "Krillion Today: Trivia & Quiz",
+        "ja": "Krillion Today: Trivia & Quiz",
+        "zh-tw": "Krillion Today: Trivia & Quiz"
+      }
+    },
+    "格鬥天王：拳面出擊 - SNK正版授權 (TW)": {
+      "appIds": {
+        "android_tw": "com.huanle.kof.sea"
+      },
+      "aliases": [
+        "格鬥天王：拳面出擊 - SNK正版授權"
+      ],
+      "developer": "JOYMAKER GAMES PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/F3o9a5E96MFcfrjlp526Goj6EMQtnCsp1t9Bwp_Kzg1kUsIKttc3VRVqxxP-NrbyZwKwx7fv8cE4n-Pk99A86g",
+      "slug": "格鬥天王拳面出擊-snk正版授權-tw",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "zh-tw": "格鬥天王：拳面出擊 - SNK正版授權"
+      }
+    },
+    "Arrow Maze: Win Cash": {
+      "appIds": {
+        "android": "com.alano.arrowmaze"
+      },
+      "aliases": [],
+      "developer": "Cele & Sunny Investment",
+      "icon": "https://play-lh.googleusercontent.com/rL-JeRooXDgIAAjPNqZJtHV9tW4iJqJdu886w0IaHso24I83f8Zi-SR8Eya330L42FE1kxPRe9HtVOEzBJXV6Q",
+      "slug": "arrow-maze-win-cash",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Maze: Win Cash",
+        "en": "Arrow Maze: Win Cash",
+        "ja": "Arrow Maze: Win Cash",
+        "zh-tw": "Arrow Maze: Win Cash"
+      }
+    },
+    "滅殺之路：鬼炭": {
+      "appIds": {
+        "android": "com.misdagz.lygpt"
+      },
+      "aliases": [],
+      "developer": "Aura Farms LLC",
+      "icon": "https://play-lh.googleusercontent.com/dvJwsrcCz_iNFTX_aQzN-oGxVIGzSKCTJdkDBe_owGZviHIy6f2xcewyBts4gdOxZIIEaDflwIgnT-W3f_p-Ug",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "滅殺之路：鬼炭",
+        "zh-tw": "滅殺之路：鬼炭"
+      }
+    },
+    "偽靈根？我靠系統照樣成神": {
+      "appIds": {
+        "android": "com.sysgod.jstwgp"
+      },
+      "aliases": [],
+      "developer": "CLOUD RIFT MELODY GAMES CO., LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/ov9JFTroJ-OY3y666rAO7Drzj9NbQTJ8CojWew4nv9cNDzJ_qhzXFbmzpScDkLy_0ligXWljOulbxw0Z0ctM",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "偽靈根？我靠系統照樣成神",
+        "zh-tw": "偽靈根？我靠系統照樣成神"
+      }
     }
   },
   "lastUpdated": "2026-11-04",
-  "totalGames": 9072
+  "totalGames": 9077
 }

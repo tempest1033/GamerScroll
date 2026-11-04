@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48346,13 +48346,19 @@
     },
     {
       "title": "소드 x 스태프: 화산귀환 콜라보",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6762359394
+        "ios": 6762359394,
+        "android": "com.zjcs.android.kr"
       },
       "developer": "Boltray Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/de/74/4ade7404-81d6-7039-2764-a517bae2b28c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "소드 x 스태프: 화산귀환 콜라보",
+          "appId": 6762359394
+        }
+      ],
       "addedAt": "2026-11-03T15:04:05.381Z"
     },
     {
@@ -48502,6 +48508,55 @@
         }
       ],
       "addedAt": "2026-11-03T23:03:18.643Z"
+    },
+    {
+      "title": "Krillion Today: Trivia & Quiz",
+      "status": "single",
+      "appIds": {
+        "ios": 6819295797
+      },
+      "developer": "Celian Ghelid",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6b/c4/ca/6bc4ca9b-f5ed-ec2d-eda1-533b99706c9f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-04T03:03:10.572Z"
+    },
+    {
+      "title": "Arrow Maze: Win Cash",
+      "status": "single",
+      "appIds": {
+        "android": "com.alano.arrowmaze"
+      },
+      "developer": "Cele & Sunny Investment",
+      "icon": "https://play-lh.googleusercontent.com/rL-JeRooXDgIAAjPNqZJtHV9tW4iJqJdu886w0IaHso24I83f8Zi-SR8Eya330L42FE1kxPRe9HtVOEzBJXV6Q",
+      "searchResults": [
+        {
+          "title": "Arrow Puzzle - 화살퍼즐게임",
+          "appId": 6755482314
+        }
+      ],
+      "addedAt": "2026-11-04T03:03:11.457Z"
+    },
+    {
+      "title": "滅殺之路：鬼炭",
+      "status": "single",
+      "appIds": {
+        "android": "com.misdagz.lygpt"
+      },
+      "developer": "Aura Farms LLC",
+      "icon": "https://play-lh.googleusercontent.com/dvJwsrcCz_iNFTX_aQzN-oGxVIGzSKCTJdkDBe_owGZviHIy6f2xcewyBts4gdOxZIIEaDflwIgnT-W3f_p-Ug",
+      "searchResults": [],
+      "addedAt": "2026-11-04T03:03:11.774Z"
+    },
+    {
+      "title": "偽靈根？我靠系統照樣成神",
+      "status": "single",
+      "appIds": {
+        "android": "com.sysgod.jstwgp"
+      },
+      "developer": "CLOUD RIFT MELODY GAMES CO., LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/ov9JFTroJ-OY3y666rAO7Drzj9NbQTJ8CojWew4nv9cNDzJ_qhzXFbmzpScDkLy_0ligXWljOulbxw0Z0ctM",
+      "searchResults": [],
+      "addedAt": "2026-11-04T03:03:12.059Z"
     }
   ],
   "approved": [

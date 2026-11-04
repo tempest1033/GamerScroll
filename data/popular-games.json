@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T01:01:59.473Z",
+  "updatedAt": "2026-11-04T03:01:49.270Z",
   "period": "30days",
   "games": [
     {
@@ -11,11 +11,23 @@
       "views": 9
     },
     {
+      "slug": "pixel-flow",
+      "views": 9
+    },
+    {
+      "slug": "arrow-pro-3d",
+      "views": 8
+    },
+    {
       "slug": "barotrauma",
       "views": 8
     },
     {
-      "slug": "pixel-flow",
+      "slug": "go-go-고양이-홉핑",
+      "views": 8
+    },
+    {
+      "slug": "sakura-school-simulator",
       "views": 8
     },
     {
@@ -23,23 +35,39 @@
       "views": 8
     },
     {
+      "slug": "라스트-라이트",
+      "views": 8
+    },
+    {
+      "slug": "레이싱-마스터",
+      "views": 8
+    },
+    {
+      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "views": 8
+    },
+    {
+      "slug": "한게임-포커",
+      "views": 8
+    },
+    {
       "slug": "3d운전교실",
       "views": 7
     },
     {
-      "slug": "arrow-pro-3d",
+      "slug": "geometry-dash-lite",
       "views": 7
     },
     {
-      "slug": "go-go-고양이-홉핑",
+      "slug": "mistfall-hunter",
+      "views": 7
+    },
+    {
+      "slug": "my-hero-ultra-rumble",
       "views": 7
     },
     {
       "slug": "palworld",
-      "views": 7
-    },
-    {
-      "slug": "sakura-school-simulator",
       "views": 7
     },
     {
@@ -48,34 +76,6 @@
     },
     {
       "slug": "snipers-duel",
-      "views": 7
-    },
-    {
-      "slug": "단어-찾기-단어-게임",
-      "views": 7
-    },
-    {
-      "slug": "라스트-라이트",
-      "views": 7
-    },
-    {
-      "slug": "레이싱-마스터",
-      "views": 7
-    },
-    {
-      "slug": "배틀그라운드",
-      "views": 7
-    },
-    {
-      "slug": "산너머-도원마을",
-      "views": 7
-    },
-    {
-      "slug": "세포-특공대-전략형-타워-디펜스",
-      "views": 7
-    },
-    {
-      "slug": "스타일리시-룸-집정리-언패킹-집꾸미기",
       "views": 7
     }
   ]
