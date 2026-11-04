@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48579,6 +48579,70 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/de/bb/e4/debbe478-f855-6622-3194-a0258265f225/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-04T10:39:53.497Z"
+    },
+    {
+      "title": "Tiny Ride",
+      "status": "matched",
+      "appIds": {
+        "android": "com.tiny.ride.game",
+        "ios": 6775941016
+      },
+      "developer": "TabTale",
+      "icon": "https://play-lh.googleusercontent.com/9KxeSJ8g4MrPEwxFlz-enq-R6p0Nrhb0vxRLiYe6XA0J4ASYZLGh002FedGVZygPbBE0KIB-8pKOi8Qofc8f",
+      "searchResults": [
+        {
+          "title": "Tiny Ride",
+          "appId": 6775941016
+        },
+        {
+          "title": "오토바이 레이스：최고의 레이싱 게임  Bike Race",
+          "appId": 510461758
+        },
+        {
+          "title": "택시 런",
+          "appId": 1464643407
+        }
+      ],
+      "addedAt": "2026-11-04T20:51:16.171Z"
+    },
+    {
+      "title": "Cozy Kitchen: Hidden Tales",
+      "status": "single",
+      "appIds": {
+        "ios": 6803764608
+      },
+      "developer": "Onechain Tech.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/00/9b/93009ba4-6de4-c488-f7e0-2d2f3f461a5f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-04T20:51:18.026Z"
+    },
+    {
+      "title": "Flop Star: 래그돌 높이뛰기",
+      "status": "single",
+      "appIds": {
+        "android": "com.VaymoGames.FlopStar"
+      },
+      "developer": "Vaymo Games",
+      "icon": "https://play-lh.googleusercontent.com/i9cMfyxXNPbaORU8uSSIDaQrXZNFNlkZ8DbhfAt-8wc3ntPv-ChHE65vPqotUNaMNtUuD_5MNjI0cQUeF9mOKRI",
+      "searchResults": [],
+      "addedAt": "2026-11-04T20:51:18.832Z"
+    },
+    {
+      "title": "월드 오브 3D 너트",
+      "status": "matched",
+      "appIds": {
+        "android": "puzzle.nuts.nutsort.gp",
+        "ios": 6749267372
+      },
+      "developer": "Warrior Puzzle Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/M9yJyskx3aCkm65ySbOPez8-phLTxxBFr6LjEKxOnMWpNF7bQDg-HHau9q8Bvdvt0J93jSmrEGvIm2L5stcifw",
+      "searchResults": [
+        {
+          "title": "월드 오브 3D 너트",
+          "appId": 6749267372
+        }
+      ],
+      "addedAt": "2026-11-04T20:51:19.231Z"
     }
   ],
   "approved": [

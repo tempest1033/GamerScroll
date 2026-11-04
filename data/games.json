@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154753,8 +154753,114 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Tiny Ride": {
+      "appIds": {
+        "android": "com.tiny.ride.game",
+        "ios": 6775941016
+      },
+      "aliases": [],
+      "developer": "TabTale",
+      "icon": "https://play-lh.googleusercontent.com/9KxeSJ8g4MrPEwxFlz-enq-R6p0Nrhb0vxRLiYe6XA0J4ASYZLGh002FedGVZygPbBE0KIB-8pKOi8Qofc8f",
+      "slug": "tiny-ride",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Tiny Ride",
+        "en": "Tiny Ride",
+        "ja": "Tiny Ride",
+        "zh-tw": "Tiny Ride"
+      }
+    },
+    "來種水果吧！": {
+      "appIds": {
+        "ios_tw": 6806929534
+      },
+      "aliases": [],
+      "developer": "RiftSky Games Co.,Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cc/d9/fc/ccd9fce6-172e-3309-0a40-4ad378ab6319/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "來種水果吧",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "來種水果吧！"
+      }
+    },
+    "超人力霸王：光之英雄": {
+      "appIds": {
+        "ios_tw": 6785779856
+      },
+      "aliases": [],
+      "developer": "Mover Games Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/64/84/49/64844989-1011-b168-6047-461024a59af4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "超人力霸王光之英雄",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "超人力霸王：光之英雄"
+      }
+    },
+    "Cozy Kitchen: Hidden Tales": {
+      "appIds": {
+        "ios": 6803764608
+      },
+      "aliases": [],
+      "developer": "Onechain Tech.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/00/9b/93009ba4-6de4-c488-f7e0-2d2f3f461a5f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "cozy-kitchen-hidden-tales",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Cozy Kitchen: Hidden Tales",
+        "en": "Cozy Kitchen: Hidden Tales",
+        "ja": "Cozy Kitchen: Hidden Tales",
+        "zh-tw": "Cozy Kitchen: Hidden Tales"
+      }
+    },
+    "Flop Star: 래그돌 높이뛰기": {
+      "appIds": {
+        "android": "com.VaymoGames.FlopStar"
+      },
+      "aliases": [],
+      "developer": "Vaymo Games",
+      "icon": "https://play-lh.googleusercontent.com/i9cMfyxXNPbaORU8uSSIDaQrXZNFNlkZ8DbhfAt-8wc3ntPv-ChHE65vPqotUNaMNtUuD_5MNjI0cQUeF9mOKRI",
+      "slug": "flop-star-래그돌-높이뛰기",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Flop Star: 래그돌 높이뛰기",
+        "en": "Flop Star: Ragdoll High Jump",
+        "ja": "Flop Star：ラグドール走り高跳び",
+        "zh-tw": "Flop Star：布娃娃跳高"
+      }
+    },
+    "월드 오브 3D 너트": {
+      "appIds": {
+        "android": "puzzle.nuts.nutsort.gp",
+        "ios": 6749267372
+      },
+      "aliases": [],
+      "developer": "Warrior Puzzle Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/M9yJyskx3aCkm65ySbOPez8-phLTxxBFr6LjEKxOnMWpNF7bQDg-HHau9q8Bvdvt0J93jSmrEGvIm2L5stcifw",
+      "slug": "월드-오브-3d-너트",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "월드 오브 3D 너트",
+        "en": "3D Nuts Sort",
+        "ja": "3Dナットソート",
+        "zh-tw": "3D螺帽排序大師"
+      }
     }
   },
   "lastUpdated": "2026-11-05",
-  "totalGames": 9081
+  "totalGames": 9087
 }
