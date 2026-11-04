@@ -33,3 +33,8 @@ test('structured sentences keep names with punctuation intact', () => {
   const out = trimDescription([lead, 'It is at its all-time high right now: #1 on the United States App Store top-grossing chart for a long stretch.'], ' ', 'x.');
   assert.equal(out, lead);
 });
+
+test('prose with "NAME! lowercase" is not split at the name', () => {
+  const long = 'MONOPOLY GO! ' + 'revenue ranking history '.repeat(12) + 'end.';
+  assert.equal(fitSentences(long, 'Fallback.'), 'Fallback.');
+});

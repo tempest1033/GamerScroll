@@ -14,8 +14,8 @@ const width = (text) => { let w = 0; for (const ch of String(text)) w += WIDE.te
 function fitSentences(text, fallback, max = MAX_WIDTH) {
   const s = String(text || '').trim();
   if (width(s) <= max) return s;
-  // "!" or "?" glued to the next character ("MONOPOLY GO!,") is part of a name, not a sentence end.
-  const sentences = s.match(/(?:[^.!?。！？]|[.!?](?=[^\s.!?。！？]))+[.!?。！？]+["'”’)）」』]*\s*/g) || [s];
+  // A Latin ".", "!" or "?" ends a sentence only before whitespace + a capital/digit/end ("MONOPOLY GO! revenue", "GO!," stay inside a name).
+  const sentences = s.match(/(?:[^.!?。！？]|[.!?](?!\s+[A-Z0-9"'“]|\s*$))+[.!?。！？]+["'”’)）」』]*\s*/g) || [s];
   if (width(sentences[0].trim()) > max) return fallback || sentences[0].trim();
   let out = '';
   for (const sentence of sentences) {
