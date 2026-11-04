@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48557,6 +48557,17 @@
       "icon": "https://play-lh.googleusercontent.com/ov9JFTroJ-OY3y666rAO7Drzj9NbQTJ8CojWew4nv9cNDzJ_qhzXFbmzpScDkLy_0ligXWljOulbxw0Z0ctM",
       "searchResults": [],
       "addedAt": "2026-11-04T03:03:12.059Z"
+    },
+    {
+      "title": "달콤한 짝짓기",
+      "status": "single",
+      "appIds": {
+        "android": "com.nicegirl.gp.honeytiles"
+      },
+      "developer": "GANIS Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/_Zt_n521H-MQHuC1tOZ4aBM19WwblDdHkfRGX5TpOJB1q0kDQGmytX_s23_wausjEJCuzNjebDIDuDITTkj6FQw",
+      "searchResults": [],
+      "addedAt": "2026-11-04T07:03:08.157Z"
     }
   ],
   "approved": [

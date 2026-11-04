@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -152518,14 +152518,16 @@
     },
     "パチスロ L 東京喰種": {
       "appIds": {
-        "ios_jp": "6785720250"
+        "ios_jp": "6785720250",
+        "android_jp": "net.commseed.pstokyoghoul"
       },
       "aliases": [],
       "developer": "Commseed Corporation",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ca/10/a0/ca10a074-bb2c-13e6-d50b-d2d52507deff/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "パチスロ-l-東京喰種",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ja": "パチスロ L 東京喰種"
@@ -154686,8 +154688,26 @@
         "ko": "偽靈根？我靠系統照樣成神",
         "zh-tw": "偽靈根？我靠系統照樣成神"
       }
+    },
+    "달콤한 짝짓기": {
+      "appIds": {
+        "android": "com.nicegirl.gp.honeytiles"
+      },
+      "aliases": [],
+      "developer": "GANIS Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/_Zt_n521H-MQHuC1tOZ4aBM19WwblDdHkfRGX5TpOJB1q0kDQGmytX_s23_wausjEJCuzNjebDIDuDITTkj6FQw",
+      "slug": "달콤한-짝짓기",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "달콤한 짝짓기",
+        "en": "Honey Tiles",
+        "ja": "恋するタイル",
+        "zh-tw": "Honey Tiles"
+      }
     }
   },
   "lastUpdated": "2026-11-04",
-  "totalGames": 9077
+  "totalGames": 9078
 }
