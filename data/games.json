@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -147693,14 +147693,16 @@
     },
     "탈출 게임 Past Floor": {
       "appIds": {
-        "android": "org.unity.jamms.elevator"
+        "android": "org.unity.jamms.elevator",
+        "ios": 6804630049
       },
       "aliases": [],
       "developer": "Jammsworks Inc.",
       "icon": "https://play-lh.googleusercontent.com/EAzrfHZ0t5ZAKGQAvnWzHsYWjOCyw8rkdvmvcCtdAYL8n6L0KPND7cVxxyqVs7xxHTB-gOTrjmL8vOTyYBpCLA",
       "slug": "탈출-게임-past-floor",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "탈출 게임 Past Floor",
@@ -155178,8 +155180,133 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Mining Empire Idle Tycoon": {
+      "appIds": {
+        "ios": 6479964188
+      },
+      "aliases": [],
+      "developer": "Doguhan Yazar",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/64/78/f16478d4-5688-e287-72b6-d9a0e601f2b0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mining-empire-idle-tycoon",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Mining Empire Idle Tycoon",
+        "en": "Mining Empire Idle Tycoon",
+        "ja": "Mining Empire Idle Tycoon",
+        "zh-tw": "Mining Empire Idle Tycoon"
+      }
+    },
+    "マイキャリ｜野球シミュレーションゲーム": {
+      "appIds": {
+        "ios_jp": 6809578554
+      },
+      "aliases": [],
+      "developer": "Yudai Yodogawa",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/54/d3/aa54d3e5-ec58-ee02-9c90-9a64de2bfcc8/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "マイキャリ野球シミュレーションゲーム",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "マイキャリ｜野球シミュレーションゲーム"
+      }
+    },
+    "Food Jam Puzzle Sort": {
+      "appIds": {
+        "ios": 6783189461
+      },
+      "aliases": [],
+      "developer": "Zego Global Pte Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e1/14/14/e1141432-c2d7-3138-2f53-af46287c740d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "food-jam-puzzle-sort",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Food Jam Puzzle Sort",
+        "en": "Food Jam Puzzle Sort",
+        "ja": "Food Jam Puzzle Sort",
+        "zh-tw": "Food Jam Puzzle Sort"
+      }
+    },
+    "解救大鸽": {
+      "appIds": {
+        "ios": 6826518555
+      },
+      "aliases": [],
+      "developer": "博群 储",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/74/50/4b745041-a755-5c74-24f2-59774c913240/AppIcon-1x_U007ephone-0-1-P3-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "解救大鸽",
+        "en": "解救大鸽",
+        "ja": "解救大鸽",
+        "zh-cn": "解救大鸽",
+        "zh-tw": "解救大鸽"
+      }
+    },
+    "风暴之眼": {
+      "appIds": {
+        "ios_cn": 6803828779
+      },
+      "aliases": [],
+      "developer": "Shanghai butterfly culture media Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/6e/15/d56e15bc-6e5a-c736-36c4-c850c25e3740/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "风暴之眼",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "风暴之眼"
+      }
+    },
+    "Zombie Roguebie: Shooting Game": {
+      "appIds": {
+        "ios_tw": 6752294198
+      },
+      "aliases": [],
+      "developer": "Metajoy Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/df/dd/37dfdd27-d5e7-bdd3-fc6c-bfe0a80cfdf3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "zombie-roguebie-shooting-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Zombie Roguebie: Shooting Game",
+        "zh-tw": "Zombie Roguebie: Shooting Game"
+      }
+    },
+    "Shroom and Gloom": {
+      "appIds": {
+        "steam": "3271280"
+      },
+      "aliases": [],
+      "developer": "Team Lazerbeam",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3271280/7644c158121c6fdb0bc3040febb616d495c2ce17/capsule_231x87.jpg?t=1793865541",
+      "slug": "shroom-and-gloom",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Q REMASTERED": {
+      "appIds": {
+        "steam": "2246110"
+      },
+      "aliases": [],
+      "developer": "liica, Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2246110/bfc60954ec801ec6b20f46de64a76c91171c1fb5/capsule_231x87.jpg?t=1792638615",
+      "slug": "q-remastered",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-05",
-  "totalGames": 9107
+  "lastUpdated": "2026-11-06",
+  "totalGames": 9115
 }

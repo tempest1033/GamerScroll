@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48777,6 +48777,39 @@
         }
       ],
       "addedAt": "2026-11-05T13:03:21.276Z"
+    },
+    {
+      "title": "Mining Empire Idle Tycoon",
+      "status": "single",
+      "appIds": {
+        "ios": 6479964188
+      },
+      "developer": "Doguhan Yazar",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/64/78/f16478d4-5688-e287-72b6-d9a0e601f2b0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T17:03:00.104Z"
+    },
+    {
+      "title": "Food Jam Puzzle Sort",
+      "status": "single",
+      "appIds": {
+        "ios": 6783189461
+      },
+      "developer": "Zego Global Pte Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e1/14/14/e1141432-c2d7-3138-2f53-af46287c740d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T17:03:01.531Z"
+    },
+    {
+      "title": "解救大鸽",
+      "status": "single",
+      "appIds": {
+        "ios": 6826518555
+      },
+      "developer": "博群 储",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/74/50/4b745041-a755-5c74-24f2-59774c913240/AppIcon-1x_U007ephone-0-1-P3-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T17:03:02.011Z"
     }
   ],
   "approved": [
