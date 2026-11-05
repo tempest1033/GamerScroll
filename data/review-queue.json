@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48720,6 +48720,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/21/45/3721454d-2dc7-6418-5710-f381a4d36781/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-05T05:03:21.327Z"
+    },
+    {
+      "title": "마이 시크 몰",
+      "status": "single",
+      "appIds": {
+        "ios": 6802965838
+      },
+      "developer": "Luminora Interactive Group Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/ff/d2/92ffd2af-3f28-7ae1-5fe2-66d95b5ca847/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T09:03:04.793Z"
+    },
+    {
+      "title": "Picture Builder - 퍼즐게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6463711142
+      },
+      "developer": "Hitapps Games LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9e/2f/5a/9e2f5ae6-d459-d503-7d77-b475cc232e3b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T09:03:05.019Z"
     }
   ],
   "approved": [
