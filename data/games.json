@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155305,8 +155305,50 @@
       "platforms": [
         "steam"
       ]
+    },
+    "전생했더니 검 한 자루": {
+      "appIds": {
+        "ios": 6803313025
+      },
+      "aliases": [],
+      "developer": "Minghui Business Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/5f/61/025f6141-72cb-71bb-20ee-4dc955e93759/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "전생했더니-검-한-자루",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "전생했더니 검 한 자루"
+      }
+    },
+    "행콕과 함께 항해하는 나날": {
+      "appIds": {
+        "android": "com.hzjmtyi.krg1"
+      },
+      "aliases": [],
+      "developer": "wingroupltd",
+      "icon": "https://play-lh.googleusercontent.com/v6MQoP7I0tnuZutCsahU_0Ogh7TEXO83IE0KPanMGinVxpk3xBhPWicr8SnNlhuQxCGl0m1Q4BsYyl3q0ni99w",
+      "slug": "행콕과-함께-항해하는-나날",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "행콕과 함께 항해하는 나날"
+      }
+    },
+    "GranAge": {
+      "appIds": {
+        "steam": "1412470"
+      },
+      "aliases": [],
+      "developer": "PICTOLOGI",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1412470/capsule_231x87.jpg?t=1629886041",
+      "slug": "granage",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-06",
-  "totalGames": 9115
+  "totalGames": 9118
 }

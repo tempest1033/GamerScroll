@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48810,6 +48810,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/74/50/4b745041-a755-5c74-24f2-59774c913240/AppIcon-1x_U007ephone-0-1-P3-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-05T17:03:02.011Z"
+    },
+    {
+      "title": "전생했더니 검 한 자루",
+      "status": "single",
+      "appIds": {
+        "ios": 6803313025
+      },
+      "developer": "Minghui Business Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/5f/61/025f6141-72cb-71bb-20ee-4dc955e93759/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T21:03:15.559Z"
+    },
+    {
+      "title": "행콕과 함께 항해하는 나날",
+      "status": "single",
+      "appIds": {
+        "android": "com.hzjmtyi.krg1"
+      },
+      "developer": "wingroupltd",
+      "icon": "https://play-lh.googleusercontent.com/v6MQoP7I0tnuZutCsahU_0Ogh7TEXO83IE0KPanMGinVxpk3xBhPWicr8SnNlhuQxCGl0m1Q4BsYyl3q0ni99w",
+      "searchResults": [],
+      "addedAt": "2026-11-05T21:03:15.802Z"
     }
   ],
   "approved": [
