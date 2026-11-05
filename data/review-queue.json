@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48643,6 +48643,28 @@
         }
       ],
       "addedAt": "2026-11-04T20:51:19.231Z"
+    },
+    {
+      "title": "Sora Mahjong",
+      "status": "single",
+      "appIds": {
+        "android": "com.sora.mahjong.solitaire.game"
+      },
+      "developer": "Adaric Ltd",
+      "icon": "https://play-lh.googleusercontent.com/N5A23VCLncu69AqT2XcpcHZ54al1J_DZSjdljm3AiZq6wPbd3rRphuXgkooqAfl0poiUh-ZWva4tLGmcAv8v",
+      "searchResults": [],
+      "addedAt": "2026-11-05T01:02:43.121Z"
+    },
+    {
+      "title": "Battle Disc",
+      "status": "single",
+      "appIds": {
+        "ios": 1468445666
+      },
+      "developer": "SayGames LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ad/66/6e/ad666e7e-755b-3f0f-0f45-31f3387fc3e1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T01:02:46.112Z"
     }
   ],
   "approved": [

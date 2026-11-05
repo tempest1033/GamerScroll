@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154516,31 +154516,37 @@
     },
     "ディズニー スパークリンク・スターズ": {
       "appIds": {
-        "ios_jp": 6760274605
+        "ios_jp": 6760274605,
+        "android": "com.colyinc.sparklinkstars"
       },
       "aliases": [],
       "developer": "coly Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c5/d1/d2/c5d1d2a9-aca4-7b59-73ce-d04b2ef567b1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "ディズニー-スパークリンクスターズ",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "ディズニー スパークリンク・スターズ",
         "ja": "ディズニー スパークリンク・スターズ"
       }
     },
     "誰ガ為のアルケミスト ポートマスターズ": {
       "appIds": {
-        "ios_jp": 6781944992
+        "ios_jp": 6781944992,
+        "android": "com.kms.nexus"
       },
       "aliases": [],
       "developer": "KMS INC.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/73/57/8f73573b-6524-8e0e-b307-4b09fd70ea97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "誰ガ為のアルケミスト-ポートマスターズ",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "誰ガ為のアルケミスト ポートマスターズ",
         "ja": "誰ガ為のアルケミスト ポートマスターズ"
       }
     },
@@ -154859,8 +154865,44 @@
         "ja": "3Dナットソート",
         "zh-tw": "3D螺帽排序大師"
       }
+    },
+    "Sora Mahjong": {
+      "appIds": {
+        "android": "com.sora.mahjong.solitaire.game"
+      },
+      "aliases": [],
+      "developer": "Adaric Ltd",
+      "icon": "https://play-lh.googleusercontent.com/N5A23VCLncu69AqT2XcpcHZ54al1J_DZSjdljm3AiZq6wPbd3rRphuXgkooqAfl0poiUh-ZWva4tLGmcAv8v",
+      "slug": "sora-mahjong",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sora Mahjong",
+        "en": "Sora Mahjong",
+        "ja": "Sora Mahjong",
+        "zh-tw": "Sora Mahjong"
+      }
+    },
+    "Battle Disc": {
+      "appIds": {
+        "ios": 1468445666
+      },
+      "aliases": [],
+      "developer": "SayGames LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ad/66/6e/ad666e7e-755b-3f0f-0f45-31f3387fc3e1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "battle-disc",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Battle Disc",
+        "en": "Battle Disc",
+        "ja": "Battle Disc",
+        "zh-tw": "Battle Disc"
+      }
     }
   },
   "lastUpdated": "2026-11-05",
-  "totalGames": 9087
+  "totalGames": 9089
 }
