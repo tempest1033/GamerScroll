@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154901,8 +154901,154 @@
         "ja": "Battle Disc",
         "zh-tw": "Battle Disc"
       }
+    },
+    "Family Sort": {
+      "appIds": {
+        "ios": 6757699774
+      },
+      "aliases": [],
+      "developer": "UNICO GAMES BILISIM LIMITED SIRKETI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2c/e2/5d/2ce25d03-9d1f-3daa-8fe6-0cff469cea1e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "family-sort",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Family Sort",
+        "en": "Family Sort",
+        "ja": "Family Sort",
+        "zh-tw": "Family Sort"
+      }
+    },
+    "Sand Hole: Block Sort Jam": {
+      "appIds": {
+        "ios": 6795585457
+      },
+      "aliases": [],
+      "developer": "Tripledot Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/02/b6/8c02b6fd-b0fe-1336-502a-1eb3a817fa29/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "sand-hole-block-sort-jam",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Sand Hole: Block Sort Jam",
+        "en": "Sand Hole: Block Sort Jam",
+        "ja": "Sand Hole: Block Sort Jam",
+        "zh-tw": "Sand Hole: Block Sort Jam"
+      }
+    },
+    "Yarnscapes: Wool art game": {
+      "appIds": {
+        "ios": 6804976465
+      },
+      "aliases": [],
+      "developer": "YUANTU INTERACTIVE TECHNOLOGY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/2f/05/ca2f0573-c706-bee9-9bd2-28c87c8657fa/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "yarnscapes-wool-art-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Yarnscapes: Wool art game",
+        "en": "Yarnscapes: Wool art game",
+        "ja": "Yarnscapes: Wool art game",
+        "zh-tw": "Yarnscapes: Wool art game"
+      }
+    },
+    "Smash the Ocean": {
+      "appIds": {
+        "ios": 6817267348
+      },
+      "aliases": [],
+      "developer": "友珍 陈",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/55/26/d3/5526d336-7a89-e95a-cd62-16dba46a938a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "smash-the-ocean",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Smash the Ocean",
+        "en": "Smash the Ocean",
+        "ja": "Smash the Ocean"
+      }
+    },
+    "OverPeak": {
+      "appIds": {
+        "ios_cn": 6756866602
+      },
+      "aliases": [],
+      "developer": "R Rahul",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6c/bc/42/6cbc429c-b070-2f3d-699e-eda8d693e9f7/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "overpeak",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "OverPeak",
+        "ja": "OverPeak",
+        "zh-cn": "OverPeak",
+        "zh-tw": "OverPeak"
+      }
+    },
+    "三國超離譜": {
+      "appIds": {
+        "ios_tw": 6800674599
+      },
+      "aliases": [],
+      "developer": "Guangzhou Beichen Xingguang Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/57/30/84573014-33bd-09fc-f2a9-7d49e6d7372a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "三國超離譜",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "三國超離譜",
+        "zh-tw": "三國超離譜"
+      }
+    },
+    "五封結界": {
+      "appIds": {
+        "ios": 6807891067
+      },
+      "aliases": [],
+      "developer": "波涛 刘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/37/21/45/3721454d-2dc7-6418-5710-f381a4d36781/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "五封結界",
+        "en": "五封結界",
+        "zh-tw": "五封結界"
+      }
+    },
+    "VOID/BREAKER": {
+      "appIds": {
+        "steam": "2615540"
+      },
+      "aliases": [],
+      "developer": "Stubby Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2615540/9db7019d29703cd0852e4a81271909270f1e8369/capsule_231x87_alt_assets_8.jpg?t=1793821113",
+      "slug": "voidbreaker",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Cozy Game Restoration": {
+      "appIds": {
+        "steam": "3581230"
+      },
+      "aliases": [],
+      "developer": "Parasol Corp",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3581230/a8adcd17a914a45a9d6e05c7f274f59dd3712b05/capsule_231x87.jpg?t=1793844350",
+      "slug": "cozy-game-restoration",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-05",
-  "totalGames": 9089
+  "totalGames": 9098
 }
