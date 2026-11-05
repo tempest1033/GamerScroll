@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155092,8 +155092,94 @@
       "platforms": [
         "steam"
       ]
+    },
+    "群雄时代 - 单机三国战棋策略游戏": {
+      "appIds": {
+        "ios_cn": "1517349382"
+      },
+      "aliases": [],
+      "developer": "YanYue Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/be/8e/90be8e18-31ce-8e17-2ef7-94f496599491/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg",
+      "slug": "群雄时代-单机三国战棋策略游戏",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "群雄时代 - 单机三国战棋策略游戏"
+      }
+    },
+    "HIX: 퍼즐 아일랜드": {
+      "appIds": {
+        "ios": 1561322745
+      },
+      "aliases": [],
+      "developer": "GAMEDIA B.V.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d6/4b/71/d64b7167-97f6-1daf-feb5-972d854a2eba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "hix-퍼즐-아일랜드",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "HIX: 퍼즐 아일랜드",
+        "en": "HIX: Puzzle Islands",
+        "ja": "HIX: パズルアイランド",
+        "zh-cn": "HIX：拼块岛屿",
+        "zh-tw": "HIX: Puzzle Islands"
+      }
+    },
+    "Fruit Days": {
+      "appIds": {
+        "android": "com.riftsky.mfo.ap.gp"
+      },
+      "aliases": [],
+      "developer": "Riftsky Games",
+      "icon": "https://play-lh.googleusercontent.com/59-ZjpFWwuRT29IcyW6sTnZf0Ki4fLc5JqPWAt7kZyc_SBkwe4iRiZ-rLnOvivYil7K_HighxUExN283ikxYhg",
+      "slug": "fruit-days",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fruit Days",
+        "zh-tw": "來種水果吧！"
+      }
+    },
+    "False Myth 2": {
+      "appIds": {
+        "steam": "4176000"
+      },
+      "aliases": [],
+      "developer": "不志陀羅亭",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4176000/14280a11a6e276e1443efbc1256e8c8288723964/capsule_231x87.jpg?t=1793858727",
+      "slug": "false-myth-2",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Victoria 3: State and Revolution - Immersion Pack": {
+      "appIds": {
+        "steam": "4314660"
+      },
+      "aliases": [],
+      "developer": "Paradox Development Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4314660/c34ecba8ac2f62fcb16fa38460b96b7416b8a0e6/capsule_231x87.jpg?t=1793869030",
+      "slug": "victoria-3-state-and-revolution-immersion-pack",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "ASTERIS": {
+      "appIds": {
+        "steam": "5365410"
+      },
+      "aliases": [],
+      "developer": "ARCENCIEL",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5365410/9cc9a94f09382f2cf147ac025da1d228e07f26b7/capsule_231x87.jpg?t=1793872662",
+      "slug": "asteris",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-05",
-  "totalGames": 9101
+  "totalGames": 9107
 }

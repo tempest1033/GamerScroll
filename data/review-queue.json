@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48742,6 +48742,41 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9e/2f/5a/9e2f5ae6-d459-d503-7d77-b475cc232e3b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-05T09:03:05.019Z"
+    },
+    {
+      "title": "HIX: 퍼즐 아일랜드",
+      "status": "single",
+      "appIds": {
+        "ios": 1561322745
+      },
+      "developer": "GAMEDIA B.V.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d6/4b/71/d64b7167-97f6-1daf-feb5-972d854a2eba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-05T13:03:20.460Z"
+    },
+    {
+      "title": "Fruit Days",
+      "status": "single",
+      "appIds": {
+        "android": "com.riftsky.mfo.ap.gp"
+      },
+      "developer": "Riftsky Games",
+      "icon": "https://play-lh.googleusercontent.com/59-ZjpFWwuRT29IcyW6sTnZf0Ki4fLc5JqPWAt7kZyc_SBkwe4iRiZ-rLnOvivYil7K_HighxUExN283ikxYhg",
+      "searchResults": [
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        },
+        {
+          "title": "캔디크러쉬사가",
+          "appId": 553834731
+        },
+        {
+          "title": "팜히어로사가",
+          "appId": 608206510
+        }
+      ],
+      "addedAt": "2026-11-05T13:03:21.276Z"
     }
   ],
   "approved": [
