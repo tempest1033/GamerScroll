@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-11-05T05:01:50.762Z",
+  "updatedAt": "2026-11-06T05:02:03.891Z",
   "period": "30days",
   "games": [
     {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 19
+      "views": 20
     },
     {
       "slug": "monopoly-go-모노폴리-go",
-      "views": 10
+      "views": 9
     },
     {
       "slug": "pixel-flow",
@@ -19,31 +19,15 @@
       "views": 8
     },
     {
-      "slug": "barotrauma",
+      "slug": "palworld",
       "views": 8
     },
     {
-      "slug": "go-go-고양이-홉핑",
+      "slug": "에이지-오브-엠파이어-모바일",
       "views": 8
     },
     {
-      "slug": "sakura-school-simulator",
-      "views": 8
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
-      "views": 8
-    },
-    {
-      "slug": "라스트-라이트",
-      "views": 8
-    },
-    {
-      "slug": "레이싱-마스터",
-      "views": 8
-    },
-    {
-      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "slug": "탈출-게임-암스테르담",
       "views": 8
     },
     {
@@ -51,31 +35,47 @@
       "views": 8
     },
     {
-      "slug": "3d운전교실",
+      "slug": "barotrauma",
       "views": 7
     },
     {
-      "slug": "geometry-dash-lite",
+      "slug": "go-go-고양이-홉핑",
       "views": 7
     },
     {
-      "slug": "loop-master-컬러-정렬-퍼즐",
+      "slug": "sakura-school-simulator",
       "views": 7
     },
     {
-      "slug": "mistfall-hunter",
+      "slug": "sled-surfers-슬로프-어드벤처",
       "views": 7
     },
     {
-      "slug": "my-hero-ultra-rumble",
+      "slug": "where-winds-meet",
       "views": 7
     },
     {
-      "slug": "palworld",
+      "slug": "단어-찾기-단어-게임",
       "views": 7
     },
     {
-      "slug": "skate",
+      "slug": "라스트-라이트",
+      "views": 7
+    },
+    {
+      "slug": "레이싱-마스터",
+      "views": 7
+    },
+    {
+      "slug": "로드러쉬",
+      "views": 7
+    },
+    {
+      "slug": "피망-뉴맞고-고스톱으로-대한민국-1등",
+      "views": 7
+    },
+    {
+      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
       "views": 7
     }
   ]

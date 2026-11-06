@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155423,8 +155423,61 @@
         "ja": "Vial Magic: Color Sort",
         "zh-tw": "Vial Magic: Color Sort"
       }
+    },
+    "WendyQuest": {
+      "appIds": {
+        "ios": 6480134807
+      },
+      "aliases": [],
+      "developer": "81 Monkeys Game Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/45/ef/d545efe4-5d4e-b3ab-f67d-851cc981df1e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "wendyquest",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "WendyQuest",
+        "en": "WendyQuest",
+        "ja": "WendyQuest",
+        "zh-cn": "WendyQuest",
+        "zh-tw": "WendyQuest"
+      }
+    },
+    "我的小世界": {
+      "appIds": {
+        "android": "com.keepmobi.littleworld"
+      },
+      "aliases": [],
+      "developer": "Mibai Games",
+      "icon": "https://play-lh.googleusercontent.com/5lLD8G1BNBaHT5jpSavl9lo6337Z3K9Xuqtn0GKQOGbXUbkiEdE3x9bYSzx2G_HVd5Wqqx2lGWFB5XBiXEDn",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "我的小世界",
+        "ja": "我的小世界",
+        "zh-tw": "我的小世界"
+      }
+    },
+    "The Grand Bid: Auction Tycoon": {
+      "appIds": {
+        "android": "com.hg.bid.tycoon"
+      },
+      "aliases": [],
+      "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/HoWoKajcaMCj7IPJ2mhn9VKZtLML3v7s2ryXvXDyQ7KLEcl0ye5nsdSelgeSYC73XmgX7W6Cy4iBNvGQK0LR",
+      "slug": "the-grand-bid-auction-tycoon",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "The Grand Bid: Auction Tycoon",
+        "en": "The Grand Bid: Auction Tycoon",
+        "zh-tw": "誰是競標王"
+      }
     }
   },
   "lastUpdated": "2026-11-06",
-  "totalGames": 9122
+  "totalGames": 9125
 }

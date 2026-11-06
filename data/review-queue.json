@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48926,6 +48926,65 @@
         }
       ],
       "addedAt": "2026-11-06T01:03:15.219Z"
+    },
+    {
+      "title": "WendyQuest",
+      "status": "single",
+      "appIds": {
+        "ios": 6480134807
+      },
+      "developer": "81 Monkeys Game Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/45/ef/d545efe4-5d4e-b3ab-f67d-851cc981df1e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-06T05:03:22.163Z"
+    },
+    {
+      "title": "我的小世界",
+      "status": "single",
+      "appIds": {
+        "android": "com.keepmobi.littleworld"
+      },
+      "developer": "Mibai Games",
+      "icon": "https://play-lh.googleusercontent.com/5lLD8G1BNBaHT5jpSavl9lo6337Z3K9Xuqtn0GKQOGbXUbkiEdE3x9bYSzx2G_HVd5Wqqx2lGWFB5XBiXEDn",
+      "searchResults": [
+        {
+          "title": "rednote",
+          "appId": 741292507
+        },
+        {
+          "title": "我的狗狗—狗头肿了么",
+          "appId": 1632573314
+        },
+        {
+          "title": "보드게임카페",
+          "appId": 6444272253
+        }
+      ],
+      "addedAt": "2026-11-06T05:03:22.986Z"
+    },
+    {
+      "title": "The Grand Bid: Auction Tycoon",
+      "status": "single",
+      "appIds": {
+        "android": "com.hg.bid.tycoon"
+      },
+      "developer": "MOBIBRAIN TECHNOLOGY PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/HoWoKajcaMCj7IPJ2mhn9VKZtLML3v7s2ryXvXDyQ7KLEcl0ye5nsdSelgeSYC73XmgX7W6Cy4iBNvGQK0LR",
+      "searchResults": [
+        {
+          "title": "Bid Master :경매",
+          "appId": 6453025143
+        },
+        {
+          "title": "Dealer's Life 2",
+          "appId": 1600307023
+        },
+        {
+          "title": "Brawl Bid: 경매 사업",
+          "appId": 6744968298
+        }
+      ],
+      "addedAt": "2026-11-06T05:03:23.486Z"
     }
   ],
   "approved": [
