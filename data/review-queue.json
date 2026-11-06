@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48607,13 +48607,19 @@
     },
     {
       "title": "Cozy Kitchen: Hidden Tales",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6803764608
+        "ios": 6803764608,
+        "android": "com.oc.cozy.kitchen"
       },
       "developer": "Onechain Tech.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/00/9b/93009ba4-6de4-c488-f7e0-2d2f3f461a5f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Cozy Kitchen: Hidden Tales",
+          "appId": 6803764608
+        }
+      ],
       "addedAt": "2026-11-04T20:51:18.026Z"
     },
     {

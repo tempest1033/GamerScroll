@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -154814,14 +154814,16 @@
     },
     "Cozy Kitchen: Hidden Tales": {
       "appIds": {
-        "ios": 6803764608
+        "ios": 6803764608,
+        "android": "com.oc.cozy.kitchen"
       },
       "aliases": [],
       "developer": "Onechain Tech.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/00/9b/93009ba4-6de4-c488-f7e0-2d2f3f461a5f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "cozy-kitchen-hidden-tales",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Cozy Kitchen: Hidden Tales",
@@ -155476,8 +155478,32 @@
         "en": "The Grand Bid: Auction Tycoon",
         "zh-tw": "誰是競標王"
       }
+    },
+    "Call of Duty®: Warzone™": {
+      "appIds": {
+        "steam": "1962663"
+      },
+      "aliases": [],
+      "developer": "Infinity Ward",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962663/f7453f06da0b6c13d866f70b72f258bac9628855/capsule_231x87.jpg?t=1793941339",
+      "slug": "call-of-duty-warzone",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Call of Duty®: Modern Warfare® 4 - BlackCell (Season 1)": {
+      "appIds": {
+        "steam": "5008910"
+      },
+      "aliases": [],
+      "developer": "Infinity Ward",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5008910/167c34323395c31d26fd8f729fba707626359ec7/capsule_231x87.jpg?t=1793941653",
+      "slug": "call-of-duty-modern-warfare-4-blackcell-season-1",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-06",
-  "totalGames": 9125
+  "totalGames": 9127
 }
