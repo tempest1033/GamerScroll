@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48723,13 +48723,23 @@
     },
     {
       "title": "마이 시크 몰",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6802965838
+        "ios": 6802965838,
+        "android": "com.tomato.and.ssbhckr"
       },
       "developer": "Luminora Interactive Group Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/ff/d2/92ffd2af-3f28-7ae1-5fe2-66d95b5ca847/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "마이 시크 몰",
+          "appId": 6802965838
+        },
+        {
+          "title": "Temu: 억만장자처럼 쇼핑하기",
+          "appId": 1641486558
+        }
+      ],
       "addedAt": "2026-11-05T09:03:04.793Z"
     },
     {
@@ -48832,6 +48842,90 @@
       "icon": "https://play-lh.googleusercontent.com/v6MQoP7I0tnuZutCsahU_0Ogh7TEXO83IE0KPanMGinVxpk3xBhPWicr8SnNlhuQxCGl0m1Q4BsYyl3q0ni99w",
       "searchResults": [],
       "addedAt": "2026-11-05T21:03:15.802Z"
+    },
+    {
+      "title": "Screwzle 3D: Screw Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.ig.secret.screw"
+      },
+      "developer": "iKame Games - Zego Studio",
+      "icon": "https://play-lh.googleusercontent.com/fIXpufeLTur2Q74M_T_vyPtHrrLFV3E87oNGYhqWCNvBYPp9LWHQPB8zWxQuXA02jihv6S7o22UkY9HO5-jKIg",
+      "searchResults": [
+        {
+          "title": "Screw Tap Jam™ - 3D풀기 나사 퍼즐 게임",
+          "appId": 6670189511
+        },
+        {
+          "title": "Screw Out 3D: Nut Sort Jam",
+          "appId": 6747560860
+        },
+        {
+          "title": "Screw Blast - 3D스크류&나사 게임",
+          "appId": 6737591996
+        }
+      ],
+      "addedAt": "2026-11-06T01:03:13.470Z"
+    },
+    {
+      "title": "Arrow Puzzle:Beauty Prize",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrpuzbeapri.apbp"
+      },
+      "developer": "Cenblu",
+      "icon": "https://play-lh.googleusercontent.com/TyuL5Vg_boVLAHYqfmOp1dWqfEJUcptfoUSTJ_7N4dsjGZGEIeZq1R_ReN8rOB42Zy6oYWPOb-RgeVpkjRXr",
+      "searchResults": [],
+      "addedAt": "2026-11-06T01:03:13.707Z"
+    },
+    {
+      "title": "Jigsaw Card: Puzzle Game",
+      "status": "matched",
+      "appIds": {
+        "android": "com.jigsol.puzzle.gp",
+        "ios": 6753212408
+      },
+      "developer": "Mia Game.",
+      "icon": "https://play-lh.googleusercontent.com/9iaKMzUvFS6RTC1BYKjt3lvJRZ567Zy4Ay3zUuyeJJMqlkAIrf3XmwcPfYXnKCxkfwNmDm9Fe2VkVbDpmFgJPlc",
+      "searchResults": [
+        {
+          "title": "Jigsaw Card: Puzzle Game",
+          "appId": 6753212408
+        },
+        {
+          "title": "Jigsawcard Solitaire Puzzle",
+          "appId": 6754900673
+        },
+        {
+          "title": "Jigsort™ 퍼즐: 고전 솔리테어 게임",
+          "appId": 6755670637
+        }
+      ],
+      "addedAt": "2026-11-06T01:03:14.589Z"
+    },
+    {
+      "title": "Vial Magic: Color Sort",
+      "status": "single",
+      "appIds": {
+        "android": "com.vialmagic.colorsort"
+      },
+      "developer": "juyi",
+      "icon": "https://play-lh.googleusercontent.com/SIVf-AvZcnr2FKigiiUCBpZlkMi02OQafI3aUTExwxoZN0iJAH4gfF5cEQolpy4o4vdP7eJfD44I3PCEkrqQ",
+      "searchResults": [
+        {
+          "title": "Magic Colours",
+          "appId": 6812908433
+        },
+        {
+          "title": "Potion Sort: Magic Brew Puzzle",
+          "appId": 6807132046
+        },
+        {
+          "title": "Magic Mix: Water Sort",
+          "appId": 6805213433
+        }
+      ],
+      "addedAt": "2026-11-06T01:03:15.219Z"
     }
   ],
   "approved": [

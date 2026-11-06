@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155052,14 +155052,16 @@
     },
     "마이 시크 몰": {
       "appIds": {
-        "ios": 6802965838
+        "ios": 6802965838,
+        "android": "com.tomato.and.ssbhckr"
       },
       "aliases": [],
       "developer": "Luminora Interactive Group Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/ff/d2/92ffd2af-3f28-7ae1-5fe2-66d95b5ca847/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "마이-시크-몰",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "마이 시크 몰"
@@ -155347,8 +155349,82 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Screwzle 3D: Screw Puzzle": {
+      "appIds": {
+        "android": "com.ig.secret.screw"
+      },
+      "aliases": [],
+      "developer": "iKame Games - Zego Studio",
+      "icon": "https://play-lh.googleusercontent.com/fIXpufeLTur2Q74M_T_vyPtHrrLFV3E87oNGYhqWCNvBYPp9LWHQPB8zWxQuXA02jihv6S7o22UkY9HO5-jKIg",
+      "slug": "screwzle-3d-screw-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Screwzle 3D: Screw Puzzle",
+        "en": "Screwzle 3D: Screw Puzzle",
+        "ja": "Screwzle 3D: Screw Puzzle",
+        "zh-tw": "Screwzle 3D: Screw Puzzle"
+      }
+    },
+    "Arrow Puzzle:Beauty Prize": {
+      "appIds": {
+        "android": "com.arrpuzbeapri.apbp"
+      },
+      "aliases": [],
+      "developer": "Cenblu",
+      "icon": "https://play-lh.googleusercontent.com/TyuL5Vg_boVLAHYqfmOp1dWqfEJUcptfoUSTJ_7N4dsjGZGEIeZq1R_ReN8rOB42Zy6oYWPOb-RgeVpkjRXr",
+      "slug": "arrow-puzzlebeauty-prize",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Puzzle:Beauty Prize",
+        "en": "Arrow Puzzle:Beauty Prize",
+        "ja": "Arrow Puzzle:Beauty Prize",
+        "zh-tw": "Arrow Puzzle:Beauty Prize"
+      }
+    },
+    "Jigsaw Card: Puzzle Game": {
+      "appIds": {
+        "android": "com.jigsol.puzzle.gp",
+        "ios": 6753212408
+      },
+      "aliases": [],
+      "developer": "Mia Game.",
+      "icon": "https://play-lh.googleusercontent.com/9iaKMzUvFS6RTC1BYKjt3lvJRZ567Zy4Ay3zUuyeJJMqlkAIrf3XmwcPfYXnKCxkfwNmDm9Fe2VkVbDpmFgJPlc",
+      "slug": "jigsaw-card-puzzle-game",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Jigsaw Card: Puzzle Game",
+        "en": "Jigsaw Card: Puzzle Game",
+        "ja": "Jigsaw Card: Puzzle Game",
+        "zh-tw": "Jigsaw Card: Puzzle Game"
+      }
+    },
+    "Vial Magic: Color Sort": {
+      "appIds": {
+        "android": "com.vialmagic.colorsort"
+      },
+      "aliases": [],
+      "developer": "juyi",
+      "icon": "https://play-lh.googleusercontent.com/SIVf-AvZcnr2FKigiiUCBpZlkMi02OQafI3aUTExwxoZN0iJAH4gfF5cEQolpy4o4vdP7eJfD44I3PCEkrqQ",
+      "slug": "vial-magic-color-sort",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Vial Magic: Color Sort",
+        "en": "Vial Magic: Color Sort",
+        "ja": "Vial Magic: Color Sort",
+        "zh-tw": "Vial Magic: Color Sort"
+      }
     }
   },
   "lastUpdated": "2026-11-06",
-  "totalGames": 9118
+  "totalGames": 9122
 }
