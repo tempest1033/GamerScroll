@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155538,8 +155538,102 @@
       "platforms": [
         "steam"
       ]
+    },
+    "사막여우 퍼즐": {
+      "appIds": {
+        "ios": 6827373811
+      },
+      "aliases": [],
+      "developer": "SANGHOON LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/23/f0/e9/23f0e96b-58fa-03b8-82f8-9b4eb28f91b6/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "사막여우-퍼즐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "사막여우 퍼즐",
+        "en": "Fennec Fox Logic Puzzle",
+        "ja": "フェネックのロジックパズル",
+        "zh-tw": "사막여우 퍼즐"
+      }
+    },
+    "[777Real]バジリスク～甲賀忍法帖～絆": {
+      "appIds": {
+        "ios_jp": 1545099527
+      },
+      "aliases": [],
+      "developer": "Sammy Networks Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/3c/46/513c4685-ae71-d217-e053-bd7ee4a8631a/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/512x512bb.jpg",
+      "slug": "777realバジリスク甲賀忍法帖絆",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[777Real]バジリスク～甲賀忍法帖～絆"
+      }
+    },
+    "Supermarket chaos to order": {
+      "appIds": {
+        "ios": 6790139777
+      },
+      "aliases": [],
+      "developer": "Warlock Arts",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a9/00/52/a90052cd-fc41-e47c-d577-fb70b056dc07/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "supermarket-chaos-to-order",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Supermarket chaos to order",
+        "en": "Supermarket chaos to order",
+        "ja": "Supermarket chaos to order",
+        "zh-tw": "Supermarket chaos to order"
+      }
+    },
+    "Forgotten Memories": {
+      "appIds": {
+        "ios": 834715612
+      },
+      "aliases": [],
+      "developer": "Psychose Interactive Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/51/2d/a6/512da63f-7d64-0d30-b626-6745556bcf3e/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "forgotten-memories",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Forgotten Memories",
+        "en": "Forgotten Memories",
+        "ja": "Forgotten Memories",
+        "zh-cn": "Forgotten Memories",
+        "zh-tw": "Forgotten Memories"
+      }
+    },
+    "Find The Needle": {
+      "appIds": {
+        "steam": "5160800"
+      },
+      "aliases": [],
+      "developer": "Needless Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5160800/3dec380fa3c66a40ffc1d36be2ac518cf9dcda05/capsule_231x87.jpg?t=1793980111",
+      "slug": "find-the-needle",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Queen's Domain": {
+      "appIds": {
+        "steam": "1799840"
+      },
+      "aliases": [],
+      "developer": "Freshly Baked Games LLC",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1799840/a6f01f7863ee0be19fa710061f41799b84c1f371/capsule_231x87.jpg?t=1793982850",
+      "slug": "queens-domain",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-06",
-  "totalGames": 9130
+  "lastUpdated": "2026-11-07",
+  "totalGames": 9136
 }

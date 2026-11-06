@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48991,6 +48991,39 @@
         }
       ],
       "addedAt": "2026-11-06T05:03:23.486Z"
+    },
+    {
+      "title": "사막여우 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6827373811
+      },
+      "developer": "SANGHOON LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/23/f0/e9/23f0e96b-58fa-03b8-82f8-9b4eb28f91b6/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-06T17:03:16.995Z"
+    },
+    {
+      "title": "Supermarket chaos to order",
+      "status": "single",
+      "appIds": {
+        "ios": 6790139777
+      },
+      "developer": "Warlock Arts",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a9/00/52/a90052cd-fc41-e47c-d577-fb70b056dc07/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-06T17:03:17.800Z"
+    },
+    {
+      "title": "Forgotten Memories",
+      "status": "single",
+      "appIds": {
+        "ios": 834715612
+      },
+      "developer": "Psychose Interactive Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/51/2d/a6/512da63f-7d64-0d30-b626-6745556bcf3e/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-06T17:03:18.201Z"
     }
   ],
   "approved": [
