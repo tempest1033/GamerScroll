@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -84278,7 +84278,7 @@
     },
     "Arrow Away - Beauty Awaits": {
       "appIds": {
-        "android": "com.cbewjp.arrow.beauty.awaits"
+        "android": "com.cbewjp.arrow.beauty.awaits0906"
       },
       "aliases": [],
       "developer": "Fun Top Studios",
@@ -84288,7 +84288,10 @@
         "android"
       ],
       "names": {
-        "ja": "Arrow Away - Beauty Awaits"
+        "ko": "Arrow Away - Beauty Awaits",
+        "en": "Arrow Away - Beauty Awaits",
+        "ja": "Arrow Away - Beauty Awaits",
+        "zh-tw": "Arrow Away - Beauty Awaits"
       }
     },
     "Toreba - Claw Machines Live!": {
@@ -155312,14 +155315,16 @@
     },
     "전생했더니 검 한 자루": {
       "appIds": {
-        "ios": 6803313025
+        "ios": "6803313025",
+        "android": "com.ymjx.gpkr"
       },
       "aliases": [],
       "developer": "Minghui Business Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/5f/61/025f6141-72cb-71bb-20ee-4dc955e93759/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "전생했더니-검-한-자루",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "전생했더니 검 한 자루"
@@ -155632,8 +155637,94 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Guess Their Answer - IQ Games": {
+      "appIds": {
+        "android": "com.qoni.guesstheiranswer"
+      },
+      "aliases": [],
+      "developer": "TapNation",
+      "icon": "https://play-lh.googleusercontent.com/kv6EDR6dr68_OVcYpZ1Yly7YhiZ89uu71Q6SENfPpiNRdDOGPIePSa_RxLHTQs01CJSCxbQ39Cz9Mz3IsS7o5wc",
+      "slug": "guess-their-answer-iq-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Guess Their Answer - IQ Games",
+        "en": "Guess Their Answer - IQ Games",
+        "ja": "Guess Their Answer - IQ Games",
+        "zh-tw": "Guess Their Answer - IQ Games"
+      }
+    },
+    "Hexagon Puzzle Legend": {
+      "appIds": {
+        "android": "com.earendeld.princesshexasortpuzzle"
+      },
+      "aliases": [],
+      "developer": "Earendel Developments",
+      "icon": "https://play-lh.googleusercontent.com/ZQq-3Yt2rCkffD2yFWyon0MIZrjaDTyQfhQHa0Fbrv4jikUCSmka2XKmULKIlDIpmZ1VcoQWc_2KoRFaV0WU",
+      "slug": "hexagon-puzzle-legend",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Hexagon Puzzle Legend",
+        "en": "Hexagon Puzzle Legend",
+        "ja": "Hexagon Puzzle Legend",
+        "zh-tw": "Hexagon Puzzle Legend"
+      }
+    },
+    "逃課三國": {
+      "appIds": {
+        "android": "com.gptksg.games"
+      },
+      "aliases": [],
+      "developer": "StarPlay Labs",
+      "icon": "https://play-lh.googleusercontent.com/M4P5O-3jRSVNGw1kH5AjbddgINgKs_N7be-OBasOBKR4CG4O6iKzZuuJuGBefTXcsrci3l1BHr0UcIB8mPko",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "逃課三國",
+        "zh-tw": "逃課三國"
+      }
+    },
+    "名將風雲錄：三國卡牌手遊": {
+      "appIds": {
+        "android": "com.xxzs.ftbb.google"
+      },
+      "aliases": [],
+      "developer": "Azure Dragon Games",
+      "icon": "https://play-lh.googleusercontent.com/7qB_RYZpjitKbGTjyhBw4nYGQ5IuW__qK32ijyanmLu8Gis_-exyfvfJZ-TT1IF9qBbCAQJLFC4m3KNyn6ZN",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "名將風雲錄：三國卡牌手遊",
+        "zh-tw": "名將風雲錄：三國卡牌手遊"
+      }
+    },
+    "Clicker DIY: ASMR Charm Master": {
+      "appIds": {
+        "android": "com.hp.clicker.diy.asmr.charm.master"
+      },
+      "aliases": [],
+      "developer": "HIGAME Studio",
+      "icon": "https://play-lh.googleusercontent.com/PekzZFcwigs-9QXd89vUiauwE120Jp-ef4ytfvpivBgGYx4F2OK0XCy5lL0uWO5-GYc0NLVGBdAlvYhtngipSA",
+      "slug": "clicker-diy-asmr-charm-master",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Clicker DIY: ASMR Charm Master",
+        "en": "Clicker DIY: ASMR Charm Master",
+        "ja": "Clicker DIY: ASMR Charm Master",
+        "zh-tw": "Clicker DIY: ASMR Charm Master"
+      }
     }
   },
   "lastUpdated": "2026-11-07",
-  "totalGames": 9136
+  "totalGames": 9141
 }

@@ -47377,7 +47377,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48829,13 +48829,19 @@
     },
     {
       "title": "전생했더니 검 한 자루",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6803313025
+        "ios": "6803313025",
+        "android": "com.ymjx.gpkr"
       },
       "developer": "Minghui Business Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/02/5f/61/025f6141-72cb-71bb-20ee-4dc955e93759/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "전생했더니 검 한 자루",
+          "appId": "6803313025"
+        }
+      ],
       "addedAt": "2026-11-05T21:03:15.559Z"
     },
     {
@@ -49024,6 +49030,125 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/51/2d/a6/512da63f-7d64-0d30-b626-6745556bcf3e/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-06T17:03:18.201Z"
+    },
+    {
+      "title": "Guess Their Answer - IQ Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.qoni.guesstheiranswer"
+      },
+      "developer": "TapNation",
+      "icon": "https://play-lh.googleusercontent.com/kv6EDR6dr68_OVcYpZ1Yly7YhiZ89uu71Q6SENfPpiNRdDOGPIePSa_RxLHTQs01CJSCxbQ39Cz9Mz3IsS7o5wc",
+      "searchResults": [
+        {
+          "title": "브레인 테스트 (Brain Test): 까다로운 퍼즐",
+          "appId": 1486214495
+        },
+        {
+          "title": "Mindblow: 있는 단어 퀴즈 게임",
+          "appId": 6472485066
+        },
+        {
+          "title": "Trivia.io",
+          "appId": 1477636326
+        }
+      ],
+      "addedAt": "2026-11-06T21:03:24.311Z"
+    },
+    {
+      "title": "Hexagon Puzzle Legend",
+      "status": "single",
+      "appIds": {
+        "android": "com.earendeld.princesshexasortpuzzle"
+      },
+      "developer": "Earendel Developments",
+      "icon": "https://play-lh.googleusercontent.com/ZQq-3Yt2rCkffD2yFWyon0MIZrjaDTyQfhQHa0Fbrv4jikUCSmka2XKmULKIlDIpmZ1VcoQWc_2KoRFaV0WU",
+      "searchResults": [
+        {
+          "title": "BlockHexa Puzzle 퍼즐 게임",
+          "appId": 1383382254
+        },
+        {
+          "title": "Gem Twyx - blast puzzle game",
+          "appId": 795273432
+        },
+        {
+          "title": "하는 hexas 퍼즐 박스",
+          "appId": 1382298459
+        }
+      ],
+      "addedAt": "2026-11-06T21:03:24.833Z"
+    },
+    {
+      "title": "Arrow Away - Beauty Awaits",
+      "status": "single",
+      "appIds": {
+        "android": "com.cbewjp.arrow.beauty.awaits0906"
+      },
+      "developer": "Fun Top Studios",
+      "icon": "https://play-lh.googleusercontent.com/8-B-svX-95cnHZ2rIbTzu5dz45fTCCVLxCPmSNakbTDgObSmi7DQEKbD4Kv638tGQuGf0EHiC_5hi3s_lkdxZw",
+      "searchResults": [],
+      "addedAt": "2026-11-06T21:03:25.286Z"
+    },
+    {
+      "title": "逃課三國",
+      "status": "single",
+      "appIds": {
+        "android": "com.gptksg.games"
+      },
+      "developer": "StarPlay Labs",
+      "icon": "https://play-lh.googleusercontent.com/M4P5O-3jRSVNGw1kH5AjbddgINgKs_N7be-OBasOBKR4CG4O6iKzZuuJuGBefTXcsrci3l1BHr0UcIB8mPko",
+      "searchResults": [
+        {
+          "title": "Crash vs Drift race.io",
+          "appId": 1438221467
+        }
+      ],
+      "addedAt": "2026-11-06T21:03:25.807Z"
+    },
+    {
+      "title": "名將風雲錄：三國卡牌手遊",
+      "status": "single",
+      "appIds": {
+        "android": "com.xxzs.ftbb.google"
+      },
+      "developer": "Azure Dragon Games",
+      "icon": "https://play-lh.googleusercontent.com/7qB_RYZpjitKbGTjyhBw4nYGQ5IuW__qK32ijyanmLu8Gis_-exyfvfJZ-TT1IF9qBbCAQJLFC4m3KNyn6ZN",
+      "searchResults": [
+        {
+          "title": "乱世曹操传-三国单机RPG跑图游戏",
+          "appId": 1333450953
+        },
+        {
+          "title": "三国演义:吞噬无界",
+          "appId": 1065797110
+        },
+        {
+          "title": "三国群雄单机版-城墙之下",
+          "appId": 6740896606
+        }
+      ],
+      "addedAt": "2026-11-06T21:03:26.593Z"
+    },
+    {
+      "title": "Clicker DIY: ASMR Charm Master",
+      "status": "single",
+      "appIds": {
+        "android": "com.hp.clicker.diy.asmr.charm.master"
+      },
+      "developer": "HIGAME Studio",
+      "icon": "https://play-lh.googleusercontent.com/PekzZFcwigs-9QXd89vUiauwE120Jp-ef4ytfvpivBgGYx4F2OK0XCy5lL0uWO5-GYc0NLVGBdAlvYhtngipSA",
+      "searchResults": [
+        {
+          "title": "Coin Generator ASMR",
+          "appId": 1662501455
+        },
+        {
+          "title": "skullchef",
+          "appId": 6782263270
+        }
+      ],
+      "addedAt": "2026-11-06T21:03:27.199Z"
     }
   ],
   "approved": [
