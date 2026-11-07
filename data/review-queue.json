@@ -47395,7 +47395,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49195,6 +49195,39 @@
       "icon": "https://play-lh.googleusercontent.com/nDKrHivdmL180ZTWt38CVE7tCklIacfvca9pV4hH9-FmNi1QMHcqJjsJjGHSicZNJvmI_i-osZpFZf3IZg9bbw",
       "searchResults": [],
       "addedAt": "2026-11-07T05:03:12.636Z"
+    },
+    {
+      "title": "SOFT TENNIS 3D",
+      "status": "single",
+      "appIds": {
+        "ios": 6826721746
+      },
+      "developer": "Yusuke Sarashina",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4d/ca/83/4dca837b-dfc9-2ed8-b08a-9830e8cc82e9/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-07T13:03:05.613Z"
+    },
+    {
+      "title": "Dirt Bike Classic Racing Game",
+      "status": "single",
+      "appIds": {
+        "ios": 1030629039
+      },
+      "developer": "Michel de Messieres",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple111/v4/b3/a9/2d/b3a92d1c-7362-95d9-b7cc-20c66df5c397/mzl.exloedfu.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-07T13:03:06.050Z"
+    },
+    {
+      "title": "NemaVerve",
+      "status": "single",
+      "appIds": {
+        "ios": 6828730175
+      },
+      "developer": "Akhil Venkatesan",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bd/8d/8cbd8d7b-8243-bd68-895c-68963dfa2e48/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-07T13:03:06.515Z"
     }
   ],
   "approved": [

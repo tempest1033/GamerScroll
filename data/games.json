@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155807,8 +155807,64 @@
       "names": {
         "ja": "電車運転ゲーム-東湾線・地下鉄わかば線編-"
       }
+    },
+    "SOFT TENNIS 3D": {
+      "appIds": {
+        "ios": 6826721746
+      },
+      "aliases": [],
+      "developer": "Yusuke Sarashina",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4d/ca/83/4dca837b-dfc9-2ed8-b08a-9830e8cc82e9/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "soft-tennis-3d",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "SOFT TENNIS 3D",
+        "en": "SOFT TENNIS 3D",
+        "ja": "SOFT TENNIS 3D",
+        "zh-tw": "SOFT TENNIS 3D"
+      }
+    },
+    "Dirt Bike Classic Racing Game": {
+      "appIds": {
+        "ios": 1030629039
+      },
+      "aliases": [],
+      "developer": "Michel de Messieres",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple111/v4/b3/a9/2d/b3a92d1c-7362-95d9-b7cc-20c66df5c397/mzl.exloedfu.png/512x512bb.jpg",
+      "slug": "dirt-bike-classic-racing-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Dirt Bike Classic Racing Game",
+        "en": "Dirt Bike Classic Racing Game",
+        "ja": "ダートバイククラシックレースゲーム",
+        "zh-cn": "越野摩托车经典赛车",
+        "zh-tw": "越野摩托車經典賽車"
+      }
+    },
+    "NemaVerve": {
+      "appIds": {
+        "ios": 6828730175
+      },
+      "aliases": [],
+      "developer": "Akhil Venkatesan",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bd/8d/8cbd8d7b-8243-bd68-895c-68963dfa2e48/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "nemaverve",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "NemaVerve",
+        "en": "NemaVerve",
+        "ja": "NemaVerve",
+        "zh-cn": "NemaVerve",
+        "zh-tw": "NemaVerve"
+      }
     }
   },
   "lastUpdated": "2026-11-07",
-  "totalGames": 9145
+  "totalGames": 9148
 }
