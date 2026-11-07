@@ -1,18 +1,10 @@
 {
-  "updatedAt": "2026-11-06T05:02:03.891Z",
+  "updatedAt": "2026-11-07T09:01:47.447Z",
   "period": "30days",
   "games": [
     {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 20
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 9
-    },
-    {
-      "slug": "pixel-flow",
-      "views": 9
+      "views": 10
     },
     {
       "slug": "arrow-pro-3d",
@@ -31,23 +23,7 @@
       "views": 8
     },
     {
-      "slug": "한게임-포커",
-      "views": 8
-    },
-    {
-      "slug": "barotrauma",
-      "views": 7
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 7
-    },
-    {
-      "slug": "sakura-school-simulator",
-      "views": 7
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
+      "slug": "pixel-flow",
       "views": 7
     },
     {
@@ -55,28 +31,52 @@
       "views": 7
     },
     {
-      "slug": "단어-찾기-단어-게임",
-      "views": 7
-    },
-    {
-      "slug": "라스트-라이트",
-      "views": 7
-    },
-    {
-      "slug": "레이싱-마스터",
-      "views": 7
-    },
-    {
       "slug": "로드러쉬",
-      "views": 7
-    },
-    {
-      "slug": "피망-뉴맞고-고스톱으로-대한민국-1등",
       "views": 7
     },
     {
       "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
       "views": 7
+    },
+    {
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 6
+    },
+    {
+      "slug": "vpet",
+      "views": 6
+    },
+    {
+      "slug": "重返未來1999",
+      "views": 6
+    },
+    {
+      "slug": "한게임-포커",
+      "views": 6
+    },
+    {
+      "slug": "barotrauma",
+      "views": 5
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 5
+    },
+    {
+      "slug": "sakura-school-simulator",
+      "views": 5
+    },
+    {
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 5
+    },
+    {
+      "slug": "단어-찾기-단어-게임",
+      "views": 5
+    },
+    {
+      "slug": "라스트-라이트",
+      "views": 5
     }
   ]
 }
