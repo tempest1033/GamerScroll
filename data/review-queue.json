@@ -47395,7 +47395,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49228,6 +49228,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/bd/8d/8cbd8d7b-8243-bd68-895c-68963dfa2e48/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-07T13:03:06.515Z"
+    },
+    {
+      "title": "Kigumi: Wood Joinery Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6818071964
+      },
+      "developer": "Ivo Iturrieta",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/69/25/61692589-806e-8800-e7ee-8790407b930a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-07T17:03:02.959Z"
+    },
+    {
+      "title": "왁뿌: 왁스볼 뿌시기 ASMR",
+      "status": "single",
+      "appIds": {
+        "ios": 6820181276
+      },
+      "developer": "Taeyoung Park",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/c6/b7/ebc6b7db-7edd-a601-b30c-7ffd8f301108/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-07T17:03:03.349Z"
     }
   ],
   "approved": [

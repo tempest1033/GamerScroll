@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155863,8 +155863,44 @@
         "zh-cn": "NemaVerve",
         "zh-tw": "NemaVerve"
       }
+    },
+    "Kigumi: Wood Joinery Puzzle": {
+      "appIds": {
+        "ios": 6818071964
+      },
+      "aliases": [],
+      "developer": "Ivo Iturrieta",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/69/25/61692589-806e-8800-e7ee-8790407b930a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "kigumi-wood-joinery-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Kigumi: Wood Joinery Puzzle",
+        "en": "Kigumi: Wood Joinery Puzzle",
+        "ja": "Kigumi 木組",
+        "zh-tw": "Kigumi: Wood Joinery Puzzle"
+      }
+    },
+    "왁뿌: 왁스볼 뿌시기 ASMR": {
+      "appIds": {
+        "ios": 6820181276
+      },
+      "aliases": [],
+      "developer": "Taeyoung Park",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/c6/b7/ebc6b7db-7edd-a601-b30c-7ffd8f301108/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "왁뿌-왁스볼-뿌시기-asmr",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "왁뿌: 왁스볼 뿌시기 ASMR",
+        "en": "Waxy: Wax Cracking ASMR",
+        "ja": "Waxy:パキパキスクイーズASMR",
+        "zh-tw": "Waxy：蠟皮捏捏紓壓ASMR"
+      }
     }
   },
-  "lastUpdated": "2026-11-07",
-  "totalGames": 9148
+  "lastUpdated": "2026-11-08",
+  "totalGames": 9150
 }
