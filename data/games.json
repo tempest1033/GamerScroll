@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -146929,17 +146929,20 @@
     },
     "Runner Poker": {
       "appIds": {
-        "ios": 6758372976
+        "ios": "6758372976",
+        "android": "com.runner.poker"
       },
       "aliases": [],
       "developer": "주식회사 러너소프트",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/e5/b4/81e5b45d-9eab-d2aa-0b4f-4fd49f43125a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "runner-poker",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
-        "ko": "Runner Poker"
+        "ko": "Runner Poker",
+        "zh-tw": "Runner Poker"
       }
     },
     "蠟筆小新：GO！": {
@@ -149382,14 +149385,16 @@
     },
     "리턴 투 1990": {
       "appIds": {
-        "android": "online.laboon.return1990"
+        "android": "online.laboon.return1990",
+        "ios": 6826719669
       },
       "aliases": [],
       "developer": "LABOON",
       "icon": "https://play-lh.googleusercontent.com/0w5GOJdt2yiMBfgKVzDZiAI38egf2diO9hiNtppz8Bjjl45Yim-rfgXFTX9MowqPBervFrFxz1xJ0uGj6T5cD0Q",
       "slug": "리턴-투-1990",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "리턴 투 1990",
@@ -155769,8 +155774,41 @@
         "ja": "LastCamp : Defense",
         "zh-tw": "LastCamp : Defense"
       }
+    },
+    "King Dies Rich: 로그라이크 디펜스": {
+      "appIds": {
+        "android": "com.outlane.kingdiesrich"
+      },
+      "aliases": [],
+      "developer": "Outlane, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/nDKrHivdmL180ZTWt38CVE7tCklIacfvca9pV4hH9-FmNi1QMHcqJjsJjGHSicZNJvmI_i-osZpFZf3IZg9bbw",
+      "slug": "king-dies-rich-로그라이크-디펜스",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "King Dies Rich: 로그라이크 디펜스",
+        "en": "King Dies Rich: Roguelike TD",
+        "ja": "King Dies Rich：ローグライクTD",
+        "zh-tw": "King Dies Rich：肉鴿塔防"
+      }
+    },
+    "電車運転ゲーム-東湾線・地下鉄わかば線編-": {
+      "appIds": {
+        "ios_jp": 6827000949
+      },
+      "aliases": [],
+      "developer": "TADEIMARU, LIMITED LIABILITY COMPANY",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d9/38/87/d938877d-041a-ec20-0f13-3da4be6187b3/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "電車運転ゲーム-東湾線地下鉄わかば線編",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "電車運転ゲーム-東湾線・地下鉄わかば線編-"
+      }
     }
   },
   "lastUpdated": "2026-11-07",
-  "totalGames": 9143
+  "totalGames": 9145
 }

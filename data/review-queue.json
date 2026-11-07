@@ -43674,13 +43674,19 @@
     },
     {
       "title": "Runner Poker",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6758372976
+        "ios": "6758372976",
+        "android": "com.runner.poker"
       },
       "developer": "주식회사 러너소프트",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/e5/b4/81e5b45d-9eab-d2aa-0b4f-4fd49f43125a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Runner Poker",
+          "appId": "6758372976"
+        }
+      ],
       "addedAt": "2026-10-13T23:35:25.066Z"
     },
     {
@@ -47389,7 +47395,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49178,6 +49184,17 @@
         }
       ],
       "addedAt": "2026-11-07T01:03:31.745Z"
+    },
+    {
+      "title": "King Dies Rich: 로그라이크 디펜스",
+      "status": "single",
+      "appIds": {
+        "android": "com.outlane.kingdiesrich"
+      },
+      "developer": "Outlane, Inc.",
+      "icon": "https://play-lh.googleusercontent.com/nDKrHivdmL180ZTWt38CVE7tCklIacfvca9pV4hH9-FmNi1QMHcqJjsJjGHSicZNJvmI_i-osZpFZf3IZg9bbw",
+      "searchResults": [],
+      "addedAt": "2026-11-07T05:03:12.636Z"
     }
   ],
   "approved": [
