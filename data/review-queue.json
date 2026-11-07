@@ -45548,13 +45548,19 @@
     },
     {
       "title": "Just a Rock",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6810886970
+        "ios": 6810886970,
+        "android": "io.heseri.rock"
       },
       "developer": "Heseri Games Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/fb/27/c2fb2777-87be-cd91-6d6d-81e2d51d4d64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Just a Rock",
+          "appId": 6810886970
+        }
+      ],
       "addedAt": "2026-10-22T12:48:55.917Z"
     },
     {
@@ -46052,13 +46058,19 @@
     },
     {
       "title": "Cross Clues",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6789084785
+        "ios": 6789084785,
+        "android": "com.losttemplegames.crossclues"
       },
       "developer": "LE TECH CO.,LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fc/6e/d3/fc6ed34b-67b3-570d-ed91-37cb467b4f2d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Cross Clues",
+          "appId": 6789084785
+        }
+      ],
       "addedAt": "2026-10-24T11:48:43.591Z"
     },
     {
@@ -47377,7 +47389,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49149,6 +49161,23 @@
         }
       ],
       "addedAt": "2026-11-06T21:03:27.199Z"
+    },
+    {
+      "title": "라스트 캠프  : 디펜스",
+      "status": "matched",
+      "appIds": {
+        "android": "com.FreeDust.LastCampDefense2",
+        "ios": 6797364577
+      },
+      "developer": "LiberalDust",
+      "icon": "https://play-lh.googleusercontent.com/vTbq0MYOjx-BkFlT4FhFOb-KkuzHA9EcgvRZU2uqKcWEuINFVlo9h8UfYw5-ITTdlr_yG5wi1IkWXZlOYb6fjzw",
+      "searchResults": [
+        {
+          "title": "LastCamp : Defense",
+          "appId": 6797364577
+        }
+      ],
+      "addedAt": "2026-11-07T01:03:31.745Z"
     }
   ],
   "approved": [

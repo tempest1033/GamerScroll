@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -150036,14 +150036,16 @@
     },
     "Just a Rock": {
       "appIds": {
-        "ios": 6810886970
+        "ios": 6810886970,
+        "android": "io.heseri.rock"
       },
       "aliases": [],
       "developer": "Heseri Games Inc",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/fb/27/c2fb2777-87be-cd91-6d6d-81e2d51d4d64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "just-a-rock",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Just a Rock",
@@ -150875,14 +150877,16 @@
     },
     "Cross Clues": {
       "appIds": {
-        "ios": 6789084785
+        "ios": 6789084785,
+        "android": "com.losttemplegames.crossclues"
       },
       "aliases": [],
       "developer": "LE TECH CO.,LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fc/6e/d3/fc6ed34b-67b3-570d-ed91-37cb467b4f2d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "cross-clues",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Cross Clues",
@@ -152964,16 +152968,19 @@
     },
     "大富豪3：商業帝國": {
       "appIds": {
-        "ios_tw": 6768271063
+        "ios_tw": 6768271063,
+        "android": "com.bghk.dfh3.ad"
       },
       "aliases": [],
       "developer": "BINGOGAME LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c9/cf/89/c9cf89c8-ae3d-ff7a-3750-4cb91d480160/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "大富豪3商業帝國",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "大富豪3：商業帝國",
         "zh-tw": "大富豪3：商業帝國"
       }
     },
@@ -155433,14 +155440,16 @@
     },
     "WendyQuest": {
       "appIds": {
-        "ios": 6480134807
+        "ios": 6480134807,
+        "android_us": "com.monkeys.freshquest"
       },
       "aliases": [],
       "developer": "81 Monkeys Game Studios Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/45/ef/d545efe4-5d4e-b3ab-f67d-851cc981df1e/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "wendyquest",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "WendyQuest",
@@ -155723,8 +155732,45 @@
         "ja": "Clicker DIY: ASMR Charm Master",
         "zh-tw": "Clicker DIY: ASMR Charm Master"
       }
+    },
+    "超级整理师 - 找一找隐藏的物品": {
+      "appIds": {
+        "ios_cn": 6824357074
+      },
+      "aliases": [],
+      "developer": "AkerSun  Technology Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/49/46/68494699-df1e-84fa-dcfa-d295579376f1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "超级整理师-找一找隐藏的物品",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "超级整理师 - 找一找隐藏的物品"
+      }
+    },
+    "라스트 캠프  : 디펜스": {
+      "appIds": {
+        "android": "com.FreeDust.LastCampDefense2",
+        "ios": 6797364577
+      },
+      "aliases": [
+        "LastCamp : Defense"
+      ],
+      "developer": "LiberalDust",
+      "icon": "https://play-lh.googleusercontent.com/vTbq0MYOjx-BkFlT4FhFOb-KkuzHA9EcgvRZU2uqKcWEuINFVlo9h8UfYw5-ITTdlr_yG5wi1IkWXZlOYb6fjzw",
+      "slug": "라스트-캠프-디펜스",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "라스트 캠프  : 디펜스",
+        "en": "LastCamp : Defense",
+        "ja": "LastCamp : Defense",
+        "zh-tw": "LastCamp : Defense"
+      }
     }
   },
   "lastUpdated": "2026-11-07",
-  "totalGames": 9141
+  "totalGames": 9143
 }
