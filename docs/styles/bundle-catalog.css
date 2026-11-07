@@ -1,0 +1,4 @@
+/* Game catalog needs the shared shell and catalog overrides, not rank charts. */
+@import url("./66-white-pages.css");
+@import url("./76-i18n-layout.css");
+@import url("./77-v3.css");
