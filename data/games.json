@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -152459,14 +152459,18 @@
     },
     "마이 리틀 킹덤 (My Little Kingdom)": {
       "appIds": {
-        "ios": 6792247779
+        "ios": 6792247779,
+        "android": "yjpublishing.mylittlekingdom"
       },
-      "aliases": [],
+      "aliases": [
+        "我的小小王國 (My Little Kingdom)"
+      ],
       "developer": "youngjae sim",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/14/0f/70140f08-3e32-c9d5-c941-91ec6acf9f30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "마이-리틀-킹덤-my-little-kingdom",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "마이 리틀 킹덤 (My Little Kingdom)",
@@ -154905,14 +154909,16 @@
     },
     "Battle Disc": {
       "appIds": {
-        "ios": 1468445666
+        "ios": 1468445666,
+        "android": "com.battle.disc"
       },
       "aliases": [],
       "developer": "SayGames LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ad/66/6e/ad666e7e-755b-3f0f-0f45-31f3387fc3e1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "battle-disc",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Battle Disc",
@@ -155899,8 +155905,183 @@
         "ja": "Waxy:パキパキスクイーズASMR",
         "zh-tw": "Waxy：蠟皮捏捏紓壓ASMR"
       }
+    },
+    "ダービースタリオン マスターズ [競馬ゲーム]": {
+      "appIds": {
+        "android_jp": "jp.co.drecom.dabimas"
+      },
+      "aliases": [],
+      "developer": "株式会社ドリコム",
+      "icon": "https://play-lh.googleusercontent.com/uiDnsDKNDB8UzwXLvLvHnv_ufK5JpaFxEK53cERx0xnIlSNq7M1pd_p8I0UPvsIqrYj4CBHVd6lOQJwBBUFr_9Q",
+      "slug": "ダービースタリオン-マスターズ-競馬ゲーム",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ja": "ダービースタリオン マスターズ [競馬ゲーム]"
+      }
+    },
+    "クリスタル オブ リユニオン【王国ストラテジーRPG】": {
+      "appIds": {
+        "android_jp": "jp.co.gu3.orange01"
+      },
+      "aliases": [],
+      "developer": "gumi Inc.",
+      "icon": "https://play-lh.googleusercontent.com/x2_VMYv7WnxB2xmbaJyHo_8FOV_r-13Jqm_KvBI_vBzHNJYiYHOB53fCWpKZ3Hm6CKAErz1sgbPfFzyISTmZUa0",
+      "slug": "クリスタル-オブ-リユニオン王国ストラテジーrpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ja": "クリスタル オブ リユニオン【王国ストラテジーRPG】"
+      }
+    },
+    "Bloomscapes: Blossom Match 3D": {
+      "appIds": {
+        "android": "com.airo.bloomscapes"
+      },
+      "aliases": [],
+      "developer": "Airo Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/SoXtjvzn3Uxc_WCcuy7079AWuJzhvmBc4H1AphHCX1bB9zS8_Nay0kzlXD3-oBaL7dZjOd9omjbep45sCTnp",
+      "slug": "bloomscapes-blossom-match-3d",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Bloomscapes: Blossom Match 3D",
+        "en": "Bloomscapes: Blossom Match 3D",
+        "ja": "Bloomscapes: Blossom Match 3D",
+        "zh-tw": "Bloomscapes: Blossom Match 3D"
+      }
+    },
+    "Golden HoYeah Pachislot Game": {
+      "appIds": {
+        "android_jp": "com.igs.goldenhoyeah"
+      },
+      "aliases": [
+        "ゴールデンホイヤー パチスロ～戦国乙女"
+      ],
+      "developer": "International Games System Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/ihraEoWbCxOz_JD5lPeqQGYPmJW0Veowc5RyvJwa7YLysefmqlPN294pAV7AFt8kR_kdCu4yEAwjc8fwhaZMDoE",
+      "slug": "golden-hoyeah-pachislot-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Golden HoYeah Pachislot Game",
+        "ja": "ゴールデンホイヤー パチスロ～戦国乙女",
+        "zh-tw": "金猴爺 - 柏青斯洛~戰國乙女"
+      }
+    },
+    "Dreamy Dress Jigcard Puzzle": {
+      "appIds": {
+        "android": "com.dreamy.dress.jigcard.puzzle.free.games"
+      },
+      "aliases": [],
+      "developer": "LoveColoring Game",
+      "icon": "https://play-lh.googleusercontent.com/2_kgnD1IWXYKnwHG-oY3DQYq1oED6V_yUPPt9siKxmRuMm0e-0icKjHt3HbhW6VNHJJBvBvzKaGYq12m5Ss6",
+      "slug": "dreamy-dress-jigcard-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Dreamy Dress Jigcard Puzzle",
+        "en": "Dreamy Dress Jigcard Puzzle",
+        "ja": "Dreamy Dress Jigcard Puzzle",
+        "zh-tw": "Dreamy Dress Jigcard Puzzle"
+      }
+    },
+    "Tile Discover:Match Puzzle": {
+      "appIds": {
+        "android": "com.gp.tile.discover.poppip.matchgame"
+      },
+      "aliases": [],
+      "developer": "PopPipStudio",
+      "icon": "https://play-lh.googleusercontent.com/4AguLQGuhibZfAT9S3EfnKUFR6yF548qr6Kv_DPCThnO9F_CSnnCU0vBkMmXUDkBJMRDFNSpDWbWNuCw5PkZKg",
+      "slug": "tile-discovermatch-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Tile Discover:Match Puzzle",
+        "en": "Tile Discover - Triple Match",
+        "ja": "Tile Discover:Match Puzzle",
+        "zh-tw": "Tile Discover - Triple Match"
+      }
+    },
+    "吞食天地2-还原经典": {
+      "appIds": {
+        "android": "com.hgkj.tstd2"
+      },
+      "aliases": [],
+      "developer": "weifu",
+      "icon": "https://play-lh.googleusercontent.com/GbQsqfXniqQ-idWlYuyjnI1OU5LXyKMNQs13eMTjUGcTdfKWu_lF28I8WmQ-vC2knFsffThhqk1m1a9-b6fr",
+      "slug": "2",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "吞食天地2-还原经典",
+        "en": "吞食天地2-还原经典",
+        "ja": "吞食天地2-还原经典",
+        "zh-tw": "吞食天地2-还原经典"
+      }
+    },
+    "Raiden Striker": {
+      "appIds": {
+        "android": "com.lingfeng.raiden.gpen"
+      },
+      "aliases": [],
+      "developer": "上海凌蜂网络科技有限公司",
+      "icon": "https://play-lh.googleusercontent.com/-B0RACEtIuxqeNe3nct59JSDYk1XgSEFwrEASy2LoRBvaojNAYo3y-DOW1u84aQJl4j9wg4nCCv3VbdyErfTuFQ",
+      "slug": "raiden-striker",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Raiden Striker",
+        "zh-tw": "Raiden Striker"
+      }
+    },
+    "Sort Streak: Color Puzzle": {
+      "appIds": {
+        "android": "com.oakever.sortparade",
+        "ios": 6812166638
+      },
+      "aliases": [],
+      "developer": "Oakever Games",
+      "icon": "https://play-lh.googleusercontent.com/Gt6y9cxYV9e-Z_eZRDtERhFXDHde7HgdYfH4A59gIRmCK9lBYo4o-_-oogcHBDr0D6tkRWqhDLjfi16d5rHk",
+      "slug": "sort-streak-color-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Sort Streak: Color Puzzle",
+        "en": "Sort Streak: Color Puzzle",
+        "ja": "Sort Streak: Color Puzzle",
+        "zh-tw": "Sort Streak: Color Puzzle"
+      }
+    },
+    "Heartshot: Arrow Escape": {
+      "appIds": {
+        "android": "com.heartshot.arrowescape"
+      },
+      "aliases": [],
+      "developer": "DENYS CREPIN NATHALIE",
+      "icon": "https://play-lh.googleusercontent.com/8M3NWp9rRJHUxHbbtlYokc7_1UmTxMxWh9iUe9D9XhO9MlYSf1yarQden4_46DAzCKwYJmEdAIJ1Gv-3mp2Ntw",
+      "slug": "heartshot-arrow-escape",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Heartshot: Arrow Escape",
+        "en": "Heartshot: Arrow Escape",
+        "ja": "Heartshot: Arrow Escape",
+        "zh-tw": "Heartshot: Arrow Escape"
+      }
     }
   },
   "lastUpdated": "2026-11-08",
-  "totalGames": 9150
+  "totalGames": 9160
 }

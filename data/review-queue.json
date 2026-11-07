@@ -47086,13 +47086,19 @@
     },
     {
       "title": "마이 리틀 킹덤 (My Little Kingdom)",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6792247779
+        "ios": 6792247779,
+        "android": "yjpublishing.mylittlekingdom"
       },
       "developer": "youngjae sim",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/70/14/0f/70140f08-3e32-c9d5-c941-91ec6acf9f30/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "我的小小王國 (My Little Kingdom)",
+          "appId": 6792247779
+        }
+      ],
       "addedAt": "2026-10-29T09:02:34.428Z"
     },
     {
@@ -47395,7 +47401,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -48681,13 +48687,19 @@
     },
     {
       "title": "Battle Disc",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 1468445666
+        "ios": 1468445666,
+        "android": "com.battle.disc"
       },
       "developer": "SayGames LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ad/66/6e/ad666e7e-755b-3f0f-0f45-31f3387fc3e1/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Battle Disc",
+          "appId": 1468445666
+        }
+      ],
       "addedAt": "2026-11-05T01:02:46.112Z"
     },
     {
@@ -49250,6 +49262,128 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/c6/b7/ebc6b7db-7edd-a601-b30c-7ffd8f301108/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-07T17:03:03.349Z"
+    },
+    {
+      "title": "Bloomscapes: Blossom Match 3D",
+      "status": "single",
+      "appIds": {
+        "android": "com.airo.bloomscapes"
+      },
+      "developer": "Airo Puzzle Games",
+      "icon": "https://play-lh.googleusercontent.com/SoXtjvzn3Uxc_WCcuy7079AWuJzhvmBc4H1AphHCX1bB9zS8_Nay0kzlXD3-oBaL7dZjOd9omjbep45sCTnp",
+      "searchResults": [
+        {
+          "title": "Bloomscapes™: Flower Puzzle",
+          "appId": 6815581077
+        }
+      ],
+      "addedAt": "2026-11-07T21:03:08.704Z"
+    },
+    {
+      "title": "Dreamy Dress Jigcard Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.dreamy.dress.jigcard.puzzle.free.games"
+      },
+      "developer": "LoveColoring Game",
+      "icon": "https://play-lh.googleusercontent.com/2_kgnD1IWXYKnwHG-oY3DQYq1oED6V_yUPPt9siKxmRuMm0e-0icKjHt3HbhW6VNHJJBvBvzKaGYq12m5Ss6",
+      "searchResults": [],
+      "addedAt": "2026-11-07T21:03:09.366Z"
+    },
+    {
+      "title": "Tile Discover:Match Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.gp.tile.discover.poppip.matchgame"
+      },
+      "developer": "PopPipStudio",
+      "icon": "https://play-lh.googleusercontent.com/4AguLQGuhibZfAT9S3EfnKUFR6yF548qr6Kv_DPCThnO9F_CSnnCU0vBkMmXUDkBJMRDFNSpDWbWNuCw5PkZKg",
+      "searchResults": [
+        {
+          "title": "Triple Tile 트리플 타일: 퍼즐 게임 맞추기",
+          "appId": 1572661625
+        },
+        {
+          "title": "Tile Craft - Triple Crush",
+          "appId": 1447399252
+        },
+        {
+          "title": "Zen Match - Relaxing Puzzle",
+          "appId": 1560124228
+        }
+      ],
+      "addedAt": "2026-11-07T21:03:09.804Z"
+    },
+    {
+      "title": "吞食天地2-还原经典",
+      "status": "single",
+      "appIds": {
+        "android": "com.hgkj.tstd2"
+      },
+      "developer": "weifu",
+      "icon": "https://play-lh.googleusercontent.com/GbQsqfXniqQ-idWlYuyjnI1OU5LXyKMNQs13eMTjUGcTdfKWu_lF28I8WmQ-vC2knFsffThhqk1m1a9-b6fr",
+      "searchResults": [],
+      "addedAt": "2026-11-07T21:03:10.769Z"
+    },
+    {
+      "title": "Raiden Striker",
+      "status": "single",
+      "appIds": {
+        "android": "com.lingfeng.raiden.gpen"
+      },
+      "developer": "上海凌蜂网络科技有限公司",
+      "icon": "https://play-lh.googleusercontent.com/-B0RACEtIuxqeNe3nct59JSDYk1XgSEFwrEASy2LoRBvaojNAYo3y-DOW1u84aQJl4j9wg4nCCv3VbdyErfTuFQ",
+      "searchResults": [
+        {
+          "title": "Squadron War: Galactic fighter",
+          "appId": 1273258911
+        },
+        {
+          "title": "Sky Space Attack Mission",
+          "appId": 1200691013
+        },
+        {
+          "title": "Alien War Spaceship Shooter",
+          "appId": 1386015390
+        }
+      ],
+      "addedAt": "2026-11-07T21:03:11.205Z"
+    },
+    {
+      "title": "Sort Streak: Color Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.oakever.sortparade",
+        "ios": 6812166638
+      },
+      "developer": "Oakever Games",
+      "icon": "https://play-lh.googleusercontent.com/Gt6y9cxYV9e-Z_eZRDtERhFXDHde7HgdYfH4A59gIRmCK9lBYo4o-_-oogcHBDr0D6tkRWqhDLjfi16d5rHk",
+      "searchResults": [
+        {
+          "title": "Sort Streak: Color Puzzle",
+          "appId": 6812166638
+        },
+        {
+          "title": "Card Factory! Relaxing Puzzle",
+          "appId": 6739048406
+        },
+        {
+          "title": "데일리스도쿠 — 숫자 퍼즐",
+          "appId": 1149229748
+        }
+      ],
+      "addedAt": "2026-11-07T21:03:11.699Z"
+    },
+    {
+      "title": "Heartshot: Arrow Escape",
+      "status": "single",
+      "appIds": {
+        "android": "com.heartshot.arrowescape"
+      },
+      "developer": "DENYS CREPIN NATHALIE",
+      "icon": "https://play-lh.googleusercontent.com/8M3NWp9rRJHUxHbbtlYokc7_1UmTxMxWh9iUe9D9XhO9MlYSf1yarQden4_46DAzCKwYJmEdAIJ1Gv-3mp2Ntw",
+      "searchResults": [],
+      "addedAt": "2026-11-07T21:03:12.046Z"
     }
   ],
   "approved": [
