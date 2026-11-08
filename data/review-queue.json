@@ -15317,9 +15317,10 @@
     },
     {
       "title": "Room Sort",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6503679213
+        "ios": 6503679213,
+        "android": "com.gamefactory.roomsort"
       },
       "developer": "GAMINCAT, INC.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/7c/fa/547cfa55-5c8a-5bb6-1e77-95fb60082737/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
@@ -47401,7 +47402,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49406,6 +49407,41 @@
       "icon": "https://play-lh.googleusercontent.com/RZv4w5xzy9DAqmlvAaTE_nrglDH2S7h_z_GEAPXOkHbKB-jcNHL5_ehw5JV5dwZbMfP4jjQ-t3tAqH5lL-dgksw",
       "searchResults": [],
       "addedAt": "2026-11-08T01:03:13.654Z"
+    },
+    {
+      "title": "A Walk on the Clouds",
+      "status": "single",
+      "appIds": {
+        "ios": 6824784928
+      },
+      "developer": "keisuke watanabe",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/b8/ee/cab8ee3d-46ee-5b15-69d4-e091d718c7c9/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-08T05:03:09.031Z"
+    },
+    {
+      "title": "Food Jam",
+      "status": "single",
+      "appIds": {
+        "android": "com.ig.foodjam"
+      },
+      "developer": "iKame Games - Zego Studio",
+      "icon": "https://play-lh.googleusercontent.com/QCcX0ScDqM5mbZPquhP90b60w9ptcSfNCzvdap7P9Ry9euNjWmie4FmGr8ZNb1QfspNDQWQcmSnnAho65UU8VTw",
+      "searchResults": [
+        {
+          "title": "Food Jam Puzzle Sort",
+          "appId": 6783189461
+        },
+        {
+          "title": "스큐어 잼: 푸드 게임 (Skewer Jam)",
+          "appId": 6752386103
+        },
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        }
+      ],
+      "addedAt": "2026-11-08T05:03:09.510Z"
     }
   ],
   "approved": [

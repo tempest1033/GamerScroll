@@ -34786,14 +34786,16 @@
     },
     "Room Sort": {
       "appIds": {
-        "ios": 6503679213
+        "ios": 6503679213,
+        "android": "com.gamefactory.roomsort"
       },
       "aliases": [],
       "developer": "GAMINCAT, INC.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/7c/fa/547cfa55-5c8a-5bb6-1e77-95fb60082737/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "room-sort",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Room Sort",
@@ -70211,7 +70213,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156130,8 +156132,57 @@
         "ja": "Girl Collapse",
         "zh-tw": "Girl Collapse"
       }
+    },
+    "A Walk on the Clouds": {
+      "appIds": {
+        "ios": 6824784928
+      },
+      "aliases": [],
+      "developer": "keisuke watanabe",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/b8/ee/cab8ee3d-46ee-5b15-69d4-e091d718c7c9/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "a-walk-on-the-clouds",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "A Walk on the Clouds",
+        "en": "Escape Game Clouds",
+        "ja": "脱出ゲーム Clouds",
+        "zh-cn": "Escape Game Clouds",
+        "zh-tw": "Escape Game Clouds"
+      }
+    },
+    "Food Jam": {
+      "appIds": {
+        "android": "com.ig.foodjam"
+      },
+      "aliases": [],
+      "developer": "iKame Games - Zego Studio",
+      "icon": "https://play-lh.googleusercontent.com/QCcX0ScDqM5mbZPquhP90b60w9ptcSfNCzvdap7P9Ry9euNjWmie4FmGr8ZNb1QfspNDQWQcmSnnAho65UU8VTw",
+      "slug": "food-jam",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Food Jam",
+        "en": "Food Jam",
+        "ja": "Food Jam",
+        "zh-tw": "Food Jam"
+      }
+    },
+    "ROK Reserve Force": {
+      "appIds": {
+        "steam": "5367010"
+      },
+      "aliases": [],
+      "developer": "Round4 Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5367010/0b34687b9ad0019ca4f0cea07320193fe1514f3b/capsule_231x87.jpg?t=1793977251",
+      "slug": "rok-reserve-force",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-08",
-  "totalGames": 9163
+  "totalGames": 9166
 }
