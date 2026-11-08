@@ -47402,7 +47402,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49493,6 +49493,59 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/c7/bc/d1c7bc02-f0ef-5b46-a5af-42d484e40499/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-08T13:03:08.790Z"
+    },
+    {
+      "title": "판타지포유",
+      "status": "matched",
+      "appIds": {
+        "android": "com.gnisoft.f4u.googlePlay",
+        "ios": 6790690966
+      },
+      "developer": "GNISoft",
+      "icon": "https://play-lh.googleusercontent.com/HJyQ2mNSX8v_i1Z4rzIemJb2aTBwp9g4F5PqKrfW6rN4uxWHCZwjEajeUSP7rGFw0-CYj6eE_IXhCm69YPE0",
+      "searchResults": [
+        {
+          "title": "판타지포유",
+          "appId": 6790690966
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "Pokémon GO",
+          "appId": 1094591345
+        }
+      ],
+      "addedAt": "2026-11-08T17:03:07.015Z"
+    },
+    {
+      "title": "Cook Panic - 協力クッキングアクション",
+      "status": "single",
+      "appIds": {
+        "ios": 6817883757
+      },
+      "developer": "IBUKI YOSHIDA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/19/10/3c/19103cbb-44b4-a77e-f18d-b21a5fdc223d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-08T17:03:07.683Z"
+    },
+    {
+      "title": "페리페리 - 골판지 ASMR",
+      "status": "matched",
+      "appIds": {
+        "ios": 6829484420,
+        "android": "com.fc.p.cp.jelly.mukbang.asmr.live.diy"
+      },
+      "developer": "jin mizoi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8c/e5/c4/8ce5c484-0be2-dab3-2215-96ca207f1293/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "果冻大师：吃播 ASMR",
+          "appId": "com.fc.p.cp.jelly.mukbang.asmr.live.diy"
+        }
+      ],
+      "addedAt": "2026-11-08T17:03:08.040Z"
     }
   ],
   "approved": [

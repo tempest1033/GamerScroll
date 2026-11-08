@@ -70215,7 +70215,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156239,8 +156239,81 @@
         "ja": "Age of War",
         "zh-tw": "Age of War"
       }
+    },
+    "판타지포유": {
+      "appIds": {
+        "android": "com.gnisoft.f4u.googlePlay",
+        "ios": 6790690966
+      },
+      "aliases": [],
+      "developer": "GNISoft",
+      "icon": "https://play-lh.googleusercontent.com/HJyQ2mNSX8v_i1Z4rzIemJb2aTBwp9g4F5PqKrfW6rN4uxWHCZwjEajeUSP7rGFw0-CYj6eE_IXhCm69YPE0",
+      "slug": "판타지포유",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "판타지포유"
+      }
+    },
+    "Cook Panic - 協力クッキングアクション": {
+      "appIds": {
+        "ios": 6817883757
+      },
+      "aliases": [],
+      "developer": "IBUKI YOSHIDA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/19/10/3c/19103cbb-44b4-a77e-f18d-b21a5fdc223d/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "cook-panic",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Cook Panic - 協力クッキングアクション",
+        "en": "Cook Panic - 協力クッキングアクション",
+        "ja": "Cook Panic - 協力クッキングアクション",
+        "zh-cn": "Cook Panic - 協力クッキングアクション",
+        "zh-tw": "Cook Panic - 協力クッキングアクション"
+      }
+    },
+    "페리페리 - 골판지 ASMR": {
+      "appIds": {
+        "ios": 6829484420,
+        "android": "com.fc.p.cp.jelly.mukbang.asmr.live.diy"
+      },
+      "aliases": [
+        "果冻大师：吃播 ASMR"
+      ],
+      "developer": "jin mizoi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8c/e5/c4/8ce5c484-0be2-dab3-2215-96ca207f1293/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "페리페리-골판지-asmr",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "페리페리 - 골판지 ASMR",
+        "en": "Periperi: Cardboard ASMR",
+        "ja": "ペリペリ - ダンボールASMR",
+        "zh-tw": "撕撕樂 - 紙箱ASMR"
+      }
+    },
+    "サッカー監督物語 - 戦術でクラブを強くしよう": {
+      "appIds": {
+        "ios_jp": 6799047157
+      },
+      "aliases": [],
+      "developer": "akira fukuda",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/0f/f3/390ff327-2aa8-12b9-9fd5-700aed3f2a6e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "サッカー監督物語-戦術でクラブを強くしよう",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "サッカー監督物語 - 戦術でクラブを強くしよう"
+      }
     }
   },
-  "lastUpdated": "2026-11-08",
-  "totalGames": 9169
+  "lastUpdated": "2026-11-09",
+  "totalGames": 9173
 }
