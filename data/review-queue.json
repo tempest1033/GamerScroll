@@ -47402,7 +47402,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49460,6 +49460,39 @@
         }
       ],
       "addedAt": "2026-11-08T09:04:00.880Z"
+    },
+    {
+      "title": "삼국지 천하포무-단기전략군기",
+      "status": "single",
+      "appIds": {
+        "ios": "1450144092"
+      },
+      "developer": "Yanyue Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/fd/ea/8bfdea67-c122-fa01-1cc4-721e6efcde6d/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-08T13:03:08.352Z"
+    },
+    {
+      "title": "라이징파이터: 나만의 MMA 격투 선수 키우기",
+      "status": "single",
+      "appIds": {
+        "ios": 6828723435
+      },
+      "developer": "Eunseok Lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/ff/31/a6ff31b6-2284-dae6-c4b8-3fa527fb6013/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-08T13:03:08.516Z"
+    },
+    {
+      "title": "Age of War",
+      "status": "single",
+      "appIds": {
+        "ios": 964911178
+      },
+      "developer": "Max Games Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/c7/bc/d1c7bc02-f0ef-5b46-a5af-42d484e40499/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-08T13:03:08.790Z"
     }
   ],
   "approved": [

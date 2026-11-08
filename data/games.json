@@ -70215,7 +70215,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156185,8 +156185,62 @@
       "platforms": [
         "steam"
       ]
+    },
+    "삼국지 천하포무-단기전략군기": {
+      "appIds": {
+        "ios": "1450144092"
+      },
+      "aliases": [],
+      "developer": "Yanyue Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8b/fd/ea/8bfdea67-c122-fa01-1cc4-721e6efcde6d/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg",
+      "slug": "삼국지-천하포무-단기전략군기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "삼국지 천하포무-단기전략군기",
+        "en": "三國志天下布武 - 單機戰棋策略遊戲",
+        "zh-tw": "三國志天下布武 - 單機戰棋策略遊戲"
+      }
+    },
+    "라이징파이터: 나만의 MMA 격투 선수 키우기": {
+      "appIds": {
+        "ios": 6828723435
+      },
+      "aliases": [],
+      "developer": "Eunseok Lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/ff/31/a6ff31b6-2284-dae6-c4b8-3fa527fb6013/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "라이징파이터-나만의-mma-격투-선수-키우기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "라이징파이터: 나만의 MMA 격투 선수 키우기",
+        "en": "Rising Fighter: MMA Career Sim",
+        "ja": "Rising Fighter: MMA Career Sim",
+        "zh-cn": "Rising Fighter: MMA Career Sim",
+        "zh-tw": "Rising Fighter: MMA Career Sim"
+      }
+    },
+    "Age of War": {
+      "appIds": {
+        "ios": 964911178
+      },
+      "aliases": [],
+      "developer": "Max Games Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/c7/bc/d1c7bc02-f0ef-5b46-a5af-42d484e40499/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "age-of-war",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Age of War",
+        "en": "Age of War",
+        "ja": "Age of War",
+        "zh-tw": "Age of War"
+      }
     }
   },
   "lastUpdated": "2026-11-08",
-  "totalGames": 9166
+  "totalGames": 9169
 }
