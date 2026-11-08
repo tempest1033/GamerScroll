@@ -43975,14 +43975,16 @@
     },
     "아레나 브레이크아웃: 현실 지향 FPS": {
       "appIds": {
-        "ios": "1560765304"
+        "ios": 1560765304,
+        "android": "com.proximabeta.mf.uamo"
       },
       "aliases": [],
       "developer": "Level Infinite",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ef/08/f1/ef08f113-6bf0-f74a-0c8f-89ddce440a02/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "아레나-브레이크아웃-현실-지향-fps",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "아레나 브레이크아웃: 현실 지향 FPS",
@@ -70215,7 +70217,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -155605,14 +155607,18 @@
     },
     "Supermarket chaos to order": {
       "appIds": {
-        "ios": 6790139777
+        "ios": 6790139777,
+        "android": "com.warlockarts.supermarketchaos"
       },
-      "aliases": [],
+      "aliases": [
+        "Supermarket Chaos To Order"
+      ],
       "developer": "Warlock Arts",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a9/00/52/a90052cd-fc41-e47c-d577-fb70b056dc07/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "supermarket-chaos-to-order",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Supermarket chaos to order",
@@ -156312,8 +156318,101 @@
       "names": {
         "ja": "サッカー監督物語 - 戦術でクラブを強くしよう"
       }
+    },
+    "JUST LAND - リズムゲーム": {
+      "appIds": {
+        "ios": 6826053291
+      },
+      "aliases": [],
+      "developer": "IBUKI YOSHIDA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dc/3c/e3/dc3ce397-6f6f-96d4-7640-f7f63936fa28/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "just-land",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "JUST LAND - リズムゲーム",
+        "en": "JUST LAND - リズムゲーム",
+        "ja": "JUST LAND - リズムゲーム",
+        "zh-cn": "JUST LAND - リズムゲーム",
+        "zh-tw": "JUST LAND - リズムゲーム"
+      }
+    },
+    "脱出ゲーム BurrowsHotelの回転ドア": {
+      "appIds": {
+        "android": "net.ichima.burrow"
+      },
+      "aliases": [],
+      "developer": "いーちま珈琲堂",
+      "icon": "https://play-lh.googleusercontent.com/i1-_3VhBByEI-ZR33S69RB1DAeFivn-P1-bBVh9-sr7zADPsmwLeOoXtuSDyt_HGh7wlwh3NjFxHqTht-gq9Sw",
+      "slug": "burrowshotel",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "脱出ゲーム BurrowsHotelの回転ドア",
+        "en": "Escape Game Burrows Hotel",
+        "ja": "脱出ゲーム BurrowsHotelの回転ドア",
+        "zh-tw": "脱出ゲーム BurrowsHotelの回転ドア"
+      }
+    },
+    "방탈출 게임 Clouds": {
+      "appIds": {
+        "android": "com.newlocal.cloud",
+        "ios": 6824784928
+      },
+      "aliases": [
+        "脱出ゲーム Clouds"
+      ],
+      "developer": "Panmimi Studio",
+      "icon": "https://play-lh.googleusercontent.com/UBzmBGI1AlqKpuRetkyRr1OPsNATnR33IuXK_eyBeq-l-cIOv1qpXfMhq9IcVgk1qH9GUUfkC6T6b1O42EMxyFA",
+      "slug": "방탈출-게임-clouds",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "방탈출 게임 Clouds",
+        "en": "Escape Game Clouds",
+        "ja": "脱出ゲーム Clouds",
+        "zh-cn": "Escape Game Clouds",
+        "zh-tw": "Escape Game Clouds"
+      }
+    },
+    "仙途：逆命登天": {
+      "appIds": {
+        "android": "com.actraegames.twdd.gp"
+      },
+      "aliases": [],
+      "developer": "Astrae Games",
+      "icon": "https://play-lh.googleusercontent.com/ErpSWapz2ooOtXlT5rJhw5JY-sPw1yrj38eVhCqMQaAl-FVRZ7ESE12XoggZyy85U77hBu_cLp-uBDWXHG9iZV4",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "仙途：逆命登天",
+        "zh-tw": "仙途：逆命登天"
+      }
+    },
+    "Mystery Tiles - Sizzling Reels": {
+      "appIds": {
+        "android_tw": "com.mystery.sizzling.tile.gp"
+      },
+      "aliases": [],
+      "developer": "UNTOUCHABLE HQ LTD",
+      "icon": "https://play-lh.googleusercontent.com/I6JHbKpbZTxIawmrld4lrrd6esuQPAqN-1DwXyFCdP_TVyv-tzQ9NLVLV6YYE40t_IgU23qE7jxx4XtyH-pY",
+      "slug": "mystery-tiles-sizzling-reels",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Mystery Tiles - Sizzling Reels",
+        "ja": "Mystery Tiles - Sizzling Reels",
+        "zh-tw": "Mystery Tiles - Sizzling Reels"
+      }
     }
   },
   "lastUpdated": "2026-11-09",
-  "totalGames": 9173
+  "totalGames": 9178
 }
