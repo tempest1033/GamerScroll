@@ -1,21 +1,13 @@
 {
-  "updatedAt": "2026-11-07T09:01:47.447Z",
+  "updatedAt": "2026-11-08T09:02:54.116Z",
   "period": "30days",
   "games": [
     {
-      "slug": "주술회전-팬텀-퍼레이드",
-      "views": 10
-    },
-    {
-      "slug": "arrow-pro-3d",
-      "views": 8
-    },
-    {
-      "slug": "palworld",
-      "views": 8
-    },
-    {
       "slug": "에이지-오브-엠파이어-모바일",
+      "views": 8
+    },
+    {
+      "slug": "주술회전-팬텀-퍼레이드",
       "views": 8
     },
     {
@@ -23,27 +15,27 @@
       "views": 8
     },
     {
-      "slug": "pixel-flow",
+      "slug": "arrow-pro-3d",
       "views": 7
     },
     {
-      "slug": "where-winds-meet",
+      "slug": "palworld",
       "views": 7
     },
     {
-      "slug": "로드러쉬",
-      "views": 7
-    },
-    {
-      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
-      "views": 7
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
+      "slug": "barotrauma",
       "views": 6
     },
     {
-      "slug": "vpet",
+      "slug": "pixel-flow",
+      "views": 6
+    },
+    {
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 6
+    },
+    {
+      "slug": "where-winds-meet",
       "views": 6
     },
     {
@@ -51,31 +43,39 @@
       "views": 6
     },
     {
-      "slug": "한게임-포커",
+      "slug": "로드러쉬",
       "views": 6
     },
     {
-      "slug": "barotrauma",
+      "slug": "탑-히어로즈-영웅의-시대",
+      "views": 6
+    },
+    {
+      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "views": 6
+    },
+    {
+      "slug": "3d운전교실",
       "views": 5
     },
     {
-      "slug": "go-go-고양이-홉핑",
+      "slug": "hero-siege",
       "views": 5
     },
     {
-      "slug": "sakura-school-simulator",
+      "slug": "monopoly-go-모노폴리-go",
       "views": 5
     },
     {
-      "slug": "sled-surfers-슬로프-어드벤처",
+      "slug": "skate",
       "views": 5
     },
     {
-      "slug": "단어-찾기-단어-게임",
+      "slug": "snipers-duel",
       "views": 5
     },
     {
-      "slug": "라스트-라이트",
+      "slug": "vpet",
       "views": 5
     }
   ]

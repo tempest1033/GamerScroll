@@ -30307,7 +30307,8 @@
     "Infinity Kingdom": {
       "appIds": {
         "ios": "1487451427",
-        "android": "com.gtarcade.ioe.global"
+        "android": "com.gtarcade.ioe.global",
+        "steam": "1573360"
       },
       "aliases": [],
       "developer": "YOOZOO (SINGAPORE) PTE. LTD.",
@@ -30315,7 +30316,8 @@
       "slug": "infinity-kingdom",
       "platforms": [
         "ios",
-        "android"
+        "android",
+        "steam"
       ],
       "names": {
         "ko": "Infinity Kingdom",
@@ -70213,7 +70215,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -146045,7 +146047,8 @@
     "Mimic Party": {
       "appIds": {
         "steam": "5053820",
-        "ios": 6813545317
+        "ios": 6813545317,
+        "android": "com.foliesapp.mimicparty"
       },
       "aliases": [
         "Mimic Party !"
@@ -146055,7 +146058,8 @@
       "slug": "mimic-party",
       "platforms": [
         "steam",
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Mimic Party !",
