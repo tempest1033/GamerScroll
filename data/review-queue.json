@@ -47401,7 +47401,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49384,6 +49384,28 @@
       "icon": "https://play-lh.googleusercontent.com/8M3NWp9rRJHUxHbbtlYokc7_1UmTxMxWh9iUe9D9XhO9MlYSf1yarQden4_46DAzCKwYJmEdAIJ1Gv-3mp2Ntw",
       "searchResults": [],
       "addedAt": "2026-11-07T21:03:12.046Z"
+    },
+    {
+      "title": "KBO 작전야구매니저",
+      "status": "single",
+      "appIds": {
+        "android": "com.graybits.tsm"
+      },
+      "developer": "Graybits Corp.",
+      "icon": "https://play-lh.googleusercontent.com/haNf089_fQmADijmLxZcPQ3vaVLayjAi70V5j2HM8-1NYDdrmC5e7mb4lOzCb8RK1YzULnBQxu167yoP8APaEg",
+      "searchResults": [],
+      "addedAt": "2026-11-08T01:03:12.518Z"
+    },
+    {
+      "title": "Girl Collapse",
+      "status": "single",
+      "appIds": {
+        "android": "com.KawakGames.GirlCollapse"
+      },
+      "developer": "EMKR Games",
+      "icon": "https://play-lh.googleusercontent.com/RZv4w5xzy9DAqmlvAaTE_nrglDH2S7h_z_GEAPXOkHbKB-jcNHL5_ehw5JV5dwZbMfP4jjQ-t3tAqH5lL-dgksw",
+      "searchResults": [],
+      "addedAt": "2026-11-08T01:03:13.654Z"
     }
   ],
   "approved": [

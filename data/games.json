@@ -70211,7 +70211,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156080,8 +156080,58 @@
         "ja": "Heartshot: Arrow Escape",
         "zh-tw": "Heartshot: Arrow Escape"
       }
+    },
+    "KBO 작전야구매니저": {
+      "appIds": {
+        "android": "com.graybits.tsm"
+      },
+      "aliases": [],
+      "developer": "Graybits Corp.",
+      "icon": "https://play-lh.googleusercontent.com/haNf089_fQmADijmLxZcPQ3vaVLayjAi70V5j2HM8-1NYDdrmC5e7mb4lOzCb8RK1YzULnBQxu167yoP8APaEg",
+      "slug": "kbo-작전야구매니저",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "KBO 작전야구매니저"
+      }
+    },
+    "[777Real]バジリスク～甲賀忍法帖～絆 (JP)": {
+      "appIds": {
+        "android_jp": "jp.sammynet.next.ort.a0112"
+      },
+      "aliases": [
+        "[777Real]バジリスク～甲賀忍法帖～絆"
+      ],
+      "developer": "Sammy Networks Co.,Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/40uuJrFKnYhyGLbgaEIsEGevFQ2O5jZu-AyyCelfepn_MHoCA8gr7lqFjcJ7jTjyHJUf2eaoW-MXzKXhQtqVGA",
+      "slug": "777realバジリスク甲賀忍法帖絆-jp",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ja": "[777Real]バジリスク～甲賀忍法帖～絆"
+      }
+    },
+    "Girl Collapse": {
+      "appIds": {
+        "android": "com.KawakGames.GirlCollapse"
+      },
+      "aliases": [],
+      "developer": "EMKR Games",
+      "icon": "https://play-lh.googleusercontent.com/RZv4w5xzy9DAqmlvAaTE_nrglDH2S7h_z_GEAPXOkHbKB-jcNHL5_ehw5JV5dwZbMfP4jjQ-t3tAqH5lL-dgksw",
+      "slug": "girl-collapse",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Girl Collapse",
+        "en": "Girl Collapse",
+        "ja": "Girl Collapse",
+        "zh-tw": "Girl Collapse"
+      }
     }
   },
   "lastUpdated": "2026-11-08",
-  "totalGames": 9160
+  "totalGames": 9163
 }
