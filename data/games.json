@@ -70217,7 +70217,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156569,8 +156569,156 @@
         "en": "Arrow Point Out",
         "ja": "Arrow Point Out"
       }
+    },
+    "Map Typing - 지도 타자 여행": {
+      "appIds": {
+        "ios": 6792780438
+      },
+      "aliases": [],
+      "developer": "Theseus Game Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/30/7d/32307ddf-685e-d9c2-92e4-048419ea88ef/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "map-typing-지도-타자-여행",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Map Typing - 지도 타자 여행",
+        "en": "Map Typing - 지도 타자 여행",
+        "ja": "Map Typing - 지도 타자 여행",
+        "zh-cn": "Map Typing - 지도 타자 여행",
+        "zh-tw": "Map Typing - 지도 타자 여행"
+      }
+    },
+    "烽烟破晓": {
+      "appIds": {
+        "ios_cn": 6756720174
+      },
+      "aliases": [],
+      "developer": "Hangzhou Yunxingu Network Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e4/19/01/e419013d-2db4-10f8-1579-42ab2b56d288/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "烽烟破晓",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "烽烟破晓"
+      }
+    },
+    "英文大作戰 - 穿越三國玩遊戲背英語單字": {
+      "appIds": {
+        "ios": 916058043
+      },
+      "aliases": [],
+      "developer": "chihchang Lin",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/9c/b1/71/9cb1715c-6da6-a436-ee77-f08ee93339de/AppIcon-0-1x_U007emarketing-0-85-220-0-7.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "英文大作戰 - 穿越三國玩遊戲背英語單字",
+        "en": "英文大作戰 - 穿越三國玩遊戲背英語單字",
+        "ja": "英文大作戰 - 穿越三國玩遊戲背英語單字",
+        "zh-cn": "英文大作战 - 穿越三国玩游戏背英语单词",
+        "zh-tw": "英文大作戰 - 穿越三國玩遊戲背英語單字"
+      }
+    },
+    "OVERRIDE: The Warden": {
+      "appIds": {
+        "ios": 6831230023
+      },
+      "aliases": [],
+      "developer": "Krystal Unity",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ab/09/d5/ab09d5b9-e395-5bfe-89a1-7824dfa90eca/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "override-the-warden",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "OVERRIDE: The Warden",
+        "en": "OVERRIDE: The Warden",
+        "ja": "OVERRIDE: The Warden",
+        "zh-cn": "OVERRIDE: The Warden",
+        "zh-tw": "OVERRIDE: The Warden"
+      }
+    },
+    "消个沙子": {
+      "appIds": {
+        "ios_cn": 6817291096
+      },
+      "aliases": [],
+      "developer": "秀芹 孙",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4f/d2/ca/4fd2cadb-bbc1-8ff2-24a6-633f255e76f8/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "消个沙子",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "消个沙子",
+        "ja": "消个沙子",
+        "zh-cn": "消个沙子",
+        "zh-tw": "消个沙子"
+      }
+    },
+    "경찰 리무진 로봇 배틀 : 플라잉 로프 영웅 게임": {
+      "appIds": {
+        "ios": 1210751484
+      },
+      "aliases": [],
+      "developer": "Umair khizar",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/0d/0e/23/0d0e2322-ad4e-40bb-9941-7a40b92f6aa3/AppIcon-0-0-1x_U007emarketing-0-0-0-9-0-85-220.png/512x512bb.jpg",
+      "slug": "경찰-리무진-로봇-배틀-플라잉-로프-영웅-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "경찰 리무진 로봇 배틀 : 플라잉 로프 영웅 게임",
+        "en": "Police Limo Robot Battle",
+        "ja": "警察リムジンロボットバトル：空飛ぶロープヒーローゲーム",
+        "zh-cn": "警察豪华轿车机器人战斗：飞绳英雄游戏",
+        "zh-tw": "警察豪華轎車機器人戰鬥：飛繩英雄遊戲"
+      }
+    },
+    "黑洞钓鱼 - 捉鱼开蚌 经营渔场": {
+      "appIds": {
+        "ios_cn": 6560107345
+      },
+      "aliases": [],
+      "developer": "AkerSun  Technology Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/51/2f/81/512f8129-191a-02c9-2c76-ca218f52093e/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "黑洞钓鱼-捉鱼开蚌-经营渔场",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "黑洞钓鱼 - 捉鱼开蚌 经营渔场"
+      }
+    },
+    "Brick Buddies": {
+      "appIds": {
+        "steam": "4901540"
+      },
+      "aliases": [],
+      "developer": "Bunnyhop",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4901540/61432dc4545be387dac5929eab83f9a2ec7e0ec9/capsule_231x87.jpg?t=1794229189",
+      "slug": "brick-buddies",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Kimbap Heaven Simulator": {
+      "appIds": {
+        "steam": "4206910"
+      },
+      "aliases": [],
+      "developer": "Joyful Jo",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4206910/d7673d78e11948da05a2af7144ed31d6e365b35f/capsule_231x87.jpg?t=1794213122",
+      "slug": "kimbap-heaven-simulator",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-09",
-  "totalGames": 9187
+  "totalGames": 9196
 }

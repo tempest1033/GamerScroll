@@ -1,25 +1,9 @@
 {
-  "updatedAt": "2026-11-08T09:02:54.116Z",
+  "updatedAt": "2026-11-09T13:01:46.545Z",
   "period": "30days",
   "games": [
     {
-      "slug": "에이지-오브-엠파이어-모바일",
-      "views": 8
-    },
-    {
       "slug": "주술회전-팬텀-퍼레이드",
-      "views": 8
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
-      "views": 8
-    },
-    {
-      "slug": "arrow-pro-3d",
-      "views": 7
-    },
-    {
-      "slug": "palworld",
       "views": 7
     },
     {
@@ -35,15 +19,19 @@
       "views": 6
     },
     {
-      "slug": "where-winds-meet",
-      "views": 6
-    },
-    {
       "slug": "重返未來1999",
       "views": 6
     },
     {
-      "slug": "로드러쉬",
+      "slug": "라스트-라이트",
+      "views": 6
+    },
+    {
+      "slug": "에이지-오브-엠파이어-모바일",
+      "views": 6
+    },
+    {
+      "slug": "탈출-게임-암스테르담",
       "views": 6
     },
     {
@@ -67,6 +55,10 @@
       "views": 5
     },
     {
+      "slug": "palworld",
+      "views": 5
+    },
+    {
       "slug": "skate",
       "views": 5
     },
@@ -75,7 +67,15 @@
       "views": 5
     },
     {
-      "slug": "vpet",
+      "slug": "단어-찾기-단어-게임",
+      "views": 5
+    },
+    {
+      "slug": "배틀그라운드",
+      "views": 5
+    },
+    {
+      "slug": "산너머-도원마을",
       "views": 5
     }
   ]

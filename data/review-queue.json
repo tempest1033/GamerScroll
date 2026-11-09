@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49752,6 +49752,50 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/28/ce/b728ce02-38cf-f345-68ec-d3c36e26e905/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-09T09:03:20.133Z"
+    },
+    {
+      "title": "Map Typing - 지도 타자 여행",
+      "status": "single",
+      "appIds": {
+        "ios": 6792780438
+      },
+      "developer": "Theseus Game Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/30/7d/32307ddf-685e-d9c2-92e4-048419ea88ef/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-09T13:02:47.543Z"
+    },
+    {
+      "title": "英文大作戰 - 穿越三國玩遊戲背英語單字",
+      "status": "single",
+      "appIds": {
+        "ios": 916058043
+      },
+      "developer": "chihchang Lin",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/9c/b1/71/9cb1715c-6da6-a436-ee77-f08ee93339de/AppIcon-0-1x_U007emarketing-0-85-220-0-7.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-09T13:02:48.260Z"
+    },
+    {
+      "title": "OVERRIDE: The Warden",
+      "status": "single",
+      "appIds": {
+        "ios": 6831230023
+      },
+      "developer": "Krystal Unity",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ab/09/d5/ab09d5b9-e395-5bfe-89a1-7824dfa90eca/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-09T13:02:48.555Z"
+    },
+    {
+      "title": "경찰 리무진 로봇 배틀 : 플라잉 로프 영웅 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 1210751484
+      },
+      "developer": "Umair khizar",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/0d/0e/23/0d0e2322-ad4e-40bb-9941-7a40b92f6aa3/AppIcon-0-0-1x_U007emarketing-0-0-0-9-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-09T13:02:49.148Z"
     }
   ],
   "approved": [
