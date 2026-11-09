@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49648,6 +49648,77 @@
         }
       ],
       "addedAt": "2026-11-09T01:02:56.442Z"
+    },
+    {
+      "title": "타워 디펜스 온라인",
+      "status": "single",
+      "appIds": {
+        "android": "com.mainquest.randomdefense2d"
+      },
+      "developer": "MainQuest",
+      "icon": "https://play-lh.googleusercontent.com/P8geBsI2xJ5Vbz4cdxba9kZyrw2Rv3WsEZXA_ASy4r6GuICNtD1ZxpY98ddVHqvwv2-0C91bpBombQxi0xC0sg",
+      "searchResults": [
+        {
+          "title": "Mushroom Wars 2: 온라인 전쟁 게임",
+          "appId": 1141358828
+        },
+        {
+          "title": "클래시 로얄 (Clash Royale)",
+          "appId": 1053012308
+        },
+        {
+          "title": "러쉬 로얄(Rush Royale) - 디펜스게임 PVP",
+          "appId": 1526121033
+        }
+      ],
+      "addedAt": "2026-11-09T05:02:53.787Z"
+    },
+    {
+      "title": "Figure Rush: Arrow Crush",
+      "status": "single",
+      "appIds": {
+        "ios": 6809734724
+      },
+      "developer": "VicApp Game",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/f8/60/0ff860f0-0671-b2ea-9157-71fbfa6cc6e3/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-09T05:02:54.268Z"
+    },
+    {
+      "title": "정리정돈! 모든 것",
+      "status": "matched",
+      "appIds": {
+        "android": "com.studio6.toystore",
+        "ios": 6824655215
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/kzqBd-q9ZM10yRPmT5eL1r-LTEc1SsST7SiY9ofUT8aG1KOvhO6bph_OtBx99AEDXluUf1zJ1sqtUig6ni-fZw",
+      "searchResults": [
+        {
+          "title": "정리정돈! 모든 것",
+          "appId": 6824655215
+        },
+        {
+          "title": "차곡차곡 정리앱",
+          "appId": 6762077357
+        },
+        {
+          "title": "포장실: 주문 대조",
+          "appId": 6797444840
+        }
+      ],
+      "addedAt": "2026-11-09T05:02:54.643Z"
+    },
+    {
+      "title": "Endless Wander - Roguelike RPG",
+      "status": "single",
+      "appIds": {
+        "ios": 6473157705
+      },
+      "developer": "First Pick Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/94/67/95946758-3bcf-40fd-1745-84d2f7fd76ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-09T05:02:54.909Z"
     }
   ],
   "approved": [

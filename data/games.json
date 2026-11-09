@@ -70217,7 +70217,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156444,8 +156444,79 @@
         "ja": "キューブ ソルバー",
         "zh-tw": "Cube Solver"
       }
+    },
+    "타워 디펜스 온라인": {
+      "appIds": {
+        "android": "com.mainquest.randomdefense2d"
+      },
+      "aliases": [],
+      "developer": "MainQuest",
+      "icon": "https://play-lh.googleusercontent.com/P8geBsI2xJ5Vbz4cdxba9kZyrw2Rv3WsEZXA_ASy4r6GuICNtD1ZxpY98ddVHqvwv2-0C91bpBombQxi0xC0sg",
+      "slug": "타워-디펜스-온라인",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "타워 디펜스 온라인"
+      }
+    },
+    "Figure Rush: Arrow Crush": {
+      "appIds": {
+        "ios": 6809734724
+      },
+      "aliases": [],
+      "developer": "VicApp Game",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0f/f8/60/0ff860f0-0671-b2ea-9157-71fbfa6cc6e3/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "figure-rush-arrow-crush",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Figure Rush: Arrow Crush",
+        "en": "Figure Rush: Arrow Crush",
+        "ja": "Figure Rush: Arrow Crush",
+        "zh-tw": "Figure Rush: Arrow Crush"
+      }
+    },
+    "정리정돈! 모든 것": {
+      "appIds": {
+        "android": "com.studio6.toystore",
+        "ios": 6824655215
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/kzqBd-q9ZM10yRPmT5eL1r-LTEc1SsST7SiY9ofUT8aG1KOvhO6bph_OtBx99AEDXluUf1zJ1sqtUig6ni-fZw",
+      "slug": "정리정돈-모든-것",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "정리정돈! 모든 것",
+        "en": "TidyUp! Everything",
+        "ja": "お片付け！なんでも",
+        "zh-tw": "TidyUp! Everything"
+      }
+    },
+    "Endless Wander - Roguelike RPG": {
+      "appIds": {
+        "ios": 6473157705
+      },
+      "aliases": [],
+      "developer": "First Pick Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/94/67/95946758-3bcf-40fd-1745-84d2f7fd76ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "endless-wander-roguelike-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Endless Wander - Roguelike RPG",
+        "en": "Endless Wander - Roguelike RPG",
+        "ja": "Endless Wander - Roguelike RPG",
+        "zh-tw": "Endless Wander - Roguelike RPG"
+      }
     }
   },
   "lastUpdated": "2026-11-09",
-  "totalGames": 9180
+  "totalGames": 9184
 }
