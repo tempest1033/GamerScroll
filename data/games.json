@@ -61001,19 +61001,24 @@
     },
     "클럽스토리: 축구 매니저": {
       "appIds": {
-        "android": "app.clubstory.football"
+        "android": "app.clubstory.football",
+        "ios": 6819163732
       },
-      "aliases": [],
+      "aliases": [
+        "클럽스토리:축구 매니저"
+      ],
       "developer": "NBstudio",
       "icon": "https://play-lh.googleusercontent.com/nql6HyIbGT9FHg0UIoCp8rX-flTXgWK810Loa5Ox_fZrHz7lXO00wwshmKwgrc7IPxuIpGuaByJ4IvnnIpGFdw",
       "slug": "클럽스토리-축구-매니저",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "클럽스토리: 축구 매니저",
         "en": "ClubStory: Soccer Manager",
-        "ja": "クラブストーリー：サッカーマネージャー"
+        "ja": "クラブストーリー：サッカーマネージャー",
+        "zh-tw": "ClubStory: Football"
       }
     },
     "Cute Scoop DIY: ASMR Packing": {
@@ -70217,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156717,8 +156722,47 @@
       "platforms": [
         "steam"
       ]
+    },
+    "キン肉マン マッスルタッグマッチ令和復活編": {
+      "appIds": {
+        "ios_jp": "6775757720"
+      },
+      "aliases": [],
+      "developer": "Bandai Namco Entertainment Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/05/65/62/0565626c-9305-aeaa-81c2-9b094817cb38/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "キン肉マン-マッスルタッグマッチ令和復活編",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "キン肉マン マッスルタッグマッチ令和復活編"
+      }
+    },
+    "Casualties: Unknown": {
+      "appIds": {
+        "steam": "4576490"
+      },
+      "aliases": [],
+      "developer": "Orsoniks",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4576490/4bd0ac964ae0f701937990ca144a08cd36e74f9e/capsule_231x87.jpg?t=1794232782",
+      "slug": "casualties-unknown",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "DREADMOOR": {
+      "appIds": {
+        "steam": "3629430"
+      },
+      "aliases": [],
+      "developer": "Dream Dock",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3629430/463d99fc377b03a3a20fc3b45915a8755ccabef4/capsule_231x87.jpg?t=1794233002",
+      "slug": "dreadmoor",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-09",
-  "totalGames": 9196
+  "lastUpdated": "2026-11-10",
+  "totalGames": 9199
 }
