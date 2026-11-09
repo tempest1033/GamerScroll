@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49796,6 +49796,52 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/0d/0e/23/0d0e2322-ad4e-40bb-9941-7a40b92f6aa3/AppIcon-0-0-1x_U007emarketing-0-0-0-9-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-09T13:02:49.148Z"
+    },
+    {
+      "title": "스왐피는 어디에? 2",
+      "status": "single",
+      "appIds": {
+        "ios": 638853147
+      },
+      "developer": "Kongregate",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4c/46/16/4c461611-1413-9913-43a1-7fc9ffe5cde6/AppIcon1-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-09T21:02:55.108Z"
+    },
+    {
+      "title": "Wi-Fi 없이 즐기는 미니 힐링 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.jgame.relaxgames"
+      },
+      "developer": "JMGame",
+      "icon": "https://play-lh.googleusercontent.com/Tvk5XZ6BU1JTeNmGbmZk5prPef-2M1tH-U9BoIrSidGjsK3vLtMTShWB0bgPKolbAtwxe3x6S6s6wfR7Z9n2Iw",
+      "searchResults": [
+        {
+          "title": "매직 타일 3™: 리듬 피아노 게임",
+          "appId": 1443446174
+        },
+        {
+          "title": "마이 펫 하우스 : 사랑스러운 동물의 집 꾸미기",
+          "appId": 1439762226
+        },
+        {
+          "title": "오프라인 미니 게임: 와이파이 불필요",
+          "appId": 6670165818
+        }
+      ],
+      "addedAt": "2026-11-09T21:02:55.641Z"
+    },
+    {
+      "title": "카에시: 시즈카 키우기 소녀 검객 방치 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.belongwithlabs.kaeshi"
+      },
+      "developer": "BelongwithLabs",
+      "icon": "https://play-lh.googleusercontent.com/DsNwLjl98g69PQCyer-oqZrwy8wuroUb9Nf4L3JnCaaJFrAxCJexO0Z9odKdbBzHQFHeo4jV6Y52J5RychJD",
+      "searchResults": [],
+      "addedAt": "2026-11-09T21:02:56.072Z"
     }
   ],
   "approved": [

@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156761,8 +156761,60 @@
       "platforms": [
         "steam"
       ]
+    },
+    "스왐피는 어디에? 2": {
+      "appIds": {
+        "ios": 638853147
+      },
+      "aliases": [],
+      "developer": "Kongregate",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4c/46/16/4c461611-1413-9913-43a1-7fc9ffe5cde6/AppIcon1-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "스왐피는-어디에-2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "스왐피는 어디에? 2",
+        "en": "Where's My Water? 2",
+        "zh-tw": "鱷魚小頑皮愛洗澡 2"
+      }
+    },
+    "Wi-Fi 없이 즐기는 미니 힐링 게임": {
+      "appIds": {
+        "android": "com.jgame.relaxgames"
+      },
+      "aliases": [],
+      "developer": "JMGame",
+      "icon": "https://play-lh.googleusercontent.com/Tvk5XZ6BU1JTeNmGbmZk5prPef-2M1tH-U9BoIrSidGjsK3vLtMTShWB0bgPKolbAtwxe3x6S6s6wfR7Z9n2Iw",
+      "slug": "wi-fi-없이-즐기는-미니-힐링-게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Wi-Fi 없이 즐기는 미니 힐링 게임",
+        "en": "Mini relax games-No wifi",
+        "ja": "Wi-Fiなしで遊べるミニリラックスゲーム",
+        "zh-tw": "Mini relax games-No wifi"
+      }
+    },
+    "카에시: 시즈카 키우기 소녀 검객 방치 RPG": {
+      "appIds": {
+        "android": "com.belongwithlabs.kaeshi"
+      },
+      "aliases": [],
+      "developer": "BelongwithLabs",
+      "icon": "https://play-lh.googleusercontent.com/DsNwLjl98g69PQCyer-oqZrwy8wuroUb9Nf4L3JnCaaJFrAxCJexO0Z9odKdbBzHQFHeo4jV6Y52J5RychJD",
+      "slug": "카에시-시즈카-키우기-소녀-검객-방치-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "카에시: 시즈카 키우기 소녀 검객 방치 RPG",
+        "en": "KAESHI: Sword Maiden Idle RPG",
+        "zh-tw": "KAESHI：劍姬靜香 劍擊放置RPG"
+      }
     }
   },
   "lastUpdated": "2026-11-10",
-  "totalGames": 9199
+  "totalGames": 9202
 }
