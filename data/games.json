@@ -70217,7 +70217,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156411,8 +156411,41 @@
         "ja": "Mystery Tiles - Sizzling Reels",
         "zh-tw": "Mystery Tiles - Sizzling Reels"
       }
+    },
+    "EvoWorld Origin": {
+      "appIds": {
+        "android": "com.ewo.hkgame"
+      },
+      "aliases": [],
+      "developer": "LPSYQKJ",
+      "icon": "https://play-lh.googleusercontent.com/ZKGFyImy_Ku_SE9_3swnIAJs5j4JOnO8KP0ixWtE7jVMKtQoNA1WCW8CVIriUnk_XsR5ZdeCxHf2h6kowaxF4D8",
+      "slug": "evoworld-origin",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "EvoWorld Origin",
+        "zh-tw": "進化世界：起源"
+      }
+    },
+    "큐브 퍼즐 해결사 앱": {
+      "appIds": {
+        "android": "com.aseemsalim.puzzlesolver.rcs"
+      },
+      "aliases": [],
+      "developer": "Battery Stats Saver",
+      "icon": "https://play-lh.googleusercontent.com/D8F39f3EhTElUOh2NX4q8-YXEW05YakLgto8gkeRnqqWmlqgLlj4gxO4lL-a6FMY5ZpYZYh-3aA5bQSzWoMa",
+      "slug": "큐브-퍼즐-해결사-앱",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "큐브 퍼즐 해결사 앱",
+        "ja": "キューブ ソルバー",
+        "zh-tw": "Cube Solver"
+      }
     }
   },
   "lastUpdated": "2026-11-09",
-  "totalGames": 9178
+  "totalGames": 9180
 }
