@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156813,8 +156813,39 @@
         "en": "KAESHI: Sword Maiden Idle RPG",
         "zh-tw": "KAESHI：劍姬靜香 劍擊放置RPG"
       }
+    },
+    "露娜：蓝色大陆": {
+      "appIds": {
+        "ios_cn": 6759692038
+      },
+      "aliases": [],
+      "developer": "Zhengzhou Youmeng Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/96/5c/6e965c4f-91b4-2e42-b0ab-961222233086/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "露娜蓝色大陆",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "露娜：蓝色大陆"
+      }
+    },
+    "無盡圖鑑": {
+      "appIds": {
+        "android": "com.neverdex.app"
+      },
+      "aliases": [],
+      "developer": "Haku Core",
+      "icon": "https://play-lh.googleusercontent.com/0aeh19MYqVF9o6YIudWx8nG0eVEfhzKNESLj-wNzBs0Nu6ozaqrRMdtc5pplxDuWCa3FuTzS7LJcR_wl_HNq_A",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "無盡圖鑑",
+        "zh-tw": "無盡圖鑑"
+      }
     }
   },
   "lastUpdated": "2026-11-10",
-  "totalGames": 9202
+  "totalGames": 9204
 }

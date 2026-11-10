@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49842,6 +49842,17 @@
       "icon": "https://play-lh.googleusercontent.com/DsNwLjl98g69PQCyer-oqZrwy8wuroUb9Nf4L3JnCaaJFrAxCJexO0Z9odKdbBzHQFHeo4jV6Y52J5RychJD",
       "searchResults": [],
       "addedAt": "2026-11-09T21:02:56.072Z"
+    },
+    {
+      "title": "無盡圖鑑",
+      "status": "single",
+      "appIds": {
+        "android": "com.neverdex.app"
+      },
+      "developer": "Haku Core",
+      "icon": "https://play-lh.googleusercontent.com/0aeh19MYqVF9o6YIudWx8nG0eVEfhzKNESLj-wNzBs0Nu6ozaqrRMdtc5pplxDuWCa3FuTzS7LJcR_wl_HNq_A",
+      "searchResults": [],
+      "addedAt": "2026-11-10T01:03:05.738Z"
     }
   ],
   "approved": [
