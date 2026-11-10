@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -122355,7 +122355,8 @@
       ],
       "names": {
         "en": "Slide Mahjong: Beauty Blast",
-        "ja": "Slide Mahjong: Beauty Blast"
+        "ja": "Slide Mahjong: Beauty Blast",
+        "zh-tw": "Slide Mahjong: Beauty Blast"
       }
     },
     "コナステ |コナミの 麻雀 クイズ ビンゴ 競馬 等が遊べる": {
@@ -157138,8 +157139,88 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Arrow Enigma: Portrait": {
+      "appIds": {
+        "android": "com.ArrowEnigmaPortrait"
+      },
+      "aliases": [],
+      "developer": "SQ ENGINEERING",
+      "icon": "https://play-lh.googleusercontent.com/M1SfMwIGykCoAm4-m8Uy-3xeW-I9rZ2mrHSjlzyZEG_5mQ5isPcTtkkyx0pue-hz9pm1pI1PBrapwFtpP3qrdw",
+      "slug": "arrow-enigma-portrait",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Enigma: Portrait",
+        "en": "Arrow Enigma: Portrait",
+        "ja": "Arrow Enigma: Portrait",
+        "zh-tw": "Arrow Enigma: Portrait"
+      }
+    },
+    "Duck War": {
+      "appIds": {
+        "android": "com.duck.war",
+        "ios": 6814697708
+      },
+      "aliases": [],
+      "developer": "HM Games Pty Ltd",
+      "icon": "https://play-lh.googleusercontent.com/pxchycnNramvRgk7Td5YfTSTsgMPXFy0kJcFzUCh3t_aPuXc8LNajc-HBpo7Nl8xzBJkgYyPw91tKyuTVY7H",
+      "slug": "duck-war",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Duck War",
+        "en": "Duck War",
+        "ja": "Duck War",
+        "zh-tw": "Duck War"
+      }
+    },
+    "sobosuba": {
+      "appIds": {
+        "ios": 6802116433
+      },
+      "aliases": [],
+      "developer": "Michael Richard Bryant",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/7c/c5/aa7cc560-f4d3-c4d0-95a7-7016c3cd1c71/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "sobosuba",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "sobosuba",
+        "en": "sobosuba",
+        "ja": "sobosuba",
+        "zh-tw": "sobosuba"
+      }
+    },
+    "Football Manager 27 In-game Editor": {
+      "appIds": {
+        "steam": "4530440"
+      },
+      "aliases": [],
+      "developer": "Sports Interactive",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4530440/b08b8badc67baf560de77d8372760f401c27d816/capsule_231x87.jpg?t=1794326668",
+      "slug": "football-manager-27-in-game-editor",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Euro Truck Simulator 2 - Iceland": {
+      "appIds": {
+        "steam": "3796990"
+      },
+      "aliases": [],
+      "developer": "SCS Software",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3796990/163aca1f29049f523c158ac0332710a123db2e0a/capsule_231x87.jpg?t=1794331495",
+      "slug": "euro-truck-simulator-2-iceland",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-11",
-  "totalGames": 9222
+  "totalGames": 9227
 }

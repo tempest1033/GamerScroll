@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49958,6 +49958,53 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/88/6f/09/886f0908-baa6-c471-de53-3f91ac21b34e/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-10T15:04:04.689Z"
+    },
+    {
+      "title": "Arrow Enigma: Portrait",
+      "status": "single",
+      "appIds": {
+        "android": "com.ArrowEnigmaPortrait"
+      },
+      "developer": "SQ ENGINEERING",
+      "icon": "https://play-lh.googleusercontent.com/M1SfMwIGykCoAm4-m8Uy-3xeW-I9rZ2mrHSjlzyZEG_5mQ5isPcTtkkyx0pue-hz9pm1pI1PBrapwFtpP3qrdw",
+      "searchResults": [],
+      "addedAt": "2026-11-10T19:03:02.284Z"
+    },
+    {
+      "title": "Duck War",
+      "status": "matched",
+      "appIds": {
+        "android": "com.duck.war",
+        "ios": 6814697708
+      },
+      "developer": "HM Games Pty Ltd",
+      "icon": "https://play-lh.googleusercontent.com/pxchycnNramvRgk7Td5YfTSTsgMPXFy0kJcFzUCh3t_aPuXc8LNajc-HBpo7Nl8xzBJkgYyPw91tKyuTVY7H",
+      "searchResults": [
+        {
+          "title": "Duck War",
+          "appId": 6814697708
+        },
+        {
+          "title": "Quack Bag: Duck Mafia",
+          "appId": 6785419179
+        },
+        {
+          "title": "WhatsApp Messenger",
+          "appId": 310633997
+        }
+      ],
+      "addedAt": "2026-11-10T19:03:03.290Z"
+    },
+    {
+      "title": "sobosuba",
+      "status": "single",
+      "appIds": {
+        "ios": 6802116433
+      },
+      "developer": "Michael Richard Bryant",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/aa/7c/c5/aa7cc560-f4d3-c4d0-95a7-7016c3cd1c71/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T19:03:03.803Z"
     }
   ],
   "approved": [
