@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49486,13 +49486,19 @@
     },
     {
       "title": "라이징파이터: 나만의 MMA 격투 선수 키우기",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6828723435
+        "ios": 6828723435,
+        "android": "com.risingfighter.app"
       },
       "developer": "Eunseok Lee",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/ff/31/a6ff31b6-2284-dae6-c4b8-3fa527fb6013/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "라이징파이터: 나만의 MMA 격투 선수 키우기",
+          "appId": 6828723435
+        }
+      ],
       "addedAt": "2026-11-08T13:03:08.516Z"
     },
     {
@@ -49853,6 +49859,50 @@
       "icon": "https://play-lh.googleusercontent.com/0aeh19MYqVF9o6YIudWx8nG0eVEfhzKNESLj-wNzBs0Nu6ozaqrRMdtc5pplxDuWCa3FuTzS7LJcR_wl_HNq_A",
       "searchResults": [],
       "addedAt": "2026-11-10T01:03:05.738Z"
+    },
+    {
+      "title": "Mahjong Tile Blast",
+      "status": "single",
+      "appIds": {
+        "ios": 6821785163
+      },
+      "developer": "Taidou Qianfan (beijing)Technology Co.,Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/2e/95/742e9564-3cb4-21ac-0876-3fa731f3daee/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T05:03:00.471Z"
+    },
+    {
+      "title": "三国ドライブ",
+      "status": "single",
+      "appIds": {
+        "ios": 1363049113
+      },
+      "developer": "Decoo, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/0a/9f/f70a9f6e-abbf-ecd7-c429-b423adb04005/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T05:03:00.878Z"
+    },
+    {
+      "title": "Awakened: Ultimate Hardening",
+      "status": "single",
+      "appIds": {
+        "ios": 6791922155
+      },
+      "developer": "xindong li",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/ce/3a/cdce3a11-99d7-ec7d-e5ef-0443fd574622/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T05:03:01.263Z"
+    },
+    {
+      "title": "Satisoul: Perfectly Organize",
+      "status": "single",
+      "appIds": {
+        "ios": 6736938048
+      },
+      "developer": "ICEBEAR., JSC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dd/f1/a1/ddf1a124-44bf-169b-ec1d-889fdbcba7ad/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T05:03:01.605Z"
     }
   ],
   "approved": [

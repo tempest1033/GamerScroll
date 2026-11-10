@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156216,14 +156216,16 @@
     },
     "라이징파이터: 나만의 MMA 격투 선수 키우기": {
       "appIds": {
-        "ios": 6828723435
+        "ios": 6828723435,
+        "android": "com.risingfighter.app"
       },
       "aliases": [],
       "developer": "Eunseok Lee",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/ff/31/a6ff31b6-2284-dae6-c4b8-3fa527fb6013/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "slug": "라이징파이터-나만의-mma-격투-선수-키우기",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "라이징파이터: 나만의 MMA 격투 선수 키우기",
@@ -156844,8 +156846,107 @@
         "ko": "無盡圖鑑",
         "zh-tw": "無盡圖鑑"
       }
+    },
+    "破局：三國終章": {
+      "appIds": {
+        "ios_tw": "1515418164"
+      },
+      "aliases": [],
+      "developer": "U-LIKE ENTERTAINMENT LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/1c/af/9a1caff3-8db9-a970-7578-6f3f0ccdad56/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "破局三國終章",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "破局：三國終章",
+        "zh-tw": "破局：三國終章"
+      }
+    },
+    "Mahjong Tile Blast": {
+      "appIds": {
+        "ios": 6821785163
+      },
+      "aliases": [],
+      "developer": "Taidou Qianfan (beijing)Technology Co.,Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/2e/95/742e9564-3cb4-21ac-0876-3fa731f3daee/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "mahjong-tile-blast",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Mahjong Tile Blast",
+        "en": "Mahjong Tile Blast",
+        "ja": "Mahjong Tile Blast",
+        "zh-tw": "Mahjong Tile Blast"
+      }
+    },
+    "三国ドライブ": {
+      "appIds": {
+        "ios": 1363049113
+      },
+      "aliases": [],
+      "developer": "Decoo, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/0a/9f/f70a9f6e-abbf-ecd7-c429-b423adb04005/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "三国ドライブ",
+        "en": "三国ドライブ",
+        "ja": "三国ドライブ",
+        "zh-tw": "三国ドライブ"
+      }
+    },
+    "Awakened: Ultimate Hardening": {
+      "appIds": {
+        "ios": 6791922155
+      },
+      "aliases": [],
+      "developer": "xindong li",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/ce/3a/cdce3a11-99d7-ec7d-e5ef-0443fd574622/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "awakened-ultimate-hardening",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Awakened: Ultimate Hardening",
+        "en": "Awakened: Ultimate Hardening",
+        "zh-tw": "覺醒：無敵硬化"
+      }
+    },
+    "Satisoul: Perfectly Organize": {
+      "appIds": {
+        "ios": 6736938048
+      },
+      "aliases": [],
+      "developer": "ICEBEAR., JSC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dd/f1/a1/ddf1a124-44bf-169b-ec1d-889fdbcba7ad/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "satisoul-perfectly-organize",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Satisoul: Perfectly Organize",
+        "en": "Satisoul: Perfectly Organize",
+        "ja": "Satisoul: Perfectly Organize",
+        "zh-tw": "Satisoul: Perfectly Organize"
+      }
+    },
+    "Atelier Karia: The Night Kingdom & the Guide of Memories": {
+      "appIds": {
+        "steam": "4532500"
+      },
+      "aliases": [],
+      "developer": "KOEI TECMO GAMES CO., LTD.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4532500/6819d9d5c4b44933ee82f7055729eeb848081bed/capsule_231x87.jpg?t=1794279254",
+      "slug": "atelier-karia-the-night-kingdom-the-guide-of-memories",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-10",
-  "totalGames": 9204
+  "totalGames": 9210
 }
