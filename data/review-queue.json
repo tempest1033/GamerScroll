@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49936,6 +49936,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/be/16/e8/be16e81b-bb8f-18af-8cc6-11881c17e902/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-10T09:02:36.054Z"
+    },
+    {
+      "title": "钻石大师",
+      "status": "single",
+      "appIds": {
+        "ios": 1542347625
+      },
+      "developer": "谦达 黄",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/4b/90/d3/4b90d37a-d13d-c6b3-179c-01a6b29a916c/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T15:04:04.306Z"
+    },
+    {
+      "title": "Super Brawler",
+      "status": "single",
+      "appIds": {
+        "ios": 1518588309
+      },
+      "developer": "Yso Corp",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/88/6f/09/886f0908-baa6-c471-de53-3f91ac21b34e/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T15:04:04.689Z"
     }
   ],
   "approved": [

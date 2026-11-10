@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T13:01:46.545Z",
+  "updatedAt": "2026-11-10T15:02:35.998Z",
   "period": "30days",
   "games": [
     {
@@ -7,15 +7,11 @@
       "views": 7
     },
     {
-      "slug": "barotrauma",
-      "views": 6
+      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "views": 7
     },
     {
       "slug": "pixel-flow",
-      "views": 6
-    },
-    {
-      "slug": "sled-surfers-슬로프-어드벤처",
       "views": 6
     },
     {
@@ -23,60 +19,64 @@
       "views": 6
     },
     {
+      "slug": "arrow-pro-3d",
+      "views": 5
+    },
+    {
+      "slug": "where-winds-meet",
+      "views": 5
+    },
+    {
       "slug": "라스트-라이트",
-      "views": 6
+      "views": 5
+    },
+    {
+      "slug": "레이싱-마스터",
+      "views": 5
+    },
+    {
+      "slug": "로드러쉬",
+      "views": 5
     },
     {
       "slug": "에이지-오브-엠파이어-모바일",
-      "views": 6
+      "views": 5
+    },
+    {
+      "slug": "카오스-제로-나이트메어",
+      "views": 5
     },
     {
       "slug": "탈출-게임-암스테르담",
-      "views": 6
+      "views": 5
     },
     {
       "slug": "탑-히어로즈-영웅의-시대",
-      "views": 6
+      "views": 5
     },
     {
-      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
-      "views": 6
+      "slug": "한게임-포커",
+      "views": 5
+    },
+    {
+      "slug": "1-하트-윌-우들-스크류-온",
+      "views": 4
     },
     {
       "slug": "3d운전교실",
-      "views": 5
+      "views": 4
+    },
+    {
+      "slug": "barotrauma",
+      "views": 4
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 4
     },
     {
       "slug": "hero-siege",
-      "views": 5
-    },
-    {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 5
-    },
-    {
-      "slug": "palworld",
-      "views": 5
-    },
-    {
-      "slug": "skate",
-      "views": 5
-    },
-    {
-      "slug": "snipers-duel",
-      "views": 5
-    },
-    {
-      "slug": "단어-찾기-단어-게임",
-      "views": 5
-    },
-    {
-      "slug": "배틀그라운드",
-      "views": 5
-    },
-    {
-      "slug": "산너머-도원마을",
-      "views": 5
+      "views": 4
     }
   ]
 }

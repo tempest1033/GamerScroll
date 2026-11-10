@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -77673,6 +77673,7 @@
         "ios"
       ],
       "names": {
+        "ko": "리락쿠마와 스미코구라시 - Tadaima",
         "en": "リラックマとすみっコぐらし - ただいま",
         "ja": "ただいま〜リラックマとすみっコとわたし〜",
         "zh-tw": "拉拉熊與角落小夥伴～我回來了～"
@@ -145341,14 +145342,16 @@
     },
     "소다전설": {
       "appIds": {
-        "android": "com.byabyak.soda"
+        "android": "com.byabyak.soda",
+        "ios": 6756291565
       },
       "aliases": [],
       "developer": "Byabyak Games",
       "icon": "https://play-lh.googleusercontent.com/pKTZQouXCxce4c7E-7hPrmTp39IiiWwEPN8uJHUeFnXlQBXG2cYaTIx-nngRU10XXkRp-CVnMvl61fk_5nuqGNc",
       "slug": "소다전설",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "소다전설"
@@ -156999,8 +157002,144 @@
         "ja": "豊作と地鼠の昼寝",
         "zh-tw": "Havest and the Gopher's nap"
       }
+    },
+    "[777Real]スマスロ リコリス・リコイル": {
+      "appIds": {
+        "ios_jp": 6823027426
+      },
+      "aliases": [],
+      "developer": "Sammy Networks Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/fb/29/00fb298d-2317-eb82-078b-653bb0e31b32/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "777realスマスロ-リコリスリコイル",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[777Real]スマスロ リコリス・リコイル"
+      }
+    },
+    "菜市场首富": {
+      "appIds": {
+        "ios_cn": 6807819043
+      },
+      "aliases": [],
+      "developer": "海波 林",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/16/24/42/162442db-8f95-e91d-1fb0-65ec2d89d60a/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "菜市场首富",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "菜市场首富",
+        "zh-cn": "菜市场首富",
+        "zh-tw": "菜市场首富"
+      }
+    },
+    "你是真厉害-辨微识异": {
+      "appIds": {
+        "ios_cn": 6817323157
+      },
+      "aliases": [],
+      "developer": "翠霞 殷",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ea/9c/2c/ea9c2c84-73f5-ecdf-1689-507acfca6345/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "你是真厉害-辨微识异",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "你是真厉害-辨微识异",
+        "ja": "你是真厉害-辨微识异",
+        "zh-cn": "你是真厉害-辨微识异",
+        "zh-tw": "你是真厉害-辨微识异"
+      }
+    },
+    "钻石大师": {
+      "appIds": {
+        "ios": 1542347625
+      },
+      "aliases": [],
+      "developer": "谦达 黄",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/4b/90/d3/4b90d37a-d13d-c6b3-179c-01a6b29a916c/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "钻石大师",
+        "en": "钻石大师",
+        "ja": "钻石大师",
+        "zh-cn": "钻石大师",
+        "zh-tw": "钻石大师"
+      }
+    },
+    "Super Brawler": {
+      "appIds": {
+        "ios": 1518588309
+      },
+      "aliases": [],
+      "developer": "Yso Corp",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/88/6f/09/886f0908-baa6-c471-de53-3f91ac21b34e/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "super-brawler",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Super Brawler",
+        "en": "Super Brawler",
+        "ja": "Super Brawler",
+        "zh-cn": "Super Brawler",
+        "zh-tw": "Super Brawler"
+      }
+    },
+    "Warhammer Survivors": {
+      "appIds": {
+        "steam": "3669620"
+      },
+      "aliases": [],
+      "developer": "Auroch Digital",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3669620/10d13658e3bbef16b8bbcef51aa6965377be1359/capsule_231x87.jpg?t=1794319205",
+      "slug": "warhammer-survivors",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Ashes of the Singularity II": {
+      "appIds": {
+        "steam": "3499790"
+      },
+      "aliases": [],
+      "developer": "Oxide Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3499790/9b9f8e8896417ae73ee60cffc30b069864163878/capsule_231x87.jpg?t=1794319758",
+      "slug": "ashes-of-the-singularity-ii",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Annihilated": {
+      "appIds": {
+        "steam": "2638080"
+      },
+      "aliases": [],
+      "developer": "Death Kumiai",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2638080/7b4c634b0a51cf49110cd4be27ced19ad33baec5/capsule_231x87.jpg?t=1794308502",
+      "slug": "annihilated",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Booster Pack Heroes": {
+      "appIds": {
+        "steam": "4618570"
+      },
+      "aliases": [],
+      "developer": "zup",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4618570/8b62c08999084ce62388de82e646e4f681d47333/capsule_231x87.jpg?t=1794316433",
+      "slug": "booster-pack-heroes",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-10",
-  "totalGames": 9213
+  "lastUpdated": "2026-11-11",
+  "totalGames": 9222
 }
