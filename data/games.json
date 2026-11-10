@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -156945,8 +156945,62 @@
       "platforms": [
         "steam"
       ]
+    },
+    "마배미: 테라리움 도마뱀 키우기": {
+      "appIds": {
+        "ios": 6827982032
+      },
+      "aliases": [],
+      "developer": "JI WON PARK",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/ed/35/daed3517-68dd-75f7-49bb-cbba45e781ea/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "마배미-테라리움-도마뱀-키우기",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "마배미: 테라리움 도마뱀 키우기",
+        "en": "Mabaemi: Lizard Terrarium",
+        "ja": "Mabaemi：トカゲのテラリウム",
+        "zh-tw": "Mabaemi：蜥蜴飼育箱"
+      }
+    },
+    "Horde Rush": {
+      "appIds": {
+        "ios": 6826324220
+      },
+      "aliases": [],
+      "developer": "Lava Labs Oyun Yazılım ve Pazarlama Anonim Şirketi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/99/3c/61993ced-2109-00f8-58d4-b5eaa698a8e7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "horde-rush",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Horde Rush",
+        "en": "Horde Rush",
+        "ja": "Horde Rush",
+        "zh-tw": "Horde Rush"
+      }
+    },
+    "Havest and the Gopher's nap": {
+      "appIds": {
+        "ios": 6738896670
+      },
+      "aliases": [],
+      "developer": "磊 杨",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/be/16/e8/be16e81b-bb8f-18af-8cc6-11881c17e902/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "havest-and-the-gophers-nap",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Havest and the Gopher's nap",
+        "en": "Havest and the Gopher's nap",
+        "ja": "豊作と地鼠の昼寝",
+        "zh-tw": "Havest and the Gopher's nap"
+      }
     }
   },
   "lastUpdated": "2026-11-10",
-  "totalGames": 9210
+  "totalGames": 9213
 }

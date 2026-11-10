@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49903,6 +49903,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dd/f1/a1/ddf1a124-44bf-169b-ec1d-889fdbcba7ad/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-10T05:03:01.605Z"
+    },
+    {
+      "title": "마배미: 테라리움 도마뱀 키우기",
+      "status": "single",
+      "appIds": {
+        "ios": 6827982032
+      },
+      "developer": "JI WON PARK",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/ed/35/daed3517-68dd-75f7-49bb-cbba45e781ea/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T09:02:35.638Z"
+    },
+    {
+      "title": "Horde Rush",
+      "status": "single",
+      "appIds": {
+        "ios": 6826324220
+      },
+      "developer": "Lava Labs Oyun Yazılım ve Pazarlama Anonim Şirketi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/99/3c/61993ced-2109-00f8-58d4-b5eaa698a8e7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T09:02:35.824Z"
+    },
+    {
+      "title": "Havest and the Gopher's nap",
+      "status": "single",
+      "appIds": {
+        "ios": 6738896670
+      },
+      "developer": "磊 杨",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/be/16/e8/be16e81b-bb8f-18af-8cc6-11881c17e902/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-10T09:02:36.054Z"
     }
   ],
   "approved": [
