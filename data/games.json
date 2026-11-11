@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -157366,8 +157366,50 @@
       "names": {
         "zh-tw": "超人力霸王：传奇英雄2"
       }
+    },
+    "ZomBusters: Survivors": {
+      "appIds": {
+        "ios_tw": 6813378933
+      },
+      "aliases": [
+        "砰砰冒險隊"
+      ],
+      "developer": "ZeroBound Creative Tech Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f2/c9/e3/f2c9e391-606c-3771-c60a-4f3535522204/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "zombusters-survivors",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "ZomBusters: Survivors",
+        "zh-tw": "砰砰冒險隊"
+      }
+    },
+    "Rejected Draft": {
+      "appIds": {
+        "steam": "4574820"
+      },
+      "aliases": [],
+      "developer": "Kuzzi",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4574820/fe8fc343531454b81221c4dc293b41245e3a4b27/capsule_231x87.jpg?t=1794405560",
+      "slug": "rejected-draft",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Wall World Strategy": {
+      "appIds": {
+        "steam": "4218360"
+      },
+      "aliases": [],
+      "developer": "Alawar",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4218360/3a2af915aeb74c973cb118adecb80290199881ea/capsule_231x87.jpg?t=1794400714",
+      "slug": "wall-world-strategy",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-11",
-  "totalGames": 9236
+  "lastUpdated": "2026-11-12",
+  "totalGames": 9239
 }

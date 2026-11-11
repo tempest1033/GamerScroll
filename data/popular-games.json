@@ -1,11 +1,7 @@
 {
-  "updatedAt": "2026-11-10T15:02:35.998Z",
+  "updatedAt": "2026-11-11T15:02:43.087Z",
   "period": "30days",
   "games": [
-    {
-      "slug": "주술회전-팬텀-퍼레이드",
-      "views": 7
-    },
     {
       "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
       "views": 7
@@ -19,7 +15,27 @@
       "views": 6
     },
     {
+      "slug": "주술회전-팬텀-퍼레이드",
+      "views": 6
+    },
+    {
+      "slug": "카오스-제로-나이트메어",
+      "views": 6
+    },
+    {
+      "slug": "탑-히어로즈-영웅의-시대",
+      "views": 6
+    },
+    {
       "slug": "arrow-pro-3d",
+      "views": 5
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 5
+    },
+    {
+      "slug": "sakura-school-simulator",
       "views": 5
     },
     {
@@ -43,15 +59,7 @@
       "views": 5
     },
     {
-      "slug": "카오스-제로-나이트메어",
-      "views": 5
-    },
-    {
       "slug": "탈출-게임-암스테르담",
-      "views": 5
-    },
-    {
-      "slug": "탑-히어로즈-영웅의-시대",
       "views": 5
     },
     {
@@ -68,14 +76,6 @@
     },
     {
       "slug": "barotrauma",
-      "views": 4
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 4
-    },
-    {
-      "slug": "hero-siege",
       "views": 4
     }
   ]
