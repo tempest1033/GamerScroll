@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -157306,8 +157306,20 @@
       "platforms": [
         "steam"
       ]
+    },
+    "One Million Coins": {
+      "appIds": {
+        "steam": "5258340"
+      },
+      "aliases": [],
+      "developer": "OYU Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5258340/e22a1284cc4094d8a234dd70b06383526eefe31f/capsule_231x87.jpg?t=1794070043",
+      "slug": "one-million-coins",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-11",
-  "totalGames": 9232
+  "totalGames": 9233
 }
