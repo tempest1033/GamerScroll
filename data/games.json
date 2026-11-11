@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -157318,8 +157318,56 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Bullpen": {
+      "appIds": {
+        "ios": 6642673670
+      },
+      "aliases": [],
+      "developer": "David Williames",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/9c/34/1f9c345f-30a5-c53d-db50-61e9102437c2/NewAppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "bullpen",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Bullpen",
+        "en": "Bullpen: Logic Puzzle Game",
+        "ja": "Bullpen",
+        "zh-tw": "Bullpen"
+      }
+    },
+    "羽球對決 2.5D": {
+      "appIds": {
+        "ios_tw": 6832185890
+      },
+      "aliases": [],
+      "developer": "KuoSheng Chien",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/16/44/79/16447947-9063-9b7e-144c-137ea1f3fa14/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "羽球對決-25d",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "羽球對決 2.5D"
+      }
+    },
+    "超人力霸王：传奇英雄2": {
+      "appIds": {
+        "ios_tw": 6806555722
+      },
+      "aliases": [],
+      "developer": "Global Joy Technology Co.,Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/10/2d/d2/102dd249-b5e4-0ca3-25ec-895d45d5d239/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "超人力霸王传奇英雄2",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "超人力霸王：传奇英雄2"
+      }
     }
   },
   "lastUpdated": "2026-11-11",
-  "totalGames": 9233
+  "totalGames": 9236
 }

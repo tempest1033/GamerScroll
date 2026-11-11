@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50055,6 +50055,17 @@
       "icon": "https://play-lh.googleusercontent.com/talFKGFkFpNylWfct4zKT2ZBqqcoj2MpdAmMGnJDmzzymduE2syzb1aVMrMsIley_PPfGXDKB_xbTAPYqMpjvw",
       "searchResults": [],
       "addedAt": "2026-11-10T23:02:54.560Z"
+    },
+    {
+      "title": "Bullpen",
+      "status": "single",
+      "appIds": {
+        "ios": 6642673670
+      },
+      "developer": "David Williames",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/9c/34/1f9c345f-30a5-c53d-db50-61e9102437c2/NewAppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-11T11:02:44.275Z"
     }
   ],
   "approved": [
