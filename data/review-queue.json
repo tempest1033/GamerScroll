@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.KCG.MagicalGirlChronicle"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50194,6 +50194,63 @@
         }
       ],
       "addedAt": "2026-11-11T19:02:43.428Z"
+    },
+    {
+      "title": "부스터 팩 히어로즈",
+      "status": "single",
+      "appIds": {
+        "ios": "6801113954"
+      },
+      "developer": "Funday Games ApS",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/56/11/93/56119329-b6a4-34e3-23cb-ba17922f2927/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-11T23:02:45.000Z"
+    },
+    {
+      "title": "미르의 전설2: 레볼루션",
+      "status": "single",
+      "appIds": {
+        "ios": 6761901736
+      },
+      "developer": "KODA DUCK GAMES COMPANY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/5a/e5/a35ae51e-034d-c590-bda5-fc4390314519/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-11T23:02:46.643Z"
+    },
+    {
+      "title": "삼국지: 구주제패",
+      "status": "single",
+      "appIds": {
+        "ios": 6776551152
+      },
+      "developer": "Rastar Mobile",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/73/5c/2a735c86-f6b4-61e8-ca32-4cc11521b4e0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-11T23:02:46.941Z"
+    },
+    {
+      "title": "Magic Sand Color - No Timer",
+      "status": "single",
+      "appIds": {
+        "android": "com.thp026.magic.sand.color.blocks"
+      },
+      "developer": "Pusilung",
+      "icon": "https://play-lh.googleusercontent.com/KsGovRJDd3Pva8HScCStsk_RqHpwLKR3yKnIea4OE88oozqpcNLn0hYKZD5nCHbZV84Ongxab78o3_Nzg6Zlew",
+      "searchResults": [
+        {
+          "title": "Fill Sand: Block Puzzle",
+          "appId": 6797907221
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "Visual Timer - Focus Countdown",
+          "appId": 6747144464
+        }
+      ],
+      "addedAt": "2026-11-11T23:02:47.576Z"
     }
   ],
   "approved": [

@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.KCG.MagicalGirlChronicle"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -157521,8 +157521,119 @@
         "ja": "格鬥物語-橫版格鬥冒險手遊",
         "zh-tw": "格鬥物語-橫版格鬥冒險手遊"
       }
+    },
+    "부스터 팩 히어로즈": {
+      "appIds": {
+        "ios": "6801113954"
+      },
+      "aliases": [],
+      "developer": "Funday Games ApS",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/56/11/93/56119329-b6a4-34e3-23cb-ba17922f2927/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "부스터-팩-히어로즈",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "부스터 팩 히어로즈",
+        "en": "Booster Pack Heroes",
+        "ja": "ブースターパックヒーロー",
+        "zh-tw": "Booster Pack Heroes"
+      }
+    },
+    "미르의 전설2: 레볼루션": {
+      "appIds": {
+        "ios": 6761901736
+      },
+      "aliases": [],
+      "developer": "KODA DUCK GAMES COMPANY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/5a/e5/a35ae51e-034d-c590-bda5-fc4390314519/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "미르의-전설2-레볼루션",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "미르의 전설2: 레볼루션"
+      }
+    },
+    "삼국지: 구주제패": {
+      "appIds": {
+        "ios": 6776551152
+      },
+      "aliases": [],
+      "developer": "Rastar Mobile",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/73/5c/2a735c86-f6b4-61e8-ca32-4cc11521b4e0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "삼국지-구주제패",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "삼국지: 구주제패"
+      }
+    },
+    "Magic Sand Color - No Timer": {
+      "appIds": {
+        "android": "com.thp026.magic.sand.color.blocks"
+      },
+      "aliases": [],
+      "developer": "Pusilung",
+      "icon": "https://play-lh.googleusercontent.com/KsGovRJDd3Pva8HScCStsk_RqHpwLKR3yKnIea4OE88oozqpcNLn0hYKZD5nCHbZV84Ongxab78o3_Nzg6Zlew",
+      "slug": "magic-sand-color-no-timer",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Magic Sand Color - No Timer",
+        "en": "Magic Sand Color - No Timer",
+        "ja": "Magic Sand Color - No Timer",
+        "zh-tw": "Magic Sand Color - No Timer"
+      }
+    },
+    "機動三國": {
+      "appIds": {
+        "ios_tw": 6805286477
+      },
+      "aliases": [],
+      "developer": "HONG KONG QIANDO NETWORK TECHNOLOGY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/25/35/0a2535ed-3010-1421-11d2-f8a322d87da1/AppIcon-1x_U007ephone-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "機動三國",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "機動三國"
+      }
+    },
+    "Transformers: Eternal War": {
+      "appIds": {
+        "ios_tw": 6772922295
+      },
+      "aliases": [
+        "變形金剛：無盡戰爭"
+      ],
+      "developer": "HOOLAI GAME LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/20/4f/c5/204fc5b5-682c-eba9-6fd1-617b8f7d581b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "transformers-eternal-war",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Transformers: Eternal War",
+        "zh-tw": "變形金剛：無盡戰爭"
+      }
+    },
+    "99Day Survival Guide": {
+      "appIds": {
+        "steam": "3850230"
+      },
+      "aliases": [],
+      "developer": "塔克工作室",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3850230/70a99ea37127c7a92945513816aa1658f61dbdb1/capsule_231x87.jpg?t=1794360625",
+      "slug": "99day-survival-guide",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-12",
-  "totalGames": 9245
+  "totalGames": 9252
 }
