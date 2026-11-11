@@ -70222,10 +70222,11 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.KCG.MagicalGirlChronicle"
       },
       "aliases": [
-        "我在三國當村長-經營養成系RPG"
+        "我在三國當村長-經營養成系RPG",
+        "魔法少女クロニクル 簡単育成ローグライクRPG"
       ],
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -157408,8 +157409,120 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Doki Doki Fate Card": {
+      "appIds": {
+        "android": "com.dokidoki.animegirl.cardduel.battle"
+      },
+      "aliases": [],
+      "developer": "knitr4",
+      "icon": "https://play-lh.googleusercontent.com/mRsBMHA5d8DFjvGpqA5GK8s6DpuBux3KK2w7XZWQ47qUYz1_v9fMs_bMMCxEa6edppqLcXNTgBesHUrCAd1PlQ",
+      "slug": "doki-doki-fate-card",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Doki Doki Fate Card",
+        "en": "Doki Doki Fate Card",
+        "ja": "Doki Doki Fate Card",
+        "zh-tw": "Doki Doki Fate Card"
+      }
+    },
+    "Mahjong Smart": {
+      "appIds": {
+        "android": "com.gl.mahjong"
+      },
+      "aliases": [],
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/BxRC66LsqxDjlO9GEHzl40YWRC-hK6wKLVcNqlyZVGX051ZgWY5ynJeh5MVyayLSjljNIRRo2YmV4ys-D9e3",
+      "slug": "mahjong-smart",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Mahjong Smart",
+        "en": "Mahjong Smart",
+        "ja": "Mahjong Smart",
+        "zh-tw": "Mahjong Smart"
+      }
+    },
+    "Hop In One": {
+      "appIds": {
+        "android": "com.gimica.golfhop"
+      },
+      "aliases": [],
+      "developer": "Gimica GmbH",
+      "icon": "https://play-lh.googleusercontent.com/jMULeqIZmRA9FvVgf3gLRaDsSMA-nJWBs8mqhkzBMefSYLUNqIEbQ1JUoVXM6Q8BrNnRnoSMa4jEG7ugEBuXpA",
+      "slug": "hop-in-one",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Hop In One",
+        "en": "Hop In One",
+        "ja": "Hop In One"
+      }
+    },
+    "Business World: Poor to Rich": {
+      "appIds": {
+        "android": "games.redbricks.businessworld"
+      },
+      "aliases": [],
+      "developer": "Appodeal Accelerator Labs",
+      "icon": "https://play-lh.googleusercontent.com/AHhvJokuJLwuvdrxJ7LRzfUqkQNXdXgY6nfn2rwi7EnqRzXOdr7Tj9C_vwqlqpJOsXEnL5KisN548bl1RsMclA",
+      "slug": "business-world-poor-to-rich",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Business World: Poor to Rich",
+        "en": "Business World: Poor to Rich",
+        "ja": "Business World: Poor to Rich",
+        "zh-tw": "Business World: Poor to Rich"
+      }
+    },
+    "Rope Sort!": {
+      "appIds": {
+        "android": "com.nebula.ropesort",
+        "ios": 6446849776
+      },
+      "aliases": [
+        "Rope Sort"
+      ],
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/jGXjZMOCbrRhnOy5rER0uYJH4zePKjIHxmmV7zhJ0Wd3JH2pXSqaL57lAPi5FI66p_YUlCxvqGtk9SoTcf5W",
+      "slug": "rope-sort",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Rope Sort!",
+        "en": "Rope Sort",
+        "ja": "Rope Sort!",
+        "zh-cn": "Rope Sort",
+        "zh-tw": "Rope Sort"
+      }
+    },
+    "格鬥物語-橫版格鬥冒險手遊": {
+      "appIds": {
+        "android": "com.gdwy.rpg"
+      },
+      "aliases": [],
+      "developer": "3X Game",
+      "icon": "https://play-lh.googleusercontent.com/6qFLX708E9fYIun8G7O6v5xR4khLMfXweo9g_4wvuGbz2QRMJyxUBVgojpNyHAnedDk4x4u3R8U04gDiyamvOg",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "格鬥物語-橫版格鬥冒險手遊",
+        "en": "格鬥物語-橫版格鬥冒險手遊",
+        "ja": "格鬥物語-橫版格鬥冒險手遊",
+        "zh-tw": "格鬥物語-橫版格鬥冒險手遊"
+      }
     }
   },
   "lastUpdated": "2026-11-12",
-  "totalGames": 9239
+  "totalGames": 9245
 }

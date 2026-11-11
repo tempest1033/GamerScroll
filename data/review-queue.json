@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.KCG.MagicalGirlChronicle"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50066,6 +50066,134 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/9c/34/1f9c345f-30a5-c53d-db50-61e9102437c2/NewAppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-11T11:02:44.275Z"
+    },
+    {
+      "title": "Doki Doki Fate Card",
+      "status": "single",
+      "appIds": {
+        "android": "com.dokidoki.animegirl.cardduel.battle"
+      },
+      "developer": "knitr4",
+      "icon": "https://play-lh.googleusercontent.com/mRsBMHA5d8DFjvGpqA5GK8s6DpuBux3KK2w7XZWQ47qUYz1_v9fMs_bMMCxEa6edppqLcXNTgBesHUrCAd1PlQ",
+      "searchResults": [],
+      "addedAt": "2026-11-11T19:02:40.759Z"
+    },
+    {
+      "title": "Mahjong Smart",
+      "status": "single",
+      "appIds": {
+        "android": "com.gl.mahjong"
+      },
+      "developer": "Loyalty Gaming",
+      "icon": "https://play-lh.googleusercontent.com/BxRC66LsqxDjlO9GEHzl40YWRC-hK6wKLVcNqlyZVGX051ZgWY5ynJeh5MVyayLSjljNIRRo2YmV4ys-D9e3",
+      "searchResults": [
+        {
+          "title": "비타 마작(Vita Mahjong)",
+          "appId": 6468921495
+        },
+        {
+          "title": "Mahjong Treasures Online",
+          "appId": 1349658165
+        },
+        {
+          "title": "솔리테어 - 클래식 카드게임, 클론다이크 게임",
+          "appId": 1564391515
+        }
+      ],
+      "addedAt": "2026-11-11T19:02:41.306Z"
+    },
+    {
+      "title": "Hop In One",
+      "status": "single",
+      "appIds": {
+        "android": "com.gimica.golfhop"
+      },
+      "developer": "Gimica GmbH",
+      "icon": "https://play-lh.googleusercontent.com/jMULeqIZmRA9FvVgf3gLRaDsSMA-nJWBs8mqhkzBMefSYLUNqIEbQ1JUoVXM6Q8BrNnRnoSMa4jEG7ugEBuXpA",
+      "searchResults": [
+        {
+          "title": "HOOP IN",
+          "appId": 6813739442
+        },
+        {
+          "title": "Adobe Express: AI 사진, 영상",
+          "appId": 1051937863
+        },
+        {
+          "title": "YouTube Music",
+          "appId": 1017492454
+        }
+      ],
+      "addedAt": "2026-11-11T19:02:41.723Z"
+    },
+    {
+      "title": "Business World: Poor to Rich",
+      "status": "single",
+      "appIds": {
+        "android": "games.redbricks.businessworld"
+      },
+      "developer": "Appodeal Accelerator Labs",
+      "icon": "https://play-lh.googleusercontent.com/AHhvJokuJLwuvdrxJ7LRzfUqkQNXdXgY6nfn2rwi7EnqRzXOdr7Tj9C_vwqlqpJOsXEnL5KisN548bl1RsMclA",
+      "searchResults": [
+        {
+          "title": "Brookhaven Poor To Rich",
+          "appId": 1601065437
+        },
+        {
+          "title": "Trash Tycoon: idle clicker",
+          "appId": 1525138431
+        }
+      ],
+      "addedAt": "2026-11-11T19:02:42.104Z"
+    },
+    {
+      "title": "Rope Sort!",
+      "status": "matched",
+      "appIds": {
+        "android": "com.nebula.ropesort",
+        "ios": 6446849776
+      },
+      "developer": "Nebula  Studio",
+      "icon": "https://play-lh.googleusercontent.com/jGXjZMOCbrRhnOy5rER0uYJH4zePKjIHxmmV7zhJ0Wd3JH2pXSqaL57lAPi5FI66p_YUlCxvqGtk9SoTcf5W",
+      "searchResults": [
+        {
+          "title": "Rope Sort: Unravel Puzzle",
+          "appId": 6752284897
+        },
+        {
+          "title": "Rope Sort - Sort'Em All!",
+          "appId": 6738644067
+        },
+        {
+          "title": "Rope Sort",
+          "appId": 6446849776
+        }
+      ],
+      "addedAt": "2026-11-11T19:02:42.975Z"
+    },
+    {
+      "title": "格鬥物語-橫版格鬥冒險手遊",
+      "status": "single",
+      "appIds": {
+        "android": "com.gdwy.rpg"
+      },
+      "developer": "3X Game",
+      "icon": "https://play-lh.googleusercontent.com/6qFLX708E9fYIun8G7O6v5xR4khLMfXweo9g_4wvuGbz2QRMJyxUBVgojpNyHAnedDk4x4u3R8U04gDiyamvOg",
+      "searchResults": [
+        {
+          "title": "三界无双-全球同服横版格斗游戏",
+          "appId": 1275418891
+        },
+        {
+          "title": "地下城战争勇者-横版格斗闯关动作冒险游戏",
+          "appId": 1593349802
+        },
+        {
+          "title": "荣耀骑士团-横版街机大乱斗",
+          "appId": 996841297
+        }
+      ],
+      "addedAt": "2026-11-11T19:02:43.428Z"
     }
   ],
   "approved": [

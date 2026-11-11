@@ -230,6 +230,13 @@
   "zh-cn",
   "zh-tw"
  ],
+ "auto-drill-galaxy": [
+  "en",
+  "ja",
+  "ko",
+  "zh-cn",
+  "zh-tw"
+ ],
  "axis-blade": [
   "en",
   "ja",
@@ -2141,13 +2148,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "legend-of-ymir": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "legends-reborn-마지막-전투": [
   "en",
   "ja",
@@ -3786,13 +3786,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "suitu-패션-아바타-드레스업": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "sunday-city-life-simulator": [
   "en",
   "ja",
@@ -4529,13 +4522,6 @@
   "zh-tw"
  ],
  "zombie-frontier-4-스나이퍼-서바이벌": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "zombie-world-war-storm": [
   "en",
   "ja",
   "ko",
@@ -7286,13 +7272,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "圣斗士星矢重生": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "地下城与勇士起源": [
   "en",
   "ja",
@@ -7903,6 +7882,13 @@
   "zh-tw"
  ],
  "小貓咪大史記-黃阿瑪聯動中": [
+  "en",
+  "ja",
+  "ko",
+  "zh-cn",
+  "zh-tw"
+ ],
+ "小镇派对": [
   "en",
   "ja",
   "ko",
