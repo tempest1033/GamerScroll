@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158058,8 +158058,71 @@
       "platforms": [
         "steam"
       ]
+    },
+    "斗破苍穹：异火降世": {
+      "appIds": {
+        "ios_cn": 6463189107
+      },
+      "aliases": [],
+      "developer": "Guangdong Xinghui Teamtop Interactive Entertainment Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/66/38/f9/6638f922-d106-63f9-4f60-55c355df7ace/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "斗破苍穹异火降世",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "斗破苍穹：异火降世"
+      }
+    },
+    "RPG 히어로즈: 에픽 팀 배틀": {
+      "appIds": {
+        "ios": 6819182157
+      },
+      "aliases": [],
+      "developer": "PIXIO LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/c9/fa/3dc9fa6f-6333-606d-22fe-1d8bddb3551c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "rpg-히어로즈-에픽-팀-배틀",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "RPG 히어로즈: 에픽 팀 배틀",
+        "en": "RPG Heroes: Epic Team Battle",
+        "ja": "RPGヒーローズ：壮大なチーム戦",
+        "zh-tw": "RPG英雄：史詩團隊戰"
+      }
+    },
+    "Spirit Pantheon: Idle Odyssey": {
+      "appIds": {
+        "android": "com.mj.spiritpantheon.google"
+      },
+      "aliases": [],
+      "developer": "lotuscity",
+      "icon": "https://play-lh.googleusercontent.com/RFO7PsWjdi_PvD6JRxrCjILdcCSPJCZd0_ZmNKpshAKA2InWTnl7blCB1528ZIHJuZpRYGSadqrlb_dSM5h17Q",
+      "slug": "spirit-pantheon-idle-odyssey",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Spirit Pantheon: Idle Odyssey",
+        "en": "Spirit Pantheon: Idle Odyssey",
+        "ja": "Spirit Pantheon: Idle Odyssey",
+        "zh-tw": "Spirit Pantheon: Idle Odyssey"
+      }
+    },
+    "Euro Truck Simulator 2 - Nordic Horizons": {
+      "appIds": {
+        "steam": "2780810"
+      },
+      "aliases": [],
+      "developer": "SCS Software",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2780810/931380e22dc2a0ee6d489ee2ffb8bd7c201bbb01/capsule_231x87.jpg?t=1781093020",
+      "slug": "euro-truck-simulator-2-nordic-horizons",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-13",
-  "totalGames": 9278
+  "totalGames": 9282
 }

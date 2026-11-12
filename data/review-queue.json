@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50486,6 +50486,28 @@
         }
       ],
       "addedAt": "2026-11-12T19:03:23.264Z"
+    },
+    {
+      "title": "RPG 히어로즈: 에픽 팀 배틀",
+      "status": "single",
+      "appIds": {
+        "ios": 6819182157
+      },
+      "developer": "PIXIO LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/c9/fa/3dc9fa6f-6333-606d-22fe-1d8bddb3551c/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-12T23:03:20.313Z"
+    },
+    {
+      "title": "Spirit Pantheon: Idle Odyssey",
+      "status": "single",
+      "appIds": {
+        "android": "com.mj.spiritpantheon.google"
+      },
+      "developer": "lotuscity",
+      "icon": "https://play-lh.googleusercontent.com/RFO7PsWjdi_PvD6JRxrCjILdcCSPJCZd0_ZmNKpshAKA2InWTnl7blCB1528ZIHJuZpRYGSadqrlb_dSM5h17Q",
+      "searchResults": [],
+      "addedAt": "2026-11-12T23:03:20.590Z"
     }
   ],
   "approved": [
