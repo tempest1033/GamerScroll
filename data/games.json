@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -157632,8 +157632,26 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Liquid Sort: Vialette": {
+      "appIds": {
+        "android": "com.vialette.liquidsort"
+      },
+      "aliases": [],
+      "developer": "Game IOGER",
+      "icon": "https://play-lh.googleusercontent.com/XxQkqzsunQ751JCsqtLULv9Pw3wxj1-AS36gOqHaU93S5xBTNiBz_jUdeehGH2I7N9M7xaKYdAjr59jA1xKa",
+      "slug": "liquid-sort-vialette",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Liquid Sort: Vialette",
+        "en": "Liquid Sort: Vialette",
+        "ja": "Liquid Sort: Vialette",
+        "zh-tw": "Liquid Sort: Vialette"
+      }
     }
   },
   "lastUpdated": "2026-11-12",
-  "totalGames": 9252
+  "totalGames": 9253
 }

@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50251,6 +50251,17 @@
         }
       ],
       "addedAt": "2026-11-11T23:02:47.576Z"
+    },
+    {
+      "title": "Liquid Sort: Vialette",
+      "status": "single",
+      "appIds": {
+        "android": "com.vialette.liquidsort"
+      },
+      "developer": "Game IOGER",
+      "icon": "https://play-lh.googleusercontent.com/XxQkqzsunQ751JCsqtLULv9Pw3wxj1-AS36gOqHaU93S5xBTNiBz_jUdeehGH2I7N9M7xaKYdAjr59jA1xKa",
+      "searchResults": [],
+      "addedAt": "2026-11-12T03:02:53.763Z"
     }
   ],
   "approved": [
