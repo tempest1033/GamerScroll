@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -157668,8 +157668,175 @@
         "ja": "ふんしょく",
         "zh-tw": "Cover Up"
       }
+    },
+    "탐정 추리 퍼즐 - MellowLogic": {
+      "appIds": {
+        "ios": 6832177508
+      },
+      "aliases": [],
+      "developer": "ChanGyu Kang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6f/ba/7e/6fba7ea1-6a39-e92f-ed74-87b0d6f62f50/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "탐정-추리-퍼즐-mellowlogic",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "탐정 추리 퍼즐 - MellowLogic",
+        "en": "Detective Puzzle - MellowLogic",
+        "ja": "탐정 추리 퍼즐 - MellowLogic",
+        "zh-tw": "탐정 추리 퍼즐 - MellowLogic"
+      }
+    },
+    "Lonestar Casino": {
+      "appIds": {
+        "ios_us": 6755718101
+      },
+      "aliases": [],
+      "developer": "REALPLAY LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d1/ad/64/d1ad6469-ee53-c2c4-0f47-956868928edc/AppIconLoneStar-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "lonestar-casino",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Lonestar Casino"
+      }
+    },
+    "1000+ Games in 1": {
+      "appIds": {
+        "android": "com.zoxok.app"
+      },
+      "aliases": [],
+      "developer": "HappyGames Studio",
+      "icon": "https://play-lh.googleusercontent.com/Se5wRIlJ03xrgDxpc0Rtrzn22TkDMLoViuzTyO1g_3_KOmTA-126jmYBEuuCQ7PtD3Xc_5pvNBNzij8bx6a7",
+      "slug": "1000-games-in-1",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "1000+ Games in 1",
+        "en": "1000+ Games in 1",
+        "ja": "1000+ Games in 1",
+        "zh-tw": "1000+ Games in 1"
+      }
+    },
+    "Ultimate Tennis Fire and Ice": {
+      "appIds": {
+        "ios": 6784676583
+      },
+      "aliases": [],
+      "developer": "Winusgames Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e6/41/83/e6418386-9339-a845-7818-55f581eca8ba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ultimate-tennis-fire-and-ice",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Ultimate Tennis Fire and Ice",
+        "ja": "Ultimate Tennis Fire and Ice",
+        "zh-tw": "Ultimate Tennis Fire and Ice"
+      }
+    },
+    "スライドブロックde懸賞 - パズルde懸賞(公式)": {
+      "appIds": {
+        "ios_jp": 6803351936
+      },
+      "aliases": [],
+      "developer": "Ohte, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/43/48/41/434841a6-0f7f-77f8-794b-7465a18115d9/AppIcon-production-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "スライドブロックde懸賞-パズルde懸賞公式",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "スライドブロックde懸賞 - パズルde懸賞(公式)"
+      }
+    },
+    "吃遍全宇宙": {
+      "appIds": {
+        "ios_cn": 6786576345
+      },
+      "aliases": [],
+      "developer": "Guangzhou Quyuan Network Technology Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e7/7b/ae/e77bae05-d3a4-fc70-86a7-cc8403fae84c/AppIcon-0-0-1x_U007emarketing-0-5-85-220.png/512x512bb.jpg",
+      "slug": "吃遍全宇宙",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "吃遍全宇宙"
+      }
+    },
+    "初心啟程-冒險回歸": {
+      "appIds": {
+        "ios_tw": 6811121840
+      },
+      "aliases": [],
+      "developer": "Clearwave Media Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/6d/00/756d009e-3ca1-652b-8583-f53e74454a5e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "初心啟程-冒險回歸",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "初心啟程-冒險回歸"
+      }
+    },
+    "Fart Together: Unleashed": {
+      "appIds": {
+        "ios": 6825925933
+      },
+      "aliases": [],
+      "developer": "ZINEB HASSANI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/91/76/e4917652-cf8d-0e0d-ceaa-189b8e97df1b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "fart-together-unleashed",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Fart Together: Unleashed",
+        "en": "Fart Together: Unleashed",
+        "ja": "Fart Together: Unleashed",
+        "zh-tw": "Fart Together: Unleashed"
+      }
+    },
+    "SONIC PICO PARK": {
+      "appIds": {
+        "steam": "4304060"
+      },
+      "aliases": [],
+      "developer": "TECOPARK",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4304060/e62d98782258ab9878a1f60bdfb78c57e98c3a79/capsule_231x87.jpg?t=1794470411",
+      "slug": "sonic-pico-park",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Professor Layton and the New World of Steam": {
+      "appIds": {
+        "steam": "3384600"
+      },
+      "aliases": [],
+      "developer": "LEVEL5 Inc.",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3384600/cb62ee66e861782daf50d26f5472cb21e1ad914b/capsule_231x87.jpg?t=1794478966",
+      "slug": "professor-layton-and-the-new-world-of-steam",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Farm & Feast": {
+      "appIds": {
+        "steam": "4521650"
+      },
+      "aliases": [],
+      "developer": "dummy dino",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4521650/5c226387894d23eb9ac4377ff0e2b74b39bafc7b/capsule_231x87_alt_assets_0.jpg?t=1794404628",
+      "slug": "farm-feast",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-12",
-  "totalGames": 9254
+  "totalGames": 9265
 }

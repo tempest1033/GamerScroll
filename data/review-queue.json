@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50286,6 +50286,50 @@
         }
       ],
       "addedAt": "2026-11-12T07:03:05.558Z"
+    },
+    {
+      "title": "탐정 추리 퍼즐 - MellowLogic",
+      "status": "single",
+      "appIds": {
+        "ios": 6832177508
+      },
+      "developer": "ChanGyu Kang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6f/ba/7e/6fba7ea1-6a39-e92f-ed74-87b0d6f62f50/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-12T11:03:16.115Z"
+    },
+    {
+      "title": "1000+ Games in 1",
+      "status": "single",
+      "appIds": {
+        "android": "com.zoxok.app"
+      },
+      "developer": "HappyGames Studio",
+      "icon": "https://play-lh.googleusercontent.com/Se5wRIlJ03xrgDxpc0Rtrzn22TkDMLoViuzTyO1g_3_KOmTA-126jmYBEuuCQ7PtD3Xc_5pvNBNzij8bx6a7",
+      "searchResults": [],
+      "addedAt": "2026-11-12T11:03:16.722Z"
+    },
+    {
+      "title": "Ultimate Tennis Fire and Ice",
+      "status": "single",
+      "appIds": {
+        "ios": 6784676583
+      },
+      "developer": "Winusgames Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e6/41/83/e6418386-9339-a845-7818-55f581eca8ba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-12T11:03:17.030Z"
+    },
+    {
+      "title": "Fart Together: Unleashed",
+      "status": "single",
+      "appIds": {
+        "ios": 6825925933
+      },
+      "developer": "ZINEB HASSANI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/91/76/e4917652-cf8d-0e0d-ceaa-189b8e97df1b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-12T11:03:18.253Z"
     }
   ],
   "approved": [
