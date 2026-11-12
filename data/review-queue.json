@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50262,6 +50262,30 @@
       "icon": "https://play-lh.googleusercontent.com/XxQkqzsunQ751JCsqtLULv9Pw3wxj1-AS36gOqHaU93S5xBTNiBz_jUdeehGH2I7N9M7xaKYdAjr59jA1xKa",
       "searchResults": [],
       "addedAt": "2026-11-12T03:02:53.763Z"
+    },
+    {
+      "title": "분식",
+      "status": "single",
+      "appIds": {
+        "android": "com.gp.qsnmale.beauty.coverup"
+      },
+      "developer": "GANIS Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/GxxzbNTKZ70L38X9pCJV6K-IxiQzDXBBcG7UZP4_jwZ4gbzTqDdmx6KlhFCwwOmaCqcg5ZW2OfcYujnOTK0i2w",
+      "searchResults": [
+        {
+          "title": "신당동 떡볶이 2",
+          "appId": 1454191110
+        },
+        {
+          "title": "마이리틀셰프 - 요리게임 식당 경영 타이쿤",
+          "appId": 1206192281
+        },
+        {
+          "title": "배달맛집 (복희네 분식)",
+          "appId": 1484482024
+        }
+      ],
+      "addedAt": "2026-11-12T07:03:05.558Z"
     }
   ],
   "approved": [

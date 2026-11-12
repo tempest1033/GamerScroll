@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -157650,8 +157650,26 @@
         "ja": "Liquid Sort: Vialette",
         "zh-tw": "Liquid Sort: Vialette"
       }
+    },
+    "분식": {
+      "appIds": {
+        "android": "com.gp.qsnmale.beauty.coverup"
+      },
+      "aliases": [],
+      "developer": "GANIS Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/GxxzbNTKZ70L38X9pCJV6K-IxiQzDXBBcG7UZP4_jwZ4gbzTqDdmx6KlhFCwwOmaCqcg5ZW2OfcYujnOTK0i2w",
+      "slug": "분식",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "분식",
+        "en": "Cover Up",
+        "ja": "ふんしょく",
+        "zh-tw": "Cover Up"
+      }
     }
   },
   "lastUpdated": "2026-11-12",
-  "totalGames": 9253
+  "totalGames": 9254
 }
