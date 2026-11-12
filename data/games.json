@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -149010,14 +149010,18 @@
     },
     "オンラインゲーセンで貯めたコインで買い物-GAPOLI": {
       "appIds": {
-        "android_jp": "jp.sammynet.next.gapoli.a0001"
+        "android_jp": "jp.sammynet.next.gapoli.a0001",
+        "ios_jp": 6502326978
       },
-      "aliases": [],
+      "aliases": [
+        "GAPOLI-オンラインゲーセンで貯めたコインでお買い物"
+      ],
       "developer": "Sammy Networks Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/QpPkw6w3B5aZTnxbr5lWibJdQs2n3EgSuhs6KxeHqpVPla5OofA_6YdeTdp5od_zcxb1GqplWwgDQknRpFmPZw",
       "slug": "オンラインゲーセンで貯めたコインで買い物-gapoli",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ja": "オンラインゲーセンで貯めたコインで買い物-GAPOLI"
@@ -157542,14 +157546,16 @@
     },
     "미르의 전설2: 레볼루션": {
       "appIds": {
-        "ios": 6761901736
+        "ios": "6761901736",
+        "android": "com.lycq.kr.and"
       },
       "aliases": [],
       "developer": "KODA DUCK GAMES COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/5a/e5/a35ae51e-034d-c590-bda5-fc4390314519/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "미르의-전설2-레볼루션",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "미르의 전설2: 레볼루션"
@@ -157859,8 +157865,201 @@
       "platforms": [
         "steam"
       ]
+    },
+    "개구리 말차 카페 - 방치 머지 타이쿤": {
+      "appIds": {
+        "android": "com.fm.frogcafe"
+      },
+      "aliases": [],
+      "developer": "4th May Games",
+      "icon": "https://play-lh.googleusercontent.com/dqp2zbWIaX33Jk7i2vgFBpyompRBJPv-zAJo815iCVrMm3HSw8kD3zwyeuRVmeynN_dmsn-f0vTLJ956U5_qnKQ",
+      "slug": "개구리-말차-카페-방치-머지-타이쿤",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "개구리 말차 카페 - 방치 머지 타이쿤",
+        "en": "Frog Matcha Cafe: Idle Tycoon",
+        "ja": "カエルの抹茶カフェ　放置マージ経営",
+        "zh-tw": "青蛙抹茶咖啡館：放置合成經營"
+      }
+    },
+    "Viora Glass: Color Sort": {
+      "appIds": {
+        "android": "com.vioraglass.colorsort"
+      },
+      "aliases": [],
+      "developer": "DENYS CREPIN NATHALIE",
+      "icon": "https://play-lh.googleusercontent.com/cTvwqQlSysYdvyoG1h4ZsPutTLFjUNoRxrxDCixNOlKjqkSuj0qhCtMOhuh8QB9CyFQrJDNkyGSmxXSgih1oJg",
+      "slug": "viora-glass-color-sort",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Viora Glass: Color Sort",
+        "en": "Viora Glass: Color Sort",
+        "ja": "Viora Glass: Color Sort",
+        "zh-tw": "Viora Glass: Color Sort"
+      }
+    },
+    "Octopus Escape: 마인드 컨트롤": {
+      "appIds": {
+        "android": "wc.welcomecenter.octopus"
+      },
+      "aliases": [],
+      "developer": "Sunday.gg",
+      "icon": "https://play-lh.googleusercontent.com/mQkq4YoumB-rbiA0-_XxOXtrutCZ5VIYtGNjZAnSzhfWfxYFrFbEk5RGqYLDG5iGHZjXzqeiGpwE2TIlPkg-Bek",
+      "slug": "octopus-escape-마인드-컨트롤",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Octopus Escape: 마인드 컨트롤",
+        "en": "Octopus Escape: Mind Control",
+        "ja": "Octopus Escape: マインドコントロール",
+        "zh-tw": "Octopus Escape: Mind Control"
+      }
+    },
+    "Joystick Makeover: DIY Gamepad": {
+      "appIds": {
+        "android_us": "com.higame.par.joystick.makeover.diy.gamepad"
+      },
+      "aliases": [],
+      "developer": "HIGAME LTD.",
+      "icon": "https://play-lh.googleusercontent.com/GGV0H5i1t-S84DyXSuE3fhu3x2xEWgV5lues4u5COun43tkF-YWj9gXkgT_-GrvAqGp-JKKfVqtn23ZxeTBq",
+      "slug": "joystick-makeover-diy-gamepad",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Joystick Makeover: DIY Gamepad",
+        "ja": "Joystick Makeover: DIY Gamepad",
+        "zh-tw": "Joystick Makeover: DIY Gamepad"
+      }
+    },
+    "Idle CPU": {
+      "appIds": {
+        "android": "com.studioadept.computer",
+        "ios": 6820487151
+      },
+      "aliases": [],
+      "developer": "Mamboo Entertainment",
+      "icon": "https://play-lh.googleusercontent.com/02Ui_hLqRO1-rAy5plzy0BwzFEppxGMe3HS8aynXMsmyZ9kzpcuelRwgxdpZOFDNalorYkQrTPfwt-BavUbJAg",
+      "slug": "idle-cpu",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Idle CPU",
+        "en": "Idle CPU",
+        "ja": "Idle CPU",
+        "zh-tw": "Idle CPU"
+      }
+    },
+    "Sifty Sands: No Timer": {
+      "appIds": {
+        "android": "com.thrivegames.sandsift",
+        "ios": 6811154249
+      },
+      "aliases": [],
+      "developer": "Thrive Games, LLC",
+      "icon": "https://play-lh.googleusercontent.com/yIFGwIYsm7aMe3vP6bd74oIcpLb4sXEmcnNxX0gAwYnZnW1JJWIaImqW6U5cxlrPcHuicYmHM1NScaefODLu3w",
+      "slug": "sifty-sands-no-timer",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Sifty Sands: No Timer",
+        "en": "Sifty Sands: No Timer",
+        "ja": "Sifty Sands: No Timer",
+        "zh-tw": "Sifty Sands: No Timer"
+      }
+    },
+    "타일 퀘스트 - 트리플 매치": {
+      "appIds": {
+        "android": "com.tilequest.match.puzzle.travel.game"
+      },
+      "aliases": [],
+      "developer": "Wood Puzzle Sudoku Games",
+      "icon": "https://play-lh.googleusercontent.com/jNhahysVLIA_0V_kdSZ4V0sLTpKXa4t0yB6DeLwGfcd3OuJqalBRHPN4VAPVi82rCaY6fYHuTk9MMRjIoA6I",
+      "slug": "타일-퀘스트-트리플-매치",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "타일 퀘스트 - 트리플 매치",
+        "en": "Tile Quest - Triple Match Game",
+        "ja": "タイルクエスト - トリプルマッチ",
+        "zh-tw": "方塊匹配冒險-三消配對"
+      }
+    },
+    "모험가 구함. 경험 불문.": {
+      "appIds": {
+        "android": "com.singlepocket.adventurerswanted",
+        "ios": 6822032944
+      },
+      "aliases": [],
+      "developer": "SinglePocket",
+      "icon": "https://play-lh.googleusercontent.com/7H6ShkzTJnCLMmkb9IjjZdurFaX7R3wLjs_sLysIthnJO6NghLoZQAL8yFrBEdo3RDQsgYYZDxjCxyYtrVBjcQ",
+      "slug": "모험가-구함-경험-불문",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "모험가 구함. 경험 불문.",
+        "en": "Adventurers Wanted.",
+        "ja": "求む冒険者。経験不問。",
+        "zh-tw": "招募冒險者。經驗不問。"
+      }
+    },
+    "Sushi Paws: 초밥 매치 퍼즐": {
+      "appIds": {
+        "android": "gs.chaos.sushimatch",
+        "ios": 6811016135
+      },
+      "aliases": [],
+      "developer": "MOBİLEVERSE DİJİTAL HİZMETLER LİMİTED ŞİRKETİ",
+      "icon": "https://play-lh.googleusercontent.com/qk2S2iaUuKoSis1hipurIBdnqxDolsS-Yfj4IxmhHlydK7BztHEtu5ZroeL-_YJcND6CbHP7NP4Ojiy1lCpXNQ",
+      "slug": "sushi-paws-초밥-매치-퍼즐",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Sushi Paws: 초밥 매치 퍼즐",
+        "en": "Sushi Paws",
+        "ja": "Sushi Paws：お寿司の仕分けパズル",
+        "zh-tw": "Sushi Paws"
+      }
+    },
+    "Euro Truck Simulator 2 - Coaches": {
+      "appIds": {
+        "steam": "3809270"
+      },
+      "aliases": [],
+      "developer": "SCS Software",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3809270/ce8d9aba1de129bfa8b9423fb8978123d51e5740/capsule_231x87.jpg?t=1794502649",
+      "slug": "euro-truck-simulator-2-coaches",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "On The Train": {
+      "appIds": {
+        "steam": "3177710"
+      },
+      "aliases": [],
+      "developer": "EastUp Interactive",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3177710/06eb7018e3ada5e33bca2edc5d2c29da43209f3e/capsule_231x87.jpg?t=1794499783",
+      "slug": "on-the-train",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-13",
-  "totalGames": 9267
+  "totalGames": 9278
 }

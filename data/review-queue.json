@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50208,13 +50208,19 @@
     },
     {
       "title": "미르의 전설2: 레볼루션",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6761901736
+        "ios": "6761901736",
+        "android": "com.lycq.kr.and"
       },
       "developer": "KODA DUCK GAMES COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a3/5a/e5/a35ae51e-034d-c590-bda5-fc4390314519/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "미르의 전설2: 레볼루션",
+          "appId": "6761901736"
+        }
+      ],
       "addedAt": "2026-11-11T23:02:46.643Z"
     },
     {
@@ -50330,6 +50336,156 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e4/91/76/e4917652-cf8d-0e0d-ceaa-189b8e97df1b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-12T11:03:18.253Z"
+    },
+    {
+      "title": "개구리 말차 카페 - 방치 머지 타이쿤",
+      "status": "single",
+      "appIds": {
+        "android": "com.fm.frogcafe"
+      },
+      "developer": "4th May Games",
+      "icon": "https://play-lh.googleusercontent.com/dqp2zbWIaX33Jk7i2vgFBpyompRBJPv-zAJo815iCVrMm3HSw8kD3zwyeuRVmeynN_dmsn-f0vTLJ956U5_qnKQ",
+      "searchResults": [],
+      "addedAt": "2026-11-12T19:03:18.019Z"
+    },
+    {
+      "title": "Viora Glass: Color Sort",
+      "status": "single",
+      "appIds": {
+        "android": "com.vioraglass.colorsort"
+      },
+      "developer": "DENYS CREPIN NATHALIE",
+      "icon": "https://play-lh.googleusercontent.com/cTvwqQlSysYdvyoG1h4ZsPutTLFjUNoRxrxDCixNOlKjqkSuj0qhCtMOhuh8QB9CyFQrJDNkyGSmxXSgih1oJg",
+      "searchResults": [],
+      "addedAt": "2026-11-12T19:03:18.389Z"
+    },
+    {
+      "title": "Octopus Escape: 마인드 컨트롤",
+      "status": "single",
+      "appIds": {
+        "android": "wc.welcomecenter.octopus"
+      },
+      "developer": "Sunday.gg",
+      "icon": "https://play-lh.googleusercontent.com/mQkq4YoumB-rbiA0-_XxOXtrutCZ5VIYtGNjZAnSzhfWfxYFrFbEk5RGqYLDG5iGHZjXzqeiGpwE2TIlPkg-Bek",
+      "searchResults": [
+        {
+          "title": "Octopus Escape!",
+          "appId": 1618735898
+        },
+        {
+          "title": "Google Chrome",
+          "appId": 535886823
+        }
+      ],
+      "addedAt": "2026-11-12T19:03:18.710Z"
+    },
+    {
+      "title": "Idle CPU",
+      "status": "matched",
+      "appIds": {
+        "android": "com.studioadept.computer",
+        "ios": 6820487151
+      },
+      "developer": "Mamboo Entertainment",
+      "icon": "https://play-lh.googleusercontent.com/02Ui_hLqRO1-rAy5plzy0BwzFEppxGMe3HS8aynXMsmyZ9kzpcuelRwgxdpZOFDNalorYkQrTPfwt-BavUbJAg",
+      "searchResults": [
+        {
+          "title": "Idle CPU",
+          "appId": 6820487151
+        },
+        {
+          "title": "Idle Crypto Mining",
+          "appId": 1629783428
+        },
+        {
+          "title": "Pink Chip: 네 개 잇기",
+          "appId": 6782137795
+        }
+      ],
+      "addedAt": "2026-11-12T19:03:20.573Z"
+    },
+    {
+      "title": "Sifty Sands: No Timer",
+      "status": "matched",
+      "appIds": {
+        "android": "com.thrivegames.sandsift",
+        "ios": 6811154249
+      },
+      "developer": "Thrive Games, LLC",
+      "icon": "https://play-lh.googleusercontent.com/yIFGwIYsm7aMe3vP6bd74oIcpLb4sXEmcnNxX0gAwYnZnW1JJWIaImqW6U5cxlrPcHuicYmHM1NScaefODLu3w",
+      "searchResults": [
+        {
+          "title": "Sifty Sands: No Timer",
+          "appId": 6811154249
+        }
+      ],
+      "addedAt": "2026-11-12T19:03:21.169Z"
+    },
+    {
+      "title": "타일 퀘스트 - 트리플 매치",
+      "status": "single",
+      "appIds": {
+        "android": "com.tilequest.match.puzzle.travel.game"
+      },
+      "developer": "Wood Puzzle Sudoku Games",
+      "icon": "https://play-lh.googleusercontent.com/jNhahysVLIA_0V_kdSZ4V0sLTpKXa4t0yB6DeLwGfcd3OuJqalBRHPN4VAPVi82rCaY6fYHuTk9MMRjIoA6I",
+      "searchResults": [
+        {
+          "title": "Mahjong Treasure Quest 맞추기마작타일",
+          "appId": 1098189387
+        },
+        {
+          "title": "신데렐라 마작 타일 퀘스트 (Cinderella)",
+          "appId": 6747117628
+        },
+        {
+          "title": "데이 오브 서바이벌 : 트리플 타일",
+          "appId": 6476126382
+        }
+      ],
+      "addedAt": "2026-11-12T19:03:22.232Z"
+    },
+    {
+      "title": "모험가 구함. 경험 불문.",
+      "status": "matched",
+      "appIds": {
+        "android": "com.singlepocket.adventurerswanted",
+        "ios": 6822032944
+      },
+      "developer": "SinglePocket",
+      "icon": "https://play-lh.googleusercontent.com/7H6ShkzTJnCLMmkb9IjjZdurFaX7R3wLjs_sLysIthnJO6NghLoZQAL8yFrBEdo3RDQsgYYZDxjCxyYtrVBjcQ",
+      "searchResults": [
+        {
+          "title": "모험가 구함. 경험 불문.",
+          "appId": 6822032944
+        }
+      ],
+      "addedAt": "2026-11-12T19:03:22.645Z"
+    },
+    {
+      "title": "Sushi Paws: 초밥 매치 퍼즐",
+      "status": "matched",
+      "appIds": {
+        "android": "gs.chaos.sushimatch",
+        "ios": 6811016135
+      },
+      "developer": "MOBİLEVERSE DİJİTAL HİZMETLER LİMİTED ŞİRKETİ",
+      "icon": "https://play-lh.googleusercontent.com/qk2S2iaUuKoSis1hipurIBdnqxDolsS-Yfj4IxmhHlydK7BztHEtu5ZroeL-_YJcND6CbHP7NP4Ojiy1lCpXNQ",
+      "searchResults": [
+        {
+          "title": "Sushi Paws: 초밥 매치 퍼즐",
+          "appId": 6811016135
+        },
+        {
+          "title": "음식 정렬 퍼즐 - Sushi Loop",
+          "appId": 6821629135
+        },
+        {
+          "title": "Sushi Sort: Color Puzzle",
+          "appId": 6790729210
+        }
+      ],
+      "addedAt": "2026-11-12T19:03:23.264Z"
     }
   ],
   "approved": [
