@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -157835,8 +157835,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "World War Z - Florida Episode": {
+      "appIds": {
+        "steam": "5270320"
+      },
+      "aliases": [],
+      "developer": "Saber Interactive Inc",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5270320/358022b3d63cf7abfb94441dafd1438c8d10ff12/capsule_231x87.jpg?t=1794488199",
+      "slug": "world-war-z-florida-episode",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "WARNO - Tropic Storm": {
+      "appIds": {
+        "steam": "4734100"
+      },
+      "aliases": [],
+      "developer": "Eugen Systems",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4734100/9f201ed8db2174db670dd0de106f2e37379314b5/capsule_231x87.jpg?t=1794481441",
+      "slug": "warno-tropic-storm",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-12",
-  "totalGames": 9265
+  "lastUpdated": "2026-11-13",
+  "totalGames": 9267
 }
