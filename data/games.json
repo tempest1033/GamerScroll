@@ -70225,7 +70225,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.KCG.MagicalGirlChronicle"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -153596,7 +153596,8 @@
       "names": {
         "ko": "상품정렬 마스터: 정리게임",
         "en": "Goods Puzzle Master: Sort Game",
-        "ja": "グッズソート達人 - 整理ゲーム"
+        "ja": "グッズソート達人 - 整理ゲーム",
+        "zh-tw": "商品整理大師：3D配對消除"
       }
     },
     "Big 2": {
@@ -158448,8 +158449,45 @@
         "zh-cn": "敲个锤子-关不住我",
         "zh-tw": "敲个锤子-关不住我"
       }
+    },
+    "Card of Demon Slayer: Deck RPG": {
+      "appIds": {
+        "ios": 6824833886
+      },
+      "aliases": [],
+      "developer": "cookapps",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/dd/6e/cfdd6eab-b962-37fe-cb52-5827189a0bf5/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "card-of-demon-slayer-deck-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Card of Demon Slayer: Deck RPG",
+        "en": "Card of Demon Slayer: Deck RPG",
+        "ja": "Card of Demon Slayer: Deck RPG",
+        "zh-tw": "Card of Demon Slayer: Deck RPG"
+      }
+    },
+    "Lulu Bubble Quest": {
+      "appIds": {
+        "ios": 6796254928
+      },
+      "aliases": [],
+      "developer": "Reid Kyle Carter",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/e9/48/3be948cb-9813-0505-d97f-41c4198a598c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "lulu-bubble-quest",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Lulu Bubble Quest",
+        "en": "Lulu Bubble Quest",
+        "ja": "Lulu Bubble Quest",
+        "zh-cn": "Lulu Bubble Quest",
+        "zh-tw": "Lulu Bubble Quest"
+      }
     }
   },
   "lastUpdated": "2026-11-14",
-  "totalGames": 9301
+  "totalGames": 9303
 }

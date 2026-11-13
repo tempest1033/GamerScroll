@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.KCG.MagicalGirlChronicle"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50714,6 +50714,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/2d/97/e12d972b-0c12-153e-309c-1969d8481b30/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-13T19:03:17.755Z"
+    },
+    {
+      "title": "Card of Demon Slayer: Deck RPG",
+      "status": "single",
+      "appIds": {
+        "ios": 6824833886
+      },
+      "developer": "cookapps",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cf/dd/6e/cfdd6eab-b962-37fe-cb52-5827189a0bf5/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T23:03:20.530Z"
+    },
+    {
+      "title": "Lulu Bubble Quest",
+      "status": "single",
+      "appIds": {
+        "ios": 6796254928
+      },
+      "developer": "Reid Kyle Carter",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/e9/48/3be948cb-9813-0505-d97f-41c4198a598c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T23:03:21.318Z"
     }
   ],
   "approved": [

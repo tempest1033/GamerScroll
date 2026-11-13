@@ -1,9 +1,17 @@
 {
-  "updatedAt": "2026-11-12T19:01:57.064Z",
+  "updatedAt": "2026-11-13T23:01:51.743Z",
   "period": "30days",
   "games": [
     {
+      "slug": "pixel-flow",
+      "views": 6
+    },
+    {
       "slug": "重返未來1999",
+      "views": 6
+    },
+    {
+      "slug": "주술회전-팬텀-퍼레이드",
       "views": 6
     },
     {
@@ -19,15 +27,15 @@
       "views": 6
     },
     {
-      "slug": "monopoly-go-모노폴리-go",
-      "views": 5
-    },
-    {
       "slug": "monster-hunter-outlanders",
       "views": 5
     },
     {
-      "slug": "pixel-flow",
+      "slug": "palworld",
+      "views": 5
+    },
+    {
+      "slug": "단어-찾기-단어-게임",
       "views": 5
     },
     {
@@ -35,11 +43,11 @@
       "views": 5
     },
     {
-      "slug": "에이지-오브-엠파이어-모바일",
+      "slug": "로드러쉬",
       "views": 5
     },
     {
-      "slug": "주술회전-팬텀-퍼레이드",
+      "slug": "에이지-오브-엠파이어-모바일",
       "views": 5
     },
     {
@@ -48,6 +56,10 @@
     },
     {
       "slug": "탑-히어로즈-영웅의-시대",
+      "views": 5
+    },
+    {
+      "slug": "피망-뉴맞고-고스톱으로-대한민국-1등",
       "views": 5
     },
     {
@@ -64,18 +76,6 @@
     },
     {
       "slug": "barotrauma",
-      "views": 4
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 4
-    },
-    {
-      "slug": "hero-siege",
-      "views": 4
-    },
-    {
-      "slug": "hero-wars-alliance-rpg",
       "views": 4
     }
   ]
