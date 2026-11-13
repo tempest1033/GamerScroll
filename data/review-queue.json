@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.KCG.MagicalGirlChronicle"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50619,6 +50619,101 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/57/c0/3657c0cf-8ec6-3b2b-859f-8dde07728524/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-13T11:03:15.972Z"
+    },
+    {
+      "title": "벽돌 깨기 - 볼의 퀘스트",
+      "status": "matched",
+      "appIds": {
+        "android": "com.q1.breakbricks",
+        "ios": 1372837123
+      },
+      "developer": "FunSpace",
+      "icon": "https://play-lh.googleusercontent.com/wDaJHuW0pBCZroxi-79ZGvD-S8q1gqtFG8SYT1EGg37wqxxM-wBZQw0XAMy0YuAyXY7vgd2kgrsjt2WzFQVo8w",
+      "searchResults": [
+        {
+          "title": "벽돌 깨기 - 볼의 퀘스트",
+          "appId": 1372837123
+        },
+        {
+          "title": "스와이프 벽돌깨기",
+          "appId": 1039195468
+        },
+        {
+          "title": "핀볼도사",
+          "appId": 1585781366
+        }
+      ],
+      "addedAt": "2026-11-13T19:03:14.250Z"
+    },
+    {
+      "title": "Arrows Tap! - 퍼즐 클릭커",
+      "status": "single",
+      "appIds": {
+        "android": "io.arrow"
+      },
+      "developer": "catbyte GAMES",
+      "icon": "https://play-lh.googleusercontent.com/TO3d1r25Q317kpYNxhwIIYY5qcMCW8ZrVDxTq9CYxllSnwlk-zHSLbs7cKjsP2x3FjF3i3ZZG7HM97RIAxQ1Zw",
+      "searchResults": [
+        {
+          "title": "Arrow Master Puzzle Escape 26",
+          "appId": 6752844852
+        },
+        {
+          "title": "머지 드래곤즈! (Merge Dragons!)",
+          "appId": 1208952944
+        },
+        {
+          "title": "요괴점살",
+          "appId": 1489296544
+        }
+      ],
+      "addedAt": "2026-11-13T19:03:15.615Z"
+    },
+    {
+      "title": "Survival War",
+      "status": "single",
+      "appIds": {
+        "android": "com.TXStudio.global"
+      },
+      "developer": "Qika Games",
+      "icon": "https://play-lh.googleusercontent.com/Uo_dNGKkQmitudFZUGBntjfyqJI_Mtt_0hTzXZHfHmT8ZWBCZaPBuDg0xmslm3RiIVJjnRqd_JFxuBftlUjAWQ",
+      "searchResults": [
+        {
+          "title": "라스트 워: 서바이벌",
+          "appId": 6448786147
+        },
+        {
+          "title": "Dark War:Survival",
+          "appId": 6670441558
+        },
+        {
+          "title": "WOS: 화이트아웃 서바이벌",
+          "appId": 6443575749
+        }
+      ],
+      "addedAt": "2026-11-13T19:03:16.166Z"
+    },
+    {
+      "title": "Idle Mining & Refining",
+      "status": "single",
+      "appIds": {
+        "android": "ore.crusher"
+      },
+      "developer": "EMKR Games",
+      "icon": "https://play-lh.googleusercontent.com/2bD7dugsggScdCuIwtyp2ewBSqyafiMbkve11sEq0c3fTtgzLV73eKvL1nRL9zQ2VRid-6r7vA4UdOF17whs",
+      "searchResults": [],
+      "addedAt": "2026-11-13T19:03:17.274Z"
+    },
+    {
+      "title": "敲个锤子-关不住我",
+      "status": "single",
+      "appIds": {
+        "ios": 6739198146
+      },
+      "developer": "光彬 牛",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/2d/97/e12d972b-0c12-153e-309c-1969d8481b30/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T19:03:17.755Z"
     }
   ],
   "approved": [

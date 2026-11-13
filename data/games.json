@@ -70225,7 +70225,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.KCG.MagicalGirlChronicle"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -129693,14 +129693,16 @@
     },
     "銀河英雄伝説 Die Neue Saga": {
       "appIds": {
-        "ios_jp": "6473770102"
+        "ios_jp": "6473770102",
+        "android_jp": "com.aiming.neuesaga"
       },
       "aliases": [],
       "developer": "Aiming Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bd/02/a8/bd02a8f1-3192-f265-52b0-7d1169411b7a/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "銀河英雄伝説-die-neue-saga",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ja": "銀河英雄伝説 Die Neue Saga"
@@ -151263,6 +151265,7 @@
       ],
       "names": {
         "ko": "Block Blast Lite",
+        "en": "Block Blast Lite",
         "ja": "Block Blast Lite",
         "zh-tw": "Block Blast Lite"
       }
@@ -158324,8 +158327,129 @@
         "zh-cn": "Mini Golf Magic Blitz",
         "zh-tw": "Mini Golf Magic Blitz"
       }
+    },
+    "벽돌 깨기 - 볼의 퀘스트": {
+      "appIds": {
+        "android": "com.q1.breakbricks",
+        "ios": 1372837123
+      },
+      "aliases": [],
+      "developer": "FunSpace",
+      "icon": "https://play-lh.googleusercontent.com/wDaJHuW0pBCZroxi-79ZGvD-S8q1gqtFG8SYT1EGg37wqxxM-wBZQw0XAMy0YuAyXY7vgd2kgrsjt2WzFQVo8w",
+      "slug": "벽돌-깨기-볼의-퀘스트",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "벽돌 깨기 - 볼의 퀘스트",
+        "en": "Break Bricks - physics balls",
+        "ja": "ブレーク ブリックス　-　ボールの冒険",
+        "zh-tw": "Break Bricks - physics balls"
+      }
+    },
+    "PUBG MOBILE FLASH": {
+      "appIds": {
+        "ios_us": 6740521489
+      },
+      "aliases": [],
+      "developer": "Tencent Mobile International Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/5e/cd/745ecdd3-06e9-0bf9-6c1a-2541a8025888/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "pubg-mobile-flash",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "PUBG MOBILE FLASH"
+      }
+    },
+    "Arrows Tap! - 퍼즐 클릭커": {
+      "appIds": {
+        "android": "io.arrow"
+      },
+      "aliases": [],
+      "developer": "catbyte GAMES",
+      "icon": "https://play-lh.googleusercontent.com/TO3d1r25Q317kpYNxhwIIYY5qcMCW8ZrVDxTq9CYxllSnwlk-zHSLbs7cKjsP2x3FjF3i3ZZG7HM97RIAxQ1Zw",
+      "slug": "arrows-tap-퍼즐-클릭커",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrows Tap! - 퍼즐 클릭커",
+        "en": "Arrow Survival: Match & Merge",
+        "ja": "Arrows Tap! - パズルクリッカー",
+        "zh-tw": "Arrow Survival: Match & Merge"
+      }
+    },
+    "Survival War": {
+      "appIds": {
+        "android": "com.TXStudio.global"
+      },
+      "aliases": [],
+      "developer": "Qika Games",
+      "icon": "https://play-lh.googleusercontent.com/Uo_dNGKkQmitudFZUGBntjfyqJI_Mtt_0hTzXZHfHmT8ZWBCZaPBuDg0xmslm3RiIVJjnRqd_JFxuBftlUjAWQ",
+      "slug": "survival-war",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Survival War",
+        "en": "Survival War"
+      }
+    },
+    "[777Real]パチスロ コードギアス 反逆のルルーシュ": {
+      "appIds": {
+        "ios_jp": 1629810321
+      },
+      "aliases": [],
+      "developer": "Sammy Networks Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ba/28/ca/ba28ca64-3430-5535-a915-bdbde7313a3e/AppIcon-1x_U007emarketing-0-7-0-85-220-0.png/512x512bb.jpg",
+      "slug": "777realパチスロ-コードギアス-反逆のルルーシュ",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[777Real]パチスロ コードギアス 反逆のルルーシュ"
+      }
+    },
+    "Idle Mining & Refining": {
+      "appIds": {
+        "android": "ore.crusher"
+      },
+      "aliases": [],
+      "developer": "EMKR Games",
+      "icon": "https://play-lh.googleusercontent.com/2bD7dugsggScdCuIwtyp2ewBSqyafiMbkve11sEq0c3fTtgzLV73eKvL1nRL9zQ2VRid-6r7vA4UdOF17whs",
+      "slug": "idle-mining-refining",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Idle Mining & Refining",
+        "en": "Idle Mining & Refining",
+        "ja": "Idle Mining & Refining",
+        "zh-tw": "Idle Mining & Refining"
+      }
+    },
+    "敲个锤子-关不住我": {
+      "appIds": {
+        "ios": 6739198146
+      },
+      "aliases": [],
+      "developer": "光彬 牛",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e1/2d/97/e12d972b-0c12-153e-309c-1969d8481b30/AppIcon-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "敲个锤子-关不住我",
+        "en": "敲个锤子-关不住我",
+        "ja": "敲个锤子-关不住我",
+        "zh-cn": "敲个锤子-关不住我",
+        "zh-tw": "敲个锤子-关不住我"
+      }
     }
   },
   "lastUpdated": "2026-11-14",
-  "totalGames": 9294
+  "totalGames": 9301
 }
