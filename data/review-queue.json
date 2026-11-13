@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50597,6 +50597,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cb/92/c1/cb92c1ed-40bd-5f14-9cd7-2fbfe422753f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-13T07:02:46.085Z"
+    },
+    {
+      "title": "Escape Game: Starless Sky",
+      "status": "single",
+      "appIds": {
+        "ios": 6804550948
+      },
+      "developer": "Jun Wakabayashi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/31/dd/1f31ddfc-abf4-192f-97d7-bc25f0cb3c74/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T11:03:15.570Z"
+    },
+    {
+      "title": "Idle Space Clicker: 우주 방치형 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6755227555
+      },
+      "developer": "Tap Nine",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/57/c0/3657c0cf-8ec6-3b2b-859f-8dde07728524/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T11:03:15.972Z"
     }
   ],
   "approved": [

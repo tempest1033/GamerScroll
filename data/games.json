@@ -70225,7 +70225,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158270,8 +158270,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Escape Game: Starless Sky": {
+      "appIds": {
+        "ios": 6804550948
+      },
+      "aliases": [],
+      "developer": "Jun Wakabayashi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/31/dd/1f31ddfc-abf4-192f-97d7-bc25f0cb3c74/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "escape-game-starless-sky",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Escape Game: Starless Sky",
+        "en": "Escape Game: Starless Sky",
+        "ja": "脱出ゲーム 星なき空の物語",
+        "zh-tw": "Escape Game: Starless Sky"
+      }
+    },
+    "Idle Space Clicker: 우주 방치형 게임": {
+      "appIds": {
+        "ios": 6755227555
+      },
+      "aliases": [],
+      "developer": "Tap Nine",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/36/57/c0/3657c0cf-8ec6-3b2b-859f-8dde07728524/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "idle-space-clicker-우주-방치형-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Idle Space Clicker: 우주 방치형 게임",
+        "en": "Idle Space Clicker",
+        "ja": "Idle Space Clicker: 放置宇宙ゲーム",
+        "zh-tw": "Idle Space Clicker：太空放置遊戲"
+      }
     }
   },
   "lastUpdated": "2026-11-13",
-  "totalGames": 9291
+  "totalGames": 9293
 }
