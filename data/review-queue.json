@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50541,6 +50541,62 @@
       "icon": "https://play-lh.googleusercontent.com/6jbY6B1CivJkAewd8NMEkUlX-ts5berXKts2mirW98A7cRgguFv56c4lodwlgy55UOIVyQDPrbZV0lDSxgSW3Q",
       "searchResults": [],
       "addedAt": "2026-11-13T03:02:41.579Z"
+    },
+    {
+      "title": "블랙박스 시뮬레이터",
+      "status": "single",
+      "appIds": {
+        "ios": 6829598542
+      },
+      "developer": "Groundcode",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/31/51/6b/31516b4a-39ae-1660-d254-f20a52e528ca/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T07:02:45.335Z"
+    },
+    {
+      "title": "MOVLO: Logic Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "com.arrowflow.escape.puzzle.game",
+        "ios": 6814404212
+      },
+      "developer": "Adaric Ltd",
+      "icon": "https://play-lh.googleusercontent.com/9Awn-pf68Gb0SUTRgzBR-0dmCD9xaItuQW4EXrXXHBIKBviGk3-bhvY0N708QRqE8KRO7_hK_fhWI3zFpinnXA",
+      "searchResults": [
+        {
+          "title": "MOVLO: Logic Puzzle",
+          "appId": 6814404212
+        }
+      ],
+      "addedAt": "2026-11-13T07:02:45.612Z"
+    },
+    {
+      "title": "17-0 Football Manager",
+      "status": "matched",
+      "appIds": {
+        "android": "com.funcraft.profootballmanager",
+        "ios": 6799906854
+      },
+      "developer": "FunCraft Games",
+      "icon": "https://play-lh.googleusercontent.com/_nFzNAN4xHnof_d42g2tsLtZsnuXS6qV5FQbeRuDX75mv3rSK3PDTESuKOPu_g0L5Ortag-EFIYd2LPv4V-nrlk",
+      "searchResults": [
+        {
+          "title": "17-0 Football Manager",
+          "appId": "com.funcraft.profootballmanager"
+        }
+      ],
+      "addedAt": "2026-11-13T07:02:45.828Z"
+    },
+    {
+      "title": "Amaze Away: Arrow Puzzle Games",
+      "status": "single",
+      "appIds": {
+        "ios": 6786991591
+      },
+      "developer": "Shanghai Freemind Software Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cb/92/c1/cb92c1ed-40bd-5f14-9cd7-2fbfe422753f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T07:02:46.085Z"
     }
   ],
   "approved": [

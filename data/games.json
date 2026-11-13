@@ -67983,18 +67983,21 @@
     },
     "17-0 Football Manager": {
       "appIds": {
-        "android": "com.funcraft.profootballmanager"
+        "android": "com.funcraft.profootballmanager",
+        "ios": 6799906854
       },
       "aliases": [],
       "developer": "FunCraft Games",
       "icon": "https://play-lh.googleusercontent.com/_nFzNAN4xHnof_d42g2tsLtZsnuXS6qV5FQbeRuDX75mv3rSK3PDTESuKOPu_g0L5Ortag-EFIYd2LPv4V-nrlk",
       "slug": "17-0-football-manager",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "17-0 Football Manager",
         "en": "17-0 Football Manager",
+        "ja": "17-0 Football Manager",
         "zh-tw": "17-0 Football Manager"
       }
     },
@@ -70222,7 +70225,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158198,8 +158201,77 @@
       "platforms": [
         "steam"
       ]
+    },
+    "블랙박스 시뮬레이터": {
+      "appIds": {
+        "ios": 6829598542
+      },
+      "aliases": [],
+      "developer": "Groundcode",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/31/51/6b/31516b4a-39ae-1660-d254-f20a52e528ca/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "블랙박스-시뮬레이터",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "블랙박스 시뮬레이터",
+        "en": "Dashcam Simulator",
+        "ja": "ドラレコ・シミュレーター",
+        "zh-cn": "行车记录仪模拟器",
+        "zh-tw": "行車記錄器模擬器"
+      }
+    },
+    "MOVLO: Logic Puzzle": {
+      "appIds": {
+        "android": "com.arrowflow.escape.puzzle.game",
+        "ios": 6814404212
+      },
+      "aliases": [],
+      "developer": "Adaric Ltd",
+      "icon": "https://play-lh.googleusercontent.com/9Awn-pf68Gb0SUTRgzBR-0dmCD9xaItuQW4EXrXXHBIKBviGk3-bhvY0N708QRqE8KRO7_hK_fhWI3zFpinnXA",
+      "slug": "movlo-logic-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "MOVLO: Logic Puzzle",
+        "en": "MOVLO: Logic Puzzle",
+        "ja": "MOVLO: Logic Puzzle",
+        "zh-tw": "MOVLO: Logic Puzzle"
+      }
+    },
+    "Amaze Away: Arrow Puzzle Games": {
+      "appIds": {
+        "ios": 6786991591
+      },
+      "aliases": [],
+      "developer": "Shanghai Freemind Software Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cb/92/c1/cb92c1ed-40bd-5f14-9cd7-2fbfe422753f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "amaze-away-arrow-puzzle-games",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Amaze Away: Arrow Puzzle Games",
+        "en": "Amaze Away: Arrow Puzzle Games",
+        "ja": "Amaze Away: Arrow Puzzle Games",
+        "zh-tw": "Amaze Away: Arrow Puzzle Games"
+      }
+    },
+    "Main Sequence": {
+      "appIds": {
+        "steam": "2487190"
+      },
+      "aliases": [],
+      "developer": "Tumbling Dumpling Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2487190/32d67528f86d04c9b7e853f4f990bbf60d79af53/capsule_231x87_alt_assets_1.jpg?t=1794507021",
+      "slug": "main-sequence",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-13",
-  "totalGames": 9287
+  "totalGames": 9291
 }
