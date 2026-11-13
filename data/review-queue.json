@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50508,6 +50508,39 @@
       "icon": "https://play-lh.googleusercontent.com/RFO7PsWjdi_PvD6JRxrCjILdcCSPJCZd0_ZmNKpshAKA2InWTnl7blCB1528ZIHJuZpRYGSadqrlb_dSM5h17Q",
       "searchResults": [],
       "addedAt": "2026-11-12T23:03:20.590Z"
+    },
+    {
+      "title": "小镇怪谈",
+      "status": "single",
+      "appIds": {
+        "ios": 6811738570
+      },
+      "developer": "xiaoyun lu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3e/6c/51/3e6c51a6-5be0-d0f8-f34f-0a0423f04d54/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-13T03:02:40.928Z"
+    },
+    {
+      "title": "卡利茲傳說：暢享新世界",
+      "status": "single",
+      "appIds": {
+        "android": "com.gamebeans.gp.lzgwy"
+      },
+      "developer": "GameBeans Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/2nCQSlOImYU3044p1NpMVWOCbJX1OhDxLBlqhhhkXy0WgsXCv9c0LfPktZIIzMaUSCqPfeHND2VSFiH0ds3m",
+      "searchResults": [],
+      "addedAt": "2026-11-13T03:02:41.266Z"
+    },
+    {
+      "title": "Arrow Rush: Win Cash",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrruswincas.arwcgame"
+      },
+      "developer": "JMKapp",
+      "icon": "https://play-lh.googleusercontent.com/6jbY6B1CivJkAewd8NMEkUlX-ts5berXKts2mirW98A7cRgguFv56c4lodwlgy55UOIVyQDPrbZV0lDSxgSW3Q",
+      "searchResults": [],
+      "addedAt": "2026-11-13T03:02:41.579Z"
     }
   ],
   "approved": [

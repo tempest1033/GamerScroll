@@ -70222,7 +70222,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158121,8 +158121,85 @@
       "platforms": [
         "steam"
       ]
+    },
+    "小镇怪谈": {
+      "appIds": {
+        "ios": 6811738570
+      },
+      "aliases": [],
+      "developer": "xiaoyun lu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3e/6c/51/3e6c51a6-5be0-d0f8-f34f-0a0423f04d54/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "小镇怪谈",
+        "en": "小镇怪谈",
+        "ja": "小镇怪谈",
+        "zh-cn": "小镇怪谈",
+        "zh-tw": "小镇怪谈"
+      }
+    },
+    "卡利茲傳說：暢享新世界": {
+      "appIds": {
+        "android": "com.gamebeans.gp.lzgwy"
+      },
+      "aliases": [],
+      "developer": "GameBeans Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/2nCQSlOImYU3044p1NpMVWOCbJX1OhDxLBlqhhhkXy0WgsXCv9c0LfPktZIIzMaUSCqPfeHND2VSFiH0ds3m",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "卡利茲傳說：暢享新世界",
+        "zh-tw": "卡利茲傳說：暢享新世界"
+      }
+    },
+    "Arrow Rush: Win Cash": {
+      "appIds": {
+        "android": "com.arrruswincas.arwcgame"
+      },
+      "aliases": [],
+      "developer": "JMKapp",
+      "icon": "https://play-lh.googleusercontent.com/6jbY6B1CivJkAewd8NMEkUlX-ts5berXKts2mirW98A7cRgguFv56c4lodwlgy55UOIVyQDPrbZV0lDSxgSW3Q",
+      "slug": "arrow-rush-win-cash",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Rush: Win Cash",
+        "en": "Arrow Rush: Win Cash",
+        "ja": "Arrow Rush: Win Cash",
+        "zh-tw": "Arrow Rush: Win Cash"
+      }
+    },
+    "Slotbound": {
+      "appIds": {
+        "steam": "4459590"
+      },
+      "aliases": [],
+      "developer": "Optima Arch",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4459590/d64e41eb0453bee4446e8b7613054f88fe7afa77/capsule_231x87.jpg?t=1794535601",
+      "slug": "slotbound",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Noble Fates": {
+      "appIds": {
+        "steam": "1769420"
+      },
+      "aliases": [],
+      "developer": "Xobermon, LLC",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1769420/3c7a4201525b37c5338abd0c4382ce65876c7fb9/capsule_231x87_alt_assets_9.jpg?t=1794505279",
+      "slug": "noble-fates",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-13",
-  "totalGames": 9282
+  "totalGames": 9287
 }
