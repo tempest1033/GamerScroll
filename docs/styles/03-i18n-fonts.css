@@ -1,0 +1,27 @@
+/*
+ * Edition font stacks. Pretendard stays first for Latin text (and is the whole stack for ko/en);
+ * the CJK editions add their system fallbacks, selected by the <html lang> of each edition.
+ */
+html:lang(ja) body,
+html:lang(ja) button,
+html:lang(ja) input,
+html:lang(ja) select,
+html:lang(ja) textarea {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Yu Gothic UI", Meiryo, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html:lang(zh-Hans) body,
+html:lang(zh-Hans) button,
+html:lang(zh-Hans) input,
+html:lang(zh-Hans) select,
+html:lang(zh-Hans) textarea {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html:lang(zh-Hant) body,
+html:lang(zh-Hant) button,
+html:lang(zh-Hant) input,
+html:lang(zh-Hant) select,
+html:lang(zh-Hant) textarea {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
