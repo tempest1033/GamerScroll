@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50827,6 +50827,52 @@
         }
       ],
       "addedAt": "2026-11-14T03:02:54.476Z"
+    },
+    {
+      "title": "돌의 세계: 클래식-펫 포획 육성 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6823515359
+      },
+      "developer": "Guangzhou DigeReal Information Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8e/e2/61/8ee261a6-120f-d233-ba5c-e3e0cc7eb6c6/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-14T07:03:06.516Z"
+    },
+    {
+      "title": "天黑請閉眼",
+      "status": "single",
+      "appIds": {
+        "ios": 6826134705
+      },
+      "developer": "xiaoyun lu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d8/00/60/d8006057-883f-55ca-6202-b39cd103a877/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-14T07:03:08.358Z"
+    },
+    {
+      "title": "Home Story: Match-Up!",
+      "status": "single",
+      "appIds": {
+        "android": "com.jc.matchgame.puzzle"
+      },
+      "developer": "JC Puzzle Games Studio",
+      "icon": "https://play-lh.googleusercontent.com/cfPMxoFTTSM_JIUHHuJlfXyHz5WwQ_CYfDnV51YPJtcgrrIp9o9rSUm-MGT9NE68ab2NYdQpZ7XrnCxRxMGvhmY",
+      "searchResults": [
+        {
+          "title": "로얄 매치 (Royal Match)",
+          "appId": 1482155847
+        },
+        {
+          "title": "Homescapes",
+          "appId": 1195621598
+        },
+        {
+          "title": "Makeup ASMR: Makeover Story",
+          "appId": 6465175605
+        }
+      ],
+      "addedAt": "2026-11-14T07:03:08.835Z"
     }
   ],
   "approved": [

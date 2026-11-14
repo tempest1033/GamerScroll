@@ -22077,16 +22077,23 @@
     },
     "The Bazaar": {
       "appIds": {
-        "steam": "1617400"
+        "steam": "1617400",
+        "android": "com.tempogames.thebazaar"
       },
       "aliases": [],
       "developer": "Tempo",
       "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1617400/20eda1054049859918b886992ef02b10e801471c/capsule_231x87.jpg?t=1767800395",
       "slug": "the-bazaar",
       "platforms": [
-        "steam"
+        "steam",
+        "android"
       ],
-      "names": {}
+      "names": {
+        "ko": "The Bazaar",
+        "en": "The Bazaar",
+        "ja": "The Bazaar",
+        "zh-tw": "The Bazaar"
+      }
     },
     "GOD FORSAKEN": {
       "appIds": {
@@ -70225,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -77535,16 +77542,19 @@
     },
     "Pines Peak: 로얄 머지 게임": {
       "appIds": {
-        "android": "com.vizorapps.merge"
+        "android": "com.vizorapps.merge",
+        "ios": 6743472188
       },
       "aliases": [
-        "Pines Peak: Merge Travel Games"
+        "Pines Peak: Merge Travel Games",
+        "Pines Peak - 로얄머지게임"
       ],
       "developer": "VIZOR APPS LTD.",
       "icon": "https://play-lh.googleusercontent.com/UoXdA72zj9COWscdqypevzJbBKnsrTaQ9qp3QA3OSO6j2BnKdH8L_8ufT5uoVo8MAbYL7YgrB0cfQzr4xwcD",
       "slug": "pines-peak-merge-travel-games",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "Pines Peak: 로얄 머지 게임",
@@ -158566,8 +158576,77 @@
         "ja": "Walkr - ポケットの中の銀河冒険",
         "zh-tw": "Walkr - 口袋裡的銀河冒險"
       }
+    },
+    "돌의 세계: 클래식-펫 포획 육성 게임": {
+      "appIds": {
+        "ios": 6823515359
+      },
+      "aliases": [],
+      "developer": "Guangzhou DigeReal Information Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8e/e2/61/8ee261a6-120f-d233-ba5c-e3e0cc7eb6c6/AppIcon-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "돌의-세계-클래식-펫-포획-육성-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "돌의 세계: 클래식-펫 포획 육성 게임",
+        "zh-tw": "돌의 세계: 클래식-펫 포획 육성 게임"
+      }
+    },
+    "[777Real]スマスロ リコリス・リコイル (JP)": {
+      "appIds": {
+        "android_jp": "jp.sammynet.next.ort.a0241"
+      },
+      "aliases": [
+        "[777Real]スマスロ リコリス・リコイル"
+      ],
+      "developer": "Sammy Networks Co.,Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/gVm2tQDDOr7fNrpw1bhY6nJiEaXQ9-wmEO2KqUS4QsTlF0JHzo_EMNXR6pz8SMf5Kl4oBxQbdIUK0ikM-hq9Rw",
+      "slug": "777realスマスロ-リコリスリコイル-jp",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ja": "[777Real]スマスロ リコリス・リコイル"
+      }
+    },
+    "天黑請閉眼": {
+      "appIds": {
+        "ios": 6826134705
+      },
+      "aliases": [],
+      "developer": "xiaoyun lu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d8/00/60/d8006057-883f-55ca-6202-b39cd103a877/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "天黑請閉眼",
+        "en": "天黑請閉眼",
+        "ja": "天黑請閉眼",
+        "zh-tw": "天黑請閉眼"
+      }
+    },
+    "Home Story: Match-Up!": {
+      "appIds": {
+        "android": "com.jc.matchgame.puzzle"
+      },
+      "aliases": [],
+      "developer": "JC Puzzle Games Studio",
+      "icon": "https://play-lh.googleusercontent.com/cfPMxoFTTSM_JIUHHuJlfXyHz5WwQ_CYfDnV51YPJtcgrrIp9o9rSUm-MGT9NE68ab2NYdQpZ7XrnCxRxMGvhmY",
+      "slug": "home-story-match-up",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Home Story: Match-Up!",
+        "en": "Home Story: Match-Up!",
+        "ja": "Home Story: Match-Up!",
+        "zh-tw": "Home Story: Match-Up!"
+      }
     }
   },
   "lastUpdated": "2026-11-14",
-  "totalGames": 9307
+  "totalGames": 9311
 }
