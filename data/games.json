@@ -70225,7 +70225,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -157570,14 +157570,16 @@
     },
     "삼국지: 구주제패": {
       "appIds": {
-        "ios": 6776551152
+        "ios": "6776551152",
+        "android": "com.rastargames.cdjzkr"
       },
       "aliases": [],
       "developer": "Rastar Mobile",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/73/5c/2a735c86-f6b4-61e8-ca32-4cc11521b4e0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "삼국지-구주제패",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "삼국지: 구주제패"
@@ -157618,7 +157620,9 @@
     },
     "Transformers: Eternal War": {
       "appIds": {
-        "ios_tw": 6772922295
+        "ios_tw": 6772922295,
+        "android": "com.wanda.transformers.gg.am",
+        "ios": "6772922295"
       },
       "aliases": [
         "變形金剛：無盡戰爭"
@@ -157627,9 +157631,11 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/20/4f/c5/204fc5b5-682c-eba9-6fd1-617b8f7d581b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "transformers-eternal-war",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "Transformers: Eternal War",
         "en": "Transformers: Eternal War",
         "zh-tw": "變形金剛：無盡戰爭"
       }
@@ -158351,16 +158357,20 @@
     },
     "PUBG MOBILE FLASH": {
       "appIds": {
-        "ios_us": 6740521489
+        "ios_us": 6740521489,
+        "android": "com.tencent.igfit",
+        "ios": 6740521489
       },
       "aliases": [],
       "developer": "Tencent Mobile International Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/5e/cd/745ecdd3-06e9-0bf9-6c1a-2541a8025888/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "pubg-mobile-flash",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "PUBG MOBILE FLASH",
         "en": "PUBG MOBILE FLASH"
       }
     },
@@ -158486,8 +158496,78 @@
         "zh-cn": "Lulu Bubble Quest",
         "zh-tw": "Lulu Bubble Quest"
       }
+    },
+    "蚁路生财-隧引归程": {
+      "appIds": {
+        "ios": 6828398851
+      },
+      "aliases": [],
+      "developer": "涵乐 庞",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dc/10/72/dc10729c-5e8e-d543-a114-b70f23607f03/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "蚁路生财-隧引归程",
+        "en": "蚁路生财-隧引归程",
+        "ja": "蚁路生财-隧引归程",
+        "zh-cn": "蚁路生财-隧引归程",
+        "zh-tw": "蚁路生财-隧引归程"
+      }
+    },
+    "道長，搞什麼女鬼！": {
+      "appIds": {
+        "android": "com.evity.twgp"
+      },
+      "aliases": [],
+      "developer": "SPIRIT FOX NETWORK TECHNOLOGY CO.,LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/skylMUp3n6mfra-4v2KMIgw9d0WBG59NUTdVDCXqja8fUSf8USj4myA_Ngnychb4LRmIwMKKfnDF4M7h9w4pyAc",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "道長，搞什麼女鬼！",
+        "zh-tw": "道長，搞什麼女鬼！"
+      }
+    },
+    "無限城決：破曉": {
+      "appIds": {
+        "android": "com.wxcjj.poxiao"
+      },
+      "aliases": [],
+      "developer": "MONA ROSA LLC",
+      "icon": "https://play-lh.googleusercontent.com/wefzCR4p-VfLuZNxg_RHxJLY6FG62ZX8-WZgep5aA7cKoUNOERI4lnAOf6t8tsciX0VMzZgplU8QQLntOxBCWw",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "無限城決：破曉",
+        "en": "無限城決：破曉",
+        "zh-tw": "無限城決：破曉"
+      }
+    },
+    "워커 - 주머니 속 우주탐험": {
+      "appIds": {
+        "android": "com.fourdesire.spacewalk"
+      },
+      "aliases": [],
+      "developer": "SPARKFUL",
+      "icon": "https://play-lh.googleusercontent.com/pvgFSFf3n2TyuL05i5NdzUNeBUpuIvhHAO-7Mg0YHEu6IYX_OTWCqfpdTosrmW7oxdhhryHnm2RhLZjidRD9U3M",
+      "slug": "워커-주머니-속-우주탐험",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "워커 - 주머니 속 우주탐험",
+        "en": "Walkr: Fitness Space Adventure",
+        "ja": "Walkr - ポケットの中の銀河冒険",
+        "zh-tw": "Walkr - 口袋裡的銀河冒險"
+      }
     }
   },
   "lastUpdated": "2026-11-14",
-  "totalGames": 9303
+  "totalGames": 9307
 }

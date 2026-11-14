@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50225,13 +50225,19 @@
     },
     {
       "title": "삼국지: 구주제패",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6776551152
+        "ios": "6776551152",
+        "android": "com.rastargames.cdjzkr"
       },
       "developer": "Rastar Mobile",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/73/5c/2a735c86-f6b4-61e8-ca32-4cc11521b4e0/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "삼국지: 구주제패",
+          "appId": "6776551152"
+        }
+      ],
       "addedAt": "2026-11-11T23:02:46.941Z"
     },
     {
@@ -50736,6 +50742,91 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/e9/48/3be948cb-9813-0505-d97f-41c4198a598c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-13T23:03:21.318Z"
+    },
+    {
+      "title": "PUBG MOBILE FLASH",
+      "status": "matched",
+      "appIds": {
+        "ios_us": 6740521489,
+        "android": "com.tencent.igfit",
+        "ios": 6740521489
+      },
+      "developer": "Tencent Mobile International Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/5e/cd/745ecdd3-06e9-0bf9-6c1a-2541a8025888/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "PUBG MOBILE FLASH",
+          "appId": 6740521489
+        }
+      ],
+      "addedAt": "2026-11-14T03:02:51.566Z"
+    },
+    {
+      "title": "Transformers: Eternal War",
+      "status": "matched",
+      "appIds": {
+        "ios_tw": 6772922295,
+        "android": "com.wanda.transformers.gg.am",
+        "ios": "6772922295"
+      },
+      "developer": "HOOLAI GAME LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/20/4f/c5/204fc5b5-682c-eba9-6fd1-617b8f7d581b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Transformers: Eternal War",
+          "appId": "6772922295"
+        }
+      ],
+      "addedAt": "2026-11-14T03:02:51.876Z"
+    },
+    {
+      "title": "蚁路生财-隧引归程",
+      "status": "single",
+      "appIds": {
+        "ios": 6828398851
+      },
+      "developer": "涵乐 庞",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dc/10/72/dc10729c-5e8e-d543-a114-b70f23607f03/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-14T03:02:53.210Z"
+    },
+    {
+      "title": "道長，搞什麼女鬼！",
+      "status": "single",
+      "appIds": {
+        "android": "com.evity.twgp"
+      },
+      "developer": "SPIRIT FOX NETWORK TECHNOLOGY CO.,LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/skylMUp3n6mfra-4v2KMIgw9d0WBG59NUTdVDCXqja8fUSf8USj4myA_Ngnychb4LRmIwMKKfnDF4M7h9w4pyAc",
+      "searchResults": [],
+      "addedAt": "2026-11-14T03:02:53.631Z"
+    },
+    {
+      "title": "無限城決：破曉",
+      "status": "single",
+      "appIds": {
+        "android": "com.wxcjj.poxiao"
+      },
+      "developer": "MONA ROSA LLC",
+      "icon": "https://play-lh.googleusercontent.com/wefzCR4p-VfLuZNxg_RHxJLY6FG62ZX8-WZgep5aA7cKoUNOERI4lnAOf6t8tsciX0VMzZgplU8QQLntOxBCWw",
+      "searchResults": [],
+      "addedAt": "2026-11-14T03:02:54.051Z"
+    },
+    {
+      "title": "워커 - 주머니 속 우주탐험",
+      "status": "single",
+      "appIds": {
+        "android": "com.fourdesire.spacewalk"
+      },
+      "developer": "SPARKFUL",
+      "icon": "https://play-lh.googleusercontent.com/pvgFSFf3n2TyuL05i5NdzUNeBUpuIvhHAO-7Mg0YHEu6IYX_OTWCqfpdTosrmW7oxdhhryHnm2RhLZjidRD9U3M",
+      "searchResults": [
+        {
+          "title": "Walkr 워커 - 주머니 속 우주탐험 걷기어플",
+          "appId": 834805518
+        }
+      ],
+      "addedAt": "2026-11-14T03:02:54.476Z"
     }
   ],
   "approved": [
