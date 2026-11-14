@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -138740,16 +138740,19 @@
     },
     "おさるのジョージ わくわく！パズルdeショップ": {
       "appIds": {
-        "ios_jp": "6754311839"
+        "ios_jp": "6754311839",
+        "android": "jp.co.ntvwands.curious.george"
       },
       "aliases": [],
       "developer": "NTV Wands Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/77/38/bf/7738bf17-21c3-bb9c-53db-9dddfc296bac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "おさるのジョージ-わくわくパズルdeショップ",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "おさるのジョージ わくわく！パズルdeショップ",
         "ja": "おさるのジョージ わくわく！パズルdeショップ"
       }
     },
@@ -152473,14 +152476,16 @@
     },
     "Words of Wonders: Search": {
       "appIds": {
-        "ios": 1483222663
+        "ios": 1483222663,
+        "android": "com.fugo.wowsearch"
       },
       "aliases": [],
       "developer": "FUGO BILISIM TEKNOLOJILERI VE YAZILIM TICARET ANONIM SIRKETI",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/7b/14/467b14b3-0d40-a368-7b04-4a485204f8dc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "words-of-wonders-search",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Words of Wonders: Search",
@@ -158688,8 +158693,94 @@
         "zh-cn": "瘋狂世界Crazy-World",
         "zh-tw": "瘋狂世界Crazy-World"
       }
+    },
+    "Volleyball HERO": {
+      "appIds": {
+        "ios": 6794368212
+      },
+      "aliases": [],
+      "developer": "Szymon Kosakowski",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a7/55/8d/a7558d62-94a4-3f99-690c-68cc50ad565c/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "volleyball-hero",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Volleyball HERO",
+        "en": "Volleyball HERO",
+        "ja": "Volleyball HERO",
+        "zh-tw": "Volleyball HERO"
+      }
+    },
+    "Arrow Rush: Puzzle Challenge": {
+      "appIds": {
+        "android": "com.arrow.rushchallenge"
+      },
+      "aliases": [],
+      "developer": "AYVA JEWELLERY LTD",
+      "icon": "https://play-lh.googleusercontent.com/U1MzJBioOpU6hwVBneTP-W7boen43ABdG8d0gf8brVl4MoKHUdllm8A28-zbXvLwPatD4TDZ4U4Gnp5jsj81oA",
+      "slug": "arrow-rush-puzzle-challenge",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Rush: Puzzle Challenge",
+        "en": "Arrow Rush: Puzzle Challenge",
+        "ja": "Arrow Rush: Puzzle Challenge",
+        "zh-tw": "Arrow Rush: Puzzle Challenge"
+      }
+    },
+    "Car Crash: Extreme Jump Test": {
+      "appIds": {
+        "android": "com.car.crash.jump.simulator.game.d09f"
+      },
+      "aliases": [],
+      "developer": "LevelXGames",
+      "icon": "https://play-lh.googleusercontent.com/dIyhd7hqjok1vL3HlkcFIDhSSYcDkhv93AZ8_5xJWQl7vj1lFCyFBxV7Q3XDzv1XJjE8lZPfpJZhKaQY4GsClg",
+      "slug": "car-crash-extreme-jump-test",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Car Crash: Extreme Jump Test",
+        "en": "Car Crash: Extreme Jump Test",
+        "ja": "Car Crash: Extreme Jump Test",
+        "zh-tw": "Car Crash: Extreme Jump Test"
+      }
+    },
+    "覇王道-英雄Re:CODE-": {
+      "appIds": {
+        "android": "jp.co.sns_entertainment.code"
+      },
+      "aliases": [],
+      "developer": "ＳＮＳエンターテイメント",
+      "icon": "https://play-lh.googleusercontent.com/Datgr76uB_ZmSoP4B7SgAgnKzmWS0Hh5h02Xeu7J5oM3J-5lOmAtUUESuGUGxlPwv0T1Z_e-9hpOV7AnINJMAg",
+      "slug": "recode",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "覇王道-英雄Re:CODE-",
+        "ja": "覇王道-英雄Re:CODE-"
+      }
+    },
+    "機動三國-送你五千抽不要太激動": {
+      "appIds": {
+        "android": "com.jidongsanguo.gt.ard"
+      },
+      "aliases": [],
+      "developer": "HONG KONG QIANDO NETWORK TECHNOLOGY LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/Nf7wdbd_gnklFiKlmCcGTEXc-WOiSP9jK-Xs-TXrM1IuX7fTSDzXZJQ6qii4feK6LZ1Xci2bMruFn_QGg6kE3vw",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "機動三國-送你五千抽不要太激動",
+        "zh-tw": "機動三國"
+      }
     }
   },
   "lastUpdated": "2026-11-15",
-  "totalGames": 9313
+  "totalGames": 9318
 }

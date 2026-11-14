@@ -47071,13 +47071,27 @@
     },
     {
       "title": "Words of Wonders: Search",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 1483222663
+        "ios": 1483222663,
+        "android": "com.fugo.wowsearch"
       },
       "developer": "FUGO BILISIM TEKNOLOJILERI VE YAZILIM TICARET ANONIM SIRKETI",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/7b/14/467b14b3-0d40-a368-7b04-4a485204f8dc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Words of Wonders: Search",
+          "appId": 1483222663
+        },
+        {
+          "title": "Words of Wonders: 퍼즐 로직!",
+          "appId": 1369521645
+        },
+        {
+          "title": "Words of Wonders: Search+",
+          "appId": 6476141662
+        }
+      ],
       "addedAt": "2026-10-29T05:03:03.203Z"
     },
     {
@@ -47408,7 +47422,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50895,6 +50909,87 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/0b/3e/490b3e57-5b47-15bf-178c-ca6105e78d75/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-14T11:03:07.850Z"
+    },
+    {
+      "title": "Volleyball HERO",
+      "status": "single",
+      "appIds": {
+        "ios": 6794368212
+      },
+      "developer": "Szymon Kosakowski",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a7/55/8d/a7558d62-94a4-3f99-690c-68cc50ad565c/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-14T19:02:45.964Z"
+    },
+    {
+      "title": "Arrow Rush: Puzzle Challenge",
+      "status": "single",
+      "appIds": {
+        "android": "com.arrow.rushchallenge"
+      },
+      "developer": "AYVA JEWELLERY LTD",
+      "icon": "https://play-lh.googleusercontent.com/U1MzJBioOpU6hwVBneTP-W7boen43ABdG8d0gf8brVl4MoKHUdllm8A28-zbXvLwPatD4TDZ4U4Gnp5jsj81oA",
+      "searchResults": [
+        {
+          "title": "Arrow Maze Rush Puzzle",
+          "appId": 6793918627
+        },
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 트래픽 피버",
+          "appId": 6505095234
+        },
+        {
+          "title": "애로우 러시: 물감 색상 정렬 게임하기",
+          "appId": 6762461210
+        }
+      ],
+      "addedAt": "2026-11-14T19:02:46.816Z"
+    },
+    {
+      "title": "Car Crash: Extreme Jump Test",
+      "status": "single",
+      "appIds": {
+        "android": "com.car.crash.jump.simulator.game.d09f"
+      },
+      "developer": "LevelXGames",
+      "icon": "https://play-lh.googleusercontent.com/dIyhd7hqjok1vL3HlkcFIDhSSYcDkhv93AZ8_5xJWQl7vj1lFCyFBxV7Q3XDzv1XJjE8lZPfpJZhKaQY4GsClg",
+      "searchResults": [
+        {
+          "title": "Car Crash 2020:High Jump Stunt",
+          "appId": 1503662378
+        },
+        {
+          "title": "Ramp Racing 3D — 익스트림 레이스",
+          "appId": 1669697514
+        },
+        {
+          "title": "Car Crash Wreck Challenge Pro",
+          "appId": 1519393530
+        }
+      ],
+      "addedAt": "2026-11-14T19:02:47.968Z"
+    },
+    {
+      "title": "覇王道-英雄Re:CODE-",
+      "status": "single",
+      "appIds": {
+        "android": "jp.co.sns_entertainment.code"
+      },
+      "developer": "ＳＮＳエンターテイメント",
+      "icon": "https://play-lh.googleusercontent.com/Datgr76uB_ZmSoP4B7SgAgnKzmWS0Hh5h02Xeu7J5oM3J-5lOmAtUUESuGUGxlPwv0T1Z_e-9hpOV7AnINJMAg",
+      "searchResults": [],
+      "addedAt": "2026-11-14T19:02:48.290Z"
+    },
+    {
+      "title": "機動三國-送你五千抽不要太激動",
+      "status": "single",
+      "appIds": {
+        "android": "com.jidongsanguo.gt.ard"
+      },
+      "developer": "HONG KONG QIANDO NETWORK TECHNOLOGY LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/Nf7wdbd_gnklFiKlmCcGTEXc-WOiSP9jK-Xs-TXrM1IuX7fTSDzXZJQ6qii4feK6LZ1Xci2bMruFn_QGg6kE3vw",
+      "searchResults": [],
+      "addedAt": "2026-11-14T19:02:49.060Z"
     }
   ],
   "approved": [
