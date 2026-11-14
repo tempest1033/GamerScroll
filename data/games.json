@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -145162,14 +145162,16 @@
     },
     "GT Rivals: Real Racing Sim": {
       "appIds": {
-        "ios": 6761461013
+        "ios": 6761461013,
+        "android": "com.gt.rivals.car.racing.game"
       },
       "aliases": [],
       "developer": "Digital Racers FZ-LLC",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/18/d3/35/18d335e3-90a8-ee73-7f29-c3b487217f0b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "gt-rivals-real-racing-sim",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "GT Rivals: Real Racing Sim",
@@ -158677,14 +158679,16 @@
     },
     "瘋狂世界Crazy-World": {
       "appIds": {
-        "ios": 6824816416
+        "ios": 6824816416,
+        "android": "com.jupiterschool.crazyworld"
       },
       "aliases": [],
       "developer": "木星人娛樂有限公司",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/0b/3e/490b3e57-5b47-15bf-178c-ca6105e78d75/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "crazy-world",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "瘋狂世界Crazy-World",
@@ -158779,8 +158783,71 @@
         "ko": "機動三國-送你五千抽不要太激動",
         "zh-tw": "機動三國"
       }
+    },
+    "遺棄之地TD": {
+      "appIds": {
+        "ios_tw": "6795829020"
+      },
+      "aliases": [],
+      "developer": "THE HORTOR TECHNOLOGY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/1b/32/0f1b3248-7477-242d-95df-953e18601b94/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "遺棄之地td",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "遺棄之地TD"
+      }
+    },
+    "Word Music - Crossword Game": {
+      "appIds": {
+        "android": "com.wordgame.wordcross.puzzle"
+      },
+      "aliases": [],
+      "developer": "Adaric Ltd",
+      "icon": "https://play-lh.googleusercontent.com/8lcRd9RKcebA6BhatDEwlL8MpkQFYlDM7bB560ptzpePJ1_Zs8lGKLEKCQUTar8WolYFgznH2KENe7V4VKApCA",
+      "slug": "word-music-crossword-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Word Music - Crossword Game",
+        "en": "Word Music - Crossword Game",
+        "ja": "Word Music - Crossword Game",
+        "zh-tw": "Word Music - Crossword Game"
+      }
+    },
+    "超萌趣消消": {
+      "appIds": {
+        "ios_cn": 6810902589
+      },
+      "aliases": [],
+      "developer": "Shenzhen Mengyou Chuangxiang Network Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7f/68/f1/7f68f191-1feb-f376-80bd-a402177453fd/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "超萌趣消消",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "超萌趣消消"
+      }
+    },
+    "诸葛亮的迷宫": {
+      "appIds": {
+        "ios_cn": 6797360437
+      },
+      "aliases": [],
+      "developer": "Shanghai Kuyou Network Technology Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a9/ab/7a/a9ab7a01-3fa6-1204-6255-125113ea2c26/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "诸葛亮的迷宫",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "诸葛亮的迷宫"
+      }
     }
   },
   "lastUpdated": "2026-11-15",
-  "totalGames": 9318
+  "totalGames": 9322
 }
