@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -121704,16 +121704,22 @@
     },
     "我獨自飛升-MUD": {
       "appIds": {
-        "ios_tw": "6449735088"
+        "ios_tw": "6449735088",
+        "android": "com.forge.magicmud"
       },
-      "aliases": [],
+      "aliases": [
+        "瑪法MUD"
+      ],
       "developer": "Hangzhou Hongqing Network Technology Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ff/18/c2/ff18c2f5-ae96-3317-d350-071ae4926876/AppIcon-1x_U007ephone-0-85-220-0.png/512x512bb.jpg",
       "slug": "我獨自飛升-mud",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "瑪法MUD",
+        "en": "瑪法MUD",
         "zh-tw": "我獨自飛升-MUD"
       }
     },
@@ -158645,8 +158651,45 @@
         "ja": "Home Story: Match-Up!",
         "zh-tw": "Home Story: Match-Up!"
       }
+    },
+    "레전드 검투사": {
+      "appIds": {
+        "ios": "1664694888"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "",
+      "slug": "레전드-검투사",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "레전드 검투사",
+        "en": "Iron&Fire",
+        "ja": "フォージ&アドベンチャー",
+        "zh-tw": "鍛造與冒險"
+      }
+    },
+    "瘋狂世界Crazy-World": {
+      "appIds": {
+        "ios": 6824816416
+      },
+      "aliases": [],
+      "developer": "木星人娛樂有限公司",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/0b/3e/490b3e57-5b47-15bf-178c-ca6105e78d75/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "crazy-world",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "瘋狂世界Crazy-World",
+        "en": "瘋狂世界Crazy-World",
+        "ja": "瘋狂世界Crazy-World",
+        "zh-cn": "瘋狂世界Crazy-World",
+        "zh-tw": "瘋狂世界Crazy-World"
+      }
     }
   },
   "lastUpdated": "2026-11-14",
-  "totalGames": 9311
+  "totalGames": 9313
 }

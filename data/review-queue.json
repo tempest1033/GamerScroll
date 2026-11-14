@@ -47408,7 +47408,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50873,6 +50873,28 @@
         }
       ],
       "addedAt": "2026-11-14T07:03:08.835Z"
+    },
+    {
+      "title": "레전드 검투사",
+      "status": "single",
+      "appIds": {
+        "ios": "1664694888"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-11-14T11:03:06.904Z"
+    },
+    {
+      "title": "瘋狂世界Crazy-World",
+      "status": "single",
+      "appIds": {
+        "ios": 6824816416
+      },
+      "developer": "木星人娛樂有限公司",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/0b/3e/490b3e57-5b47-15bf-178c-ca6105e78d75/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-14T11:03:07.850Z"
     }
   ],
   "approved": [
