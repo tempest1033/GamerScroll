@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -146932,14 +146932,16 @@
     },
     "Math Solitaire: Brain Puzzle": {
       "appIds": {
-        "ios": 6757699551
+        "ios": 6757699551,
+        "android": "org.smapps.flash"
       },
       "aliases": [],
       "developer": "Smart Project GmbH",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b8/01/72/b801724e-610c-3c88-7bf5-98897e7586ff/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "math-solitaire-brain-puzzle",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Math Solitaire: Brain Puzzle",
@@ -158886,8 +158888,79 @@
         "ja": "Triple Find - Match Triple 3D",
         "zh-tw": "Triple Find - Match Triple 3D"
       }
+    },
+    "Ultimate 11": {
+      "appIds": {
+        "ios": 6779740065
+      },
+      "aliases": [],
+      "developer": "Vaulty Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/da/6b/96da6bc3-fd69-5956-aed4-6c89c750355f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "ultimate-11",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Ultimate 11",
+        "en": "Ultimate 11",
+        "ja": "Ultimate 11",
+        "zh-tw": "Ultimate 11"
+      }
+    },
+    "Idle Engine Simulator": {
+      "appIds": {
+        "android": "com.studioadept.engine"
+      },
+      "aliases": [],
+      "developer": "Mamboo Entertainment",
+      "icon": "https://play-lh.googleusercontent.com/Xl2XViYGNQlJA4JbB9o4sssGPB8BL6kfYmtIZlmM3g2pZXQ4bFP6dkxqSLZ4mI_FrztLsAewZN5YoUK3Qt4z",
+      "slug": "idle-engine-simulator",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Idle Engine Simulator",
+        "en": "Idle Engine Simulator",
+        "ja": "Idle Engine Simulator",
+        "zh-tw": "Idle Engine Simulator"
+      }
+    },
+    "Escape Game Forest Log Cabin": {
+      "appIds": {
+        "ios": 6822559737
+      },
+      "aliases": [],
+      "developer": "Tatsuji Kuroyanagi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/4d/20/6d4d20a2-ca94-b3d7-111b-66f6c1dcac1a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "escape-game-forest-log-cabin",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Escape Game Forest Log Cabin",
+        "en": "Escape Game Forest Log Cabin",
+        "ja": "脱出ゲーム 聖夜を待つ森のログハウス",
+        "zh-tw": "Escape Game Forest Log Cabin"
+      }
+    },
+    "클릭 Fish X (Click Fish X)": {
+      "appIds": {
+        "android": "com.mindflowglobal.clickfishx.gp"
+      },
+      "aliases": [],
+      "developer": "Mindflow Studio",
+      "icon": "https://play-lh.googleusercontent.com/LRBDfDKfCmSc-s_uU_P6jE2eR7bb3LMlj3PkmCzs8z6jXvg0sF0ozEZ-vJvsFX8czwrAduTlxNYcFQF28niFYg",
+      "slug": "클릭-fish-x-click-fish-x",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "클릭 Fish X (Click Fish X)",
+        "en": "Click Fish X",
+        "ja": "クリック Fish X (Click Fish X)"
+      }
     }
   },
   "lastUpdated": "2026-11-15",
-  "totalGames": 9324
+  "totalGames": 9328
 }

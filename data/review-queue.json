@@ -43684,13 +43684,19 @@
     },
     {
       "title": "Math Solitaire: Brain Puzzle",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6757699551
+        "ios": 6757699551,
+        "android": "org.smapps.flash"
       },
       "developer": "Smart Project GmbH",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b8/01/72/b801724e-610c-3c88-7bf5-98897e7586ff/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Math Solitaire: Brain Puzzle",
+          "appId": 6757699551
+        }
+      ],
       "addedAt": "2026-10-13T19:44:26.671Z"
     },
     {
@@ -47436,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51076,6 +51082,76 @@
         }
       ],
       "addedAt": "2026-11-15T03:03:09.235Z"
+    },
+    {
+      "title": "Ultimate 11",
+      "status": "single",
+      "appIds": {
+        "ios": 6779740065
+      },
+      "developer": "Vaulty Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/da/6b/96da6bc3-fd69-5956-aed4-6c89c750355f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-15T07:02:52.620Z"
+    },
+    {
+      "title": "Idle Engine Simulator",
+      "status": "single",
+      "appIds": {
+        "android": "com.studioadept.engine"
+      },
+      "developer": "Mamboo Entertainment",
+      "icon": "https://play-lh.googleusercontent.com/Xl2XViYGNQlJA4JbB9o4sssGPB8BL6kfYmtIZlmM3g2pZXQ4bFP6dkxqSLZ4mI_FrztLsAewZN5YoUK3Qt4z",
+      "searchResults": [
+        {
+          "title": "Engine Lab: 엔진 시뮬레이터",
+          "appId": 6790748979
+        },
+        {
+          "title": "뷔페 보스",
+          "appId": 1641250955
+        },
+        {
+          "title": "Solar Smash",
+          "appId": 1495723103
+        }
+      ],
+      "addedAt": "2026-11-15T07:02:53.626Z"
+    },
+    {
+      "title": "Escape Game Forest Log Cabin",
+      "status": "single",
+      "appIds": {
+        "ios": 6822559737
+      },
+      "developer": "Tatsuji Kuroyanagi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6d/4d/20/6d4d20a2-ca94-b3d7-111b-66f6c1dcac1a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-15T07:02:54.067Z"
+    },
+    {
+      "title": "클릭 Fish X (Click Fish X)",
+      "status": "single",
+      "appIds": {
+        "android": "com.mindflowglobal.clickfishx.gp"
+      },
+      "developer": "Mindflow Studio",
+      "icon": "https://play-lh.googleusercontent.com/LRBDfDKfCmSc-s_uU_P6jE2eR7bb3LMlj3PkmCzs8z6jXvg0sF0ozEZ-vJvsFX8czwrAduTlxNYcFQF28niFYg",
+      "searchResults": [
+        {
+          "title": "Messenger",
+          "appId": 454638411
+        },
+        {
+          "title": "Google",
+          "appId": 284815942
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        }
+      ],
+      "addedAt": "2026-11-15T07:02:54.545Z"
     }
   ],
   "approved": [
