@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51152,6 +51152,28 @@
         }
       ],
       "addedAt": "2026-11-15T07:02:54.545Z"
+    },
+    {
+      "title": "SoEasy Mahjong 2: 10 만들기",
+      "status": "single",
+      "appIds": {
+        "android": "com.sofish.soeasymahjong2.gp"
+      },
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/NuYRhsu6mD-pj7NxrdlzIETBz1ASwnLPvK8o7JU00-p6R2odT9G03ICwyKOVg80BtHFiTn2pQnFWM56CRRoVJrs",
+      "searchResults": [],
+      "addedAt": "2026-11-15T11:02:39.297Z"
+    },
+    {
+      "title": "六界召唤师-御灵试炼",
+      "status": "single",
+      "appIds": {
+        "ios": 6826969372
+      },
+      "developer": "永丰 谷",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/6c/76/d46c76dc-6bf3-5103-8022-651550e05b90/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-15T11:02:39.684Z"
     }
   ],
   "approved": [

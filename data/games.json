@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158959,8 +158959,45 @@
         "en": "Click Fish X",
         "ja": "クリック Fish X (Click Fish X)"
       }
+    },
+    "SoEasy Mahjong 2: 10 만들기": {
+      "appIds": {
+        "android": "com.sofish.soeasymahjong2.gp"
+      },
+      "aliases": [],
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/NuYRhsu6mD-pj7NxrdlzIETBz1ASwnLPvK8o7JU00-p6R2odT9G03ICwyKOVg80BtHFiTn2pQnFWM56CRRoVJrs",
+      "slug": "soeasy-mahjong-2-10-만들기",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "SoEasy Mahjong 2: 10 만들기",
+        "en": "SoEasy Mahjong 2: Make Ten",
+        "ja": "SoEasy Mahjong 2: 10を作る",
+        "zh-tw": "SoEasy Mahjong 2: 合十消除"
+      }
+    },
+    "六界召唤师-御灵试炼": {
+      "appIds": {
+        "ios": 6826969372
+      },
+      "aliases": [],
+      "developer": "永丰 谷",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/6c/76/d46c76dc-6bf3-5103-8022-651550e05b90/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "六界召唤师-御灵试炼",
+        "en": "Six Realms: Spirit Trials",
+        "ja": "六界召唤师-御灵试炼",
+        "zh-cn": "六界召唤师-御灵试炼",
+        "zh-tw": "六界召唤师-御灵试炼"
+      }
     }
   },
   "lastUpdated": "2026-11-15",
-  "totalGames": 9328
+  "totalGames": 9330
 }
