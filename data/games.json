@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159080,8 +159080,44 @@
         "ja": "ラスト・ダイバー",
         "zh-tw": "最後的潛水員"
       }
+    },
+    "SOFT TENNIS SPARK": {
+      "appIds": {
+        "ios": 6806596060
+      },
+      "aliases": [],
+      "developer": "Ko Keruma",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/66/ce/d7/66ced7c2-c0ac-a7b7-0b06-63a9dbba1901/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "soft-tennis-spark",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "SOFT TENNIS SPARK",
+        "en": "SOFT TENNIS SPARK",
+        "ja": "SOFT TENNIS SPARK",
+        "zh-tw": "SOFT TENNIS SPARK"
+      }
+    },
+    "Boxsum: 수학 숫자 퍼즐": {
+      "appIds": {
+        "ios": 6834249611
+      },
+      "aliases": [],
+      "developer": "Charlrs Tsai",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/c0/b9/e8c0b9d9-dd51-e9c3-3a2b-d596b5108cab/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "boxsum-수학-숫자-퍼즐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Boxsum: 수학 숫자 퍼즐",
+        "en": "Boxsum: Number Sum Puzzle",
+        "ja": "Boxsum: Number Sum Puzzle",
+        "zh-tw": "Boxsum：數方形數字謎題"
+      }
     }
   },
   "lastUpdated": "2026-11-16",
-  "totalGames": 9335
+  "totalGames": 9337
 }

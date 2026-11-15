@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51226,6 +51226,28 @@
         }
       ],
       "addedAt": "2026-11-15T19:02:33.083Z"
+    },
+    {
+      "title": "SOFT TENNIS SPARK",
+      "status": "single",
+      "appIds": {
+        "ios": 6806596060
+      },
+      "developer": "Ko Keruma",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/66/ce/d7/66ced7c2-c0ac-a7b7-0b06-63a9dbba1901/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-15T23:03:14.232Z"
+    },
+    {
+      "title": "Boxsum: 수학 숫자 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6834249611
+      },
+      "developer": "Charlrs Tsai",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/c0/b9/e8c0b9d9-dd51-e9c3-3a2b-d596b5108cab/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-15T23:03:14.731Z"
     }
   ],
   "approved": [
