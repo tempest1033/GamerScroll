@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158996,8 +158996,35 @@
         "zh-cn": "六界召唤师-御灵试炼",
         "zh-tw": "六界召唤师-御灵试炼"
       }
+    },
+    "勇者乱斗": {
+      "appIds": {
+        "ios_cn": 6798571414
+      },
+      "aliases": [],
+      "developer": "Hangzhou Electronic Fantasy Network Technology Co.,Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/50/79/4e/50794e99-252c-99de-0e26-18acb36ff059/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "勇者乱斗",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "勇者乱斗"
+      }
+    },
+    "Dub Night Live": {
+      "appIds": {
+        "steam": "5099290"
+      },
+      "aliases": [],
+      "developer": "Dubster Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5099290/56b5680b71a30d8255389ee13316daee9844b44e/capsule_231x87.jpg?t=1791896615",
+      "slug": "dub-night-live",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-15",
-  "totalGames": 9330
+  "lastUpdated": "2026-11-16",
+  "totalGames": 9332
 }
