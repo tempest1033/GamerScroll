@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159023,8 +159023,65 @@
       "platforms": [
         "steam"
       ]
+    },
+    "엔진 시뮬레이터": {
+      "appIds": {
+        "ios": 6814764131
+      },
+      "aliases": [],
+      "developer": "Groundcode",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/7f/1a/937f1a33-ec19-fffa-5569-91034375f0d2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "엔진-시뮬레이터",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "엔진 시뮬레이터",
+        "en": "Engine Simulator 3D",
+        "ja": "エンジンシミュレーター 3D",
+        "zh-cn": "引擎模拟器 3D",
+        "zh-tw": "引擎模擬器 3D"
+      }
+    },
+    "Word Leaf: Crossword Puzzle": {
+      "appIds": {
+        "android": "word.leaf.crossword.puzzle.game"
+      },
+      "aliases": [],
+      "developer": "Adaric Ltd",
+      "icon": "https://play-lh.googleusercontent.com/ewiCFANDkdG55pyHGcLZqndAcP83B_bBB74YVL9LnekxtZSqiaDCfKwpRaen-1m0G5pJS0fXhzfoF_4cIVRzRI4",
+      "slug": "word-leaf-crossword-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Word Leaf: Crossword Puzzle",
+        "en": "Word Leaf: Crossword Puzzle",
+        "ja": "Word Leaf: Crossword Puzzle",
+        "zh-tw": "Word Leaf: Crossword Puzzle"
+      }
+    },
+    "라스트 다이버": {
+      "appIds": {
+        "android": "jp.MEARI.Sunken",
+        "ios": 6822775115
+      },
+      "aliases": [],
+      "developer": "project MEARI.",
+      "icon": "https://play-lh.googleusercontent.com/W2ESexzEoYMQ4BrX1J2CpZm4rhATfoOqP-2jVoJqQHJERp2k0AXKKyHgJqu021mpz7BBgKhVAGvJFIJIITxGhjE",
+      "slug": "라스트-다이버",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "라스트 다이버",
+        "en": "Last Diver",
+        "ja": "ラスト・ダイバー",
+        "zh-tw": "最後的潛水員"
+      }
     }
   },
   "lastUpdated": "2026-11-16",
-  "totalGames": 9332
+  "totalGames": 9335
 }

@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51174,6 +51174,58 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d4/6c/76/d46c76dc-6bf3-5103-8022-651550e05b90/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-15T11:02:39.684Z"
+    },
+    {
+      "title": "엔진 시뮬레이터",
+      "status": "single",
+      "appIds": {
+        "ios": 6814764131
+      },
+      "developer": "Groundcode",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/93/7f/1a/937f1a33-ec19-fffa-5569-91034375f0d2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-15T19:02:31.909Z"
+    },
+    {
+      "title": "Word Leaf: Crossword Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "word.leaf.crossword.puzzle.game"
+      },
+      "developer": "Adaric Ltd",
+      "icon": "https://play-lh.googleusercontent.com/ewiCFANDkdG55pyHGcLZqndAcP83B_bBB74YVL9LnekxtZSqiaDCfKwpRaen-1m0G5pJS0fXhzfoF_4cIVRzRI4",
+      "searchResults": [
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "Windfall: Word Puzzle",
+          "appId": 6811420610
+        }
+      ],
+      "addedAt": "2026-11-15T19:02:32.312Z"
+    },
+    {
+      "title": "라스트 다이버",
+      "status": "matched",
+      "appIds": {
+        "android": "jp.MEARI.Sunken",
+        "ios": 6822775115
+      },
+      "developer": "project MEARI.",
+      "icon": "https://play-lh.googleusercontent.com/W2ESexzEoYMQ4BrX1J2CpZm4rhATfoOqP-2jVoJqQHJERp2k0AXKKyHgJqu021mpz7BBgKhVAGvJFIJIITxGhjE",
+      "searchResults": [
+        {
+          "title": "라스트 다이버",
+          "appId": 6822775115
+        },
+        {
+          "title": "영화선로 무료",
+          "appId": 1017787775
+        }
+      ],
+      "addedAt": "2026-11-15T19:02:33.083Z"
     }
   ],
   "approved": [
