@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158306,14 +158306,16 @@
     },
     "Escape Game: Starless Sky": {
       "appIds": {
-        "ios": 6804550948
+        "ios": 6804550948,
+        "android": "com.studiowakaba.escapegame.hotcake.go"
       },
       "aliases": [],
       "developer": "Jun Wakabayashi",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/31/dd/1f31ddfc-abf4-192f-97d7-bc25f0cb3c74/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "escape-game-starless-sky",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Escape Game: Starless Sky",
@@ -158846,8 +158848,46 @@
       "names": {
         "zh-cn": "诸葛亮的迷宫"
       }
+    },
+    "Street League Football": {
+      "appIds": {
+        "ios": 6824124102
+      },
+      "aliases": [],
+      "developer": "Hues House LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/f4/f9/3df4f9ff-6660-836d-b401-ddba5f8703b4/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "street-league-football",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Street League Football",
+        "en": "Street League Football",
+        "ja": "Street League Football",
+        "zh-tw": "Street League Football"
+      }
+    },
+    "Triple Find - Match Triple 3D": {
+      "appIds": {
+        "android": "and.lihuhu.findmatch",
+        "ios": 6443690726
+      },
+      "aliases": [],
+      "developer": "LIHUHU PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/hGejIpKaJhzPCozaESwhHUHxLSDmPHRtd6AHUO6EEd_F-cbuzOkIST8_2RIwHqx8QXvzERdQcoWaRO7-tKFLog",
+      "slug": "triple-find-match-triple-3d",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Triple Find - Match Triple 3D",
+        "en": "Triple Find - Match Triple 3D",
+        "ja": "Triple Find - Match Triple 3D",
+        "zh-tw": "Triple Find - Match Triple 3D"
+      }
     }
   },
   "lastUpdated": "2026-11-15",
-  "totalGames": 9322
+  "totalGames": 9324
 }

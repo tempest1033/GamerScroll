@@ -47436,7 +47436,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -50634,13 +50634,19 @@
     },
     {
       "title": "Escape Game: Starless Sky",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6804550948
+        "ios": 6804550948,
+        "android": "com.studiowakaba.escapegame.hotcake.go"
       },
       "developer": "Jun Wakabayashi",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/31/dd/1f31ddfc-abf4-192f-97d7-bc25f0cb3c74/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Escape Game: Starless Sky",
+          "appId": 6804550948
+        }
+      ],
       "addedAt": "2026-11-13T11:03:15.570Z"
     },
     {
@@ -51034,6 +51040,42 @@
         }
       ],
       "addedAt": "2026-11-14T23:02:51.948Z"
+    },
+    {
+      "title": "Street League Football",
+      "status": "single",
+      "appIds": {
+        "ios": 6824124102
+      },
+      "developer": "Hues House LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/f4/f9/3df4f9ff-6660-836d-b401-ddba5f8703b4/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-15T03:03:07.664Z"
+    },
+    {
+      "title": "Triple Find - Match Triple 3D",
+      "status": "matched",
+      "appIds": {
+        "android": "and.lihuhu.findmatch",
+        "ios": 6443690726
+      },
+      "developer": "LIHUHU PTE. LTD.",
+      "icon": "https://play-lh.googleusercontent.com/hGejIpKaJhzPCozaESwhHUHxLSDmPHRtd6AHUO6EEd_F-cbuzOkIST8_2RIwHqx8QXvzERdQcoWaRO7-tKFLog",
+      "searchResults": [
+        {
+          "title": "Triple Find - Match Triple 3D",
+          "appId": 6443690726
+        },
+        {
+          "title": "Triple Match 3D",
+          "appId": 1607122287
+        },
+        {
+          "title": "Match Triple 3D: Matching Tile",
+          "appId": 1530876832
+        }
+      ],
+      "addedAt": "2026-11-15T03:03:09.235Z"
     }
   ],
   "approved": [
