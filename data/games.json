@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159474,8 +159474,73 @@
       "platforms": [
         "steam"
       ]
+    },
+    "我在古代有座城": {
+      "appIds": {
+        "ios_cn": 6821266319
+      },
+      "aliases": [],
+      "developer": "Anhui Yingqu Network Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/28/49/70/2849701e-6f29-fd32-a291-ef9690647473/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "我在古代有座城",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "我在古代有座城"
+      }
+    },
+    "Baltic Rescue": {
+      "appIds": {
+        "ios": 6753950692
+      },
+      "aliases": [],
+      "developer": "Tatu Heinamaki",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e7/18/13/e718137f-6d6d-f247-af98-2a37c8976a2b/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "baltic-rescue",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Baltic Rescue",
+        "en": "Baltic Rescue",
+        "ja": "Baltic Rescue",
+        "zh-cn": "Baltic Rescue",
+        "zh-tw": "Baltic Rescue"
+      }
+    },
+    "Corgi World Tour": {
+      "appIds": {
+        "ios": 1514817812
+      },
+      "aliases": [],
+      "developer": "David Lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/66/96/aa/6696aa2a-9b39-8bc7-1416-7a6f356697bd/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "corgi-world-tour",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Corgi World Tour",
+        "en": "Corgi World Tour",
+        "ja": "Corgi World Tour",
+        "zh-cn": "Corgi World Tour",
+        "zh-tw": "Corgi World Tour"
+      }
+    },
+    "Trafficity": {
+      "appIds": {
+        "steam": "5185750"
+      },
+      "aliases": [],
+      "developer": "Onramp Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5185750/a4ce181923c2f60a0e48c2e1384084ad446281ef/capsule_231x87.jpg?t=1794840500",
+      "slug": "trafficity",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-16",
-  "totalGames": 9358
+  "lastUpdated": "2026-11-17",
+  "totalGames": 9362
 }
