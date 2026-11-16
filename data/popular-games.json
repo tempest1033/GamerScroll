@@ -1,9 +1,13 @@
 {
-  "updatedAt": "2026-11-14T23:01:59.059Z",
+  "updatedAt": "2026-11-16T03:01:57.501Z",
   "period": "30days",
   "games": [
     {
-      "slug": "重返未來1999",
+      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "views": 7
+    },
+    {
+      "slug": "pixel-flow",
       "views": 6
     },
     {
@@ -15,11 +19,35 @@
       "views": 6
     },
     {
-      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "slug": "한게임-로얄홀덤",
       "views": 6
     },
     {
-      "slug": "pixel-flow",
+      "slug": "3d운전교실",
+      "views": 5
+    },
+    {
+      "slug": "barotrauma",
+      "views": 5
+    },
+    {
+      "slug": "hero-siege",
+      "views": 5
+    },
+    {
+      "slug": "monster-hunter-outlanders",
+      "views": 5
+    },
+    {
+      "slug": "skate",
+      "views": 5
+    },
+    {
+      "slug": "sled-surfers-슬로프-어드벤처",
+      "views": 5
+    },
+    {
+      "slug": "snipers-duel",
       "views": 5
     },
     {
@@ -35,48 +63,20 @@
       "views": 5
     },
     {
-      "slug": "주술회전-팬텀-퍼레이드",
+      "slug": "산너머-도원마을",
       "views": 5
     },
     {
-      "slug": "탈출-게임-암스테르담",
+      "slug": "세포-특공대-전략형-타워-디펜스",
       "views": 5
     },
     {
-      "slug": "피망-뉴맞고-고스톱으로-대한민국-1등",
+      "slug": "스타일리시-룸-집정리-언패킹-집꾸미기",
       "views": 5
     },
     {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 4
-    },
-    {
-      "slug": "3d운전교실",
-      "views": 4
-    },
-    {
-      "slug": "arrow-pro-3d",
-      "views": 4
-    },
-    {
-      "slug": "barotrauma",
-      "views": 4
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 4
-    },
-    {
-      "slug": "hero-siege",
-      "views": 4
-    },
-    {
-      "slug": "hero-wars-alliance-rpg",
-      "views": 4
-    },
-    {
-      "slug": "love-and-deepspace",
-      "views": 4
+      "slug": "에이지-오브-제트-타워-디펜스",
+      "views": 5
     }
   ]
 }

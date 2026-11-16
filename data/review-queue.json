@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49301,13 +49301,19 @@
     },
     {
       "title": "왁뿌: 왁스볼 뿌시기 ASMR",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6820181276
+        "ios": 6820181276,
+        "android": "org.teostudio.wakppu"
       },
       "developer": "Taeyoung Park",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/c6/b7/ebc6b7db-7edd-a601-b30c-7ffd8f301108/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Waxy：蠟皮捏捏紓壓ASMR",
+          "appId": 6820181276
+        }
+      ],
       "addedAt": "2026-11-07T17:03:03.349Z"
     },
     {
@@ -51248,6 +51254,157 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/c0/b9/e8c0b9d9-dd51-e9c3-3a2b-d596b5108cab/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-15T23:03:14.731Z"
+    },
+    {
+      "title": "Archery Duel 3D",
+      "status": "single",
+      "appIds": {
+        "android": "com.arcshoot.arena"
+      },
+      "developer": "GreenTTeaGame",
+      "icon": "https://play-lh.googleusercontent.com/MWtMrPC9UTHmODrCM823gi70fuA3RaW5tyepeFfP4GkU0B9O0hcUb2Tm_WeovU0hCILTBOU9r62y9aJDEz1Xvw",
+      "searchResults": [
+        {
+          "title": "Archery Duel: Arrow Game",
+          "appId": 6743678670
+        },
+        {
+          "title": "Bowman 2: 경기 계략 궁수 보먼 게임 활 양장장",
+          "appId": 1050636919
+        },
+        {
+          "title": "Archery Arena: Shooting Clash",
+          "appId": 6756249425
+        }
+      ],
+      "addedAt": "2026-11-16T03:03:14.265Z"
+    },
+    {
+      "title": "타인의 폰 - 방탈출 추리 게임, 범인 찾기",
+      "status": "matched",
+      "appIds": {
+        "android": "com.www.phonemystery",
+        "ios": "6824876279"
+      },
+      "developer": "BeomCoading",
+      "icon": "https://play-lh.googleusercontent.com/-_KYnsvB1-r63zKE9lYg6A_OK7CrbKjk5ys8b3rBf6jSk7sf-Lk1pHisHtldrxsxLvIT1415ygPlah3eWtTy",
+      "searchResults": [
+        {
+          "title": "타인의 폰 - 방탈출 추리 게임, 범인 찾기",
+          "appId": "6824876279"
+        }
+      ],
+      "addedAt": "2026-11-16T03:03:14.366Z"
+    },
+    {
+      "title": "마이토킹안젤라",
+      "status": "matched",
+      "appIds": {
+        "android": "com.outfit7.mytalkingangelafree",
+        "ios": 909351158
+      },
+      "developer": "Outfit7 Limited",
+      "icon": "https://play-lh.googleusercontent.com/y-rPtQnej2b1qvJTob4mUlje5KfPxb8OTlX3STNobBo6uCGAvHOU36Zlo4gPXboZqr4R2Krv7qJwivFkE8lQfg",
+      "searchResults": [
+        {
+          "title": "마이토킹안젤라",
+          "appId": 909351158
+        },
+        {
+          "title": "마이토킹안젤라 2",
+          "appId": 1536584509
+        },
+        {
+          "title": "마이토킹톰 프렌즈",
+          "appId": 1473424857
+        }
+      ],
+      "addedAt": "2026-11-16T03:03:16.747Z"
+    },
+    {
+      "title": "Fashion Arena: Dress Up Game",
+      "status": "matched",
+      "appIds": {
+        "android": "com.RC58.fashion.arena.dressup.game",
+        "ios": 6808930858
+      },
+      "developer": "Sprigame",
+      "icon": "https://play-lh.googleusercontent.com/MZLMyHQX8k6XXr0meggxqPXZWiICd_Z6MKtCbQ34MnT-2K_TAqc_FSn1cJcQJEp9v2PVeAiu1JIrEzCFJxme",
+      "searchResults": [
+        {
+          "title": "Fashion Arena: Dress Up Game",
+          "appId": 6808930858
+        },
+        {
+          "title": "Dress Up Game - Fashion Show",
+          "appId": 6446941599
+        }
+      ],
+      "addedAt": "2026-11-16T03:03:17.320Z"
+    },
+    {
+      "title": "Tidy Master: 완벽하게 정리하다 - 정리게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.diy.perfect.asmr"
+      },
+      "developer": "PixOn Games",
+      "icon": "https://play-lh.googleusercontent.com/XbSz-t0ny4Rd2xM-O5PEoPhjA6R2PPSTR42Irwv3o0jcpRQq1ka2yb4P1D__-X0LNP_zIXVf3vVMu8qiOOZG-O8",
+      "searchResults": [
+        {
+          "title": "Satiszone: 완벽한 ASMR 게임",
+          "appId": 6738118862
+        },
+        {
+          "title": "Perfect Tidy: 완벽한 정리",
+          "appId": 6689516283
+        },
+        {
+          "title": "만족의 방: 완벽하게 정리정돈",
+          "appId": 6621209523
+        }
+      ],
+      "addedAt": "2026-11-16T03:03:18.832Z"
+    },
+    {
+      "title": "追憶の屋敷からの脱出 -脱出ゲーム",
+      "status": "single",
+      "appIds": {
+        "android": "jp.globalgear.lab.g271"
+      },
+      "developer": "株式会社グローバルギアラボ",
+      "icon": "https://play-lh.googleusercontent.com/0uKUmQvZYoO2R0Zuy6Ra_FAU6t09BuhzSzf7vCXe_MCHMCoGGVd49ufC8R-mkUaRwZqw6cpFvo-n8K5QFC0z",
+      "searchResults": [
+        {
+          "title": "追憶の屋敷からの脱出",
+          "appId": 6823547743
+        }
+      ],
+      "addedAt": "2026-11-16T03:03:19.239Z"
+    },
+    {
+      "title": "Piano Cat: Music Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.piano.cat.rhythm.tiles.music.games"
+      },
+      "developer": "Agile Lion Games",
+      "icon": "https://play-lh.googleusercontent.com/apS79i40aYsknP76U5_s17eLmZcKkelpZ8zFvRauAcE3IcXCLJVCSJK_mTFEbW26c4haaBZKwmyaXZ_f-VQGiA",
+      "searchResults": [
+        {
+          "title": "Duet Cats: 귀여운 듀엣 고양이 게임",
+          "appId": 1658687701
+        },
+        {
+          "title": "Magic Cats Rush: 리듬게임",
+          "appId": 6741554654
+        },
+        {
+          "title": "매직 타일 3™: 리듬 피아노 게임",
+          "appId": 1443446174
+        }
+      ],
+      "addedAt": "2026-11-16T03:03:19.805Z"
     }
   ],
   "approved": [

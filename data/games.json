@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -155951,14 +155951,18 @@
     },
     "왁뿌: 왁스볼 뿌시기 ASMR": {
       "appIds": {
-        "ios": 6820181276
+        "ios": 6820181276,
+        "android": "org.teostudio.wakppu"
       },
-      "aliases": [],
+      "aliases": [
+        "Waxy：蠟皮捏捏紓壓ASMR"
+      ],
       "developer": "Taeyoung Park",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/c6/b7/ebc6b7db-7edd-a601-b30c-7ffd8f301108/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "slug": "왁뿌-왁스볼-뿌시기-asmr",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "왁뿌: 왁스볼 뿌시기 ASMR",
@@ -159116,8 +159120,140 @@
         "ja": "Boxsum: Number Sum Puzzle",
         "zh-tw": "Boxsum：數方形數字謎題"
       }
+    },
+    "Archery Duel 3D": {
+      "appIds": {
+        "android": "com.arcshoot.arena"
+      },
+      "aliases": [],
+      "developer": "GreenTTeaGame",
+      "icon": "https://play-lh.googleusercontent.com/MWtMrPC9UTHmODrCM823gi70fuA3RaW5tyepeFfP4GkU0B9O0hcUb2Tm_WeovU0hCILTBOU9r62y9aJDEz1Xvw",
+      "slug": "archery-duel-3d",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Archery Duel 3D",
+        "en": "Archery Duel 3D",
+        "ja": "Archery Duel 3D",
+        "zh-tw": "Archery Duel 3D"
+      }
+    },
+    "타인의 폰 - 방탈출 추리 게임, 범인 찾기": {
+      "appIds": {
+        "android": "com.www.phonemystery",
+        "ios": "6824876279"
+      },
+      "aliases": [],
+      "developer": "BeomCoading",
+      "icon": "https://play-lh.googleusercontent.com/-_KYnsvB1-r63zKE9lYg6A_OK7CrbKjk5ys8b3rBf6jSk7sf-Lk1pHisHtldrxsxLvIT1415ygPlah3eWtTy",
+      "slug": "타인의-폰-방탈출-추리-게임-범인-찾기",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "타인의 폰 - 방탈출 추리 게임, 범인 찾기",
+        "en": "Someone Else's Phone Detective",
+        "ja": "他人のスマホ - 謎解き脱出・推理ゲーム・探偵ホラー",
+        "zh-tw": "타인의 폰 - 방탈출 추리 게임, 범인 찾기"
+      }
+    },
+    "마이토킹안젤라": {
+      "appIds": {
+        "android": "com.outfit7.mytalkingangelafree",
+        "ios": 909351158
+      },
+      "aliases": [],
+      "developer": "Outfit7 Limited",
+      "icon": "https://play-lh.googleusercontent.com/y-rPtQnej2b1qvJTob4mUlje5KfPxb8OTlX3STNobBo6uCGAvHOU36Zlo4gPXboZqr4R2Krv7qJwivFkE8lQfg",
+      "slug": "마이토킹안젤라",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "마이토킹안젤라",
+        "en": "My Talking Angela",
+        "ja": "マイ・トーキング・アンジェラ",
+        "zh-tw": "我的安吉拉"
+      }
+    },
+    "Fashion Arena: Dress Up Game": {
+      "appIds": {
+        "android": "com.RC58.fashion.arena.dressup.game",
+        "ios": 6808930858
+      },
+      "aliases": [],
+      "developer": "Sprigame",
+      "icon": "https://play-lh.googleusercontent.com/MZLMyHQX8k6XXr0meggxqPXZWiICd_Z6MKtCbQ34MnT-2K_TAqc_FSn1cJcQJEp9v2PVeAiu1JIrEzCFJxme",
+      "slug": "fashion-arena-dress-up-game",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Fashion Arena: Dress Up Game",
+        "en": "Fashion Arena: Dress Up Game",
+        "ja": "Fashion Arena: Dress Up Game",
+        "zh-cn": "Fashion Arena: Dress Up Game",
+        "zh-tw": "Fashion Arena: Dress Up Game"
+      }
+    },
+    "Tidy Master: 완벽하게 정리하다 - 정리게임": {
+      "appIds": {
+        "android": "com.diy.perfect.asmr"
+      },
+      "aliases": [],
+      "developer": "PixOn Games",
+      "icon": "https://play-lh.googleusercontent.com/XbSz-t0ny4Rd2xM-O5PEoPhjA6R2PPSTR42Irwv3o0jcpRQq1ka2yb4P1D__-X0LNP_zIXVf3vVMu8qiOOZG-O8",
+      "slug": "tidy-master-완벽하게-정리하다-정리게임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Tidy Master: 완벽하게 정리하다 - 정리게임",
+        "en": "Tidy Up - Satisfeel ASMR",
+        "ja": "Tidy Master: 整理マスターASMR",
+        "zh-tw": "Tidy Up - Satisfeel ASMR"
+      }
+    },
+    "追憶の屋敷からの脱出 -脱出ゲーム": {
+      "appIds": {
+        "android": "jp.globalgear.lab.g271"
+      },
+      "aliases": [],
+      "developer": "株式会社グローバルギアラボ",
+      "icon": "https://play-lh.googleusercontent.com/0uKUmQvZYoO2R0Zuy6Ra_FAU6t09BuhzSzf7vCXe_MCHMCoGGVd49ufC8R-mkUaRwZqw6cpFvo-n8K5QFC0z",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "追憶の屋敷からの脱出 -脱出ゲーム",
+        "en": "Unfading Echoes -Escape Game",
+        "ja": "追憶の屋敷からの脱出 -脱出ゲーム"
+      }
+    },
+    "Piano Cat: Music Games": {
+      "appIds": {
+        "android": "com.piano.cat.rhythm.tiles.music.games"
+      },
+      "aliases": [],
+      "developer": "Agile Lion Games",
+      "icon": "https://play-lh.googleusercontent.com/apS79i40aYsknP76U5_s17eLmZcKkelpZ8zFvRauAcE3IcXCLJVCSJK_mTFEbW26c4haaBZKwmyaXZ_f-VQGiA",
+      "slug": "piano-cat-music-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Piano Cat: Music Games",
+        "en": "Piano Cat: Music Games",
+        "ja": "Piano Cat: Music Games",
+        "zh-tw": "Piano Cat: Music Games"
+      }
     }
   },
   "lastUpdated": "2026-11-16",
-  "totalGames": 9337
+  "totalGames": 9344
 }
