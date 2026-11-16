@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158796,16 +158796,19 @@
     },
     "遺棄之地TD": {
       "appIds": {
-        "ios_tw": "6795829020"
+        "ios_tw": "6795829020",
+        "android": "com.hortor.yqzd.asia"
       },
       "aliases": [],
       "developer": "THE HORTOR TECHNOLOGY PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/1b/32/0f1b3248-7477-242d-95df-953e18601b94/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "遺棄之地td",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "遺棄之地TD",
         "zh-tw": "遺棄之地TD"
       }
     },
