@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -153180,14 +153180,16 @@
     },
     "ReLevel": {
       "appIds": {
-        "android": "work.ponix.relevel"
+        "android": "work.ponix.relevel",
+        "ios": 6817345425
       },
       "aliases": [],
       "developer": "PONIX",
       "icon": "https://play-lh.googleusercontent.com/MDr7Fn1aiIlWVmho5KQ9iOAImHof06LQMPO7K1dUp1DVACc7JRPBUaaW5MitLbQnUkL9q0HURlNI3gRNa1n-4Q",
       "slug": "relevel",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "ReLevel",
@@ -159303,8 +159305,177 @@
       "names": {
         "zh-cn": "渊环"
       }
+    },
+    "팀빨협동전 : 협동 영웅 디펜스": {
+      "appIds": {
+        "ios": 6805769847
+      },
+      "aliases": [],
+      "developer": "Standegg",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/fd/3a/a4fd3a78-6149-f984-aa8f-64ed2558df97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "팀빨협동전-협동-영웅-디펜스",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "팀빨협동전 : 협동 영웅 디펜스"
+      }
+    },
+    "Amaze Smash: Mind Puzzle": {
+      "appIds": {
+        "ios": 6822727471
+      },
+      "aliases": [],
+      "developer": "Kuldeep Singh",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/2e/b8/cf2eb8ae-2826-e5a7-4e87-085d98d9d32c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "amaze-smash-mind-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Amaze Smash: Mind Puzzle",
+        "en": "Amaze Smash: Mind Puzzle",
+        "ja": "Amaze Smash: Mind Puzzle"
+      }
+    },
+    "범인은 누구냥: 고양이 추리 퍼즐": {
+      "appIds": {
+        "ios": 6830487881
+      },
+      "aliases": [],
+      "developer": "HIGHSCORE GAMES Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/e0/40/2ee040b5-9e84-4989-c24e-e19d9aa6a8ef/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "범인은-누구냥-고양이-추리-퍼즐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "범인은 누구냥: 고양이 추리 퍼즐"
+      }
+    },
+    "追憶の屋敷からの脱出": {
+      "appIds": {
+        "ios": 6823547743
+      },
+      "aliases": [],
+      "developer": "GlobalGearLab Co. Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/ba/04/3bba0445-e765-475a-bab4-1e2987549f58/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "追憶の屋敷からの脱出",
+        "en": "Unfading Echoes",
+        "ja": "追憶の屋敷からの脱出"
+      }
+    },
+    "[スロスピ]パチスロ鉄拳2nd": {
+      "appIds": {
+        "ios_jp": 6759586196
+      },
+      "aliases": [],
+      "developer": "SPIRIDGE INC.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/66/7b/2b/667b2bb6-dbf4-3793-bb29-2a842427afad/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "スロスピパチスロ鉄拳2nd",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[スロスピ]パチスロ鉄拳2nd"
+      }
+    },
+    "Luna's Labyrinth": {
+      "appIds": {
+        "ios_jp": 6822560118
+      },
+      "aliases": [
+        "ルナと忘却の迷宮"
+      ],
+      "developer": "Just Idea",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f6/77/8e/f6778e02-b4dc-b8da-d177-5910554013f8/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "lunas-labyrinth",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Luna's Labyrinth",
+        "ja": "ルナと忘却の迷宮"
+      }
+    },
+    "에테르나 루프": {
+      "appIds": {
+        "ios": 6756427099
+      },
+      "aliases": [],
+      "developer": "Yes Games Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/67/ea/3467eacb-57e0-02a8-3147-b8086c9d1b2d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "에테르나-루프",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "에테르나 루프",
+        "en": "Aeterna Loop",
+        "ja": "エテルナループ",
+        "zh-tw": "永恆迴圈"
+      }
+    },
+    "台北運轉手": {
+      "appIds": {
+        "ios": 6833103432
+      },
+      "aliases": [],
+      "developer": "Chihyang Kuo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/b5/6d/acb56d06-3a89-db59-dc08-b22c0c3f71a5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "台北運轉手",
+        "en": "台北運轉手",
+        "ja": "台北運轉手",
+        "zh-tw": "台北運轉手"
+      }
+    },
+    "Dungeonbound": {
+      "appIds": {
+        "steam": "5200620"
+      },
+      "aliases": [],
+      "developer": "louidev",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5200620/e30d65018c1956b58d1664ed7e52fdd799a84197/capsule_231x87.jpg?t=1794825077",
+      "slug": "dungeonbound",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "How They Built the Pyramids": {
+      "appIds": {
+        "steam": "5458210"
+      },
+      "aliases": [],
+      "developer": "Pattez Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5458210/d87968791c19cecd61653497c1b8a4027a94b4f2/capsule_231x87.jpg?t=1794589252",
+      "slug": "how-they-built-the-pyramids",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Water TD": {
+      "appIds": {
+        "steam": "5295330"
+      },
+      "aliases": [],
+      "developer": "Managagrau",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5295330/eb8c6e206bd8ccce686915b337eba512b9ca90b3/capsule_231x87.jpg?t=1794592839",
+      "slug": "water-td",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-16",
-  "totalGames": 9347
+  "totalGames": 9358
 }

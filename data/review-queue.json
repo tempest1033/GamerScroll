@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51427,6 +51427,72 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/7b/ca/697bca75-2a01-96f1-18c9-92d9dce69309/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-16T07:02:56.030Z"
+    },
+    {
+      "title": "팀빨협동전 : 협동 영웅 디펜스",
+      "status": "single",
+      "appIds": {
+        "ios": 6805769847
+      },
+      "developer": "Standegg",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/fd/3a/a4fd3a78-6149-f984-aa8f-64ed2558df97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-16T11:02:41.793Z"
+    },
+    {
+      "title": "Amaze Smash: Mind Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6822727471
+      },
+      "developer": "Kuldeep Singh",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cf/2e/b8/cf2eb8ae-2826-e5a7-4e87-085d98d9d32c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-16T11:02:41.963Z"
+    },
+    {
+      "title": "범인은 누구냥: 고양이 추리 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6830487881
+      },
+      "developer": "HIGHSCORE GAMES Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/e0/40/2ee040b5-9e84-4989-c24e-e19d9aa6a8ef/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-16T11:02:42.126Z"
+    },
+    {
+      "title": "追憶の屋敷からの脱出",
+      "status": "single",
+      "appIds": {
+        "ios": 6823547743
+      },
+      "developer": "GlobalGearLab Co. Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/ba/04/3bba0445-e765-475a-bab4-1e2987549f58/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-16T11:02:43.105Z"
+    },
+    {
+      "title": "에테르나 루프",
+      "status": "single",
+      "appIds": {
+        "ios": 6756427099
+      },
+      "developer": "Yes Games Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/67/ea/3467eacb-57e0-02a8-3147-b8086c9d1b2d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-16T11:02:44.016Z"
+    },
+    {
+      "title": "台北運轉手",
+      "status": "single",
+      "appIds": {
+        "ios": 6833103432
+      },
+      "developer": "Chihyang Kuo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/b5/6d/acb56d06-3a89-db59-dc08-b22c0c3f71a5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-16T11:02:44.267Z"
     }
   ],
   "approved": [
