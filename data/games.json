@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159539,8 +159539,42 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Arrow Odyssey: Escape Puzzle": {
+      "appIds": {
+        "android": "fun.rgpd.arrowodyssey"
+      },
+      "aliases": [],
+      "developer": "Rogue Panda",
+      "icon": "https://play-lh.googleusercontent.com/5RQBId1DI0P1wVNz0MnSaPv-VDNECJ8CL2wDbDSpuq6xX7VThuNmTF2Ki9XLYti9Mgojh2U3QRirwzVWFcNbhQ",
+      "slug": "arrow-odyssey-escape-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Odyssey: Escape Puzzle",
+        "en": "Arrow Odyssey: Escape Puzzle",
+        "ja": "Arrow Odyssey: Escape Puzzle",
+        "zh-tw": "Arrow Odyssey: Escape Puzzle"
+      }
+    },
+    "萬妖圖錄卷": {
+      "appIds": {
+        "android": "com.playland.wytlj"
+      },
+      "aliases": [],
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/W952WxCFcX_Qg-i0sHdtHHncUazXVBnBCpdvI-qVa0t1jIg1wATkdXDfzdpJ6QjM8X4HVv6lZ3K0ySbMpg6_Ew",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "萬妖圖錄卷",
+        "zh-tw": "萬妖圖錄卷"
+      }
     }
   },
   "lastUpdated": "2026-11-17",
-  "totalGames": 9362
+  "totalGames": 9364
 }

@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51515,6 +51515,46 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/66/96/aa/6696aa2a-9b39-8bc7-1416-7a6f356697bd/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-16T15:04:11.831Z"
+    },
+    {
+      "title": "Arrow Odyssey: Escape Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "fun.rgpd.arrowodyssey"
+      },
+      "developer": "Rogue Panda",
+      "icon": "https://play-lh.googleusercontent.com/5RQBId1DI0P1wVNz0MnSaPv-VDNECJ8CL2wDbDSpuq6xX7VThuNmTF2Ki9XLYti9Mgojh2U3QRirwzVWFcNbhQ",
+      "searchResults": [
+        {
+          "title": "Orivex:Shape Odyssey",
+          "appId": 6798429313
+        }
+      ],
+      "addedAt": "2026-11-16T19:03:00.189Z"
+    },
+    {
+      "title": "萬妖圖錄卷",
+      "status": "single",
+      "appIds": {
+        "android": "com.playland.wytlj"
+      },
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/W952WxCFcX_Qg-i0sHdtHHncUazXVBnBCpdvI-qVa0t1jIg1wATkdXDfzdpJ6QjM8X4HVv6lZ3K0ySbMpg6_Ew",
+      "searchResults": [
+        {
+          "title": "The Imp: Idle JRPG",
+          "appId": 1584807053
+        },
+        {
+          "title": "百妖卷-众妖俯首",
+          "appId": 1466049143
+        },
+        {
+          "title": "百妖卷之山海异动",
+          "appId": 1289683623
+        }
+      ],
+      "addedAt": "2026-11-16T19:03:00.663Z"
     }
   ],
   "approved": [
