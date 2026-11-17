@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159971,8 +159971,44 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ルナと忘却の迷宮": {
+      "appIds": {
+        "android": "jp.yugi.lunalabyrinth.prod"
+      },
+      "aliases": [],
+      "developer": "YUGI GAMES",
+      "icon": "https://play-lh.googleusercontent.com/YUc2VinwdAUxcXpRp2HWblyaMoyCzoBU3ZJ_Hkl3mDSkBpotTjiUJV-A97x4qHkMNZyAzBvZqvzWi3ct0MYZsA",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "ルナと忘却の迷宮",
+        "en": "Luna's Labyrinth",
+        "ja": "ルナと忘却の迷宮"
+      }
+    },
+    "GTA 5 Mobile Multiplayer 2022": {
+      "appIds": {
+        "ios": 1632001599
+      },
+      "aliases": [],
+      "developer": "Mehmet Ugurlu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/69/f9/7b/69f97b67-79bd-e4dc-01df-954152b725a1/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "gta-5-mobile-multiplayer-2022",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "GTA 5 Mobile Multiplayer 2022",
+        "en": "MCS-Modified Car Simulator 22",
+        "ja": "GTA 5 Mobile Multiplayer 2022",
+        "zh-cn": "GTA 5 Mobile Multiplayer 2022",
+        "zh-tw": "GTA 5 Mobile Multiplayer 2022"
+      }
     }
   },
   "lastUpdated": "2026-11-18",
-  "totalGames": 9388
+  "totalGames": 9390
 }

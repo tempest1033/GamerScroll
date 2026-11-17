@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51797,6 +51797,28 @@
         }
       ],
       "addedAt": "2026-11-17T19:02:56.797Z"
+    },
+    {
+      "title": "ルナと忘却の迷宮",
+      "status": "single",
+      "appIds": {
+        "android": "jp.yugi.lunalabyrinth.prod"
+      },
+      "developer": "YUGI GAMES",
+      "icon": "https://play-lh.googleusercontent.com/YUc2VinwdAUxcXpRp2HWblyaMoyCzoBU3ZJ_Hkl3mDSkBpotTjiUJV-A97x4qHkMNZyAzBvZqvzWi3ct0MYZsA",
+      "searchResults": [],
+      "addedAt": "2026-11-17T23:02:52.924Z"
+    },
+    {
+      "title": "GTA 5 Mobile Multiplayer 2022",
+      "status": "single",
+      "appIds": {
+        "ios": 1632001599
+      },
+      "developer": "Mehmet Ugurlu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/69/f9/7b/69f97b67-79bd-e4dc-01df-954152b725a1/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T23:02:53.713Z"
     }
   ],
   "approved": [
