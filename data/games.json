@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159311,14 +159311,16 @@
     },
     "팀빨협동전 : 협동 영웅 디펜스": {
       "appIds": {
-        "ios": 6805769847
+        "ios": 6805769847,
+        "android": "com.standegg.teamdefense"
       },
       "aliases": [],
       "developer": "Standegg",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/fd/3a/a4fd3a78-6149-f984-aa8f-64ed2558df97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "팀빨협동전-협동-영웅-디펜스",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "팀빨협동전 : 협동 영웅 디펜스"
@@ -159576,8 +159578,26 @@
         "ko": "萬妖圖錄卷",
         "zh-tw": "萬妖圖錄卷"
       }
+    },
+    "여신을 찾아라": {
+      "appIds": {
+        "android": "com.niyaim.gp.sweetspot.find"
+      },
+      "aliases": [],
+      "developer": "Questverse Play",
+      "icon": "https://play-lh.googleusercontent.com/XLgzknxHRnibae6LYwAIY1SO0oYM6f2KPCch4q88-lmOef97hVmtvbAclhW4kjhd4l9U2JvBIYs_Fo5NX2HRzA",
+      "slug": "여신을-찾아라",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "여신을 찾아라",
+        "en": "Sweet Spot",
+        "ja": "グラドルを探せ",
+        "zh-tw": "Sweet Spot"
+      }
     }
   },
   "lastUpdated": "2026-11-17",
-  "totalGames": 9364
+  "totalGames": 9365
 }
