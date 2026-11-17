@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -150889,14 +150889,16 @@
     },
     "Bungee Beat": {
       "appIds": {
-        "ios": 6808095300
+        "ios": 6808095300,
+        "android": "jp.fourm.bungeebeat"
       },
       "aliases": [],
       "developer": "FourM, K.K.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/52/27/a452277c-86a4-03fb-fb99-ba982d1d0ddc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "bungee-beat",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Bungee Beat",
@@ -157016,14 +157018,16 @@
     },
     "Horde Rush": {
       "appIds": {
-        "ios": 6826324220
+        "ios": 6826324220,
+        "android": "com.lavalabs.horderush"
       },
       "aliases": [],
       "developer": "Lava Labs Oyun Yazılım ve Pazarlama Anonim Şirketi",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/99/3c/61993ced-2109-00f8-58d4-b5eaa698a8e7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "horde-rush",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Horde Rush",
@@ -159798,8 +159802,177 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Mahjong Maris": {
+      "appIds": {
+        "android": "com.mahjmarids.maris.jongmhga"
+      },
+      "aliases": [],
+      "developer": "BREDA BEST LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/2-qeX6b7Jh5RNmMF3WRVEaDjjaFg4xKpZvIIfoZPZgn_G5coD5XhGizppuZ3qjXRYhes8pQ4ckq-bAcc2AkFJw",
+      "slug": "mahjong-maris",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Mahjong Maris",
+        "en": "Mahjong Maris",
+        "ja": "Mahjong Maris",
+        "zh-tw": "Mahjong Maris"
+      }
+    },
+    "Line Tangle: 선 풀기 퍼즐": {
+      "appIds": {
+        "android": "line.tangle.twist.away.puzzle",
+        "ios": 6805725616
+      },
+      "aliases": [
+        "Line Tangle - 紐解きひもゲームロープ"
+      ],
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/MkfmemCQ5NY5dlflXiFxuYuQi4YyehzEPJRb1rBkVkyJ0P2wIxdddIwbWj3IligZX96Ixvv2-yc39pYvO3e34zQ",
+      "slug": "line-tangle-선-풀기-퍼즐",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Line Tangle: 선 풀기 퍼즐",
+        "en": "Line Tangle - Dots Jam Escape",
+        "ja": "Line Tangle：線をほどくパズル",
+        "zh-tw": "Line Tangle - 解繩子連連消 顏色配對闖關"
+      }
+    },
+    "헬리 몬스터 (Heli Monsters)": {
+      "appIds": {
+        "android": "com.heli.monsters",
+        "ios": 1636701778
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/z-DKVV9xHXNukwr8zG7_xzvgLbbWv27ShNAZ3XH4KIV8FXEBsWpQhVNvl8-BT4zgjB5ti-CIXVF10WYpHUTaNQ",
+      "slug": "헬리-몬스터-heli-monsters",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "헬리 몬스터 (Heli Monsters)",
+        "en": "Heli Monsters - Giant Hunter",
+        "ja": "へリ・モンスター (Heli Monsters)",
+        "zh-tw": "Heli Monsters - Giant Hunter"
+      }
+    },
+    "Drag Bike 201M Sunmori": {
+      "appIds": {
+        "ios": 6834298648
+      },
+      "aliases": [],
+      "developer": "Mahesar iznan Abdillah",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/76/e5/59/76e5598b-5a9a-973b-e1da-8a916048ae8f/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "drag-bike-201m-sunmori",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Drag Bike 201M Sunmori",
+        "en": "Drag Bike 201M Sunmori",
+        "ja": "Drag Bike 201M Sunmori",
+        "zh-cn": "Drag Bike 201M Sunmori",
+        "zh-tw": "Drag Bike 201M Sunmori"
+      }
+    },
+    "Drama Story: Exposed Prank": {
+      "appIds": {
+        "android": "com.drama.story.exposed.prank"
+      },
+      "aliases": [],
+      "developer": "SixGLab",
+      "icon": "https://play-lh.googleusercontent.com/1FmehbN774pE29mxVSvq66qHHQTLcTORIfyWEksgBazLO2fgODVSDDl03pfh-UHkrTH5um78GEqRIukkYIOqoXA",
+      "slug": "drama-story-exposed-prank",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Drama Story: Exposed Prank",
+        "en": "Drama Story: Exposed Prank",
+        "ja": "Drama Story: Exposed Prank",
+        "zh-tw": "Drama Story: Exposed Prank"
+      }
+    },
+    "Sandbox Ragdoll Games": {
+      "appIds": {
+        "android": "com.sandbox.ragdoll.survival"
+      },
+      "aliases": [],
+      "developer": "Q8Power",
+      "icon": "https://play-lh.googleusercontent.com/Sm2b9bzQcOOrhE5JgzpG4xFmM2oe3Evrvn82Xmf4sUMKsSqx7Iy61x9gdCxABSGhoSuuHDCyEa_cXDv8b2-5kw",
+      "slug": "sandbox-ragdoll-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sandbox Ragdoll Games",
+        "en": "Sandbox Ragdoll Games",
+        "ja": "Sandbox Ragdoll Games",
+        "zh-tw": "Sandbox Ragdoll Games"
+      }
+    },
+    "Fidget Clicker: Finger 3D Toy": {
+      "appIds": {
+        "android": "com.hp.fidget.clicker.finger3d.toy"
+      },
+      "aliases": [],
+      "developer": "HIGAME LTD.",
+      "icon": "https://play-lh.googleusercontent.com/OHiNfNGCJ_u5XHPA5D-PaJodKEEjTGOB65-seoguvhCk1_BDk8OJS7vsFrQwoX9HXsZI0VbZF4YrjwGMcIeY9KY",
+      "slug": "fidget-clicker-finger-3d-toy",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fidget Clicker: Finger 3D Toy",
+        "en": "Fidget Clicker: Finger 3D Toy",
+        "ja": "Fidget Clicker: Finger 3D Toy",
+        "zh-tw": "Fidget Clicker: Finger 3D Toy"
+      }
+    },
+    "Crusader Kings III: Silk & Silver": {
+      "appIds": {
+        "steam": "4232910"
+      },
+      "aliases": [],
+      "developer": "Paradox Development Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4232910/9e8434374da73eef7fb48fadaa1e2bf8bc62cb26/capsule_231x87.jpg?t=1794935063",
+      "slug": "crusader-kings-iii-silk-silver",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Like a Dragon Gaiden: The Man Who Erased His Name": {
+      "appIds": {
+        "steam": "2375550"
+      },
+      "aliases": [],
+      "developer": "RGG Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2375550/capsule_231x87.jpg?t=1781263435",
+      "slug": "like-a-dragon-gaiden-the-man-who-erased-his-name",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Dawn of Defense": {
+      "appIds": {
+        "steam": "2781660"
+      },
+      "aliases": [],
+      "developer": "6side Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2781660/0bbfcff763db244e03e13c553e988041afb283da/capsule_231x87.jpg?t=1794927612",
+      "slug": "dawn-of-defense",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-18",
-  "totalGames": 9378
+  "totalGames": 9388
 }

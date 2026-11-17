@@ -46080,13 +46080,27 @@
     },
     {
       "title": "Bungee Beat",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6808095300
+        "ios": 6808095300,
+        "android": "jp.fourm.bungeebeat"
       },
       "developer": "FourM, K.K.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/52/27/a452277c-86a4-03fb-fb99-ba982d1d0ddc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Bungee Beat",
+          "appId": 6808095300
+        },
+        {
+          "title": "BandLab – Music Maker & Beats",
+          "appId": 968585775
+        },
+        {
+          "title": "데스티니 가디언즈 컴패니언",
+          "appId": 441444902
+        }
+      ],
       "addedAt": "2026-10-24T06:47:32.742Z"
     },
     {
@@ -47442,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -49957,13 +49971,19 @@
     },
     {
       "title": "Horde Rush",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6826324220
+        "ios": 6826324220,
+        "android": "com.lavalabs.horderush"
       },
       "developer": "Lava Labs Oyun Yazılım ve Pazarlama Anonim Şirketi",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/61/99/3c/61993ced-2109-00f8-58d4-b5eaa698a8e7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Horde Rush",
+          "appId": 6826324220
+        }
+      ],
       "addedAt": "2026-11-10T09:02:35.824Z"
     },
     {
@@ -51649,6 +51669,134 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/1e/d7/fa1ed72e-98ef-8fdd-46a1-0b19aeb108b9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-17T11:02:47.903Z"
+    },
+    {
+      "title": "Mahjong Maris",
+      "status": "single",
+      "appIds": {
+        "android": "com.mahjmarids.maris.jongmhga"
+      },
+      "developer": "BREDA BEST LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/2-qeX6b7Jh5RNmMF3WRVEaDjjaFg4xKpZvIIfoZPZgn_G5coD5XhGizppuZ3qjXRYhes8pQ4ckq-bAcc2AkFJw",
+      "searchResults": [
+        {
+          "title": "Mary's Mahjong: 꿈의 마을을 지어보세요!",
+          "appId": 1592055662
+        },
+        {
+          "title": "Morain Mahj LLC",
+          "appId": 6764858151
+        },
+        {
+          "title": "The Mahj Report",
+          "appId": 6803967296
+        }
+      ],
+      "addedAt": "2026-11-17T19:02:53.790Z"
+    },
+    {
+      "title": "Line Tangle: 선 풀기 퍼즐",
+      "status": "matched",
+      "appIds": {
+        "android": "line.tangle.twist.away.puzzle",
+        "ios": 6805725616
+      },
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/MkfmemCQ5NY5dlflXiFxuYuQi4YyehzEPJRb1rBkVkyJ0P2wIxdddIwbWj3IligZX96Ixvv2-yc39pYvO3e34zQ",
+      "searchResults": [
+        {
+          "title": "Line Tangle - 紐解きひもゲームロープ",
+          "appId": 6805725616
+        }
+      ],
+      "addedAt": "2026-11-17T19:02:54.549Z"
+    },
+    {
+      "title": "헬리 몬스터 (Heli Monsters)",
+      "status": "matched",
+      "appIds": {
+        "android": "com.heli.monsters",
+        "ios": 1636701778
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/z-DKVV9xHXNukwr8zG7_xzvgLbbWv27ShNAZ3XH4KIV8FXEBsWpQhVNvl8-BT4zgjB5ti-CIXVF10WYpHUTaNQ",
+      "searchResults": [
+        {
+          "title": "헬리 몬스터 (Heli Monsters)",
+          "appId": 1636701778
+        },
+        {
+          "title": "몬스터 진화!",
+          "appId": 1586422507
+        },
+        {
+          "title": "Kick Monster - 스트레스 해소 미니게임",
+          "appId": 1600235169
+        }
+      ],
+      "addedAt": "2026-11-17T19:02:55.109Z"
+    },
+    {
+      "title": "Drag Bike 201M Sunmori",
+      "status": "single",
+      "appIds": {
+        "ios": 6834298648
+      },
+      "developer": "Mahesar iznan Abdillah",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/76/e5/59/76e5598b-5a9a-973b-e1da-8a916048ae8f/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T19:02:55.604Z"
+    },
+    {
+      "title": "Drama Story: Exposed Prank",
+      "status": "single",
+      "appIds": {
+        "android": "com.drama.story.exposed.prank"
+      },
+      "developer": "SixGLab",
+      "icon": "https://play-lh.googleusercontent.com/1FmehbN774pE29mxVSvq66qHHQTLcTORIfyWEksgBazLO2fgODVSDDl03pfh-UHkrTH5um78GEqRIukkYIOqoXA",
+      "searchResults": [],
+      "addedAt": "2026-11-17T19:02:56.021Z"
+    },
+    {
+      "title": "Sandbox Ragdoll Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.sandbox.ragdoll.survival"
+      },
+      "developer": "Q8Power",
+      "icon": "https://play-lh.googleusercontent.com/Sm2b9bzQcOOrhE5JgzpG4xFmM2oe3Evrvn82Xmf4sUMKsSqx7Iy61x9gdCxABSGhoSuuHDCyEa_cXDv8b2-5kw",
+      "searchResults": [
+        {
+          "title": "Ragdolls Sandbox",
+          "appId": 1614513515
+        },
+        {
+          "title": "애니멀 리볼트 배틀 시뮬레이터: 공룡게임",
+          "appId": 1584343172
+        },
+        {
+          "title": "Mods For Melon Ragdoll Game",
+          "appId": 6470914050
+        }
+      ],
+      "addedAt": "2026-11-17T19:02:56.452Z"
+    },
+    {
+      "title": "Fidget Clicker: Finger 3D Toy",
+      "status": "single",
+      "appIds": {
+        "android": "com.hp.fidget.clicker.finger3d.toy"
+      },
+      "developer": "HIGAME LTD.",
+      "icon": "https://play-lh.googleusercontent.com/OHiNfNGCJ_u5XHPA5D-PaJodKEEjTGOB65-seoguvhCk1_BDk8OJS7vsFrQwoX9HXsZI0VbZF4YrjwGMcIeY9KY",
+      "searchResults": [
+        {
+          "title": "Finger Spinner: Glow by Hand",
+          "appId": 1476384296
+        }
+      ],
+      "addedAt": "2026-11-17T19:02:56.797Z"
     }
   ],
   "approved": [
