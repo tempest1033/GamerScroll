@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159596,8 +159596,26 @@
         "ja": "グラドルを探せ",
         "zh-tw": "Sweet Spot"
       }
+    },
+    "ラストパイロット": {
+      "appIds": {
+        "ios": 6816302152
+      },
+      "aliases": [],
+      "developer": "Ibuki Hara",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/d9/06/9ad906ce-8b07-a4c9-c356-144c94a03f37/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "ラストパイロット",
+        "en": "Last Pilot",
+        "ja": "ラストパイロット",
+        "zh-tw": "ラストパイロット"
+      }
     }
   },
   "lastUpdated": "2026-11-17",
-  "totalGames": 9365
+  "totalGames": 9366
 }

@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51572,6 +51572,17 @@
       "icon": "https://play-lh.googleusercontent.com/XLgzknxHRnibae6LYwAIY1SO0oYM6f2KPCch4q88-lmOef97hVmtvbAclhW4kjhd4l9U2JvBIYs_Fo5NX2HRzA",
       "searchResults": [],
       "addedAt": "2026-11-17T03:03:08.408Z"
+    },
+    {
+      "title": "ラストパイロット",
+      "status": "single",
+      "appIds": {
+        "ios": 6816302152
+      },
+      "developer": "Ibuki Hara",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/d9/06/9ad906ce-8b07-a4c9-c356-144c94a03f37/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T07:02:54.996Z"
     }
   ],
   "approved": [
