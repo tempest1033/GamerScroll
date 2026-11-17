@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159774,8 +159774,32 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Here Comes the Horde": {
+      "appIds": {
+        "steam": "5066010"
+      },
+      "aliases": [],
+      "developer": "Polished Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5066010/49c9faf9c018367efbd29c1c8f19435d5802dc3a/capsule_231x87.jpg?t=1794853555",
+      "slug": "here-comes-the-horde",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Goat Simulator 3": {
+      "appIds": {
+        "steam": "850190"
+      },
+      "aliases": [],
+      "developer": "Coffee Stain North",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/850190/13619ecd65fa837b682547b18f69858fc5183f2b/capsule_231x87_alt_assets_8.jpg?t=1794494565",
+      "slug": "goat-simulator-3",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-17",
-  "totalGames": 9376
+  "lastUpdated": "2026-11-18",
+  "totalGames": 9378
 }
