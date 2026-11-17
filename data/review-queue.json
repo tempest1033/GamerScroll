@@ -47442,7 +47442,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51583,6 +51583,72 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/9a/d9/06/9ad906ce-8b07-a4c9-c356-144c94a03f37/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-17T07:02:54.996Z"
+    },
+    {
+      "title": "루킹 - 야구 심판 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6827963577
+      },
+      "developer": "MIN KIM",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/fb/33/c9fb33cd-7375-1238-78bf-0c1e28a10a01/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T11:02:45.587Z"
+    },
+    {
+      "title": "Crazy Story: Plot Twist",
+      "status": "single",
+      "appIds": {
+        "ios": 6801039859
+      },
+      "developer": "SmallStep Dev Team",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/b2/03/73b203fa-44f7-451f-67bf-198934d91828/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T11:02:45.825Z"
+    },
+    {
+      "title": "겨울의 끝",
+      "status": "single",
+      "appIds": {
+        "ios": 6754922071
+      },
+      "developer": "Tailormade Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7b/c5/33/7bc53358-324e-65e3-a53a-d97270b3119c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T11:02:46.049Z"
+    },
+    {
+      "title": "Line Tangle - 선 잇기 매듭 풀기 두뇌 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6805725616
+      },
+      "developer": "Shycheese",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/36/bf/5e/36bf5e66-b4e8-92fe-54ac-06a6087b0c95/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T11:02:47.216Z"
+    },
+    {
+      "title": "심연 원정대 - 로그라이크",
+      "status": "single",
+      "appIds": {
+        "ios": 6811085449
+      },
+      "developer": "JAEHOON LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/47/48/d9/4748d91e-94b7-1eaa-d85a-346a9732bc2b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T11:02:47.635Z"
+    },
+    {
+      "title": "LuLu's: 대만 야시장 요리",
+      "status": "single",
+      "appIds": {
+        "ios": 6819505520
+      },
+      "developer": "Anthony Machette",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/1e/d7/fa1ed72e-98ef-8fdd-46a1-0b19aeb108b9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-17T11:02:47.903Z"
     }
   ],
   "approved": [

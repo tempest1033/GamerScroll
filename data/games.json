@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159614,8 +159614,168 @@
         "ja": "ラストパイロット",
         "zh-tw": "ラストパイロット"
       }
+    },
+    "王國W：血盟之誓": {
+      "appIds": {
+        "ios_tw": "6792606804"
+      },
+      "aliases": [],
+      "developer": "HUNT GAMES COMPANY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/17/2f/4c/172f4ca8-20e7-c899-7ca4-845f4ab08a25/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "王國w血盟之誓",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "王國W：血盟之誓"
+      }
+    },
+    "루킹 - 야구 심판 게임": {
+      "appIds": {
+        "ios": 6827963577
+      },
+      "aliases": [],
+      "developer": "MIN KIM",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c9/fb/33/c9fb33cd-7375-1238-78bf-0c1e28a10a01/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "루킹-야구-심판-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "루킹 - 야구 심판 게임",
+        "en": "LOOKING - Baseball Umpire Game",
+        "ja": "LOOKING - 野球審判ゲーム",
+        "zh-tw": "LOOKING - 棒球裁判遊戲"
+      }
+    },
+    "Crazy Story: Plot Twist": {
+      "appIds": {
+        "ios": 6801039859
+      },
+      "aliases": [],
+      "developer": "SmallStep Dev Team",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/b2/03/73b203fa-44f7-451f-67bf-198934d91828/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "crazy-story-plot-twist",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Crazy Story: Plot Twist",
+        "en": "Crazy Story: Plot Twist",
+        "ja": "Crazy Story: Plot Twist",
+        "zh-tw": "Crazy Story: Plot Twist"
+      }
+    },
+    "겨울의 끝": {
+      "appIds": {
+        "ios": 6754922071
+      },
+      "aliases": [],
+      "developer": "Tailormade Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7b/c5/33/7bc53358-324e-65e3-a53a-d97270b3119c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "겨울의-끝",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "겨울의 끝",
+        "en": "End of Winter"
+      }
+    },
+    "スヌーピー ゲームズ ～サクッと脳トレパズル": {
+      "appIds": {
+        "ios_jp": 6797800901
+      },
+      "aliases": [],
+      "developer": "TV TOKYO Communications Corporation",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/9b/65/069b65bc-57b8-6ee1-59d7-78eb3be5a0da/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "スヌーピー-ゲームズ-サクッと脳トレパズル",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "スヌーピー ゲームズ ～サクッと脳トレパズル"
+      }
+    },
+    "Line Tangle - 선 잇기 매듭 풀기 두뇌 게임": {
+      "appIds": {
+        "ios": 6805725616
+      },
+      "aliases": [],
+      "developer": "Shycheese",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/36/bf/5e/36bf5e66-b4e8-92fe-54ac-06a6087b0c95/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "line-tangle-선-잇기-매듭-풀기-두뇌-게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Line Tangle - 선 잇기 매듭 풀기 두뇌 게임",
+        "en": "Line Tangle - Dots Jam Escape",
+        "ja": "Line Tangle - 紐解きひもゲームロープ",
+        "zh-tw": "Line Tangle - 解繩子連連消 顏色配對闖關"
+      }
+    },
+    "심연 원정대 - 로그라이크": {
+      "appIds": {
+        "ios": 6811085449
+      },
+      "aliases": [],
+      "developer": "JAEHOON LEE",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/47/48/d9/4748d91e-94b7-1eaa-d85a-346a9732bc2b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "심연-원정대-로그라이크",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "심연 원정대 - 로그라이크",
+        "en": "Abyss Expedition - Roguelike",
+        "ja": "深淵遠征隊 - ローグライク",
+        "zh-tw": "深淵探險 - Roguelike"
+      }
+    },
+    "LuLu's: 대만 야시장 요리": {
+      "appIds": {
+        "ios": 6819505520
+      },
+      "aliases": [],
+      "developer": "Anthony Machette",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fa/1e/d7/fa1ed72e-98ef-8fdd-46a1-0b19aeb108b9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "lulus-대만-야시장-요리",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "LuLu's: 대만 야시장 요리",
+        "en": "LuLu's: Night Market Cooking",
+        "ja": "LuLu's：夜市クッキング",
+        "zh-tw": "LuLu's 夜市小吃攤"
+      }
+    },
+    "Melvor Idle 2: A RuneScape Adventure": {
+      "appIds": {
+        "steam": "3218350"
+      },
+      "aliases": [],
+      "developer": "Games by Malcs",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3218350/595066dd6cf137516fe55013fca6fa2d034f57a4/capsule_231x87.jpg?t=1794906105",
+      "slug": "melvor-idle-2-a-runescape-adventure",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "TEKKEN 8 - Roger Jr.": {
+      "appIds": {
+        "steam": "4536150"
+      },
+      "aliases": [],
+      "developer": "Bandai Namco Studios Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4536150/27d358cabb59e4a0ec5bd76812be40037b734fd3/capsule_231x87.jpg?t=1794437997",
+      "slug": "tekken-8-roger-jr",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-17",
-  "totalGames": 9366
+  "totalGames": 9376
 }
