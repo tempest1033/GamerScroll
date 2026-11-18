@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51982,6 +51982,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/1b/0b/a01b0bab-7ae9-d6be-4529-2c1b1203e8de/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-18T11:03:09.649Z"
+    },
+    {
+      "title": "데스매치온라인",
+      "status": "single",
+      "appIds": {
+        "ios": 6766870875
+      },
+      "developer": "Ji Woong Jung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/2d/b5/912db545-1ac5-f0af-4dc2-deb918aa5d85/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T15:03:47.564Z"
+    },
+    {
+      "title": "Minou - 미누와 뜨개질",
+      "status": "single",
+      "appIds": {
+        "ios": 6830531773
+      },
+      "developer": "Naroworks Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/d1/e3/53d1e38e-0467-f759-168e-c47648a686d1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T15:03:47.803Z"
+    },
+    {
+      "title": "萌靈大冒險",
+      "status": "single",
+      "appIds": {
+        "ios": 6813438689
+      },
+      "developer": "HALE CHOU PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/bd/7a/34bd7ad6-650a-ec20-50cc-00a24ddc5f7d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T15:03:49.043Z"
     }
   ],
   "approved": [

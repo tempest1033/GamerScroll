@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160260,8 +160260,89 @@
         "ja": "我的貓 MyCat",
         "zh-tw": "我的貓 MyCat"
       }
+    },
+    "데스매치온라인": {
+      "appIds": {
+        "ios": 6766870875
+      },
+      "aliases": [],
+      "developer": "Ji Woong Jung",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/2d/b5/912db545-1ac5-f0af-4dc2-deb918aa5d85/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "데스매치온라인",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "데스매치온라인",
+        "ja": "데스매치온라인"
+      }
+    },
+    "Minou - 미누와 뜨개질": {
+      "appIds": {
+        "ios": 6830531773
+      },
+      "aliases": [],
+      "developer": "Naroworks Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/d1/e3/53d1e38e-0467-f759-168e-c47648a686d1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "minou-미누와-뜨개질",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Minou - 미누와 뜨개질",
+        "ja": "Minou - ミヌーとあみもの",
+        "zh-tw": "Minou - 為黑貓編織"
+      }
+    },
+    "ルミナサーガ：夢と冒険のMMORPG": {
+      "appIds": {
+        "ios_jp": 6808535967
+      },
+      "aliases": [],
+      "developer": "HYPER HEAT ENTERTAINMENT PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/32/d5/2b32d54b-73b5-b84c-acb2-43e955bf62cb/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "ルミナサーガ夢と冒険のmmorpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ルミナサーガ：夢と冒険のMMORPG"
+      }
+    },
+    "九霄仙府": {
+      "appIds": {
+        "ios_cn": 6797500031
+      },
+      "aliases": [],
+      "developer": "Shanghai Lingwu Technology Company Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/04/55/ad/0455ad9b-ab5a-587e-24c9-777e04503b97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "九霄仙府",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "九霄仙府"
+      }
+    },
+    "萌靈大冒險": {
+      "appIds": {
+        "ios": 6813438689
+      },
+      "aliases": [],
+      "developer": "HALE CHOU PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/bd/7a/34bd7ad6-650a-ec20-50cc-00a24ddc5f7d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "萌靈大冒險",
+        "en": "Beasts Adventure",
+        "ja": "萌靈大冒險",
+        "zh-tw": "萌靈大冒險"
+      }
     }
   },
-  "lastUpdated": "2026-11-18",
-  "totalGames": 9405
+  "lastUpdated": "2026-11-19",
+  "totalGames": 9410
 }
