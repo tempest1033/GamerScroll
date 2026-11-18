@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51870,6 +51870,41 @@
         }
       ],
       "addedAt": "2026-11-18T03:03:21.372Z"
+    },
+    {
+      "title": "Farout - Daily Trivia Dive",
+      "status": "single",
+      "appIds": {
+        "ios": 6813899322
+      },
+      "developer": "Code Stellar LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/90/95/e8909530-c15f-5b2f-a85a-8f3a29249f54/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T07:03:05.571Z"
+    },
+    {
+      "title": "블레이드 Ⅱ",
+      "status": "single",
+      "appIds": {
+        "android": "com.kunyu.blade.gp"
+      },
+      "developer": "kunyu studio",
+      "icon": "https://play-lh.googleusercontent.com/JAAIXf30045PzEBOIraCqGUIVoWV20yE2-LAE3P1t_W7XJvdyKkoZccLRBuGtHX5JGJkKwHq3_A4SwI9B5H7ww",
+      "searchResults": [
+        {
+          "title": "Tap Titans 2:  레전드 키우기. 클리커 게임",
+          "appId": 1120294802
+        },
+        {
+          "title": "Royal Revolt 2: 타워 디펜스",
+          "appId": 705211891
+        },
+        {
+          "title": "이노티아 4 PLUS (Inotia 4 PLUS)",
+          "appId": 494792913
+        }
+      ],
+      "addedAt": "2026-11-18T07:03:07.884Z"
     }
   ],
   "approved": [

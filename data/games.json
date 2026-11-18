@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160075,8 +160075,76 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Farout - Daily Trivia Dive": {
+      "appIds": {
+        "ios": 6813899322
+      },
+      "aliases": [],
+      "developer": "Code Stellar LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e8/90/95/e8909530-c15f-5b2f-a85a-8f3a29249f54/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "farout-daily-trivia-dive",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Farout - Daily Trivia Dive",
+        "en": "Farout - Daily Trivia Dive",
+        "ja": "Farout - Daily Trivia Dive",
+        "zh-tw": "Farout - Daily Trivia Dive"
+      }
+    },
+    "斗罗大陆：诛邪传说": {
+      "appIds": {
+        "ios_cn": 6748218382
+      },
+      "aliases": [],
+      "developer": "Guangzhou Zhongxu Shuke Information Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c6/81/50/c68150e5-2200-6743-93a0-58d12ba2a9bb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "斗罗大陆诛邪传说",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "斗罗大陆：诛邪传说"
+      }
+    },
+    "圈圈圆圆圈圈": {
+      "appIds": {
+        "ios_cn": 6828849712
+      },
+      "aliases": [],
+      "developer": "梦梅 涂",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/60/53/d1605351-fad4-b554-cfdf-2e7113ff97e8/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "圈圈圆圆圈圈",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "圈圈圆圆圈圈",
+        "ja": "圈圈圆圆圈圈",
+        "zh-cn": "圈圈圆圆圈圈",
+        "zh-tw": "圈圈圆圆圈圈"
+      }
+    },
+    "블레이드 Ⅱ": {
+      "appIds": {
+        "android": "com.kunyu.blade.gp"
+      },
+      "aliases": [],
+      "developer": "kunyu studio",
+      "icon": "https://play-lh.googleusercontent.com/JAAIXf30045PzEBOIraCqGUIVoWV20yE2-LAE3P1t_W7XJvdyKkoZccLRBuGtHX5JGJkKwHq3_A4SwI9B5H7ww",
+      "slug": "블레이드",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "블레이드 Ⅱ",
+        "ja": "ブレイド Ⅱ",
+        "zh-tw": "刀鋒戰記 2"
+      }
     }
   },
   "lastUpdated": "2026-11-18",
-  "totalGames": 9394
+  "totalGames": 9398
 }
