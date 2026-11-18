@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52015,6 +52015,67 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/bd/7a/34bd7ad6-650a-ec20-50cc-00a24ddc5f7d/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-18T15:03:49.043Z"
+    },
+    {
+      "title": "Line Loops - 로직 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 1450715951
+      },
+      "developer": "Final Game Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/fa/39/80/fa3980a7-f474-efcf-d294-73108eef29a0/AppIcon-0-1x_U007emarketing-0-85-220-0-7.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T19:03:15.281Z"
+    },
+    {
+      "title": "PuzzleGym",
+      "status": "single",
+      "appIds": {
+        "ios": 6768370206
+      },
+      "developer": "Atanas Georgiev",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/b6/cb/80b6cbae-f76b-4a43-fc58-0e5efd5e63c1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T19:03:15.501Z"
+    },
+    {
+      "title": "天平找球",
+      "status": "single",
+      "appIds": {
+        "ios": 6826234010
+      },
+      "developer": "Harvey Newman Chandler",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/20/be/6a20bea2-7ab8-cd8a-77fa-23225656f7b4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T19:03:16.219Z"
+    },
+    {
+      "title": "Mafia City RP:Grand Open World",
+      "status": "single",
+      "appIds": {
+        "ios": 6803818063
+      },
+      "developer": "Ngoc vinh trading service company limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/34/3a/bc/343abcae-78c1-9162-873e-8cb31599b2b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T19:03:16.571Z"
+    },
+    {
+      "title": "Match Masters",
+      "status": "matched",
+      "appIds": {
+        "android": "com.funtomic.matchmasters",
+        "ios": 1138264921
+      },
+      "developer": "Candivore",
+      "icon": "https://play-lh.googleusercontent.com/UZhXVbf8ViUq04c7ncQuR3CPf7GC4Y6c6gBU0OuepjrK_QUDlY-oIL03nEBCQdEm_EbaDx8cL4xDxRqWR70rgA",
+      "searchResults": [
+        {
+          "title": "Match Masters",
+          "appId": "com.funtomic.matchmasters"
+        }
+      ],
+      "addedAt": "2026-11-18T19:03:16.838Z"
     }
   ],
   "approved": [

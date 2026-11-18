@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -68053,14 +68053,16 @@
     },
     "Match Masters": {
       "appIds": {
-        "android": "com.funtomic.matchmasters"
+        "android": "com.funtomic.matchmasters",
+        "ios": 1138264921
       },
       "aliases": [],
       "developer": "Candivore",
       "icon": "https://play-lh.googleusercontent.com/UZhXVbf8ViUq04c7ncQuR3CPf7GC4Y6c6gBU0OuepjrK_QUDlY-oIL03nEBCQdEm_EbaDx8cL4xDxRqWR70rgA",
       "slug": "match-masters",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "Match Masters",
@@ -70232,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160341,8 +160343,82 @@
         "ja": "萌靈大冒險",
         "zh-tw": "萌靈大冒險"
       }
+    },
+    "Line Loops - 로직 퍼즐": {
+      "appIds": {
+        "ios": 1450715951
+      },
+      "aliases": [],
+      "developer": "Final Game Studio",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple123/v4/fa/39/80/fa3980a7-f474-efcf-d294-73108eef29a0/AppIcon-0-1x_U007emarketing-0-85-220-0-7.png/512x512bb.jpg",
+      "slug": "line-loops-로직-퍼즐",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Line Loops - 로직 퍼즐",
+        "en": "Line Loops - Logic Puzzles",
+        "ja": "Line Loops - ロジックパズル",
+        "zh-tw": "Line Loops - 邏輯解謎"
+      }
+    },
+    "PuzzleGym": {
+      "appIds": {
+        "ios": 6768370206
+      },
+      "aliases": [],
+      "developer": "Atanas Georgiev",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/b6/cb/80b6cbae-f76b-4a43-fc58-0e5efd5e63c1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "puzzlegym",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "PuzzleGym",
+        "en": "PuzzleGym",
+        "ja": "PuzzleGym",
+        "zh-tw": "PuzzleGym"
+      }
+    },
+    "天平找球": {
+      "appIds": {
+        "ios": 6826234010
+      },
+      "aliases": [],
+      "developer": "Harvey Newman Chandler",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/20/be/6a20bea2-7ab8-cd8a-77fa-23225656f7b4/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "天平找球",
+        "en": "天平找球",
+        "ja": "天平找球",
+        "zh-cn": "天平找球",
+        "zh-tw": "天平找球"
+      }
+    },
+    "Mafia City RP:Grand Open World": {
+      "appIds": {
+        "ios": 6803818063
+      },
+      "aliases": [],
+      "developer": "Ngoc vinh trading service company limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/34/3a/bc/343abcae-78c1-9162-873e-8cb31599b2b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mafia-city-rpgrand-open-world",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Mafia City RP:Grand Open World",
+        "en": "Mafia City RP:Grand Open World",
+        "ja": "Mafia City RP:Grand Open World",
+        "zh-cn": "Mafia City RP:Grand Open World",
+        "zh-tw": "Mafia City RP:Grand Open World"
+      }
     }
   },
   "lastUpdated": "2026-11-19",
-  "totalGames": 9410
+  "totalGames": 9414
 }

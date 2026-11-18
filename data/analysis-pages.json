@@ -258,13 +258,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "battle-in-hells-paradise": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "battle-night": [
   "en",
   "ja",
@@ -665,6 +658,13 @@
   "zh-tw"
  ],
  "com-egsl-zhy-gp1": [
+  "en",
+  "ja",
+  "ko",
+  "zh-cn",
+  "zh-tw"
+ ],
+ "com-gamebeans-gp-lzgwy": [
   "en",
   "ja",
   "ko",
@@ -2422,6 +2422,13 @@
   "zh-tw"
  ],
  "mah-jong-fight-club-sp": [
+  "en",
+  "ja",
+  "ko",
+  "zh-cn",
+  "zh-tw"
+ ],
+ "mahjong-soul": [
   "en",
   "ja",
   "ko",
@@ -12123,13 +12130,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "더-디비전-리서전스": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "더-스파이크-크로스": [
   "en",
   "ja",
@@ -13978,13 +13978,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "엘트릭스": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "엠파이어-퍼즐-empires-puzzles": [
   "en",
   "ja",
@@ -14966,6 +14959,13 @@
   "zh-tw"
  ],
  "티니핑-매직-매치": [
+  "en",
+  "ja",
+  "ko",
+  "zh-cn",
+  "zh-tw"
+ ],
+ "팀빨협동전-협동-영웅-디펜스": [
   "en",
   "ja",
   "ko",
