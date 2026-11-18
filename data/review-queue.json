@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51905,6 +51905,83 @@
         }
       ],
       "addedAt": "2026-11-18T07:03:07.884Z"
+    },
+    {
+      "title": "건담 슈프림 배틀",
+      "status": "single",
+      "appIds": {
+        "ios": "1510301054"
+      },
+      "developer": "",
+      "icon": "",
+      "searchResults": [],
+      "addedAt": "2026-11-18T11:03:06.622Z"
+    },
+    {
+      "title": "【최애의 아이】Puzzle Star",
+      "status": "single",
+      "appIds": {
+        "ios": 6756870726
+      },
+      "developer": "NHN Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cb/ed/6d/cbed6ddc-2a04-213b-f91e-e6440c9fb578/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T11:03:07.442Z"
+    },
+    {
+      "title": "Dream Digital Quest",
+      "status": "single",
+      "appIds": {
+        "ios": 6820408214
+      },
+      "developer": "Sugust Nathaniel Carter",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/03/a4/15/03a415df-d51f-d83c-bec6-abea28f8bdb8/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T11:03:07.747Z"
+    },
+    {
+      "title": "슬리더링크 – 루프 퍼즐",
+      "status": "single",
+      "appIds": {
+        "ios": 6797521877
+      },
+      "developer": "Byeongjin Lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d1/31/20/d13120d1-3f58-c5a8-54d9-78e0b3e9856a/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T11:03:08.023Z"
+    },
+    {
+      "title": "대통령 키우기 - pixel politics",
+      "status": "single",
+      "appIds": {
+        "ios": 6792765645
+      },
+      "developer": "ODD DUCK Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/1e/ff/631eff92-f433-ce84-abe1-c57da656a206/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T11:03:08.305Z"
+    },
+    {
+      "title": "Crowd Bus Flow!",
+      "status": "single",
+      "appIds": {
+        "ios": 6826128035
+      },
+      "developer": "Superboost Soft Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/99/99/3b/99993bf8-50fa-965e-8580-a13d873dd53f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T11:03:08.749Z"
+    },
+    {
+      "title": "我的貓 MyCat",
+      "status": "single",
+      "appIds": {
+        "ios": 6781109604
+      },
+      "developer": "Creamfly Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a0/1b/0b/a01b0bab-7ae9-d6be-4529-2c1b1203e8de/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T11:03:09.649Z"
     }
   ],
   "approved": [
