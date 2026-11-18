@@ -70232,7 +70232,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159621,14 +159621,16 @@
     },
     "王國W：血盟之誓": {
       "appIds": {
-        "ios_tw": "6792606804"
+        "ios_tw": "6792606804",
+        "android_tw": "com.hg.kingdom2.gl"
       },
       "aliases": [],
       "developer": "HUNT GAMES COMPANY LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/17/2f/4c/172f4ca8-20e7-c899-7ca4-845f4ab08a25/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "王國w血盟之誓",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "zh-tw": "王國W：血盟之誓"
@@ -160007,8 +160009,74 @@
         "zh-cn": "GTA 5 Mobile Multiplayer 2022",
         "zh-tw": "GTA 5 Mobile Multiplayer 2022"
       }
+    },
+    "Football Head Coach 27 NFL PA": {
+      "appIds": {
+        "android": "com.gamebasics.afm"
+      },
+      "aliases": [],
+      "developer": "Gamebasics BV",
+      "icon": "https://play-lh.googleusercontent.com/e2osjT23SwMr5zAWR2nXYqtzIGZPoArEImwi6JQGkboXIu-lxKLV8r-PovLWHVGhBsMuCf6FqTH5xvYZBJt447k",
+      "slug": "football-head-coach-27-nfl-pa",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Football Head Coach 27 NFL PA",
+        "en": "Football Head Coach 27 NFL PA",
+        "ja": "Football Head Coach 27 NFL PA",
+        "zh-tw": "Football Head Coach 27 NFL PA"
+      }
+    },
+    "훠이훠이 요괴! 로그라이크 디펜스 RPG": {
+      "appIds": {
+        "android": "com.pongvn.tg"
+      },
+      "aliases": [],
+      "developer": "Pong Studio Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/U5YSaxOKEHEpl2a8xzeCBhyuP2OT2iqMfTp50k3LgP4syfTGjwuO00Y-xU2W7Io2rvygVJ_JLnt8xfF0Fb3yGg",
+      "slug": "훠이훠이-요괴-로그라이크-디펜스-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "훠이훠이 요괴! 로그라이크 디펜스 RPG",
+        "en": "Shooo Yokai: Roguelike TD RPG",
+        "ja": "シッシッ妖怪！ローグライク タワーディフェンス",
+        "zh-tw": "妖怪退退退！肉鴿塔防"
+      }
+    },
+    "Arrow Story: Home Design": {
+      "appIds": {
+        "android": "arrow.puzzle.maze.renovation.game"
+      },
+      "aliases": [],
+      "developer": "Wahoo Info",
+      "icon": "https://play-lh.googleusercontent.com/0z5t2pqzdUJPJawmITqFcc9HzKV_6JuW0IQB5Om__efLS6bdxw15CIem-tkbWezoZjpHieR32V6IlBECzOw",
+      "slug": "arrow-story-home-design",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Arrow Story: Home Design",
+        "en": "Arrow Story: Home Design",
+        "ja": "Arrow Story: Home Design",
+        "zh-tw": "Arrow Story: Home Design"
+      }
+    },
+    "Shin Megami Tensei V: Vengeance": {
+      "appIds": {
+        "steam": "1875830"
+      },
+      "aliases": [],
+      "developer": "ATLUS",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1875830/capsule_231x87.jpg?t=1763530264",
+      "slug": "shin-megami-tensei-v-vengeance",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-18",
-  "totalGames": 9390
+  "totalGames": 9394
 }

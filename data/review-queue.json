@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51819,6 +51819,57 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/69/f9/7b/69f97b67-79bd-e4dc-01df-954152b725a1/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-17T23:02:53.713Z"
+    },
+    {
+      "title": "Football Head Coach 27 NFL PA",
+      "status": "single",
+      "appIds": {
+        "android": "com.gamebasics.afm"
+      },
+      "developer": "Gamebasics BV",
+      "icon": "https://play-lh.googleusercontent.com/e2osjT23SwMr5zAWR2nXYqtzIGZPoArEImwi6JQGkboXIu-lxKLV8r-PovLWHVGhBsMuCf6FqTH5xvYZBJt447k",
+      "searchResults": [
+        {
+          "title": "Football Head Coach 27 - FHC",
+          "appId": 1566854514
+        },
+        {
+          "title": "Madden NFL 27 Mobile Football",
+          "appId": 1512265589
+        },
+        {
+          "title": "NBA 2K Mobile 농구 게임",
+          "appId": 1252850847
+        }
+      ],
+      "addedAt": "2026-11-18T03:03:19.185Z"
+    },
+    {
+      "title": "훠이훠이 요괴! 로그라이크 디펜스 RPG",
+      "status": "single",
+      "appIds": {
+        "android": "com.pongvn.tg"
+      },
+      "developer": "Pong Studio Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/U5YSaxOKEHEpl2a8xzeCBhyuP2OT2iqMfTp50k3LgP4syfTGjwuO00Y-xU2W7Io2rvygVJ_JLnt8xfF0Fb3yGg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T03:03:20.497Z"
+    },
+    {
+      "title": "Arrow Story: Home Design",
+      "status": "single",
+      "appIds": {
+        "android": "arrow.puzzle.maze.renovation.game"
+      },
+      "developer": "Wahoo Info",
+      "icon": "https://play-lh.googleusercontent.com/0z5t2pqzdUJPJawmITqFcc9HzKV_6JuW0IQB5Om__efLS6bdxw15CIem-tkbWezoZjpHieR32V6IlBECzOw",
+      "searchResults": [
+        {
+          "title": "Framelo: Video to Photos",
+          "appId": 6763205267
+        }
+      ],
+      "addedAt": "2026-11-18T03:03:21.372Z"
     }
   ],
   "approved": [
