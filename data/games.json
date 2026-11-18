@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160417,8 +160417,57 @@
         "zh-cn": "Mafia City RP:Grand Open World",
         "zh-tw": "Mafia City RP:Grand Open World"
       }
+    },
+    "SpinQuest Casino": {
+      "appIds": {
+        "ios_us": 6755833223
+      },
+      "aliases": [],
+      "developer": "social gaming room llc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/33/15/fc331519-4ff0-e3dc-bdcb-4475e39716ce/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "spinquest-casino",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "SpinQuest Casino"
+      }
+    },
+    "萌混成仙": {
+      "appIds": {
+        "ios_tw": 6807615301
+      },
+      "aliases": [],
+      "developer": "SPGame Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/8b/c3/c48bc3ca-49cd-d558-dd07-a9e42df20e66/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "萌混成仙",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "萌混成仙"
+      }
+    },
+    "Slitherlink - Classic": {
+      "appIds": {
+        "ios": 1553493828
+      },
+      "aliases": [],
+      "developer": "其跃 吴",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/c2/99/78/c2997802-7794-d4d2-4167-c2ba07db09ac/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "slitherlink-classic",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Slitherlink - Classic",
+        "en": "Slitherlink - Classic",
+        "ja": "Slitherlink - Classic",
+        "zh-cn": "数回 - 数独 进阶版",
+        "zh-tw": "Slitherlink - Classic"
+      }
     }
   },
   "lastUpdated": "2026-11-19",
-  "totalGames": 9414
+  "totalGames": 9417
 }

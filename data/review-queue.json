@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52076,6 +52076,17 @@
         }
       ],
       "addedAt": "2026-11-18T19:03:16.838Z"
+    },
+    {
+      "title": "Slitherlink - Classic",
+      "status": "single",
+      "appIds": {
+        "ios": 1553493828
+      },
+      "developer": "其跃 吴",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/c2/99/78/c2997802-7794-d4d2-4167-c2ba07db09ac/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-18T23:03:06.983Z"
     }
   ],
   "approved": [
