@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -159692,16 +159692,19 @@
     },
     "スヌーピー ゲームズ ～サクッと脳トレパズル": {
       "appIds": {
-        "ios_jp": 6797800901
+        "ios_jp": 6797800901,
+        "android": "jp.txcom.snoopy.minigames"
       },
       "aliases": [],
       "developer": "TV TOKYO Communications Corporation",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/9b/65/069b65bc-57b8-6ee1-59d7-78eb3be5a0da/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "スヌーピー-ゲームズ-サクッと脳トレパズル",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "スヌーピー ゲームズ ～サクッと脳トレパズル",
         "ja": "スヌーピー ゲームズ ～サクッと脳トレパズル"
       }
     },
