@@ -2848,6 +2848,7 @@ function wrapWithLayout(content, options = {}) {
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
     articleSection = '',  // article:section OG 메타 (자동 추론 가능)
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
+    alternateEditions = null,  // hreflang에 올릴 에디션 코드 (null = 페이지가 있는 모든 에디션)
     breadcrumbs = null,  // BreadcrumbList JSON-LD
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용)
     cssFilename = getCssFilename(),  // 기본 CSS 파일명 (전역 설정 사용)
@@ -2920,7 +2921,7 @@ function wrapWithLayout(content, options = {}) {
   const html = `<!DOCTYPE html>
 <html lang="${currentEdition().htmlLang}">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage, usesWsrv: /wsrv\.nl/.test(pageSource), steamImageHost })}
+  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, alternateEditions, breadcrumbs, softwareSchema, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage, usesWsrv: /wsrv\.nl/.test(pageSource), steamImageHost })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>

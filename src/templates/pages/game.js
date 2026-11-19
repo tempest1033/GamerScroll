@@ -5,7 +5,7 @@
  * Node 와 Workers 런타임에서 똑같이 동작한다. 입력은 docs/games-data/<slug>.json 한 개와 공용 _meta.json 이다.
  */
 
-const { t, currentEdition, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
+const { t, currentEdition, EDITIONS, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
@@ -351,8 +351,9 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     })();
   </script>`;
 
-  // 순위 이력이 30일 미만이고 지금 어떤 차트에도 없으면 noindex (thin content 방지). 사이트맵·게임 허브와 같은 규칙(isIndexableGame).
-  const indexable = isIndexableGame(rank, game.charting, meta);
+  // 이 에디션 시장의 순위 이력이 30일 미만이고 지금 그 시장 차트·스팀 차트에도 없으면 noindex (thin content 방지). 사이트맵·게임 허브와 같은 규칙(isIndexableGame).
+  const indexableEditions = EDITIONS.filter((e) => isIndexableGame(rank, Boolean(game.steam), meta, e.country)).map((e) => e.code);
+  const indexable = indexableEditions.includes(edition.code);
 
   // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎
   const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: plainName });
@@ -382,6 +383,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     canonical: canonicalUrl,
     pageScripts,
     noindex: previewEnabled || !indexable,
+    alternateEditions: indexableEditions,
     breadcrumbs: [
       { name: t('game.home'), url: `${siteBaseUrl}${href('/')}` },
       { name: t('game.games_db'), url: `${siteBaseUrl}${href('/games/')}` },

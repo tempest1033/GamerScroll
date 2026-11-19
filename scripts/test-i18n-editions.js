@@ -61,7 +61,16 @@ const canonicalOf = (html) => ((html.match(/<link\b[^>]*rel="canonical"[^>]*>/) 
           const links = hreflangLinks(html);
           // 나라별 페이지(/rankings/ 등)는 같은 나라 차트끼리 묶인다: i18n.alternatePath
           const altPath = (code) => require('../src/i18n').alternatePath(code, pagePath, edition.code);
-          const expected = [...EDITIONS.map((e) => ({ hreflang: e.hreflang, href: absoluteUrl(e.code, altPath(e.code)) })), { hreflang: 'x-default', href: absoluteUrl('en', altPath('en')) }]
+          // A game page is indexed only by the editions whose market knows the game: a noindex copy announces nothing,
+          // an indexed one names exactly the indexing editions.
+          const gamePage = /^\/games\/./.test(pagePath);
+          if (gamePage && /name="robots" content="noindex/.test(html)) {
+            assert.deepEqual(links, [], 'noindex game page announces no alternates');
+            return;
+          }
+          const listed = gamePage ? EDITIONS.filter((e) => links.some((l) => l.hreflang === e.hreflang)) : EDITIONS;
+          assert.ok(listed.includes(edition), 'hreflang names the page itself');
+          const expected = [...listed.map((e) => ({ hreflang: e.hreflang, href: absoluteUrl(e.code, altPath(e.code)) })), ...(listed.some((e) => e.code === 'en') ? [{ hreflang: 'x-default', href: absoluteUrl('en', altPath('en')) }] : [])]
             .sort((a, b) => a.hreflang.localeCompare(b.hreflang));
           assert.deepEqual(links, expected, 'hreflang set');
           for (const link of links) assert.ok(/^https:\/\/gamerscroll\.com\//.test(link.href), `absolute hreflang ${link.href}`);

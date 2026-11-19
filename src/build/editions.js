@@ -133,12 +133,16 @@ function buildEditions(ctx) {
   const rankDate = rankStats ? lastDate(rankStats.days) : null;
   // Games hub A-Z list: only the games whose page is indexable (isIndexableGame, the game sitemaps' rule). The other game pages stay
   // reachable through the hub search and the rank pages, without sending crawlers to thousands of noindex pages.
-  const hubSlugs = rankStats ? (() => {
-    const { rankSeries, summaryMeta, loadLatestSteam, steamLists, chartingNow } = require('./game-data');
+  const hubSlugsOf = rankStats ? (() => {
+    const { rankSeries, summaryMeta, loadLatestSteam, steamLists, steamMatch } = require('./game-data');
     const { isIndexableGame } = require('../templates/helpers/game-rank-summary');
     const meta = summaryMeta(rankStats);
     const lists = steamLists(loadLatestSteam(path.join(__dirname, '..', '..', 'history')));
-    return new Set(rankStats.games.filter((g) => g.slug && isIndexableGame({ s: rankSeries(rankStats, g.appIds) }, chartingNow(rankStats, g, lists), meta)).map((g) => g.slug));
+    const games = rankStats.games.filter((g) => g.slug).map((g) => {
+      const { mp, ts } = steamMatch(g, lists);
+      return { slug: g.slug, rank: { s: rankSeries(rankStats, g.appIds) }, onSteam: Boolean(mp || ts) };
+    });
+    return (country) => new Set(games.filter((g) => isIndexableGame(g.rank, g.onSteam, meta, country)).map((g) => g.slug));
   })() : null;
   const steamDate = steamStats ? lastDate(steamStats.days) : null;
   const homeDate = [rankDate, steamDate].filter(Boolean).sort().pop() || null;
@@ -211,7 +215,7 @@ function buildEditions(ctx) {
     const steamHtml = attempt('steam', () => m.steamHub.renderSteamHub())
       || attempt('steam (legacy)', () => m.steam.generateSteamPage({ ...data, cacheVersion: ctx.steamCacheVersion }));
     if (steamHtml) write('steam/index.html', steamHtml, '0.8', steamDate);
-    const hubHtml = attempt('games hub', () => m.gamesHub.generateGamesHubPage({ games: gamesData, popularGames: popularGames || [], searchIndexVersion: searchVersion, listedSlugs: hubSlugs }));
+    const hubHtml = attempt('games hub', () => m.gamesHub.generateGamesHubPage({ games: gamesData, popularGames: popularGames || [], searchIndexVersion: searchVersion, listedSlugs: hubSlugsOf && hubSlugsOf(edition.country) }));
     if (hubHtml) write('games/index.html', hubHtml, '0.8', rankDate);
     const notFoundHtml = attempt('404', () => m.notFound.generate404Page());
     if (notFoundHtml) write('404.html', notFoundHtml);

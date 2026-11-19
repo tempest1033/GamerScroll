@@ -80,7 +80,11 @@ const hreflangs = (html) => [...html.matchAll(/<link rel="alternate" hreflang="(
           if (!/name="robots" content="noindex/.test(first.body)) {
             const pagePath = `/games/${encodeURIComponent(slug)}/`;
             assert.equal(metaOf(first.body, /<link rel="canonical" href="([^"]+)"/), absoluteUrl(code, pagePath), 'self canonical');
-            assert.deepEqual(hreflangs(first.body), [...EDITIONS.map((e) => [e.hreflang, absoluteUrl(e.code, pagePath)]), ['x-default', absoluteUrl('en', pagePath)]], 'hreflang set');
+            // hreflang names the editions that index this game (its own among them), x-default with the English one.
+            const links = hreflangs(first.body);
+            const listed = EDITIONS.filter((e) => links.some(([lang]) => lang === e.hreflang));
+            assert.ok(listed.includes(edition), 'hreflang names the page itself');
+            assert.deepEqual(links, [...listed.map((e) => [e.hreflang, absoluteUrl(e.code, pagePath)]), ...(listed.some((e) => e.code === 'en') ? [['x-default', absoluteUrl('en', pagePath)]] : [])], 'hreflang set');
           }
           const second = await request(route);
           assert.equal(second.status, 200);

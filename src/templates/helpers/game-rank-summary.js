@@ -54,7 +54,6 @@ function countryDays(rank, c, length) {
 }
 
 // The edition's home country while it has a substantial chart history; otherwise the country with the most chart days.
-// Because of the fallback, "some country has >= 30 days" holds for exactly the editions' pages being indexable, i.e. for all or none.
 function pickCountry(rank, home, length) {
   if (countryDays(rank, home, length) >= INDEXABLE_DAYS) return home;
   let best = home, bestCount = countryDays(rank, home, length);
@@ -67,10 +66,18 @@ function summaryDays(rank, meta, home) {
   return rank ? countryDays(rank, pickCountry(rank, home, meta.days.length), meta.days.length) : 0;
 }
 
-// Whether a game's page is indexable, for every edition alike (pickCountry's fallback): 30+ chart days, or on a tracked
-// chart in the latest data (`charting`, src/build/game-data.js chartingNow). The game page's robots tag, the game sitemaps
-// and the games hub list all use it. rank needs only its daily series `s`.
-const isIndexableGame = (rank, charting, meta) => Boolean(charting) || summaryDays(rank, meta, 'kr') >= INDEXABLE_DAYS;
+// Whether a game's page is indexable in the edition whose home market is `home`: 30+ chart days in that market, on that
+// market's revenue chart in the latest data, or on a Steam list (`onSteam`; Steam charts have no market). An edition offers
+// search engines only the games its own market knows: the same page in a language whose market never charted the game is a
+// thin copy, and thousands of those kept Google from crawling any game page. The game page's robots tag and hreflang, the
+// game sitemaps and the games hub list all use it. rank needs only its daily series `s`.
+function isIndexableGame(rank, onSteam, meta, home) {
+  if (onSteam) return true;
+  if (!rank) return false;
+  const length = meta.days.length;
+  const onChartNow = Object.values(rank.s[home] || {}).some((e) => e.o + e.v.length === length);
+  return onChartNow || countryDays(rank, home, length) >= INDEXABLE_DAYS;
+}
 
 function renderGameRankSummary(rank, meta, name, home) {
   if (!rank) return null;

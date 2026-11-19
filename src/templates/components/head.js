@@ -23,6 +23,7 @@ function generateHead(options = {}) {
     breadcrumbs = null,  // BreadcrumbList JSON-LD [{name, url}]
     softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
+    alternateEditions = null,  // hreflang에 올릴 에디션 코드 (null = 페이지가 있는 모든 에디션). 일부 에디션만 색인되는 페이지용
     ogImage = '',
     preloadImage = null,  // LCP 이미지 preload {src, srcset, sizes} 또는 URL 문자열
     cssFilename = '/styles-core.css',  // 기본 CSS 파일명 (하위 호환)
@@ -80,8 +81,9 @@ function generateHead(options = {}) {
   const schemaBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
     ? breadcrumbs.map(item => ({ ...item, url: normalizeToCanonical(item.url) }))
     : null;
+  const hasAlternate = (code) => (alternateEditions ? alternateEditions.includes(code) : i18n.editionHasPage(code, pagePath));
   const alternateLink = editionMode && !noindex
-    ? [...i18n.EDITIONS.filter((e) => i18n.editionHasPage(e.code, pagePath)).map((e) => `<link rel="alternate" hreflang="${e.hreflang}" href="${i18n.absoluteUrl(e.code, i18n.alternatePath(e.code, pagePath, edition.code))}">`), ...(i18n.editionHasPage('en', pagePath) ? [`<link rel="alternate" hreflang="x-default" href="${i18n.absoluteUrl('en', i18n.alternatePath('en', pagePath, edition.code))}">`] : [])].join('\n  ')
+    ? [...i18n.EDITIONS.filter((e) => hasAlternate(e.code)).map((e) => `<link rel="alternate" hreflang="${e.hreflang}" href="${i18n.absoluteUrl(e.code, i18n.alternatePath(e.code, pagePath, edition.code))}">`), ...(hasAlternate('en') ? [`<link rel="alternate" hreflang="x-default" href="${i18n.absoluteUrl('en', i18n.alternatePath('en', pagePath, edition.code))}">`] : [])].join('\n  ')
     : '';
   const resolvedOgImage = escapeHtmlAttr(
     (typeof ogImage === 'string' && ogImage) ||

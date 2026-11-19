@@ -208,7 +208,7 @@ fs.mkdirSync(dataDir, { recursive: true });
 const written = new Set();
 const dataHash = crypto.createHash('md5');
 const searchIndex = [];
-const indexable = [];
+const indexable = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
 const lastmodBySlug = {};
 let rankedCount = 0, steamCount = 0, revenueCount = 0;
 const revenueBySlug = new Map();
@@ -265,8 +265,8 @@ for (const g of S.games) {
   if (ranked) rankedCount++;
   if (steam) steamCount++;
 
-  // 색인 허용은 에디션과 무관 (순위 이력 30일 이상 또는 지금 차트에 있음)
-  if (isIndexableGame(rank, charting, meta)) indexable.push(slug);
+  // 색인 허용은 에디션별 (그 에디션 시장의 순위 이력 30일 이상 · 지금 그 시장 차트에 있음 · 스팀 차트에 있음)
+  for (const e of i18n.EDITIONS) if (isIndexableGame(rank, Boolean(steam), meta, e.country)) indexable[e.code].push(slug);
   // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
   const dataDates = [
     ...(rank ? Object.values(rank.s).flatMap((stores) => Object.values(stores).map((e) => meta.days[e.o + e.v.length - 1])) : []),
@@ -321,7 +321,7 @@ for (const edition of i18n.EDITIONS) {
 }
 
 // ---------- 사이트맵 ----------
-const sitemapNames = writeGameSitemaps(docsDir, Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, indexable])), lastmodBySlug);
+const sitemapNames = writeGameSitemaps(docsDir, indexable, lastmodBySlug);
 writeSitemapIndex(docsDir);
 
 i18n.setEdition('ko');
@@ -339,5 +339,5 @@ if (serviceExports) {
 }
 console.log(`🧹 옛 정적 상세 디렉토리 ${removedDirs}개 제거`);
 console.log(`🔑 검색 인덱스 버전: ${searchIndexVersion}, 데이터 버전: ${version}`);
-console.log(`📍 사이트맵: 색인 허용 ${indexable.length}개 × ${i18n.EDITIONS.length}개 에디션 → ${sitemapNames.length}개 파일`);
+console.log(`📍 사이트맵: 색인 허용 ${i18n.EDITIONS.map((e) => `${e.code} ${indexable[e.code].length}`).join(' · ')} → ${sitemapNames.length}개 파일`);
 console.log(`📦 docs 파일 수: ${countFiles(docsDir)} (Cloudflare Pages Free 한도 20,000)`);
