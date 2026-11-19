@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160408,14 +160408,16 @@
     },
     "Mafia City RP:Grand Open World": {
       "appIds": {
-        "ios": 6803818063
+        "ios": 6803818063,
+        "android": "com.d24.rp.open.world.grand.gangster"
       },
       "aliases": [],
       "developer": "Ngoc vinh trading service company limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/34/3a/bc/343abcae-78c1-9162-873e-8cb31599b2b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "mafia-city-rpgrand-open-world",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Mafia City RP:Grand Open World",
@@ -160580,14 +160582,16 @@
     },
     "Tidy Room!": {
       "appIds": {
-        "ios": 6831317859
+        "ios": 6831317859,
+        "android": "com.CircleGames.TidyRoom"
       },
       "aliases": [],
       "developer": "Circle Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/95/d3/4195d307-6317-8089-982d-cc3761415973/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "tidy-room",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Tidy Room!",
@@ -160916,8 +160920,56 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Slice Away! - Physics Puzzle": {
+      "appIds": {
+        "ios_us": 6818054527
+      },
+      "aliases": [],
+      "developer": "PICKCEL GAMES OYUN VE YAZILIM ANONIM SIRKETI",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7f/6d/18/7f6d1873-d0a8-6741-2d6b-1016cb88117f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "slice-away-physics-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Slice Away! - Physics Puzzle"
+      }
+    },
+    "无尽宝藏": {
+      "appIds": {
+        "ios_cn": 6804922021
+      },
+      "aliases": [],
+      "developer": "Moli Games Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/6e/22/316e223c-2429-54ee-b9cc-7702fa722a60/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "无尽宝藏",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "无尽宝藏"
+      }
+    },
+    "我的盛唐时代": {
+      "appIds": {
+        "ios_cn": 6820919948
+      },
+      "aliases": [],
+      "developer": "明凯 尹",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/e7/7c/0be77cde-d448-f49d-0673-7dcfb1ba21d8/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "我的盛唐时代",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "我的盛唐时代",
+        "ja": "我的盛唐时代",
+        "zh-cn": "我的盛唐时代",
+        "zh-tw": "我的盛唐时代"
+      }
     }
   },
   "lastUpdated": "2026-11-20",
-  "totalGames": 9443
+  "totalGames": 9446
 }

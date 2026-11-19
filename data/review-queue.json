@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52051,13 +52051,19 @@
     },
     {
       "title": "Mafia City RP:Grand Open World",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6803818063
+        "ios": 6803818063,
+        "android": "com.d24.rp.open.world.grand.gangster"
       },
       "developer": "Ngoc vinh trading service company limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/34/3a/bc/343abcae-78c1-9162-873e-8cb31599b2b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Mafia City RP:Grand Open World",
+          "appId": 6803818063
+        }
+      ],
       "addedAt": "2026-11-18T19:03:16.571Z"
     },
     {
@@ -52171,13 +52177,19 @@
     },
     {
       "title": "Tidy Room!",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6831317859
+        "ios": 6831317859,
+        "android": "com.CircleGames.TidyRoom"
       },
       "developer": "Circle Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/95/d3/4195d307-6317-8089-982d-cc3761415973/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Tidy Room!",
+          "appId": 6831317859
+        }
+      ],
       "addedAt": "2026-11-19T11:02:42.700Z"
     },
     {
