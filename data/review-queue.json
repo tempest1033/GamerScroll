@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52168,6 +52168,86 @@
       "icon": "https://play-lh.googleusercontent.com/lDU_enKAcDIxrpGXoFN-H9K7srmOIrI1a1alXnURgkZ0TB2cJca-qUFcAhPuuSn40SK7rdwojMcr13k3lvq-cn0",
       "searchResults": [],
       "addedAt": "2026-11-19T07:03:01.457Z"
+    },
+    {
+      "title": "Tidy Room!",
+      "status": "single",
+      "appIds": {
+        "ios": 6831317859
+      },
+      "developer": "Circle Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/95/d3/4195d307-6317-8089-982d-cc3761415973/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T11:02:42.700Z"
+    },
+    {
+      "title": "GTA: Vice City – Definitive",
+      "status": "single",
+      "appIds": {
+        "ios": 6468845173
+      },
+      "developer": "Rockstar Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a2/f9/85/a2f98568-b585-479e-fcc7-db9c6291fd64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T11:02:43.029Z"
+    },
+    {
+      "title": "サッカー監督になろう",
+      "status": "single",
+      "appIds": {
+        "ios": 6832129123
+      },
+      "developer": "Kakeru Yoshinaga",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d9/28/aa/d928aae5-0e23-c981-715c-e0b595922e4c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T11:02:43.988Z"
+    },
+    {
+      "title": "Cruise Chefs - Cooking Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6751276002
+      },
+      "developer": "Nordcurrent UAB",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/ab/a9/a8aba932-24a8-807c-ca7a-08663bf2b383/AppIcon-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T11:02:44.941Z"
+    },
+    {
+      "title": "Tidy House: 숨은그림찾기와 정리 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "find.tidy.house.sort.puzzle.game"
+      },
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/WHoD2Ww9t52Ioot6KVn3W7EM21D-TrIS2P0G-Hj6NnXGIn1VLe_N_Rn517GfPxnlgaNqQ13niMzeq3jCoehSag",
+      "searchResults": [],
+      "addedAt": "2026-11-19T11:02:45.376Z"
+    },
+    {
+      "title": "名將大亂鬥",
+      "status": "matched",
+      "appIds": {
+        "android": "com.yuegame.fight",
+        "ios": 6832493726
+      },
+      "developer": "yuegame",
+      "icon": "https://play-lh.googleusercontent.com/xqX6XudmuDO-stdHwTBjSxK6Xec2mdh23ziTLsACE8LHeuNI_53g72211yt1E9uHv7G89gFHj0GFlvXpdAqjaKg",
+      "searchResults": [
+        {
+          "title": "名將大亂鬥",
+          "appId": 6832493726
+        },
+        {
+          "title": "热血街机堂—超神英雄大乱斗,8090经典回忆全集合",
+          "appId": 967714240
+        },
+        {
+          "title": "欢乐小蛇斗虫虫",
+          "appId": 1257495835
+        }
+      ],
+      "addedAt": "2026-11-19T11:02:45.748Z"
     }
   ],
   "approved": [

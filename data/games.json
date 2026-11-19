@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -72446,14 +72446,16 @@
     },
     "小帥2：再見小美": {
       "appIds": {
-        "android": "com.speed.shuaitwo.twa"
+        "android": "com.speed.shuaitwo.twa",
+        "ios_tw": 6800217831
       },
       "aliases": [],
       "developer": "Qian Yue Game",
       "icon": "https://play-lh.googleusercontent.com/cVQxupsjkNCSNmomZjMnGv2RInI2JqpgQX9iA4N1seUy_4imFfdk1TAd6lmjYzAaBfXz-0VsMG1G5rgKLi4Rkzo",
       "slug": "小帥2再見小美",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "zh-tw": "小帥2：再見小美"
@@ -160572,8 +160574,164 @@
         "ko": "雷索納斯",
         "zh-tw": "雷索納斯"
       }
+    },
+    "Tidy Room!": {
+      "appIds": {
+        "ios": 6831317859
+      },
+      "aliases": [],
+      "developer": "Circle Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/41/95/d3/4195d307-6317-8089-982d-cc3761415973/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "tidy-room",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Tidy Room!",
+        "en": "Tidy Room!",
+        "ja": "Tidy Room!",
+        "zh-tw": "Tidy Room!"
+      }
+    },
+    "GTA: Vice City – Definitive": {
+      "appIds": {
+        "ios": 6468845173
+      },
+      "aliases": [],
+      "developer": "Rockstar Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a2/f9/85/a2f98568-b585-479e-fcc7-db9c6291fd64/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "gta-vice-city-definitive",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "GTA: Vice City – Definitive",
+        "en": "GTA: Vice City – Definitive",
+        "ja": "GTA: Vice City – Definitive",
+        "zh-tw": "GTA: Vice City – Definitive"
+      }
+    },
+    "GTA: Liberty City Stories": {
+      "appIds": {
+        "ios_us": 1061802598
+      },
+      "aliases": [],
+      "developer": "Rockstar Games, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8a/cf/10/8acf1055-b46f-2ac5-04d7-93f6275c6252/AppIcon-0-0-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "gta-liberty-city-stories",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "GTA: Liberty City Stories",
+        "ja": "GTA: Liberty City Stories",
+        "zh-tw": "GTA: Liberty City Stories"
+      }
+    },
+    "サッカー監督になろう": {
+      "appIds": {
+        "ios": 6832129123
+      },
+      "aliases": [],
+      "developer": "Kakeru Yoshinaga",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d9/28/aa/d928aae5-0e23-c981-715c-e0b595922e4c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "サッカー監督になろう",
+        "en": "Soccer Manager Career",
+        "ja": "サッカー監督になろう",
+        "zh-tw": "サッカー監督になろう"
+      }
+    },
+    "逗陣打麻將": {
+      "appIds": {
+        "ios_tw": 6822638745
+      },
+      "aliases": [],
+      "developer": "HE SHENG DIGITAL TECHNOLOGY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/80/3e/4a/803e4a67-5f18-bba8-5e04-646868827474/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "逗陣打麻將",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "逗陣打麻將",
+        "ja": "逗陣打麻將",
+        "zh-tw": "逗陣打麻將"
+      }
+    },
+    "Cruise Chefs - Cooking Game": {
+      "appIds": {
+        "ios": 6751276002
+      },
+      "aliases": [],
+      "developer": "Nordcurrent UAB",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/ab/a9/a8aba932-24a8-807c-ca7a-08663bf2b383/AppIcon-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "cruise-chefs-cooking-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Cruise Chefs - Cooking Game",
+        "en": "Cruise Chefs - Cooking Game",
+        "ja": "Cruise Chefs - Cooking Game",
+        "zh-tw": "Cruise Chefs - Cooking Game"
+      }
+    },
+    "Tidy House: 숨은그림찾기와 정리 퍼즐": {
+      "appIds": {
+        "android": "find.tidy.house.sort.puzzle.game"
+      },
+      "aliases": [],
+      "developer": "Shycheese",
+      "icon": "https://play-lh.googleusercontent.com/WHoD2Ww9t52Ioot6KVn3W7EM21D-TrIS2P0G-Hj6NnXGIn1VLe_N_Rn517GfPxnlgaNqQ13niMzeq3jCoehSag",
+      "slug": "tidy-house-숨은그림찾기와-정리-퍼즐",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Tidy House: 숨은그림찾기와 정리 퍼즐",
+        "en": "Tidy House: Find Objects",
+        "ja": "Tidy House: アイテム探しと整理整頓ゲーム",
+        "zh-tw": "Tidy House: Find Objects"
+      }
+    },
+    "名將大亂鬥": {
+      "appIds": {
+        "android": "com.yuegame.fight",
+        "ios": 6832493726
+      },
+      "aliases": [],
+      "developer": "yuegame",
+      "icon": "https://play-lh.googleusercontent.com/xqX6XudmuDO-stdHwTBjSxK6Xec2mdh23ziTLsACE8LHeuNI_53g72211yt1E9uHv7G89gFHj0GFlvXpdAqjaKg",
+      "slug": "",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "名將大亂鬥",
+        "en": "名將大亂鬥",
+        "ja": "名將大亂鬥",
+        "zh-tw": "名將大亂鬥"
+      }
+    },
+    "Round and Round Inc.": {
+      "appIds": {
+        "steam": "5455960"
+      },
+      "aliases": [],
+      "developer": "Murbong",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5455960/0e7232053307c1728c4c96a0b0ade1ea767ba268/capsule_231x87.jpg?t=1794654377",
+      "slug": "round-and-round-inc",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-19",
-  "totalGames": 9423
+  "totalGames": 9432
 }
