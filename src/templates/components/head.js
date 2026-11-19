@@ -250,6 +250,9 @@ function generateHead(options = {}) {
 	  </style>
 	  <!-- AdSense: preload (preload scanner picks it up at first byte) + run only on gamerscroll.com (no ad impressions on localhost/preview hosts) -->${ADS_ENABLED ? `
 	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <!-- Offerwall (rewarded-ad wall) belongs to the metrics pages only: everywhere else suppress it, whatever the AdSense URL rule matches. Must be defined before the AdSense script loads. -->
+	  <script>(function () { var p = location.pathname; if (['', '/ko', '/ja', '/zh-cn', '/zh-tw'].some(function (e) { return p.indexOf(e + '/analysis/') === 0; })) return;
+	    var fc = window.googlefc = window.googlefc || {}; fc.controlledMessagingFunction = function (message) { message.proceed(false, [fc.MessageTypeEnum.OFFERWALL]); }; })();</script>
 	  <script>(function () { if (location.hostname !== 'gamerscroll.com') return; var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.fetchPriority = 'high'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825'; document.head.appendChild(s); })();</script>` : ''}
 	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->${(() => {
 	    const opt = preloadImage && typeof preloadImage === 'object'
