@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160442,16 +160442,19 @@
     },
     "萌混成仙": {
       "appIds": {
-        "ios_tw": 6807615301
+        "ios_tw": 6807615301,
+        "android": "com.vsix.gptw"
       },
       "aliases": [],
       "developer": "SPGame Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/8b/c3/c48bc3ca-49cd-d558-dd07-a9e42df20e66/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "萌混成仙",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "萌混成仙",
         "zh-tw": "萌混成仙"
       }
     },
@@ -160780,8 +160783,141 @@
       "names": {
         "zh-tw": "POP紀元：文明爆走中"
       }
+    },
+    "Arrowaze: 3D 나무 화살표 큐브 퍼즐": {
+      "appIds": {
+        "android": "block.maze.escape.out.puzzle",
+        "ios": 6810635056
+      },
+      "aliases": [],
+      "developer": "Higgs Studio",
+      "icon": "https://play-lh.googleusercontent.com/Pn-DIVH103mrmUb5gf-JUR7CihrcOWYLQzmlGVXkXS6nwlOqY7Cif-mmaNXUC15EBo9ypo6xsW-KC2SKvgPuJiQ",
+      "slug": "arrowaze-3d-나무-화살표-큐브-퍼즐",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Arrowaze: 3D 나무 화살표 큐브 퍼즐",
+        "en": "Arrowaze: 3D Wood Escape",
+        "ja": "Arrowaze: 3D 木製矢印キューブ パズル",
+        "zh-tw": "Arrowaze: 3D木製方塊箭矢逃脫 立體箭頭迷宮解謎"
+      }
+    },
+    "Sin Streets: Open World RPG": {
+      "appIds": {
+        "ios_us": 6748948029
+      },
+      "aliases": [],
+      "developer": "Pixelvoid Games Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/d3/c9/ebd3c9f0-baf0-65ee-80c7-269ebe7d5270/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "sin-streets-open-world-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Sin Streets: Open World RPG",
+        "ja": "Sin Streets: オープンワールド RPG 3D",
+        "zh-tw": "Sin Streets: Open World RPG"
+      }
+    },
+    "Cash Rings:  Rotate & Earn": {
+      "appIds": {
+        "android_jp": "com.casrings.rotate.earn"
+      },
+      "aliases": [],
+      "developer": "StatusWorld",
+      "icon": "https://play-lh.googleusercontent.com/8sGDIseeqk26gI1ra-CV7y_BVN53o-9MpLZGcL7MXbKdah7wRSPMFwNYBQWcBW9B9RsyVMIAp3baes-24XVHxQ",
+      "slug": "cash-rings-rotate-earn",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Cash Rings:  Rotate & Earn",
+        "ja": "Cash Rings:  Rotate & Earn"
+      }
+    },
+    "자동차 운전 도시 레이서 게임실제 주차 경주 시뮬레이터": {
+      "appIds": {
+        "ios": 6740703028
+      },
+      "aliases": [],
+      "developer": "Hamad Tanveer",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/2a/b5/862ab530-f465-1231-14c1-c333ab3f6e44/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "자동차-운전-도시-레이서-게임실제-주차-경주-시뮬레이터",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "자동차 운전 도시 레이서 게임실제 주차 경주 시뮬레이터",
+        "en": "Car Driving City Racer Games",
+        "ja": "カー ドライビング シティ レーサー ゲーム究極のスタント",
+        "zh-cn": "汽车驾驶城市街头赛车游戏：真实停车 Carx 赛车模拟器",
+        "zh-tw": "汽車駕駛城市街頭賽車遊戲：真實停車 Carx 賽車模擬器"
+      }
+    },
+    "Gangstar Vegas - Mafia action": {
+      "appIds": {
+        "ios_tw": 571393580
+      },
+      "aliases": [
+        "孤膽車神：維加斯 - 黑幫風雲"
+      ],
+      "developer": "Gameloft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6e/ef/84/6eef8428-a70c-73d1-944e-b8b626ef4ca4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "gangstar-vegas-mafia-action",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Gangstar Vegas - Mafia action",
+        "ja": "ギャングスター ベガス - マフィアアクション",
+        "zh-tw": "孤膽車神：維加斯 - 黑幫風雲"
+      }
+    },
+    "Hidden Objects Game: Find & Go": {
+      "appIds": {
+        "ios": 6772895198
+      },
+      "aliases": [],
+      "developer": "Guru Smart Holding Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/93/9a/07939aa1-ce97-f324-3b20-099451d5cec0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "hidden-objects-game-find-go",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Hidden Objects Game: Find & Go",
+        "en": "Hidden Objects Game: Find & Go",
+        "ja": "Hidden Objects Game: Find & Go",
+        "zh-tw": "Hidden Objects Game: Find & Go"
+      }
+    },
+    "Goddess Cultivation: Idle RPG": {
+      "appIds": {
+        "steam": "5179280"
+      },
+      "aliases": [],
+      "developer": "女神养成工作室",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5179280/e3e35c59664726c2142c3050b21f2a5ddab1e6b3/capsule_231x87.jpg?t=1793929859",
+      "slug": "goddess-cultivation-idle-rpg",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "WITCH ON THE HOLY NIGHT": {
+      "appIds": {
+        "steam": "2052410"
+      },
+      "aliases": [],
+      "developer": "TYPE-MOON",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2052410/capsule_231x87.jpg?t=1753952335",
+      "slug": "witch-on-the-holy-night",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-20",
-  "totalGames": 9435
+  "totalGames": 9443
 }

@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52270,6 +52270,45 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8d/6e/19/8d6e19b8-de18-a009-30c7-66c15463019c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-19T15:04:22.506Z"
+    },
+    {
+      "title": "Arrowaze: 3D 나무 화살표 큐브 퍼즐",
+      "status": "matched",
+      "appIds": {
+        "android": "block.maze.escape.out.puzzle",
+        "ios": 6810635056
+      },
+      "developer": "Higgs Studio",
+      "icon": "https://play-lh.googleusercontent.com/Pn-DIVH103mrmUb5gf-JUR7CihrcOWYLQzmlGVXkXS6nwlOqY7Cif-mmaNXUC15EBo9ypo6xsW-KC2SKvgPuJiQ",
+      "searchResults": [
+        {
+          "title": "Arrowaze: 3D 나무 화살표 큐브 퍼즐",
+          "appId": 6810635056
+        }
+      ],
+      "addedAt": "2026-11-19T19:03:22.710Z"
+    },
+    {
+      "title": "자동차 운전 도시 레이서 게임실제 주차 경주 시뮬레이터",
+      "status": "single",
+      "appIds": {
+        "ios": 6740703028
+      },
+      "developer": "Hamad Tanveer",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/2a/b5/862ab530-f465-1231-14c1-c333ab3f6e44/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T19:03:24.822Z"
+    },
+    {
+      "title": "Hidden Objects Game: Find & Go",
+      "status": "single",
+      "appIds": {
+        "ios": 6772895198
+      },
+      "developer": "Guru Smart Holding Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/93/9a/07939aa1-ce97-f324-3b20-099451d5cec0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T19:03:26.021Z"
     }
   ],
   "approved": [
