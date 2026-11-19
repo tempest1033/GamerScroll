@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52087,6 +52087,87 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/c2/99/78/c2997802-7794-d4d2-4167-c2ba07db09ac/AppIcon-1x_U007emarketing-0-7-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-18T23:03:06.983Z"
+    },
+    {
+      "title": "AfterRoom",
+      "status": "single",
+      "appIds": {
+        "ios": 6832176911
+      },
+      "developer": "Kawamata Koichiro",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/be/08/92be08be-1151-f559-e8c2-f206bcecdbde/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T07:02:57.895Z"
+    },
+    {
+      "title": "レゾナンス：無限号列車",
+      "status": "single",
+      "appIds": {
+        "android": "com.gameduchy.reso.jp.and"
+      },
+      "developer": "GAMEDUCHY LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/kJECof8Ltv7Le6EMU7HFcy5jLPulkUB7gW_Bw3p7A1-D0QvLxipyzvUPR1qM9LuYb4qgHzOCXBJgfKwtyk9_6Q",
+      "searchResults": [],
+      "addedAt": "2026-11-19T07:02:58.856Z"
+    },
+    {
+      "title": "修仙緣起-出魔入仙，為愛而戰",
+      "status": "single",
+      "appIds": {
+        "android": "com.xining.xxyq"
+      },
+      "developer": "3X Game",
+      "icon": "https://play-lh.googleusercontent.com/KcJL5u_wztzSaZvnWWuYjCCERPQ51DaFiKx9BJlYE6QH50k2IQA6_UUwMLKkHD4H5Fm35Wi3vPhiN0HOOfGjdg",
+      "searchResults": [
+        {
+          "title": "수련협객",
+          "appId": 6804947937
+        },
+        {
+          "title": "검선귀환-아시아 서버",
+          "appId": 6744726523
+        },
+        {
+          "title": "挂机修仙录 -仙侠类角色扮演挂机手游",
+          "appId": 1358045217
+        }
+      ],
+      "addedAt": "2026-11-19T07:03:00.605Z"
+    },
+    {
+      "title": "캔디 매치 버스터즈 - 매치 3",
+      "status": "single",
+      "appIds": {
+        "android": "com.bedreamy.candy.match.busters.free"
+      },
+      "developer": "Befunny",
+      "icon": "https://play-lh.googleusercontent.com/-8PzAk10NxPBHoYmL8Gp2dMQMF97aePEhEk_Z1t8avNuTi4LU175HY8cjezkkk3XyGXd5SVunhK77Cd5TbbIig",
+      "searchResults": [
+        {
+          "title": "사탕 달콤한 과일 시작 - 일치하는 3 퍼즐 팝",
+          "appId": 1050737557
+        },
+        {
+          "title": "Block Out! - Color Sort Puzzle",
+          "appId": 6752672568
+        },
+        {
+          "title": "Jewels Dragon Quest - Match 3",
+          "appId": 1494676181
+        }
+      ],
+      "addedAt": "2026-11-19T07:03:01.103Z"
+    },
+    {
+      "title": "雷索納斯",
+      "status": "single",
+      "appIds": {
+        "android": "tw.haoplay.game.and.reso"
+      },
+      "developer": "GAMEDUCHY LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/lDU_enKAcDIxrpGXoFN-H9K7srmOIrI1a1alXnURgkZ0TB2cJca-qUFcAhPuuSn40SK7rdwojMcr13k3lvq-cn0",
+      "searchResults": [],
+      "addedAt": "2026-11-19T07:03:01.457Z"
     }
   ],
   "approved": [
