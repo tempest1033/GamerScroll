@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52248,6 +52248,28 @@
         }
       ],
       "addedAt": "2026-11-19T11:02:45.748Z"
+    },
+    {
+      "title": "막다보니 천하통일",
+      "status": "single",
+      "appIds": {
+        "ios": 6788287421
+      },
+      "developer": "Neptune Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/cc/10/5fcc1036-f8e5-2718-0d66-687e2dddfd3c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T15:04:22.176Z"
+    },
+    {
+      "title": "Not Alone : Island Story",
+      "status": "single",
+      "appIds": {
+        "ios": 6802902816
+      },
+      "developer": "Modle Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8d/6e/19/8d6e19b8-de18-a009-30c7-66c15463019c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-19T15:04:22.506Z"
     }
   ],
   "approved": [

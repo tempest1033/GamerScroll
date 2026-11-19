@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T11:01:56.027Z",
+  "updatedAt": "2026-11-19T15:02:46.766Z",
   "period": "30days",
   "games": [
     {
@@ -7,19 +7,11 @@
       "views": 8
     },
     {
-      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
-      "views": 7
-    },
-    {
-      "slug": "pixel-flow",
-      "views": 6
-    },
-    {
-      "slug": "로드러쉬",
-      "views": 6
-    },
-    {
       "slug": "카오스-제로-나이트메어",
+      "views": 6
+    },
+    {
+      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
       "views": 6
     },
     {
@@ -27,11 +19,7 @@
       "views": 6
     },
     {
-      "slug": "arrow-pro-3d",
-      "views": 5
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
+      "slug": "monopoly-go-모노폴리-go",
       "views": 5
     },
     {
@@ -39,15 +27,15 @@
       "views": 5
     },
     {
-      "slug": "sakura-school-simulator",
+      "slug": "pixel-flow",
       "views": 5
     },
     {
-      "slug": "where-winds-meet",
+      "slug": "로드러쉬",
       "views": 5
     },
     {
-      "slug": "레이싱-마스터",
+      "slug": "쿠키런-키우기-쿠키런-크럼블",
       "views": 5
     },
     {
@@ -71,11 +59,23 @@
       "views": 4
     },
     {
+      "slug": "arrow-pro-3d",
+      "views": 4
+    },
+    {
       "slug": "barotrauma",
       "views": 4
     },
     {
       "slug": "geometry-dash-lite",
+      "views": 4
+    },
+    {
+      "slug": "go-go-고양이-홉핑",
+      "views": 4
+    },
+    {
+      "slug": "hero-siege",
       "views": 4
     }
   ]

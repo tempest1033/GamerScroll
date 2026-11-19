@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160730,8 +160730,58 @@
       "platforms": [
         "steam"
       ]
+    },
+    "막다보니 천하통일": {
+      "appIds": {
+        "ios": 6788287421
+      },
+      "aliases": [],
+      "developer": "Neptune Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/cc/10/5fcc1036-f8e5-2718-0d66-687e2dddfd3c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "막다보니-천하통일",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "막다보니 천하통일",
+        "en": "Tiny War: Kingdom Defense",
+        "ja": "出撃！キングダムディフェンス"
+      }
+    },
+    "Not Alone : Island Story": {
+      "appIds": {
+        "ios": 6802902816
+      },
+      "aliases": [],
+      "developer": "Modle Studios Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8d/6e/19/8d6e19b8-de18-a009-30c7-66c15463019c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "not-alone-island-story",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Not Alone : Island Story",
+        "en": "Not Alone : Island Story",
+        "ja": "Not Alone : 島の物語",
+        "zh-tw": "Not Alone : 島嶼物語"
+      }
+    },
+    "POP紀元：文明爆走中": {
+      "appIds": {
+        "ios_tw": 6804550548
+      },
+      "aliases": [],
+      "developer": "NexWave Tech Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/bb/8b/51bb8b01-aab3-8fb8-07cb-19b65d682f9c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "pop紀元文明爆走中",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "POP紀元：文明爆走中"
+      }
     }
   },
-  "lastUpdated": "2026-11-19",
-  "totalGames": 9432
+  "lastUpdated": "2026-11-20",
+  "totalGames": 9435
 }
