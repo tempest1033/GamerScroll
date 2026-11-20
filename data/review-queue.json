@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52489,6 +52489,17 @@
         }
       ],
       "addedAt": "2026-11-20T11:03:09.319Z"
+    },
+    {
+      "title": "템빨: 오버기어드",
+      "status": "single",
+      "appIds": {
+        "ios": 6673894896
+      },
+      "developer": "NEXON Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/8c/bc/738cbcec-9bb4-69bf-58c6-9b690bdc491d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-20T15:03:53.734Z"
     }
   ],
   "approved": [
