@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -161100,8 +161100,60 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Rise of Gangsters : Crime City": {
+      "appIds": {
+        "ios_us": 6657982308
+      },
+      "aliases": [],
+      "developer": "Hamad Tanveer",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/c9/4d/63c94dd3-5403-7c77-0153-941033daf5dd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "rise-of-gangsters-crime-city",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Rise of Gangsters : Crime City",
+        "ja": "リアルギャングスターマフィアウォーズクライムシティファイティ",
+        "zh-tw": "真實黑幫黑手黨戰爭：犯罪城市格鬥遊戲"
+      }
+    },
+    "搬砖达人:无限乐趣": {
+      "appIds": {
+        "ios_cn": 6824365803
+      },
+      "aliases": [],
+      "developer": "学源 庞",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f1/d2/cc/f1d2cc12-499d-e580-9169-77bbe72da67c/AppIcon-1x_U007ephone-0-1-0-85-220-0.png/512x512bb.jpg",
+      "slug": "搬砖达人无限乐趣",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "搬砖达人:无限乐趣",
+        "zh-cn": "搬砖达人:无限乐趣"
+      }
+    },
+    "Real Gangster World Theft Wars": {
+      "appIds": {
+        "ios": 6445958809
+      },
+      "aliases": [],
+      "developer": "Umair Khan",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/a5/98/31a5980c-e743-341d-5e77-8d926dee1017/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "real-gangster-world-theft-wars",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Real Gangster World Theft Wars",
+        "en": "Real Gangster World Theft Wars",
+        "ja": "Real Gangster World Theft Wars",
+        "zh-cn": "真正的大城市黑帮犯罪小镇世界盗窃战争开放世界汽车游戏",
+        "zh-tw": "真正的大城市黑幫犯罪小鎮世界盜竊戰爭開放世界汽車遊戲"
+      }
     }
   },
   "lastUpdated": "2026-11-20",
-  "totalGames": 9454
+  "totalGames": 9457
 }
