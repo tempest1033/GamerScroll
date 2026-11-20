@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -77214,7 +77214,8 @@
     },
     "MadOut 2: 온라인 게임 RP 자동차 월드": {
       "appIds": {
-        "android": "com.MadOut.BIG"
+        "android": "com.MadOut.BIG",
+        "ios": 1214765807
       },
       "aliases": [
         "MadOut 2: Grand Auto Racing"
@@ -77223,7 +77224,8 @@
       "icon": "https://play-lh.googleusercontent.com/XEIIdxxbpNWbF3smOhqsCg_YXYiVRxhAa8l0Z-p0UVVFpk8M55zEufhulT4dGKfQZbKkHSiLNp0GniYxDqRVIw",
       "slug": "madout-2-grand-auto-racing",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "MadOut 2: 온라인 게임 RP 자동차 월드",
@@ -160292,14 +160294,16 @@
     },
     "Minou - 미누와 뜨개질": {
       "appIds": {
-        "ios": 6830531773
+        "ios": 6830531773,
+        "android": "com.naroworks.minou"
       },
       "aliases": [],
       "developer": "Naroworks Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/d1/e3/53d1e38e-0467-f759-168e-c47648a686d1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "minou-미누와-뜨개질",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Minou - 미누와 뜨개질",
@@ -161283,14 +161287,16 @@
     },
     "템빨: 오버기어드": {
       "appIds": {
-        "ios": 6673894896
+        "ios": 6673894896,
+        "android": "com.nexon.overgeared"
       },
       "aliases": [],
       "developer": "NEXON Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/8c/bc/738cbcec-9bb4-69bf-58c6-9b690bdc491d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "템빨-오버기어드",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "템빨: 오버기어드",
@@ -161479,8 +161485,99 @@
         "ja": "Pixel Traffic Jam - Color Sort",
         "zh-tw": "Pixel Traffic Jam : Color Sort"
       }
+    },
+    "Satisday ASMR: Cozy Games": {
+      "appIds": {
+        "ios": 6504468996
+      },
+      "aliases": [],
+      "developer": "ICEBEAR., JSC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/88/04/eb88047f-2a44-e497-9dc5-5d6645fad4cc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "satisday-asmr-cozy-games",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Satisday ASMR: Cozy Games",
+        "en": "Satisday ASMR: Cozy Games",
+        "ja": "Satisday ASMR: Cozy Games",
+        "zh-tw": "Satisday ASMR: Cozy Games"
+      }
+    },
+    "창술사 키우기X : 방치형RPG": {
+      "appIds": {
+        "android": "com.dragonheart.spearknightrpg2",
+        "ios": 6808981771
+      },
+      "aliases": [],
+      "developer": "DragonHeart",
+      "icon": "https://play-lh.googleusercontent.com/FmnTukBFA3DDMfbLVwt9SuXrSEawSefBy3FxqafcVYkgesXSS7MOkIBqMQ-b5MYlW-9W_nULihBPrOd8gsSkPg",
+      "slug": "창술사-키우기x-방치형rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "창술사 키우기X : 방치형RPG"
+      }
+    },
+    "버니로얄-모두의 가위바위보": {
+      "appIds": {
+        "android": "com.kursor.bunnyroyal"
+      },
+      "aliases": [],
+      "developer": "(주)커서",
+      "icon": "https://play-lh.googleusercontent.com/MVg1G0GJOWlU0GESvhV2Ok9YkRQgFZ2CKDc6QnDzxf28yXLoPGyDW4vqEmeE79xChpIX2GgRjKy5hlgjcUoiIw",
+      "slug": "버니로얄-모두의-가위바위보",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "버니로얄-모두의 가위바위보"
+      }
+    },
+    "GTA: Vice City - 데피니티브": {
+      "appIds": {
+        "android": "com.rockstargames.gtavc.de",
+        "ios": 6468845173
+      },
+      "aliases": [
+        "GTA: Vice City – Definitive"
+      ],
+      "developer": "Rockstar Games",
+      "icon": "https://play-lh.googleusercontent.com/PMwwyuavLk0Ob6vd8NXYW3yDu-yzQ5T_ZgYe0duQkft0ygCBfNGUCZztAPRcw6H6G1nIkNhB3ImyslXRy-GL",
+      "slug": "gta-vice-city-데피니티브",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "GTA: Vice City - 데피니티브",
+        "en": "GTA: Vice City - Definitive",
+        "ja": "GTA: Vice City – Definitive",
+        "zh-tw": "GTA: Vice City – Definitive"
+      }
+    },
+    "霓虹双影": {
+      "appIds": {
+        "ios": 6799022401
+      },
+      "aliases": [],
+      "developer": "Oscar Glenn Reyes",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7a/8f/16/7a8f1685-9283-df95-7f21-bad7c110a482/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "霓虹双影",
+        "en": "霓虹双影",
+        "ja": "霓虹双影",
+        "zh-cn": "霓虹双影",
+        "zh-tw": "霓虹双影"
+      }
     }
   },
   "lastUpdated": "2026-11-21",
-  "totalGames": 9475
+  "totalGames": 9480
 }

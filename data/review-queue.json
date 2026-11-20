@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52002,13 +52002,19 @@
     },
     {
       "title": "Minou - 미누와 뜨개질",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6830531773
+        "ios": 6830531773,
+        "android": "com.naroworks.minou"
       },
       "developer": "Naroworks Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/d1/e3/53d1e38e-0467-f759-168e-c47648a686d1/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Minou - 미누와 뜨개질",
+          "appId": 6830531773
+        }
+      ],
       "addedAt": "2026-11-18T15:03:47.803Z"
     },
     {
@@ -52492,13 +52498,19 @@
     },
     {
       "title": "템빨: 오버기어드",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6673894896
+        "ios": 6673894896,
+        "android": "com.nexon.overgeared"
       },
       "developer": "NEXON Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/8c/bc/738cbcec-9bb4-69bf-58c6-9b690bdc491d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "템빨: 오버기어드",
+          "appId": 6673894896
+        }
+      ],
       "addedAt": "2026-11-20T15:03:53.734Z"
     },
     {
@@ -52665,6 +52677,86 @@
         }
       ],
       "addedAt": "2026-11-20T19:03:22.641Z"
+    },
+    {
+      "title": "Satisday ASMR: Cozy Games",
+      "status": "single",
+      "appIds": {
+        "ios": 6504468996
+      },
+      "developer": "ICEBEAR., JSC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/88/04/eb88047f-2a44-e497-9dc5-5d6645fad4cc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-20T23:03:12.478Z"
+    },
+    {
+      "title": "창술사 키우기X : 방치형RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "com.dragonheart.spearknightrpg2",
+        "ios": 6808981771
+      },
+      "developer": "DragonHeart",
+      "icon": "https://play-lh.googleusercontent.com/FmnTukBFA3DDMfbLVwt9SuXrSEawSefBy3FxqafcVYkgesXSS7MOkIBqMQ-b5MYlW-9W_nULihBPrOd8gsSkPg",
+      "searchResults": [
+        {
+          "title": "창술사 키우기X : 방치형RPG",
+          "appId": 6808981771
+        },
+        {
+          "title": "도적 키우기",
+          "appId": 6824268404
+        },
+        {
+          "title": "픽셀 법사 키우기 : 방치형 RPG",
+          "appId": 6741889270
+        }
+      ],
+      "addedAt": "2026-11-20T23:03:12.869Z"
+    },
+    {
+      "title": "버니로얄-모두의 가위바위보",
+      "status": "single",
+      "appIds": {
+        "android": "com.kursor.bunnyroyal"
+      },
+      "developer": "(주)커서",
+      "icon": "https://play-lh.googleusercontent.com/MVg1G0GJOWlU0GESvhV2Ok9YkRQgFZ2CKDc6QnDzxf28yXLoPGyDW4vqEmeE79xChpIX2GgRjKy5hlgjcUoiIw",
+      "searchResults": [
+        {
+          "title": "버니로얄",
+          "appId": 6811836552
+        }
+      ],
+      "addedAt": "2026-11-20T23:03:13.080Z"
+    },
+    {
+      "title": "GTA: Vice City - 데피니티브",
+      "status": "matched",
+      "appIds": {
+        "android": "com.rockstargames.gtavc.de",
+        "ios": 6468845173
+      },
+      "developer": "Rockstar Games",
+      "icon": "https://play-lh.googleusercontent.com/PMwwyuavLk0Ob6vd8NXYW3yDu-yzQ5T_ZgYe0duQkft0ygCBfNGUCZztAPRcw6H6G1nIkNhB3ImyslXRy-GL",
+      "searchResults": [
+        {
+          "title": "GTA: Vice City – Definitive",
+          "appId": 6468845173
+        }
+      ],
+      "addedAt": "2026-11-20T23:03:13.807Z"
+    },
+    {
+      "title": "霓虹双影",
+      "status": "single",
+      "appIds": {
+        "ios": 6799022401
+      },
+      "developer": "Oscar Glenn Reyes",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7a/8f/16/7a8f1685-9283-df95-7f21-bad7c110a482/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-20T23:03:14.665Z"
     }
   ],
   "approved": [
