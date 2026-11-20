@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160041,14 +160041,16 @@
     },
     "훠이훠이 요괴! 로그라이크 디펜스 RPG": {
       "appIds": {
-        "android": "com.pongvn.tg"
+        "android": "com.pongvn.tg",
+        "ios": 6815579896
       },
       "aliases": [],
       "developer": "Pong Studio Co., Ltd.",
       "icon": "https://play-lh.googleusercontent.com/U5YSaxOKEHEpl2a8xzeCBhyuP2OT2iqMfTp50k3LgP4syfTGjwuO00Y-xU2W7Io2rvygVJ_JLnt8xfF0Fb3yGg",
       "slug": "훠이훠이-요괴-로그라이크-디펜스-rpg",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "훠이훠이 요괴! 로그라이크 디펜스 RPG",
@@ -160742,14 +160744,16 @@
     },
     "막다보니 천하통일": {
       "appIds": {
-        "ios": 6788287421
+        "ios": "6788287421",
+        "android": "com.neptune.tkdefense"
       },
       "aliases": [],
       "developer": "Neptune Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/cc/10/5fcc1036-f8e5-2718-0d66-687e2dddfd3c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "막다보니-천하통일",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "막다보니 천하통일",
@@ -161207,8 +161211,77 @@
         "ja": "Bounty Arrow Flow",
         "zh-tw": "Bounty Arrow Flow"
       }
+    },
+    "魔法使いの夜": {
+      "appIds": {
+        "ios_jp": "6793855532"
+      },
+      "aliases": [],
+      "developer": "Aniplex Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/72/5f/60/725f6014-ffe7-8943-1c62-8d978fb270f0/AppIcon-0-0-1x_U007emarketing-0-10-0-85-220.png/512x512bb.jpg",
+      "slug": "魔法使いの夜",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "魔法使いの夜"
+      }
+    },
+    "Escape Game ANMEI": {
+      "appIds": {
+        "ios_jp": 6833345060
+      },
+      "aliases": [
+        "脱出ゲーム　暗明"
+      ],
+      "developer": "yukio takahashi",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/e2/fc/ace2fcad-a2ed-c7c6-1d4f-6a00152267c3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "escape-game-anmei",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Escape Game ANMEI",
+        "ja": "脱出ゲーム　暗明",
+        "zh-tw": "密室逃脫 暗明"
+      }
+    },
+    "五行游": {
+      "appIds": {
+        "ios_cn": 6760094566
+      },
+      "aliases": [],
+      "developer": "Beijing Jiao Dian Chuang Yi digital technology Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fc/3c/de/fc3cdea8-dbfc-8ad3-4420-eec84f43f61a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "五行游",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "五行游"
+      }
+    },
+    "TOEM: A Photo Adventure": {
+      "appIds": {
+        "android": "com.snapbreak.toem",
+        "ios": 6743934969
+      },
+      "aliases": [],
+      "developer": "Snapbreak",
+      "icon": "https://play-lh.googleusercontent.com/0SU70tPQEZ3t9JfBwVyaouIlbZz6vr6AXTM6ve1i6DePPZyzMs4_gei6PT8IJ63PM2LmziLbB9AwNNYSXiHk4VA",
+      "slug": "toem-a-photo-adventure",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "TOEM: A Photo Adventure",
+        "en": "TOEM: A Photo Adventure",
+        "ja": "TOEM（トーエム）",
+        "zh-tw": "TOEM: A Photo Adventure"
+      }
     }
   },
   "lastUpdated": "2026-11-20",
-  "totalGames": 9460
+  "totalGames": 9464
 }

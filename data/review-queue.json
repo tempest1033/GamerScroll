@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51846,13 +51846,19 @@
     },
     {
       "title": "훠이훠이 요괴! 로그라이크 디펜스 RPG",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "android": "com.pongvn.tg"
+        "android": "com.pongvn.tg",
+        "ios": 6815579896
       },
       "developer": "Pong Studio Co., Ltd.",
       "icon": "https://play-lh.googleusercontent.com/U5YSaxOKEHEpl2a8xzeCBhyuP2OT2iqMfTp50k3LgP4syfTGjwuO00Y-xU2W7Io2rvygVJ_JLnt8xfF0Fb3yGg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "훠이훠이 요괴! 로그라이크 디펜스 RPG",
+          "appId": "com.pongvn.tg"
+        }
+      ],
       "addedAt": "2026-11-18T03:03:20.497Z"
     },
     {
@@ -52263,13 +52269,19 @@
     },
     {
       "title": "막다보니 천하통일",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6788287421
+        "ios": "6788287421",
+        "android": "com.neptune.tkdefense"
       },
       "developer": "Neptune Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5f/cc/10/5fcc1036-f8e5-2718-0d66-687e2dddfd3c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "막다보니 천하통일",
+          "appId": "6788287421"
+        }
+      ],
       "addedAt": "2026-11-19T15:04:22.176Z"
     },
     {
@@ -52460,6 +52472,23 @@
       "icon": "https://play-lh.googleusercontent.com/zjJ0ryBAXsrx_WaL1JYhwcgjue7-0BNBctkXPNpf6YqpKBOA3mRxz92x7FmVGyh5mbJzHMQGqCTQU5hk-dsIoA",
       "searchResults": [],
       "addedAt": "2026-11-20T07:22:22.806Z"
+    },
+    {
+      "title": "TOEM: A Photo Adventure",
+      "status": "matched",
+      "appIds": {
+        "android": "com.snapbreak.toem",
+        "ios": 6743934969
+      },
+      "developer": "Snapbreak",
+      "icon": "https://play-lh.googleusercontent.com/0SU70tPQEZ3t9JfBwVyaouIlbZz6vr6AXTM6ve1i6DePPZyzMs4_gei6PT8IJ63PM2LmziLbB9AwNNYSXiHk4VA",
+      "searchResults": [
+        {
+          "title": "TOEM: A Photo Adventure",
+          "appId": 6743934969
+        }
+      ],
+      "addedAt": "2026-11-20T11:03:09.319Z"
     }
   ],
   "approved": [
