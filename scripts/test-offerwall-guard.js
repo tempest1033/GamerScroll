@@ -25,9 +25,28 @@ function suppressed(guard, pathname, enumAfter = 0) {
   return JSON.parse(JSON.stringify(call));   // arrays built inside the vm context have another realm's prototype
 }
 
+// Runs the AdSense loader for a pathname: the page-level settings it pushes and the script URL it loads.
+function loaded(loader, pathname) {
+  const window = {};
+  const scripts = [];
+  vm.runInNewContext(loader, { window, location: { hostname: 'gamerscroll.com', pathname }, document: { createElement: () => ({}), head: { appendChild: (s) => { scripts.push(s.src); } } } });
+  return JSON.parse(JSON.stringify({ settings: window.adsbygoogle, scripts }));
+}
+const pageLevel = { google_ad_client: 'ca-pub-9477874183990825', enable_page_level_ads: true };
+
 for (const edition of i18n.EDITIONS) {
   i18n.setEdition(edition.code);
   const head = i18n.localizeHtml(generateHead({}));
+  // A rewarded ad may gate content on metrics pages only. The settings are read from the push alone: a ?client= script
+  // URL makes Google build them itself, without the switch.
+  const loader = [...head.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).find(code => code.includes('enable_page_level_ads'));
+  assert.ok(loader, `${edition.code}: head carries the AdSense loader`);
+  for (const path of ['/', '/ko/', '/rankings/', '/ja/games/some-game/', '/games/analysis/', '/ko/ko/analysis/', '/analysis']) {
+    assert.deepEqual(loaded(loader, path), { settings: [{ ...pageLevel, rewarded: false }], scripts: ['https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'] }, `${edition.code}: ${path} switches rewarded ads off`);
+  }
+  for (const path of ['/analysis/', '/ko/analysis/', '/zh-cn/analysis/some-game/']) {
+    assert.deepEqual(loaded(loader, path), { settings: [pageLevel], scripts: ['https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'] }, `${edition.code}: ${path} leaves rewarded ads to Google`);
+  }
   const guard = [...head.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).find(code => code.includes('controlledMessagingFunction'));
   assert.ok(guard, `${edition.code}: head carries the Offerwall guard`);
   assert.ok(head.indexOf(guard) < head.indexOf("s.src = 'https://pagead2.googlesyndication.com"), `${edition.code}: guard runs before the AdSense script loads`);

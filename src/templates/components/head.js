@@ -11,6 +11,9 @@ const { renderCssLinks } = require('../../build/css-links');
 const { lazyImageLoaderScript } = require('../../build/lazy-images');
 const { fitSentences } = require('../helpers/fit-description');
 
+// Inline-script test for a metrics page (/analysis/ of any edition): the only pages where a rewarded ad may gate content.
+const METRICS_PATH_TEST = `/^\\/(?:(?:${i18n.EDITIONS.map((e) => e.prefix.slice(1)).filter(Boolean).join('|')})\\/)?analysis\\//.test(location.pathname)`;
+
 function generateHead(options = {}) {
   const {
     title = t('head.gamerscroll_game_ranking_data_analysis'),
@@ -251,15 +254,19 @@ function generateHead(options = {}) {
 	    }
 	  </style>
 	  <!-- AdSense: preload (preload scanner picks it up at first byte) + run only on gamerscroll.com (no ad impressions on localhost/preview hosts) -->${ADS_ENABLED ? `
-	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825">
+	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
 	  <!-- Offerwall (rewarded-ad wall) belongs to the metrics pages only: everywhere else suppress it, whatever the AdSense URL rule matches. Must be defined before the AdSense script loads.
 	       The path test is a regex, not a quoted path: localizeHtml prefixes quoted site paths with the edition.
 	       Google calls the function before its message script has defined MessageTypeEnum, so wait for it; if it never
 	       comes, proceed as usual rather than hold consent messages and ads (the AdSense URL rule still applies). -->
-	  <script>(function () { if (/^\\/(?:(?:${i18n.EDITIONS.map((e) => e.prefix.slice(1)).filter(Boolean).join('|')})\\/)?analysis\\//.test(location.pathname)) return;
+	  <script>(function () { if (${METRICS_PATH_TEST}) return;
 	    var fc = window.googlefc = window.googlefc || {}; fc.controlledMessagingFunction = function (message) { var tries = 0; (function decide() { var types = window.googlefc.MessageTypeEnum;
 	      if (types && types.OFFERWALL) message.proceed(false, [types.OFFERWALL]); else if (++tries > 100) message.proceed(true); else setTimeout(decide, 50); })(); }; })();</script>
-	  <script>(function () { if (location.hostname !== 'gamerscroll.com') return; var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.fetchPriority = 'high'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9477874183990825'; document.head.appendChild(s); })();</script>` : ''}
+	  <!-- Page-level settings are pushed, not carried by a ?client= script URL: that tag form cannot switch a format off.
+	       While an Offerwall is published, adsbygoogle.js gates every page behind a rewarded ad ("watch an ad to continue"),
+	       ignoring both the Offerwall URL rule and the function above; rewarded:false is its own per-page switch for that format. -->
+	  <script>(function () { if (location.hostname !== 'gamerscroll.com') return; var page = { google_ad_client: 'ca-pub-9477874183990825', enable_page_level_ads: true }; if (!${METRICS_PATH_TEST}) page.rewarded = false; (window.adsbygoogle = window.adsbygoogle || []).push(page);
+	    var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.fetchPriority = 'high'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'; document.head.appendChild(s); })();</script>` : ''}
 	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->${(() => {
 	    const opt = preloadImage && typeof preloadImage === 'object'
 	      ? preloadImage
