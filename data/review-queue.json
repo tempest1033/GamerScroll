@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52321,6 +52321,102 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/93/9a/07939aa1-ce97-f324-3b20-099451d5cec0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-19T19:03:26.021Z"
+    },
+    {
+      "title": "전희소녀: 심쿵 지휘관",
+      "status": "single",
+      "appIds": {
+        "android": "krzj.hani.goop"
+      },
+      "developer": "INNOVATIVE GAME LTD",
+      "icon": "https://play-lh.googleusercontent.com/uq5lUjYrRT7ggRB5INDN4Qj1xSL_PnSsAsOalaRHpy1zjTGm_ABjogxMt4taVouAy0En78azvoCP2lZZb5Q6vFM",
+      "searchResults": [],
+      "addedAt": "2026-11-20T03:02:59.836Z"
+    },
+    {
+      "title": "Wood Block Jam",
+      "status": "single",
+      "appIds": {
+        "ios": 6742648678
+      },
+      "developer": "UNICO STUDIO",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/b0/e5/97b0e5c2-b498-b621-c4de-2e4d349ddc66/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-20T03:03:00.450Z"
+    },
+    {
+      "title": "Break Master Ace",
+      "status": "single",
+      "appIds": {
+        "android": "com.bma.pool"
+      },
+      "developer": "Shuping",
+      "icon": "https://play-lh.googleusercontent.com/Oywlz-MibxHFDL-0nJAOAK_RnhiC0N7zao_xFkFMGeccRrHvlOKaRDburhlre5F9DaR5JVoHDV951VSaxpuAbQ",
+      "searchResults": [
+        {
+          "title": "WhatsApp Messenger",
+          "appId": 310633997
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "X",
+          "appId": 333903271
+        }
+      ],
+      "addedAt": "2026-11-20T03:03:01.690Z"
+    },
+    {
+      "title": "Purrdoku: Cat Logic Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "fun.rgpd.purrdoku",
+        "ios": 6813807358
+      },
+      "developer": "Rogue Panda",
+      "icon": "https://play-lh.googleusercontent.com/eW1Mbsa1AUF8pIgdvbM_GI_AKypvHNiFfyfydN2KPdxrw1tpqF6H-xLNN_BtSoDbLdI7XxqoC8zDyqwJ5hfw6Q",
+      "searchResults": [
+        {
+          "title": "Purrdoku: Cat Logic Puzzle",
+          "appId": 6813807358
+        },
+        {
+          "title": "Purrdoku",
+          "appId": 6828069463
+        }
+      ],
+      "addedAt": "2026-11-20T03:03:02.580Z"
+    },
+    {
+      "title": "POP紀元：文明爆走中",
+      "status": "matched",
+      "appIds": {
+        "ios_tw": 6804550548,
+        "android": "com.nexwave.popepochtw.android",
+        "ios": 6804550548
+      },
+      "developer": "NexWave Tech Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/bb/8b/51bb8b01-aab3-8fb8-07cb-19b65d682f9c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "POP紀元：文明爆走中",
+          "appId": 6804550548
+        }
+      ],
+      "addedAt": "2026-11-20T03:03:02.862Z"
+    },
+    {
+      "title": "Sleepy Cat Sudoku",
+      "status": "single",
+      "appIds": {
+        "android": "com.sleepcat.sudokusleepcat"
+      },
+      "developer": "Blaze Praise",
+      "icon": "https://play-lh.googleusercontent.com/dT6aKn4ltyWHvyBu7mUuzpw4RVraUy5e1Q8Hj_d-8IXGAsbD6J-8yAtcWYKJrkfY7GyLlSEbXGd-mzPhdtL9iRI",
+      "searchResults": [],
+      "addedAt": "2026-11-20T03:03:03.239Z"
     }
   ],
   "approved": [

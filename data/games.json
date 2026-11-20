@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -160775,16 +160775,20 @@
     },
     "POP紀元：文明爆走中": {
       "appIds": {
-        "ios_tw": 6804550548
+        "ios_tw": 6804550548,
+        "android": "com.nexwave.popepochtw.android",
+        "ios": 6804550548
       },
       "aliases": [],
       "developer": "NexWave Tech Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/51/bb/8b/51bb8b01-aab3-8fb8-07cb-19b65d682f9c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "pop紀元文明爆走中",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "POP紀元：文明爆走中",
         "zh-tw": "POP紀元：文明爆走中"
       }
     },
@@ -160968,8 +160972,136 @@
         "zh-cn": "我的盛唐时代",
         "zh-tw": "我的盛唐时代"
       }
+    },
+    "전희소녀: 심쿵 지휘관": {
+      "appIds": {
+        "android": "krzj.hani.goop"
+      },
+      "aliases": [],
+      "developer": "INNOVATIVE GAME LTD",
+      "icon": "https://play-lh.googleusercontent.com/uq5lUjYrRT7ggRB5INDN4Qj1xSL_PnSsAsOalaRHpy1zjTGm_ABjogxMt4taVouAy0En78azvoCP2lZZb5Q6vFM",
+      "slug": "전희소녀-심쿵-지휘관",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "전희소녀: 심쿵 지휘관"
+      }
+    },
+    "Wood Block Jam": {
+      "appIds": {
+        "ios": 6742648678
+      },
+      "aliases": [],
+      "developer": "UNICO STUDIO",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/97/b0/e5/97b0e5c2-b498-b621-c4de-2e4d349ddc66/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "wood-block-jam",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Wood Block Jam",
+        "en": "Wood Block Jam",
+        "ja": "Wood Block Jam",
+        "zh-tw": "Wood Block Jam"
+      }
+    },
+    "Break Master Ace": {
+      "appIds": {
+        "android": "com.bma.pool"
+      },
+      "aliases": [],
+      "developer": "Shuping",
+      "icon": "https://play-lh.googleusercontent.com/Oywlz-MibxHFDL-0nJAOAK_RnhiC0N7zao_xFkFMGeccRrHvlOKaRDburhlre5F9DaR5JVoHDV951VSaxpuAbQ",
+      "slug": "break-master-ace",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Break Master Ace",
+        "en": "Break Master Ace",
+        "ja": "Break Master Ace",
+        "zh-tw": "Break Master Ace"
+      }
+    },
+    "タワーオブグレイ": {
+      "appIds": {
+        "ios_jp": 6476967436
+      },
+      "aliases": [],
+      "developer": "SkyRise Digital PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/43/bf/68/43bf68a7-4d23-ece7-12ab-1f9bda2a60c2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "タワーオブグレイ",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "タワーオブグレイ"
+      }
+    },
+    "Purrdoku: Cat Logic Puzzle": {
+      "appIds": {
+        "android": "fun.rgpd.purrdoku",
+        "ios": 6813807358
+      },
+      "aliases": [],
+      "developer": "Rogue Panda",
+      "icon": "https://play-lh.googleusercontent.com/eW1Mbsa1AUF8pIgdvbM_GI_AKypvHNiFfyfydN2KPdxrw1tpqF6H-xLNN_BtSoDbLdI7XxqoC8zDyqwJ5hfw6Q",
+      "slug": "purrdoku-cat-logic-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Purrdoku: Cat Logic Puzzle",
+        "en": "Purrdoku: Cat Logic Puzzle",
+        "ja": "Purrdoku: Cat Logic Puzzle",
+        "zh-tw": "Purrdoku: Cat Logic Puzzle"
+      }
+    },
+    "Sleepy Cat Sudoku": {
+      "appIds": {
+        "android": "com.sleepcat.sudokusleepcat"
+      },
+      "aliases": [],
+      "developer": "Blaze Praise",
+      "icon": "https://play-lh.googleusercontent.com/dT6aKn4ltyWHvyBu7mUuzpw4RVraUy5e1Q8Hj_d-8IXGAsbD6J-8yAtcWYKJrkfY7GyLlSEbXGd-mzPhdtL9iRI",
+      "slug": "sleepy-cat-sudoku",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sleepy Cat Sudoku",
+        "en": "Sleepy Cat Sudoku",
+        "ja": "Sleepy Cat Sudoku",
+        "zh-tw": "Sleepy Cat Sudoku"
+      }
+    },
+    "Blacksmith Master": {
+      "appIds": {
+        "steam": "2292800"
+      },
+      "aliases": [],
+      "developer": "Untitled Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2292800/e073eaf4ec775970fea0b2d9835e08af5f5672b0/capsule_231x87.jpg?t=1795111301",
+      "slug": "blacksmith-master",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Days Gone": {
+      "appIds": {
+        "steam": "1259420"
+      },
+      "aliases": [],
+      "developer": "Bend Studio",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1259420/capsule_231x87.jpg?t=1750947718",
+      "slug": "days-gone",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-20",
-  "totalGames": 9446
+  "totalGames": 9454
 }
