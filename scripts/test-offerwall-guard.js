@@ -25,27 +25,29 @@ function suppressed(guard, pathname, enumAfter = 0) {
   return JSON.parse(JSON.stringify(call));   // arrays built inside the vm context have another realm's prototype
 }
 
-// Runs the AdSense loader for a pathname: the page-level settings it pushes and the script URL it loads.
+// Runs the AdSense loader for a pathname: the page-level settings it pushes and the script tag it adds.
 function loaded(loader, pathname) {
   const window = {};
   const scripts = [];
-  vm.runInNewContext(loader, { window, location: { hostname: 'gamerscroll.com', pathname }, document: { createElement: () => ({}), head: { appendChild: (s) => { scripts.push(s.src); } } } });
+  const createElement = () => { const attrs = {}; return { attrs, setAttribute: (name, value) => { attrs[name] = value; } }; };
+  vm.runInNewContext(loader, { window, location: { hostname: 'gamerscroll.com', pathname }, document: { createElement, head: { appendChild: (s) => { scripts.push({ src: s.src, ...s.attrs }); } } } });
   return JSON.parse(JSON.stringify({ settings: window.adsbygoogle, scripts }));
 }
-const pageLevel = { google_ad_client: 'ca-pub-9477874183990825', enable_page_level_ads: true };
+const CLIENT = 'ca-pub-9477874183990825';
+const SCRIPT = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
 
 for (const edition of i18n.EDITIONS) {
   i18n.setEdition(edition.code);
   const head = i18n.localizeHtml(generateHead({}));
-  // A rewarded ad may gate content on metrics pages only. The settings are read from the push alone: a ?client= script
-  // URL makes Google build them itself, without the switch.
+  // A rewarded ad may gate content on metrics pages only. Elsewhere the pushed settings switch it off; a metrics page
+  // pushes none and names the client on the script tag, the form under which the Offerwall popup opens.
   const loader = [...head.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).find(code => code.includes('enable_page_level_ads'));
   assert.ok(loader, `${edition.code}: head carries the AdSense loader`);
   for (const path of ['/', '/ko/', '/rankings/', '/ja/games/some-game/', '/games/analysis/', '/ko/ko/analysis/', '/analysis']) {
-    assert.deepEqual(loaded(loader, path), { settings: [{ ...pageLevel, rewarded: false }], scripts: ['https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'] }, `${edition.code}: ${path} switches rewarded ads off`);
+    assert.deepEqual(loaded(loader, path), { settings: [{ google_ad_client: CLIENT, enable_page_level_ads: true, rewarded: false }], scripts: [{ src: SCRIPT }] }, `${edition.code}: ${path} switches rewarded ads off`);
   }
   for (const path of ['/analysis/', '/ko/analysis/', '/zh-cn/analysis/some-game/']) {
-    assert.deepEqual(loaded(loader, path), { settings: [pageLevel], scripts: ['https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'] }, `${edition.code}: ${path} leaves rewarded ads to Google`);
+    assert.deepEqual(loaded(loader, path), { scripts: [{ src: SCRIPT, 'data-ad-client': CLIENT }] }, `${edition.code}: ${path} leaves rewarded ads to Google`);
   }
   const guard = [...head.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).find(code => code.includes('controlledMessagingFunction'));
   assert.ok(guard, `${edition.code}: head carries the Offerwall guard`);
