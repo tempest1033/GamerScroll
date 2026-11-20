@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52428,6 +52428,38 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/31/a5/98/31a5980c-e743-341d-5e77-8d926dee1017/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-20T07:03:12.409Z"
+    },
+    {
+      "title": "실험소녀 키우기 : 방치형 RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "com.mainquest.sgidle",
+        "ios": 6825401079
+      },
+      "developer": "MainQuest",
+      "icon": "https://play-lh.googleusercontent.com/sPZse-gzBfAa-ZqpFi-GVoenTANq6iOeNjOJSitBOTxg-bvIsdByw4_75ToqAkjcqsgzeF50QtZ1i5NM4m-ipqA",
+      "searchResults": [
+        {
+          "title": "실험소녀 키우기 : 방치형 RPG",
+          "appId": 6825401079
+        },
+        {
+          "title": "방과후 특별활동",
+          "appId": 6776938388
+        }
+      ],
+      "addedAt": "2026-11-20T07:22:21.409Z"
+    },
+    {
+      "title": "Bounty Arrow Flow",
+      "status": "single",
+      "appIds": {
+        "android": "com.bountyarrowflow.f5k9r.sovira"
+      },
+      "developer": "HAINI TECH",
+      "icon": "https://play-lh.googleusercontent.com/zjJ0ryBAXsrx_WaL1JYhwcgjue7-0BNBctkXPNpf6YqpKBOA3mRxz92x7FmVGyh5mbJzHMQGqCTQU5hk-dsIoA",
+      "searchResults": [],
+      "addedAt": "2026-11-20T07:22:22.806Z"
     }
   ],
   "approved": [

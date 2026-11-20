@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -147688,14 +147688,16 @@
     },
     "Tank Busters: Cannon Battle": {
       "appIds": {
-        "android": "com.tank.busters"
+        "android": "com.tank.busters",
+        "ios": 6818465459
       },
       "aliases": [],
       "developer": "SayGames Ltd",
       "icon": "https://play-lh.googleusercontent.com/W4-qL3Lppsq9xL37hg0DDVSKKNieBNx9zVGMjyUdbs7eU2bGri5k-a1FLXaGnCC_BRFPh209WjnQhQRsh6VBTZ0",
       "slug": "tank-busters-cannon-battle",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "탱크 버스터즈: 슈팅 액션 배틀",
@@ -161152,8 +161154,61 @@
         "zh-cn": "真正的大城市黑帮犯罪小镇世界盗窃战争开放世界汽车游戏",
         "zh-tw": "真正的大城市黑幫犯罪小鎮世界盜竊戰爭開放世界汽車遊戲"
       }
+    },
+    "실험소녀 키우기 : 방치형 RPG": {
+      "appIds": {
+        "android": "com.mainquest.sgidle",
+        "ios": 6825401079
+      },
+      "aliases": [],
+      "developer": "MainQuest",
+      "icon": "https://play-lh.googleusercontent.com/sPZse-gzBfAa-ZqpFi-GVoenTANq6iOeNjOJSitBOTxg-bvIsdByw4_75ToqAkjcqsgzeF50QtZ1i5NM4m-ipqA",
+      "slug": "실험소녀-키우기-방치형-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "실험소녀 키우기 : 방치형 RPG"
+      }
+    },
+    "Grand Theft Auto V: The Manual": {
+      "appIds": {
+        "ios_cn": 699032795
+      },
+      "aliases": [],
+      "developer": "Rockstar Games, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple124/v4/5b/70/40/5b704094-4e8d-0b9b-fa00-8d7f96274c8c/AppIcon-1x_U007emarketing-5-85-220.png/512x512bb.jpg",
+      "slug": "grand-theft-auto-v-the-manual",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Grand Theft Auto V: The Manual",
+        "ja": "Grand Theft Auto V: The Manual",
+        "zh-cn": "Grand Theft Auto V: The Manual",
+        "zh-tw": "Grand Theft Auto V: The Manual"
+      }
+    },
+    "Bounty Arrow Flow": {
+      "appIds": {
+        "android": "com.bountyarrowflow.f5k9r.sovira"
+      },
+      "aliases": [],
+      "developer": "HAINI TECH",
+      "icon": "https://play-lh.googleusercontent.com/zjJ0ryBAXsrx_WaL1JYhwcgjue7-0BNBctkXPNpf6YqpKBOA3mRxz92x7FmVGyh5mbJzHMQGqCTQU5hk-dsIoA",
+      "slug": "bounty-arrow-flow",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Bounty Arrow Flow",
+        "en": "Bounty Arrow Flow",
+        "ja": "Bounty Arrow Flow",
+        "zh-tw": "Bounty Arrow Flow"
+      }
     }
   },
   "lastUpdated": "2026-11-20",
-  "totalGames": 9457
+  "totalGames": 9460
 }
