@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T15:02:46.766Z",
+  "updatedAt": "2026-11-20T19:02:02.778Z",
   "period": "30days",
   "games": [
     {
@@ -19,11 +19,11 @@
       "views": 6
     },
     {
-      "slug": "monopoly-go-모노폴리-go",
+      "slug": "monster-hunter-outlanders",
       "views": 5
     },
     {
-      "slug": "monster-hunter-outlanders",
+      "slug": "palworld",
       "views": 5
     },
     {
@@ -31,7 +31,15 @@
       "views": 5
     },
     {
+      "slug": "단어-찾기-단어-게임",
+      "views": 5
+    },
+    {
       "slug": "로드러쉬",
+      "views": 5
+    },
+    {
+      "slug": "주술회전-팬텀-퍼레이드",
       "views": 5
     },
     {
@@ -44,6 +52,10 @@
     },
     {
       "slug": "탑-히어로즈-영웅의-시대",
+      "views": 5
+    },
+    {
+      "slug": "피망-뉴맞고-고스톱으로-대한민국-1등",
       "views": 5
     },
     {
@@ -64,18 +76,6 @@
     },
     {
       "slug": "barotrauma",
-      "views": 4
-    },
-    {
-      "slug": "geometry-dash-lite",
-      "views": 4
-    },
-    {
-      "slug": "go-go-고양이-홉핑",
-      "views": 4
-    },
-    {
-      "slug": "hero-siege",
       "views": 4
     }
   ]

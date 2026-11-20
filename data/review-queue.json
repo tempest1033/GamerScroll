@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52500,6 +52500,171 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/8c/bc/738cbcec-9bb4-69bf-58c6-9b690bdc491d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-20T15:03:53.734Z"
+    },
+    {
+      "title": "엠버드타임: 귀여운 방치형 타이쿤",
+      "status": "single",
+      "appIds": {
+        "android": "com.UnicOn.EmberedTime"
+      },
+      "developer": "UnicON",
+      "icon": "https://play-lh.googleusercontent.com/3iwTOImUv5g2qjLnrB6EpM0RRch_PPZPeQdNI89suUSHaRrAMvr3Tq2ZznUXsuTZHoJ4MCGYPgtPOwdEU_S5eA",
+      "searchResults": [
+        {
+          "title": "새찾기 - 매치 퍼즐",
+          "appId": 1461733358
+        }
+      ],
+      "addedAt": "2026-11-20T19:03:17.358Z"
+    },
+    {
+      "title": "Hidden Christmas: Find Objects",
+      "status": "single",
+      "appIds": {
+        "android": "com.whgame.find.hidden.objects.christmas"
+      },
+      "developer": "PawPop Games",
+      "icon": "https://play-lh.googleusercontent.com/rec82SgvwRNiy5XfCXnM7iD-W365oVbGrDRstU9cPFMxTy2XlE9QFcd525y4dYTOpCDOGQsjjO7vJMOjwasndg",
+      "searchResults": [
+        {
+          "title": "숨은그림찾기: Find N Seek 숨바꼭질 개체 헌트",
+          "appId": 6470959844
+        },
+        {
+          "title": "Find Objects: 숨은그림찾기",
+          "appId": 6466275943
+        },
+        {
+          "title": "Find Out - 숨은 물건 찾기",
+          "appId": 1488572081
+        }
+      ],
+      "addedAt": "2026-11-20T19:03:17.942Z"
+    },
+    {
+      "title": "Flying Warrior: City Legends",
+      "status": "single",
+      "appIds": {
+        "android": "city.hero.adventure.simulation3d"
+      },
+      "developer": "Galaxy Legend Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/sZoMipBT_dekzjlBs3u1inJY6vbC-Ksl2NCl_4xhwQQYJT6TgtN6Nu71MjfyrzKD5YADN7AkN1RZ1pwNULm3KQ",
+      "searchResults": [
+        {
+          "title": "Fly Stickman Spider Rope Hero",
+          "appId": 1577160458
+        },
+        {
+          "title": "Axe Strike: Viking Axe Throw",
+          "appId": 1597860608
+        }
+      ],
+      "addedAt": "2026-11-20T19:03:18.510Z"
+    },
+    {
+      "title": "三国志:九州覇業 CBT",
+      "status": "single",
+      "appIds": {
+        "android": "com.rastargames.cdjzjpcbt"
+      },
+      "developer": "Rastar Games",
+      "icon": "https://play-lh.googleusercontent.com/e27MvVEXxrgh_cYoFyVD4W8CH3a78EozpNgOL5jarbOx_0y4RYWCxdcBHxExVvICc6Wb_b0Iiip7HJfGGlLmuMI",
+      "searchResults": [],
+      "addedAt": "2026-11-20T19:03:18.952Z"
+    },
+    {
+      "title": "쥬얼 레전드 던전 슬라임",
+      "status": "single",
+      "appIds": {
+        "android": "com.v2r.JewelLegendDungeonSlime"
+      },
+      "developer": "V2R",
+      "icon": "https://play-lh.googleusercontent.com/-tKtkLV4N9I5tChmJSkkx_hkV659Pg4VxHWT5VExHt45QnsK27rA0SSDP1yFE6k9f5o5bfoPpT9qp_5w6jb38w",
+      "searchResults": [],
+      "addedAt": "2026-11-20T19:03:19.406Z"
+    },
+    {
+      "title": "大航海：冒險",
+      "status": "single",
+      "appIds": {
+        "android": "com.dhhai.mxian"
+      },
+      "developer": "Drunken Authority",
+      "icon": "https://play-lh.googleusercontent.com/qAwRt3zSYR90zS7DuVQGMVUi-p7xoxCKj4PvG9OoB9DHqyVCbQCBqvM0dB_ajKdUgM3WyHc8auA6vfCHaFq2ibs",
+      "searchResults": [
+        {
+          "title": "航海霸業（國際版）",
+          "appId": 1435582926
+        },
+        {
+          "title": "世紀大航海——中世紀航海網絡遊戲",
+          "appId": 1492040080
+        },
+        {
+          "title": "逆袭人生－高自由度大富豪买房浮生记",
+          "appId": 1146319241
+        }
+      ],
+      "addedAt": "2026-11-20T19:03:20.933Z"
+    },
+    {
+      "title": "스텔라 나이츠: 픽셀 수집형 RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "io.burgermonster.outpick.stk",
+        "ios": 6813002872
+      },
+      "developer": "CookApps",
+      "icon": "https://play-lh.googleusercontent.com/nq8Pc49Xv4MPFx2_4AMaaNjcWTtXxE4bCNjy6XDapRnj2MwCRdmLRirTjGnbvdq7sUE8Hu_y5Jug3I0g5fWV",
+      "searchResults": [
+        {
+          "title": "스텔라 나이츠: 픽셀 수집형 RPG",
+          "appId": 6813002872
+        }
+      ],
+      "addedAt": "2026-11-20T19:03:21.510Z"
+    },
+    {
+      "title": "환생 무림: 방치형 무협 RPG",
+      "status": "matched",
+      "appIds": {
+        "android": "com.devany.murim_rebirth",
+        "ios": 6818945632
+      },
+      "developer": "Devany Soft",
+      "icon": "https://play-lh.googleusercontent.com/zTctkgy0zf3SXloWDyL9aIgLUS9GBWszNsMRy9N9uFmXOPyZiQj2Ghf2aWk4JhSaXiFUCUey9sZ8rWK7fBTi",
+      "searchResults": [
+        {
+          "title": "환생 무림: 방치형 무협 RPG",
+          "appId": 6818945632
+        }
+      ],
+      "addedAt": "2026-11-20T19:03:22.063Z"
+    },
+    {
+      "title": "Pixel Traffic Jam : Color Sort",
+      "status": "matched",
+      "appIds": {
+        "android": "bus.loop.color.jam.traffic.pixel.puzzle.match.sort",
+        "ios": 6812151855
+      },
+      "developer": "Cloud Nine Games",
+      "icon": "https://play-lh.googleusercontent.com/JcLNi2SSuqiMMx7NkltTbIfNkDPfoCAvk8f4DnzO4G2DSDCn0u75acZ-gGU8afGhT6ik9CdDPImUrTvTwFfzKsU",
+      "searchResults": [
+        {
+          "title": "Pixel Traffic Jam - Color Sort",
+          "appId": 6812151855
+        },
+        {
+          "title": "Car Jam - 주차의 달인 버스게임 트래픽 피버",
+          "appId": 6505095234
+        },
+        {
+          "title": "Car Jam Loop: 버스가주차 탈출 자동차  퍼즐",
+          "appId": 6783277968
+        }
+      ],
+      "addedAt": "2026-11-20T19:03:22.641Z"
     }
   ],
   "approved": [

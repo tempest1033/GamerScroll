@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -161296,8 +161296,191 @@
         "ko": "템빨: 오버기어드",
         "zh-tw": "裝備仔: OVERGEARED"
       }
+    },
+    "엠버드타임: 귀여운 방치형 타이쿤": {
+      "appIds": {
+        "android": "com.UnicOn.EmberedTime"
+      },
+      "aliases": [],
+      "developer": "UnicON",
+      "icon": "https://play-lh.googleusercontent.com/3iwTOImUv5g2qjLnrB6EpM0RRch_PPZPeQdNI89suUSHaRrAMvr3Tq2ZznUXsuTZHoJ4MCGYPgtPOwdEU_S5eA",
+      "slug": "엠버드타임-귀여운-방치형-타이쿤",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "엠버드타임: 귀여운 방치형 타이쿤",
+        "en": "Embered Time: Cute Idle Tycoon",
+        "ja": "ひだねタイクーン：かわいい放置経営",
+        "zh-tw": "小火種大亨 Embered Time：可愛放置經營"
+      }
+    },
+    "Hidden Christmas: Find Objects": {
+      "appIds": {
+        "android": "com.whgame.find.hidden.objects.christmas"
+      },
+      "aliases": [],
+      "developer": "PawPop Games",
+      "icon": "https://play-lh.googleusercontent.com/rec82SgvwRNiy5XfCXnM7iD-W365oVbGrDRstU9cPFMxTy2XlE9QFcd525y4dYTOpCDOGQsjjO7vJMOjwasndg",
+      "slug": "hidden-christmas-find-objects",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Hidden Christmas: Find Objects",
+        "en": "Hidden Christmas: Find Objects",
+        "ja": "Hidden Christmas: Find Objects",
+        "zh-tw": "Hidden Christmas: Find Objects"
+      }
+    },
+    "Flying Warrior: City Legends": {
+      "appIds": {
+        "android": "city.hero.adventure.simulation3d"
+      },
+      "aliases": [],
+      "developer": "Galaxy Legend Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/sZoMipBT_dekzjlBs3u1inJY6vbC-Ksl2NCl_4xhwQQYJT6TgtN6Nu71MjfyrzKD5YADN7AkN1RZ1pwNULm3KQ",
+      "slug": "flying-warrior-city-legends",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Flying Warrior: City Legends",
+        "en": "Flying Warrior: City Legends",
+        "ja": "Flying Warrior: City Legends",
+        "zh-tw": "Flying Warrior: City Legends"
+      }
+    },
+    "三国志:九州覇業 CBT": {
+      "appIds": {
+        "android": "com.rastargames.cdjzjpcbt"
+      },
+      "aliases": [],
+      "developer": "Rastar Games",
+      "icon": "https://play-lh.googleusercontent.com/e27MvVEXxrgh_cYoFyVD4W8CH3a78EozpNgOL5jarbOx_0y4RYWCxdcBHxExVvICc6Wb_b0Iiip7HJfGGlLmuMI",
+      "slug": "cbt",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "三国志:九州覇業 CBT",
+        "ja": "三国志:九州覇業 CBT"
+      }
+    },
+    "쥬얼 레전드 던전 슬라임": {
+      "appIds": {
+        "android": "com.v2r.JewelLegendDungeonSlime"
+      },
+      "aliases": [],
+      "developer": "V2R",
+      "icon": "https://play-lh.googleusercontent.com/-tKtkLV4N9I5tChmJSkkx_hkV659Pg4VxHWT5VExHt45QnsK27rA0SSDP1yFE6k9f5o5bfoPpT9qp_5w6jb38w",
+      "slug": "쥬얼-레전드-던전-슬라임",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "쥬얼 레전드 던전 슬라임",
+        "en": "Jewel Legend Dungeon Slime",
+        "ja": "Jewel Legend Dungeon Slime",
+        "zh-tw": "Jewel Legend Dungeon Slime"
+      }
+    },
+    "終極忍術：對決": {
+      "appIds": {
+        "ios_tw": 6817654372
+      },
+      "aliases": [],
+      "developer": "CISTECH TECHNOLOGY LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/27/21/1d/27211d3a-d148-24f2-6bf4-3165e76f3ea9/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "終極忍術對決",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "終極忍術：對決",
+        "zh-tw": "終極忍術：對決"
+      }
+    },
+    "大航海：冒險": {
+      "appIds": {
+        "android": "com.dhhai.mxian"
+      },
+      "aliases": [],
+      "developer": "Drunken Authority",
+      "icon": "https://play-lh.googleusercontent.com/qAwRt3zSYR90zS7DuVQGMVUi-p7xoxCKj4PvG9OoB9DHqyVCbQCBqvM0dB_ajKdUgM3WyHc8auA6vfCHaFq2ibs",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "大航海：冒險",
+        "en": "大航海：冒險",
+        "zh-tw": "大航海：冒險"
+      }
+    },
+    "스텔라 나이츠: 픽셀 수집형 RPG": {
+      "appIds": {
+        "android": "io.burgermonster.outpick.stk",
+        "ios": 6813002872
+      },
+      "aliases": [],
+      "developer": "CookApps",
+      "icon": "https://play-lh.googleusercontent.com/nq8Pc49Xv4MPFx2_4AMaaNjcWTtXxE4bCNjy6XDapRnj2MwCRdmLRirTjGnbvdq7sUE8Hu_y5Jug3I0g5fWV",
+      "slug": "스텔라-나이츠-픽셀-수집형-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "스텔라 나이츠: 픽셀 수집형 RPG",
+        "zh-tw": "星辰騎士：像素二次元RPG"
+      }
+    },
+    "환생 무림: 방치형 무협 RPG": {
+      "appIds": {
+        "android": "com.devany.murim_rebirth",
+        "ios": 6818945632
+      },
+      "aliases": [
+        "환생무림: 방치형 무협 RPG"
+      ],
+      "developer": "Devany Soft",
+      "icon": "https://play-lh.googleusercontent.com/zTctkgy0zf3SXloWDyL9aIgLUS9GBWszNsMRy9N9uFmXOPyZiQj2Ghf2aWk4JhSaXiFUCUey9sZ8rWK7fBTi",
+      "slug": "환생-무림-방치형-무협-rpg",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "환생무림: 방치형 무협 RPG",
+        "en": "Murim Rebirth",
+        "ja": "転生武林",
+        "zh-tw": "轉生武林"
+      }
+    },
+    "Pixel Traffic Jam : Color Sort": {
+      "appIds": {
+        "android": "bus.loop.color.jam.traffic.pixel.puzzle.match.sort",
+        "ios": 6812151855
+      },
+      "aliases": [
+        "Pixel Traffic Jam - Color Sort"
+      ],
+      "developer": "Cloud Nine Games",
+      "icon": "https://play-lh.googleusercontent.com/JcLNi2SSuqiMMx7NkltTbIfNkDPfoCAvk8f4DnzO4G2DSDCn0u75acZ-gGU8afGhT6ik9CdDPImUrTvTwFfzKsU",
+      "slug": "pixel-traffic-jam-color-sort",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Pixel Traffic Jam : Color Sort",
+        "en": "Pixel Traffic Jam - Color Sort",
+        "ja": "Pixel Traffic Jam - Color Sort",
+        "zh-tw": "Pixel Traffic Jam : Color Sort"
+      }
     }
   },
   "lastUpdated": "2026-11-21",
-  "totalGames": 9465
+  "totalGames": 9475
 }
