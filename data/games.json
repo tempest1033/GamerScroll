@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -161648,8 +161648,66 @@
         "zh-cn": "得意满满-闲趣喵旅",
         "zh-tw": "得意满满-闲趣喵旅"
       }
+    },
+    "まちかどマート - コンビニ経営ゲーム": {
+      "appIds": {
+        "ios": 6832955562
+      },
+      "aliases": [],
+      "developer": "atsuto omosu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/12/c1/35/12c13597-4988-9428-2afc-5f62ed0c983d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "まちかどマート - コンビニ経営ゲーム",
+        "en": "まちかどマート - コンビニ経営ゲーム",
+        "ja": "まちかどマート - コンビニ経営ゲーム",
+        "zh-tw": "まちかどマート - コンビニ経営ゲーム"
+      }
+    },
+    "Wood Quiz Blast: Trivia Blocks": {
+      "appIds": {
+        "ios": 6792724152
+      },
+      "aliases": [],
+      "developer": "MNO GO APPS LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4f/54/d2/4f54d217-8e0b-b4a0-b2db-643d7ae839b5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "wood-quiz-blast-trivia-blocks",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Wood Quiz Blast: Trivia Blocks",
+        "en": "Wood Quiz Blast: Trivia Blocks",
+        "ja": "Wood Quiz Blast: Trivia Blocks",
+        "zh-tw": "Wood Quiz Blast: Trivia Blocks"
+      }
+    },
+    "Tidy House - 숨은그림찾기 틀린그림찾기": {
+      "appIds": {
+        "ios": 6829605223,
+        "android": "find.tidy.house.sort.puzzle.game"
+      },
+      "aliases": [
+        "Tidy House: アイテム探しと整理整頓ゲーム"
+      ],
+      "developer": "Shycheese",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/37/7f/4c377f3e-ef3f-8f02-f56c-a1831f87fa88/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "tidy-house-숨은그림찾기-틀린그림찾기",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "Tidy House - 숨은그림찾기 틀린그림찾기",
+        "en": "Tidy House: Hidden Object Game",
+        "ja": "Tidy House - ものさがし アイテム探しゲーム",
+        "zh-tw": "Tidy House - 尋找休閒遊戲城市尋寶"
+      }
     }
   },
   "lastUpdated": "2026-11-21",
-  "totalGames": 9484
+  "totalGames": 9487
 }

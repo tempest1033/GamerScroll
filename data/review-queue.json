@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52809,6 +52809,45 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/47/65/de/4765dea5-26ac-bb91-af24-4d3db62265bc/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-21T07:02:58.262Z"
+    },
+    {
+      "title": "まちかどマート - コンビニ経営ゲーム",
+      "status": "single",
+      "appIds": {
+        "ios": 6832955562
+      },
+      "developer": "atsuto omosu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/12/c1/35/12c13597-4988-9428-2afc-5f62ed0c983d/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-21T11:02:46.877Z"
+    },
+    {
+      "title": "Wood Quiz Blast: Trivia Blocks",
+      "status": "single",
+      "appIds": {
+        "ios": 6792724152
+      },
+      "developer": "MNO GO APPS LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4f/54/d2/4f54d217-8e0b-b4a0-b2db-643d7ae839b5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-21T11:02:47.193Z"
+    },
+    {
+      "title": "Tidy House - 숨은그림찾기 틀린그림찾기",
+      "status": "matched",
+      "appIds": {
+        "ios": 6829605223,
+        "android": "find.tidy.house.sort.puzzle.game"
+      },
+      "developer": "Shycheese",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/37/7f/4c377f3e-ef3f-8f02-f56c-a1831f87fa88/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Tidy House: アイテム探しと整理整頓ゲーム",
+          "appId": "find.tidy.house.sort.puzzle.game"
+        }
+      ],
+      "addedAt": "2026-11-21T11:02:47.447Z"
     }
   ],
   "approved": [
