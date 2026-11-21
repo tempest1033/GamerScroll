@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -161576,8 +161576,28 @@
         "zh-cn": "霓虹双影",
         "zh-tw": "霓虹双影"
       }
+    },
+    "Ever Tile: 3D 과일": {
+      "appIds": {
+        "android": "com.sofish.evertile.gp",
+        "ios": 6815533335
+      },
+      "aliases": [],
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/gruRka0WvaLR0mfTN5nDbX1Gf5G8RHlOKd3qMfjXf1cuOmPMGlq2HkKW6k5dQyXP9aF3Tj0yEgrPoend0Wky",
+      "slug": "ever-tile-3d-과일",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Ever Tile: 3D 과일",
+        "en": "Ever Tile: Fruit Match 3D",
+        "ja": "Ever Tile: 3Dフルーツ",
+        "zh-tw": "Ever Tile: 3D水果配對"
+      }
     }
   },
   "lastUpdated": "2026-11-21",
-  "totalGames": 9480
+  "totalGames": 9481
 }

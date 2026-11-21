@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52757,6 +52757,23 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7a/8f/16/7a8f1685-9283-df95-7f21-bad7c110a482/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-20T23:03:14.665Z"
+    },
+    {
+      "title": "Ever Tile: 3D 과일",
+      "status": "matched",
+      "appIds": {
+        "android": "com.sofish.evertile.gp",
+        "ios": 6815533335
+      },
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/gruRka0WvaLR0mfTN5nDbX1Gf5G8RHlOKd3qMfjXf1cuOmPMGlq2HkKW6k5dQyXP9aF3Tj0yEgrPoend0Wky",
+      "searchResults": [
+        {
+          "title": "Ever Tile: 3D 과일",
+          "appId": 6815533335
+        }
+      ],
+      "addedAt": "2026-11-21T03:02:55.343Z"
     }
   ],
   "approved": [
