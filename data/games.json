@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -161743,8 +161743,82 @@
         "en": "石器0課版:送滿級VIP15-看廣告領50倍獎勵",
         "zh-tw": "石器0課版:送滿級VIP15-看廣告領50倍獎勵"
       }
+    },
+    "Makeup Game - Fashion Makeover": {
+      "appIds": {
+        "ios": 6449426416
+      },
+      "aliases": [],
+      "developer": "Dreamland Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4f/25/7a/4f257a67-09ae-ebd8-6086-f481bdf343c5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "makeup-game-fashion-makeover",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Makeup Game - Fashion Makeover",
+        "en": "Makeup Game - Fashion Makeover",
+        "ja": "Makeup Game - Fashion Makeover",
+        "zh-tw": "Makeup Game - Fashion Makeover"
+      }
+    },
+    "ソフトテニススタジアム": {
+      "appIds": {
+        "ios_jp": 6833251224
+      },
+      "aliases": [],
+      "developer": "Odenplan Lab",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/85/dc/39/85dc3924-6bae-a606-e3da-158fa1b22f21/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "ソフトテニススタジアム",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ソフトテニススタジアム"
+      }
+    },
+    "퍼즐 게임, 퍼즐 맞추기. 수수께끼. 잇다 색깔": {
+      "appIds": {
+        "ios": 1488598153
+      },
+      "aliases": [],
+      "developer": "Andrei Nemtsou",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/46/07/55/460755cc-5293-9860-0e38-8cae2d5e6f66/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "퍼즐-게임-퍼즐-맞추기-수수께끼-잇다-색깔",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "퍼즐 게임, 퍼즐 맞추기. 수수께끼. 잇다 색깔",
+        "en": "Hue Color Puzzle. My Art Games",
+        "ja": "パズル! 謎解き ・ 暇つぶし 人気  ・ 脳トレ ゲーム",
+        "zh-cn": "拼图游戏 & 逻辑拼图, 颜色. 脑筋急转弯 游戏",
+        "zh-tw": "拼圖遊戲 & 邏輯拼圖, 顏色. 腦筋急轉彎 遊戲"
+      }
+    },
+    "크루즈 셰프": {
+      "appIds": {
+        "android": "com.nordcurrent.cruisechefs",
+        "ios": 6751276002
+      },
+      "aliases": [
+        "Cruise Chefs - Cooking Game"
+      ],
+      "developer": "Nordcurrent Games",
+      "icon": "https://play-lh.googleusercontent.com/zWzEfJNxMWfz0IeELvqdyuJcBUrQprD1R0XfHSG-HiWnlfKhZbEXu9I2ca1VEu0kA5-QsSMxtt78-nef558xYw",
+      "slug": "크루즈-셰프",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "크루즈 셰프",
+        "en": "Cruise Chefs - Cooking Game",
+        "ja": "クルーズ船の料理人",
+        "zh-tw": "Cruise Chefs - Cooking Game"
+      }
     }
   },
   "lastUpdated": "2026-11-22",
-  "totalGames": 9489
+  "totalGames": 9493
 }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T19:02:02.778Z",
+  "updatedAt": "2026-11-21T23:01:48.968Z",
   "period": "30days",
   "games": [
     {
@@ -11,6 +11,10 @@
       "views": 6
     },
     {
+      "slug": "탑-히어로즈-영웅의-시대",
+      "views": 6
+    },
+    {
       "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
       "views": 6
     },
@@ -19,11 +23,15 @@
       "views": 6
     },
     {
-      "slug": "monster-hunter-outlanders",
+      "slug": "1-하트-윌-우들-스크류-온",
       "views": 5
     },
     {
-      "slug": "palworld",
+      "slug": "monopoly-go-모노폴리-go",
+      "views": 5
+    },
+    {
+      "slug": "monster-hunter-outlanders",
       "views": 5
     },
     {
@@ -47,11 +55,11 @@
       "views": 5
     },
     {
-      "slug": "탈출-게임-암스테르담",
+      "slug": "쿠키런-킹덤",
       "views": 5
     },
     {
-      "slug": "탑-히어로즈-영웅의-시대",
+      "slug": "탈출-게임-암스테르담",
       "views": 5
     },
     {
@@ -63,19 +71,11 @@
       "views": 5
     },
     {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 4
-    },
-    {
       "slug": "3d운전교실",
       "views": 4
     },
     {
       "slug": "arrow-pro-3d",
-      "views": 4
-    },
-    {
-      "slug": "barotrauma",
       "views": 4
     }
   ]

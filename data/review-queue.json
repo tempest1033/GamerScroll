@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52884,6 +52884,45 @@
       "icon": "https://play-lh.googleusercontent.com/CHOg2n7dtWdW4u70F0uKKSzwhjDV80mNLAppg1kJoDqwGZxBz33tDc5ejm1soJYEIGFMeT4DzcVLPJ7kkPCThg",
       "searchResults": [],
       "addedAt": "2026-11-21T19:03:19.749Z"
+    },
+    {
+      "title": "Makeup Game - Fashion Makeover",
+      "status": "single",
+      "appIds": {
+        "ios": 6449426416
+      },
+      "developer": "Dreamland Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4f/25/7a/4f257a67-09ae-ebd8-6086-f481bdf343c5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-21T23:02:57.920Z"
+    },
+    {
+      "title": "퍼즐 게임, 퍼즐 맞추기. 수수께끼. 잇다 색깔",
+      "status": "single",
+      "appIds": {
+        "ios": 1488598153
+      },
+      "developer": "Andrei Nemtsou",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/46/07/55/460755cc-5293-9860-0e38-8cae2d5e6f66/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-21T23:02:59.159Z"
+    },
+    {
+      "title": "크루즈 셰프",
+      "status": "matched",
+      "appIds": {
+        "android": "com.nordcurrent.cruisechefs",
+        "ios": 6751276002
+      },
+      "developer": "Nordcurrent Games",
+      "icon": "https://play-lh.googleusercontent.com/zWzEfJNxMWfz0IeELvqdyuJcBUrQprD1R0XfHSG-HiWnlfKhZbEXu9I2ca1VEu0kA5-QsSMxtt78-nef558xYw",
+      "searchResults": [
+        {
+          "title": "Cruise Chefs - Cooking Game",
+          "appId": 6751276002
+        }
+      ],
+      "addedAt": "2026-11-21T23:02:59.394Z"
     }
   ],
   "approved": [
