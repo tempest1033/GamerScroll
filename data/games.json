@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -161596,8 +161596,60 @@
         "ja": "Ever Tile: 3Dフルーツ",
         "zh-tw": "Ever Tile: 3D水果配對"
       }
+    },
+    "Happy Tidy Room": {
+      "appIds": {
+        "android": "puzzle.happy.tidy.room"
+      },
+      "aliases": [],
+      "developer": "Lumos Play",
+      "icon": "https://play-lh.googleusercontent.com/vQ7PcHMVm4P2z4syYTn942g-XJ4zKOtjnOtobKjKIhRbUhgL3MZ-xY7RKeA8izpQ-NVhzatj_HFUxLpNQ0fS",
+      "slug": "happy-tidy-room",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Happy Tidy Room",
+        "en": "Happy Tidy Room",
+        "ja": "Happy Tidy Room",
+        "zh-tw": "Happy Tidy Room"
+      }
+    },
+    "迷失": {
+      "appIds": {
+        "ios_cn": 6801017547
+      },
+      "aliases": [],
+      "developer": "Migu Interactive Entertainment Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/d2/e5/82d2e558-0ff0-1550-72b5-56cde989e3ac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "迷失",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "迷失"
+      }
+    },
+    "得意满满-闲趣喵旅": {
+      "appIds": {
+        "ios": 6834297973
+      },
+      "aliases": [],
+      "developer": "雅婷 樊",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/47/65/de/4765dea5-26ac-bb91-af24-4d3db62265bc/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "得意满满-闲趣喵旅",
+        "en": "得意满满-闲趣喵旅",
+        "ja": "得意满满-闲趣喵旅",
+        "zh-cn": "得意满满-闲趣喵旅",
+        "zh-tw": "得意满满-闲趣喵旅"
+      }
     }
   },
   "lastUpdated": "2026-11-21",
-  "totalGames": 9481
+  "totalGames": 9484
 }

@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52774,6 +52774,41 @@
         }
       ],
       "addedAt": "2026-11-21T03:02:55.343Z"
+    },
+    {
+      "title": "Happy Tidy Room",
+      "status": "single",
+      "appIds": {
+        "android": "puzzle.happy.tidy.room"
+      },
+      "developer": "Lumos Play",
+      "icon": "https://play-lh.googleusercontent.com/vQ7PcHMVm4P2z4syYTn942g-XJ4zKOtjnOtobKjKIhRbUhgL3MZ-xY7RKeA8izpQ-NVhzatj_HFUxLpNQ0fS",
+      "searchResults": [
+        {
+          "title": "데코빌: 깔끔한 방 꾸미기",
+          "appId": 6752896808
+        },
+        {
+          "title": "Pocket Life: 귀여운 집 & 사랑스러운 생활",
+          "appId": 6752891187
+        },
+        {
+          "title": "A Funny Clean Up Game - All Kids Can Clean Up! By Happy-Touch® Pocket",
+          "appId": 964080011
+        }
+      ],
+      "addedAt": "2026-11-21T07:02:57.448Z"
+    },
+    {
+      "title": "得意满满-闲趣喵旅",
+      "status": "single",
+      "appIds": {
+        "ios": 6834297973
+      },
+      "developer": "雅婷 樊",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/47/65/de/4765dea5-26ac-bb91-af24-4d3db62265bc/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-21T07:02:58.262Z"
     }
   ],
   "approved": [
