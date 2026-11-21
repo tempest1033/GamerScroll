@@ -16308,7 +16308,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -70234,7 +70234,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -158912,14 +158912,16 @@
     },
     "Ultimate 11": {
       "appIds": {
-        "ios": 6779740065
+        "ios": 6779740065,
+        "android": "com.vaultystudios.ultimate11"
       },
       "aliases": [],
       "developer": "Vaulty Studios Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/da/6b/96da6bc3-fd69-5956-aed4-6c89c750355f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "ultimate-11",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Ultimate 11",
@@ -161706,8 +161708,43 @@
         "ja": "Tidy House - ものさがし アイテム探しゲーム",
         "zh-tw": "Tidy House - 尋找休閒遊戲城市尋寶"
       }
+    },
+    "지식의 나무: Trivia Blocks": {
+      "appIds": {
+        "android": "com.mnogoteams.triviablocks"
+      },
+      "aliases": [],
+      "developer": "Quiz & Trivia Games by Mno Go Apps",
+      "icon": "https://play-lh.googleusercontent.com/fE4BbcfH3K8PQcKnVWst8nhAXmzTI4f1CjuYH0c2-KfJkEkgLx5nPZI9Z7hglhuhVfZRFkzgLluQzn9xtL22UQ",
+      "slug": "지식의-나무-trivia-blocks",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "지식의 나무: Trivia Blocks",
+        "en": "Wood Quiz Blast: Trivia Blocks",
+        "ja": "クイズの樹: Trivia Blocks",
+        "zh-tw": "智慧之樹: Trivia Blocks"
+      }
+    },
+    "石器0課版:送滿級VIP15-看廣告領50倍獎勵": {
+      "appIds": {
+        "android": "sidd.iaia.ss"
+      },
+      "aliases": [],
+      "developer": "AntocTek",
+      "icon": "https://play-lh.googleusercontent.com/CHOg2n7dtWdW4u70F0uKKSzwhjDV80mNLAppg1kJoDqwGZxBz33tDc5ejm1soJYEIGFMeT4DzcVLPJ7kkPCThg",
+      "slug": "0vip15-50",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "石器0課版:送滿級VIP15-看廣告領50倍獎勵",
+        "en": "石器0課版:送滿級VIP15-看廣告領50倍獎勵",
+        "zh-tw": "石器0課版:送滿級VIP15-看廣告領50倍獎勵"
+      }
     }
   },
   "lastUpdated": "2026-11-22",
-  "totalGames": 9487
+  "totalGames": 9489
 }

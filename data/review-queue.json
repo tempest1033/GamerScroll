@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51111,13 +51111,27 @@
     },
     {
       "title": "Ultimate 11",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6779740065
+        "ios": 6779740065,
+        "android": "com.vaultystudios.ultimate11"
       },
       "developer": "Vaulty Studios Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/96/da/6b/96da6bc3-fd69-5956-aed4-6c89c750355f/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Ultimate 11",
+          "appId": 6779740065
+        },
+        {
+          "title": "Legacy XI: 축구 카드 드래프트",
+          "appId": 6798101352
+        },
+        {
+          "title": "MADFUT 27",
+          "appId": 6752884808
+        }
+      ],
       "addedAt": "2026-11-15T07:02:52.620Z"
     },
     {
@@ -52848,6 +52862,28 @@
         }
       ],
       "addedAt": "2026-11-21T11:02:47.447Z"
+    },
+    {
+      "title": "지식의 나무: Trivia Blocks",
+      "status": "single",
+      "appIds": {
+        "android": "com.mnogoteams.triviablocks"
+      },
+      "developer": "Quiz & Trivia Games by Mno Go Apps",
+      "icon": "https://play-lh.googleusercontent.com/fE4BbcfH3K8PQcKnVWst8nhAXmzTI4f1CjuYH0c2-KfJkEkgLx5nPZI9Z7hglhuhVfZRFkzgLluQzn9xtL22UQ",
+      "searchResults": [],
+      "addedAt": "2026-11-21T19:03:18.763Z"
+    },
+    {
+      "title": "石器0課版:送滿級VIP15-看廣告領50倍獎勵",
+      "status": "single",
+      "appIds": {
+        "android": "sidd.iaia.ss"
+      },
+      "developer": "AntocTek",
+      "icon": "https://play-lh.googleusercontent.com/CHOg2n7dtWdW4u70F0uKKSzwhjDV80mNLAppg1kJoDqwGZxBz33tDc5ejm1soJYEIGFMeT4DzcVLPJ7kkPCThg",
+      "searchResults": [],
+      "addedAt": "2026-11-21T19:03:19.749Z"
     }
   ],
   "approved": [
