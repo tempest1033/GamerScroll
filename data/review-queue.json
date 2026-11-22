@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53018,6 +53018,63 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/64/3b/9c643b3c-b66d-d62a-b978-555c6d35c960/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-22T07:01:48.840Z"
+    },
+    {
+      "title": "몸으로 말해요 - 재미있는 파티 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6746620779
+      },
+      "developer": "Shenzhen Force Mars Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/50/14/d3/5014d3ed-4fab-1858-1f47-2ea8fa64fcb8/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T11:01:48.523Z"
+    },
+    {
+      "title": "Nail Salon: DIY ASMR",
+      "status": "single",
+      "appIds": {
+        "android": "com.cs.nail.salon.asmr.diy"
+      },
+      "developer": "CAT Studio",
+      "icon": "https://play-lh.googleusercontent.com/OBBzbaqfL4vSqxABjyHC89gZn_EmBI2hjb8Kgrh21kQO_MsFgdo7FKXQkTu0c1WCX69kHVSieYTGhn1uCX11",
+      "searchResults": [
+        {
+          "title": "아트 네일!",
+          "appId": 1526638009
+        },
+        {
+          "title": "메이크업 게임 - 화장마스터 소녀뷰티게임",
+          "appId": 1619719913
+        },
+        {
+          "title": "YoYa: 메이크업 패션게임 ASMR",
+          "appId": 6479974248
+        }
+      ],
+      "addedAt": "2026-11-22T11:01:49.282Z"
+    },
+    {
+      "title": "매혹 찾기",
+      "status": "single",
+      "appIds": {
+        "android": "com.qwnium.gp.allurespo"
+      },
+      "developer": "Pixel wave Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/SEjG_iIL4Kk4ExyLpX4WfnSiU3zT9z58ztq-WreGUSK-njHIL_2zMX-qk7IS3KfYpwjNzk8plV6yS-M7WHg6",
+      "searchResults": [],
+      "addedAt": "2026-11-22T11:01:49.607Z"
+    },
+    {
+      "title": "執筆山河誌",
+      "status": "single",
+      "appIds": {
+        "ios": 6819041099
+      },
+      "developer": "N3 Artiverse Pty Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5a/8d/79/5a8d795a-523c-4df2-ded2-b409bd6522cd/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T11:01:49.928Z"
     }
   ],
   "approved": [

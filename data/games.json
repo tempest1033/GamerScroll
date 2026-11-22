@@ -17256,7 +17256,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -165754,8 +165754,86 @@
       "legacySlugs": [
         "pixelora-flow픽셀-탐식-게임"
       ]
+    },
+    "몸으로 말해요 - 재미있는 파티 게임": {
+      "appIds": {
+        "ios": 6746620779
+      },
+      "aliases": [],
+      "developer": "Shenzhen Force Mars Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/50/14/d3/5014d3ed-4fab-1858-1f47-2ea8fa64fcb8/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg",
+      "slug": "charades-family-guess-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "몸으로 말해요 - 재미있는 파티 게임",
+        "en": "Charades - Family & Guess Game",
+        "ja": "伝言ゲーム ジェスチャーゲーム",
+        "zh-tw": "派對猜字謎遊戲"
+      },
+      "legacySlugs": [
+        "몸으로-말해요-재미있는-파티-게임"
+      ]
+    },
+    "Nail Salon: DIY ASMR": {
+      "appIds": {
+        "android": "com.cs.nail.salon.asmr.diy"
+      },
+      "aliases": [],
+      "developer": "CAT Studio",
+      "icon": "https://play-lh.googleusercontent.com/OBBzbaqfL4vSqxABjyHC89gZn_EmBI2hjb8Kgrh21kQO_MsFgdo7FKXQkTu0c1WCX69kHVSieYTGhn1uCX11",
+      "slug": "nail-salon-diy-asmr",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Nail Salon: DIY ASMR",
+        "en": "Nail Salon: DIY ASMR",
+        "ja": "Nail Salon: DIY ASMR",
+        "zh-tw": "Nail Salon: DIY ASMR"
+      }
+    },
+    "매혹 찾기": {
+      "appIds": {
+        "android": "com.qwnium.gp.allurespo"
+      },
+      "aliases": [],
+      "developer": "Pixel wave Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/SEjG_iIL4Kk4ExyLpX4WfnSiU3zT9z58ztq-WreGUSK-njHIL_2zMX-qk7IS3KfYpwjNzk8plV6yS-M7WHg6",
+      "slug": "allure-spot",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "매혹 찾기",
+        "en": "Allure Spot",
+        "ja": "麗影探し",
+        "zh-tw": "Allure Spot"
+      },
+      "legacySlugs": [
+        "매혹-찾기"
+      ]
+    },
+    "執筆山河誌": {
+      "appIds": {
+        "ios": 6819041099
+      },
+      "aliases": [],
+      "developer": "N3 Artiverse Pty Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5a/8d/79/5a8d795a-523c-4df2-ded2-b409bd6522cd/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "執筆山河誌",
+        "en": "執筆山河誌 ShanHe",
+        "ja": "執筆山河誌",
+        "zh-tw": "執筆山河誌"
+      }
     }
   },
   "lastUpdated": "2026-11-22",
-  "totalGames": 9498
+  "totalGames": 9502
 }
