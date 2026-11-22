@@ -23,6 +23,30 @@ test('a Han alias is the zh-cn edition\'s own language only when the conversion 
   assert.equal(ownLanguage('心动小镇', 'zh-tw'), false);
 });
 
+test('punctuation of the kana blocks is not kana: a Chinese name with ・ belongs in zh-cn, a name with kana letters does not', () => {
+  for (const name of ['三國志・戰略版', '三国志・战略版', 'Liquid Sort Puzzle・Color Match', '樱坂46・日向坂46']) assert.equal(fitsEdition(name, 'zh-cn'), true, name);
+  for (const name of ['リネージュM', '信長の野望 覇道', 'ドラゴンクエスト・タクト', '悪魔執事と黒い猫']) assert.equal(fitsEdition(name, 'zh-cn'), false, name);
+  assert.equal(toSimplified('三國志・戰略版'), '三国志・战略版');
+  assert.equal(ownLanguage('三国志・战略版', 'zh-cn'), true);
+  assert.equal(ownLanguage('三國志・戰略版', 'zh-cn'), false);
+  for (const code of ['en', 'ko', 'zh-tw']) assert.equal(fitsEdition('三國志・戰略版', code), false, `${code} keeps its rule`);
+  assert.equal(fitsEdition('三國志・戰略版', 'ja'), true);
+});
+
+test('Japanese shinjitai in a Han-only name becomes Simplified, through Traditional', () => {
+  for (const [from, to] of [
+    ['三國志 真戦', '三国志 真战'], ['三国志 真戦', '三国志 真战'], ['戦国戦輝', '战国战辉'], ['刀剣乱舞ONLINE', '刀剑乱舞ONLINE'],
+    ['崩壊3rd', '崩坏3rd'], ['恋姫†大戦', '恋姬†大战'], ['聖闘士星矢', '圣斗士星矢'], ['産業革命', '产业革命'], ['桜花', '樱花'], ['呪術高専', '咒术高专'],
+  ]) assert.equal(toSimplified(from), to, from);
+  for (const name of ['三国志 真戦', '戦国', '刀剣乱舞']) assert.equal(ownLanguage(name, 'zh-cn'), false, `${name} has a shinjitai form left`);
+  assert.equal(ownLanguage('三国志 真战', 'zh-cn'), true);
+});
+
+test('the shinjitai step leaves valid Chinese alone (characters and words Japanese writes differently)', () => {
+  for (const name of ['研究', '欠缺', '暴露', '先端', '萌娘', '新郎', '翻译', '花瓶', '芸豆', '概念', '谨慎', '叙事']) assert.equal(toSimplified(name), name, name);
+  assert.equal(toSimplified('並行世界'), '并行世界');
+});
+
 test('zh-tw keeps names shared with CN and rejects Simplified-only characters', () => {
   for (const name of ['原神', '原神-六週年', '王者榮耀', '三角洲行動', 'MONOPOLY GO! (大富翁 GO!)']) assert.equal(fitsEdition(name, 'zh-tw'), true, name);
   for (const name of ['王者荣耀', '三角洲行动', '保卫萝卜3']) assert.equal(fitsEdition(name, 'zh-tw'), false, name);

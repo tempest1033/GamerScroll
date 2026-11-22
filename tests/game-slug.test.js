@@ -60,6 +60,17 @@ test('each edition shows the name in its own script when the game has one', () =
     assert.equal(nameIn('zh-tw', '메이플스토리M'), '楓之谷M');
     assert.equal(nameIn('zh-cn', '代號鳶-沉浸式劇情卡牌手遊'), '代号鸢-沉浸式剧情卡牌手游');
     assert.equal(nameIn('zh-tw', '代號鳶-沉浸式劇情卡牌手遊'), '代號鳶-沉浸式劇情卡牌手遊');
+    assert.equal(nameIn('zh-cn', '三國志・戰略版'), '三国志・战略版', 'the ・ of a Chinese title is not kana');
+    assert.equal(nameIn('zh-tw', '三國志・戰略版'), '三國志・戰略版');
+    assert.equal(nameIn('zh-cn', '三國志 真戦'), '三国志 真战', 'Japanese shinjitai in a Han-only name is converted too');
+    assert.equal(nameIn('ja', '三國志 真戦'), '三國志 真戦');
+    // The whole catalog on the Simplified edition: a name without kana letters or Hangul is in Simplified form
+    // (nothing left for the conversion to change), and a name with kana letters is Japanese text shown as recorded.
+    const { HAN, HANGUL, KANA_LETTER, toSimplified } = require('../src/rank/name-script');
+    i18n.setEdition('zh-cn');
+    const shown = S.games.map((g) => S.displayName(g));
+    assert.deepEqual(shown.filter((n) => HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n) && toSimplified(n) !== n), []);
+    assert.ok(shown.some((n) => KANA_LETTER.test(n) && toSimplified(n) !== n), 'kana names are not partially converted');
   } finally { i18n.setEdition('en'); }
 });
 

@@ -31,7 +31,7 @@ const tsTime = (ts) => formatTime(ts);
 const MONTH_PAGE_MIN_DAYS = 7;
 let cached = null;
 
-const { HANGUL, KANA, CJK, HAN, fitsEdition, ownLanguage, toSimplified } = require('./name-script');
+const { HANGUL, KANA, KANA_LETTER, CJK, HAN, fitsEdition, ownLanguage, toSimplified } = require('./name-script');
 const { keyLatinName } = require('../build/game-slug');
 
 function loadRankStats(options = {}) {
@@ -128,7 +128,7 @@ function loadRankStats(options = {}) {
     const edition = currentEdition();
     const code = edition.code;
     const names = g.names || {};
-    const nativeAlias = (g.aliases || []).find((a) => (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !KANA.test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsEdition(a, code));
+    const nativeAlias = (g.aliases || []).find((a) => (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !(code === 'zh-cn' ? KANA_LETTER : KANA).test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsEdition(a, code));
     const latin = (x) => x && !CJK.test(x);
     const developerSuffix = g.developer ? ` (${g.developer})` : null;
     const key = developerSuffix && g.key.endsWith(developerSuffix) ? g.key.slice(0, -developerSuffix.length) : g.key;
