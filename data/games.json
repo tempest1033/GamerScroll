@@ -17256,7 +17256,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -165832,8 +165832,46 @@
         "ja": "執筆山河誌",
         "zh-tw": "執筆山河誌"
       }
+    },
+    "救了只鸭-鸭子多多": {
+      "appIds": {
+        "ios": 6801513498
+      },
+      "aliases": [],
+      "developer": "东 曹",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6f/4c/bb/6f4cbbe8-8ee3-49d6-83b8-ef2b0a0ef8b8/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "救了只鸭-鸭子多多",
+        "en": "救了只鸭-鸭子多多",
+        "ja": "救了只鸭-鸭子多多",
+        "zh-cn": "救了只鸭-鸭子多多",
+        "zh-tw": "救了只鸭-鸭子多多"
+      }
+    },
+    "Dunk Shooter 3D": {
+      "appIds": {
+        "ios": 1481783429
+      },
+      "aliases": [],
+      "developer": "TippyTap",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/7f/16/8c/7f168cb0-7405-358e-0004-ae3f6be4f441/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "dunk-shooter-3d",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Dunk Shooter 3D",
+        "en": "Dunk Shooter 3D",
+        "ja": "Dunk Shooter 3D",
+        "zh-cn": "Dunk Shooter 3D",
+        "zh-tw": "Dunk Shooter 3D"
+      }
     }
   },
-  "lastUpdated": "2026-11-22",
-  "totalGames": 9502
+  "lastUpdated": "2026-11-23",
+  "totalGames": 9504
 }

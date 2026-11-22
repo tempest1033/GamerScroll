@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53075,6 +53075,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5a/8d/79/5a8d795a-523c-4df2-ded2-b409bd6522cd/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-22T11:01:49.928Z"
+    },
+    {
+      "title": "救了只鸭-鸭子多多",
+      "status": "single",
+      "appIds": {
+        "ios": 6801513498
+      },
+      "developer": "东 曹",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6f/4c/bb/6f4cbbe8-8ee3-49d6-83b8-ef2b0a0ef8b8/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T15:02:30.031Z"
+    },
+    {
+      "title": "Dunk Shooter 3D",
+      "status": "single",
+      "appIds": {
+        "ios": 1481783429
+      },
+      "developer": "TippyTap",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/7f/16/8c/7f168cb0-7405-358e-0004-ae3f6be4f441/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T15:02:30.316Z"
     }
   ],
   "approved": [
