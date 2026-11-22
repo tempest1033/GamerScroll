@@ -540,7 +540,7 @@ module.exports = {
   "steam.steam_concurrent_players_1_players": "Steam同時接続者数1位 {name}（{p1}人）、2位 {p2}、3位 {p3}。韓国ストアのベストセラー1位 {p4}。{date}時点、毎日更新。",
   "steam.steam_concurrent_players_and_sales": "{name} Steam同時接続者数・販売ランキング | GamerScroll",
   "steam.steam_game_rankings": "Steamゲームランキング",
-  "steam.steam_game_rankings_concurrent_players": "Steamゲームランキング — 同時接続者数・販売TOP 100（{date}） | GamerScroll",
+  "steam.steam_game_rankings_concurrent_players": "Steamゲームランキング — 同時接続者数・韓国ストア販売TOP 100（{date}） | GamerScroll",
   "steam.steam_game_rankings_steam_rankings": "Steamゲームランキング、Steamランキング、Steam売上、Steam同時接続者数、ゲームランキング",
   "steam.steam_game_rankings_steam_sales": "Steamゲームランキング - Steam販売、Steam同時接続者数",
   "steam.steam_game_rankings_top_100": "Steamゲームランキング TOP 100。Steamの販売ランキングと同時接続者数の人気ランキングをリアルタイムで確認できます。",

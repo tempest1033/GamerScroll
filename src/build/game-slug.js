@@ -11,7 +11,9 @@ const { CJK } = require('../rank/name-script');
 const NAME_ORDER = ['en', 'ja', 'zh-tw', 'zh-cn', 'ko'];
 const MAX_LENGTH = 60;
 const letters = (s) => (String(s).match(/[a-z]/gi) || []).length;
-const isLatin = (s) => typeof s === 'string' && !CJK.test(s) && !/[^\u0000-\u024F\u2000-\u214F]/.test(s) && letters(s) >= 2;
+// Store titles often punctuate a Latin name with full-width or CJK marks ("Name：Subtitle", "Name・Subtitle").
+const plain = (s) => s.normalize('NFKC').replace(/[\u30FB\u3000-\u303F]/g, ' ');
+const isLatin = (s) => typeof s === 'string' && !CJK.test(plain(s)) && !/[^\u0000-\u024F\u2000-\u214F]/.test(plain(s)) && letters(s) >= 2;
 
 function asciiSlug(text) {
   let slug = String(text || '')
@@ -33,19 +35,25 @@ function baseKey(key, developer) {
 }
 const GLOSS_RE = /[(（]([^()（）]*)[)）]/g;
 
-// The game's Latin-script name: English store name → another market's Latin store name → the longest Latin alias →
-// the DB key (its "(other-script name)" gloss dropped) → a Latin gloss of a native-script key. null when it has none.
-function latinName(key, game = {}) {
-  const names = game.names || {};
-  for (const code of NAME_ORDER) if (isLatin(names[code])) return names[code];
-  const alias = (game.aliases || []).filter((a) => isLatin(a) && letters(a) >= 4).sort((a, b) => b.length - a.length)[0];
-  if (alias) return alias;
-  const base = baseKey(key, game.developer);
+// The Latin name written in the DB key itself: the key with its "(other-script name)" gloss dropped, else a Latin gloss
+// of a native-script key ("로얄 매치 (Royal Match)"). A short tag in parentheses (CBT, 12) is not a name. null when none.
+function keyLatinName(key, developer) {
+  const base = baseKey(key, developer);
   const main = base.replace(GLOSS_RE, ' ').trim();
   if (isLatin(main)) return main;
   if (isLatin(base)) return base;
-  const gloss = [...base.matchAll(GLOSS_RE)].map((m) => m[1].trim()).find((x) => isLatin(x) && (letters(x) >= 6 || /[a-z]\s+[a-z]/i.test(x)));
-  return gloss || null;
+  return [...base.matchAll(GLOSS_RE)].map((m) => m[1].trim()).find((x) => isLatin(x) && (letters(x) >= 6 || /[a-z]\s+[a-z]/i.test(x))) || null;
+}
+
+// The game's Latin-script name: English store name → another market's Latin store name → the longest Latin alias
+// (one under four letters only when the DB key opens with it: "WPL : 홀덤, ...") → the Latin name in the DB key.
+function latinName(key, game = {}) {
+  const names = game.names || {};
+  for (const code of NAME_ORDER) if (isLatin(names[code])) return names[code];
+  const base = baseKey(key, game.developer);
+  const opensKey = (a) => base.toLowerCase().startsWith(a.toLowerCase()) && !/[a-z0-9]/i.test(base.charAt(a.length));
+  const alias = (game.aliases || []).filter((a) => isLatin(a) && (letters(a) >= 4 || opensKey(a))).sort((a, b) => b.length - a.length)[0];
+  return alias || keyLatinName(key, game.developer);
 }
 
 // ASCII slug from the game's Latin name; '' when the game has no Latin name.
@@ -66,4 +74,7 @@ function uniqueOf(slug, developer, used) {
 // still key the game by those, and old URLs redirect from them).
 const slugKeys = (game) => (game ? [game.slug, ...(game.legacySlugs || [])].filter(Boolean) : []);
 
-module.exports = { asciiSlug, latinName, latinSlug, uniqueOf, slugKeys, isLatin };
+// Every slug in use or retired: a new or renamed game must take none of them (a retired slug still redirects).
+const takenSlugs = (games) => new Set(Object.values(games).flatMap((g) => slugKeys(g)));
+
+module.exports = { asciiSlug, latinName, keyLatinName, latinSlug, uniqueOf, slugKeys, takenSlugs, isLatin };

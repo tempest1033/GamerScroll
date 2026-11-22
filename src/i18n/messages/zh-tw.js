@@ -540,7 +540,7 @@ module.exports = {
   "steam.steam_concurrent_players_1_players": "Steam 同時在線第 1 名 {name}（{p1} 人）、第 2 名 {p2}、第 3 名 {p3}。韓國商店最暢銷第 1 名 {p4}。資料截至 {date}，每日更新。",
   "steam.steam_concurrent_players_and_sales": "{name} Steam 同時在線人數與銷售排行 | GamerScroll",
   "steam.steam_game_rankings": "Steam 遊戲排行",
-  "steam.steam_game_rankings_concurrent_players": "Steam 遊戲排行：同時在線人數與銷售 TOP 100（{date}）| GamerScroll",
+  "steam.steam_game_rankings_concurrent_players": "Steam 遊戲排行：同時在線人數與韓國商店銷售 TOP 100（{date}）| GamerScroll",
   "steam.steam_game_rankings_steam_rankings": "Steam 遊戲排行, Steam 排行, Steam 營收, Steam 同時在線人數, 遊戲排行",
   "steam.steam_game_rankings_steam_sales": "Steam 遊戲排行：Steam 銷售、Steam 同時在線人數",
   "steam.steam_game_rankings_top_100": "Steam 遊戲排行 TOP 100，即時查看 Steam 銷售排行與同時在線人數熱門排行。",

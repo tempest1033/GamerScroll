@@ -540,7 +540,7 @@ module.exports = {
   "steam.steam_concurrent_players_1_players": "Steam concurrent players #1 {name} ({p1} players), #2 {p2}, #3 {p3}. Best-selling #1 in the Korea store {p4}. As of {date}, updated daily.",
   "steam.steam_concurrent_players_and_sales": "{name} Steam concurrent players and sales ranking | GamerScroll",
   "steam.steam_game_rankings": "Steam game rankings",
-  "steam.steam_game_rankings_concurrent_players": "Steam Rankings: Players and Sales TOP 100 ({date}) | GamerScroll",
+  "steam.steam_game_rankings_concurrent_players": "Steam Rankings: Players & Korea Store Sales TOP 100 ({date}) | GamerScroll",
   "steam.steam_game_rankings_steam_rankings": "Steam game rankings, Steam rankings, Steam revenue, Steam concurrent players, game rankings",
   "steam.steam_game_rankings_steam_sales": "Steam game rankings - Steam sales, Steam concurrent players",
   "steam.steam_game_rankings_top_100": "Steam game rankings TOP 100. Check Steam sales rankings and concurrent player popularity rankings in real time.",

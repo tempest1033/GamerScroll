@@ -797,7 +797,7 @@
       },
       "developer": "Zempot Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6a/0d/94/6a0d949f-eb26-a8aa-3cef-5fa3a6a26e2b/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
-      "slug": "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고",
+      "slug": "wpl",
       "platforms": [
         "ios",
         "android"
@@ -808,7 +808,10 @@
       ],
       "names": {
         "ko": "WPL : 홀덤, 토너먼트, 오마하, 올인폴드, 픽앤고"
-      }
+      },
+      "legacySlugs": [
+        "wpl-홀덤-토너먼트-오마하-올인폴드-픽앤고"
+      ]
     },
     "블리치: 소울 레조넌스": {
       "appIds": {
@@ -7375,7 +7378,7 @@
       },
       "developer": "Wildlife Studios",
       "icon": "https://play-lh.googleusercontent.com/4TTE3VCAUciSPOnMo5dWn3Y1tvuiZNns7dT1q5_msDzip_UY07RbzmnoYyKnbDFBHw",
-      "slug": "숫자별로-색칠하기-픽셀-색칠-게임",
+      "slug": "color-by-number-coloring-games",
       "platforms": [
         "ios",
         "android"
@@ -7387,7 +7390,10 @@
         "ja": "番号でぬりえ: ピクセル着色ゲーム",
         "zh-cn": "填色一二三：像素着色应用",
         "zh-tw": "填色一二三：像素著色遊戲"
-      }
+      },
+      "legacySlugs": [
+        "숫자별로-색칠하기-픽셀-색칠-게임"
+      ]
     },
     "나사 매치 - 나사풀기 핀 퍼즐 나사게임 3d": {
       "appIds": {
@@ -28331,7 +28337,7 @@
       "aliases": [],
       "developer": "Kolibri Games GmbH",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9d/36/9f/9d369f06-6439-bd4a-2331-3483ee821435/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "idle-junkyard-tycoon-아이들-정크야드",
+      "slug": "idle-junkyard-tycoon-recycling",
       "platforms": [
         "ios",
         "android"
@@ -28341,7 +28347,10 @@
         "en": "Idle Junkyard Tycoon：Recycling",
         "ja": "Idle Junkyard Tycoon - 放置廃品帝国",
         "zh-tw": "Idle Junkyard Tycoon：Recycling"
-      }
+      },
+      "legacySlugs": [
+        "idle-junkyard-tycoon-아이들-정크야드"
+      ]
     },
     "鬼谷八荒 Tale of Immortal": {
       "appIds": {
@@ -29065,7 +29074,7 @@
       "aliases": [],
       "developer": "Topsmart Mobile Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/49/ae/4949ae64-1f51-32e0-8069-c17de253713e/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
-      "slug": "버블팝-슈터-퍼즐-게임",
+      "slug": "bubble-pop-bubble-shooter-game",
       "platforms": [
         "ios"
       ],
@@ -29074,7 +29083,10 @@
         "en": "Bubble Pop！Bubble Shooter Game",
         "ja": "バブルポップ！シューティングパズル",
         "zh-tw": "Bubble Pop! 泡泡射擊益智遊戲"
-      }
+      },
+      "legacySlugs": [
+        "버블팝-슈터-퍼즐-게임"
+      ]
     },
     "FreestyleFootball R": {
       "appIds": {
@@ -50233,7 +50245,7 @@
       "aliases": [],
       "developer": "Freeplay Inc",
       "icon": "https://play-lh.googleusercontent.com/W_8WRF4zexPDqOIjrlF59QWdjxk4_mGyVC9Yscy4Rb7QJ3B_al3W5hgLmLqyvm_Jj4a_mDT2S3W7IOs39Ezp",
-      "slug": "fidget-toys-trading-팝잇-거래-게임",
+      "slug": "fidget-toys-trading-pop-it-3d",
       "platforms": [
         "android"
       ],
@@ -50242,7 +50254,10 @@
         "en": "Fidget Toys Trading・Pop It 3D",
         "ja": "プッシュポップバブル交換ゲーム ポップイットトレード",
         "zh-tw": "滅鼠先鋒 - 坐立不安的交易"
-      }
+      },
+      "legacySlugs": [
+        "fidget-toys-trading-팝잇-거래-게임"
+      ]
     },
     "Breath of Fire IV": {
       "appIds": {
@@ -57759,7 +57774,7 @@
       ],
       "developer": "NEOCRAFT LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/59/d0/36/59d03655-4e76-464b-3e40-b26134bdd0ba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "진삼국무쌍-오버로드",
+      "slug": "dynasty-warriors-overlords",
       "platforms": [
         "ios",
         "android"
@@ -57768,7 +57783,10 @@
         "ko": "진삼국무쌍-오버로드",
         "en": "Dynasty Warriors：Overlords",
         "zh-tw": "真三國無雙・霸"
-      }
+      },
+      "legacySlugs": [
+        "진삼국무쌍-오버로드"
+      ]
     },
     "Marvel 올스타 배틀": {
       "appIds": {
@@ -163954,7 +163972,7 @@
       "aliases": [],
       "developer": "NHN Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cb/ed/6d/cbed6ddc-2a04-213b-f91e-e6440c9fb578/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "최애의-아이puzzle-star",
+      "slug": "oshi-no-ko-puzzle-star",
       "platforms": [
         "ios"
       ],
@@ -163962,7 +163980,10 @@
         "ko": "【최애의 아이】Puzzle Star",
         "en": "【OSHI NO KO】Puzzle Star",
         "zh-tw": "【我推的孩子】Puzzle Star"
-      }
+      },
+      "legacySlugs": [
+        "최애의-아이puzzle-star"
+      ]
     },
     "Dream Digital Quest": {
       "appIds": {

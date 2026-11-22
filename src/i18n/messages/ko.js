@@ -540,7 +540,7 @@ module.exports = {
   "steam.steam_concurrent_players_1_players": "스팀 동접자 1위 {name}({p1}명), 2위 {p2}, 3위 {p3}. 한국 스토어 최고 판매 1위 {p4}. {date} 기준, 매일 갱신.",
   "steam.steam_concurrent_players_and_sales": "{name} 스팀 동접자·판매 순위 | 게이머스크롤",
   "steam.steam_game_rankings": "스팀 게임 순위",
-  "steam.steam_game_rankings_concurrent_players": "스팀 게임 순위 — 동접자·판매 TOP 100 ({date}) | 게이머스크롤",
+  "steam.steam_game_rankings_concurrent_players": "스팀 게임 순위 — 동접자·한국 스토어 판매 TOP 100 ({date}) | 게이머스크롤",
   "steam.steam_game_rankings_steam_rankings": "스팀 게임 순위, 스팀 순위, 스팀 매출, 스팀 동접자, 게임 순위",
   "steam.steam_game_rankings_steam_sales": "스팀 게임 순위 - 스팀 매출, 스팀 동접자",
   "steam.steam_game_rankings_top_100": "스팀 게임 순위 TOP 100. 스팀 매출 순위와 동접자 인기 순위를 실시간으로 확인하세요.",

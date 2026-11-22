@@ -12,14 +12,14 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { latinSlug, uniqueOf } = require('../src/build/game-slug');
+const { latinSlug, uniqueOf, takenSlugs } = require('../src/build/game-slug');
 
 const NON_ASCII = /[^\u0000-\u007F]/;
 
 // Mutates gamesData.games; returns [{ key, from, to }].
 function migrate(gamesData) {
   const entries = Object.entries(gamesData.games);
-  const used = new Set(entries.flatMap(([, g]) => [g.slug, ...(g.legacySlugs || [])]).filter(Boolean));
+  const used = takenSlugs(gamesData.games);
   const renamed = [];
   for (const [key, g] of entries) {
     if (!g.slug || !NON_ASCII.test(g.slug)) continue;

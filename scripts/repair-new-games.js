@@ -129,7 +129,7 @@ async function fillNames(gamesData, report) {
 
 function regenerateSlugs(gamesData, report) {
   const games = gamesData.games;
-  const used = new Set(Object.entries(games).filter(([k]) => orig[k]).map(([, g]) => g.slug).filter(Boolean));
+  const used = new Set(Object.entries(games).filter(([k]) => orig[k]).flatMap(([, g]) => [g.slug, ...(g.legacySlugs || [])]).filter(Boolean));
   for (const [key, g] of Object.entries(games)) {
     if (orig[key]) continue;
     const firstId = Object.values(g.appIds || {})[0];

@@ -48,12 +48,51 @@ await t("KR assets/robots/sitemap pass", async () => { for (const p of ["/assets
 await t("KR .html redirects", async () => assert.equal((await call(G + "/rankings/index.html", { country: "KR" })).status, 302));
 await t("/magazine/issue/x/ 410", async () => assert.equal((await call(G + "/magazine/issue/x/", { country: "KR" })).status, 410));
 await t("/magazine 410", async () => assert.equal((await call(G + "/magazine")).status, 410));
-await t("monthly ranking articles -> their successor in the Korean edition", async () => {
-  for (const [from, to] of [["/magazine/ranking/mobile-february-2026-kr/", "/ko/rankings/monthly/2026-02/"], ["/magazine/ranking/subculture-august-2026-kr/", "/ko/rankings/genres/subculture/"], ["/magazine/ranking/steam-april-2026", "/ko/steam/"]]) {
-    const r = await call(G + from, { country: "KR" }); assert.equal(r.status, 301, from); assert.equal(loc(r), to);
+await t("ranking articles -> their successor in the edition of the URL (unprefixed = the Korean site)", async () => {
+  for (const [from, to] of [
+    ["/magazine/ranking/mobile-february-2026-kr/", "/ko/rankings/monthly/2026-02/"],
+    ["/magazine/ranking/lunar-new-year-2026-kr/", "/ko/rankings/monthly/2026-02/"],
+    ["/magazine/ranking/subculture-august-2026-kr/", "/ko/rankings/genres/subculture/"],
+    ["/magazine/ranking/endfield-vs-dragonsword-new-year-2026/", "/ko/rankings/genres/subculture/"],
+    ["/magazine/ranking/steam-april-2026", "/ko/steam/"],
+    ["/ko/magazine/ranking/mobile-july-2026-kr/", "/ko/rankings/monthly/2026-07/"],
+    ["/ja/magazine/ranking/steam-april-2026/", "/ja/steam/"],
+    ["/ja/magazine/ranking/mobile-june-2026-kr/", "/ja/rankings/kr/"],
+    ["/zh-tw/magazine/ranking/subculture-may-2026-kr/", "/zh-tw/rankings/kr/"],
+  ]) {
+    const r = await call(G + from, { country: "KR" }); assert.equal(r.status, 301, from); assert.equal(loc(r), to, from);
   }
 });
-await t("other ranking articles stay 410", async () => { for (const p of ["/magazine/ranking/lunar-new-year-2026-kr/", "/magazine/ranking/mobile-smarch-2026-kr/", "/magazine/ranking/"]) assert.equal((await call(G + p)).status, 410, p); });
+await t("every article of the historical inventory redirects; URLs that never existed stay 410", async () => {
+  const inventory = ["endfield-vs-dragonsword-new-year-2026", "lunar-new-year-2026-kr", "mobile-february-2026-kr", "mobile-january-2026-kr", "mobile-july-2026-kr", "mobile-june-2026-kr", "steam-april-2026", "steam-february-2026", "steam-january-2026", "subculture-april-2026-kr", "subculture-august-2026-kr", "subculture-february-2026-kr", "subculture-january-2026-kr", "subculture-july-2026-kr", "subculture-june-2026-kr", "subculture-may-2026-kr"];
+  for (const slug of inventory) assert.equal((await call(`${G}/magazine/ranking/${slug}/`)).status, 301, slug);
+  for (const p of ["/magazine/ranking/mobile-march-2026-kr/", "/magazine/ranking/steam-march-2026/", "/magazine/ranking/constructor/", "/magazine/ranking/"]) assert.equal((await call(G + p)).status, 410, p);
+});
+
+// Game URLs: host, edition and retired slug settle in one redirect (through the whole middleware, with the redirect map as an asset).
+const OLD = "/games/monopoly-go-%EB%AA%A8%EB%85%B8%ED%8F%B4%EB%A6%AC-go/";
+const ASSETS = { fetch: async (req) => (new URL(req.url).pathname === "/games-data/_redirects.json" ? new Response(JSON.stringify({ "monopoly-go-모노폴리-go": "monopoly-go" })) : new Response("nope", { status: 404 })) };
+async function hop(url, { country, ua, cookie } = {}) {
+  const u = new URL(url);
+  const headers = new Headers({ host: u.host });
+  if (country) headers.set("CF-IPCountry", country);
+  if (ua) headers.set("User-Agent", ua);
+  if (cookie) headers.set("Cookie", cookie);
+  const r = await onRequest({ request: new Request(url, { headers }), env: { ASSETS }, next: async () => new Response("ok", { status: 200 }) });
+  return [r.status, r.headers.get("location"), r.headers.get("cache-control")];
+}
+const W = "https://www.gamerscroll.com";
+await t("retired slug, Googlebot: one 301", async () => assert.deepEqual(await hop(G + OLD, { country: "KR", ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/games/monopoly-go/", null]));
+await t("retired slug, US visitor: one 301", async () => assert.deepEqual(await hop(G + OLD + "?x=1", { country: "US" }), [301, "https://gamerscroll.com/games/monopoly-go/?x=1", null]));
+await t("retired slug, KR visitor: one 302 to the Korean page under its current slug", async () => assert.deepEqual(await hop(G + OLD, { country: "KR" }), [302, "https://gamerscroll.com/ko/games/monopoly-go/", "private, no-store"]));
+await t("retired slug, Yeti: one 302 to the Korean page", async () => assert.deepEqual(await hop(G + OLD, { ua: "Mozilla/5.0 (compatible; Yeti/1.1; +https://naver.me/spd)" }), [302, "https://gamerscroll.com/ko/games/monopoly-go/", "private, no-store"]));
+await t("retired slug under an edition prefix: one 301 within that edition", async () => assert.deepEqual(await hop(G + "/ja" + OLD, { country: "KR" }), [301, "https://gamerscroll.com/ja/games/monopoly-go/", null]));
+await t("www + retired slug, Googlebot: one 301 to the bare host and current slug", async () => assert.deepEqual(await hop(W + OLD, { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/games/monopoly-go/", null]));
+await t("www + edition prefix + retired slug: one 301", async () => assert.deepEqual(await hop(W + "/ko" + OLD), [301, "https://gamerscroll.com/ko/games/monopoly-go/", null]));
+await t("www + retired slug, JP visitor: one 302 to the Japanese page", async () => assert.deepEqual(await hop(W + OLD, { country: "JP" }), [302, "https://gamerscroll.com/ja/games/monopoly-go/", "private, no-store"]));
+await t("www + current slug, KR visitor: one 302", async () => assert.deepEqual(await hop(W + "/games/monopoly-go/", { country: "KR" }), [302, "https://gamerscroll.com/ko/games/monopoly-go/", "private, no-store"]));
+await t("current slug on the bare host is untouched", async () => { assert.deepEqual(await hop(G + "/games/monopoly-go/", { country: "US" }), [200, null, null]); assert.deepEqual(await hop(G + "/ko/games/monopoly-go/", { country: "KR" }), [200, null, null]); });
+await t("games hub and files under /games/ are not game pages", async () => { assert.deepEqual(await hop(W + "/games/"), [301, "https://gamerscroll.com/games/", null]); assert.deepEqual(await hop(G + "/games/search-index.json", { country: "KR" }), [200, null, null]); });
 await t("/ko/reports/ 410", async () => assert.equal((await call(G + "/ko/reports/", { country: "KR" })).status, 410));
 await t("/reports/x 410", async () => assert.equal((await call(G + "/reports/x")).status, 410));
 await t("/tech/normal/x 410", async () => assert.equal((await call(G + "/tech/normal/macbook-neo-reviews/")).status, 410));

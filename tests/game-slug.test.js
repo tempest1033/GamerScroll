@@ -19,6 +19,41 @@ test('a game with a Latin name gets an ASCII slug from it', () => {
   assert.equal(asciiSlug('88 Fortunes™ Casino'), '88-fortunes-casino');
 });
 
+test('store names punctuated with full-width marks and short names that open the DB key count as Latin names', () => {
+  assert.equal(latinSlug('Idle Junkyard Tycoon: 아이들 정크야드', { names: { en: 'Idle Junkyard Tycoon：Recycling' } }), 'idle-junkyard-tycoon-recycling');
+  assert.equal(latinSlug('Fidget Toys Trading: 팝잇 거래 게임', { names: { en: 'Fidget Toys Trading・Pop It 3D' } }), 'fidget-toys-trading-pop-it-3d');
+  assert.equal(latinSlug('WPL : 홀덤, 토너먼트, 오마하', { aliases: ['WPL', 'WPL포커'] }), 'wpl');
+  assert.equal(latinSlug('한게임 포커', { aliases: ['HG'] }), '', 'a short alias that is not the name in the key');
+});
+
+test('a registered game keeps its retired slugs through a sync merge, and a new game never takes one', async () => {
+  const { processGame, buildNameKeyIndex, getRegCtx } = require('../scripts/sync-and-enrich');
+  const gamesData = { games: {
+    'MapleStory : Idle RPG': { appIds: { android: 'com.nexon.ma' }, aliases: [], developer: 'NEXON', icon: 'i', slug: 'maplestory-idle-rpg', platforms: ['android'], names: { ko: '메이플 키우기' }, legacySlugs: ['메이플-키우기'] },
+  } };
+  const stats = { existing: 0, steam: 0 };
+  const run = (title, appId) => processGame({ platform: 'steam', region: 'global', appId, title, developer: 'Dev', icon: '' }, gamesData, new Map(), buildNameKeyIndex(gamesData.games), stats, null);
+  await run('MapleStory : Idle RPG', 111);
+  assert.deepEqual(gamesData.games['MapleStory : Idle RPG'].legacySlugs, ['메이플-키우기']);
+  assert.deepEqual(gamesData.games['MapleStory : Idle RPG'].names, { ko: '메이플 키우기' });
+  assert.equal(gamesData.games['MapleStory : Idle RPG'].appIds.steam, 111);
+  await run('메이플 키우기', 222);
+  assert.equal(gamesData.games['메이플 키우기'].slug, '메이플-키우기-dev', 'the retired slug still redirects, so it is not free');
+  assert.ok(getRegCtx(gamesData, new Map()).slugs.has('메이플-키우기'));
+});
+
+test('each edition shows the name in its own script when the game has one', () => {
+  const i18n = require('../src/i18n');
+  const S = require('../src/rank/stats').loadRankStats();
+  const nameIn = (code, key) => { i18n.setEdition(code); return S.displayName(S.games.find((g) => g.key === key)); };
+  try {
+    assert.match(nameIn('ja', 'Magical Girl Witch Trials (魔法少女ノ魔女裁判)'), /魔法少女ノ魔女裁判/);
+    assert.match(nameIn('ja', 'NAMAKORIUM (ナマコリウム)'), /ナマコリウム/);
+    assert.equal(nameIn('en', 'Magical Girl Witch Trials (魔法少女ノ魔女裁判)'), 'Magical Girl Witch Trials');
+    assert.equal(nameIn('ko', 'NAMAKORIUM (ナマコリウム)'), 'NAMAKORIUM');
+  } finally { i18n.setEdition('en'); }
+});
+
 test('a game known only by a native-script name has no Latin slug', () => {
   assert.equal(latinSlug('리니지M(12)', { aliases: ['리니지엠'], names: { ko: '리니지M(12)' } }), '');
   assert.equal(latinSlug('레퀴엠M(CBT)', {}), '', 'a short tag in parentheses is not a name');
@@ -65,8 +100,11 @@ test('a retired slug 301s to the current game URL in the same edition; an unknow
   const outfile = path.join(dir, 'game-route.mjs');
   await esbuild.build({ entryPoints: [path.join(__dirname, '..', 'functions/_lib/game-route.js')], bundle: true, format: 'esm', platform: 'neutral', plugins: [stub], outfile, logLevel: 'silent' });
   const { handleGameRequest } = await import(pathToFileURL(outfile).href);
-  globalThis.caches = { default: { match: async () => undefined, put: async () => {} } };
-  const assets = { '/games-data/_meta.json': '{"version":"1"}', '/games-data/_redirects.json': JSON.stringify({ 'monopoly-go-모노폴리-go': 'monopoly-go' }), '/games-data/monopoly-go.json': '{"slug":"monopoly-go"}' };
+  // As on Cloudflare Pages right after a deploy: the retired slug's data file is still served from the previous
+  // deployment, and a page rendered from it sits in the Cache API. The redirect must win over both.
+  const stalePage = (req) => (new URL(req.url).pathname.includes('%EB%AA%A8') ? new Response('stale page') : undefined);
+  globalThis.caches = { default: { match: async (req) => stalePage(req), put: async () => {} } };
+  const assets = { '/games-data/_meta.json': '{"version":"1"}', '/games-data/_redirects.json': JSON.stringify({ 'monopoly-go-모노폴리-go': 'monopoly-go' }), '/games-data/monopoly-go.json': '{"slug":"monopoly-go"}', '/games-data/monopoly-go-모노폴리-go.json': '{"slug":"monopoly-go-모노폴리-go"}' };
   const ASSETS = { fetch: async (req) => { const body = assets[decodeURIComponent(new URL(req.url).pathname)]; return body ? new Response(body) : new Response('missing', { status: 404 }); } };
   const visit = (p, code) => handleGameRequest({ request: new Request(`https://gamerscroll.com${p}`, { headers: { host: 'gamerscroll.com' } }), env: { ASSETS }, next: async () => new Response('next', { status: 599 }) }, code);
 

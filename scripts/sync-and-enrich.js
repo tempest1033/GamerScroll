@@ -10,7 +10,8 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const gplay = require('google-play-scraper').default;
-const { latinSlug } = require('../src/build/game-slug');
+const { latinSlug, uniqueOf, takenSlugs } = require('../src/build/game-slug');
+const { migrate: reslugLatinNamed } = require('./migrate-game-slugs');
 
 const historyDir = path.join(__dirname, '../history');
 const dataDir = path.join(__dirname, '../data');
@@ -55,6 +56,14 @@ function generateSlug(name, aliases = []) {
     .replace(/[^a-z0-9가-힣\-]/g, '')
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '');
+}
+
+// 처음 등록하는 게임의 빈 레코드와 슬러그. 병합 경로는 기존 레코드를 펼쳐(...existing) legacySlugs 등 모르는 필드를 그대로 둔다.
+const blankGame = () => ({ appIds: {}, aliases: [], developer: '', icon: '', slug: '', platforms: [] });
+// 쓰이는 슬러그와 물러난 슬러그(legacySlugs: 옛 주소가 301 로 살아 있다) 어느 것과도 겹치지 않게 한다.
+function newSlug(games, name, aliases, developer) {
+  const slug = generateSlug(name, aliases);
+  return slug ? uniqueOf(slug, developer, takenSlugs(games)) : slug;
 }
 
 // 이름 정규화: 기호/공백 제거 후 소문자 (동일 이름 판별용)
@@ -488,7 +497,7 @@ function getRegCtx(gamesData, appIdIndex) {
     ctx = {
       gamesData,
       aliasIndex: buildAliasIndex(gamesData.games),
-      slugs: new Set(Object.values(gamesData.games).map(g => g.slug).filter(Boolean)),
+      slugs: takenSlugs(gamesData.games),
       size
     };
     regCtxCache.set(gamesData, ctx);
@@ -774,18 +783,19 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
   if (platform === 'steam') {
     const gameName = title;
     const targetName = findExistingName(gameName, nameKeyIndex) || gameName;
-    const existing = gamesData.games[targetName] || { appIds: {}, aliases: [], developer: '', icon: '', slug: generateSlug(targetName), platforms: [] };
+    const existing = gamesData.games[targetName] || blankGame();
 
     const appIds = { ...existing.appIds, steam: appId };
     const aliases = Array.from(new Set([...(existing.aliases || []), gameName].filter(a => a && a !== targetName)));
     const platforms = Array.from(new Set([...(existing.platforms || []), 'steam']));
 
     const merged = {
+      ...existing,
       appIds,
       aliases,
       developer: existing.developer || developer,
       icon: existing.icon || icon,
-      slug: existing.slug || generateSlug(targetName, aliases),
+      slug: existing.slug || newSlug(gamesData.games, targetName, aliases, existing.developer || developer),
       platforms
     };
 
@@ -876,7 +886,7 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
   // 4. 매칭 성공 - 양쪽 appId로 통합 등록 (병합)
   if (matched) {
     const targetName = findExistingName(gameName, nameKeyIndex) || gameName;
-    const existing = gamesData.games[targetName] || { appIds: {}, aliases: [], developer: '', icon: '', slug: generateSlug(targetName), platforms: [] };
+    const existing = gamesData.games[targetName] || blankGame();
     const matchedAppIdStr = String(matched.appId || '');
     const existingCurrent = existing.appIds?.[appIdKey];
     const existingOpposite = existing.appIds?.[oppositeKey];
@@ -918,11 +928,12 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
     const platforms = Array.from(new Set([...(existing.platforms || []), platform, oppositePlatform]));
 
     const merged = {
+      ...existing,
       appIds,
       aliases,
       developer: existing.developer || developer || matched.developer || '',
       icon: existing.icon || icon,
-      slug: existing.slug || generateSlug(targetName, aliases),
+      slug: existing.slug || newSlug(gamesData.games, targetName, aliases, existing.developer || developer || matched.developer),
       platforms,
       names: mergeNames(existing.names, namesPatch)
     };
@@ -948,18 +959,19 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
 
   // 5. 매칭 실패 - 한쪽만 등록 + pending
   const targetName = findExistingName(gameName, nameKeyIndex) || gameName;
-  const existing = gamesData.games[targetName] || { appIds: {}, aliases: [], developer: '', icon: '', slug: generateSlug(targetName), platforms: [] };
+  const existing = gamesData.games[targetName] || blankGame();
 
   const appIds = { ...existing.appIds, [appIdKey]: appId };
   const aliases = Array.from(new Set([...(existing.aliases || []), gameName, krTitle].filter(a => a && a !== targetName)));
   const platforms = Array.from(new Set([...(existing.platforms || []), platform]));
 
   gamesData.games[targetName] = {
+    ...existing,
     appIds,
     aliases,
     developer: existing.developer || developer,
     icon: existing.icon || icon,
-    slug: existing.slug || generateSlug(targetName, aliases),
+    slug: existing.slug || newSlug(gamesData.games, targetName, aliases, existing.developer || developer),
     platforms,
     names: mergeNames(existing.names, namesPatch)
   };
@@ -1076,6 +1088,10 @@ async function main() {
     .map(g => [`${g.platform}|${g.appId}|${g.region}`, { title: g.title, date: dateStr }]));
   console.log('시장별 이름 보강:', changedKeys.length, '개 게임 스토어 조회,', backfillNames(gamesData, todayRows), '개 게임 차트 제목');
 
+  // 등록 뒤에 Latin 이름이 생긴 게임(스토어 이름 보강·별칭 추가)은 ASCII 슬러그로 바꾸고 옛 슬러그를 legacySlugs 에 남긴다 (옛 주소 301)
+  const reslugged = reslugLatinNamed(gamesData);
+  for (const r of reslugged) console.log(`  슬러그 변경: ${r.from} → ${r.to}`);
+
   // pending 추가/업데이트 (targetName 단위 1건만 유지)
   upsertPending(reviewQueue, Array.from(pendingMap.values()));
 
@@ -1100,7 +1116,7 @@ async function main() {
 
 module.exports = {
   MARKETS, NAME_KEYS, REGION_PREF, rowsFromHistory, dedupeRows, mergeNames, buildAppIdIndex,
-  buildAliasIndex, addAliases, normalizeNameKey, slugifyTitle, uniqueSlug, marketsOfGame, lookupOne, getRegCtx, registerCandidate, lookupIosBatch, lookupAndroid, upsertPending,
+  buildAliasIndex, addAliases, normalizeNameKey, slugifyTitle, uniqueSlug, marketsOfGame, processGame, buildNameKeyIndex, lookupOne, getRegCtx, registerCandidate, lookupIosBatch, lookupAndroid, upsertPending,
   loadLatestChartRows, backfillNames, lookupMarketTitles, resolveMarketName, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool
 };
 

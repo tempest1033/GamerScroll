@@ -2,6 +2,7 @@
 // AIScroll has its own middleware in functions-aiscroll/_middleware.js; the two share no code.
 
 import marketPlan from "./_lib/market-plan.js";
+import { loadGameRedirects, gameSlugOf } from "./_lib/game-redirects.js";
 
 let aiscrollArticleIndexPromise = null;
 const MARKET_PLANS_TTL_MS = 5 * 60 * 1000;
@@ -111,17 +112,72 @@ function gsIsStaticPath(path) {
   );
 }
 
-// Monthly ranking articles of the removed magazine (Korean, e.g. /magazine/ranking/subculture-august-2026-kr/) have a
-// successor with the same chart in the Korean edition: the month's ranking page, the subculture genre ranking, or the
-// Steam page. Every other article has none and stays 410.
-const GS_MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-function rankingArticleTarget(path, plans) {
-  const m = /^\/magazine\/ranking\/(mobile|subculture|steam)-([a-z]+)-(\d{4})(?:-kr)?\/?$/.exec(path);
-  const month = m ? GS_MONTHS.indexOf(m[2]) + 1 : 0;
-  if (!month) return null;
-  if (m[1] === "steam") return "/ko/steam/";
-  const page = m[1] === "subculture" ? "/rankings/genres/subculture/" : `/rankings/monthly/${m[3]}-${String(month).padStart(2, "0")}/`;
-  return "/ko" + marketPlan.nearestBuilt(plans && plans.ko, page);
+// The 16 ranking articles of the removed magazine (all Korean, about the Korean market; published 2026-01..2026-09) and
+// the chart each one covered: a month of the Korean mobile revenue ranking ("YYYY-MM"), the Korean subculture ranking,
+// or the Steam ranking. Any other /magazine/ranking/ URL never existed and stays 410.
+const GS_RANKING_ARTICLES = {
+  "mobile-january-2026-kr": "2026-01",
+  "mobile-february-2026-kr": "2026-02",
+  "mobile-june-2026-kr": "2026-06",
+  "mobile-july-2026-kr": "2026-07",
+  "lunar-new-year-2026-kr": "2026-02",
+  "subculture-january-2026-kr": "subculture",
+  "subculture-february-2026-kr": "subculture",
+  "subculture-april-2026-kr": "subculture",
+  "subculture-may-2026-kr": "subculture",
+  "subculture-june-2026-kr": "subculture",
+  "subculture-july-2026-kr": "subculture",
+  "subculture-august-2026-kr": "subculture",
+  "endfield-vs-dragonsword-new-year-2026": "subculture",
+  "steam-january-2026": "steam",
+  "steam-february-2026": "steam",
+  "steam-april-2026": "steam"
+};
+// Successor of a ranking article in the edition the URL belongs to (the unprefixed URLs were the Korean site).
+// Steam has the same page in every edition. The monthly and subculture pages of another edition show that edition's
+// own market, so there the successor is the edition's Korean revenue ranking (/rankings/kr/).
+function rankingArticleTarget(path, prefix, plans) {
+  const m = /^\/magazine\/ranking\/([^/]+)\/?$/.exec(path);
+  const chart = m && Object.prototype.hasOwnProperty.call(GS_RANKING_ARTICLES, m[1]) ? GS_RANKING_ARTICLES[m[1]] : null;
+  if (!chart) return null;
+  const edition = prefix || "ko";
+  if (chart === "steam") return `/${edition}/steam/`;
+  if (edition !== "ko") return `/${edition}/rankings/kr/`;
+  return "/ko" + marketPlan.nearestBuilt(plans && plans.ko, chart === "subculture" ? "/rankings/genres/subculture/" : `/rankings/monthly/${chart}/`);
+}
+
+// Edition a root URL is served in for this visitor: { locale, cookie } (cookie = Set-Cookie value when ?locale= chose it),
+// or null for bots, which stay on the URL they asked for. Regional search engines always get their market's edition.
+function gsEditionChoice(request, url, country) {
+  const ua = (request.headers.get("User-Agent") || "").toLowerCase();
+  const engine = ua.match(GS_SEARCH_ENGINE_RE);
+  if (engine) return { locale: GS_SEARCH_ENGINE_LOCALE[engine[1]], cookie: null };
+  if (BOT_UA_RE.test(ua)) return null;
+  const queryLocale = url.searchParams.get("locale");
+  const hasQuery = GS_LOCALES.includes(queryLocale);
+  const cookieMatch = (request.headers.get("Cookie") || "").match(/(?:^|;\s*)gs_locale=([a-z-]+)(?:;|$)/);
+  const cookieLocale = cookieMatch && GS_LOCALES.includes(cookieMatch[1]) ? cookieMatch[1] : null;
+  return {
+    locale: (hasQuery && queryLocale) || cookieLocale || GS_COUNTRY_LOCALE[country] || "en",
+    cookie: hasQuery ? `gs_locale=${queryLocale}; Max-Age=31536000; Path=/; SameSite=Lax; Secure` : null
+  };
+}
+
+// A game page asked for on the www host or by a retired slug: one redirect that settles host, edition and slug together,
+// instead of a hop for each. 302 when the visitor's edition is part of it (per visitor, never cached), otherwise 301.
+async function gameRedirect(context, url, path, www, country) {
+  const prefix = gsLocalePrefixOf(path);
+  const slug = gameSlugOf(prefix ? path.slice(prefix.length + 1) : path);
+  if (!slug) return null;
+  const moved = context.env && context.env.ASSETS ? (await loadGameRedirects(context.env, url))[slug] : null;
+  if (!www && !moved) return null;
+  const page = `/games/${encodeURIComponent(moved || slug)}/${url.search}`;
+  const choice = prefix ? null : gsEditionChoice(context.request, url, country);
+  const local = Boolean(choice && choice.locale !== "en");
+  const headers = new Headers({ Location: `https://gamerscroll.com${local ? "/" + choice.locale : prefix ? "/" + prefix : ""}${page}` });
+  if (local) headers.set("Cache-Control", "private, no-store");
+  if (choice && choice.cookie) headers.append("Set-Cookie", choice.cookie);
+  return new Response(null, { status: local ? 302 : 301, headers });
 }
 
 async function handleGamerScrollLegacyRedirect(url, fullPath, loadPlans) {
@@ -130,7 +186,7 @@ async function handleGamerScrollLegacyRedirect(url, fullPath, loadPlans) {
   const path = prefix ? fullPath.slice(prefix.length + 1) || "/" : fullPath;
 
   if (path.startsWith("/magazine/ranking/")) {
-    const target = rankingArticleTarget(path, await loadPlans());
+    const target = rankingArticleTarget(path, prefix, await loadPlans());
     if (target) return Response.redirect(url.origin + target, 301);
   }
   if (path === "/magazine" || path.startsWith("/magazine/")) return goneResponse();
@@ -180,9 +236,12 @@ export async function onRequest(context) {
   const host = (request.headers.get("host") || url.hostname || "").toLowerCase();
 
   if (host.includes("gamerscroll.com")) {
+    const www = host.startsWith("www.");
+    const gameHop = await gameRedirect(context, url, path, www, country);
+    if (gameHop) return gameHop;
     // www -> non-www 301: consolidate to the canonical bare host so Google does
     // not crawl both hosts and split indexing signals.
-    if (host.startsWith("www.")) {
+    if (www) {
       return Response.redirect("https://gamerscroll.com" + path + url.search, 301);
     }
     const legacyRedirect = await handleGamerScrollLegacyRedirect(url, path, () => loadMarketPlans(context, url));
@@ -208,40 +267,22 @@ export async function onRequest(context) {
     // RSS 피드는 리포트 섹션과 함께 없어졌다 (2026-10): 404 대신 410
     if (path === "/rss.xml" || path === "/feed" || path === "/feed/") return goneResponse();
     if (gsIsStaticPath(path)) return next();
-    const gsUa = (request.headers.get("User-Agent") || "").toLowerCase();
-    const engineMatch = gsUa.match(GS_SEARCH_ENGINE_RE);
-    if (engineMatch) {
-      return new Response(null, {
-        status: 302,
-        headers: {
-          Location: `/${GS_SEARCH_ENGINE_LOCALE[engineMatch[1]]}${marketTarget(plans, GS_SEARCH_ENGINE_LOCALE[engineMatch[1]], path) || path}${url.search}`,
-          "Cache-Control": "private, no-store"
-        }
-      });
-    }
-    if (BOT_UA_RE.test(gsUa)) return next();
-    if (GS_LOCALE_EXCLUDED_PREFIXES.some((p) => path.startsWith(p))) return next();
+    const choice = gsEditionChoice(request, url, country);
+    if (!choice || GS_LOCALE_EXCLUDED_PREFIXES.some((p) => path.startsWith(p))) return next();
 
-    const queryLocale = url.searchParams.get("locale");
-    const hasQuery = GS_LOCALES.includes(queryLocale);
-    const cookieMatch = (request.headers.get("Cookie") || "").match(/(?:^|;\s*)gs_locale=([a-z-]+)(?:;|$)/);
-    const cookieLocale = cookieMatch && GS_LOCALES.includes(cookieMatch[1]) ? cookieMatch[1] : null;
-    const preferred = (hasQuery && queryLocale) || cookieLocale || GS_COUNTRY_LOCALE[country] || "en";
-    const setCookie = `gs_locale=${queryLocale}; Max-Age=31536000; Path=/; SameSite=Lax; Secure`;
-
-    if (preferred !== "en") {
+    if (choice.locale !== "en") {
       const headers = new Headers({
-        Location: `/${preferred}${marketTarget(plans, preferred, path) || path}${url.search}`,
+        Location: `/${choice.locale}${marketTarget(plans, choice.locale, path) || path}${url.search}`,
         "Cache-Control": "private, no-store"
       });
-      if (hasQuery) headers.append("Set-Cookie", setCookie);
+      if (choice.cookie) headers.append("Set-Cookie", choice.cookie);
       return new Response(null, { status: 302, headers });
     }
     const response = await next();
-    if (!hasQuery) return response;
+    if (!choice.cookie) return response;
     try {
       const cloned = new Response(response.body, response);
-      cloned.headers.append("Set-Cookie", setCookie);
+      cloned.headers.append("Set-Cookie", choice.cookie);
       return cloned;
     } catch {
       return response;
