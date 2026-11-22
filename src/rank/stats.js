@@ -31,7 +31,7 @@ const tsTime = (ts) => formatTime(ts);
 const MONTH_PAGE_MIN_DAYS = 7;
 let cached = null;
 
-const { HANGUL, KANA, CJK, fitsEdition, ownLanguage } = require('./name-script');
+const { HANGUL, KANA, CJK, fitsScript, fitsEdition, ownLanguage } = require('./name-script');
 const { keyLatinName } = require('../build/game-slug');
 
 function loadRankStats(options = {}) {
@@ -128,7 +128,7 @@ function loadRankStats(options = {}) {
     const edition = currentEdition();
     const code = edition.code;
     const names = g.names || {};
-    const nativeAlias = (g.aliases || []).find((a) => (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !KANA.test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsEdition(a, code));
+    const nativeAlias = (g.aliases || []).find((a) => (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !KANA.test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsScript(a, code));
     const latin = (x) => x && !CJK.test(x);
     const developerSuffix = g.developer ? ` (${g.developer})` : null;
     const key = developerSuffix && g.key.endsWith(developerSuffix) ? g.key.slice(0, -developerSuffix.length) : g.key;
@@ -136,7 +136,8 @@ function loadRankStats(options = {}) {
       names[code], homeTitleOf(g, edition.country), (g.aliases || []).find((a) => ownLanguage(a, code)), names.en,
       Object.values(names).find(latin), nativeAlias, (g.aliases || []).find(latin), key, keyLatinName(g.key, g.developer),
     ].filter(Boolean);
-    return candidates.find((c) => fitsEdition(c, code)) || candidates[0];
+    // A game named only in the other Chinese form keeps that name rather than one in a script the edition cannot read.
+    return candidates.find((c) => fitsEdition(c, code)) || candidates.find((c) => fitsScript(c, code)) || candidates[0];
   };
   const nameOf = (s, r) => { const g = gameOf(s, r); return g ? displayName(g) : r.title; };
   const months = [...new Set(days.map((d) => d.date.slice(0, 7)))];

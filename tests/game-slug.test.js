@@ -54,6 +54,11 @@ test('each edition shows the name in its own script when the game has one', () =
     assert.equal(nameIn('ja', '벽람항로'), 'アズールレーン', 'an alias in the edition\'s script comes before the English store name');
     assert.equal(nameIn('en', '벽람항로'), 'Azur Lane');
     assert.equal(nameIn('ko', '벽람항로'), '벽람항로');
+    assert.equal(nameIn('zh-cn', '두근두근타운'), '心动小镇', 'a Simplified alias comes before the English store name');
+    assert.equal(nameIn('zh-tw', '두근두근타운'), '心動小鎮');
+    assert.equal(nameIn('zh-cn', '메이플스토리M'), 'MapleStory M', 'a game named only in Traditional shows its Latin name on the Simplified edition');
+    assert.equal(nameIn('zh-tw', '메이플스토리M'), '楓之谷M');
+    assert.equal(nameIn('zh-cn', '代號鳶-沉浸式劇情卡牌手遊'), '代號鳶-沉浸式劇情卡牌手遊', 'with no other readable name the Traditional one stands');
   } finally { i18n.setEdition('en'); }
 });
 
