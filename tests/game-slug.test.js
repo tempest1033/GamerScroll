@@ -51,6 +51,9 @@ test('each edition shows the name in its own script when the game has one', () =
     assert.match(nameIn('ja', 'NAMAKORIUM (ナマコリウム)'), /ナマコリウム/);
     assert.equal(nameIn('en', 'Magical Girl Witch Trials (魔法少女ノ魔女裁判)'), 'Magical Girl Witch Trials');
     assert.equal(nameIn('ko', 'NAMAKORIUM (ナマコリウム)'), 'NAMAKORIUM');
+    assert.equal(nameIn('ja', '벽람항로'), 'アズールレーン', 'an alias in the edition\'s script comes before the English store name');
+    assert.equal(nameIn('en', '벽람항로'), 'Azur Lane');
+    assert.equal(nameIn('ko', '벽람항로'), '벽람항로');
   } finally { i18n.setEdition('en'); }
 });
 
@@ -114,5 +117,20 @@ test('a retired slug 301s to the current game URL in the same edition; an unknow
   assert.equal((await visit('/games/monopoly-go-%EB%AA%A8%EB%85%B8%ED%8F%B4%EB%A6%AC-go', 'en')).headers.get('location'), '/games/monopoly-go/');
   assert.equal((await visit('/games/monopoly-go/', 'en')).status, 200);
   assert.equal((await visit('/games/never-existed/', 'en')).status, 404);
+
+  // A new isolate that cannot read the redirect map does not know whether a slug is retired: no cached page, no render.
+  const fresh = await import(`${pathToFileURL(outfile).href}?isolate=2`);
+  let mapUp = false;
+  const flaky = { fetch: async (req) => (!mapUp && new URL(req.url).pathname.endsWith('/_redirects.json') ? new Response('down', { status: 500 }) : ASSETS.fetch(req)) };
+  const visitFresh = (p) => fresh.handleGameRequest({ request: new Request(`https://gamerscroll.com${p}`, { headers: { host: 'gamerscroll.com' } }), env: { ASSETS: flaky }, next: async () => new Response('next', { status: 599 }) }, 'en');
+  for (const p of ['/games/monopoly-go-%EB%AA%A8%EB%85%B8%ED%8F%B4%EB%A6%AC-go/', '/games/monopoly-go/']) {
+    const down = await visitFresh(p);
+    assert.equal(down.status, 503, p);
+    assert.equal(down.headers.get('cache-control'), 'no-store');
+    assert.notEqual(await down.text(), 'stale page');
+  }
+  mapUp = true;
+  assert.equal((await visitFresh('/games/monopoly-go-%EB%AA%A8%EB%85%B8%ED%8F%B4%EB%A6%AC-go/')).status, 301, 'the failed read is retried on the next request');
+  assert.equal((await visitFresh('/games/monopoly-go/')).status, 200);
   fs.rmSync(dir, { recursive: true, force: true });
 });

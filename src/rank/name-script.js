@@ -16,4 +16,16 @@ const fitsEdition = (name, code) => {
   return !(code === 'zh-tw' && SIMPLIFIED_ONLY.test(name));
 };
 
-module.exports = { HANGUL, KANA, CJK, fitsEdition };
+// Whether a name is written in the edition's own language, as far as its script can show: kana letters (not the
+// ・ and ー marks, which Chinese names use too) for ja, Hangul for ko, Han for zh-tw. Never for zh-cn: no character
+// marks a name as Traditional, and aliases mixing both forms exist, so a Han name cannot be shown to be Simplified.
+const KANA_LETTER = /[\u3041-\u3096\u30A1-\u30FA]/;
+const HAN = /[\u3400-\u9FFF]/;
+const ownLanguage = (name, code) => {
+  if (!fitsEdition(name, code)) return false;
+  if (code === 'ja') return KANA_LETTER.test(name);
+  if (code === 'ko') return HANGUL.test(name);
+  return code === 'zh-tw' && HAN.test(name);
+};
+
+module.exports = { HANGUL, KANA, CJK, fitsEdition, ownLanguage };

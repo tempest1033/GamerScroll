@@ -180,6 +180,12 @@ jobs:
         timeout-minutes: 2
         run: node scripts/fetch-analysis-pages.js
 
+      - name: Sync and enrich games
+        if: steps.due.outputs.deploy == 'true'
+        # Before both generators: it assigns and changes game slugs in data/games.json, and the edition pages
+        # (next step) and the game pages must link the same slugs. Reads only history/ from the collect step.
+        run: node scripts/sync-and-enrich.js
+
       - name: Generate report
         if: steps.due.outputs.deploy == 'true'
         # 수집은 위 단계가 끝냈다 — 여기서는 data-cache.json 으로 HTML만 만든다.
@@ -187,10 +193,6 @@ jobs:
           GA4_SERVICE_ACCOUNT: ${{ secrets.GA4_SERVICE_ACCOUNT }}
           ADS_ENABLED: 'true'  # 광고 활성화
         run: node generate-html-report.js --quick
-
-      - name: Sync and enrich games
-        if: steps.due.outputs.deploy == 'true'
-        run: node scripts/sync-and-enrich.js
 
       - name: Generate game pages
         if: steps.due.outputs.deploy == 'true'

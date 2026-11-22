@@ -92,6 +92,21 @@ await t("www + edition prefix + retired slug: one 301", async () => assert.deepE
 await t("www + retired slug, JP visitor: one 302 to the Japanese page", async () => assert.deepEqual(await hop(W + OLD, { country: "JP" }), [302, "https://gamerscroll.com/ja/games/monopoly-go/", "private, no-store"]));
 await t("www + current slug, KR visitor: one 302", async () => assert.deepEqual(await hop(W + "/games/monopoly-go/", { country: "KR" }), [302, "https://gamerscroll.com/ko/games/monopoly-go/", "private, no-store"]));
 await t("current slug on the bare host is untouched", async () => { assert.deepEqual(await hop(G + "/games/monopoly-go/", { country: "US" }), [200, null, null]); assert.deepEqual(await hop(G + "/ko/games/monopoly-go/", { country: "KR" }), [200, null, null]); });
+await t("www + ranking article: one 301 to the successor on the bare host", async () => {
+  assert.deepEqual(await hop(W + "/ja/magazine/ranking/steam-april-2026/", { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/ja/steam/", null]);
+  assert.deepEqual(await hop(W + "/magazine/ranking/steam-april-2026", { country: "KR" }), [301, "https://gamerscroll.com/ko/steam/", null]);
+  assert.deepEqual(await hop(W + "/zh-tw/magazine/ranking/subculture-may-2026-kr/"), [301, "https://gamerscroll.com/zh-tw/rankings/kr/", null]);
+});
+await t("www + removed section: 410 without a host hop; www + trends: one 301", async () => {
+  assert.equal((await hop(W + "/magazine/ranking/steam-march-2026/"))[0], 410);
+  assert.deepEqual(await hop(W + "/ja/trends/"), [301, "https://gamerscroll.com/ja/trending/", null]);
+});
+await t("www + ordinary page: one 301 to the bare host, query kept", async () => assert.deepEqual(await hop(W + "/ja/steam/?a=1"), [301, "https://gamerscroll.com/ja/steam/?a=1", null]));
+await t("a redirect map that cannot be read is null (unknown), not an empty map", async () => {
+  const down = { fetch: async () => new Response("down", { status: 500 }) };
+  const fresh = await import(new URL("../functions/_lib/game-redirects.js?down", import.meta.url).href);
+  assert.equal(await fresh.loadGameRedirects({ ASSETS: down }, new URL(G)), null);
+});
 await t("games hub and files under /games/ are not game pages", async () => { assert.deepEqual(await hop(W + "/games/"), [301, "https://gamerscroll.com/games/", null]); assert.deepEqual(await hop(G + "/games/search-index.json", { country: "KR" }), [200, null, null]); });
 await t("/ko/reports/ 410", async () => assert.equal((await call(G + "/ko/reports/", { country: "KR" })).status, 410));
 await t("/reports/x 410", async () => assert.equal((await call(G + "/reports/x")).status, 410));

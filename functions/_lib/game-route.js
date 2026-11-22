@@ -76,7 +76,11 @@ export async function handleGameRequest(context, code) {
 
   // A retired slug redirects before anything is read for it: Cloudflare Pages keeps serving a previous deployment's
   // assets for a while, so the old slug's data file (and a page cached from it) can outlive the build that removed it.
-  const moved = (await loadGameRedirects(env, url))[slug];
+  // Without the map the slug may be a retired one, and its cached page or leftover data would be served as a
+  // self-canonical duplicate: answer 503 (retried later) rather than any HTML.
+  const redirects = await loadGameRedirects(env, url);
+  if (!redirects) return new Response('Game data unavailable', { status: 503, headers: { 'Cache-Control': 'no-store', 'Retry-After': '60' } });
+  const moved = Object.prototype.hasOwnProperty.call(redirects, slug) ? redirects[slug] : null;
   if (moved) return new Response(null, { status: 301, headers: { Location: `${PREFIX[code]}/games/${encodeURIComponent(moved)}/${url.search}`, 'Cache-Control': 'public, max-age=3600' } });
 
   const meta = await loadMeta(env, url);
