@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53182,6 +53182,30 @@
         }
       ],
       "addedAt": "2026-11-22T19:02:03.520Z"
+    },
+    {
+      "title": "Fidget Dumpling: Trade Master",
+      "status": "single",
+      "appIds": {
+        "android": "com.RC80.fidget.dumpling.master"
+      },
+      "developer": "Isandares",
+      "icon": "https://play-lh.googleusercontent.com/8i3EhDvUZZunHNWNkdofQEM22APhZ6EMSMJ-6DTbaE2EWVs81tl76D3MXnzswxVO3RlaE8w6AU9JTt3N0LNNq00",
+      "searchResults": [
+        {
+          "title": "Fidget Toys Trading: 3D 팝잇 게임",
+          "appId": 1575332738
+        },
+        {
+          "title": "Squishy 3D - Fidget Trading",
+          "appId": 6824427526
+        },
+        {
+          "title": "말랑이 거래 3D : 팝잇 합치기, 푸시팝 키우기",
+          "appId": 1587132202
+        }
+      ],
+      "addedAt": "2026-11-22T23:01:55.676Z"
     }
   ],
   "approved": [

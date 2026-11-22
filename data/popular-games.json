@@ -1,10 +1,14 @@
 {
-  "updatedAt": "2026-11-21T23:01:48.968Z",
+  "updatedAt": "2026-11-22T23:01:57.889Z",
   "period": "30days",
   "games": [
     {
       "slug": "hero-wars-alliance-rpg",
       "views": 8
+    },
+    {
+      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
+      "views": 7
     },
     {
       "slug": "카오스-제로-나이트메어",
@@ -15,15 +19,19 @@
       "views": 6
     },
     {
-      "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
-      "views": 6
-    },
-    {
       "slug": "한게임-로얄홀덤",
       "views": 6
     },
     {
       "slug": "1-하트-윌-우들-스크류-온",
+      "views": 5
+    },
+    {
+      "slug": "barotrauma",
+      "views": 5
+    },
+    {
+      "slug": "hero-siege",
       "views": 5
     },
     {
@@ -39,7 +47,19 @@
       "views": 5
     },
     {
+      "slug": "skate",
+      "views": 5
+    },
+    {
+      "slug": "snipers-duel",
+      "views": 5
+    },
+    {
       "slug": "단어-찾기-단어-게임",
+      "views": 5
+    },
+    {
+      "slug": "라스트-라이트",
       "views": 5
     },
     {
@@ -47,7 +67,7 @@
       "views": 5
     },
     {
-      "slug": "주술회전-팬텀-퍼레이드",
+      "slug": "산너머-도원마을",
       "views": 5
     },
     {
@@ -57,26 +77,6 @@
     {
       "slug": "쿠키런-킹덤",
       "views": 5
-    },
-    {
-      "slug": "탈출-게임-암스테르담",
-      "views": 5
-    },
-    {
-      "slug": "피망-뉴맞고-고스톱으로-대한민국-1등",
-      "views": 5
-    },
-    {
-      "slug": "한게임-포커",
-      "views": 5
-    },
-    {
-      "slug": "3d운전교실",
-      "views": 4
-    },
-    {
-      "slug": "arrow-pro-3d",
-      "views": 4
     }
   ]
 }

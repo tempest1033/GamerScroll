@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -165997,8 +165997,26 @@
         "ko": "Hero Not Alone",
         "zh-tw": "勇者不孤單"
       }
+    },
+    "Fidget Dumpling: Trade Master": {
+      "appIds": {
+        "android": "com.RC80.fidget.dumpling.master"
+      },
+      "aliases": [],
+      "developer": "Isandares",
+      "icon": "https://play-lh.googleusercontent.com/8i3EhDvUZZunHNWNkdofQEM22APhZ6EMSMJ-6DTbaE2EWVs81tl76D3MXnzswxVO3RlaE8w6AU9JTt3N0LNNq00",
+      "slug": "fidget-dumpling-trade-master",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fidget Dumpling: Trade Master",
+        "en": "Fidget Dumpling: Trade Master",
+        "ja": "Fidget Dumpling: Trade Master",
+        "zh-tw": "Fidget Dumpling: Trade Master"
+      }
     }
   },
   "lastUpdated": "2026-11-23",
-  "totalGames": 9511
+  "totalGames": 9512
 }
