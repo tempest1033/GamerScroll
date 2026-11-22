@@ -1,27 +1,26 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { fitsEdition, fitsScript, ownLanguage } = require('../src/rank/name-script');
+const { fitsEdition, ownLanguage, toSimplified } = require('../src/rank/name-script');
 
-test('zh-cn keeps names shared with TW and rejects Traditional-only and mixed-form names', () => {
-  for (const name of ['原神', '明日方舟', '王者荣耀', '心动小镇', '三角洲行动', 'MONOPOLY GO! (大富翁 GO!)']) assert.equal(fitsEdition(name, 'zh-cn'), true, name);
-  for (const name of ['王者榮耀', '心動小鎮', '三角洲行動', '楓之谷M', '夜行猫 - 放置生存搜打撤遊戲', '拍賣大師 -拍賣經營游戏']) assert.equal(fitsEdition(name, 'zh-cn'), false, name);
-  assert.equal(fitsEdition('夜行猫 - 放置生存搜打撤遊戲', 'zh-tw'), false, 'a mixed name fits neither Chinese edition');
+test('Traditional → Simplified converts characters and phrases, mixed-form names included', () => {
+  for (const [from, to] of [
+    ['王者榮耀', '王者荣耀'], ['心動小鎮', '心动小镇'], ['楓之谷M', '枫之谷M'],
+    ['代號鳶-沉浸式劇情卡牌手遊', '代号鸢-沉浸式剧情卡牌手游'],
+    ['暗影紀元-魔幻冒险之旅', '暗影纪元-魔幻冒险之旅'], ['夜行猫 - 放置生存搜打撤遊戲', '夜行猫 - 放置生存搜打撤游戏'],
+    ['明日之後', '明日之后'], ['一目瞭然', '一目了然'], ['乾淨', '干净'],
+  ]) assert.equal(toSimplified(from), to, from);
 });
 
-test('Traditional forms that are valid Simplified (GB 2312) are never treated as Traditional', () => {
-  for (const name of ['乾坤', '著名', '皇后', '台球']) assert.equal(fitsEdition(name, 'zh-cn'), true, name);
+test('Simplified, shared and non-Chinese text is left as it is', () => {
+  for (const name of ['原神', '明日方舟', '王者荣耀', '明日之后', '皇后', '乾坤', 'MONOPOLY GO! (大富翁 GO!)', 'Heartopia', '王者荣耀😀', '𠮷野家']) assert.equal(toSimplified(name), name, name);
 });
 
-test('an own-language alias is Han that fits the Chinese edition; a name in the other form is still readable script', () => {
-  assert.equal(ownLanguage('心动小镇', 'zh-cn'), true);
-  assert.equal(ownLanguage('明日方舟', 'zh-cn'), true);
-  assert.equal(ownLanguage('心動小鎮', 'zh-cn'), false);
+test('a Han alias is the zh-cn edition\'s own language only when the conversion leaves it unchanged', () => {
+  for (const name of ['心动小镇', '明日方舟', '明日之后']) assert.equal(ownLanguage(name, 'zh-cn'), true, name);
+  for (const name of ['心動小鎮', '明日之後', '暗影紀元-魔幻冒险之旅', 'Heartopia', 'アークナイツ', '두근두근타운']) assert.equal(ownLanguage(name, 'zh-cn'), false, name);
   assert.equal(ownLanguage('心動小鎮', 'zh-tw'), true);
-  assert.equal(ownLanguage('Heartopia', 'zh-cn'), false);
-  assert.equal(ownLanguage('アークナイツ', 'zh-cn'), false);
-  assert.equal(fitsScript('心動小鎮', 'zh-cn'), true);
-  assert.equal(fitsScript('두근두근타운', 'zh-cn'), false);
+  assert.equal(ownLanguage('心动小镇', 'zh-tw'), false);
 });
 
 test('zh-tw keeps names shared with CN and rejects Simplified-only characters', () => {
