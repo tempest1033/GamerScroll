@@ -73399,7 +73399,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -165636,8 +165636,26 @@
       "legacySlugs": [
         "크루즈-셰프"
       ]
+    },
+    "Mystery Dumpling: DIY ASMR": {
+      "appIds": {
+        "android": "com.mystery.dumpling.diy.squishy.unboxing.asmr"
+      },
+      "aliases": [],
+      "developer": "BLACKGEMS GLOBAL JOINT STOCK COMPANY",
+      "icon": "https://play-lh.googleusercontent.com/ejY5ImE-daSIsbfI4jJ1X0XF7YbVl6GCEEvXfptmqjQDFgJYeKpEyls_RbCtjedTbgK90dRKYujR1FmirqmsMMU",
+      "slug": "mystery-dumpling-diy-asmr",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Mystery Dumpling: DIY ASMR",
+        "en": "Mystery Dumpling: DIY ASMR",
+        "ja": "Mystery Dumpling: DIY ASMR",
+        "zh-tw": "Mystery Dumpling: DIY ASMR"
+      }
     }
   },
   "lastUpdated": "2026-11-22",
-  "totalGames": 9493
+  "totalGames": 9494
 }

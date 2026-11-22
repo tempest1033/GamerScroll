@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52923,6 +52923,30 @@
         }
       ],
       "addedAt": "2026-11-21T23:02:59.394Z"
+    },
+    {
+      "title": "Mystery Dumpling: DIY ASMR",
+      "status": "single",
+      "appIds": {
+        "android": "com.mystery.dumpling.diy.squishy.unboxing.asmr"
+      },
+      "developer": "BLACKGEMS GLOBAL JOINT STOCK COMPANY",
+      "icon": "https://play-lh.googleusercontent.com/ejY5ImE-daSIsbfI4jJ1X0XF7YbVl6GCEEvXfptmqjQDFgJYeKpEyls_RbCtjedTbgK90dRKYujR1FmirqmsMMU",
+      "searchResults": [
+        {
+          "title": "Squishy Dumpling Unboxing ASMR",
+          "appId": 6807787701
+        },
+        {
+          "title": "Dumpling Surprise: Unbox ASMR",
+          "appId": 6799871015
+        },
+        {
+          "title": "Squish Unboxing Simulator ASMR",
+          "appId": 6791094709
+        }
+      ],
+      "addedAt": "2026-11-22T01:52:50.967Z"
     }
   ],
   "approved": [
