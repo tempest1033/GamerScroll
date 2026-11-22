@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -52947,6 +52947,77 @@
         }
       ],
       "addedAt": "2026-11-22T01:52:50.967Z"
+    },
+    {
+      "title": "Idle Missile - Evolve Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6801607933
+      },
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/bc/81/1bbc8192-9ae8-ef3f-22f4-ef9f34ea8b65/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T07:01:47.303Z"
+    },
+    {
+      "title": "Squishy Trade: Dumpling Master",
+      "status": "single",
+      "appIds": {
+        "android": "com.hp.squishy.trade.dumpling.master"
+      },
+      "developer": "HIGAME Jsc",
+      "icon": "https://play-lh.googleusercontent.com/ah3JYjCDzZkwWEXaunAZnYmofUTyLutOQgN4bMDuc84CVPkTEsY0cLMq9NMwuQNCD_ZaCokiKLv5QaZfT0mU",
+      "searchResults": [
+        {
+          "title": "Squishy 3D - Fidget Trading",
+          "appId": 6824427526
+        },
+        {
+          "title": "말랑이 거래 3D : 팝잇 합치기, 푸시팝 키우기",
+          "appId": 1587132202
+        },
+        {
+          "title": "Squishy Fidget Toys - Unbox It",
+          "appId": 1582577850
+        }
+      ],
+      "addedAt": "2026-11-22T07:01:48.128Z"
+    },
+    {
+      "title": "Bola Capture",
+      "status": "matched",
+      "appIds": {
+        "android": "com.kayac.BolaCapture",
+        "ios": 6819908804
+      },
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/tqTm3ndlyu26VJFBKPpSWj0xPVJV2KGbzZWGxgKUo6o6bEyC34XBbRVzLqFsRj9T-A1cUQC1taVtNsBYXIGz5yE",
+      "searchResults": [
+        {
+          "title": "Bola Capture",
+          "appId": 6819908804
+        },
+        {
+          "title": "ChatGPT",
+          "appId": 6448311069
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        }
+      ],
+      "addedAt": "2026-11-22T07:01:48.566Z"
+    },
+    {
+      "title": "Pixelora Flow：픽셀 탐식 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6828679757
+      },
+      "developer": "HappyTapLand Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/64/3b/9c643b3c-b66d-d62a-b978-555c6d35c960/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T07:01:48.840Z"
     }
   ],
   "approved": [

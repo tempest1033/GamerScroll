@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -165676,8 +165676,86 @@
         "ja": "Mystery Dumpling: DIY ASMR",
         "zh-tw": "Mystery Dumpling: DIY ASMR"
       }
+    },
+    "Idle Missile - Evolve Game": {
+      "appIds": {
+        "ios": 6801607933
+      },
+      "aliases": [],
+      "developer": "Voodoo",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1b/bc/81/1bbc8192-9ae8-ef3f-22f4-ef9f34ea8b65/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "idle-missile-evolve-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Idle Missile - Evolve Game",
+        "en": "Idle Missile - Evolve Game",
+        "ja": "Idle Missile - Evolve Game",
+        "zh-tw": "Idle Missile - Evolve Game"
+      }
+    },
+    "Squishy Trade: Dumpling Master": {
+      "appIds": {
+        "android": "com.hp.squishy.trade.dumpling.master"
+      },
+      "aliases": [],
+      "developer": "HIGAME Jsc",
+      "icon": "https://play-lh.googleusercontent.com/ah3JYjCDzZkwWEXaunAZnYmofUTyLutOQgN4bMDuc84CVPkTEsY0cLMq9NMwuQNCD_ZaCokiKLv5QaZfT0mU",
+      "slug": "squishy-trade-dumpling-master",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Squishy Trade: Dumpling Master",
+        "en": "Squishy Trade: Dumpling Master",
+        "ja": "Squishy Trade: Dumpling Master",
+        "zh-tw": "Squishy Trade: Dumpling Master"
+      }
+    },
+    "Bola Capture": {
+      "appIds": {
+        "android": "com.kayac.BolaCapture",
+        "ios": 6819908804
+      },
+      "aliases": [],
+      "developer": "KAYAC Inc.",
+      "icon": "https://play-lh.googleusercontent.com/tqTm3ndlyu26VJFBKPpSWj0xPVJV2KGbzZWGxgKUo6o6bEyC34XBbRVzLqFsRj9T-A1cUQC1taVtNsBYXIGz5yE",
+      "slug": "bola-capture",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Bola Capture",
+        "en": "Bola Capture",
+        "ja": "Bola Capture",
+        "zh-cn": "Bola Capture",
+        "zh-tw": "Bola Capture"
+      }
+    },
+    "Pixelora Flow：픽셀 탐식 게임": {
+      "appIds": {
+        "ios": 6828679757
+      },
+      "aliases": [],
+      "developer": "HappyTapLand Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/64/3b/9c643b3c-b66d-d62a-b978-555c6d35c960/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "pixelora-flow-pixel-busters",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Pixelora Flow：픽셀 탐식 게임",
+        "en": "Pixelora Flow: Pixel Busters",
+        "ja": "Pixelora Flow: 癒しのパズルゲーム",
+        "zh-tw": "Pixelora Flow：貪吃蛇吃方塊益智解謎挑戰遊戲"
+      },
+      "legacySlugs": [
+        "pixelora-flow픽셀-탐식-게임"
+      ]
     }
   },
   "lastUpdated": "2026-11-22",
-  "totalGames": 9494
+  "totalGames": 9498
 }
