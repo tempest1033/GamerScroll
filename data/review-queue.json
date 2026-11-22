@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -51453,13 +51453,19 @@
     },
     {
       "title": "Word Jam - Screw Puzzle",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6761419783
+        "ios": 6761419783,
+        "android": "com.webyerim.game.word.jam"
       },
       "developer": "Zego Global Pte Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/7b/ca/697bca75-2a01-96f1-18c9-92d9dce69309/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Word Jam - Screw Puzzle",
+          "appId": 6761419783
+        }
+      ],
       "addedAt": "2026-11-16T07:02:56.030Z"
     },
     {
@@ -53097,6 +53103,85 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/7f/16/8c/7f168cb0-7405-358e-0004-ae3f6be4f441/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-22T15:02:30.316Z"
+    },
+    {
+      "title": "ClayWings Factory",
+      "status": "single",
+      "appIds": {
+        "ios": 6802597830
+      },
+      "developer": "红霞 李",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/98/27/879827b0-1171-98f3-e7ad-11d6bc264ba9/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T19:02:00.269Z"
+    },
+    {
+      "title": "WorldOS: The everything sim",
+      "status": "single",
+      "appIds": {
+        "ios": 6805293454
+      },
+      "developer": "Story Engine Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3e/d4/3a/3ed43a71-bb7a-e814-0b0b-25370b078664/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T19:02:01.565Z"
+    },
+    {
+      "title": "물고기는 날지 않는다",
+      "status": "single",
+      "appIds": {
+        "android": "com.playgogames.fish"
+      },
+      "developer": "PLAYGO GAMES",
+      "icon": "https://play-lh.googleusercontent.com/ioxmtdIwS6T7mrzV7QUrZZODkzTCsH6jUNZR96nHr0N_xdWElsNV2kgym9_SkIKqKaZf2GxO_3svu_3owMEc",
+      "searchResults": [],
+      "addedAt": "2026-11-22T19:02:02.014Z"
+    },
+    {
+      "title": "Sudoku a Day - Number Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6743453284
+      },
+      "developer": "Ocho",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/72/da/d3/72dad367-bc9a-d968-0f67-f097a9894645/appIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-22T19:02:02.246Z"
+    },
+    {
+      "title": "奧義集結：最強忍者",
+      "status": "single",
+      "appIds": {
+        "android": "com.yhlzj.mt"
+      },
+      "developer": "Yuejiang Technology Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/YYVR_cS3Nl08ClHKTWsTBDbZn1OVAowfqQM2NfjiDmhZd1EFcMJ62p2cVImDxFtYd_ZieSmTQdIkzUyIn8Fw",
+      "searchResults": [],
+      "addedAt": "2026-11-22T19:02:02.691Z"
+    },
+    {
+      "title": "Hero Not Alone",
+      "status": "single",
+      "appIds": {
+        "android": "com.douli.meatboy"
+      },
+      "developer": "LightBoat Innovations Limited",
+      "icon": "https://play-lh.googleusercontent.com/FKSTFUdhqcq1wE64vyTc8rHOgmloeURbAawNr8r_108q28uepjTsJafPA7uOzWO-E2uSzsQ_d7PdzIWXhyo1kw",
+      "searchResults": [
+        {
+          "title": "GarageBand",
+          "appId": 408709785
+        },
+        {
+          "title": "WhatsApp Messenger",
+          "appId": 310633997
+        },
+        {
+          "title": "Google",
+          "appId": 284815942
+        }
+      ],
+      "addedAt": "2026-11-22T19:02:03.520Z"
     }
   ],
   "approved": [

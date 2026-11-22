@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -163052,14 +163052,16 @@
     },
     "Word Jam - Screw Puzzle": {
       "appIds": {
-        "ios": 6761419783
+        "ios": 6761419783,
+        "android": "com.webyerim.game.word.jam"
       },
       "aliases": [],
       "developer": "Zego Global Pte Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/69/7b/ca/697bca75-2a01-96f1-18c9-92d9dce69309/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "word-jam-screw-puzzle",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Word Jam - Screw Puzzle",
@@ -165870,8 +165872,133 @@
         "zh-cn": "Dunk Shooter 3D",
         "zh-tw": "Dunk Shooter 3D"
       }
+    },
+    "ClayWings Factory": {
+      "appIds": {
+        "ios": 6802597830
+      },
+      "aliases": [],
+      "developer": "红霞 李",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/87/98/27/879827b0-1171-98f3-e7ad-11d6bc264ba9/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "claywings-factory",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "ClayWings Factory",
+        "en": "ClayWings Factory",
+        "ja": "ClayWings Factory",
+        "zh-tw": "ClayWings Factory"
+      }
+    },
+    "Where Fish Fly": {
+      "appIds": {
+        "ios_jp": 6828078404
+      },
+      "aliases": [
+        "魚は飛ばない"
+      ],
+      "developer": "PLAY GO GAMES",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/06/1c/1c/061c1c66-5bf6-c789-79cb-110cb6b74266/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "where-fish-fly",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Where Fish Fly",
+        "ja": "魚は飛ばない"
+      }
+    },
+    "WorldOS: The everything sim": {
+      "appIds": {
+        "ios": 6805293454
+      },
+      "aliases": [],
+      "developer": "Story Engine Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3e/d4/3a/3ed43a71-bb7a-e814-0b0b-25370b078664/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "worldos-the-everything-sim",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "WorldOS: The everything sim",
+        "en": "WorldOS: The everything sim",
+        "ja": "WorldOS: The everything sim",
+        "zh-tw": "WorldOS: The everything sim"
+      }
+    },
+    "물고기는 날지 않는다": {
+      "appIds": {
+        "android": "com.playgogames.fish"
+      },
+      "aliases": [],
+      "developer": "PLAYGO GAMES",
+      "icon": "https://play-lh.googleusercontent.com/ioxmtdIwS6T7mrzV7QUrZZODkzTCsH6jUNZR96nHr0N_xdWElsNV2kgym9_SkIKqKaZf2GxO_3svu_3owMEc",
+      "slug": "where-fish-fly-playgo-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "물고기는 날지 않는다",
+        "en": "Where Fish Fly",
+        "ja": "魚は飛ばない"
+      },
+      "legacySlugs": [
+        "물고기는-날지-않는다"
+      ]
+    },
+    "Sudoku a Day - Number Puzzle": {
+      "appIds": {
+        "ios": 6743453284
+      },
+      "aliases": [],
+      "developer": "Ocho",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/72/da/d3/72dad367-bc9a-d968-0f67-f097a9894645/appIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "sudoku-a-day-number-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Sudoku a Day - Number Puzzle",
+        "en": "Sudoku a Day - Number Puzzle",
+        "ja": "Sudoku a Day - Number Puzzle",
+        "zh-tw": "Sudoku a Day - Number Puzzle"
+      }
+    },
+    "奧義集結：最強忍者": {
+      "appIds": {
+        "android": "com.yhlzj.mt"
+      },
+      "aliases": [],
+      "developer": "Yuejiang Technology Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/YYVR_cS3Nl08ClHKTWsTBDbZn1OVAowfqQM2NfjiDmhZd1EFcMJ62p2cVImDxFtYd_ZieSmTQdIkzUyIn8Fw",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "奧義集結：最強忍者",
+        "en": "奧義集結：最強忍者",
+        "zh-tw": "奧義集結：最強忍者"
+      }
+    },
+    "Hero Not Alone": {
+      "appIds": {
+        "android": "com.douli.meatboy"
+      },
+      "aliases": [],
+      "developer": "LightBoat Innovations Limited",
+      "icon": "https://play-lh.googleusercontent.com/FKSTFUdhqcq1wE64vyTc8rHOgmloeURbAawNr8r_108q28uepjTsJafPA7uOzWO-E2uSzsQ_d7PdzIWXhyo1kw",
+      "slug": "hero-not-alone",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Hero Not Alone",
+        "zh-tw": "勇者不孤單"
+      }
     }
   },
   "lastUpdated": "2026-11-23",
-  "totalGames": 9504
+  "totalGames": 9511
 }
