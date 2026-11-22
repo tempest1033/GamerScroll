@@ -111,11 +111,28 @@ function gsIsStaticPath(path) {
   );
 }
 
-async function handleGamerScrollLegacyRedirect(url, fullPath) {
+// Monthly ranking articles of the removed magazine (Korean, e.g. /magazine/ranking/subculture-august-2026-kr/) have a
+// successor with the same chart in the Korean edition: the month's ranking page, the subculture genre ranking, or the
+// Steam page. Every other article has none and stays 410.
+const GS_MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+function rankingArticleTarget(path, plans) {
+  const m = /^\/magazine\/ranking\/(mobile|subculture|steam)-([a-z]+)-(\d{4})(?:-kr)?\/?$/.exec(path);
+  const month = m ? GS_MONTHS.indexOf(m[2]) + 1 : 0;
+  if (!month) return null;
+  if (m[1] === "steam") return "/ko/steam/";
+  const page = m[1] === "subculture" ? "/rankings/genres/subculture/" : `/rankings/monthly/${m[3]}-${String(month).padStart(2, "0")}/`;
+  return "/ko" + marketPlan.nearestBuilt(plans && plans.ko, page);
+}
+
+async function handleGamerScrollLegacyRedirect(url, fullPath, loadPlans) {
   // Removed-section rules apply at the root and under any locale prefix.
   const prefix = gsLocalePrefixOf(fullPath);
   const path = prefix ? fullPath.slice(prefix.length + 1) || "/" : fullPath;
 
+  if (path.startsWith("/magazine/ranking/")) {
+    const target = rankingArticleTarget(path, await loadPlans());
+    if (target) return Response.redirect(url.origin + target, 301);
+  }
   if (path === "/magazine" || path.startsWith("/magazine/")) return goneResponse();
   if (path === "/reports" || path.startsWith("/reports/")) return goneResponse();
   if (/^\/tech\/normal\/[^/]+\/?$/.test(path)) return goneResponse();
@@ -168,7 +185,7 @@ export async function onRequest(context) {
     if (host.startsWith("www.")) {
       return Response.redirect("https://gamerscroll.com" + path + url.search, 301);
     }
-    const legacyRedirect = await handleGamerScrollLegacyRedirect(url, path);
+    const legacyRedirect = await handleGamerScrollLegacyRedirect(url, path, () => loadMarketPlans(context, url));
     if (legacyRedirect) return legacyRedirect;
     // Privacy data fragment (fetched by layout.js) must not be indexed as a
     // standalone page — it duplicates the real /privacy/ page.

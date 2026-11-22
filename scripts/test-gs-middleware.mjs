@@ -48,6 +48,12 @@ await t("KR assets/robots/sitemap pass", async () => { for (const p of ["/assets
 await t("KR .html redirects", async () => assert.equal((await call(G + "/rankings/index.html", { country: "KR" })).status, 302));
 await t("/magazine/issue/x/ 410", async () => assert.equal((await call(G + "/magazine/issue/x/", { country: "KR" })).status, 410));
 await t("/magazine 410", async () => assert.equal((await call(G + "/magazine")).status, 410));
+await t("monthly ranking articles -> their successor in the Korean edition", async () => {
+  for (const [from, to] of [["/magazine/ranking/mobile-february-2026-kr/", "/ko/rankings/monthly/2026-02/"], ["/magazine/ranking/subculture-august-2026-kr/", "/ko/rankings/genres/subculture/"], ["/magazine/ranking/steam-april-2026", "/ko/steam/"]]) {
+    const r = await call(G + from, { country: "KR" }); assert.equal(r.status, 301, from); assert.equal(loc(r), to);
+  }
+});
+await t("other ranking articles stay 410", async () => { for (const p of ["/magazine/ranking/lunar-new-year-2026-kr/", "/magazine/ranking/mobile-smarch-2026-kr/", "/magazine/ranking/"]) assert.equal((await call(G + p)).status, 410, p); });
 await t("/ko/reports/ 410", async () => assert.equal((await call(G + "/ko/reports/", { country: "KR" })).status, 410));
 await t("/reports/x 410", async () => assert.equal((await call(G + "/reports/x")).status, 410));
 await t("/tech/normal/x 410", async () => assert.equal((await call(G + "/tech/normal/macbook-neo-reviews/")).status, 410));
