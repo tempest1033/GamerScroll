@@ -5,7 +5,7 @@ const { chromium } = require('playwright');
 const path = require('node:path');
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
 // Korean assertions (aria labels, recent games) run against the ko edition.
-const routes = ['/ko/', '/ko/games/', '/ko/rankings/', '/ko/steam/', '/ko/games/메이플-키우기/'];
+const routes = ['/ko/', '/ko/games/', '/ko/rankings/', '/ko/steam/', '/ko/games/maplestory-idle-rpg/'];
 
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
@@ -14,7 +14,7 @@ const routes = ['/ko/', '/ko/games/', '/ko/rankings/', '/ko/steam/', '/ko/games/
     for (const width of [1440, 900, 390]) {
       const context = await browser.newContext({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
       await context.addInitScript(() => {
-        localStorage.setItem('gamerscroll_recent_searches', JSON.stringify(Array.from({ length: 8 }, (_, i) => ({ slug: '메이플-키우기', name: `최근 게임 ${i + 1}`, icon: '/icon-192.png' }))));
+        localStorage.setItem('gamerscroll_recent_searches', JSON.stringify(Array.from({ length: 8 }, (_, i) => ({ slug: 'maplestory-idle-rpg', name: `최근 게임 ${i + 1}`, icon: '/icon-192.png' }))));
         window.layoutShifts = [];
         new PerformanceObserver(list => {
           for (const entry of list.getEntries()) if (!entry.hadRecentInput) window.layoutShifts.push({ value: entry.value, nodes: entry.sources.map(s => s.node && s.node.className) });

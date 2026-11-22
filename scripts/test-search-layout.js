@@ -3,7 +3,7 @@
 const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
-const routes = ['/', '/games/', '/ko/games/', '/rankings/', '/rankings/monthly/2026-08/', '/steam/', '/steam/730/', '/ko/games/메이플-키우기/'];
+const routes = ['/', '/games/', '/ko/games/', '/rankings/', '/rankings/monthly/2026-08/', '/steam/', '/steam/730/', '/ko/games/maplestory-idle-rpg/'];
 
 (async () => {
   const browser = await chromium.launch({ channel: 'msedge', headless: true });

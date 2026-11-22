@@ -18,12 +18,12 @@ const EDITION = { kr: 'ko', jp: 'ja', us: 'en', tw: 'zh-tw', cn: 'zh-cn' };
 // One page per market (the edition of that market renders it), the forecast repo's sample games, plus a launch-cohort
 // example. Fixture-only fields (fixture mode): subgenre, release date, download figures, hidden tiers, download estimate tier per store.
 const SAMPLES = [
-  { market: 'kr', slug: '운빨존많겜', subgenre: 'Strategy', release_date: '2024-05-26', play: 1e7, ratings: { kr: 79865, jp: 5665, us: 12279, tw: 20173 }, downloads: { ios: 'assumption', android: 'verified' } },
-  { market: 'jp', slug: '명조워더링-웨이브', subgenre: 'Action', release_date: '2024-05-22', play: 1e7, ratings: { jp: 41000, kr: 9100 } },
-  { market: 'us', slug: 'monopoly-go-모노폴리-go', subgenre: 'Casual', release_date: '2023-04-11', play: 1e8, ratings: { us: 3900000, jp: 12000, kr: 4100, tw: 2300 }, hidden: { tw: 'android' } },
-  { market: 'tw', slug: 'wos-화이트아웃-서바이벌', subgenre: 'Strategy', release_date: '2023-02-01', play: 1e8, ratings: { tw: 21000, kr: 18000 }, downloads: { android: 'unverified' } },
+  { market: 'kr', slug: 'lucky-defense', subgenre: 'Strategy', release_date: '2024-05-26', play: 1e7, ratings: { kr: 79865, jp: 5665, us: 12279, tw: 20173 }, downloads: { ios: 'assumption', android: 'verified' } },
+  { market: 'jp', slug: 'wuthering-waves-kuro-games', subgenre: 'Action', release_date: '2024-05-22', play: 1e7, ratings: { jp: 41000, kr: 9100 } },
+  { market: 'us', slug: 'monopoly-go', subgenre: 'Casual', release_date: '2023-04-11', play: 1e8, ratings: { us: 3900000, jp: 12000, kr: 4100, tw: 2300 }, hidden: { tw: 'android' } },
+  { market: 'tw', slug: 'whiteout-survival', subgenre: 'Strategy', release_date: '2023-02-01', play: 1e8, ratings: { tw: 21000, kr: 18000 }, downloads: { android: 'unverified' } },
   { market: 'cn', slug: '王者荣耀', subgenre: 'Action', release_date: '2015-11-26', ratings: { cn: 15107196 } },
-  { market: 'kr', slug: '명일방주-엔드필드', subgenre: 'Role Playing', release_date: '2026-09-20', play: 1e6, ratings: { kr: 3000 }, launch_cohort: true },
+  { market: 'kr', slug: 'arknights-endfield-gryph-frontier', subgenre: 'Role Playing', release_date: '2026-09-20', play: 1e6, ratings: { kr: 3000 }, launch_cohort: true },
   // new release (< 7 days since revenue_from in the real bundle): badges, pre-release days, withheld totals
   { market: 'kr', slug: '탕탕에이스', subgenre: 'Action', release_date: '2026-10-23', play: 1e5, launch_cohort: true },
 ];

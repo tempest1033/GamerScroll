@@ -7,6 +7,7 @@ const PREFIX = { en: '', ja: '/ja', 'zh-cn': '/zh-cn', ko: '/ko', 'zh-tw': '/zh-
 // The data version only changes with a build (hourly); the cached page is keyed by it.
 const HTML_CACHE_CONTROL = 'public, max-age=300, s-maxage=1800, stale-while-revalidate=600';
 const META_TTL_MS = 30 * 1000;
+const REDIRECTS_TTL_MS = 5 * 60 * 1000;
 // Cloudflare bundles functions/ with esbuild's keepNames, which wraps every named function in __name(fn, "name").
 // The templates embed some functions into the page as inline scripts via Function#toString (chart interaction, etc.),
 // so those wrappers reach the browser, where __name does not exist: "ReferenceError: __name is not defined" and the
@@ -48,6 +49,16 @@ async function loadMeta(env, url) {
   return value;
 }
 
+// Retired slug → current slug (docs/games-data/_redirects.json), read only when a slug has no data file. A failed read
+// is not cached, so the next miss tries again.
+let redirectsCache = null; // { at, value }
+async function loadRedirects(env, url) {
+  if (redirectsCache && Date.now() - redirectsCache.at < REDIRECTS_TTL_MS) return redirectsCache.value;
+  const value = await assetJson(env, url, '/games-data/_redirects.json');
+  if (value) redirectsCache = { at: Date.now(), value };
+  return value || {};
+}
+
 // The edition's static 404 page (docs/<prefix>/404.html, served by Pages at the extension-less path) with a real 404 status.
 async function notFound(env, url, code, method) {
   const headers = { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=60', 'X-Robots-Tag': 'noindex' };
@@ -86,7 +97,11 @@ export async function handleGameRequest(context, code) {
   }
 
   const data = await assetResponse(env, url, `/games-data/${encodeURIComponent(slug)}.json`);
-  if (!data) return notFound(env, url, code, request.method);
+  if (!data) {
+    const moved = (await loadRedirects(env, url))[slug];
+    if (!moved) return notFound(env, url, code, request.method);
+    return new Response(null, { status: 301, headers: { Location: `${PREFIX[code]}/games/${encodeURIComponent(moved)}/${url.search}`, 'Cache-Control': 'public, max-age=3600' } });
+  }
   const bytes = new Uint8Array(await data.arrayBuffer());
 
   let html;

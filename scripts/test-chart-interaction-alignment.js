@@ -9,7 +9,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
     for (const width of (process.env.TEST_WIDTHS || '1440,390').split(',').map(Number)) {
       const page = await browser.newPage({ viewport: { width, height: 1000 }, hasTouch: width === 390 });
       await page.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort());
-      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/ko/', '/ko/rankings/', '/ko/rankings/records/', '/ko/rankings/publishers/', '/ko/steam/', '/ko/games/로얄-매치-royal-match/', '/ko/games/where-winds-meet/'])) {
+      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/ko/', '/ko/rankings/', '/ko/rankings/records/', '/ko/rankings/publishers/', '/ko/steam/', '/ko/games/royal-match/', '/ko/games/where-winds-meet/'])) {
         try {
           await page.goto(base + route, { waitUntil: 'networkidle' });
           assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), '가로 넘침 없음');

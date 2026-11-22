@@ -9,7 +9,7 @@ const routes = [
   '/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/',
   '/rankings/monthly/2026-08/', '/rankings/global/', '/rankings/records/',
   '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/',
-  '/games/', '/games/메이플-키우기/',
+  '/games/', '/games/maplestory-idle-rpg/',
 ];
 
 (async () => {

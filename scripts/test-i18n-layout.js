@@ -50,7 +50,7 @@ function pickGames() {
   const slugs = [
     longest(g => g.names.ja), longest(g => g.names['zh-tw']), longest(g => g.names['zh-cn']), longest(g => g.name),
   ].filter(Boolean).map(g => g.slug);
-  for (const s of ['메이플-키우기', 'where-winds-meet']) slugs.push(s);
+  for (const s of ['maplestory-idle-rpg', 'where-winds-meet']) slugs.push(s);
   return [...new Set(slugs)];
 }
 

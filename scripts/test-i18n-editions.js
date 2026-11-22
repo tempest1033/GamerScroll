@@ -10,7 +10,7 @@ const { EDITIONS, editionPath, absoluteUrl } = require('../src/i18n');
 
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
 // The Hangul-slug game detail page is rendered on request (functions/_lib/game-route.js; the preview server runs the same handler).
-const PAGES = ['/', '/rankings/', '/steam/', '/games/', '/about/', '/games/%EB%A9%94%EC%9D%B4%ED%94%8C-%ED%82%A4%EC%9A%B0%EA%B8%B0/'];
+const PAGES = ['/', '/rankings/', '/steam/', '/games/', '/about/', '/games/maplestory-idle-rpg/'];
 const COUNTRY_NAME_KEY = { us: 'stats.united_states', jp: 'stats.japan', cn: 'stats.china', kr: 'stats.korea', tw: 'stats.taiwan' };
 const ALL_COUNTRIES = ['kr', 'jp', 'us', 'cn', 'tw'];
 const HANGUL = /[\u1100-\u11FF\u3130-\u318F\uAC00-\uD7AF]/;

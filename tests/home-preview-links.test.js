@@ -2,7 +2,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const i18n = require('../src/i18n');
-const { hasAnalysisPage } = require('../src/build/analysis-pages');
+const { analysisSlug } = require('../src/build/analysis-pages');
 const { renderHome, previewHtml } = require('../src/templates/pages/home');
 
 const base = { name: 'Game', icon: '', developer: 'Dev', label: 'Label', value: 3, change: '', series: [3, 2], dates: ['2026-11-01', '2026-11-02'], ranked: true, best: 2, mean: 2.5, count: 2 };
@@ -41,9 +41,10 @@ test('home rows only select; every metrics action targets a page of the current 
     const { items } = JSON.parse(html.match(/id="rkHomeDeferredData">([\s\S]*?)<\/script>/)[1])[0];
     const mobile = Object.values(items).filter((e) => !e.steam && e.href);
     assert.ok(mobile.length > 0);
+    const { bySlug } = require('../src/rank/stats').loadRankStats();
     for (const e of mobile) {
-      const slug = decodeURIComponent(e.href.match(/^\/ko\/games\/([^/]+)\/$/)[1]);
-      assert.equal(e.metrics || null, hasAnalysisPage(slug, 'ko') ? `/ko/analysis/${encodeURIComponent(slug)}/` : null, e.href);
+      const slug = analysisSlug(bySlug.get(decodeURIComponent(e.href.match(/^\/ko\/games\/([^/]+)\/$/)[1])), 'ko');
+      assert.equal(e.metrics || null, slug ? `/ko/analysis/${encodeURIComponent(slug)}/` : null, e.href);
     }
     for (const e of Object.values(items).filter((x) => !x.href)) assert.match(e.list, /^\/ko\/rankings\//);
   } finally { i18n.setEdition('en'); }

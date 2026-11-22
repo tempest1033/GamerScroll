@@ -75,7 +75,7 @@ function checkCard($, card, code, items, related, label) {
 let checked = 0;
 try {
   // 1) 실제 데이터: 리니지M (한국 매출 순위권, 같은 개발사 게임 있음) — 다섯 에디션 모두
-  const slug = '리니지m';
+  const slug = 'lineage-m';
   const game = readGame(slug);
   assert.ok(game.related && game.related.e.ko && game.related.e.ko.k === 'rank', 'sample is in the ko ranking list');
   for (const code of Object.keys(PREFIX)) {

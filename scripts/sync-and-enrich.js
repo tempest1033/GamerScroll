@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const gplay = require('google-play-scraper').default;
+const { latinSlug } = require('../src/build/game-slug');
 
 const historyDir = path.join(__dirname, '../history');
 const dataDir = path.join(__dirname, '../data');
@@ -43,10 +44,11 @@ function normalizeTitle(title) {
     .replace(/[^a-z0-9가-힣ぁ-んァ-ン一-龯]/g, '');
 }
 
+// Latin 이름이 있으면 ASCII 슬러그 (src/build/game-slug.js), 없으면 원제 그대로
 function generateSlug(name, aliases = []) {
-  const englishAlias = aliases.find(a => /^[a-zA-Z0-9\s:'\-&!?.]+$/.test(a));
-  const baseName = englishAlias || name;
-  return baseName
+  const ascii = latinSlug(name, { aliases });
+  if (ascii) return ascii;
+  return name
     .toLowerCase()
     .replace(/[:'&!?.]+/g, '')
     .replace(/\s+/g, '-')
@@ -461,9 +463,9 @@ function slugifyTitle(text) {
 const SLUG_MARKETS = ['tw', 'jp', 'cn', 'us'];
 const NAME_KEY_MARKET = { en: 'us', ja: 'jp', 'zh-cn': 'cn', 'zh-tw': 'tw' };
 
-// names.en 우선, 없으면 원제. 충돌 시 -tw/-jp/-cn/-us(자국 시장 우선) → -2, -3. 비면 app-<id>
+// Latin 이름(names.en 우선)이 있으면 ASCII 슬러그, 없으면 원제. 충돌 시 -tw/-jp/-cn/-us(자국 시장 우선) → -2, -3. 비면 app-<id>
 function uniqueSlug(key, names, markets, appId, used) {
-  let slug = slugifyTitle(names?.en) || slugifyTitle(key);
+  let slug = latinSlug(key, { names }) || slugifyTitle(key);
   if (!slug) slug = `app-${String(appId).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
   if (!used.has(slug)) return slug;
   const order = Array.from(new Set([...(markets || []), ...SLUG_MARKETS])).filter(m => SLUG_MARKETS.includes(m));

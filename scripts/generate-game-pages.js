@@ -5,6 +5,7 @@
  * Cloudflare Pages Function(functions/_lib/game-route.js)이 요청 시 렌더링하므로 여기서는
  *   docs/games-data/<slug>.json   게임별 데이터 1건 (렌더링에 필요한 전부)
  *   docs/games-data/_meta.json    모든 게임 공용 (순위 일자, 시간대 기준일, 에디션별 자산 버전, 데이터 버전)
+ *   docs/games-data/_redirects.json  바뀐 slug 의 옛 주소 → 새 slug (games.json legacySlugs)
  *   docs/games/search-index.json  + 에디션별 검색 인덱스
  *   docs/sitemap-games-<code>-<n>.xml  색인 허용 게임만, 에디션 간 hreflang 상호 참조
  * 를 만든다. 예전 docs/games/<slug>/index.html 은 지운다 (docs 는 deploy 브랜치에서 시드됨).
@@ -22,7 +23,7 @@ const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = requir
 const { computeCssAssetVersion } = require('../src/build/css-version');
 const { loadServiceExports, coverage } = require('../src/build/service-exports');
 const { splitRevenue, stringifyGameData } = require('../src/templates/components/revenue-payload');
-const { readAnalysisPages } = require('../src/build/analysis-pages');
+const { readAnalysisPages, analysisEntry } = require('../src/build/analysis-pages');
 
 const ROOT = path.join(__dirname, '..');
 const docsDir = path.join(ROOT, 'docs');
@@ -212,6 +213,7 @@ const indexable = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
 const lastmodBySlug = {};
 let rankedCount = 0, steamCount = 0, revenueCount = 0;
 const revenueBySlug = new Map();
+const redirects = {}; // retired slug → current slug
 
 for (const g of S.games) {
   const gameName = g.key;
@@ -246,7 +248,12 @@ for (const g of S.games) {
     related: relatedOf(g),
     ...(charting ? { charting: true } : {}),
   };
-  if (analysisPages[slug.normalize('NFC')]) data.analysis = analysisPages[slug.normalize('NFC')];
+  const metrics = analysisEntry(g, analysisPages);
+  if (metrics) {
+    data.analysis = metrics.editions;
+    if (metrics.slug !== slug) data.analysisSlug = metrics.slug;
+  }
+  for (const old of g.legacySlugs || []) if (old !== slug && !redirects[old]) redirects[old] = slug;
   const revenue = serviceExports && serviceExports.revenueFor(g.appIds, { freeRank });
   let heavy = null;
   if (revenue) {
@@ -291,6 +298,10 @@ for (const g of S.games) {
 
 // 이번에 만들지 않은 옛 데이터 제거
 for (const f of fs.readdirSync(dataDir)) if (f.endsWith('.json') && !f.startsWith('_') && !written.has(f.slice(0, -5))) fs.unlinkSync(path.join(dataDir, f));
+
+// 바뀐 slug 의 옛 주소 → 새 주소 (functions/_lib/game-route.js 가 301 로 보낸다). 지금 다른 게임이 쓰는 slug 는 넣지 않는다.
+for (const old of Object.keys(redirects)) if (written.has(old) || !written.has(redirects[old])) delete redirects[old];
+fs.writeFileSync(path.join(dataDir, '_redirects.json'), JSON.stringify(redirects), 'utf8');
 
 // ---------- 공용 메타 ----------
 let editions = {};

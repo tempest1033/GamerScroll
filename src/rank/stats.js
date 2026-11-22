@@ -32,6 +32,7 @@ const MONTH_PAGE_MIN_DAYS = 7;
 let cached = null;
 
 const { HANGUL, KANA, CJK, fitsEdition } = require('./name-script');
+const { latinName } = require('../build/game-slug');
 
 function loadRankStats(options = {}) {
   if (cached && !options.force) return cached;
@@ -46,6 +47,7 @@ function loadRankStats(options = {}) {
   const byTitle = new Map(); // 초기 포맷(앱 ID 없음) 행을 제목으로 게임에 연결
   for (const g of games) {
     if (g.slug) bySlug.set(g.slug, g);
+    for (const old of g.legacySlugs || []) if (!bySlug.has(old)) bySlug.set(old, g);
     for (const t of [g.key, ...(g.aliases || [])]) if (!g.disableTitleFallback && t && !byTitle.has(t)) byTitle.set(t, g);
     if (!g.appIds) continue;
     if (g.appIds.ios) byApp.set('ios:' + g.appIds.ios, g);
@@ -117,8 +119,8 @@ function loadRankStats(options = {}) {
   };
   // Store titles of games without a localized version come back in the original script (Hangul, kana, Simplified Chinese),
   // so a candidate is usable in an edition only when its script belongs there. Order of preference: the market's own store
-  // name → English store name → another edition's Latin name → an alias in the edition's script or Latin → the DB key
-  // without its " (developer)" disambiguator. When nothing fits, the first candidate stands (no localized name exists).
+  // name → English store name → another edition's Latin name → an alias in the edition's script or Latin → the Latin
+  // name inside the DB key ("Name (다른 문자 이름)") → the DB key without its " (developer)" disambiguator. When nothing fits, the first candidate stands (no localized name exists).
   const displayName = (g, fallback) => {
     if (!g) return fallback;
     const edition = currentEdition();
@@ -130,7 +132,7 @@ function loadRankStats(options = {}) {
     const key = developerSuffix && g.key.endsWith(developerSuffix) ? g.key.slice(0, -developerSuffix.length) : g.key;
     const candidates = [
       names[code], homeTitleOf(g, edition.country), names.en,
-      Object.values(names).find(latin), nativeAlias, (g.aliases || []).find(latin), key,
+      Object.values(names).find(latin), nativeAlias, (g.aliases || []).find(latin), latinName(g.key, g), key,
     ].filter(Boolean);
     return candidates.find((c) => fitsEdition(c, code)) || candidates[0];
   };

@@ -209,7 +209,7 @@ const homeOnly = process.env.HOME_ONLY === '1';
         }
       });
       await page.emulateMedia({ colorScheme: 'dark' });
-      for (const route of (homeOnly ? ['/'] : ['/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/', monthly, '/rankings/global/', '/rankings/records/', '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/', '/games/', '/games/메이플-키우기/', ])) {
+      for (const route of (homeOnly ? ['/'] : ['/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/', monthly, '/rankings/global/', '/rankings/records/', '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/', '/games/', '/games/maplestory-idle-rpg/', ])) {
         await run(`${width}px ${route === '/' ? '홈 ' : ''}가로 넘침·제목 ${route}`, async () => {
           await visit(route);
           const geometry = await page.evaluate(() => ({

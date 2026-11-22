@@ -91,6 +91,7 @@ function generateGamesHubPage(options = {}) {
   const gamesList = Object.entries(games).map(([key, data]) => ({
     name: (() => { const g = rankStats && data.slug ? rankStats.bySlug.get(data.slug) : null; return g ? rankStats.displayName(g) : key; })(),
     slug: data.slug,
+    legacySlugs: data.legacySlugs || [],
     icon: data.icon,
     developer: data.developer,
     platforms: data.platforms || [],
@@ -111,7 +112,7 @@ function generateGamesHubPage(options = {}) {
     if (popularGamesWithInfo.length >= 10) break;
 
     // slug로만 매칭 (실제 존재하는 페이지)
-    const gameInfo = gamesList.find(g => g.slug === pg.slug);
+    const gameInfo = gamesList.find(g => g.slug === pg.slug || g.legacySlugs.includes(pg.slug));
 
     // 매칭 안되면 스킵 (appId 형태 등)
     if (!gameInfo) continue;

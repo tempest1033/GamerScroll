@@ -13,7 +13,7 @@ const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
       await page.route('**/*', route => route.request().url().startsWith(base) ? route.continue() : route.abort());
       let headerReference;
       // Korean edition pages vs the (Korean) game detail page, which has not moved.
-      for (const url of ['/ko/', '/ko/rankings/', '/ko/rankings/free/', '/ko/rankings/jp/', '/ko/steam/', '/ko/games/', '/ko/games/메이플-키우기/']) {
+      for (const url of ['/ko/', '/ko/rankings/', '/ko/rankings/free/', '/ko/rankings/jp/', '/ko/steam/', '/ko/games/', '/ko/games/maplestory-idle-rpg/']) {
         try {
           await page.goto(base + url, { waitUntil: 'networkidle' });
           await page.evaluate(() => document.fonts.ready);

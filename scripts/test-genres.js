@@ -8,7 +8,7 @@ const { loadGenres } = require('../src/rank/genres');
 const { loadRankStats } = require('../src/rank/stats');
 const root = path.resolve(__dirname, '..');
 const games = JSON.parse(fs.readFileSync(path.join(root, 'data/games.json'), 'utf8').replace(/^\uFEFF/, '')).games;
-const slugs = new Set(Object.values(games).map(g => g.slug));
+const slugs = new Set(Object.values(games).flatMap(g => [g.slug, ...(g.legacySlugs || [])]));
 const taxonomy = loadGenres(), S = loadRankStats();
 for (const slug of taxonomy.assignments.keys()) assert.ok(slugs.has(slug), `Unknown slug ${slug}`);
 assert.ok(taxonomy.matches(games['메이플 키우기'], 'rpg'));

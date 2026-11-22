@@ -13,7 +13,7 @@ const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout'
 const { resizeIcon } = require('../../utils/resize-icon');
 const { loadRankStats, COUNTRIES, STORES, util } = require('../../rank/stats');
 const { publisherMark } = require('../components/publisher-mark');
-const { hasAnalysisPage } = require('../../build/analysis-pages');
+const { analysisSlug } = require('../../build/analysis-pages');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { nums, min, avg, std, fmt1, esc, tsText, pubKey } = util;
@@ -107,7 +107,7 @@ const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs rk-coun
 // swappable visual piece — change the markup/class here (styles: .rk-metrics in 60-rank-chart.css). Link prefixing is done by localizeHtml.
 const METRICS_ICON = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13.5h12"/><path d="M4 10.5v-2"/><path d="M7 10.5V5"/><path d="M10 10.5V7"/><path d="M13 10.5V3"/></svg>';
 // Metrics page of a game in the current edition, or null when that edition has none.
-const metricsHref = (g) => (g && g.slug && hasAnalysisPage(g.slug, require('../../i18n').currentEdition().code) ? `/analysis/${encodeURIComponent(g.slug)}/` : null);
+const metricsHref = (g) => { const slug = analysisSlug(g, require('../../i18n').currentEdition().code); return slug ? `/analysis/${encodeURIComponent(slug)}/` : null; };
 const metricsEntry = (g, name) => (metricsHref(g)
   ? `<a class="rk-metrics" href="${metricsHref(g)}" aria-label="${esc(`${name} ${tt('game.tab_analysis')}`)}" title="${esc(tt('game.tab_analysis'))}">${METRICS_ICON}</a>`
   // Empty cell keeps the rank numbers of rows without a metrics page aligned with the rest of the list.

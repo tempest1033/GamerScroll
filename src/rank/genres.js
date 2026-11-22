@@ -2,6 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { t, has } = require('../i18n');
+const { slugKeys } = require('../build/game-slug');
 const root = path.resolve(__dirname, '../..');
 const read = name => JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8').replace(/^\uFEFF/, ''));
 let cache;
@@ -27,11 +28,13 @@ function loadGenres() {
     if (Object.prototype.hasOwnProperty.call(config.games[item.slug] || {}, 'tags')) continue;
     assignments.set(item.slug, [...new Set([...(assignments.get(item.slug) || []), 'subculture'])]);
   }
+  // The data files key a game by the slug it had when the entry was written (game.legacySlugs after a rename).
+  const tagsFor = game => { const key = slugKeys(game).find(slug => assignments.has(slug)); return key ? assignments.get(key) : []; };
   cache = {
     categories,
     assignments,
-    matches: (game, id) => id === 'all' || !!(game && (assignments.get(game.slug) || []).includes(id)),
-    tagsFor: game => game ? assignments.get(game.slug) || [] : [],
+    matches: (game, id) => id === 'all' || tagsFor(game).includes(id),
+    tagsFor,
   };
   return cache;
 }

@@ -13,9 +13,9 @@ const kof = db['킹 오브 파이터 AFK'], profile = db['Alter Ego'], caramel =
 assert.deepEqual(kof.appIds, { android: 'com.netmarble.kofafk', ios: '6499177365' });
 assert.deepEqual(profile.appIds, { ios: 1549657152 });
 assert.deepEqual(caramel.appIds, { ios: '1447605099', android: 'com.caracolu.alterego' });
-assert.equal(S.byApp.get('android:com.farlightgames.igame.gp').slug, 'afk-새로운-여정-힐링-농장');
+assert.equal(S.byApp.get('android:com.farlightgames.igame.gp').slug, 'afk-journey-farlight');
 assert.equal(S.byApp.get('android:com.netmarble.kofafk').slug, kof.slug);
-assert.equal(S.byTitle.get('AFK: 새로운 여정').slug, 'afk-새로운-여정-힐링-농장');
+assert.equal(S.byTitle.get('AFK: 새로운 여정').slug, 'afk-journey-farlight');
 assert.equal(S.byTitle.get('천만여신: 가장 치명적인 AFK').slug, '천만여신-가장-치명적인-afk');
 for (const key of Object.keys(old)) {
   if (['킹 오브 파이터 AFK', 'Alter Ego', 'AFK: 새로운 여정 - 힐링 농장'].includes(key)) continue;
@@ -24,6 +24,8 @@ for (const key of Object.keys(old)) {
   const { appIds: oldIds, aliases: oldAliases, platforms: oldPlatforms, ...oldRest } = old[key];
   for (const p of oldPlatforms || []) assert.ok(platforms.includes(p), `기존 platform 보존: ${key}`);
   for (const [field, value] of Object.entries(oldRest)) {
+    // a renamed slug stays on record (scripts/migrate-game-slugs.js)
+    if (field === 'slug' && (rest.legacySlugs || []).includes(value)) continue;
     if (value) assert.deepEqual(rest[field], value, `무관한 DB 항목 보존: ${key}.${field}`); // 빈 developer/icon 은 채워질 수 있음
   }
   for (const [slot, id] of Object.entries(oldIds || {})) assert.equal(String(appIds[slot]), String(id), `기존 appId 보존: ${key}.${slot}`);

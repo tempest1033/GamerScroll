@@ -15,7 +15,7 @@ const { EDITIONS, absoluteUrl } = require('../src/i18n');
 
 const ROOT = path.resolve(__dirname, '..');
 const PORT = Number(process.env.WRANGLER_PORT || 8799);
-const SLUGS = { hangul: '메이플-키우기', cjk: '三国杀', ascii: 'where-winds-meet' };
+const SLUGS = { hangul: '마비노기-모바일', cjk: '三国杀', ascii: 'where-winds-meet' };
 const UNKNOWN = 'no-such-game-slug-12345';
 
 // Node's fetch cannot set Host; the functions only act on gamerscroll.com, so talk plain HTTP with that Host header.
@@ -70,7 +70,8 @@ const hreflangs = (html) => [...html.matchAll(/<link rel="alternate" hreflang="(
           assert.equal(metaOf(first.body, /<html lang="([^"]+)"/), edition.htmlLang, 'html lang');
           assert.ok(first.body.includes(`<meta property="og:locale" content="${edition.ogLocale}">`), 'og:locale');
           assert.ok(/<h1 class="game-hero-title"[^>]*>[^<]+<\/h1>/.test(first.body), 'game title');
-          if (code === 'en') {
+          // A game that keeps a Hangul slug has no Latin name (src/build/game-slug.js), so its own name appears in the text.
+          if (code === 'en' && kind !== 'hangul') {
             // Visible text without scripts/styles/comments, the game's own name and the edition selector's native labels.
             let visible = first.body.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<!--[\s\S]*?-->/g, '').replace(/<h1[\s\S]*?<\/h1>/, '').replace(/<title>[\s\S]*?<\/title>/, '').replace(/<(?:meta|img|link)\b[^>]*>/g, '');
             for (const e of EDITIONS) visible = visible.split(`>${e.label}<`).join('><');

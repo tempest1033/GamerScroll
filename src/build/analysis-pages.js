@@ -11,6 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 const i18n = require('../i18n');
+const { slugKeys } = require('./game-slug');
 
 const ANALYSIS_SITEMAP_URL = `${i18n.SITE_ORIGIN}/analysis/sitemap.xml`;
 const ANALYSIS_PAGES_URL = `${i18n.SITE_ORIGIN}/analysis/pages.xml`;
@@ -58,13 +59,22 @@ function readAnalysisPages(file = PAGES_FILE) {
   try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return {}; }
 }
 
-// Same rule as the game page tab (game.analysis): the game has a metrics page in this edition.
-let pagesCache;
-function hasAnalysisPage(slug, editionCode) {
-  if (!slug) return false;
-  if (!pagesCache) pagesCache = readAnalysisPages();
-  const editions = pagesCache[String(slug).normalize('NFC')];
-  return Array.isArray(editions) && editions.includes(editionCode);
+// The metrics Worker names a page by the slug it knows the game by, which may be one the game has since retired
+// (game.legacySlugs). Returns { slug, editions } of the game's metrics pages in `pages`, or null.
+function analysisEntry(game, pages) {
+  for (const slug of slugKeys(game)) {
+    const editions = pages[String(slug).normalize('NFC')];
+    if (Array.isArray(editions)) return { slug, editions };
+  }
+  return null;
 }
 
-module.exports = { ANALYSIS_SITEMAP_URL, ANALYSIS_PAGES_URL, PAGES_FILE, LASTMOD_FILE, newestLastmod, readAnalysisLastmod, parseAnalysisSitemap, readAnalysisPages, hasAnalysisPage };
+// Same rule as the game page tab (game.analysis): the slug of the game's metrics page in this edition, or null.
+let pagesCache;
+function analysisSlug(game, editionCode) {
+  if (!pagesCache) pagesCache = readAnalysisPages();
+  const entry = analysisEntry(game, pagesCache);
+  return entry && entry.editions.includes(editionCode) ? entry.slug : null;
+}
+
+module.exports = { ANALYSIS_SITEMAP_URL, ANALYSIS_PAGES_URL, PAGES_FILE, LASTMOD_FILE, newestLastmod, readAnalysisLastmod, parseAnalysisSitemap, readAnalysisPages, analysisEntry, analysisSlug };
