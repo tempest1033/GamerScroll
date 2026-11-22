@@ -64,12 +64,24 @@ test('each edition shows the name in its own script when the game has one', () =
     assert.equal(nameIn('zh-tw', '三國志・戰略版'), '三國志・戰略版');
     assert.equal(nameIn('zh-cn', '三國志 真戦'), '三国志 真战', 'Japanese shinjitai in a Han-only name is converted too');
     assert.equal(nameIn('ja', '三國志 真戦'), '三國志 真戦');
-    // The whole catalog on the Simplified edition: a name without kana letters or Hangul is in Simplified form
-    // (nothing left for the conversion to change), and a name with kana letters is Japanese text shown as recorded.
+    assert.equal(nameIn('zh-cn', '打寶傳說：神話篇'), '打宝传说：神话篇', 'the Simplified alias on record, not the store title with the unmapped variant 寳');
+    assert.equal(nameIn('zh-tw', '打寶傳說：神話篇'), '打寳傳説：神話篇');
+    // The whole catalog on the Simplified edition, checked on the names themselves: in a name without kana letters or
+    // Hangul every Han character is in GB 2312 (the mainland standard charset, which has no Traditional-only or
+    // shinjitai-only form) or is one of the characters reviewed as valid Simplified outside it. A name with kana
+    // letters is Japanese text shown as recorded.
     const { HAN, HANGUL, KANA_LETTER, toSimplified } = require('../src/rank/name-script');
+    const gb2312 = new Set();
+    const gbk = new TextDecoder('gbk');
+    for (let hi = 0xB0; hi <= 0xF7; hi++) for (let lo = 0xA1; lo <= 0xFE; lo++) gb2312.add(gbk.decode(Uint8Array.of(hi, lo)));
+    assert.ok(gb2312.has('战') && gb2312.has('国') && !gb2312.has('戰') && !gb2312.has('戦') && !gb2312.has('寳'));
+    const REVIEWED = new Set(['啰', '槃', '喰']); // 啰嗦, 涅槃; 喰 is in the official mainland title 东京喰种
     i18n.setEdition('zh-cn');
     const shown = S.games.map((g) => S.displayName(g));
-    assert.deepEqual(shown.filter((n) => HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n) && toSimplified(n) !== n), []);
+    const hanOnly = shown.filter((n) => HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n));
+    assert.ok(hanOnly.length > 1000);
+    assert.deepEqual(hanOnly.filter((n) => [...n].some((ch) => /\p{Script=Han}/u.test(ch) && !gb2312.has(ch) && !REVIEWED.has(ch))), []);
+    assert.deepEqual(hanOnly.filter((n) => toSimplified(n) !== n), []);
     assert.ok(shown.some((n) => KANA_LETTER.test(n) && toSimplified(n) !== n), 'kana names are not partially converted');
   } finally { i18n.setEdition('en'); }
 });
