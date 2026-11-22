@@ -169,9 +169,11 @@ async function gameRedirect(context, url, path, www, country) {
   const prefix = gsLocalePrefixOf(path);
   const slug = gameSlugOf(prefix ? path.slice(prefix.length + 1) : path);
   if (!slug) return null;
-  // An unavailable map leaves the slug as asked; the game route answers for that state.
-  const redirects = context.env && context.env.ASSETS ? await loadGameRedirects(context.env, url) : null;
-  const moved = redirects && Object.prototype.hasOwnProperty.call(redirects, slug) ? redirects[slug] : null;
+  // With the map unreadable the slug may be a retired one, so no host or edition redirect may confirm it:
+  // the same 503 the game route gives (functions/_lib/game-route.js).
+  const redirects = context.env && context.env.ASSETS ? await loadGameRedirects(context.env, url) : {};
+  if (!redirects) return new Response("Game data unavailable", { status: 503, headers: { "Cache-Control": "no-store", "Retry-After": "60" } });
+  const moved = Object.prototype.hasOwnProperty.call(redirects, slug) ? redirects[slug] : null;
   if (!www && !moved) return null;
   const page = `/games/${encodeURIComponent(moved || slug)}/${url.search}`;
   const choice = prefix ? null : gsEditionChoice(context.request, url, country);
@@ -243,7 +245,13 @@ export async function onRequest(context) {
     if (gameHop) return gameHop;
     // Removed-section rules run before the host hop and build their targets on the bare host, so a www URL of a
     // removed page reaches its successor (or its 410) in one step.
-    const bare = www ? new URL(path + url.search, "https://gamerscroll.com") : url;
+    // Path and search are assigned, never resolved as a reference: "//host/..." must stay a path of this site.
+    let bare = url;
+    if (www) {
+      bare = new URL("https://gamerscroll.com/");
+      bare.pathname = path;
+      bare.search = url.search;
+    }
     const legacyRedirect = await handleGamerScrollLegacyRedirect(bare, path, () => loadMarketPlans(context, url));
     if (legacyRedirect) return legacyRedirect;
     // www -> non-www 301: consolidate to the canonical bare host so Google does

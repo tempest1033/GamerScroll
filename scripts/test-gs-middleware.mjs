@@ -107,6 +107,51 @@ await t("a redirect map that cannot be read is null (unknown), not an empty map"
   const fresh = await import(new URL("../functions/_lib/game-redirects.js?down", import.meta.url).href);
   assert.equal(await fresh.loadGameRedirects({ ASSETS: down }, new URL(G)), null);
 });
+await t("www + a path that reads as a network-path reference stays on gamerscroll.com", async () => {
+  for (const p of ["//evil.example/", "//evil.example/games/monopoly-go/", "//evil.example/magazine/ranking/steam-april-2026/", "/%2F%2Fevil.example/", "//evil.example/?x=//evil.example"]) {
+    const r = await onRequest({ request: new Request(W + p, { headers: { host: "www.gamerscroll.com", "User-Agent": "Googlebot/2.1" } }), env: { ASSETS }, next: async () => new Response("ok", { status: 200 }) });
+    if (r.status === 410) continue;
+    assert.equal(r.status, 301, p);
+    assert.equal(new URL(r.headers.get("location")).host, "gamerscroll.com", p);
+    assert.ok(r.headers.get("location").startsWith("https://gamerscroll.com/"), p);
+  }
+  assert.deepEqual(await hop(W + "//evil.example/a?b=1"), [301, "https://gamerscroll.com//evil.example/a?b=1", null]);
+});
+// A fresh isolate (own module state) whose redirect map cannot be read: the slug is unknown, so the middleware answers
+// 503 before any host or edition redirect could confirm a retired URL.
+await t("redirect map unreadable: game URLs get 503 no-store, not a host or edition redirect; other pages are untouched", async () => {
+  const { build } = await import("esbuild");
+  const { mkdtempSync, rmSync } = await import("node:fs");
+  const { tmpdir } = await import("node:os");
+  const { join } = await import("node:path");
+  const { pathToFileURL, fileURLToPath } = await import("node:url");
+  const dir = mkdtempSync(join(tmpdir(), "gs-mw-"));
+  try {
+    const outfile = join(dir, "middleware.mjs");
+    await build({ entryPoints: [fileURLToPath(new URL("../functions/_middleware.js", import.meta.url))], bundle: true, format: "esm", platform: "neutral", outfile, logLevel: "silent" });
+    const isolate = await import(pathToFileURL(outfile).href);
+    let up = false;
+    const flaky = { fetch: async (req) => (!up && new URL(req.url).pathname === "/games-data/_redirects.json" ? new Response("down", { status: 500 }) : ASSETS.fetch(req)) };
+    const ask = async (url, { country, ua } = {}) => {
+      const u = new URL(url);
+      const headers = new Headers({ host: u.host });
+      if (country) headers.set("CF-IPCountry", country);
+      if (ua) headers.set("User-Agent", ua);
+      const r = await isolate.onRequest({ request: new Request(url, { headers }), env: { ASSETS: flaky }, next: async () => new Response("ok", { status: 200 }) });
+      return [r.status, r.headers.get("location"), r.headers.get("cache-control"), r.headers.get("retry-after")];
+    };
+    const unavailable = [503, null, "no-store", "60"];
+    assert.deepEqual(await ask(W + OLD, { ua: "Googlebot/2.1" }), unavailable, "www + retired slug");
+    assert.deepEqual(await ask(W + "/ko" + OLD), unavailable, "www + edition + retired slug");
+    assert.deepEqual(await ask(G + OLD, { country: "KR" }), unavailable, "regional visitor on a root retired slug");
+    assert.deepEqual(await ask(G + "/games/monopoly-go/", { country: "JP" }), unavailable, "regional visitor on a current slug");
+    assert.deepEqual(await ask(G + "/ja" + OLD, { ua: "Googlebot/2.1" }), unavailable, "edition URL");
+    assert.deepEqual(await ask(W + "/games/"), [301, "https://gamerscroll.com/games/", null, null], "the hub is not a game page");
+    assert.deepEqual((await ask(G + "/rankings/", { country: "US" })).slice(0, 2), [200, null]);
+    up = true;
+    assert.deepEqual(await ask(W + OLD, { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/games/monopoly-go/", null, null], "read again on the next request");
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
 await t("games hub and files under /games/ are not game pages", async () => { assert.deepEqual(await hop(W + "/games/"), [301, "https://gamerscroll.com/games/", null]); assert.deepEqual(await hop(G + "/games/search-index.json", { country: "KR" }), [200, null, null]); });
 await t("/ko/reports/ 410", async () => assert.equal((await call(G + "/ko/reports/", { country: "KR" })).status, 410));
 await t("/reports/x 410", async () => assert.equal((await call(G + "/reports/x")).status, 410));
