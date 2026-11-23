@@ -17256,7 +17256,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166038,8 +166038,24 @@
       "legacySlugs": [
         "탑승-시간-방치형-타이쿤-경영게임"
       ]
+    },
+    "Wolf War": {
+      "appIds": {
+        "ios_tw": 6793051132
+      },
+      "aliases": [],
+      "developer": "Special Hong Kong Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/39/15/5b/39155b6e-267b-2df1-4552-8052cc589d6e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "wolf-war",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Wolf War",
+        "zh-tw": "Wolf War"
+      }
     }
   },
   "lastUpdated": "2026-11-23",
-  "totalGames": 9513
+  "totalGames": 9514
 }
