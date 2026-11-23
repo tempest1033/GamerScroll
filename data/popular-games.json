@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T23:01:57.889Z",
+  "updatedAt": "2026-11-23T23:02:03.551Z",
   "period": "30days",
   "games": [
     {
@@ -9,6 +9,14 @@
     {
       "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
       "views": 7
+    },
+    {
+      "slug": "epic-seven-smilegate-holdings",
+      "views": 6
+    },
+    {
+      "slug": "stylish-room-decorating-games",
+      "views": 6
     },
     {
       "slug": "카오스-제로-나이트메어",
@@ -27,7 +35,15 @@
       "views": 5
     },
     {
+      "slug": "age-of-origins",
+      "views": 5
+    },
+    {
       "slug": "barotrauma",
+      "views": 5
+    },
+    {
+      "slug": "cell-survivor-shoot-defense",
       "views": 5
     },
     {
@@ -43,6 +59,10 @@
       "views": 5
     },
     {
+      "slug": "pirate-legends-idle-rpg",
+      "views": 5
+    },
+    {
       "slug": "pixel-flow",
       "views": 5
     },
@@ -51,31 +71,11 @@
       "views": 5
     },
     {
+      "slug": "sled-surfers",
+      "views": 5
+    },
+    {
       "slug": "snipers-duel",
-      "views": 5
-    },
-    {
-      "slug": "단어-찾기-단어-게임",
-      "views": 5
-    },
-    {
-      "slug": "라스트-라이트",
-      "views": 5
-    },
-    {
-      "slug": "로드러쉬",
-      "views": 5
-    },
-    {
-      "slug": "산너머-도원마을",
-      "views": 5
-    },
-    {
-      "slug": "쿠키런-키우기-쿠키런-크럼블",
-      "views": 5
-    },
-    {
-      "slug": "쿠키런-킹덤",
       "views": 5
     }
   ]

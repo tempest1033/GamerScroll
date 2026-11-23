@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166206,8 +166206,59 @@
       "names": {
         "zh-cn": "炽武之巅"
       }
+    },
+    "스파이더 카드놀이 - 카드 게임": {
+      "appIds": {
+        "ios": 1619320898
+      },
+      "aliases": [],
+      "developer": "Easybrain Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/0c/cc/330ccc61-7194-12fc-a8d5-750cd9e2ba00/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "spider-solitaire-card-games-easybrain-ltd",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "스파이더 카드놀이 - 카드 게임",
+        "en": "Spider Solitaire – Card Games",
+        "ja": "スパイダーソリティア – トランプゲーム",
+        "zh-tw": "Spider Solitaire - 經典接龍紙牌遊戲"
+      },
+      "legacySlugs": [
+        "스파이더-카드놀이-카드-게임"
+      ]
+    },
+    "ヤンキーサバイバー": {
+      "appIds": {
+        "ios_jp": 6778303469
+      },
+      "aliases": [],
+      "developer": "SEVEN NEXUS K.K.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/04/71/33/047133b2-3f6f-1b4d-54f1-cbb0e5637c02/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "ヤンキーサバイバー",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ヤンキーサバイバー"
+      }
+    },
+    "三国：箭雨千军": {
+      "appIds": {
+        "ios_cn": 6800595110
+      },
+      "aliases": [],
+      "developer": "Guangzhou Xingheyue Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/7e/d5/ae7ed572-e643-c990-4dda-9cc2dd8474a6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "三国箭雨千军",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "三国：箭雨千军"
+      }
     }
   },
   "lastUpdated": "2026-11-24",
-  "totalGames": 9523
+  "totalGames": 9526
 }

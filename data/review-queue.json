@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53270,6 +53270,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/51/30/af/5130afe5-843c-5a9c-db2e-970cef9af170/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-23T19:02:07.833Z"
+    },
+    {
+      "title": "스파이더 카드놀이 - 카드 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 1619320898
+      },
+      "developer": "Easybrain Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/0c/cc/330ccc61-7194-12fc-a8d5-750cd9e2ba00/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-23T23:01:57.836Z"
     }
   ],
   "approved": [
