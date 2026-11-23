@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -157911,14 +157911,16 @@
     },
     "Escape Game: STARLIGHT ATM": {
       "appIds": {
-        "android": "com.kingin.atm1"
+        "android": "com.kingin.atm1",
+        "ios": 6785346096
       },
       "aliases": [],
       "developer": "KinGin Studio",
       "icon": "https://play-lh.googleusercontent.com/OqTOKUUWw0F4lfjhVFcYfVjXgkSG7G3ciZTbcyZj_hhK54fYD5tWH2R1EwDF1nGEh0xG8x3NXzHoT1F12GilFw",
       "slug": "escape-game-starlight-atm",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "Escape Game: STARLIGHT ATM",
