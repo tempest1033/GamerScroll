@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53228,6 +53228,48 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/30/77/6b307793-e20c-2ca0-3ce4-d4a08e23ae43/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-23T15:02:43.546Z"
+    },
+    {
+      "title": "Easy Drum - Simple Music Drum",
+      "status": "single",
+      "appIds": {
+        "ios": 6833913632
+      },
+      "developer": "Avalon Entertainment Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/e4/75/73e4755e-2cec-b40f-be31-8a305968dbc0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-23T19:02:05.691Z"
+    },
+    {
+      "title": "신데렐라: 타일 스토리",
+      "status": "single",
+      "appIds": {
+        "android": "com.bayagames.cinderella.tile.mahjong.puzzle"
+      },
+      "developer": "3A BAYA GAMES PUBLISHING LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/szvhLx_YhIOEaeX-Y9q2h_tNCNKy-sLCWaQ8Le9IqKzTqbHHs0uEyx4hbE_NpHZw_dXKEpSkGTC3CZ7eG43FYA",
+      "searchResults": [
+        {
+          "title": "신데렐라: 타일 이야기",
+          "appId": 6747117628
+        },
+        {
+          "title": "Storybook: Merge Puzzle",
+          "appId": 6813121306
+        }
+      ],
+      "addedAt": "2026-11-23T19:02:06.695Z"
+    },
+    {
+      "title": "Scary Escape Survival",
+      "status": "single",
+      "appIds": {
+        "ios": 1597238781
+      },
+      "developer": "海艳 张",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/51/30/af/5130afe5-843c-5a9c-db2e-970cef9af170/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-23T19:02:07.833Z"
     }
   ],
   "approved": [

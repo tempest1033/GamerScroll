@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166103,8 +166103,111 @@
       "names": {
         "zh-tw": "無職轉生 ～到了異世界就拿出真本事～ 迴響編年史"
       }
+    },
+    "Easy Drum - Simple Music Drum": {
+      "appIds": {
+        "ios": 6833913632
+      },
+      "aliases": [],
+      "developer": "Avalon Entertainment Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/e4/75/73e4755e-2cec-b40f-be31-8a305968dbc0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "easy-drum-simple-music-drum",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Easy Drum - Simple Music Drum",
+        "en": "Easy Drum - Real Music Drum",
+        "ja": "Easy Drum - Real Music Drum",
+        "zh-tw": "Easy Drum - Real Music Drum"
+      }
+    },
+    "신데렐라: 타일 스토리": {
+      "appIds": {
+        "android": "com.bayagames.cinderella.tile.mahjong.puzzle"
+      },
+      "aliases": [],
+      "developer": "3A BAYA GAMES PUBLISHING LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/szvhLx_YhIOEaeX-Y9q2h_tNCNKy-sLCWaQ8Le9IqKzTqbHHs0uEyx4hbE_NpHZw_dXKEpSkGTC3CZ7eG43FYA",
+      "slug": "cinderella-tile-story",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "신데렐라: 타일 스토리",
+        "en": "Cinderella: Tile Story",
+        "ja": "シンデレラ：タイルストーリー",
+        "zh-tw": "灰姑娘：消除牌故事"
+      },
+      "legacySlugs": [
+        "신데렐라-타일-스토리"
+      ]
+    },
+    "ちょいと召喚！モンスターバスケット-ターン制美少女育成RPG": {
+      "appIds": {
+        "ios_jp": 1454236362
+      },
+      "aliases": [],
+      "developer": "ITIL.ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5b/76/55/5b7655f7-17fc-c01c-6cd2-806269ee1d0e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ちょいと召喚モンスターバスケット-ターン制美少女育成rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ちょいと召喚！モンスターバスケット-ターン制美少女育成RPG"
+      }
+    },
+    "Scary Escape Survival": {
+      "appIds": {
+        "ios": 1597238781
+      },
+      "aliases": [],
+      "developer": "海艳 张",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/51/30/af/5130afe5-843c-5a9c-db2e-970cef9af170/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "scary-escape-survival",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Scary Escape Survival",
+        "en": "Scary Escape Survival",
+        "ja": "Scary Escape Survival",
+        "zh-cn": "Scary Escape Survival",
+        "zh-tw": "Scary Escape Survival"
+      }
+    },
+    "迷城幻想": {
+      "appIds": {
+        "ios_cn": 6826064284
+      },
+      "aliases": [],
+      "developer": "Zhijiang Class Operation Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0d/67/2b/0d672b4b-c515-f218-9141-97566964be60/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "迷城幻想",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "迷城幻想"
+      }
+    },
+    "炽武之巅": {
+      "appIds": {
+        "ios_cn": 6761872455
+      },
+      "aliases": [],
+      "developer": "Hongdong Jushengdeng Network Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6e/6d/4e/6e6d4ebf-7360-e1db-bfee-5b0d1f843965/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "炽武之巅",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "炽武之巅"
+      }
     }
   },
   "lastUpdated": "2026-11-24",
-  "totalGames": 9517
+  "totalGames": 9523
 }
