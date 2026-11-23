@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53206,6 +53206,17 @@
         }
       ],
       "addedAt": "2026-11-22T23:01:55.676Z"
+    },
+    {
+      "title": "탑승 시간: 방치형 타이쿤 경영게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.playstrom.boarding.idle"
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/Ouy0uoSvP8eF2saTjdGZDy1AntpOHCGYWcHAAWP0gc_v8WV5lrGsI8-7Edx6Y5iT8T2Lu7e-6j2HcOhgA0GMSg",
+      "searchResults": [],
+      "addedAt": "2026-11-23T03:01:50.643Z"
     }
   ],
   "approved": [
