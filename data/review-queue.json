@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53217,6 +53217,17 @@
       "icon": "https://play-lh.googleusercontent.com/Ouy0uoSvP8eF2saTjdGZDy1AntpOHCGYWcHAAWP0gc_v8WV5lrGsI8-7Edx6Y5iT8T2Lu7e-6j2HcOhgA0GMSg",
       "searchResults": [],
       "addedAt": "2026-11-23T03:01:50.643Z"
+    },
+    {
+      "title": "来玩积木吧",
+      "status": "single",
+      "appIds": {
+        "ios": 1537933113
+      },
+      "developer": "凯 刘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/30/77/6b307793-e20c-2ca0-3ce4-d4a08e23ae43/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-23T15:02:43.546Z"
     }
   ],
   "approved": [

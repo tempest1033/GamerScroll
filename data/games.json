@@ -17256,7 +17256,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166054,8 +166054,57 @@
         "en": "Wolf War",
         "zh-tw": "Wolf War"
       }
+    },
+    "かみさまスクランブル！": {
+      "appIds": {
+        "ios_jp": 6736822079
+      },
+      "aliases": [],
+      "developer": "DIGITAL MONKEY K.K",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/a6/d6/eda6d642-c1d6-02ef-dc43-c30e39338cd8/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "かみさまスクランブル",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "かみさまスクランブル！"
+      }
+    },
+    "来玩积木吧": {
+      "appIds": {
+        "ios": 1537933113
+      },
+      "aliases": [],
+      "developer": "凯 刘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/30/77/6b307793-e20c-2ca0-3ce4-d4a08e23ae43/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "来玩积木吧",
+        "en": "来玩积木吧",
+        "ja": "来玩积木吧",
+        "zh-cn": "来玩积木吧",
+        "zh-tw": "来玩积木吧"
+      }
+    },
+    "無職轉生 ～到了異世界就拿出真本事～ 迴響編年史": {
+      "appIds": {
+        "ios_tw": 6791902676
+      },
+      "aliases": [],
+      "developer": "Cayenne Entertainment Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e5/c7/45/e5c74593-d130-a16a-6173-acd45af160b9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "無職轉生-到了異世界就拿出真本事-迴響編年史",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "無職轉生 ～到了異世界就拿出真本事～ 迴響編年史"
+      }
     }
   },
-  "lastUpdated": "2026-11-23",
-  "totalGames": 9514
+  "lastUpdated": "2026-11-24",
+  "totalGames": 9517
 }
