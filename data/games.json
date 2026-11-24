@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -164767,7 +164767,8 @@
         "ios"
       ],
       "names": {
-        "en": "Slice Away! - Physics Puzzle"
+        "en": "Slice Away! - Physics Puzzle",
+        "zh-tw": "Slice Away! - Physics Puzzle"
       }
     },
     "无尽宝藏": {
@@ -166278,8 +166279,44 @@
         "ja": "Orange Cat Sudoku",
         "zh-tw": "Orange Cat Sudoku"
       }
+    },
+    "饥困荒野": {
+      "appIds": {
+        "ios_cn": 6479747214
+      },
+      "aliases": [],
+      "developer": "Shenzhen Tencent Tianyou Technology Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/04/2b/91042b5f-f899-e437-2dd9-7dd8e69aa7be/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "饥困荒野",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "饥困荒野"
+      }
+    },
+    "소울시프트 리:본": {
+      "appIds": {
+        "ios": 6784551416
+      },
+      "aliases": [],
+      "developer": "PLAYLINKS Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/a2/4f/92a24fb4-5159-b91b-8e67-02911fb039bc/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "soulshift-re-born",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "소울시프트 리:본",
+        "en": "SOULSHIFT RE:BORN",
+        "ja": "ソウルシフト RE:BORN",
+        "zh-tw": "SOULSHIFT：重生"
+      },
+      "legacySlugs": [
+        "소울시프트-리본"
+      ]
     }
   },
   "lastUpdated": "2026-11-24",
-  "totalGames": 9527
+  "totalGames": 9529
 }

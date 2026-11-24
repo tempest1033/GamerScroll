@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53292,6 +53292,17 @@
       "icon": "https://play-lh.googleusercontent.com/IgvAk4gXFnjlJhHmu0X0WvdF8liYyogYCc36R3mfUQRC837ld9AO8hokkc89L3JWbEm_nd08Orna3qi8DozkyQ",
       "searchResults": [],
       "addedAt": "2026-11-24T03:01:49.344Z"
+    },
+    {
+      "title": "소울시프트 리:본",
+      "status": "single",
+      "appIds": {
+        "ios": 6784551416
+      },
+      "developer": "PLAYLINKS Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/a2/4f/92a24fb4-5159-b91b-8e67-02911fb039bc/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T07:01:59.407Z"
     }
   ],
   "approved": [
