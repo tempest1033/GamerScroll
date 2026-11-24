@@ -17256,7 +17256,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166418,8 +166418,73 @@
       "platforms": [
         "steam"
       ]
+    },
+    "幻梦无年": {
+      "appIds": {
+        "ios_cn": 6761517759
+      },
+      "aliases": [],
+      "developer": "HONGKONG 707 INTERACTIVE TECHNOLOGY CO., LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/5a/98/535a984c-4181-4b79-2d20-b7a49bb8d335/AppIcon-0-0-1x_U007emarketing-0-8-85-220.jpeg/512x512bb.jpg",
+      "slug": "幻梦无年",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "幻梦无年"
+      }
+    },
+    "全力蚁富-蚁汐觅饴": {
+      "appIds": {
+        "ios": 6829739287
+      },
+      "aliases": [],
+      "developer": "恩瑞 张",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/8b/b7/7d8bb77b-852a-2b80-abc7-055983549da5/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "全力蚁富-蚁汐觅饴",
+        "en": "全力蚁富-蚁汐觅饴",
+        "ja": "全力蚁富-蚁汐觅饴",
+        "zh-cn": "全力蚁富-蚁汐觅饴",
+        "zh-tw": "全力蚁富-蚁汐觅饴"
+      }
+    },
+    "经典方块-天天开心益智游戏": {
+      "appIds": {
+        "ios": 1438342351
+      },
+      "aliases": [],
+      "developer": "林颖 张",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/95/43/a4/9543a464-d93f-d9da-5b72-407858814e20/AppIcon-0-1x_U007emarketing-0-85-220-10.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "经典方块-天天开心益智游戏",
+        "en": "Classic block-Happiness wisdom",
+        "ja": "Classic block-Happiness wisdom",
+        "zh-cn": "经典方块-天天开心益智游戏",
+        "zh-tw": "經典方塊-天天開心益智遊戲"
+      }
+    },
+    "PAYDAY 3: Tom Clancy's Ghost Recon Crimebond": {
+      "appIds": {
+        "steam": "5548450"
+      },
+      "aliases": [],
+      "developer": "Starbreeze Entertainment",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5548450/346f0a57ecea41d4ada10d7afbf10e1c9b8bb41a/capsule_231x87.jpg?t=1795521477",
+      "slug": "payday-3-tom-clancys-ghost-recon-crimebond",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-24",
-  "totalGames": 9535
+  "lastUpdated": "2026-11-25",
+  "totalGames": 9539
 }

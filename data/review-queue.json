@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53347,6 +53347,28 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f4/19/75/f41975bd-73c3-76c0-7105-96dfcd6fcfe2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-24T11:01:52.751Z"
+    },
+    {
+      "title": "全力蚁富-蚁汐觅饴",
+      "status": "single",
+      "appIds": {
+        "ios": 6829739287
+      },
+      "developer": "恩瑞 张",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7d/8b/b7/7d8bb77b-852a-2b80-abc7-055983549da5/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T15:03:03.423Z"
+    },
+    {
+      "title": "经典方块-天天开心益智游戏",
+      "status": "single",
+      "appIds": {
+        "ios": 1438342351
+      },
+      "developer": "林颖 张",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/95/43/a4/9543a464-d93f-d9da-5b72-407858814e20/AppIcon-0-1x_U007emarketing-0-85-220-10.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T15:03:03.714Z"
     }
   ],
   "approved": [
