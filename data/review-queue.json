@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53303,6 +53303,50 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/a2/4f/92a24fb4-5159-b91b-8e67-02911fb039bc/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-24T07:01:59.407Z"
+    },
+    {
+      "title": "Fresh Today: Cozy Supermarket",
+      "status": "single",
+      "appIds": {
+        "ios": 6836499974
+      },
+      "developer": "Emre Beyoglu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/35/e7/9235e78f-3571-9ba0-b28f-51db8e96ff97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T11:01:51.834Z"
+    },
+    {
+      "title": "Candy Cattie",
+      "status": "single",
+      "appIds": {
+        "ios": 6837213694
+      },
+      "developer": "Parianto .",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/48/f6/cd48f6cd-20e9-ef2f-3180-f9d6f3e08dbe/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T11:01:52.181Z"
+    },
+    {
+      "title": "StepHaven: 만보기 게임 마을 꾸미기",
+      "status": "single",
+      "appIds": {
+        "ios": 6817135263
+      },
+      "developer": "Brody Richmond",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/97/8b/39978b2a-a540-76a3-0bd4-71421a980ac9/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T11:01:52.476Z"
+    },
+    {
+      "title": "Trial Xtreme Freedom",
+      "status": "single",
+      "appIds": {
+        "ios": 6446088716
+      },
+      "developer": "Gameplay Galaxy",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f4/19/75/f41975bd-73c3-76c0-7105-96dfcd6fcfe2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T11:01:52.751Z"
     }
   ],
   "approved": [

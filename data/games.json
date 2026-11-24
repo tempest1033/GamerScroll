@@ -17256,7 +17256,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -73417,7 +73417,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166315,8 +166315,111 @@
       "legacySlugs": [
         "소울시프트-리본"
       ]
+    },
+    "[777Real]パチスロ かぐや様は告らせたい": {
+      "appIds": {
+        "ios_jp": 6832461356
+      },
+      "aliases": [],
+      "developer": "Sammy Networks Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/d8/87/0ad88791-c787-76e9-6f35-24a5ab991adb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "777realパチスロ-かぐや様は告らせたい",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "[777Real]パチスロ かぐや様は告らせたい"
+      }
+    },
+    "Fresh Today: Cozy Supermarket": {
+      "appIds": {
+        "ios": 6836499974
+      },
+      "aliases": [],
+      "developer": "Emre Beyoglu",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/35/e7/9235e78f-3571-9ba0-b28f-51db8e96ff97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "fresh-today-cozy-supermarket",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Fresh Today: Cozy Supermarket",
+        "en": "Fresh Today: Cozy Supermarket",
+        "ja": "Fresh Today: Cozy Supermarket",
+        "zh-tw": "Fresh Today: Cozy Supermarket"
+      }
+    },
+    "Candy Cattie": {
+      "appIds": {
+        "ios": 6837213694
+      },
+      "aliases": [],
+      "developer": "Parianto .",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/48/f6/cd48f6cd-20e9-ef2f-3180-f9d6f3e08dbe/AppIcon-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "candy-cattie",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Candy Cattie",
+        "en": "Candy Cattie",
+        "ja": "Candy Cattie",
+        "zh-cn": "Candy Cattie",
+        "zh-tw": "Candy Cattie"
+      }
+    },
+    "StepHaven: 만보기 게임 마을 꾸미기": {
+      "appIds": {
+        "ios": 6817135263
+      },
+      "aliases": [],
+      "developer": "Brody Richmond",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/39/97/8b/39978b2a-a540-76a3-0bd4-71421a980ac9/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "stephaven-cozy-walking-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "StepHaven: 만보기 게임 마을 꾸미기",
+        "en": "StepHaven: Cozy Walking Game",
+        "ja": "StepHaven：歩数計で村づくり箱庭ゲーム",
+        "zh-tw": "StepHaven：計步器小鎮・療癒走路遊戲"
+      },
+      "legacySlugs": [
+        "stephaven-만보기-게임-마을-꾸미기"
+      ]
+    },
+    "Trial Xtreme Freedom": {
+      "appIds": {
+        "ios": 6446088716
+      },
+      "aliases": [],
+      "developer": "Gameplay Galaxy",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f4/19/75/f41975bd-73c3-76c0-7105-96dfcd6fcfe2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "trial-xtreme-freedom",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Trial Xtreme Freedom",
+        "en": "Trial Xtreme Freedom",
+        "ja": "Trial Xtreme Freedom",
+        "zh-tw": "Trial Xtreme Freedom"
+      }
+    },
+    "Workers & Resources: Soviet Republic": {
+      "appIds": {
+        "steam": "784150"
+      },
+      "aliases": [],
+      "developer": "3Division",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/784150/capsule_231x87.jpg?t=1795190320",
+      "slug": "workers-resources-soviet-republic",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-24",
-  "totalGames": 9529
+  "totalGames": 9535
 }
