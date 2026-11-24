@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53549,6 +53549,26 @@
       "icon": "https://play-lh.googleusercontent.com/R0s96deU23aKiYo17z7hcPBWMsVdhXU9o7P3FbRPaG-6FoAymi4hcCStVKRCgCfh-CQCy7DQvUYO7mAUIRmoGg",
       "searchResults": [],
       "addedAt": "2026-11-24T19:02:00.647Z"
+    },
+    {
+      "title": "픽셀 코어: 클래시",
+      "status": "single",
+      "appIds": {
+        "android": "com.photoslideshow.phototovideowithmusic"
+      },
+      "developer": "Green Screen Studios",
+      "icon": "https://play-lh.googleusercontent.com/Jd6gMSNj9Nxzsnr4SJ1bIqDwO1MExDpwpr3ceiKGLr-YEHh3kpIqYdc3d31uk6rOK9aPMONwjkmJBazjVEDDAZA",
+      "searchResults": [
+        {
+          "title": "Geometry Dash Lite",
+          "appId": 698255242
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        }
+      ],
+      "addedAt": "2026-11-24T23:02:01.407Z"
     }
   ],
   "approved": [

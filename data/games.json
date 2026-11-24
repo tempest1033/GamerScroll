@@ -73418,7 +73418,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166740,8 +166740,54 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ケロロ軍曹 ぽちっと大出動であります！": {
+      "appIds": {
+        "ios_jp": 6805005476
+      },
+      "aliases": [],
+      "developer": "G HOLDINGS CO., LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/fe/56/5cfe565e-bc5f-3029-5013-93fcde914272/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ケロロ軍曹-ぽちっと大出動であります",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ケロロ軍曹 ぽちっと大出動であります！"
+      }
+    },
+    "天外星原：魔女覺醒": {
+      "appIds": {
+        "ios_tw": 6795026490
+      },
+      "aliases": [],
+      "developer": "Infinite Respawn Network Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/6e/f6/3c6ef668-e3a5-2ad4-bea4-ec0d2fead0a8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "天外星原魔女覺醒",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "天外星原：魔女覺醒"
+      }
+    },
+    "픽셀 코어: 클래시": {
+      "appIds": {
+        "android": "com.photoslideshow.phototovideowithmusic"
+      },
+      "aliases": [],
+      "developer": "Green Screen Studios",
+      "icon": "https://play-lh.googleusercontent.com/Jd6gMSNj9Nxzsnr4SJ1bIqDwO1MExDpwpr3ceiKGLr-YEHh3kpIqYdc3d31uk6rOK9aPMONwjkmJBazjVEDDAZA",
+      "slug": "픽셀-코어-클래시",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "픽셀 코어: 클래시",
+        "zh-tw": "全明星風暴：對決"
+      }
     }
   },
   "lastUpdated": "2026-11-25",
-  "totalGames": 9554
+  "totalGames": 9557
 }
