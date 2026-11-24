@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53369,6 +53369,186 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple128/v4/95/43/a4/9543a464-d93f-d9da-5b72-407858814e20/AppIcon-0-1x_U007emarketing-0-85-220-10.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-24T15:03:03.714Z"
+    },
+    {
+      "title": "귀혼키우기",
+      "status": "single",
+      "appIds": {
+        "ios": "6795757139"
+      },
+      "developer": "MGAME Corp.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a7/69/1d/a7691d06-f345-b376-19ef-4ab70a98700e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T19:01:53.851Z"
+    },
+    {
+      "title": "ルミナサーガ：夢と冒険のMMORPG",
+      "status": "matched",
+      "appIds": {
+        "ios_jp": 6808535967,
+        "android": "com.jpmlr.gp",
+        "ios": "6808535967"
+      },
+      "developer": "HYPER HEAT ENTERTAINMENT PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2b/32/d5/2b32d54b-73b5-b84c-acb2-43e955bf62cb/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "ルミナサーガ：夢と冒険のMMORPG",
+          "appId": "6808535967"
+        }
+      ],
+      "addedAt": "2026-11-24T19:01:54.145Z"
+    },
+    {
+      "title": "아주르 프로밀리아",
+      "status": "single",
+      "appIds": {
+        "ios": 6754899430
+      },
+      "developer": "NEXON Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b1/46/ee/b146ee5d-03be-78d3-b02e-4fbd32b1e053/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T19:01:54.964Z"
+    },
+    {
+      "title": "Circle Release: Ring Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.circle.release.ring.puzzle"
+      },
+      "developer": "IEC Games Australia",
+      "icon": "https://play-lh.googleusercontent.com/8zliKKfvokmqqtzF9X4w1ml9wpzT8r3dL060ytEEp_T8OpgGUaSWrZHV8UcB4jD0sYKuPfd2CevaVuFoG2Ig",
+      "searchResults": [
+        {
+          "title": "로테이트 링스 (Rotate Rings)",
+          "appId": 6793924927
+        },
+        {
+          "title": "Line Tangle - 선 잇기 매듭 풀기 두뇌 게임",
+          "appId": 6805725616
+        },
+        {
+          "title": "Lock Puzzle: Untangle Rings",
+          "appId": 6817707264
+        }
+      ],
+      "addedAt": "2026-11-24T19:01:55.301Z"
+    },
+    {
+      "title": "Animal Makeover ASMR MiniGames",
+      "status": "single",
+      "appIds": {
+        "android": "com.kkz.animal.skincare.games"
+      },
+      "developer": "Koko Zone",
+      "icon": "https://play-lh.googleusercontent.com/41vKJiexXGWDXhXzMtcdclQLlivm8gB1OpZrQ-JvFX_x5-fij8VX3sMW6LSt5MqEuVXPWlMY6LzsYXeIrWRuiHc",
+      "searchResults": [
+        {
+          "title": "Animover: Animal Makeover ASMR",
+          "appId": 6810219724
+        },
+        {
+          "title": "스킨케어 타임: 메이크오버 ASMR",
+          "appId": 6738948332
+        },
+        {
+          "title": "SatisCare: 깔끔한 ASMR 게임",
+          "appId": 6742741718
+        }
+      ],
+      "addedAt": "2026-11-24T19:01:55.857Z"
+    },
+    {
+      "title": "Search Sort & Tidy",
+      "status": "single",
+      "appIds": {
+        "ios": 6752317060
+      },
+      "developer": "SurePlay Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4a/c1/51/4ac1517d-35fa-e8b5-0233-4a542a799829/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T19:01:56.672Z"
+    },
+    {
+      "title": "Super Fun Mini Games",
+      "status": "single",
+      "appIds": {
+        "android": "com.yg.sf.minigames"
+      },
+      "developer": "SUPERIOR  STUDIO",
+      "icon": "https://play-lh.googleusercontent.com/NBK0z8bPKQEb33B9sXZ1oMkivv27lnJkp0QPWk9Xx8kRNzFgPyJvEb7tiCpE7RnxEF5qjjLX50IgEP4freAu",
+      "searchResults": [
+        {
+          "title": "앵그리버드 2 (Angry Birds 2)",
+          "appId": 880047117
+        },
+        {
+          "title": "Subway Surfers",
+          "appId": 512939461
+        },
+        {
+          "title": "PK XD: 재미, 친구, 게임",
+          "appId": 1449842729
+        }
+      ],
+      "addedAt": "2026-11-24T19:01:57.274Z"
+    },
+    {
+      "title": "Tool Toss: Spinning Target",
+      "status": "single",
+      "appIds": {
+        "ios": 6822054618
+      },
+      "developer": "Zaira Jane Ceballos",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1f/5f/f2/1f5ff2ce-619f-5d31-1abb-2e4c1a7f4746/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T19:01:58.058Z"
+    },
+    {
+      "title": "Snowpine Lane: 겨울 머지 스토리",
+      "status": "single",
+      "appIds": {
+        "android": "com.topgamesinc.snowpinelane"
+      },
+      "developer": "TG Inc.",
+      "icon": "https://play-lh.googleusercontent.com/Ofb5J5WKuhN5WyYK3jc3PAmi4Z0fYNha3YZMxToJ2qUQzm5TWd7rO4UvohkqUray6wdpDyMPV3p-VnoAQ5_QVg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T19:01:59.594Z"
+    },
+    {
+      "title": "Steal an Egg: Monster Run",
+      "status": "single",
+      "appIds": {
+        "android": "com.metax.escape.tsunami.memerots.survival"
+      },
+      "developer": "Metagame.Ltd",
+      "icon": "https://play-lh.googleusercontent.com/oPPO_sdhNM262jfDiIy0-SNqWWfZ9RelK8SmxBHFaOakt-afTxsyOu-SLhBcqaW-EqiZauoQLAqmnwCDcyECFA",
+      "searchResults": [
+        {
+          "title": "Steal the Egg: Pet Grow",
+          "appId": 6810896819
+        },
+        {
+          "title": "Steal An Egg  Roblox",
+          "appId": 6802499975
+        },
+        {
+          "title": "Steal & Catch Eggs Escape",
+          "appId": 6768549204
+        }
+      ],
+      "addedAt": "2026-11-24T19:02:00.204Z"
+    },
+    {
+      "title": "泳者覺醒: 仙台決戰",
+      "status": "single",
+      "appIds": {
+        "android": "com.xtjz.hk.gp7"
+      },
+      "developer": "CariBengkelku",
+      "icon": "https://play-lh.googleusercontent.com/R0s96deU23aKiYo17z7hcPBWMsVdhXU9o7P3FbRPaG-6FoAymi4hcCStVKRCgCfh-CQCy7DQvUYO7mAUIRmoGg",
+      "searchResults": [],
+      "addedAt": "2026-11-24T19:02:00.647Z"
     }
   ],
   "approved": [
