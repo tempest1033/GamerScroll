@@ -53730,7 +53730,7 @@
       "title": "怪物彈珠 - RPG手機遊戲",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "jp.co.mixi.monsterstrikeTW"
       },
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
@@ -53771,6 +53771,39 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5a/84/c8/5a84c8f1-74f3-f3eb-2146-4f58f5b6ac18/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-25T10:28:26.403Z"
+    },
+    {
+      "title": "DIGIMON ALYSION",
+      "status": "single",
+      "appIds": {
+        "ios": 6745321429
+      },
+      "developer": "BANDAI Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/13/77/4013775c-0838-aebd-96e7-0ffa712e5912/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T15:02:53.653Z"
+    },
+    {
+      "title": "画画小天才",
+      "status": "single",
+      "appIds": {
+        "ios": 1605341556
+      },
+      "developer": "夏敏 郭",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/0c/2b/d80c2bc5-ad62-3628-9dca-ce4d1aa73690/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T15:02:54.923Z"
+    },
+    {
+      "title": "Trick",
+      "status": "single",
+      "appIds": {
+        "ios": 6835180780
+      },
+      "developer": "CHI LUN CHAU",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fc/ca/10/fcca105a-28dd-f70e-6547-8b76291a6ae7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T15:02:56.572Z"
     }
   ],
   "approved": [

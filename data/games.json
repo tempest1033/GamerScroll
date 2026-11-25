@@ -17176,7 +17176,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -74063,7 +74063,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "jp.co.mixi.monsterstrikeTW"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -166064,8 +166064,104 @@
       "names": {
         "zh-cn": "灵宝派对"
       }
+    },
+    "DIGIMON ALYSION": {
+      "appIds": {
+        "ios": 6745321429
+      },
+      "aliases": [],
+      "developer": "BANDAI Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/13/77/4013775c-0838-aebd-96e7-0ffa712e5912/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "digimon-alysion",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "DIGIMON ALYSION",
+        "en": "DIGIMON ALYSION",
+        "zh-tw": "DIGIMON ALYSION"
+      }
+    },
+    "デジモンアリシオン": {
+      "appIds": {
+        "ios_jp": 6740988190
+      },
+      "aliases": [],
+      "developer": "BANDAI Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/5d/f0/655df06f-481e-60c0-7319-8b791ea4dc8f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "デジモンアリシオン",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "デジモンアリシオン"
+      }
+    },
+    "画画小天才": {
+      "appIds": {
+        "ios": 1605341556
+      },
+      "aliases": [],
+      "developer": "夏敏 郭",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/d8/0c/2b/d80c2bc5-ad62-3628-9dca-ce4d1aa73690/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "画画小天才",
+        "en": "画画小天才",
+        "ja": "画画小天才",
+        "zh-cn": "画画小天才",
+        "zh-tw": "画画小天才"
+      }
+    },
+    "凍土大冒險": {
+      "appIds": {
+        "ios_tw": 6824813808
+      },
+      "aliases": [],
+      "developer": "Electronic Soul Interaction Entertainment (Hong Kong) Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/59/0c/f7590c27-293c-983f-af17-7cb2acf324ae/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "凍土大冒險",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "凍土大冒險"
+      }
+    },
+    "Trick": {
+      "appIds": {
+        "ios": 6835180780
+      },
+      "aliases": [],
+      "developer": "CHI LUN CHAU",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fc/ca/10/fcca105a-28dd-f70e-6547-8b76291a6ae7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "trick",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Trick",
+        "en": "Trick Games",
+        "ja": "Trick Games",
+        "zh-tw": "Trick"
+      }
+    },
+    "Arctic Drive": {
+      "appIds": {
+        "steam": "4009490"
+      },
+      "aliases": [],
+      "developer": "Pebbles Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4009490/d3e221ee406aef97ca68fbd696e2035736a1cf02/capsule_231x87.jpg?t=1795610102",
+      "slug": "arctic-drive",
+      "platforms": [
+        "steam"
+      ]
     }
   },
-  "lastUpdated": "2026-11-25",
-  "totalGames": 9484
+  "lastUpdated": "2026-11-26",
+  "totalGames": 9490
 }
