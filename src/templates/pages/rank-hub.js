@@ -14,6 +14,7 @@ const { resizeIcon } = require('../../utils/resize-icon');
 const { loadRankStats, COUNTRIES, STORES, util } = require('../../rank/stats');
 const { publisherMark } = require('../components/publisher-mark');
 const { analysisSlug } = require('../../build/analysis-pages');
+const { createSlug } = require('../../build/game-data');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { nums, min, avg, std, fmt1, esc, tsText, pubKey } = util;
@@ -45,7 +46,8 @@ function makeCtx(S) {
   const iconOf = (r, g) => { const src = (r && r.icon) || (g && g.icon) || ''; return src ? resizeIcon(src) : ''; };
   // A game's page, only where it is indexable in this edition (editionHasPage, src/build/editions.js); otherwise the row is plain text.
   const i18n = require('../../i18n');
-  const hrefOf = (g) => (g && g.slug && i18n.editionHasPage(i18n.currentEdition().code, `/games/${g.slug}/`) ? `/games/${g.slug}/` : null);
+  // A record without a slug has its page under the generated one (scripts/generate-game-pages.js).
+  const hrefOf = (g) => { const slug = g && (g.slug || createSlug(g.key, g.appIds)); return slug && i18n.editionHasPage(i18n.currentEdition().code, `/games/${slug}/`) ? `/games/${slug}/` : null; };
   const nameLink = (s, r, cls = '') => { const g = S.gameOf(s, r); const name = esc(S.nameOf(s, r)); const href = hrefOf(g); return href ? `<a class="${cls}" data-name href="${href}">${name}</a>` : `<span class="${cls}" data-name>${name}</span>`; };
   const appCell = (r, s, extra = '') => { const g = S.gameOf(s, r); return `<div class="rk-app"><img src="${esc(iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div><div class="t">${nameLink(s, r)}${extra}</div><div class="d" data-name>${esc(r.developer || (g && g.developer) || '')}</div></div></div>`; };
   const tick = (label, r, s, val, g) => (r ? `<a href="${hrefOf(g || S.gameOf(s, r)) || '#rk-list'}"><span class="tl">${label}</span><img src="${esc(iconOf(r, g || S.gameOf(s, r)))}" alt="" loading="lazy"><span class="tn" data-name>${esc(S.nameOf(s, r))}</span>${val}</a>` : `<a><span class="tl">${label}</span><span class="tn dim">-</span></a>`);

@@ -135,13 +135,19 @@ function buildEditions(ctx) {
   // Steam: apps with a record page (pageApps) whose game record names them are shown on that game's page (steamPageSlugs).
   const steamPages = steamStats && rankStats ? require('./game-data').steamPageSlugs(rankStats.games, new Set(steamStats.pageApps(14))) : new Map();
   const indexableSlugs = rankStats ? (() => {
-    const { rankSeries, summaryMeta, loadLatestSteam, steamLists, steamMatch, steamIdOf } = require('./game-data');
+    const { rankSeries, summaryMeta, loadLatestSteam, steamLists, steamMatch, steamIdOf, createSlug } = require('./game-data');
     const { isIndexableGame } = require('../templates/helpers/game-rank-summary');
     const meta = summaryMeta(rankStats);
     const lists = steamLists(loadLatestSteam(path.join(__dirname, '..', '..', 'history')));
-    const games = rankStats.games.filter((g) => g.slug).map((g) => {
+    // Slugs resolve as in scripts/generate-game-pages.js: a record without one has its page under the generated slug,
+    // and the first record with a slug owns its page.
+    const taken = new Set();
+    const games = rankStats.games.flatMap((g) => {
+      const slug = g.slug || createSlug(g.key, g.appIds);
+      if (taken.has(slug)) return [];
+      taken.add(slug);
       const { mp, ts } = steamMatch(g, lists);
-      return { slug: g.slug, rank: { s: rankSeries(rankStats, g.appIds) }, onSteam: Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === g.slug };
+      return [{ slug, rank: { s: rankSeries(rankStats, g.appIds) }, onSteam: Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === slug }];
     });
     return Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, new Set(games.filter((g) => isIndexableGame(g.rank, g.onSteam, meta, e.country)).map((g) => g.slug))]));
   })() : null;
@@ -306,7 +312,7 @@ function buildEditions(ctx) {
     ensureDir(path.dirname(pagesFile));
     fs.writeFileSync(pagesFile, JSON.stringify(Object.fromEntries(Object.entries(plans).map(([code, plan]) => [code, marketPlan.serialize(plan)]))), 'utf8');
   }
-  // Steam app ID → game slug whose page carries the app's record: /steam/<id>/ 301s there (functions/_middleware.js, docs/_redirects).
+  // Steam app ID → game slug whose page carries the app's record: /steam/<id>/ 301s there in every edition (functions/_middleware.js).
   const steamFile = path.join(docsDir, 'games-data', '_steam.json');
   ensureDir(path.dirname(steamFile));
   fs.writeFileSync(steamFile, JSON.stringify(Object.fromEntries(steamPages)), 'utf8');

@@ -291,9 +291,10 @@ for (const g of S.games) {
   if (ranked) rankedCount++;
   if (steam) steamCount++;
 
-  // 색인 허용은 에디션별 (그 에디션 시장의 최근 14일 매출 TOP 100 · 스팀 기록). 사이트맵에는 그 시장의 우선 게임만 싣는다.
-  for (const code of indexableEditions(g)) indexable[code].push(slug);
-  for (const e of i18n.EDITIONS) if (chartsInMarket(rank, meta, e.country)) listed[e.code].push(slug);
+  // 색인 허용은 에디션별 (그 시장 순위 이력 30일 이상 · 지금 그 시장 차트에 있음 · 스팀). 사이트맵에는 그중 그 시장 최근 14일 매출 TOP 100 게임만 싣는다.
+  const editionsIndexable = indexableEditions(g);
+  for (const code of editionsIndexable) indexable[code].push(slug);
+  for (const e of i18n.EDITIONS) if (editionsIndexable.includes(e.code) && chartsInMarket(rank, meta, e.country)) listed[e.code].push(slug);
   // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
   const dataDates = [
     ...(rank ? Object.values(rank.s).flatMap((stores) => Object.values(stores).map((e) => meta.days[e.o + e.v.length - 1])) : []),

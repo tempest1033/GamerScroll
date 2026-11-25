@@ -7,6 +7,7 @@
 const { t } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { resizeIcon } = require('../../utils/resize-icon');
+const { createSlug } = require('../../build/game-data');
 
 // 통합 반응형 빌드 - 단일 도메인
 const siteBaseUrl = 'https://gamerscroll.com';
@@ -88,18 +89,28 @@ function generateGamesHubPage(options = {}) {
   // Edition-local game names (names[edition] → home-country chart title → DB name)
   let rankStats = null;
   try { rankStats = require('../../rank/stats').loadRankStats(); } catch (e) { /* history unavailable: DB names */ }
-  const gamesList = Object.entries(games).map(([key, data]) => ({
-    name: (() => { const g = rankStats && data.slug ? rankStats.bySlug.get(data.slug) : null; return g ? rankStats.displayName(g) : key; })(),
-    slug: data.slug,
-    legacySlugs: data.legacySlugs || [],
-    icon: data.icon,
-    developer: data.developer,
-    platforms: data.platforms || [],
-    appIds: data.appIds || {}
-  }));
+  // Page slugs resolve as in scripts/generate-game-pages.js: a record without a slug has its page under the generated one,
+  // and the first record with a slug owns its page.
+  const byKey = rankStats ? new Map(rankStats.games.map((g) => [g.key, g])) : null;
+  const taken = new Set();
+  const gamesList = Object.entries(games).map(([key, data]) => {
+    const slug = data.slug || createSlug(key, data.appIds);
+    const ownsPage = !taken.has(slug);
+    taken.add(slug);
+    return {
+      name: (() => { const g = byKey ? byKey.get(key) : null; return g ? rankStats.displayName(g) : key; })(),
+      slug,
+      ownsPage,
+      legacySlugs: data.legacySlugs || [],
+      icon: data.icon,
+      developer: data.developer,
+      platforms: data.platforms || [],
+      appIds: data.appIds || {}
+    };
+  });
 
   // 초성별 그룹화 (전체 목록에 링크할 게임만)
-  const listedGames = listedSlugs ? gamesList.filter((g) => listedSlugs.has(g.slug)) : gamesList;
+  const listedGames = gamesList.filter((g) => g.ownsPage && (!listedSlugs || listedSlugs.has(g.slug)));
   const grouped = groupGamesByInitial(listedGames);
   const initialOrder = getInitialOrder();
 
@@ -112,7 +123,7 @@ function generateGamesHubPage(options = {}) {
     if (popularGamesWithInfo.length >= 10) break;
 
     // slug로만 매칭 (실제 존재하는 페이지)
-    const gameInfo = gamesList.find(g => g.slug === pg.slug || g.legacySlugs.includes(pg.slug));
+    const gameInfo = gamesList.find(g => g.ownsPage && (g.slug === pg.slug || g.legacySlugs.includes(pg.slug)));
 
     // 매칭 안되면 스킵 (appId 형태 등), 이 언어판에서 색인되지 않는 게임 페이지도 스킵
     if (!gameInfo || (listedSlugs && !listedSlugs.has(gameInfo.slug))) continue;
@@ -148,9 +159,10 @@ function generateGamesHubPage(options = {}) {
     const { STORES: STORE_NAMES } = require('../../rank/stats');
     for (const store of [chartStore]) ((rankStats.today.rows[country] || {})[store] || []).slice(0, 30).forEach((row, i) => {
       const g = row && rankStats.gameOf(store, row);
-      if (!g || !g.slug || (listedSlugs && !listedSlugs.has(g.slug))) return;
-      const cur = best.get(g.slug);
-      if (!cur || i + 1 < cur.rank) best.set(g.slug, { slug: g.slug, rank: i + 1, name: rankStats.nameOf(store, row), icon: row.icon || g.icon, developer: row.developer || g.developer || '' });
+      const slug = g && (g.slug || createSlug(g.key, g.appIds));
+      if (!slug || (listedSlugs && !listedSlugs.has(slug))) return;
+      const cur = best.get(slug);
+      if (!cur || i + 1 < cur.rank) best.set(slug, { slug, rank: i + 1, name: rankStats.nameOf(store, row), icon: row.icon || g.icon, developer: row.developer || g.developer || '' });
     });
     const top = [...best.values()].sort((a, b) => a.rank - b.rank).slice(0, 10);
     if (top.length) chartingSection = `

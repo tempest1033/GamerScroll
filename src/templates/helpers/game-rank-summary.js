@@ -44,7 +44,7 @@ function expand(entry, length) {
   return out;
 }
 
-const HISTORY_DAYS = 30;
+const INDEXABLE_DAYS = 30;
 
 // Chart days of a country's base chart: App Store only for China, otherwise the store with more days.
 function countryDays(rank, c, length) {
@@ -55,34 +55,40 @@ function countryDays(rank, c, length) {
 
 // The edition's home country while it has a substantial chart history; otherwise the country with the most chart days.
 function pickCountry(rank, home, length) {
-  if (countryDays(rank, home, length) >= HISTORY_DAYS) return home;
+  if (countryDays(rank, home, length) >= INDEXABLE_DAYS) return home;
   let best = home, bestCount = countryDays(rank, home, length);
   for (const c of COUNTRIES) { const n = countryDays(rank, c, length); if (n > bestCount) { best = c; bestCount = n; } }
   return best;
 }
 
-// Chart days of the base chart.
+// Chart days of the base chart (the page is indexable from 30 days on).
 function summaryDays(rank, meta, home) {
   return rank ? countryDays(rank, pickCountry(rank, home, meta.days.length), meta.days.length) : 0;
+}
+
+// Whether a game's page is indexable in the edition whose home market is `home`: 30+ chart days in that market, on that
+// market's revenue chart in the latest data, or on Steam (`onSteam`: on a Steam list or carrying a Steam record; Steam charts
+// have no market). An edition offers search engines only the games its own market knows: the same page in a language whose
+// market never charted the game is a thin copy, and thousands of those kept Google from crawling any game page. The game
+// page's robots tag and hreflang, the game sitemaps' hreflang, the games hub list and every in-page game link use it.
+// rank needs only its daily series `s`.
+function isIndexableGame(rank, onSteam, meta, home) {
+  if (onSteam) return true;
+  if (!rank) return false;
+  const length = meta.days.length;
+  const onChartNow = Object.values(rank.s[home] || {}).some((e) => e.o + e.v.length === length);
+  return onChartNow || countryDays(rank, home, length) >= INDEXABLE_DAYS;
 }
 
 const PRIORITY_RANK = 100;
 const PRIORITY_DAYS = 14;
 
-// The edition's priority games: in its own market's revenue TOP 100 (either store) on any of the last 14 chart days.
-// They are the game URLs of the edition's sitemap (about 140-210 per market). rank needs only its daily series `s`.
+// The edition's priority games, the only game URLs of its sitemap (about 140-210 per market): in its own market's revenue
+// TOP 100 (either store) on any of the last 14 chart days. It decides sitemap listing only, never indexability.
 function chartsInMarket(rank, meta, home) {
   if (!rank) return false;
   const from = meta.days.length - PRIORITY_DAYS;
   return Object.values(rank.s[home] || {}).some((e) => e.v.some((r, i) => r != null && r <= PRIORITY_RANK && e.o + i >= from));
-}
-
-// Whether a game's page is indexable in the edition whose home market is `home`: a priority game of that market, or a game
-// with a Steam record (`onSteam`; Steam charts have no market, and the game page carries the Steam record). Every other game
-// page is a thin copy whose crawling took Google's budget from the strong pages. The game page's robots tag and hreflang,
-// the game sitemaps' hreflang, the games hub list and every in-page game link use it.
-function isIndexableGame(rank, onSteam, meta, home) {
-  return Boolean(onSteam) || chartsInMarket(rank, meta, home);
 }
 
 function renderGameRankSummary(rank, meta, name, home) {
@@ -220,4 +226,4 @@ ${countryCard}
   return { html, text, cur, baseStore, days: present.length, hero };
 }
 
-module.exports = { renderGameRankSummary, summaryDays, isIndexableGame, chartsInMarket, pickCountry, expand, PRIORITY_RANK, PRIORITY_DAYS };
+module.exports = { renderGameRankSummary, summaryDays, isIndexableGame, chartsInMarket, pickCountry, expand, INDEXABLE_DAYS, PRIORITY_RANK, PRIORITY_DAYS };

@@ -16,6 +16,18 @@ test('games hub A-Z list links only the listed games', () => {
   i18n.setEdition('en');
 });
 
+test('games hub lists a record without a slug under its generated page slug; a slug owned by an earlier record is not listed twice', () => {
+  i18n.setEdition('ja');
+  const games = {
+    'ウマ娘 プリティーダービー': { icon: '', developer: 'Cygames', appIds: { android: 'jp.co.cygames.umamusume', ios: '1325457827' } },
+    'Umamusume copy': { slug: 'jp-co-cygames-umamusume', icon: '', developer: 'Cygames' },
+  };
+  const html = generateGamesHubPage({ games, listedSlugs: new Set(['jp-co-cygames-umamusume']) });
+  const items = [...html.matchAll(/<a href="([^"]+)" class="game-item">/g)].map((m) => m[1]);
+  assert.deepEqual(items, ['/ja/games/jp-co-cygames-umamusume/']);
+  i18n.setEdition('en');
+});
+
 test('a game with only regional store IDs keeps its rank history', () => {
   const { collectRankData } = require('../src/build/game-data');
   const S = { COUNTRIES: { kr: 'KR', tw: 'TW' }, seriesOf: (c, s, id) => (c === 'tw' && id === '42' ? [null, 3, 2] : [null, null, null]), hourlyRanks: () => null };
