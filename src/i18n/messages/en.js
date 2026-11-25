@@ -294,6 +294,8 @@ module.exports = {
   "rank.daily_revenue_and_popularity_rankings": "Daily revenue and popularity rankings",
   "rank.data_is_collected_several_times": "Data is collected several times a day, and the update time shown is the last collection time. Daily history is saved once a day. Depending on when the store updates, it may differ from the current store ranking.",
   "rank.data_sources_and_collection": "Data sources and collection",
+  "rank.dataset_description": "Game ranking data that GamerScroll collects and updates every day.",
+  "rank.dataset_measurement": "Collected and updated daily.",
   "rank.date": "Date",
   "rank.days": " days",
   "rank.days_2": "{length} days",

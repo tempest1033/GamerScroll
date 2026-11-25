@@ -88,7 +88,7 @@ test('game SoftwareApplication carries its URL, the shown genres and the officia
   });
 });
 
-test('ranking pages describe their data as a Dataset by the Organization, from the first history day, in five markets', () => {
+test('ranking pages describe their data as a Dataset by the Organization, collected and updated daily, in five markets, with no start date', () => {
   const S = require('../src/rank/stats').loadRankStats();
   const rankHub = require('../src/templates/pages/rank-hub');
   inEdition('ko', () => {
@@ -102,9 +102,11 @@ test('ranking pages describe their data as a Dataset by the Organization, from t
       assert.equal(dataset.url, url);
       assert.doesNotMatch(dataset.name, /\| 게이머스크롤/, 'the page title without the site suffix');
       assert.equal(dataset.creator['@id'], 'https://gamerscroll.com/ko/#organization');
-      assert.equal(dataset.temporalCoverage, `${S.days[0].date}/${S.today.date}`);
+      assert.equal('temporalCoverage' in dataset, false, 'no start date');
+      assert.ok(!JSON.stringify(dataset).includes(S.days[0].date), 'the first history day appears nowhere');
+      assert.equal(dataset.description, '게이머스크롤이 매일 수집하고 매일 갱신하는 게임 순위 데이터입니다.');
+      assert.equal(dataset.measurementTechnique, '매일 수집하고 매일 갱신합니다.');
       assert.deepEqual(dataset.spatialCoverage.map((p) => p.name), ['한국', '일본', '미국', '중국', '대만']);
-      assert.ok(dataset.description.length >= 50, url);
       assert.equal('license' in dataset, false);
     }
     assert.equal(ofType(rankHub.renderRankingsHub('jp'), 'Dataset').length, 0, 'country pages other than the hub carry none');

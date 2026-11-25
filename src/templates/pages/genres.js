@@ -41,7 +41,7 @@ function renderGenre(id = 'all', country = 'kr') {
   return wrapWithLayout(body, {
     currentPage: 'rankings', title, description,
     canonical: `https://gamerscroll.com${href(id)}`,
-    jsonLd: [datasetNode({ name: title, description, url: absoluteUrl(currentEdition().code, href(id)) }, S)],
+    jsonLd: [datasetNode({ name: title, url: absoluteUrl(currentEdition().code, href(id)) }, S)],
     breadcrumbs: [{ name: t('about.home'), url: 'https://gamerscroll.com/' }, { name: t('layout.rankings_by_genre'), url: 'https://gamerscroll.com/rankings/genres/' }, ...(selected ? [{ name: label, url: `https://gamerscroll.com${href(id)}` }] : [])],
   });
 }

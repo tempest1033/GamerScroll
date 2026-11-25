@@ -31,17 +31,16 @@ function operatorNode(edition = code()) {
   };
 }
 
-// Dataset of a ranking page (S: src/rank/stats.js loadRankStats()): the daily chart history from its first day to the
-// latest, in the five markets the site collects. The site states no license, so none is given.
-function datasetNode({ name, description, url }, S) {
-  const first = S.days[0].date, last = S.today.date;
+// Dataset of a ranking page (S: src/rank/stats.js loadRankStats()): the ranking data the site collects and updates daily,
+// in the five markets it covers. It states no start date and, as the site states no license, no license.
+function datasetNode({ name, url }, S) {
   return {
-    '@context': 'https://schema.org', '@type': 'Dataset', name: name.replace(i18n.t('head.gamerscroll_2'), ''), description, url,
+    '@context': 'https://schema.org', '@type': 'Dataset', name: name.replace(i18n.t('head.gamerscroll_2'), ''),
+    description: i18n.t('rank.dataset_description'), url,
     creator: organizationRef(), publisher: { '@id': organizationId() },
-    temporalCoverage: `${first}/${last}`,
     spatialCoverage: Object.values(S.COUNTRIES).map((country) => ({ '@type': 'Country', name: country })),
-    measurementTechnique: i18n.t('rank.data_is_collected_several_times'),
-    dateModified: last,
+    measurementTechnique: i18n.t('rank.dataset_measurement'),
+    dateModified: S.today.date,
     isAccessibleForFree: true,
   };
 }

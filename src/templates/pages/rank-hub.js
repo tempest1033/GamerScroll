@@ -158,7 +158,7 @@ function shell(S, { body, title, description, canonical, crumbs, keywords, datas
     currentPage: 'rankings',
     title, description, keywords, canonical,
     breadcrumbs: [{ name: tt('about.home'), url: `${siteBaseUrl}/` }, { name: tt('rank.mobile_rankings'), url: `${siteBaseUrl}/rankings/` }, ...(crumbs || [])].filter((c, i, a) => a.findIndex((d) => d.url === c.url) === i),
-    jsonLd: dataset ? [datasetNode({ name: title, description, url: pageUrl(canonical) }, S)] : null,
+    jsonLd: dataset ? [datasetNode({ name: title, url: pageUrl(canonical) }, S)] : null,
   });
 }
 // The edition's absolute URL of a page given by its unprefixed canonical (https://gamerscroll.com/<path>).

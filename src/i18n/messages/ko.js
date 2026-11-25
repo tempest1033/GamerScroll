@@ -294,6 +294,8 @@ module.exports = {
   "rank.daily_revenue_and_popularity_rankings": "일간 매출·인기 순위",
   "rank.data_is_collected_several_times": "하루 여러 차례 수집하며, 표시된 갱신 시각은 마지막 수집 시각입니다. 일별 이력은 하루 한 번 저장합니다. 스토어의 갱신 시점에 따라 현재 스토어 순위와 차이가 있을 수 있습니다.",
   "rank.data_sources_and_collection": "데이터 출처와 수집",
+  "rank.dataset_description": "게이머스크롤이 매일 수집하고 매일 갱신하는 게임 순위 데이터입니다.",
+  "rank.dataset_measurement": "매일 수집하고 매일 갱신합니다.",
   "rank.date": "날짜",
   "rank.days": "일",
   "rank.days_2": "{length}일",

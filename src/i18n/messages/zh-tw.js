@@ -294,6 +294,8 @@ module.exports = {
   "rank.daily_revenue_and_popularity_rankings": "每日營收與熱門排行",
   "rank.data_is_collected_several_times": "資料每天蒐集多次，所示更新時間為最後一次蒐集時間，每日歷史紀錄每天保存一次。依商店更新時間不同，可能與商店目前的排名有差異。",
   "rank.data_sources_and_collection": "資料來源與蒐集方式",
+  "rank.dataset_description": "GamerScroll 每天蒐集並每天更新的遊戲排行資料。",
+  "rank.dataset_measurement": "每天蒐集，每天更新。",
   "rank.date": "日期",
   "rank.days": "天",
   "rank.days_2": "{length} 天",
