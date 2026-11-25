@@ -19,6 +19,7 @@ const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
 const { gameLastmod, collectRankData, rankSeries, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow, steamIdOf, steamPageSlugs } = require('../src/build/game-data');
 const { isIndexableGame, chartsInMarket } = require('../src/templates/helpers/game-rank-summary');
+const { publisherIndex } = require('../src/templates/pages/rank-hub');
 const { loadSteamStats } = require('../src/rank/steam-stats');
 const { steamRecord } = require('../src/templates/helpers/steam-game');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
@@ -233,6 +234,39 @@ let rankedCount = 0, steamCount = 0, revenueCount = 0;
 const revenueBySlug = new Map();
 const redirects = {}; // retired slug → current slug
 
+// Publisher and genre ranking pages each edition builds (docs/games-data/_pages.json, written by generate-html-report.js
+// just before): a game page links its developer and genres to them. Publisher pages are keyed like rank-hub's index.
+const pagePlans = fs.existsSync(path.join(dataDir, '_pages.json')) ? JSON.parse(fs.readFileSync(path.join(dataDir, '_pages.json'), 'utf8')) : {};
+const publisherSlugs = Object.fromEntries(i18n.EDITIONS.map((e) => {
+  const built = new Set((pagePlans[e.code] && pagePlans[e.code].publishers) || []);
+  return [e.code, new Map(publisherIndex(S, e.country).filter((p) => built.has(p.slug)).map((p) => [p.key, p.slug]))];
+}));
+function editionLinks(g, tags) {
+  const out = {};
+  for (const e of i18n.EDITIONS) {
+    const plan = pagePlans[e.code];
+    if (!plan) continue;
+    const p = publisherSlugs[e.code].get(pubKey(g.developer));
+    const genreIds = tags.filter((id) => (plan.genres || []).includes(id));
+    if (p || genreIds.length) out[e.code] = { ...(p ? { p } : {}), ...(genreIds.length ? { g: genreIds } : {}) };
+  }
+  return out;
+}
+// Official store pages of the game's apps (SoftwareApplication sameAs): App Store (regional IDs on their country's store),
+// Google Play and Steam.
+function storeUrls(appIds = {}) {
+  const urls = [];
+  for (const [key, id] of Object.entries(appIds)) {
+    if (!id) continue;
+    const [store, cc] = key.split('_');
+    if (store === 'ios') urls.push(`https://apps.apple.com/${cc ? `${cc}/` : ''}app/id${id}`);
+    else if (store === 'android') urls.push(`https://play.google.com/store/apps/details?id=${encodeURIComponent(id)}`);
+  }
+  const steamId = appIds['steam:global'] || appIds.steam;
+  if (steamId) urls.push(`https://store.steampowered.com/app/${steamId}/`);
+  return [...new Set(urls)];
+}
+
 for (const g of S.games) {
   const gameName = g.key;
   const appIds = g.appIds || {};
@@ -257,7 +291,9 @@ for (const g of S.games) {
     slug,
     platforms: g.platforms || [],
     developer: g.developer || '',
-    genres: loadGenres().tagsFor(g),
+    genres: genres.tagsFor(g),
+    links: editionLinks(g, genres.tagsFor(g)),
+    storeUrls: storeUrls(appIds),
     icon,
     ranked,
     steam,

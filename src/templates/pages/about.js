@@ -6,10 +6,12 @@ const { t, currentEdition } = require('../../i18n');
  */
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 
+const siteSchema = require('../helpers/site-schema');
+
 const siteBaseUrl = 'https://gamerscroll.com';
-const X_URL = 'https://x.com/gamerscroll';
+const X_URL = siteSchema.X_URL;
 // 운영자 닉네임: AIScroll 소개 페이지와 같은 이름을 쓴다 (한국어판 플랑크톤, 그 외 Plankton)
-const OPERATOR_NAME = () => (currentEdition().code === 'ko' ? '플랑크톤' : 'Plankton');
+const OPERATOR_NAME = () => siteSchema.operatorName(currentEdition().code);
 
 function renderAboutPage() {
   const body = `<div class="rk-head"><h1>${t('about.about_gamerscroll')}</h1></div>
@@ -43,6 +45,16 @@ function renderAboutPage() {
     keywords: t('about.about_gamerscroll_game_ranking_data'),
     canonical: `${siteBaseUrl}/about/`,
     breadcrumbs: [{ name: t('about.home'), url: `${siteBaseUrl}/` }, { name: t('footer.about'), url: `${siteBaseUrl}/about/` }],
+    // The page names the operator and the site's X account: the Organization behind GamerScroll and its operator.
+    jsonLd: [
+      {
+        '@context': 'https://schema.org', '@type': 'AboutPage', name: t('about.about_gamerscroll'),
+        description: t('about.gamerscroll_records_and_analyzes_app'), url: siteSchema.aboutUrl(),
+        mainEntity: { '@id': siteSchema.organizationId() }, isPartOf: { '@id': siteSchema.websiteId() },
+      },
+      siteSchema.organizationNode(),
+      siteSchema.operatorNode(),
+    ],
   });
 }
 

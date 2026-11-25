@@ -56,6 +56,11 @@
 .page-game #game .game-empty { padding: 32px 16px; color: var(--text-muted); }
 .page-game #game .game-rank-grid { gap: 16px; }
 .page-game #game .game-platform-badge { background: var(--bg-secondary); border: 0; color: var(--text-secondary); }
+.page-game #game .game-hero-genres { flex-wrap: wrap; margin-top: 6px; }
+.page-game #game a.game-platform-badge { text-decoration: none; }
+.page-game #game a.game-platform-badge:hover { color: var(--text); background: var(--chip-bg); }
+.page-game #game .game-hero-developer a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.page-game #game .game-hero-developer a:hover { color: var(--text); }
 .page-game #game .rk .rk-ticker { margin-top: 0; }
 .page-game #game .rk .rk-card { margin-top: 32px; }
 .page-game #game .rk-interactive-chart { position: relative; min-width: 0; }

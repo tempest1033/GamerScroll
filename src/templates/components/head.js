@@ -10,6 +10,7 @@ const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const { renderCssLinks } = require('../../build/css-links');
 const { lazyImageLoaderScript } = require('../../build/lazy-images');
 const { fitSentences } = require('../helpers/fit-description');
+const siteSchema = require('../helpers/site-schema');
 
 // Inline-script test for a metrics page (/analysis/ of any edition), the only place a rewarded ad may gate content.
 // A regex, not a quoted path: localizeHtml prefixes quoted site paths with the edition.
@@ -30,7 +31,8 @@ function generateHead(options = {}) {
     articleSchema = null,  // Article JSON-LD (리포트 페이지용)
     articleSection = '',  // article:section OG 메타 (카테고리별 다르게 설정)
     breadcrumbs = null,  // BreadcrumbList JSON-LD [{name, url}]
-    softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, image, operatingSystem, applicationCategory, aggregateRating}
+    softwareSchema = null,  // SoftwareApplication JSON-LD (게임 페이지용) {name, description, url, image, operatingSystem, genre, sameAs, aggregateRating}
+    jsonLd = null,  // 그 밖의 JSON-LD 노드 배열 (소개 페이지 Organization·Person, 순위 페이지 Dataset)
     noindex = false,  // 검색엔진 인덱싱 제외 (thin content용)
     alternateEditions = null,  // hreflang에 올릴 에디션 코드 (null = 페이지가 있는 모든 에디션). 일부 에디션만 색인되는 페이지용
     ogImage = '',
@@ -52,6 +54,7 @@ function generateHead(options = {}) {
   const jsonString = (value) => JSON.stringify(value == null ? '' : String(value))
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e');
+  const jsonValue = (value) => JSON.stringify(value).replace(/</g, '\\u003c').replace(/>/g, '\\u003e');
   // 날짜 문자열에 KST 타임존 보정 (+09:00)
   const ensureTimezone = (dateStr) => {
     if (!dateStr) return dateStr;
@@ -193,9 +196,12 @@ function generateHead(options = {}) {
     "@type": "SoftwareApplication",
     "name": ${jsonString(softwareSchema.name)},
     "description": ${jsonString(softwareSchema.description)},
-    "applicationCategory": "GameApplication"${softwareSchema.operatingSystem ? `,
-    "operatingSystem": ${jsonString(softwareSchema.operatingSystem)}` : ''}${softwareSchema.image ? `,
-    "image": ${jsonString(softwareSchema.image)}` : ''}${softwareSchema.aggregateRating ? `,
+    "applicationCategory": "GameApplication"${softwareSchema.url ? `,
+    "url": ${jsonString(softwareSchema.url)}` : ''}${softwareSchema.operatingSystem ? `,
+    "operatingSystem": ${jsonString(softwareSchema.operatingSystem)}` : ''}${softwareSchema.genre && softwareSchema.genre.length ? `,
+    "genre": ${jsonValue(softwareSchema.genre)}` : ''}${softwareSchema.image ? `,
+    "image": ${jsonString(softwareSchema.image)}` : ''}${softwareSchema.sameAs && softwareSchema.sameAs.length ? `,
+    "sameAs": ${jsonValue(softwareSchema.sameAs)}` : ''}${softwareSchema.aggregateRating ? `,
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": ${jsonString(softwareSchema.aggregateRating.ratingValue)},
@@ -205,6 +211,27 @@ function generateHead(options = {}) {
     }` : ''}
   }
   </script>` : '';
+
+  const extraJsonLd = (jsonLd || []).map((node) => `
+  <script type="application/ld+json">${jsonValue(node)}</script>`).join('');
+
+  // WebSite (홈페이지 전용): 이 에디션 홈의 canonical URL, 발행자는 소개 페이지의 Organization 을 @id 로 가리킨다.
+  const siteHome = editionMode ? siteSchema.homeUrl(edition.code) : 'https://gamerscroll.com/';
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    ...(editionMode ? { '@id': siteSchema.websiteId(edition.code) } : {}),
+    name: t('head.gamerscroll'),
+    alternateName: [t('head.gamerscroll'), t('head.gamer_scroll')],
+    url: siteHome,
+    description: normalizeMeta(description),
+    publisher: editionMode ? siteSchema.organizationRef(edition.code) : { '@type': 'Organization', name: t('head.gamerscroll'), url: siteHome, logo: siteSchema.LOGO },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: { '@type': 'EntryPoint', urlTemplate: `${editionMode ? i18n.absoluteUrl(edition.code, '/games/') : 'https://gamerscroll.com/games/'}?q={search_term_string}` },
+      'query-input': 'required name=search_term_string'
+    }
+  };
 
   // 페이지별 데이터 스크립트는 layout.js에서 main 안에 삽입
 
@@ -260,7 +287,7 @@ function generateHead(options = {}) {
 	    }
 	  </style>
 	  <!-- AdSense: preload (preload scanner picks it up at first byte) + run only on gamerscroll.com (no ad impressions on localhost/preview hosts) -->${ADS_ENABLED ? `
-	  <link rel="preload" as="script" crossorigin="anonymous" fetchpriority="high" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+	  <link rel="preload" as="script" crossorigin="anonymous" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
 	  <script>(function () { if (${METRICS_PATH_TEST}) return;
 	    var fc = window.googlefc = window.googlefc || {}; fc.controlledMessagingFunction = function (message) { var tries = 0; (function decide() { var types = window.googlefc.MessageTypeEnum;
 	      if (types && types.OFFERWALL) message.proceed(false, [types.OFFERWALL]); else if (++tries > 100) message.proceed(true); else setTimeout(decide, 50); })(); }; })();</script>
@@ -290,36 +317,8 @@ function generateHead(options = {}) {
     // WebSite 스키마는 홈페이지에서만 출력 (구글 권장사항)
     (editionMode ? pagePath === '/' : (canonicalText === 'https://gamerscroll.com' || canonicalText === 'https://gamerscroll.com/')) ? `
   <!-- JSON-LD 구조화 데이터: WebSite (홈페이지 전용) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "${t('head.gamerscroll')}",
-    "alternateName": ["${t('head.gamerscroll')}", "${t('head.gamer_scroll')}"],
-    "url": "https://gamerscroll.com/",
-    "description": ${jsonString(description)},
-    "publisher": {
-      "@type": "Organization",
-      "name": "${t('head.gamerscroll')}",
-      "url": "https://gamerscroll.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://gamerscroll.com/icon-192.png",
-        "width": 192,
-        "height": 192
-      }
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "${editionMode ? i18n.absoluteUrl(edition.code, '/games/') : 'https://gamerscroll.com/games/'}?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>` : ''
-  }${articleJsonLd}${breadcrumbJsonLd}${softwareJsonLd}
+  <script type="application/ld+json">${jsonValue(websiteJsonLd)}</script>` : ''
+  }${articleJsonLd}${breadcrumbJsonLd}${softwareJsonLd}${extraJsonLd}
   <!-- Open Graph / SNS 공유 -->
   <meta property="og:type" content="${articleSchema ? 'article' : 'website'}">
   <meta property="og:title" content="${safeTitle}">

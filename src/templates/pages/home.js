@@ -10,7 +10,7 @@ const { t: tt } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { listLink } = require('../components/list-actions');
 const { loadRankStats, STORES, COUNTRIES, util } = require('../../rank/stats');
-const { clientTranslator, currentEdition, formatDay, formatYearMonth } = require('../../i18n');
+const { clientTranslator, currentEdition, formatDay, formatYearMonth, editionHasPage } = require('../../i18n');
 const { loadSteamStats } = require('../../rank/steam-stats');
 const { makeCtx, storeList, countryHref, homeCountry, orderedCountries, chg, sparkline, metricsHref } = require('./rank-hub');
 const { steamHref } = require('./steam-hub');
@@ -297,7 +297,12 @@ ${Object.keys(HOME_COUNTRIES).map((c, i) => `<input type="radio" name="rk-hc" id
 
   // ---------- 6. 월간 순위 분석: 월간 TOP 3 포디움 · 스팀 월간 5 · 최근 진입 5 ----------
   const ms = S.monthStats(S.latestMonth, country);
-  const podium = ms ? `<div class="rk-podium">${ms.list.slice(0, 3).map((a, i) => `<a class="p${i + 1}" href="${C.hrefOf(a.game) || `/rankings/monthly/${S.latestMonth}/`}"><img src="${esc(C.iconOf(a.row, a.game))}" alt="" loading="lazy"><b>${i + 1}</b><span class="n" data-name>${esc(S.nameOf(a.store, a.row))}</span><span class="s">${tt('home.avg_rank', { p0: a.score.toFixed(1) })}</span></a>`).join('')}</div>` : '';
+  // Direct links only to pages this edition builds: its newest monthly page (the latest month until it is long enough
+  // to get a page is not one) and the genres hub.
+  const built = (path) => editionHasPage(currentEdition().code, path);
+  const latestMonthPage = [...S.builtMonths].reverse().map((mo) => `/rankings/monthly/${mo}/`).find(built) || null;
+  const genresHub = built('/rankings/genres/') ? '/rankings/genres/' : null;
+  const podium = ms ? `<div class="rk-podium">${ms.list.slice(0, 3).map((a, i) => `<a class="p${i + 1}" href="${C.hrefOf(a.game) || latestMonthPage || '/rankings/'}"><img src="${esc(C.iconOf(a.row, a.game))}" alt="" loading="lazy"><b>${i + 1}</b><span class="n" data-name>${esc(S.nameOf(a.store, a.row))}</span><span class="s">${tt('home.avg_rank', { p0: a.score.toFixed(1) })}</span></a>`).join('')}</div>` : '';
   // 스팀 월간 동접 TOP 5: 이 줄에서만 볼 수 있는 스팀 월간 데이터 (2026-09-09, 이전엔 '이달의 상승 게임' — 주요 순위 변동과 성격이 겹쳐 교체)
   const steamMonthRows = ST ? ST.monthlyTop(ST.latestMonth, 5).map((a) => { const m = ST.info(a.appid); return `<tr>${rankCell(a.rank)}<td><div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t">${steamHref(m.appid) ? `<a data-name href="${steamHref(m.appid)}">${esc(m.name)}</a>` : `<span data-name>${esc(m.name)}</span>`}</div><div class="d" data-name>${esc(m.developer)}</div></div></div></td><td class="v">${fmt(a.avg)}<small>${tt('home.monthly_avg_concurrent_players')}</small></td></tr>`; }).join('') : '';
   const steamMonthSub = tt('home.daily_average');
@@ -306,7 +311,13 @@ ${Object.keys(HOME_COUNTRIES).map((c, i) => `<input type="radio" name="rk-hc" id
   // 모바일에서 옆으로 넘기는 카드 묶음의 이전·다음 버튼 (PC에서는 숨김)
   const carouselNav = (id, label) => `<div class="rk-carousel-nav" role="group" aria-label="${tt('home.skip', { label })}"><button type="button" data-rk-scroll="${id}" data-dir="-1" aria-controls="${id}" aria-label="${tt('home.previous', { label })}" disabled>‹</button><span class="c" aria-live="polite"></span><button type="button" data-rk-scroll="${id}" data-dir="1" aria-controls="${id}" aria-label="${tt('home.next', { label })}">›</button></div>`;
   const monthSec = `<section class="rk-section rk-home-sec rk-month-section"><h2>${tt('home.monthly_ranking_analysis')} <small>${formatYearMonth(S.latestMonth)}</small></h2>${carouselNav('rk-hmonth', tt('home.monthly_analysis'))}
-<div class="rk-hmonth rk-carousel" id="rk-hmonth">${ms ? `<div class="rk-card"><h2>${tt('home.monthly_combined_top_3')} <small>${tt('home.average_of_two_stores')}</small></h2>${podium}<div class="rk-note">${listLink(`/rankings/monthly/${S.latestMonth}/`, tt('home.view_all_monthly_rankings'))}</div></div>` : ''}${mini(tt('home.steam_monthly_concurrent_players_top'), steamMonthSub, steamMonthRows, '/steam/#monthly', tt('home.view_steam_monthly_rankings'))}${mini(tt('home.recent_entrants'), tt('home.last_45_days'), debuts, '/games/', tt('home.view_game_db'))}</div></section>`;
+<div class="rk-hmonth rk-carousel" id="rk-hmonth">${ms ? `<div class="rk-card"><h2>${tt('home.monthly_combined_top_3')} <small>${tt('home.average_of_two_stores')}</small></h2>${podium}${latestMonthPage ? `<div class="rk-note">${listLink(latestMonthPage, tt('home.view_all_monthly_rankings'))}</div>` : ''}</div>` : ''}${mini(tt('home.steam_monthly_concurrent_players_top'), steamMonthSub, steamMonthRows, '/steam/#monthly', tt('home.view_steam_monthly_rankings'))}${mini(tt('home.recent_entrants'), tt('home.last_45_days'), debuts, '/games/', tt('home.view_game_db'))}</div></section>`;
+
+  const shortcutLinks = [
+    genresHub ? `<a href="${genresHub}">${tt('layout.rankings_by_genre')}</a>` : '',
+    latestMonthPage ? `<a href="${latestMonthPage}">${tt('rank.monthly_rankings', { latestMonth: formatYearMonth(latestMonthPage.slice(-8, -1)) })}</a>` : '',
+  ].filter(Boolean).join('');
+  const shortcuts = shortcutLinks ? `<nav class="rk-links rk-links-row rk-home-shortcuts" aria-label="${tt('rank.ranking_types')}">${shortcutLinks}</nav>` : '';
 
   const nameOf = (s) => (today.rows[country][s][0] ? S.nameOf(s, today.rows[country][s][0]) : '-');
   const steamLead = ST && ST.today.mp[0] ? tt('home.steam_concurrent_players_1', { name: ST.info(ST.today.mp[0].appid).name }) : '';
@@ -324,6 +335,7 @@ ${workspace}
 ${moversSec}
 ${flowSec}
 ${monthSec}
+${shortcuts}
       </div>
     </section>`;
   return wrapWithLayout(content, {

@@ -15,6 +15,7 @@ const { loadRankStats, COUNTRIES, STORES, util } = require('../../rank/stats');
 const { publisherMark } = require('../components/publisher-mark');
 const { analysisSlug } = require('../../build/analysis-pages');
 const { createSlug } = require('../../build/game-data');
+const { datasetNode } = require('../helpers/site-schema');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { nums, min, avg, std, fmt1, esc, tsText, pubKey } = util;
@@ -145,7 +146,8 @@ const storeCols = (S, C, country, chart, opts, stores) => {
 <div class="rk-cols${hasAnd ? '' : ' single'}" id="rk-list">${stores.map((s) => `<div class="rk-col ${s === 'ios' ? 'ios' : 'and'}">${colH(s, Math.min(limit, ((chart === 'free' ? S.today.rowsFree : S.today.rows)[country][s] || []).length))}${storeList(S, C, country, s, chart, opts)}</div>`).join('')}</div>`;
 };
 
-function shell(S, { body, title, description, canonical, crumbs, keywords }) {
+// dataset: the page presents the site's ranking data set (Dataset JSON-LD named after the page, src/templates/helpers/site-schema.js).
+function shell(S, { body, title, description, canonical, crumbs, keywords, dataset = false }) {
   const content = `
     <section class="section active" id="rankings">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
@@ -156,8 +158,11 @@ function shell(S, { body, title, description, canonical, crumbs, keywords }) {
     currentPage: 'rankings',
     title, description, keywords, canonical,
     breadcrumbs: [{ name: tt('about.home'), url: `${siteBaseUrl}/` }, { name: tt('rank.mobile_rankings'), url: `${siteBaseUrl}/rankings/` }, ...(crumbs || [])].filter((c, i, a) => a.findIndex((d) => d.url === c.url) === i),
+    jsonLd: dataset ? [datasetNode({ name: title, description, url: pageUrl(canonical) }, S)] : null,
   });
 }
+// The edition's absolute URL of a page given by its unprefixed canonical (https://gamerscroll.com/<path>).
+const pageUrl = (canonical) => { const i18n = require('../../i18n'); return i18n.absoluteUrl(i18n.currentEdition().code, new URL(canonical).pathname); };
 
 // ---------- 1. 실시간 순위 (국가별) ----------
 function renderRankingsHub(country = homeCountry(), chart = 'grossing') {
@@ -233,6 +238,7 @@ ${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
     keywords: `${tt('rank.mobile_game_revenue_rankings_app', { cname })}`,
     canonical,
     crumbs: country === homeCountry() ? [] : [{ name: cname, url: canonical }],
+    dataset: country === homeCountry(),
   });
 }
 
@@ -291,6 +297,7 @@ ${monthList}
     keywords: `${tt('rank.mobile_game_revenue_rankings_game', { y, m, m2: m })}`,
     canonical,
     crumbs: [{ name: `${tt('rank.year_month', { y, m })}`, url: canonical }],
+    dataset: true,
   });
 }
 
@@ -362,6 +369,7 @@ ${debutsT}`;
     keywords: tt('rank.mobile_game_annual_records_longest'),
     canonical,
     crumbs: [{ name: tt('layout.annual_records'), url: canonical }],
+    dataset: true,
   });
 }
 

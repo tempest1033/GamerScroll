@@ -5,7 +5,7 @@
  * Node 와 Workers 런타임에서 똑같이 동작한다. 입력은 docs/games-data/<slug>.json 한 개와 공용 _meta.json 이다.
  */
 
-const { t, currentEdition, EDITIONS, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
+const { t, has, currentEdition, EDITIONS, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
@@ -102,10 +102,22 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     return `<span class="game-platform-badge">${labels[p] || p}</span>`;
   }).join('');
 
-  // 게임 아이콘
+  // 게임 아이콘: 첫 화면에 보이는 이미지라 지연 로딩하지 않는다 (크기는 CSS 72px 기준)
   const iconHtml = icon
-    ? `<img class="game-hero-icon" src="${esc(resizeIcon(icon))}" alt="${name}" loading="lazy" data-img-fallback="hide">`
+    ? `<img class="game-hero-icon" src="${esc(resizeIcon(icon))}" alt="${name}" width="72" height="72" fetchpriority="high" decoding="async" data-img-fallback="hide">`
     : '';
+
+  // Developer and genres link to this edition's publisher and genre ranking pages where they are built
+  // (game.links[<edition>], scripts/generate-game-pages.js); otherwise they are plain text.
+  const editionLinks = (game.links && game.links[edition.code]) || {};
+  const developerHtml = developer
+    ? (editionLinks.p ? `<a href="/rankings/publishers/${encodeURIComponent(editionLinks.p)}/" data-name>${esc(developer)}</a>` : `<span data-name>${esc(developer)}</span>`)
+    : '';
+  const genreIds = (Array.isArray(game.genres) ? game.genres : []).filter((id) => has(`genre.${id}`));
+  const genreLabel = (id) => t(`genre.${id}`);
+  const genreBadges = genreIds.map((id) => ((editionLinks.g || []).includes(id)
+    ? `<a class="game-platform-badge game-genre-badge" href="/rankings/genres/${encodeURIComponent(id)}/">${esc(genreLabel(id))}</a>`
+    : `<span class="game-platform-badge game-genre-badge">${esc(genreLabel(id))}</span>`)).join('');
 
   // 스팀 차트 섹션 생성 (type: 'ccu' 또는 'sales')
   function generateSteamChartSection(type) {
@@ -272,8 +284,9 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
             ${iconHtml}
             <div class="game-hero-info">
               <h1 class="game-hero-title" data-name>${name}</h1>
-              ${developer ? `<div class="game-hero-developer" data-name>${esc(developer)}</div>` : ''}
+              ${developer ? `<div class="game-hero-developer">${developerHtml}</div>` : ''}
               ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
+              ${genreBadges ? `<div class="game-hero-platforms game-hero-genres" aria-label="${esc(t('genres.genre'))}">${genreBadges}</div>` : ''}
             </div>
             ${summary && summary.hero ? summary.hero : ''}
           </div>
@@ -400,7 +413,8 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
       { name: t('game.games_db'), url: `${siteBaseUrl}${href('/games/')}` },
       { name: plainName, url: canonicalUrl }
     ],
-    softwareSchema: indexable ? { name: plainName, description: cleanDescription(seoDescription, overview, t('game.desc_join')), image: icon || null, operatingSystem } : null  // noindex 페이지는 스키마 생략
+    // noindex 페이지는 스키마 생략. genre: 히어로에 보이는 장르, sameAs: 공식 스토어 페이지 (game.storeUrls)
+    softwareSchema: indexable ? { name: plainName, description: cleanDescription(seoDescription, overview, t('game.desc_join')), url: canonicalUrl, image: icon || null, operatingSystem, genre: genreIds.map(genreLabel), sameAs: Array.isArray(game.storeUrls) ? game.storeUrls : [] } : null
   });
   // The revenue section (no links, images or names to post-process; its charts and tables render in the browser) joins
   // after the layout's whole-page passes, which would otherwise rescan it within the Workers CPU budget.
