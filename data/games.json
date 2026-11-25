@@ -73719,18 +73719,19 @@
       ],
       "developer": "ZigZaGame Inc.",
       "icon": "https://play-lh.googleusercontent.com/W83Y7F6s8dfv0uNGz0krspOjLcSxnfEQHHkADiZaXcAc6rGykL_jsb5FAxG3PMJszi7y_g0t4CwGNYVoTbql",
-      "slug": "エバーテイル",
+      "slug": "evertale-zigzagame-inc",
       "platforms": [
         "android",
         "ios"
       ],
       "names": {
-        "ja": "エバーテイル",
         "ko": "에버테일",
         "en": "Evertale",
+        "ja": "エバーテイル",
         "zh-tw": "亙古幻想"
       },
       "legacySlugs": [
+        "エバーテイル",
         "evertale"
       ]
     },
@@ -74062,9 +74063,11 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW"
+        "android": "com.interserv.L3K"
       },
-      "aliases": [],
+      "aliases": [
+        "我在三國當村長-經營養成系RPG"
+      ],
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
       "slug": "怪物彈珠-rpg手機遊戲",
@@ -74072,6 +74075,7 @@
         "android"
       ],
       "names": {
+        "ko": "我在三國當村長-經營養成系RPG",
         "zh-tw": "怪物彈珠 - RPG手機遊戲"
       }
     },
@@ -109144,8 +109148,8 @@
       ],
       "names": {
         "en": "Endless Grades: Pixel Saga",
-        "zh-tw": "像素大冒險Endless Grades Pixel Saga",
-        "ja": "名もなき者の詩 昔懐かしきドット絵RPG"
+        "ja": "名もなき者の詩 昔懐かしきドット絵RPG",
+        "zh-tw": "像素大冒險Endless Grades Pixel Saga"
       },
       "legacySlugs": [
         "endless-grades-pixel-saga-jp"
@@ -118530,8 +118534,8 @@
         "android"
       ],
       "names": {
-        "ja": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
         "ko": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
+        "ja": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
         "zh-tw": "我在三國當村長-經營養成系RPG"
       },
       "legacySlugs": [
@@ -130766,7 +130770,7 @@
       ],
       "developer": "VNG SINGAPORE PTE LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/15/3f/3d153fd9-d6eb-a815-8b2c-dc73c0a495d0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "薑餅人大亂鬥",
+      "slug": "cookierun-ovensmash-vng-singapore",
       "platforms": [
         "ios",
         "android"
@@ -130775,6 +130779,7 @@
         "zh-tw": "薑餅人大亂鬥"
       },
       "legacySlugs": [
+        "薑餅人大亂鬥",
         "cookierun-ovensmash"
       ]
     },
@@ -159607,14 +159612,16 @@
     },
     "無盡圖鑑": {
       "appIds": {
-        "android": "com.neverdex.app"
+        "android": "com.neverdex.app",
+        "ios_tw": 6826039249
       },
       "aliases": [],
       "developer": "Haku Core",
       "icon": "https://play-lh.googleusercontent.com/0aeh19MYqVF9o6YIudWx8nG0eVEfhzKNESLj-wNzBs0Nu6ozaqrRMdtc5pplxDuWCa3FuTzS7LJcR_wl_HNq_A",
       "slug": "",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "無盡圖鑑",
@@ -160395,8 +160402,8 @@
         "android"
       ],
       "names": {
-        "zh-tw": "機動三國",
-        "ko": "機動三國-送你五千抽不要太激動"
+        "ko": "機動三國-送你五千抽不要太激動",
+        "zh-tw": "機動三國"
       },
       "legacySlugs": [
         "com-jidongsanguo-gt-ard"
@@ -164898,9 +164905,9 @@
         "android"
       ],
       "names": {
+        "ko": "물고기는 날지 않는다",
         "en": "Where Fish Fly",
-        "ja": "魚は飛ばない",
-        "ko": "물고기는 날지 않는다"
+        "ja": "魚は飛ばない"
       },
       "legacySlugs": [
         "where-fish-fly-playgo-games",
@@ -165939,8 +165946,76 @@
       "platforms": [
         "steam"
       ]
+    },
+    "삼국지 GO! : 방치형 키우기 RPG": {
+      "appIds": {
+        "ios": 6761039504
+      },
+      "aliases": [],
+      "developer": "Highbrow",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/1a/77/2a1a7773-6b16-8fb2-03ca-97ce8256cc67/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "three-kingdoms-go-idle-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "삼국지 GO! : 방치형 키우기 RPG",
+        "en": "Three Kingdoms GO! – Idle RPG",
+        "ja": "三国志GO！放置育成RPG",
+        "zh-tw": "三國志GO！放置養成RPG"
+      },
+      "legacySlugs": [
+        "삼국지-go-방치형-키우기-rpg"
+      ]
+    },
+    "머지 인 블룸 (Merge in Bloom)": {
+      "appIds": {
+        "ios": 6786191114
+      },
+      "aliases": [],
+      "developer": "Olivetree Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/33/15/ca/3315cafa-1c5a-671a-1b96-c7e03deaa6e0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "merge-in-bloom",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "머지 인 블룸 (Merge in Bloom)"
+      }
+    },
+    "Spark Win Cash: Real Money": {
+      "appIds": {
+        "ios_us": 6670211183
+      },
+      "aliases": [],
+      "developer": "MIDAS GAMES Korlatolt Felelossegu Tarsasag",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8e/22/1a/8e221a39-9d44-0bcb-460e-b3ecd5cd454e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "spark-win-cash-real-money",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Spark Win Cash: Real Money"
+      }
+    },
+    "脳力＋ 支払い技術検定": {
+      "appIds": {
+        "ios_jp": 426921880
+      },
+      "aliases": [],
+      "developer": "ASOBOX",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/6e/23/a86e238c-0e54-5ad0-88ff-189a7587c2b8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "脳力-支払い技術検定",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "脳力＋ 支払い技術検定",
+        "ja": "脳力＋ 支払い技術検定",
+        "zh-tw": "脳力＋ 支払い技術検定"
+      }
     }
   },
   "lastUpdated": "2026-11-25",
-  "totalGames": 9477
+  "totalGames": 9481
 }
