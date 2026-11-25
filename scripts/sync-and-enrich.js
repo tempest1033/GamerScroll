@@ -12,6 +12,8 @@ const axios = require('axios');
 const gplay = require('google-play-scraper').default;
 const { latinSlug, uniqueOf, takenSlugs } = require('../src/build/game-slug');
 const { migrate: reslugLatinNamed } = require('./migrate-game-slugs');
+const { merge: mergeDuplicates, chartDaysOf } = require('../src/build/game-merge');
+const { loadRankStats } = require('../src/rank/stats');
 
 const historyDir = path.join(__dirname, '../history');
 const dataDir = path.join(__dirname, '../data');
@@ -995,6 +997,12 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
   };
 }
 
+// 같은 제목·같은 개발사·충돌 없는 스토어 ID 의 중복 레코드를 매출 차트 이력이 긴 쪽으로 합친다 (src/build/game-merge.js).
+// 없어진 쪽 슬러그는 legacySlugs 에 남아 301 된다. S: 순위 통계 (기본은 history/ 전체).
+function mergeSameTitle(gamesData, S = loadRankStats({ force: true })) {
+  return mergeDuplicates(gamesData, chartDaysOf(S));
+}
+
 async function main() {
   const kstToday = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().split('T')[0];
   const dateStr = process.argv[2] || kstToday;
@@ -1092,6 +1100,8 @@ async function main() {
   const reslugged = reslugLatinNamed(gamesData);
   for (const r of reslugged) console.log(`  슬러그 변경: ${r.from} → ${r.to}`);
 
+  for (const m of mergeSameTitle(gamesData)) console.log(`  중복 통합: ${m.kept} ← ${m.merged.join(', ')}`);
+
   // pending 추가/업데이트 (targetName 단위 1건만 유지)
   upsertPending(reviewQueue, Array.from(pendingMap.values()));
 
@@ -1117,7 +1127,8 @@ async function main() {
 module.exports = {
   MARKETS, NAME_KEYS, REGION_PREF, rowsFromHistory, dedupeRows, mergeNames, buildAppIdIndex,
   buildAliasIndex, addAliases, normalizeNameKey, slugifyTitle, uniqueSlug, marketsOfGame, processGame, buildNameKeyIndex, lookupOne, getRegCtx, registerCandidate, lookupIosBatch, lookupAndroid, upsertPending,
-  loadLatestChartRows, backfillNames, lookupMarketTitles, resolveMarketName, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool
+  loadLatestChartRows, backfillNames, lookupMarketTitles, resolveMarketName, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool,
+  mergeSameTitle
 };
 
 if (require.main === module) {
