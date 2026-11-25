@@ -286,8 +286,7 @@ function generateHead(options = {}) {
 	      .home-main > *, .home-card { margin-bottom: 0; }
 	    }
 	  </style>
-	  <!-- AdSense: preload (preload scanner picks it up at first byte) + run only on gamerscroll.com (no ad impressions on localhost/preview hosts) -->${ADS_ENABLED ? `
-	  <link rel="preload" as="script" crossorigin="anonymous" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+	  <!-- AdSense: run only on gamerscroll.com (no ad impressions on localhost/preview hosts); its preload follows the stylesheets -->${ADS_ENABLED ? `
 	  <script>(function () { if (${METRICS_PATH_TEST}) return;
 	    var fc = window.googlefc = window.googlefc || {}; fc.controlledMessagingFunction = function (message) { var tries = 0; (function decide() { var types = window.googlefc.MessageTypeEnum;
 	      if (types && types.OFFERWALL) message.proceed(false, [types.OFFERWALL]); else if (++tries > 100) message.proceed(true); else setTimeout(decide, 50); })(); }; })();</script>
@@ -295,7 +294,7 @@ function generateHead(options = {}) {
 	    var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
 	    if (${METRICS_PATH_TEST}) s.setAttribute('data-ad-client', client); else (window.adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: client, enable_page_level_ads: true, rewarded: false });
 	    document.head.appendChild(s); })();</script>` : ''}
-	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->${(() => {
+	  <!-- LCP 이미지 preload: 광고 스크립트 preload 보다 앞 (본문 이미지 우선), 본문 <img>와 동일 URL로 dedupe -->${(() => {
 	    const opt = preloadImage && typeof preloadImage === 'object'
 	      ? preloadImage
 	      : (preloadImage ? { src: String(preloadImage) } : null);
@@ -314,8 +313,8 @@ function generateHead(options = {}) {
   <meta name="apple-mobile-web-app-title" content="${t('head.gamerscroll')}">
   ${noindex ? '' : `<link rel="canonical" href="${safeCanonical}">`}
   ${alternateLink}${
-    // WebSite 스키마는 홈페이지에서만 출력 (구글 권장사항)
-    (editionMode ? pagePath === '/' : (canonicalText === 'https://gamerscroll.com' || canonicalText === 'https://gamerscroll.com/')) ? `
+    // WebSite 스키마는 홈페이지에서만 출력 (구글 권장사항). canonical 이 없는 noindex 페이지(404 등)는 기본값이 홈 URL 이라 제외한다.
+    !noindex && (editionMode ? pagePath === '/' : (canonicalText === 'https://gamerscroll.com' || canonicalText === 'https://gamerscroll.com/')) ? `
   <!-- JSON-LD 구조화 데이터: WebSite (홈페이지 전용) -->
   <script type="application/ld+json">${jsonValue(websiteJsonLd)}</script>` : ''
   }${articleJsonLd}${breadcrumbJsonLd}${softwareJsonLd}${extraJsonLd}
@@ -359,7 +358,9 @@ function generateHead(options = {}) {
 	  ${deferredCssInitScript}
 	  ${deferredCssGuardStyle}
 	  <!-- 메인 CSS -->
-	  ${cssLinksHtml}
+	  ${cssLinksHtml}${ADS_ENABLED ? `
+	  <!-- AdSense preload: after the stylesheets and the hero image preload, so the ad script never takes their bandwidth -->
+	  <link rel="preload" as="script" crossorigin="anonymous" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">` : ''}
 	  ${lazyImageLoaderScript}
 	  <!-- Firebase Analytics (프로덕션만) -->
 	  <script>
