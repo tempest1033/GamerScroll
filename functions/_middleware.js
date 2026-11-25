@@ -146,12 +146,14 @@ function rankingArticleTarget(path, prefix, plans) {
   return "/ko" + marketPlan.nearestBuilt(plans && plans.ko, chart === "subculture" ? "/rankings/genres/subculture/" : `/rankings/monthly/${chart}/`);
 }
 
-// Edition a root URL is served in for this visitor: { locale, cookie } (cookie = Set-Cookie value when ?locale= chose it),
-// or null for bots, which stay on the URL they asked for. Regional search engines always get their market's edition.
+// Edition a root URL is served in for this visitor: { locale, cookie, permanent } (cookie = Set-Cookie value when ?locale=
+// chose it), or null for bots, which stay on the URL they asked for. Regional search engines always get their market's
+// edition, permanently (301): under a temporary redirect they kept indexing the English root URL with the localized
+// page's content, so their users' queries landed on English URLs.
 function gsEditionChoice(request, url, country) {
   const ua = (request.headers.get("User-Agent") || "").toLowerCase();
   const engine = ua.match(GS_SEARCH_ENGINE_RE);
-  if (engine) return { locale: GS_SEARCH_ENGINE_LOCALE[engine[1]], cookie: null };
+  if (engine) return { locale: GS_SEARCH_ENGINE_LOCALE[engine[1]], cookie: null, permanent: true };
   if (BOT_UA_RE.test(ua)) return null;
   const queryLocale = url.searchParams.get("locale");
   const hasQuery = GS_LOCALES.includes(queryLocale);
@@ -164,7 +166,8 @@ function gsEditionChoice(request, url, country) {
 }
 
 // A game page asked for on the www host or by a retired slug: one redirect that settles host, edition and slug together,
-// instead of a hop for each. 302 when the visitor's edition is part of it (per visitor, never cached), otherwise 301.
+// instead of a hop for each. 302 when the visitor's edition is part of it (per visitor, never cached; 301 for a regional
+// search engine), otherwise 301.
 async function gameRedirect(context, url, path, www, country) {
   const prefix = gsLocalePrefixOf(path);
   const slug = gameSlugOf(prefix ? path.slice(prefix.length + 1) : path);
@@ -192,7 +195,7 @@ async function steamRedirect(context, url, path, country) {
 }
 
 // Redirect to /games/<slug>/ on the bare host, in the URL's edition (prefix) or, for an unprefixed URL, the visitor's.
-// 302 when the visitor's edition is part of it (per visitor, never cached), otherwise 301.
+// 302 when the visitor's edition is part of it (per visitor, never cached; 301 for a regional search engine), otherwise 301.
 function gamePageRedirect(context, url, prefix, slug, country) {
   const page = `/games/${encodeURIComponent(slug)}/${url.search}`;
   const choice = prefix ? null : gsEditionChoice(context.request, url, country);
@@ -200,7 +203,7 @@ function gamePageRedirect(context, url, prefix, slug, country) {
   const headers = new Headers({ Location: `https://gamerscroll.com${local ? "/" + choice.locale : prefix ? "/" + prefix : ""}${page}` });
   if (local) headers.set("Cache-Control", "private, no-store");
   if (choice && choice.cookie) headers.append("Set-Cookie", choice.cookie);
-  return new Response(null, { status: local ? 302 : 301, headers });
+  return new Response(null, { status: local && !choice.permanent ? 302 : 301, headers });
 }
 
 async function handleGamerScrollLegacyRedirect(url, fullPath, loadPlans) {
@@ -306,7 +309,7 @@ export async function onRequest(context) {
         "Cache-Control": "private, no-store"
       });
       if (choice.cookie) headers.append("Set-Cookie", choice.cookie);
-      return new Response(null, { status: 302, headers });
+      return new Response(null, { status: choice.permanent ? 301 : 302, headers });
     }
     const response = await next();
     if (!choice.cookie) return response;

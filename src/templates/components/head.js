@@ -90,8 +90,18 @@ function generateHead(options = {}) {
   const safeCanonical = escapeHtmlAttr(canonicalText);
   const normalizeToCanonical = (value) => normalizeMeta(value || '');
   const schemaCanonical = normalizeToCanonical(canonicalText);
+  // Breadcrumb URLs are the edition's own pages: templates give site URLs without the edition prefix, and a localized
+  // page whose trail named the English pages told search engines its home and its own URL were the English ones.
+  const editionUrl = (value) => {
+    const text = normalizeToCanonical(value);
+    if (!editionMode) return text;
+    try {
+      const url = new URL(text);
+      return url.origin === i18n.SITE_ORIGIN ? i18n.absoluteUrl(edition.code, i18n.stripEditionPrefix(url.pathname)) + url.search : text;
+    } catch { return text; }
+  };
   const schemaBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
-    ? breadcrumbs.map(item => ({ ...item, url: normalizeToCanonical(item.url) }))
+    ? breadcrumbs.map(item => ({ ...item, url: editionUrl(item.url) }))
     : null;
   const hasAlternate = (code) => (alternateEditions ? alternateEditions.includes(code) : i18n.editionHasPage(code, pagePath));
   const alternateLink = editionMode && !noindex
