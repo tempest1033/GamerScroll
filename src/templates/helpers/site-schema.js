@@ -26,23 +26,29 @@ function organizationNode(edition = code()) {
 function operatorNode(edition = code()) {
   return {
     '@context': 'https://schema.org', '@type': 'Person', '@id': operatorId(edition),
-    name: operatorName(edition), alternateName: operatorName(edition === 'ko' ? 'en' : 'ko'),
-    url: aboutUrl(edition), worksFor: { '@id': organizationId(edition) },
+    name: operatorName(edition), url: aboutUrl(edition), worksFor: { '@id': organizationId(edition) },
   };
 }
 
-// Dataset of a ranking page (S: src/rank/stats.js loadRankStats()): the ranking data the site collects and updates daily,
-// in the five markets it covers. It states no start date and, as the site states no license, no license.
-function datasetNode({ name, url }, S) {
+// The stores whose top-grossing charts a page of `country` shows: both, or the App Store alone where the market has no
+// Google Play chart (China).
+const datasetStores = (S, country) => ((S.today.rows[country] || {}).android || []).length ? i18n.t('rank.dataset_two_stores') : i18n.t('stats.app_store');
+
+// The page title without the site name, whatever spacing precedes the "|".
+const withoutBrand = (title) => title.replace(new RegExp(`\\s*\\|\\s*${i18n.t('head.gamerscroll').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`), '');
+
+// Dataset of a ranking page (S: src/rank/stats.js loadRankStats()): exactly the data the page shows. description names its
+// charts and that they are collected and updated daily (rank.dataset_* messages); spatialCoverage is the page's market;
+// dateModified is the page's last data day. No start date, and as the site states no license, no license.
+function datasetNode({ name, url, description, country, dateModified = null }, S) {
   return {
-    '@context': 'https://schema.org', '@type': 'Dataset', name: name.replace(i18n.t('head.gamerscroll_2'), ''),
-    description: i18n.t('rank.dataset_description'), url,
+    '@context': 'https://schema.org', '@type': 'Dataset', name: withoutBrand(name), description, url,
     creator: organizationRef(), publisher: { '@id': organizationId() },
-    spatialCoverage: Object.values(S.COUNTRIES).map((country) => ({ '@type': 'Country', name: country })),
+    spatialCoverage: [{ '@type': 'Country', name: S.COUNTRIES[country] }],
     measurementTechnique: i18n.t('rank.dataset_measurement'),
-    dateModified: S.today.date,
+    dateModified: dateModified || S.today.date,
     isAccessibleForFree: true,
   };
 }
 
-module.exports = { X_URL, LOGO, operatorName, homeUrl, aboutUrl, organizationId, operatorId, websiteId, organizationRef, organizationNode, operatorNode, datasetNode };
+module.exports = { X_URL, LOGO, operatorName, homeUrl, aboutUrl, organizationId, operatorId, websiteId, organizationRef, organizationNode, operatorNode, datasetStores, datasetNode };

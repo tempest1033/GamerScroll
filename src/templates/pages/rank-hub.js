@@ -15,7 +15,7 @@ const { loadRankStats, COUNTRIES, STORES, util } = require('../../rank/stats');
 const { publisherMark } = require('../components/publisher-mark');
 const { analysisSlug } = require('../../build/analysis-pages');
 const { createSlug } = require('../../build/game-data');
-const { datasetNode } = require('../helpers/site-schema');
+const { datasetNode, datasetStores } = require('../helpers/site-schema');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { nums, min, avg, std, fmt1, esc, tsText, pubKey } = util;
@@ -146,8 +146,9 @@ const storeCols = (S, C, country, chart, opts, stores) => {
 <div class="rk-cols${hasAnd ? '' : ' single'}" id="rk-list">${stores.map((s) => `<div class="rk-col ${s === 'ios' ? 'ios' : 'and'}">${colH(s, Math.min(limit, ((chart === 'free' ? S.today.rowsFree : S.today.rows)[country][s] || []).length))}${storeList(S, C, country, s, chart, opts)}</div>`).join('')}</div>`;
 };
 
-// dataset: the page presents the site's ranking data set (Dataset JSON-LD named after the page, src/templates/helpers/site-schema.js).
-function shell(S, { body, title, description, canonical, crumbs, keywords, dataset = false }) {
+// dataset: { country, description, dateModified? } of the data the page shows (Dataset JSON-LD named after the page,
+// src/templates/helpers/site-schema.js), or null.
+function shell(S, { body, title, description, canonical, crumbs, keywords, dataset = null }) {
   const content = `
     <section class="section active" id="rankings">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
@@ -158,7 +159,7 @@ function shell(S, { body, title, description, canonical, crumbs, keywords, datas
     currentPage: 'rankings',
     title, description, keywords, canonical,
     breadcrumbs: [{ name: tt('about.home'), url: `${siteBaseUrl}/` }, { name: tt('rank.mobile_rankings'), url: `${siteBaseUrl}/rankings/` }, ...(crumbs || [])].filter((c, i, a) => a.findIndex((d) => d.url === c.url) === i),
-    jsonLd: dataset ? [datasetNode({ name: title, url: pageUrl(canonical) }, S)] : null,
+    jsonLd: dataset ? [datasetNode({ name: title, url: pageUrl(canonical), ...dataset }, S)] : null,
   });
 }
 // The edition's absolute URL of a page given by its unprefixed canonical (https://gamerscroll.com/<path>).
@@ -238,7 +239,7 @@ ${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
     keywords: `${tt('rank.mobile_game_revenue_rankings_app', { cname })}`,
     canonical,
     crumbs: country === homeCountry() ? [] : [{ name: cname, url: canonical }],
-    dataset: country === homeCountry(),
+    dataset: country === homeCountry() ? { country, description: tt('rank.dataset_grossing', { country: cname, stores: datasetStores(S, country) }) } : null,
   });
 }
 
@@ -297,7 +298,8 @@ ${monthList}
     keywords: `${tt('rank.mobile_game_revenue_rankings_game', { y, m, m2: m })}`,
     canonical,
     crumbs: [{ name: `${tt('rank.year_month', { y, m })}`, url: canonical }],
-    dataset: true,
+    // A completed month's data ends on its last day (the sitemap's lastmod too, src/build/editions.js).
+    dataset: { country, description: tt('rank.dataset_monthly', { country: COUNTRIES[country], stores: datasetStores(S, country) }), dateModified: S.daysIn(month).at(-1).date },
   });
 }
 
@@ -369,7 +371,7 @@ ${debutsT}`;
     keywords: tt('rank.mobile_game_annual_records_longest'),
     canonical,
     crumbs: [{ name: tt('layout.annual_records'), url: canonical }],
-    dataset: true,
+    dataset: { country, description: tt('rank.dataset_records', { country: cname, stores: datasetStores(S, country) }) },
   });
 }
 

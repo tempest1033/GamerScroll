@@ -1,6 +1,6 @@
 'use strict';
 const { t, formatDay, formatYearMonth, currentEdition, editionHasPage, absoluteUrl } = require('../../i18n');
-const { datasetNode } = require('../helpers/site-schema');
+const { datasetNode, datasetStores } = require('../helpers/site-schema');
 const { renderGenreCurves } = require('../components/revenue-reference');
 const { loadRankStats } = require('../../rank/stats');
 const { loadGenres } = require('../../rank/genres');
@@ -41,7 +41,12 @@ function renderGenre(id = 'all', country = 'kr') {
   return wrapWithLayout(body, {
     currentPage: 'rankings', title, description,
     canonical: `https://gamerscroll.com${href(id)}`,
-    jsonLd: [datasetNode({ name: title, url: absoluteUrl(currentEdition().code, href(id)) }, S)],
+    jsonLd: [datasetNode({
+      name: title, url: absoluteUrl(currentEdition().code, href(id)), country,
+      description: id === 'all'
+        ? t('rank.dataset_genres_all', { country: S.COUNTRIES[country], stores: datasetStores(S, country) })
+        : t('rank.dataset_genre', { country: S.COUNTRIES[country], stores: datasetStores(S, country), genre: label }),
+    }, S)],
     breadcrumbs: [{ name: t('about.home'), url: 'https://gamerscroll.com/' }, { name: t('layout.rankings_by_genre'), url: 'https://gamerscroll.com/rankings/genres/' }, ...(selected ? [{ name: label, url: `https://gamerscroll.com${href(id)}` }] : [])],
   });
 }

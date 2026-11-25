@@ -43,6 +43,7 @@ test('about page: Organization (logo, X account) and its operator, referenced by
     assert.deepEqual(org.sameAs, ['https://x.com/gamerscroll']);
     assert.deepEqual(org.founder, { '@id': person['@id'] });
     assert.equal(person.name, '플랑크톤');
+    assert.equal('alternateName' in person, false, 'only the name the page shows');
     assert.ok(html.includes(`<b>${person.name}</b>`), 'the name the page shows');
     assert.deepEqual(person.worksFor, { '@id': org['@id'] });
     assert.deepEqual(page.mainEntity, { '@id': org['@id'] });
@@ -88,40 +89,73 @@ test('game SoftwareApplication carries its URL, the shown genres and the officia
   });
 });
 
-test('ranking pages describe their data as a Dataset by the Organization, collected and updated daily, in five markets, with no start date', () => {
+test('each ranking page\'s Dataset describes the charts and market it shows, collected and updated daily, with no start date', () => {
   const S = require('../src/rank/stats').loadRankStats();
   const rankHub = require('../src/templates/pages/rank-hub');
-  inEdition('ko', () => {
-    for (const [html, url] of [
-      [rankHub.renderRankingsHub('kr'), 'https://gamerscroll.com/ko/rankings/'],
-      [rankHub.renderRecords('kr'), 'https://gamerscroll.com/ko/rankings/records/'],
-      [rankHub.renderGenre('all', 'kr'), 'https://gamerscroll.com/ko/rankings/genres/'],
-      [rankHub.renderMonthly(S.builtMonths.at(-1), 'kr'), `https://gamerscroll.com/ko/rankings/monthly/${S.builtMonths.at(-1)}/`],
-    ]) {
-      const [dataset] = ofType(html, 'Dataset');
-      assert.equal(dataset.url, url);
-      assert.doesNotMatch(dataset.name, /\| 게이머스크롤/, 'the page title without the site suffix');
-      assert.equal(dataset.creator['@id'], 'https://gamerscroll.com/ko/#organization');
-      assert.equal('temporalCoverage' in dataset, false, 'no start date');
-      assert.ok(!JSON.stringify(dataset).includes(S.days[0].date), 'the first history day appears nowhere');
-      assert.equal(dataset.description, i18n.t('rank.dataset_description'));
-      assert.equal(dataset.measurementTechnique, '매일 수집하고 매일 갱신합니다.');
-      assert.deepEqual(dataset.spatialCoverage.map((p) => p.name), ['한국', '일본', '미국', '중국', '대만']);
-      assert.equal('license' in dataset, false);
+  const { genreIdsWithData } = require('../src/templates/pages/genres');
+  const currentMonth = S.today.date.slice(0, 7);
+  for (const edition of i18n.EDITIONS) {
+    inEdition(edition.code, () => {
+      const country = edition.country;
+      const genre = genreIdsWithData(country, S).find((id) => id !== 'all');
+      const months = S.builtMonthsFor(country);
+      const completed = months.filter((mo) => mo < currentMonth).at(-1);
+      const pages = [
+        ['/rankings/', rankHub.renderRankingsHub(country), S.today.date],
+        ['/rankings/records/', rankHub.renderRecords(country), S.today.date],
+        ['/rankings/genres/', rankHub.renderGenre('all', country), S.today.date],
+        [`/rankings/genres/${genre}/`, rankHub.renderGenre(genre, country), S.today.date],
+        ...(completed ? [[`/rankings/monthly/${completed}/`, rankHub.renderMonthly(completed, country), S.daysIn(completed).at(-1).date]] : []),
+        ...(months.includes(currentMonth) ? [[`/rankings/monthly/${currentMonth}/`, rankHub.renderMonthly(currentMonth, country), S.today.date]] : []),
+      ];
+      assert.ok(completed, `${edition.code}: a completed month to check`);
+      for (const [p, html, lastDay] of pages) {
+        const where = `${edition.code} ${p}`;
+        const [dataset] = ofType(html, 'Dataset');
+        assert.equal(dataset.url, i18n.absoluteUrl(edition.code, p), where);
+        assert.doesNotMatch(dataset.name, new RegExp(`\\|\\s*${i18n.t('head.gamerscroll')}`), `${where}: title without the site name`);
+        assert.equal(dataset.creator['@id'], `${i18n.absoluteUrl(edition.code, '/')}#organization`);
+        assert.deepEqual(dataset.spatialCoverage, [{ '@type': 'Country', name: S.COUNTRIES[country] }], `${where}: the page's market only`);
+        const text = dataset.description;
+        assert.ok(text.length >= 50 && text.length <= 5000, `${where}: ${text.length} characters`);
+        assert.ok(text.includes(S.COUNTRIES[country]) && text.includes(i18n.t('stats.app_store')), where);
+        assert.equal(text.includes(i18n.t('stats.google_play')), country !== 'cn', `${where}: Google Play only where the market has its chart`);
+        assert.doesNotMatch(text, /Steam|\d{4}/, `${where}: no Steam data, no date`);
+        assert.ok(!text.includes(i18n.t('layout.popular_free')), `${where}: no free chart`);
+        if (p.startsWith('/rankings/genres/') && p !== '/rankings/genres/') assert.ok(text.includes(require('../src/rank/genres').loadGenres().categories.find((c) => c.id === genre).label), `${where}: names the genre`);
+        assert.equal(dataset.measurementTechnique, i18n.t('rank.dataset_measurement'));
+        assert.equal(dataset.dateModified, lastDay, `${where}: the page's last data day`);
+        assert.equal('temporalCoverage' in dataset, false, `${where}: no start date`);
+        assert.ok(!JSON.stringify(dataset).includes(S.days[0].date), `${where}: the first history day appears nowhere`);
+        assert.equal('license' in dataset, false);
+      }
+      if (completed) assert.ok(S.daysIn(completed).at(-1).date < S.today.date, 'a completed month ends before today');
+    });
+  }
+  inEdition('ko', () => assert.equal(ofType(rankHub.renderRankingsHub('jp'), 'Dataset').length, 0, 'country pages other than the hub carry none'));
+});
+
+test('Dataset name drops the site name with or without a space before "|"', () => {
+  const { datasetNode } = require('../src/templates/helpers/site-schema');
+  const S = require('../src/rank/stats').loadRankStats();
+  inEdition('zh-tw', () => {
+    for (const title of ['手遊營收排行（11月）| GamerScroll', '手遊營收排行 | GamerScroll']) {
+      assert.equal(datasetNode({ name: title, url: 'u', description: 'd', country: 'tw' }, S).name, title.replace(/\s*\| GamerScroll$/, ''));
     }
-    assert.equal(ofType(rankHub.renderRankingsHub('jp'), 'Dataset').length, 0, 'country pages other than the hub carry none');
   });
 });
 
-test('every edition\'s Dataset description is 50-5,000 characters, names its five markets, and states no date', () => {
-  for (const edition of i18n.EDITIONS) {
-    inEdition(edition.code, () => {
-      const text = i18n.t('rank.dataset_description');
-      assert.ok(text.length >= 50 && text.length <= 5000, `${edition.code}: ${text.length} characters`);
-      for (const key of ['stats.korea', 'stats.japan', 'stats.united_states', 'stats.china', 'stats.taiwan']) assert.ok(text.includes(i18n.t(key)), `${edition.code} names ${i18n.t(key)}`);
-      assert.doesNotMatch(text, /\d{4}|\d+\s*(?:년|年)/, `${edition.code}: no date`);
-    });
-  }
+test('404 pages carry no WebSite node; WebSite stays on the edition home only', () => {
+  const { generate404Page } = require('../src/templates/pages/404');
+  for (const edition of i18n.EDITIONS) inEdition(edition.code, () => assert.equal(ofType(generate404Page(), 'WebSite').length, 0, edition.code));
+});
+
+test('the AdSense preload follows the stylesheets and the hero image preload', () => {
+  const html = require('../src/templates/components/head').generateHead({ canonical: 'https://gamerscroll.com/games/x/', preloadImage: 'https://example.com/hero.png' });
+  const ad = html.indexOf('<link rel="preload" as="script" crossorigin="anonymous" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">');
+  assert.ok(ad > 0);
+  assert.ok(ad > html.lastIndexOf('<link rel="stylesheet"'), 'after every stylesheet');
+  assert.ok(ad > html.indexOf('<link rel="preload" as="image"'), 'after the hero image preload');
 });
 
 test('edition home links the genres hub and the newest monthly page only where the edition builds them', () => {
