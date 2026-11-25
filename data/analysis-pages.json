@@ -573,13 +573,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "bravo-casino-slots-games": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "bravo-casino-social-slots": [
   "en",
   "ja",
@@ -937,13 +930,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "coin-master-board-adventure-moon-active": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "colony-flow": [
   "en",
   "ja",
@@ -1007,13 +993,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "com-jidongsanguo-gt-ard": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "com-qookkagames-codekite-gp-hk": [
   "en",
   "ja",
@@ -1057,6 +1036,13 @@
   "zh-tw"
  ],
  "cookierun-ovensmash-devsisters": [
+  "en",
+  "ja",
+  "ko",
+  "zh-cn",
+  "zh-tw"
+ ],
+ "cookierun-ovensmash-vng-singapore": [
   "en",
   "ja",
   "ko",
@@ -1134,13 +1120,6 @@
   "zh-tw"
  ],
  "d2-真女神転生-リベレーション": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "d2-真女神転生-リベレーション-jp": [
   "en",
   "ja",
   "ko",
@@ -1644,7 +1623,7 @@
   "zh-cn",
   "zh-tw"
  ],
- "evertale": [
+ "evertale-zigzagame-inc": [
   "en",
   "ja",
   "ko",
@@ -1770,13 +1749,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "fategrand-order-aniplex-inc": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "fategrand-order-english": [
   "en",
   "ja",
@@ -1840,13 +1812,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "fire-emblem-heroes": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "fire-emblem-heroes-us": [
   "en",
   "ja",
@@ -1862,13 +1827,6 @@
   "zh-tw"
  ],
  "fishing-carnival-fish-game": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "fishingnewera-casino-slots": [
   "en",
   "ja",
   "ko",
@@ -2393,13 +2351,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "haunted-merge-horror-story-whalejoy-game": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "hay-day": [
   "en",
   "ja",
@@ -2568,13 +2519,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "hotel-legacy-merge-game-century-games": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "house-of-funtm-casino-slots": [
   "en",
   "ja",
@@ -2736,13 +2680,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "isekai-gate": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "isekai-gate-awesomepiece": [
   "en",
   "ja",
@@ -2828,13 +2765,6 @@
   "zh-tw"
  ],
  "jackpot-worldtm-casino-slots": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "jackpot-worldtm-slots-casino": [
   "en",
   "ja",
   "ko",
@@ -3415,13 +3345,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "lordrush-century-games": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "lords-mobile-kingdom-wars": [
   "en",
   "ja",
@@ -3458,13 +3381,6 @@
   "zh-tw"
  ],
  "love-and-deepspace-infold-games": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "love-and-deepspace-us": [
   "en",
   "ja",
   "ko",
@@ -3605,13 +3521,6 @@
   "zh-tw"
  ],
  "majo-apocalypse-tactics-rpg": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "majo-apocalypse-tactics-rpg-darkwind-ltd": [
   "en",
   "ja",
   "ko",
@@ -3982,13 +3891,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "modern-warships-naval-battles-artstorm-fze": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "mongil-star-dive": [
   "en",
   "ja",
@@ -4164,21 +4066,7 @@
   "zh-cn",
   "zh-tw"
  ],
- "nba巔峰對決": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "nba巔峰對決-wild-caly-pte-ltd": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "nba王朝崛起": [
   "en",
   "ja",
   "ko",
@@ -4200,13 +4088,6 @@
   "zh-tw"
  ],
  "neuphoria-survival": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "night-crows": [
   "en",
   "ja",
   "ko",
@@ -4339,21 +4220,7 @@
   "zh-cn",
   "zh-tw"
  ],
- "one-piece-トレジャークルーズ-bandai-namco-entertainment-inc": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "one-piece-バウンティラッシュ-アクションゲーム": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "one-piece-バウンティラッシュ-アクションゲーム-bandai-namco-entertainment-inc": [
   "en",
   "ja",
   "ko",
@@ -4479,13 +4346,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "paranoize-us": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "path-to-nowhere": [
   "en",
   "ja",
@@ -4578,13 +4438,6 @@
   "zh-tw"
  ],
  "plants-on-fire": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "play-together-friends-party": [
   "en",
   "ja",
   "ko",
@@ -5152,13 +5005,6 @@
   "zh-tw"
  ],
  "ro仙境傳說守護永恆的愛-classic": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "ro仙境傳說守護永恆的愛-classic-gravity-interactive-inc": [
   "en",
   "ja",
   "ko",
@@ -6033,13 +5879,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "top-force": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "top-force-commander": [
   "en",
   "ja",
@@ -6194,13 +6033,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "triple-match-3d-us": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "triple-match-city": [
   "en",
   "ja",
@@ -6244,13 +6076,6 @@
   "zh-tw"
  ],
  "umamusume-pretty-derby-kakao-games": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "umamusume-pretty-derby-us": [
   "en",
   "ja",
   "ko",
@@ -6363,13 +6188,6 @@
   "zh-tw"
  ],
  "war-machinestanks-battle-game": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "war-robots-multiplayer-battles": [
   "en",
   "ja",
   "ko",
@@ -6754,13 +6572,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "あんさんぶるスターズmusic-happy-elements-kk": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "うたのプリンスさまっ-live-emotion": [
   "en",
   "ja",
@@ -6922,13 +6733,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "エバーテイル": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "エバーナイトリバース": [
   "en",
   "ja",
@@ -7056,13 +6860,6 @@
   "zh-tw"
  ],
  "クイズrpg-魔法使いと黒猫のウィズ": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "クイズrpg-魔法使いと黒猫のウィズ-colopl-inc": [
   "en",
   "ja",
   "ko",
@@ -7419,13 +7216,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "ドラゴンクエストスマッシュグロウ-ドラクエローグライトrpg": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "ドラゴンクエストスマッシュグロウ-ドラクエローグライトrpg-square-enix-co-ltd": [
   "en",
   "ja",
@@ -7538,13 +7328,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "パズルドラゴンズ": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "パチスロ-l-東京喰種": [
   "en",
   "ja",
@@ -7629,13 +7412,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "プリンセスコネクトredive-cygames-inc": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "プロサッカークラブをつくろうロードトゥワールド": [
   "en",
   "ja",
@@ -7644,13 +7420,6 @@
   "zh-tw"
  ],
  "プロジェクトセカイ-カラフルステージ-feat-初音ミク": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "プロジェクトセカイ-カラフルステージ-feat-初音ミク-sega-corporation": [
   "en",
   "ja",
   "ko",
@@ -7882,13 +7651,6 @@
   "zh-tw"
  ],
  "リネージュm-本格スマホmmorpg": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "リネージュm-本格スマホmmorpg-nc-japan-kk": [
   "en",
   "ja",
   "ko",
@@ -9036,13 +8798,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "剣と魔法のログレス-いにしえの女神-本格mmorpg": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "剣と魔法のログレス-いにしえの女神-本格mmorpg-marvelous-inc": [
   "en",
   "ja",
@@ -10135,13 +9890,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "崩壞3rd-cognosphere-pte-ltd": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "巅峰极速": [
   "en",
   "ja",
@@ -11171,13 +10919,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "暴走列伝-単車の虎-ヤンキー不良のガチンコ喧嘩バトルゲーム": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "暴走英雄坛-自由武侠世界放置江湖": [
   "en",
   "ja",
@@ -11340,13 +11081,6 @@
   "zh-tw"
  ],
  "格鬥天王拳面出擊-snk正版授權": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "格鬥天王拳面出擊-snk正版授權-tw": [
   "en",
   "ja",
   "ko",
@@ -12802,13 +12536,6 @@
   "zh-cn",
   "zh-tw"
  ],
- "薑餅人大亂鬥": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
  "藍顏清夢": [
   "en",
   "ja",
@@ -12999,13 +12726,6 @@
   "zh-tw"
  ],
  "超異域公主連結redive": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "超異域公主連結redive-so-net-entertainment-taiwan-limited": [
   "en",
   "ja",
   "ko",
@@ -13272,13 +12992,6 @@
   "zh-tw"
  ],
  "金好運-老虎機捕魚機戰神賽特吉宗麻將柏青哥娛樂首選": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "金好運-老虎機捕魚機戰神賽特吉宗麻將柏青哥娛樂首選-tw": [
   "en",
   "ja",
   "ko",
@@ -15484,13 +15197,6 @@
   "zh-tw"
  ],
  "헌팅-스나이퍼": [
-  "en",
-  "ja",
-  "ko",
-  "zh-cn",
-  "zh-tw"
- ],
- "헤븐-번즈-레드": [
   "en",
   "ja",
   "ko",

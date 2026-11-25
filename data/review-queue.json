@@ -53730,11 +53730,24 @@
       "title": "怪物彈珠 - RPG手機遊戲",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "jp.co.mixi.monsterstrikeTW"
       },
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "神魔之塔",
+          "appId": 583798880
+        },
+        {
+          "title": "怪物部落—猎人射击防御塔策略游戏",
+          "appId": 1037778423
+        },
+        {
+          "title": "Gang Start : 異世界極道傳說",
+          "appId": 1581728298
+        }
+      ],
       "addedAt": "2026-11-25T08:09:34.211Z"
     }
   ],
