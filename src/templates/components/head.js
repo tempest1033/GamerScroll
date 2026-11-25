@@ -292,7 +292,7 @@ function generateHead(options = {}) {
 	    var fc = window.googlefc = window.googlefc || {}; fc.controlledMessagingFunction = function (message) { var tries = 0; (function decide() { var types = window.googlefc.MessageTypeEnum;
 	      if (types && types.OFFERWALL) message.proceed(false, [types.OFFERWALL]); else if (++tries > 100) message.proceed(true); else setTimeout(decide, 50); })(); }; })();</script>
 	  <script>(function () { if (location.hostname !== 'gamerscroll.com') return; var client = 'ca-pub-9477874183990825';
-	    var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.fetchPriority = 'high'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+	    var s = document.createElement('script'); s.async = true; s.crossOrigin = 'anonymous'; s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
 	    if (${METRICS_PATH_TEST}) s.setAttribute('data-ad-client', client); else (window.adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: client, enable_page_level_ads: true, rewarded: false });
 	    document.head.appendChild(s); })();</script>` : ''}
 	  <!-- LCP 이미지 preload: 광고 스크립트 다음 순서 (광고 우선), 본문 <img>와 동일 URL로 dedupe -->${(() => {

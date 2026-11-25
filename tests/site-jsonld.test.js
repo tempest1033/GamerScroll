@@ -22,10 +22,12 @@ test('edition home: WebSite and its publisher use the edition URL; the root edit
   inEdition('ko', () => assert.equal(ofType(generateHead({ canonical: 'https://gamerscroll.com/rankings/' }), 'WebSite').length, 0, 'home only'));
 });
 
-test('the AdSense preload carries no fetch priority', () => {
+test('neither the AdSense preload nor its loader raises the fetch priority', () => {
   const html = require('../src/templates/components/head').generateHead({ canonical: 'https://gamerscroll.com/' });
   const preload = html.match(/<link rel="preload" as="script"[^>]*adsbygoogle\.js">/)[0];
-  assert.doesNotMatch(preload, /fetchpriority/);
+  assert.doesNotMatch(preload, /fetchpriority/i);
+  const loader = html.match(/<script>[^<]*document\.createElement\('script'\)[^<]*adsbygoogle\.js[^<]*<\/script>/)[0];
+  assert.doesNotMatch(loader, /fetchpriority/i);
 });
 
 test('about page: Organization (logo, X account) and its operator, referenced by the site WebSite', () => {
