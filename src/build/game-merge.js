@@ -2,8 +2,8 @@
 
 /**
  * Merges duplicate game records: records that one edition shows under the same title (names[<code>], else the DB name),
- * from the same developer (the first four letters of the developer names agree, or one has none), whose store IDs never
- * name two different apps for one market and store (e.g. "arknights" Google Play + "arknights-us" App Store US).
+ * from the same developer (both named, equal once case, spacing and punctuation are dropped), whose store IDs never
+ * name two different apps for one market and store (e.g. a Google Play record and an App Store US record of one game).
  * Each group becomes the record with the longest revenue-chart history; the others' slugs join its `legacySlugs`, so their
  * URLs 301 to it through docs/games-data/_redirects.json (scripts/generate-game-pages.js).
  * Run by the daily sync (scripts/sync-and-enrich.js) on every save; merging an already merged DB changes nothing.
@@ -17,7 +17,9 @@ const STORES = ['ios', 'android'];
 const norm = (s) => String(s || '').normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
 const titleOf = (key, g, code) => norm((g.names && g.names[code]) || key);
 const devKey = (g) => String(g.developer || '').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');
-const sameDeveloper = (a, b) => { const x = devKey(a), y = devKey(b); return !x || !y || x.slice(0, 4) === y.slice(0, 4); };
+const sameDeveloper = (a, b) => { const x = devKey(a); return Boolean(x) && x === devKey(b); };
+// The URL slug of a record: records without one have their page under the generated slug (scripts/generate-game-pages.js).
+const slugOf = (key, g) => g.slug || createSlug(key, g.appIds);
 const steamOf = (g) => (g.appIds && (g.appIds['steam:global'] || g.appIds.steam)) || null;
 function compatible(a, b) {
   for (const country of COUNTRIES) {
@@ -66,22 +68,23 @@ function duplicateGroups(games, chartDays) {
   return [...groups.values()].filter((g) => g.length > 1)
     // a chain of pairwise matches is merged only when every pair in it is compatible
     .filter((g) => g.every((a, i) => g.slice(i + 1).every((b) => compatible(games[a], games[b]))))
-    .map((g) => g.sort((a, b) => days.get(b) - days.get(a) || !games[a].slug - !games[b].slug || games[a].slug.length - games[b].slug.length || a.localeCompare(b)));
+    .map((g) => g.sort((a, b) => days.get(b) - days.get(a) || !games[a].slug - !games[b].slug || slugOf(a, games[a]).length - slugOf(b, games[b]).length || a.localeCompare(b)));
 }
 
 // Fields of `from` that `into` lacks, appended after its own.
 const fill = (into, from) => ({ ...into, ...Object.fromEntries(Object.entries(from || {}).filter(([k]) => !(into && k in into))) });
 
 function mergeInto(kept, keptKey, other, otherKey) {
+  // A generated slug follows the store IDs, which the merge extends: the kept page keeps its URL.
+  const keptSlug = slugOf(keptKey, kept);
+  if (!kept.slug) kept.slug = keptSlug;
   kept.appIds = fill(kept.appIds, other.appIds);
   if (kept.names || other.names) kept.names = fill(kept.names, other.names);
   kept.platforms = [...new Set([...(kept.platforms || []), ...(other.platforms || [])])];
   kept.aliases = [...new Set([...(kept.aliases || []), ...(otherKey !== keptKey ? [otherKey] : []), ...(other.aliases || [])])].filter((a) => a !== keptKey);
   if (!kept.developer && other.developer) kept.developer = other.developer;
   if (!kept.icon && other.icon) kept.icon = other.icon;
-  // A record without a slug has its page under the generated one (scripts/generate-game-pages.js).
-  const otherSlug = other.slug || createSlug(otherKey, other.appIds);
-  kept.legacySlugs = [...new Set([...(kept.legacySlugs || []), otherSlug, ...(other.legacySlugs || [])])].filter((s) => s && s !== kept.slug);
+  kept.legacySlugs = [...new Set([...(kept.legacySlugs || []), slugOf(otherKey, other), ...(other.legacySlugs || [])])].filter((s) => s && s !== keptSlug);
 }
 
 // Mutates gamesData.games; returns [{ kept, merged: [slug, ...] }].
@@ -89,7 +92,7 @@ function merge(gamesData, chartDays) {
   const games = gamesData.games;
   const out = [];
   for (const [keptKey, ...rest] of duplicateGroups(games, chartDays)) {
-    out.push({ kept: games[keptKey].slug, merged: rest.map((k) => games[k].slug || createSlug(k, games[k].appIds)) });
+    out.push({ kept: slugOf(keptKey, games[keptKey]), merged: rest.map((k) => slugOf(k, games[k])) });
     for (const key of rest) { mergeInto(games[keptKey], keptKey, games[key], key); delete games[key]; }
   }
   gamesData.totalGames = Object.keys(games).length;

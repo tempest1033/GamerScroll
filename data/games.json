@@ -1667,20 +1667,17 @@
     "스타세이비어": {
       "appIds": {
         "ios": "6443597557",
-        "android": "com.studiobside.starMain",
-        "steam": "3609080"
+        "android": "com.studiobside.starMain"
       },
       "aliases": [
-        "スターセイヴァー",
-        "StarSavior"
+        "スターセイヴァー"
       ],
       "developer": "Studio B Side Co.ltd.,",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/33/e3/1a/33e31a78-a336-db98-4765-b97bf3854191/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
       "slug": "starsavior-studio-b",
       "platforms": [
         "ios",
-        "android",
-        "steam"
+        "android"
       ],
       "names": {
         "ko": "스타세이비어",
@@ -1689,8 +1686,7 @@
         "zh-tw": "星之救援者"
       },
       "legacySlugs": [
-        "스타세이비어",
-        "starsavior"
+        "스타세이비어"
       ]
     },
     "광란의 대결! 공룡 쇼다운": {
@@ -3273,8 +3269,7 @@
     "에픽세븐": {
       "appIds": {
         "android": "com.stove.epic7.google",
-        "ios": "1322399438",
-        "steam": "5019180"
+        "ios": "1322399438"
       },
       "aliases": [
         "에픽7",
@@ -3286,8 +3281,7 @@
       "slug": "epic-seven-smilegate-holdings",
       "platforms": [
         "ios",
-        "android",
-        "steam"
+        "android"
       ],
       "names": {
         "ko": "에픽세븐",
@@ -3296,8 +3290,7 @@
         "zh-tw": "第七史詩"
       },
       "legacySlugs": [
-        "에픽세븐",
-        "epic-seven"
+        "에픽세븐"
       ]
     },
     "Apex Girl": {
@@ -5748,6 +5741,27 @@
       },
       "legacySlugs": [
         "블록게임"
+      ]
+    },
+    "애로우즈 – 퍼즐 이스케이프 (Arrows)": {
+      "appIds": {
+        "android": "com.ecffri.arrows"
+      },
+      "developer": "Lessmore UG",
+      "icon": "https://play-lh.googleusercontent.com/9jnLLNWl7ppLZSRxydZnu2rqfl7oxo876_SR_TcumZnpis7NgZXRV4-GvDNG3fKRa20",
+      "slug": "arrows-puzzle-escape-lessmore-ug",
+      "platforms": [
+        "android"
+      ],
+      "aliases": [],
+      "names": {
+        "ko": "Arrows - 퍼즐 이스케이프",
+        "en": "Arrows – Puzzle Escape",
+        "ja": "Arrows - パズルエスケープ",
+        "zh-tw": "Arrows – Puzzle Escape"
+      },
+      "legacySlugs": [
+        "애로우즈-퍼즐-이스케이프-arrows"
       ]
     },
     "모범 놀이터： 타락자들": {
@@ -11118,28 +11132,22 @@
     "블루 프로토콜: 스타 레조넌스": {
       "appIds": {
         "ios": "6748013182",
-        "android": "asia.xdg.game.gp.bpsr",
-        "steam": "4073960"
+        "android": "asia.xdg.game.gp.bpsr"
       },
       "aliases": [
-        "블루 프로토콜 스타 레조넌스",
-        "ブループロトコル：スターレゾナンス"
+        "블루 프로토콜 스타 레조넌스"
       ],
       "developer": "X.D. Global",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0f/22/1f/0f221f10-ceea-6b9a-433b-c9b573011512/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/100x100bb.png",
       "slug": "블루-프로토콜-스타-레조넌스",
       "platforms": [
         "ios",
-        "android",
-        "steam"
+        "android"
       ],
       "names": {
         "ko": "블루 프로토콜: 스타 레조넌스",
         "ja": "ブループロトコル：スターレゾナンス"
-      },
-      "legacySlugs": [
-        "game-epxgw1"
-      ]
+      }
     },
     "Be A Pro: Football": {
       "appIds": {
@@ -11290,18 +11298,14 @@
     },
     "숨은그림찾기 게임: Seek It": {
       "appIds": {
-        "android": "hidden.object.find.seek.search.mystery.puzzle.games.free",
-        "ios": 6751270213
+        "android": "hidden.object.find.seek.search.mystery.puzzle.games.free"
       },
-      "aliases": [
-        "물건 찾기: 숨겨진 퍼즐"
-      ],
+      "aliases": [],
       "developer": "NimbleMind Network Inc.",
       "icon": "https://play-lh.googleusercontent.com/wjlDWPj_fLATFob1nDPcGy_6EEEOZwpM1tjHQnVdvzJTuHJe5y0UH173Siz1oWjGuA",
       "slug": "hidden-object-games-seek-it",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "숨은그림찾기 게임: Seek It",
@@ -11310,9 +11314,7 @@
         "zh-tw": "隱藏物品遊戲：尋寶冒險，發現隱藏物品"
       },
       "legacySlugs": [
-        "숨은그림찾기-게임-seek-it",
-        "hidden-object-games-seek-it-nimblemind",
-        "물건-찾기-숨겨진-퍼즐"
+        "숨은그림찾기-게임-seek-it"
       ]
     },
     "Ashes of Creation": {
@@ -14527,6 +14529,27 @@
         "zh-tw": "Battle Bag: War Zone"
       }
     },
+    "머지 과일주스": {
+      "appIds": {
+        "android": "com.stormborn.reverse.juice.suika"
+      },
+      "aliases": [],
+      "developer": "Stormborn",
+      "icon": "https://play-lh.googleusercontent.com/JCMInO0UPunayM0215EKuOM48jbbIkXIbg4_NTChm7es7qfIZd_6FqO_4RkR2A37lFB24Kjjmcp8pRaW6x56RQ",
+      "slug": "merge-fruit-juice-stormborn",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "머지 과일주스",
+        "en": "Merge Fruit Juice",
+        "ja": "マージ・フルーツジュース",
+        "zh-tw": "Merge Fruit Juice"
+      },
+      "legacySlugs": [
+        "머지-과일주스"
+      ]
+    },
     "잃어버린 감옥 (Lost Prison) - 서바이벌": {
       "appIds": {
         "android": "com.finetosurvive.master",
@@ -15070,25 +15093,18 @@
     },
     "앵커패닉": {
       "appIds": {
-        "ios": "6741319337",
-        "android": "com.neptune.anchorpanic"
+        "ios": "6741319337"
       },
-      "aliases": [
-        "앵커패닉 : 1주년 600뽑 대축제"
-      ],
+      "aliases": [],
       "developer": "Neptune Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/de/2d/3dde2d2a-b73a-2f44-2211-d51c05142ba6/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/100x100bb.png",
       "slug": "앵커패닉",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "앵커패닉"
-      },
-      "legacySlugs": [
-        "앵커패닉-1주년-600뽑-대축제"
-      ]
+      }
     },
     "Braindom: Brain Games Test Out": {
       "appIds": {
@@ -16506,6 +16522,19 @@
       "developer": "",
       "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1825750/capsule_231x87.jpg?t=1734322141",
       "slug": "soulworker-your-destiny-awaits",
+      "platforms": [
+        "steam"
+      ],
+      "names": {}
+    },
+    "StarSavior": {
+      "appIds": {
+        "steam": "3609080"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3609080/314ffd661646f7b3e5e064a33ee7e3aa292f41cf/capsule_231x87.jpg?t=1765432821",
+      "slug": "starsavior",
       "platforms": [
         "steam"
       ],
@@ -19665,18 +19694,14 @@
     },
     "수학퍼즐: 연산 & 계산 - 숫자 게임. 두뇌 트레이닝": {
       "appIds": {
-        "android": "com.zm.crossmath",
-        "ios": 6469306922
+        "android": "com.zm.crossmath"
       },
-      "aliases": [
-        "수학 퍼즐 - 숫자 게임. 계산 퀴즈 & 두뇌 트레이닝"
-      ],
+      "aliases": [],
       "developer": "Tripledot Studios Limited",
       "icon": "https://play-lh.googleusercontent.com/S7KghUp5n1pbdx38PztRpL3WWfU3bV-rx-uGHlO5LBAtHOvpnv3qFx9HmH1z4OQTzGc",
       "slug": "math-crossword-number-puzzle",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "수학퍼즐: 연산 & 계산 - 숫자 게임. 두뇌 트레이닝",
@@ -19685,9 +19710,7 @@
         "zh-tw": "Math Crossword — Number puzzle"
       },
       "legacySlugs": [
-        "수학퍼즐-연산-계산-숫자-게임-두뇌-트레이닝",
-        "math-crossword-number-puzzle-tripledot-studios",
-        "수학-퍼즐-숫자-게임-계산-퀴즈-두뇌-트레이닝"
+        "수학퍼즐-연산-계산-숫자-게임-두뇌-트레이닝"
       ]
     },
     "Hotpot Go: 푸드 소트 - 힐링 3D 훠궈 퍼즐": {
@@ -20506,18 +20529,14 @@
     },
     "2~4 인용 미니게임": {
       "appIds": {
-        "ios": 1269516792,
-        "android": "com.ction.playergames"
+        "ios": 1269516792
       },
-      "aliases": [
-        "2~4인 미니 게임하기"
-      ],
+      "aliases": [],
       "developer": "Jochem Bergman",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f4/aa/e5/f4aae5f6-e3a8-477d-d6d9-82363a248618/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/100x100bb.png",
       "slug": "2-3-4-player-games",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "2~4 인용 미니게임",
@@ -20526,9 +20545,7 @@
         "zh-tw": "2、3、4人遊戲"
       },
       "legacySlugs": [
-        "24-인용-미니게임",
-        "2-3-4-player-mini-games",
-        "24인-미니-게임하기"
+        "24-인용-미니게임"
       ]
     },
     "마계학원": {
@@ -21042,6 +21059,19 @@
         "ja": "Swipe It: Board Wooden Puzzle",
         "zh-tw": "Swipe It: Board Wooden Puzzle"
       }
+    },
+    "ブループロトコル：スターレゾナンス": {
+      "appIds": {
+        "steam": "4073960"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4073960/922097af030ea43d62f675f88c3cc5d7bccb9d4e/capsule_231x87.jpg?t=1769573318",
+      "slug": "",
+      "platforms": [
+        "steam"
+      ],
+      "names": {}
     },
     "Yarn Fever! Unravel Puzzle": {
       "appIds": {
@@ -21653,6 +21683,25 @@
       },
       "legacySlugs": [
         "우르르-수비대-디펜스-rpg"
+      ]
+    },
+    "2~4인 미니 게임하기": {
+      "appIds": {
+        "android": "com.ction.playergames"
+      },
+      "aliases": [],
+      "slug": "2-3-4-player-mini-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "2~4인 미니 게임하기",
+        "en": "2 3 4 Player Mini Games",
+        "ja": "2、3、4人ミニゲーム",
+        "zh-tw": "2、3、4人遊戲"
+      },
+      "legacySlugs": [
+        "24인-미니-게임하기"
       ]
     },
     "에르피스": {
@@ -22269,29 +22318,21 @@
     },
     "Arrows – Puzzle Escape": {
       "appIds": {
-        "ios": 6748397500,
-        "android": "com.ecffri.arrows"
+        "ios": 6748397500
       },
-      "aliases": [
-        "애로우즈 – 퍼즐 이스케이프 (Arrows)"
-      ],
+      "aliases": [],
       "developer": "Lessmore UG (haftungsbeschränkt)",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/23/e9/5c23e9da-632c-5795-f3ba-3e713ebfe0bb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "arrows-puzzle-escape",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Arrows – Puzzle Escape",
         "en": "Arrows – Puzzle Escape",
         "ja": "Arrows – Puzzle Escape",
         "zh-tw": "Arrows – Puzzle Escape"
-      },
-      "legacySlugs": [
-        "arrows-puzzle-escape-lessmore-ug",
-        "애로우즈-퍼즐-이스케이프-arrows"
-      ]
+      }
     },
     "테이스티 트레블: 합성 게임": {
       "appIds": {
@@ -23814,18 +23855,14 @@
     },
     "암살자 키우기 : 방치형 RPG": {
       "appIds": {
-        "ios": "6739772012",
-        "android": "highpixel.billion"
+        "ios": "6739772012"
       },
-      "aliases": [
-        "암살자 키우기 : 1주년"
-      ],
-      "developer": "하이픽셀(HighPixel)",
-      "icon": "https://play-lh.googleusercontent.com/NKU8Y0yf8FVgIV4Pb2IxsIDUeB4nxr3M95X67Vv_kjD8vFiPqTZNpBhU0V7pyp2FvCE",
+      "aliases": [],
+      "developer": "",
+      "icon": "",
       "slug": "raise-an-assassin-idle-rpg",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "암살자 키우기 : 1주년",
@@ -23834,9 +23871,7 @@
         "zh-tw": "刺客養成"
       },
       "legacySlugs": [
-        "암살자-키우기-방치형-rpg",
-        "raise-an-assassin-idle-rpg-2",
-        "암살자-키우기-1주년"
+        "암살자-키우기-방치형-rpg"
       ]
     },
     "픽셀 법사 키우기 : 방치형 RPG": {
@@ -25489,22 +25524,19 @@
       "appIds": {
         "ios": "1628970855",
         "android": "com.farlightgames.igame.gp",
-        "ios_cn": "1481453488",
-        "steam": "4195600"
+        "ios_cn": "1481453488"
       },
       "aliases": [
         "AFK: 새로운 여정",
         "AFK: 새로운 여정 - 모든 영웅 증정",
-        "剑与远征 - AFK",
-        "AFK Journey"
+        "剑与远征 - AFK"
       ],
       "developer": "FARLIGHT",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/37/89/3d37899a-747d-578c-6f51-5718fc4c4583/AppIcon-cn-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "afk-journey-farlight",
       "platforms": [
         "ios",
-        "android",
-        "steam"
+        "android"
       ],
       "names": {
         "ko": "AFK: 새로운 여정",
@@ -25514,8 +25546,7 @@
         "zh-tw": "劍與遠征：啟程"
       },
       "legacySlugs": [
-        "afk-새로운-여정-힐링-농장",
-        "afk-journey"
+        "afk-새로운-여정-힐링-농장"
       ]
     },
     "작혼: 리치 마작": {
@@ -26347,18 +26378,14 @@
     },
     "Merge Fruit Juice": {
       "appIds": {
-        "ios": 6757894102,
-        "android": "com.stormborn.reverse.juice.suika"
+        "ios": 6757894102
       },
-      "aliases": [
-        "머지 과일주스"
-      ],
+      "aliases": [],
       "developer": "Stormborn Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3e/79/0f/3e790fb6-e27b-f300-5599-326c66777db9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "merge-fruit-juice",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Merge Fruit Juice",
@@ -26366,11 +26393,7 @@
         "ja": "Merge Fruit Juice",
         "zh-cn": "Merge Fruit Juice",
         "zh-tw": "Merge Fruit Juice"
-      },
-      "legacySlugs": [
-        "merge-fruit-juice-stormborn",
-        "머지-과일주스"
-      ]
+      }
     },
     "EZ2ON REBOOT : R - NIGHT TRAVELER": {
       "appIds": {
@@ -29492,18 +29515,14 @@
     },
     "토이 블라스트 (Toy Blast)": {
       "appIds": {
-        "ios": 890378044,
-        "android": "net.peakgames.amy"
+        "ios": 890378044
       },
-      "aliases": [
-        "Toy Blast - 토이 블라스트"
-      ],
+      "aliases": [],
       "developer": "Peak Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/ef/71/2aef716e-c14c-d6a4-15b5-7a67ed36e050/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "toy-blast",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "토이 블라스트 (Toy Blast)",
@@ -29512,9 +29531,7 @@
         "zh-tw": "Toy Blast"
       },
       "legacySlugs": [
-        "토이-블라스트-toy-blast",
-        "toy-blast-peak",
-        "toy-blast-토이-블라스트"
+        "토이-블라스트-toy-blast"
       ]
     },
     "The Stanley Parable: UD": {
@@ -30071,19 +30088,14 @@
     },
     "악마왕키우기": {
       "appIds": {
-        "ios": "6477870177",
-        "android": "com.deepgames.release.becamethedevil"
+        "ios": "6477870177"
       },
-      "aliases": [
-        "악마왕키우기 (Gameduo)",
-        "成為惡魔：放置型RPG"
-      ],
+      "aliases": [],
       "developer": "Game Duo Co.,Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6c/4a/d4/6c4ad400-1c8e-0f36-c651-327a423cbb01/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "the-demonized-idle-rpg-game-duo",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "악마왕키우기",
@@ -30092,8 +30104,7 @@
         "zh-tw": "成為惡魔：放置型RPG"
       },
       "legacySlugs": [
-        "악마왕키우기",
-        "the-demonized-idle-rpg"
+        "악마왕키우기"
       ]
     },
     "Car Race": {
@@ -30325,18 +30336,14 @@
     },
     "스톤에이지 키우기": {
       "appIds": {
-        "ios": "6737408689",
-        "android": "com.netmarble.stonkey"
+        "ios": "6737408689"
       },
-      "aliases": [
-        "스톤에이지 키우기 - 모든 펫 증정!"
-      ],
+      "aliases": [],
       "developer": "Netmarble Corporation",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7a/46/40/7a4640bc-76c5-d4bc-7852-9ca9470a500d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "stoneage-idle-adventure",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "스톤에이지 키우기",
@@ -30345,9 +30352,7 @@
         "zh-tw": "石器時代：放置冒險"
       },
       "legacySlugs": [
-        "스톤에이지-키우기",
-        "stoneage-idle-adventure-netmarble",
-        "스톤에이지-키우기-모든-펫-증정"
+        "스톤에이지-키우기"
       ]
     },
     "Far Cry® 6": {
@@ -30439,6 +30444,27 @@
         "steam"
       ],
       "names": {}
+    },
+    "스톤에이지 키우기 - 모든 펫 증정!": {
+      "appIds": {
+        "android": "com.netmarble.stonkey"
+      },
+      "aliases": [],
+      "developer": "Netmarble",
+      "icon": "https://play-lh.googleusercontent.com/mHJqRu4jWQURdoJTkJYcqPvd1atYDkx4EGEuv3olhT8MFdDW1jYNGyFLmOkr8plJmQZmmSc7v744iYJk09Nc7A",
+      "slug": "stoneage-idle-adventure-netmarble",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "스톤에이지 키우기",
+        "en": "StoneAge: Idle Adventure",
+        "ja": "ストーンエイジ：放置冒険 - すべてのペット贈呈！",
+        "zh-tw": "石器時代：放置冒險"
+      },
+      "legacySlugs": [
+        "스톤에이지-키우기-모든-펫-증정"
+      ]
     },
     "Spunky Beat: Full Mod Music": {
       "appIds": {
@@ -31634,6 +31660,27 @@
         "jigsort-퍼즐-혼자-즐기는-재미"
       ]
     },
+    "Toy Blast - 토이 블라스트": {
+      "appIds": {
+        "android": "net.peakgames.amy"
+      },
+      "aliases": [],
+      "developer": "Peak",
+      "icon": "https://play-lh.googleusercontent.com/uzIGk-ZqUpbSdTErg6fr4wagWHmj_ul9Bw7ZtNqZvOqnM6xgdXnqsl8GKg2u9U0Y",
+      "slug": "toy-blast-peak",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Toy Blast - 토이 블라스트",
+        "en": "Toy Blast",
+        "ja": "Toy Blast - トイブラスト",
+        "zh-tw": "Toy Blast"
+      },
+      "legacySlugs": [
+        "toy-blast-토이-블라스트"
+      ]
+    },
     "Cat Beats - Tiles Music Games": {
       "appIds": {
         "android": "cats.tap.dacing.games.free"
@@ -31669,6 +31716,27 @@
         "ja": "Craft Land: Sandbox World",
         "zh-tw": "Craft Land: Sandbox World"
       }
+    },
+    "외계인의 침공: Alien Invasion RPG": {
+      "appIds": {
+        "ios": 6443697602
+      },
+      "aliases": [],
+      "developer": "Crazy Labs",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0c/8d/82/0c8d82fc-f1b4-bba2-1f3d-dfd05d8b8b86/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "alien-invasion-rpg-idle-space-crazy-labs",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "외계인의 침공: Alien Invasion RPG",
+        "en": "Alien Invasion: RPG Idle Space",
+        "ja": "エイリアンの侵略: Alien Invasion RPG",
+        "zh-tw": "異星入侵：Alien Invasion RPG"
+      },
+      "legacySlugs": [
+        "외계인의-침공-alien-invasion-rpg"
+      ]
     },
     "Lightyear Frontier": {
       "appIds": {
@@ -33286,6 +33354,27 @@
         "드래곤-슬레이어-키우기-방치형-rpg"
       ]
     },
+    "물건 찾기: 숨겨진 퍼즐": {
+      "appIds": {
+        "ios": 6751270213
+      },
+      "aliases": [],
+      "developer": "NimbleMind",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a7/e2/8c/a7e28c88-d989-59f8-d66f-b256c77f24b7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "hidden-object-games-seek-it-nimblemind",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "숨은그림찾기: 숨겨진 물건 찾기 & 퍼즐 게임",
+        "en": "Hidden Object Games: Seek It",
+        "ja": "オブジェクトを探す：隠されたパズル",
+        "zh-tw": "尋找物品：解謎遊戲"
+      },
+      "legacySlugs": [
+        "물건-찾기-숨겨진-퍼즐"
+      ]
+    },
     "Moonlighter 2: The Endless Vault": {
       "appIds": {
         "steam": "2350790"
@@ -34135,6 +34224,19 @@
         "이블랜드-에픽-오픈월드-멀티플레이-mmorpg"
       ]
     },
+    "The Seven Deadly Sins: Origin": {
+      "appIds": {
+        "steam": "3679080"
+      },
+      "aliases": [],
+      "developer": "Netmarble F&C",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3679080/f7ce109f339c8ad6c1f8839313c64806a9edc203/capsule_231x87.jpg?t=1773678654",
+      "slug": "the-seven-deadly-sins-origin",
+      "platforms": [
+        "steam"
+      ],
+      "names": {}
+    },
     "The King is Watching": {
       "appIds": {
         "steam": "2753900"
@@ -34568,6 +34670,27 @@
         "steam"
       ],
       "names": {}
+    },
+    "Butcher hero: 서바이벌 RPG": {
+      "appIds": {
+        "android": "com.multicastgames.butcher"
+      },
+      "aliases": [],
+      "developer": "MULTICAST GAMES",
+      "icon": "https://play-lh.googleusercontent.com/qMp7JAa9DZe6IsgVnbU5MZKJHRn2-JVuIk6V03eeTbVNhsvdFx3A2CaEUf1jBkLne4A8",
+      "slug": "butcher-hero-monster-idle-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Butcher Hero: 방치형 액션 RPG",
+        "en": "Butcher Hero: Monster Idle RPG",
+        "ja": "Butcher Hero：放置系アクションRPG",
+        "zh-tw": "Butcher Hero：放置動作RPG"
+      },
+      "legacySlugs": [
+        "butcher-hero-서바이벌-rpg"
+      ]
     },
     "Timber Rush": {
       "appIds": {
@@ -35626,20 +35749,17 @@
       "appIds": {
         "ios": 6744205088,
         "android": "com.netmarble.nanaori",
-        "ios_tw": "1602657241",
-        "steam": "3679080"
+        "ios_tw": "1602657241"
       },
       "aliases": [
-        "彈彈堂 Origin",
-        "The Seven Deadly Sins: Origin"
+        "彈彈堂 Origin"
       ],
       "developer": "Netmarble Corporation",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/e2/97/6be2979c-3866-999c-12cd-aa2d9e5f8ee1/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "the-seven-deadly-sins-origin-netmarble-corporation",
       "platforms": [
         "ios",
-        "android",
-        "steam"
+        "android"
       ],
       "names": {
         "ko": "일곱 개의 대죄: Origin - 0.5주년",
@@ -35648,8 +35768,7 @@
         "zh-tw": "七大罪：Origin"
       },
       "legacySlugs": [
-        "일곱-개의-대죄-origin",
-        "the-seven-deadly-sins-origin"
+        "일곱-개의-대죄-origin"
       ]
     },
     "DISSIDIA DUELLUM FINAL FANTASY": {
@@ -35684,6 +35803,27 @@
         "steam"
       ],
       "names": {}
+    },
+    "수학 퍼즐 - 숫자 게임. 계산 퀴즈 & 두뇌 트레이닝": {
+      "appIds": {
+        "ios": 6469306922
+      },
+      "aliases": [],
+      "developer": "Tripledot Studios",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/ca/a5/0bcaa5c8-0b6b-7e2a-40eb-9e691b84dcd2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "math-crossword-number-puzzle-tripledot-studios",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "수학 퍼즐 - 숫자 게임. 계산 퀴즈 & 두뇌 트레이닝",
+        "en": "Math Crossword — Number Puzzle",
+        "ja": "数学パズルゲーム — ナンバーマッチ, クロスワード",
+        "zh-tw": "Math Crossword — Number Puzzle"
+      },
+      "legacySlugs": [
+        "수학-퍼즐-숫자-게임-계산-퀴즈-두뇌-트레이닝"
+      ]
     },
     "Room Decor: Lovely Home": {
       "appIds": {
@@ -35762,6 +35902,27 @@
         "ja": "Hidden Love Tile",
         "zh-tw": "Hidden Love Tile"
       }
+    },
+    "이상한 병원": {
+      "appIds": {
+        "ios": 6747965532
+      },
+      "aliases": [],
+      "developer": "LEYO GAME LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7f/2c/ae/7f2caede-d1bc-d914-d23c-c2ec8345d2e8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "idle-mad-house-tycoon-leyo-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "이상한 병원",
+        "en": "IDLE MAD HOUSE TYCOON",
+        "ja": "ヤバすぎ！マッドハウス経営",
+        "zh-tw": "失控瘋人院"
+      },
+      "legacySlugs": [
+        "이상한-병원"
+      ]
     },
     "Woodoku": {
       "appIds": {
@@ -36634,29 +36795,21 @@
     },
     "Butcher hero: hook'n'chew RPG": {
       "appIds": {
-        "ios": "6757722046",
-        "android": "com.multicastgames.butcher"
+        "ios": "6757722046"
       },
-      "aliases": [
-        "Butcher hero: 서바이벌 RPG"
-      ],
+      "aliases": [],
       "developer": "MULTICAST GAMES LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b7/ba/11/b7ba11d4-5649-9d99-d93e-46a73fd62fae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "butcher-hero-hooknchew-rpg",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Butcher Hero: 방치형 액션 RPG",
         "en": "Butcher Hero: Monster Idle RPG",
         "ja": "Butcher Hero：放置系アクションRPG",
         "zh-tw": "Butcher Hero: Monster Idle RPG"
-      },
-      "legacySlugs": [
-        "butcher-hero-monster-idle-rpg",
-        "butcher-hero-서바이벌-rpg"
-      ]
+      }
     },
     "들여보낼까 말까? - Let Them In?": {
       "appIds": {
@@ -37340,29 +37493,21 @@
     },
     "The Division Resurgence": {
       "appIds": {
-        "ios": 1606349410,
-        "android": "com.ubisoft.the.division.mobile.combat.shooting.open.world.rpg"
+        "ios": 1606349410
       },
-      "aliases": [
-        "더 디비전 리서전스"
-      ],
+      "aliases": [],
       "developer": "Ubisoft",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d0/a5/e3/d0a5e3de-ec6a-7b2f-3d1b-cf55bfb487d9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "the-division-resurgence",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "The Division Resurgence",
         "en": "The Division Resurgence",
         "ja": "The Division Resurgence",
         "zh-tw": "The Division Resurgence"
-      },
-      "legacySlugs": [
-        "the-division-resurgence-ubisoft-entertainment",
-        "더-디비전-리서전스"
-      ]
+      }
     },
     "Cooking Simulator 2: Better Together": {
       "appIds": {
@@ -39530,6 +39675,27 @@
       },
       "legacySlugs": [
         "황제의-검을-떨궜다"
+      ]
+    },
+    "더 디비전 리서전스": {
+      "appIds": {
+        "android": "com.ubisoft.the.division.mobile.combat.shooting.open.world.rpg"
+      },
+      "aliases": [],
+      "developer": "Ubisoft Entertainment",
+      "icon": "https://play-lh.googleusercontent.com/5N8G-P7HYt3S8tkLWG0KX4GyV4L9uPEsZ5_d4vvpGuZPszEQMVUlu1rTbL81s1ZQoQ",
+      "slug": "the-division-resurgence-ubisoft-entertainment",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "더 디비전 리서전스",
+        "en": "The Division Resurgence",
+        "ja": "ディビジョン リサージェンス",
+        "zh-tw": "The Division Resurgence"
+      },
+      "legacySlugs": [
+        "더-디비전-리서전스"
       ]
     },
     "Draft Showdown": {
@@ -42456,18 +42622,14 @@
     },
     "Idle Ball Escape: 볼 게임": {
       "appIds": {
-        "android": "com.microminimice.idleballescape",
-        "ios": 6759967969
+        "android": "com.microminimice.idleballescape"
       },
-      "aliases": [
-        "아이들 볼 이스케이프: 링을 부수는 볼 게임"
-      ],
+      "aliases": [],
       "developer": "Freeplay Inc",
       "icon": "https://play-lh.googleusercontent.com/Q1YtsV7dJqfRinLFbpeyiolNzaFywgzfj6zITwqoMc2GSMySDhDDLJagyCcEtF6Mk5M",
       "slug": "idle-ball-escape-smash-rings",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "Idle Ball Escape: 볼 게임",
@@ -42476,9 +42638,7 @@
         "zh-tw": "Idle Ball Escape: Smash Rings"
       },
       "legacySlugs": [
-        "idle-ball-escape-볼-게임",
-        "idle-ball-escape-smash-rings-freeplay-llc",
-        "아이들-볼-이스케이프-링을-부수는-볼-게임"
+        "idle-ball-escape-볼-게임"
       ]
     },
     "총잡이 고양이 - 방치형 키우기": {
@@ -43141,6 +43301,29 @@
         "zh-tw": "Cytus II"
       }
     },
+    "암살자 키우기 : 1주년": {
+      "appIds": {
+        "android": "highpixel.billion",
+        "ios": 6739772012
+      },
+      "aliases": [],
+      "developer": "하이픽셀(HighPixel)",
+      "icon": "https://play-lh.googleusercontent.com/NKU8Y0yf8FVgIV4Pb2IxsIDUeB4nxr3M95X67Vv_kjD8vFiPqTZNpBhU0V7pyp2FvCE",
+      "slug": "raise-an-assassin-idle-rpg-2",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "암살자 키우기 : 1주년",
+        "en": "Raise an Assassin: Idle RPG",
+        "ja": "暗殺者育成",
+        "zh-tw": "刺客養成"
+      },
+      "legacySlugs": [
+        "암살자-키우기-1주년"
+      ]
+    },
     "Slice Master : Idle Clicker": {
       "appIds": {
         "android": "com.oreon.trapall"
@@ -43404,6 +43587,23 @@
         "zh-tw": "Idle Theme Park - Tycoon Game"
       }
     },
+    "앵커패닉 : 1주년 600뽑 대축제": {
+      "appIds": {
+        "android": "com.neptune.anchorpanic",
+        "ios": 6741319337
+      },
+      "aliases": [],
+      "developer": "Neptune Corp.",
+      "icon": "https://play-lh.googleusercontent.com/R4QmhBqfPmhnNASMg2F93UDjKyibPoGQol4y9K3afzZbc_gYextTP3mPEaxYzAW0Hy6ZarcJiJCIs7wsCyP7",
+      "slug": "앵커패닉-1주년-600뽑-대축제",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "앵커패닉"
+      }
+    },
     "드로우 잇": {
       "appIds": {
         "android": "com.kwalee.drawit",
@@ -43636,18 +43836,14 @@
     },
     "머지 에이지 : 스톤 헤이븐": {
       "appIds": {
-        "android": "com.puzzle1studio.go.stoneagemerge",
-        "ios": 6756160382
+        "android": "com.puzzle1studio.go.stoneagemerge"
       },
-      "aliases": [
-        "머지 에이지: 스톤 빌리지"
-      ],
+      "aliases": [],
       "developer": "Puzzle1Studio",
       "icon": "https://play-lh.googleusercontent.com/7zZM6m97sRptlEZAWjto1VvPIkDE1JdW39ejYoaGZIvufXKPqbrDOX0Q7hVDVcaAsZ9LI44KAp8Ffe6OJK1uODU",
       "slug": "merge-age-stone-haven",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "머지 에이지 : 스톤 헤이븐",
@@ -43656,9 +43852,7 @@
         "zh-tw": "Merge Age: Stone Haven"
       },
       "legacySlugs": [
-        "머지-에이지-스톤-헤이븐",
-        "merge-age-stone-haven-puzzle1studio-inc",
-        "머지-에이지-스톤-빌리지"
+        "머지-에이지-스톤-헤이븐"
       ]
     },
     "Arrow Rescue: Save the Animal": {
@@ -44797,6 +44991,19 @@
         "통통-디펜스-핀볼-마스터"
       ]
     },
+    "Game of Thrones Kingsroad": {
+      "appIds": {
+        "steam": "4214820"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4214820/3b19b4bf11f9b20ea84f85a15e26b4463eec441c/capsule_231x87.jpg?t=1778748624",
+      "slug": "game-of-thrones-kingsroad",
+      "platforms": [
+        "steam"
+      ],
+      "names": {}
+    },
     "별별히어로 : 영웅 다 있소": {
       "appIds": {
         "ios": 6759585981,
@@ -44936,18 +45143,14 @@
     },
     "슈퍼 스타일리스트 패션 혁신": {
       "appIds": {
-        "android": "com.cocoplay.fashion.style",
-        "ios": 1441648201
+        "android": "com.cocoplay.fashion.style"
       },
-      "aliases": [
-        "슈퍼 스타일리스트"
-      ],
+      "aliases": [],
       "developer": "CrazyLabs LTD",
       "icon": "https://play-lh.googleusercontent.com/_mgRkZaWnsaaY605MiuMaafctT0QQYqwwYhpOq_r7nyO-cvWD-AVcqHZnNe8db2nQliM",
       "slug": "super-stylist-fashion-makeover",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "슈퍼 스타일리스트 패션 혁신",
@@ -44956,9 +45159,7 @@
         "zh-tw": "超級造型師的時尚裝扮"
       },
       "legacySlugs": [
-        "슈퍼-스타일리스트-패션-혁신",
-        "super-stylist-fashion-makeover-crazy-style",
-        "슈퍼-스타일리스트"
+        "슈퍼-스타일리스트-패션-혁신"
       ]
     },
     "Puzzle Time: Brainy Challenge": {
@@ -45221,6 +45422,19 @@
       ],
       "names": {}
     },
+    "AFK Journey": {
+      "appIds": {
+        "steam": "4195600"
+      },
+      "aliases": [],
+      "developer": "Farlight Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4195600/74b755956ffba694873e0c94b4f40adf4eb63bf0/capsule_231x87.jpg?t=1777342014",
+      "slug": "afk-journey",
+      "platforms": [
+        "steam"
+      ],
+      "names": {}
+    },
     "Daemon X Machina: Titanic Scion": {
       "appIds": {
         "steam": "1342490"
@@ -45246,6 +45460,27 @@
         "steam"
       ],
       "names": {}
+    },
+    "머지 에이지: 스톤 빌리지": {
+      "appIds": {
+        "ios": 6756160382
+      },
+      "aliases": [],
+      "developer": "Puzzle1Studio,inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4f/9d/5d/4f9d5d20-d73e-8bf8-ae97-e24c666dfde0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "merge-age-stone-haven-puzzle1studio-inc",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "머지 에이지: 스톤 빌리지",
+        "en": "Merge Age: Stone Haven",
+        "ja": "マージエイジ：ストーンライフ",
+        "zh-tw": "Merge Age: Stone Haven"
+      },
+      "legacySlugs": [
+        "머지-에이지-스톤-빌리지"
+      ]
     },
     "Piano Pet: Cute Rhythm Game": {
       "appIds": {
@@ -45657,19 +45892,15 @@
     "왕좌의 게임: 킹스로드": {
       "appIds": {
         "ios": "6755586050",
-        "android": "com.netmarble.gotasia",
-        "steam": "4214820"
+        "android": "com.netmarble.gotasia"
       },
-      "aliases": [
-        "Game of Thrones Kingsroad"
-      ],
+      "aliases": [],
       "developer": "Netmarble Corporation",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2f/54/a2/2f54a2e5-2a80-da91-ca27-a183c6852b66/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "game-of-thrones-kingsroad-netmarble-corporation",
       "platforms": [
         "ios",
-        "android",
-        "steam"
+        "android"
       ],
       "names": {
         "ko": "왕좌의 게임: 킹스로드",
@@ -45678,8 +45909,7 @@
         "zh-tw": "權力遊戲：國王大道"
       },
       "legacySlugs": [
-        "왕좌의-게임-킹스로드",
-        "game-of-thrones-kingsroad"
+        "왕좌의-게임-킹스로드"
       ]
     },
     "btw – puzzle maze": {
@@ -47274,6 +47504,24 @@
         "zh-tw": "Bus Arrival 3D"
       }
     },
+    "Arrow Away: Tap Escape Puzzle!": {
+      "appIds": {
+        "android": "com.flyfox.arrow.away.escape.out.color.master.game"
+      },
+      "aliases": [],
+      "developer": "Flyfox Games",
+      "icon": "https://play-lh.googleusercontent.com/ssIoqryT8hGCXLvYi4DNNI00tRZe8CHKSmOT2iD-MRdBGr2CLe4mAHLgpquEHA1xBuOIATYvbNOoiOg-EVV2fw",
+      "slug": "arrow-away-tap-escape-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Zapout: Tap Away Puzzle",
+        "en": "Maze Clear: Tap Away Puzzle",
+        "ja": "Arrow Away: Tap Escape Puzzle!",
+        "zh-tw": "Maze Clear: Tap Away Puzzle"
+      }
+    },
     "Rotaeno - 로테이노": {
       "appIds": {
         "ios": 1614771445
@@ -47325,18 +47573,14 @@
     },
     "소토피아: 3D 워터퍼즐": {
       "appIds": {
-        "android": "com.magic.relaxing.water.sort.colorgame.puzzle",
-        "ios": 6757832779
+        "android": "com.magic.relaxing.water.sort.colorgame.puzzle"
       },
-      "aliases": [
-        "3D Colorful Sort™ 마법의 물"
-      ],
+      "aliases": [],
       "developer": "Gaming Laboratory",
       "icon": "https://play-lh.googleusercontent.com/nl1p1R9g4vAZfj_h1dzcqRRnumzC8ZnRkSeXCVee3Ljjxu15SLE_leuzfwHye18lnvwYOs7BzG4ZdD8LrEhK",
       "slug": "3d-colorful-sort-magic-water",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "3D Colorful Sort™ 마법의 물",
@@ -47345,9 +47589,7 @@
         "zh-tw": "3D Colorful Sort™ 魔法水"
       },
       "legacySlugs": [
-        "소토피아-3d-워터퍼즐",
-        "3d-colorful-sort-magic-water-gaming-flight",
-        "3d-colorful-sort-마법의-물"
+        "소토피아-3d-워터퍼즐"
       ]
     },
     "TCG Card Shop Simulator": {
@@ -47380,6 +47622,27 @@
         "ja": "Stack",
         "zh-tw": "Stack"
       }
+    },
+    "아이들 볼 이스케이프: 링을 부수는 볼 게임": {
+      "appIds": {
+        "ios": 6759967969
+      },
+      "aliases": [],
+      "developer": "Freeplay LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e3/99/e9/e399e9f5-d17b-62ec-4838-1b206b32e709/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "idle-ball-escape-smash-rings-freeplay-llc",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "아이들 볼 이스케이프: 링을 부수는 볼 게임",
+        "en": "Idle Ball Escape: Smash Rings",
+        "ja": "アイドルボールエスケープ：リング破壊ボールゲーム",
+        "zh-tw": "Idle Ball Escape: Smash Rings"
+      },
+      "legacySlugs": [
+        "아이들-볼-이스케이프-링을-부수는-볼-게임"
+      ]
     },
     "Among the Sleep": {
       "appIds": {
@@ -48318,6 +48581,27 @@
         "steam"
       ],
       "names": {}
+    },
+    "헝그리 샤크 에볼루션:  상어 먹방 & 서바이벌 모험": {
+      "appIds": {
+        "ios": 535500008
+      },
+      "aliases": [],
+      "developer": "Ubisoft",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a5/6f/b9/a56fb9cb-6aac-3493-a34b-fd4602141fb3/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "hungry-shark-evolution-ubisoft",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "헝그리 샤크 에볼루션:  상어 먹방 & 서바이벌 모험",
+        "en": "Hungry Shark Evolution",
+        "ja": "ハングリーシャークエボリューション: サメのサバイバル！",
+        "zh-tw": "Hungry Shark Evolution"
+      },
+      "legacySlugs": [
+        "헝그리-샤크-에볼루션-상어-먹방-서바이벌-모험"
+      ]
     },
     "섀도우 파이트 2": {
       "appIds": {
@@ -51566,18 +51850,14 @@
     },
     "추락한 아름다움: 머지&스토리": {
       "appIds": {
-        "ios": "6758072393",
-        "android": "com.fallenbeauty.google"
+        "ios": "6758072393"
       },
-      "aliases": [
-        "Fallen beauty: 병합 및 스토리"
-      ],
+      "aliases": [],
       "developer": "KINETIC ENERGY WIRELESS(HONG KONG)LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bc/c5/0a/bcc50ace-3f97-1daf-438d-19fcbd187113/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "fallen-beauty-merge-story",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "추락한 아름다움: 머지&스토리",
@@ -51586,9 +51866,7 @@
         "zh-tw": "墮落之美：合成與故事"
       },
       "legacySlugs": [
-        "추락한-아름다움-머지스토리",
-        "fallen-beauty-merge-story-kinetic-energy",
-        "fallen-beauty-병합-및-스토리"
+        "추락한-아름다움-머지스토리"
       ]
     },
     "PUMP IT UP RISE - PHOENIX 2024 PACK": {
@@ -51887,6 +52165,27 @@
         "ko": "Meccha paint",
         "zh-tw": "Meccha paint"
       }
+    },
+    "슈퍼 스타일리스트": {
+      "appIds": {
+        "ios": 1441648201
+      },
+      "aliases": [],
+      "developer": "CRAZY STYLE LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2d/9a/d2/2d9ad2a3-3223-de2b-1323-776b530c4b77/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "super-stylist-fashion-makeover-crazy-style",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "슈퍼 스타일리스트",
+        "en": "Super Stylist Fashion Makeover",
+        "ja": "スーパースタイリスト",
+        "zh-tw": "Super Stylist Fashion Makeover"
+      },
+      "legacySlugs": [
+        "슈퍼-스타일리스트"
+      ]
     },
     "행복민박 차차차": {
       "appIds": {
@@ -52190,18 +52489,14 @@
     },
     "갓갓갓": {
       "appIds": {
-        "ios": 6745933175,
-        "android": "com.ObliqueGames.GodGodGod"
+        "ios": 6745933175
       },
-      "aliases": [
-        "갓갓갓 : 로그라이크 디펜스"
-      ],
+      "aliases": [],
       "developer": "OBLIQUE GAMES, Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8f/15/b0/8f15b0e4-37f4-b722-7bb2-eb266d0e96a9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "tiny-divines-defense",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "갓갓갓",
@@ -52210,9 +52505,7 @@
         "zh-tw": "口袋神兵"
       },
       "legacySlugs": [
-        "갓갓갓",
-        "tiny-divines-defense-oblique-games",
-        "갓갓갓-로그라이크-디펜스"
+        "갓갓갓"
       ]
     },
     "Money Sort: Merge Puzzle": {
@@ -52735,6 +53028,27 @@
       "names": {
         "ko": "쿠로코의 농구 Street Rivals"
       }
+    },
+    "갓갓갓 : 로그라이크 디펜스": {
+      "appIds": {
+        "android": "com.ObliqueGames.GodGodGod"
+      },
+      "aliases": [],
+      "developer": "OBLIQUE GAMES",
+      "icon": "https://play-lh.googleusercontent.com/SXLcjw0zOs17BPA2zVITjNnf4-tKaOk340wHiDZRCXzYTyM8c2P-Ggdjx9zv1bhXRCFvRALtelJnD9gEWdjX",
+      "slug": "tiny-divines-defense-oblique-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "갓갓갓 디펜스",
+        "en": "Tiny Divines: Defense",
+        "ja": "ポケっと神さま！：わちゃわちゃ防衛大作戦",
+        "zh-tw": "口袋神兵：類Rogue塔防"
+      },
+      "legacySlugs": [
+        "갓갓갓-로그라이크-디펜스"
+      ]
     },
     "아카데미 스토리2": {
       "appIds": {
@@ -55823,6 +56137,27 @@
         "merge-bistro-요리-꾸미기"
       ]
     },
+    "Goods Sort Match - 퍼즐": {
+      "appIds": {
+        "android": "com.hypervation.goodssort"
+      },
+      "aliases": [],
+      "developer": "GamoVation",
+      "icon": "https://play-lh.googleusercontent.com/NM6Qe70dq3dh1A7L5gpI2Ne_h3tvJ51qM7qKocBpRB5n9m7R1iYf0nm2h_NRjpP5yPvx7aKw6aZGujk0VvE-iQ",
+      "slug": "goods-sort-match-sorting-fun-gamovation",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Goods Sort Match - 퍼즐",
+        "en": "Goods Sort Match - Sorting Fun",
+        "ja": "Goods Sort Match - パズル",
+        "zh-tw": "Goods Sort Match - 益智遊戲"
+      },
+      "legacySlugs": [
+        "goods-sort-match-퍼즐"
+      ]
+    },
     "The Life and Suffering of Prince Jerian": {
       "appIds": {
         "steam": "2936290"
@@ -56872,6 +57207,27 @@
       ],
       "names": {}
     },
+    "3D Colorful Sort™ 마법의 물": {
+      "appIds": {
+        "ios": 6757832779
+      },
+      "aliases": [],
+      "developer": "Gaming Flight Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c0/03/d9/c003d9b0-331e-47ef-977d-5b43b831d4cc/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "3d-colorful-sort-magic-water-gaming-flight",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "3D Colorful Sort™ 마법의 물",
+        "en": "3D Colorful Sort™ Magic Water",
+        "ja": "3D Colorful Sort™ 魔法の水",
+        "zh-tw": "3D Colorful Sort™ 魔法倒水"
+      },
+      "legacySlugs": [
+        "3d-colorful-sort-마법의-물"
+      ]
+    },
     "Sir, We Have an Orc Problem": {
       "appIds": {
         "steam": "4594150"
@@ -57221,6 +57577,24 @@
       ],
       "names": {}
     },
+    "Rogue Legend - Roguelike RPG": {
+      "appIds": {
+        "ios": 6754965520
+      },
+      "aliases": [],
+      "developer": "PocketHaven Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/92/3a/b0/923ab0a9-1609-0711-3271-fc7366a11f52/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "rogue-legend-roguelike-rpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "로그 레전드: 로그라이크 RPG",
+        "en": "Rogue Legend - Roguelike RPG",
+        "ja": "ローグレジェンド：放置型破天荒RPG",
+        "zh-tw": "Rogue Legend - Roguelike RPG"
+      }
+    },
     "그라나도에스파다M x 신암행어사": {
       "appIds": {
         "android": "com.hanbitsoft.gem.google"
@@ -57530,18 +57904,14 @@
     },
     "로그 레전드: 로그라이크 RPG": {
       "appIds": {
-        "android": "com.pockethaven.roguelegend",
-        "ios": 6754965520
+        "android": "com.pockethaven.roguelegend"
       },
-      "aliases": [
-        "Rogue Legend - Roguelike RPG"
-      ],
+      "aliases": [],
       "developer": "PocketHaven",
       "icon": "https://play-lh.googleusercontent.com/TJ2J_Xl-hXJ-067S_bG981LQgc1DbRAR3dCLATZ_ovXtB_Pj3yhxB2peGFMj2oD-iay-RxH0JKoT2ILjcPtT3aU",
       "slug": "rogue-legend-roguelike-rpg-pockethaven",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "로그 레전드: 로그라이크 RPG",
@@ -57550,8 +57920,7 @@
         "zh-tw": "Rogue Legend：Roguelike RPG"
       },
       "legacySlugs": [
-        "로그-레전드-로그라이크-rpg",
-        "rogue-legend-roguelike-rpg"
+        "로그-레전드-로그라이크-rpg"
       ]
     },
     "강원랜드 온라인": {
@@ -58521,29 +58890,21 @@
     },
     "Slime Up！": {
       "appIds": {
-        "ios": 6762334135,
-        "android": "com.yeaplay.gp.slimeup"
+        "ios": 6762334135
       },
-      "aliases": [
-        "슬라임 대작전 !",
-        "史莱姆大作戰 ！"
-      ],
+      "aliases": [],
       "developer": "ZPLAY (HK) TECHNOLOGY CO., LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/06/13/53061362-ee86-796b-74cb-9409a60bf5c9/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "slime-up",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Slime Up！",
         "en": "Slime Up！",
         "ja": "スライム大作戦 !",
         "zh-tw": "史莱姆大作戰 ！"
-      },
-      "legacySlugs": [
-        "slime-up-us"
-      ]
+      }
     },
     "Bubble Shooter - Puzzle Games": {
       "appIds": {
@@ -60908,6 +61269,27 @@
         "zh-tw": "Captain Smash"
       }
     },
+    "브릭 팩토리: 색상 정렬 퍼즐!": {
+      "appIds": {
+        "android": "com.fc.color.brick.sort.match"
+      },
+      "aliases": [],
+      "developer": "FALCON GAMES",
+      "icon": "https://play-lh.googleusercontent.com/MOiaQ8uPNzJDWHD2gbrUKI2nLqo0alEzDA7HrQUraHq4DaEcPjIyoes3tm_RUpOEWLFQzsCs8U7F0vaxs5B5PmI",
+      "slug": "brick-factory-falcon-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "브릭 팩토리: 색상 정렬 퍼즐!",
+        "en": "Brick Factory!",
+        "ja": "ブリック工場：カラー仕分けパズル!",
+        "zh-tw": "磚塊工廠: 顏色分類拼圖！"
+      },
+      "legacySlugs": [
+        "브릭-팩토리-색상-정렬-퍼즐"
+      ]
+    },
     "TierSnap - 롤, 옵치, 브롤 티어 맞추기": {
       "appIds": {
         "android": "com.brainrottedgames.tiersnap"
@@ -62027,6 +62409,27 @@
       },
       "legacySlugs": [
         "미스터-수달셰프"
+      ]
+    },
+    "불릿 히어로즈: 타워 디펜스 게임": {
+      "appIds": {
+        "ios": 6752606721
+      },
+      "aliases": [],
+      "developer": "HOMA GAMES",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/90/fc/a1/90fca1bb-1d10-1e4c-4bed-288408d5f9df/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "bullet-heroes-td-rpg-shooter-homa-games",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "불릿 히어로즈: 타워 디펜스 게임",
+        "en": "Bullet Heroes: TD RPG Shooter",
+        "ja": "バレットヒーローズ: タワーディフェンス RPG",
+        "zh-tw": "Bullet Heroes TD"
+      },
+      "legacySlugs": [
+        "불릿-히어로즈-타워-디펜스-게임"
       ]
     },
     "Zad Archery": {
@@ -63527,29 +63930,21 @@
     },
     "Fruits Plate": {
       "appIds": {
-        "ios": 6804592883,
-        "android": "com.blazer.fruitsplate"
+        "ios": 6804592883
       },
-      "aliases": [
-        "후르츠 플레이트"
-      ],
+      "aliases": [],
       "developer": "blazer",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/13/0f/77/130f779a-3a9c-6703-ac2d-01ab4cd78bba/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "fruits-plate",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Fruits Plate",
         "en": "Fruits Plate",
         "ja": "Fruits Plate",
         "zh-tw": "Fruits Plate"
-      },
-      "legacySlugs": [
-        "fruits-plate-blazer-games",
-        "후르츠-플레이트"
-      ]
+      }
     },
     "3 Tiles - 타일을 연결하여 블록 퍼즐 맞추기": {
       "appIds": {
@@ -64119,6 +64514,27 @@
         "계급장-키우기-대폭발"
       ]
     },
+    "후르츠 플레이트": {
+      "appIds": {
+        "android": "com.blazer.fruitsplate"
+      },
+      "aliases": [],
+      "developer": "Blazer Games",
+      "icon": "https://play-lh.googleusercontent.com/k94kiTi3DZ0eTynylrzLvewyFE1BNgfDgGnY0gVBF8LK37xgszEQIg8iSbXRyQPoRgIb_LQk6biXUhchGet3EA",
+      "slug": "fruits-plate-blazer-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "후르츠 플레이트",
+        "en": "Fruits Plate",
+        "ja": "フルーツプレート",
+        "zh-tw": "Fruits Plate"
+      },
+      "legacySlugs": [
+        "후르츠-플레이트"
+      ]
+    },
     "2248 Master: 숫자 퍼즐2048": {
       "appIds": {
         "android": "com.sofish.master2248.gp"
@@ -64225,6 +64641,27 @@
         "bus-crowd-교통-체증"
       ]
     },
+    "Fallen beauty: 병합 및 스토리": {
+      "appIds": {
+        "android": "com.fallenbeauty.google"
+      },
+      "aliases": [],
+      "developer": "Kinetic Energy Game",
+      "icon": "https://play-lh.googleusercontent.com/pqP6_VIvX0hjWgY9RCLIK8rw3Tq-BywOxeid3NfInHUICD8G-FZhfi8McCmbtzBkGCgqWK4PbhNEs8aACMpj",
+      "slug": "fallen-beauty-merge-story-kinetic-energy",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fallen beauty: 병합 및 스토리",
+        "en": "Fallen Beauty: Merge & Story",
+        "ja": "Fallen beauty：マージ＆ストーリー",
+        "zh-tw": "墮落之美：合成與故事"
+      },
+      "legacySlugs": [
+        "fallen-beauty-병합-및-스토리"
+      ]
+    },
     "Cutie Sort: 고양이 분류 퍼즐": {
       "appIds": {
         "android": "sort.casual.color.cat.puzzle.match"
@@ -64284,18 +64721,14 @@
     },
     "그릴 매치 - 음식 정렬 퍼즐": {
       "appIds": {
-        "android": "com.grill.sort.food.skewer.sorting.matching.games",
-        "ios": 6752890879
+        "android": "com.grill.sort.food.skewer.sorting.matching.games"
       },
-      "aliases": [
-        "그릴 매치 - 음식 분류 게임"
-      ],
+      "aliases": [],
       "developer": "Guru Puzzle Game",
       "icon": "https://play-lh.googleusercontent.com/P6w2IKofIkYVd1DIe_jk-31n2X-82HiAFYV-_nvpW1qbV_ZFh5RLk56WKZy0y9XQw5gGls-B0xHenADEWzNRyWA",
       "slug": "grill-match-food-sort-puzzle",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "그릴 매치 - 음식 정렬 퍼즐",
@@ -64304,9 +64737,7 @@
         "zh-tw": "燒烤配對 - 美食分類挑戰"
       },
       "legacySlugs": [
-        "그릴-매치-음식-정렬-퍼즐",
-        "grill-match-food-sort-puzzle-guru-smart",
-        "그릴-매치-음식-분류-게임"
+        "그릴-매치-음식-정렬-퍼즐"
       ]
     },
     "Spider Fighter 3": {
@@ -64792,6 +65223,19 @@
         "ko": "광기의 원시인"
       }
     },
+    "Aniimo": {
+      "appIds": {
+        "steam": "4126040"
+      },
+      "aliases": [],
+      "developer": "Pawprint Studio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4126040/9cd26f736939c12a37f54cd3a49a9c08a318ec03/capsule_231x87.jpg?t=1789523496",
+      "slug": "aniimo",
+      "platforms": [
+        "steam"
+      ],
+      "names": {}
+    },
     "에버나이트: 리버스": {
       "appIds": {
         "ios": "6762976425",
@@ -65172,18 +65616,14 @@
     },
     "황야의 무법자: 타워 디펜스": {
       "appIds": {
-        "ios": 6760276770,
-        "android": "com.cookapps.towerroguedefense"
+        "ios": 6760276770
       },
-      "aliases": [
-        "총잡이 디펜스"
-      ],
+      "aliases": [],
       "developer": "PurpleCow Games Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/37/2f/c6372f81-36f1-1590-519a-b8845f111bbe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "galactic-outlaw-tower-defense",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "황야의 무법자: 타워 디펜스",
@@ -65192,9 +65632,7 @@
         "zh-tw": "星際亡命徒：肉鴿塔防"
       },
       "legacySlugs": [
-        "황야의-무법자-타워-디펜스",
-        "galactic-outlaw-tower-defense-purplecow-games",
-        "총잡이-디펜스"
+        "황야의-무법자-타워-디펜스"
       ]
     },
     "도스게임박스 - 추억의 레트로 오락실": {
@@ -65514,19 +65952,15 @@
     "애니모": {
       "appIds": {
         "ios": "6759098797",
-        "android": "com.x.aniimos",
-        "steam": "4126040"
+        "android": "com.x.aniimos"
       },
-      "aliases": [
-        "Aniimo"
-      ],
+      "aliases": [],
       "developer": "PAWPRINT INTERACTIVE ENTERTAINMENT PTE. LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ab/a8/2e/aba82e5b-5492-1e01-d677-634abedfa5e8/FPX_AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "aniimo-pawprint-interactive",
       "platforms": [
         "ios",
-        "android",
-        "steam"
+        "android"
       ],
       "names": {
         "ko": "애니모",
@@ -65535,8 +65969,7 @@
         "zh-tw": "伊莫"
       },
       "legacySlugs": [
-        "애니모",
-        "aniimo"
+        "애니모"
       ]
     },
     "Dressmaker": {
@@ -65750,6 +66183,27 @@
         "steam"
       ],
       "names": {}
+    },
+    "그릴 매치 - 음식 분류 게임": {
+      "appIds": {
+        "ios": 6752890879
+      },
+      "aliases": [],
+      "developer": "Guru Smart Holding Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6c/95/b2/6c95b275-7da5-ba2f-c53c-fa4ad9d9085c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "grill-match-food-sort-puzzle-guru-smart",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "그릴 매치 - 음식 분류 게임",
+        "en": "Grill Match®: Food Sort Puzzle",
+        "ja": "グリルマッチ - フードソートチャレンジ",
+        "zh-tw": "燒烤配對 - 美食分類挑戰"
+      },
+      "legacySlugs": [
+        "그릴-매치-음식-분류-게임"
+      ]
     },
     "Warframe: Narin Bundle": {
       "appIds": {
@@ -68207,30 +68661,23 @@
     },
     "블라썸 매치 - 트리플 꽃이피다 정렬퍼즐 및 케이크게임": {
       "appIds": {
-        "ios": "6451460845",
-        "android": "color.match.line.connect.brain.puzzle"
+        "ios": "6451460845"
       },
       "aliases": [
-        "花マッチ - トリプルカラーソートゲーム ケーキマージ",
-        "블라썸 매치: Blossom Sort®, 꽃 타일 퍼즐",
-        "花マッチ - Blossom Sort · 3 マッチパズル"
+        "花マッチ - トリプルカラーソートゲーム ケーキマージ"
       ],
       "developer": "GLORYWAY PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/24/74/322474d3-d04c-510a-77e2-709aecc6bcac/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "slug": "blossom-sort-flower-games",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "블라썸 매치 - 트리플 꽃이피다 정렬퍼즐 및 케이크게임",
         "en": "Blossom Sort® - Flower Games",
         "ja": "花マッチ - トリプルカラーソートゲーム ケーキマージ",
         "zh-tw": "插花消消樂 - 花園整理遊戲 蛋糕顏色分類"
-      },
-      "legacySlugs": [
-        "blossom-sort-flower-games-us"
-      ]
+      }
     },
     "Fruit Merge™: Match Game": {
       "appIds": {
@@ -70571,25 +71018,18 @@
     },
     "Garena 傳說對決：十週年裂隙穿梭版本": {
       "appIds": {
-        "android": "com.garena.game.kgtw",
-        "ios_tw": "1089079153"
+        "android": "com.garena.game.kgtw"
       },
-      "aliases": [
-        "Garena 傳說對決：十週年裂隙穿梭版本 (Garena Online Private Ltd.)"
-      ],
+      "aliases": [],
       "developer": "Garena Online Private Limited",
       "icon": "https://play-lh.googleusercontent.com/gEgKefzTO44lFUTsxyIqm0HPmFxNX4oxKpNeeklKNCOa9J6f9o4p8oBw4Oc-lYoRvO5-0svcu1uqBlbkpK_Q",
       "slug": "garena-傳說對決十週年裂隙穿梭版本",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "zh-tw": "Garena 傳說對決：十週年裂隙穿梭版本"
-      },
-      "legacySlugs": [
-        "garena-傳說對決十週年裂隙穿梭版本-garena-online-private-ltd"
-      ]
+      }
     },
     "Treasure Master": {
       "appIds": {
@@ -70823,25 +71263,18 @@
     },
     "世界計畫 繽紛舞台！feat. 初音未來": {
       "appIds": {
-        "android": "com.hermes.mk.asia",
-        "ios_tw": "1557595935"
+        "android": "com.hermes.mk.asia"
       },
-      "aliases": [
-        "世界計畫 繽紛舞台！feat. 初音未來 (Nuverse (Hong Kong) Limited)"
-      ],
+      "aliases": [],
       "developer": "Nuverse",
       "icon": "https://play-lh.googleusercontent.com/-aCZEPriC6Pj3W56yNWaB9M9mHhaK0HZrwRrnwRR73PxMqxIGGKIXVazd0-Gn1iUBnVTE3yLTLEark7BFD2JM0g",
       "slug": "世界計畫-繽紛舞台feat-初音未來",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "zh-tw": "世界計畫 繽紛舞台！feat. 初音未來"
-      },
-      "legacySlugs": [
-        "世界計畫-繽紛舞台feat-初音未來-nuverse-hong-kong-limited"
-      ]
+      }
     },
     "戰雙帕彌什：末世科幻3D動作遊戲": {
       "appIds": {
@@ -71269,6 +71702,26 @@
         "en": "Rise of Kingdoms: Lost Crusade"
       }
     },
+    "Belt It: 매듭 풀기 퍼즐": {
+      "appIds": {
+        "android": "com.linear.beltit"
+      },
+      "aliases": [
+        "Belt It: Tangled Rope Puzzle"
+      ],
+      "developer": "Sunday.gg",
+      "icon": "https://play-lh.googleusercontent.com/ZA4Y8GS__-3ilwpJBtfxKTx80exQ3wdy5sLUB9AUL7HheOD9MnMJlQRGqNh-PzjbeT02NwvHmTpLmKRPH5Vs",
+      "slug": "belt-it-tangled-rope-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Belt It: 매듭 풀기 퍼즐",
+        "en": "Belt It: Tangled Rope Puzzle",
+        "ja": "Belt It: 絡まったロープパズル",
+        "zh-tw": "Belt It: Untangle Rope Puzzle"
+      }
+    },
     "라인 버블 2": {
       "appIds": {
         "android": "com.linecorp.LGBB2",
@@ -71653,26 +72106,20 @@
     },
     "Once Human (LongE Play)": {
       "appIds": {
-        "android": "com.netease.h73hmt",
-        "ios_tw": "6477342989"
+        "android": "com.netease.h73hmt"
       },
       "aliases": [
-        "Once Human",
-        "Once Human (LONG E CO., LTD.)"
+        "Once Human"
       ],
       "developer": "LongE Play",
       "icon": "https://play-lh.googleusercontent.com/KBST1NYGDaPONhIWp1o9zC_YT8Km8uZ9KZQVaTfawdLf3piyLadV8cqZuyDbepeot_VTaG0pSm1Po2OUfBJPAvg",
       "slug": "once-human-us",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "zh-tw": "Once Human"
-      },
-      "legacySlugs": [
-        "once-human-long-e-co-ltd"
-      ]
+      }
     },
     "第五人格": {
       "appIds": {
@@ -71807,8 +72254,7 @@
     },
     "Lineage2 Revolution": {
       "appIds": {
-        "android": "com.netmarble.revolutionthm",
-        "ios_tw": "1200727466"
+        "android": "com.netmarble.revolutionthm"
       },
       "aliases": [
         "天堂2：革命"
@@ -71817,15 +72263,11 @@
       "icon": "https://play-lh.googleusercontent.com/66btJYGeoCqfwRBF2Bn2PrVKDZW423zvGvaAHjmcbnw35gwZz7_x08iw7n3rU5EOLi4dORODQPmPDVO2xzwB5e0",
       "slug": "lineage2-revolution",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "zh-tw": "天堂2：革命"
-      },
-      "legacySlugs": [
-        "天堂2革命"
-      ]
+      }
     },
     "I Am Cat – 나는 고양이야!": {
       "appIds": {
@@ -71888,27 +72330,21 @@
     },
     "MapleStory M - Fantasy MMORPG": {
       "appIds": {
-        "android": "com.nexon.maplem.global",
-        "ios_us": "1290086677"
+        "android": "com.nexon.maplem.global"
       },
       "aliases": [
-        "楓之谷M - 奇幻冒險MMORPG",
-        "MapleStory M: Fantasy MMORPG"
+        "楓之谷M - 奇幻冒險MMORPG"
       ],
       "developer": "NEXON Company",
       "icon": "https://play-lh.googleusercontent.com/X2kbYjVmGFSiaashu0IJNDrIr0kAowd_GM78rkN4z8XN_tI4dLD_FNHoA9GZi24pT1zoKeWc-wZffLo8DNzs",
       "slug": "maplestory-m-fantasy-mmorpg",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "en": "MapleStory M - Fantasy MMORPG",
         "zh-tw": "楓之谷M - 奇幻冒險MMORPG"
-      },
-      "legacySlugs": [
-        "maplestory-m-fantasy-mmorpg-us"
-      ]
+      }
     },
     "#コンパス【戦闘摂理解析システム】": {
       "appIds": {
@@ -73866,8 +74302,7 @@
     },
     "MAH-JONG FIGHT CLUB Sp": {
       "appIds": {
-        "android": "jp.konami.mfcsp",
-        "ios_jp": "640023408"
+        "android": "jp.konami.mfcsp"
       },
       "aliases": [
         "麻雀格闘倶楽部Sp |麻雀の初心者におすすめ! 麻雀ゲーム"
@@ -73876,17 +74311,12 @@
       "icon": "https://play-lh.googleusercontent.com/TGX8he1eySJZy3E1sBJhDJB4xZOLWG9vp9HwDqtwifc2j8lU8TzHXeaq_BMLgILJX3hseDKeUthHyY602MzOjQ",
       "slug": "mah-jong-fight-club-sp",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ja": "麻雀格闘倶楽部Sp |麻雀の初心者におすすめ! 麻雀ゲーム",
         "zh-tw": "MAH-JONG FIGHT CLUB Sp"
-      },
-      "legacySlugs": [
-        "mah-jong-fight-club-sp-konami-digital",
-        "麻雀格闘倶楽部sp-麻雀の初心者におすすめ-麻雀ゲーム"
-      ]
+      }
     },
     "パワプロアドベンチャーズ": {
       "appIds": {
@@ -73924,25 +74354,18 @@
     },
     "プロ野球スピリッツA": {
       "appIds": {
-        "android": "jp.konami.prospia",
-        "ios_jp": "940320341"
+        "android": "jp.konami.prospia"
       },
-      "aliases": [
-        "プロ野球スピリッツＡ"
-      ],
+      "aliases": [],
       "developer": "KONAMI",
       "icon": "https://play-lh.googleusercontent.com/F0IB7v9CufHt5hKPRfXC9WS7tOUunAuCD3_JtdMJTtlhkG93qwmNCg6Cbcbf10aipCZZ3rv82QA-6REtVaVLHD8",
       "slug": "プロ野球スピリッツa",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ja": "プロ野球スピリッツA"
-      },
-      "legacySlugs": [
-        "プロ野球スピリッツa-jp"
-      ]
+      }
     },
     "幻想水滸伝 STAR LEAP": {
       "appIds": {
@@ -74759,25 +75182,18 @@
     },
     "Rise of Kingdoms ―万国覚醒―": {
       "appIds": {
-        "android": "com.lilithgames.rok.gp.jp",
-        "ios_jp": "1483025097"
+        "android": "com.lilithgames.rok.gp.jp"
       },
-      "aliases": [
-        "Rise of Kingdoms ―万国覚醒― (LILITH TECHNOLOGY HONG KONG LIMITED)"
-      ],
+      "aliases": [],
       "developer": "LilithGames",
       "icon": "https://play-lh.googleusercontent.com/HuLwTL2y02yJyHASYTEEFbdBlcxk4RgmrUZxLBxIgLrffnSPyp12Wo6ax7KuZkwuFBwEvYSDnrrJHRnhtCS5",
       "slug": "rise-of-kingdoms-万国覚醒",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ja": "Rise of Kingdoms ―万国覚醒―"
-      },
-      "legacySlugs": [
-        "rise-of-kingdoms-万国覚醒-lilith-technology-hong-kong-limited"
-      ]
+      }
     },
     "別砸了！是精靈啦": {
       "appIds": {
@@ -76006,6 +76422,41 @@
         "zh-tw": "貓咪家園消消樂"
       }
     },
+    "슬라임 대작전 !": {
+      "appIds": {
+        "android": "com.yeaplay.gp.slimeup"
+      },
+      "aliases": [
+        "史莱姆大作戰 ！"
+      ],
+      "developer": "ZPLAY Games",
+      "icon": "https://play-lh.googleusercontent.com/Pofr66esElGFnA60KI4Cbxticoxwhji37DYezE6jmrXhEsy9lnecRPPe0XWssjFpPibYbbe_1V1qeLaEmDs",
+      "slug": "slime-up-us",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "슬라임 대작전 !",
+        "en": "Slime Up!",
+        "ja": "スライム大作戦 !",
+        "zh-tw": "史莱姆大作戰 ！"
+      }
+    },
+    "Ｊリーグクラブチャンピオンシップ": {
+      "appIds": {
+        "android": "jp.konami.jlccs"
+      },
+      "aliases": [],
+      "developer": "KONAMI",
+      "icon": "https://play-lh.googleusercontent.com/0izji59bhCQHUBkECRKXx_-hNoeZBe7Wfq-u3e_q5otVvxThFHHFtKvAGHWUR61QKNGOW3_oYzq3ZvVFalznmxg",
+      "slug": "jリーグクラブチャンピオンシップ",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ja": "Ｊリーグクラブチャンピオンシップ"
+      }
+    },
     "Yarn Out 3D": {
       "appIds": {
         "android": "net.happywit.yarn.out.jam"
@@ -76460,6 +76911,26 @@
       ],
       "names": {
         "zh-tw": "新劍俠世界3：2026新情緣"
+      }
+    },
+    "마이토킹안젤라 2": {
+      "appIds": {
+        "android": "com.outfit7.mytalkingangela2"
+      },
+      "aliases": [
+        "My Talking Angela 2"
+      ],
+      "developer": "Outfit7 Limited",
+      "icon": "https://play-lh.googleusercontent.com/1juOz6btJ159BHBe-lEXoQdC46b3TujD5jPxgfzl9mBrnHvZKdGU5whLUa-Z81Nh7csNjrcLjsQECFCnyfllcA",
+      "slug": "my-talking-angela-2",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "마이토킹안젤라 2",
+        "en": "My Talking Angela 2",
+        "ja": "マイトーキングアンジェラ2:ペットのお世話・着せ替えゲーム",
+        "zh-tw": "我的安吉拉2"
       }
     },
     "ラストエコー": {
@@ -77112,30 +77583,23 @@
     },
     "Arrow Puzzle 3D - 화살표 게임": {
       "appIds": {
-        "android": "com.easybrain.arrow.puzzle3d",
-        "ios": 6777942798
+        "android": "com.easybrain.arrow.puzzle3d"
       },
       "aliases": [
-        "Arrow Puzzle 3D - Arrows Out",
-        "Arrow Puzzle 3D - 화살퍼즐게임"
+        "Arrow Puzzle 3D - Arrows Out"
       ],
       "developer": "Easybrain",
       "icon": "https://play-lh.googleusercontent.com/oTGrtX3Fv0KxMANyIStfmXh0QQj8MMiHHJoLNfsSts7xCu7e5OdX4T8p1nKD7vGXqThSiY6Mx_r4F1Bt85Xf",
       "slug": "arrow-puzzle-3d-arrows-out",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "Arrow Puzzle 3D - 화살표 게임",
         "en": "Arrow Puzzle 3D - Arrows Out",
         "ja": "Arrow Puzzle 3D - パズルゲーム",
         "zh-tw": "Arrow Puzzle 3D - 箭頭益智遊戲"
-      },
-      "legacySlugs": [
-        "arrow-puzzle-3d-arrows-game",
-        "arrow-puzzle-3d-화살퍼즐게임"
-      ]
+      }
     },
     "Find the Path: Arrow Clues": {
       "appIds": {
@@ -78406,6 +78870,23 @@
         "zh-tw": "Wonder Tales Coloring Book"
       }
     },
+    "Garena Speed Drifters": {
+      "appIds": {
+        "android": "com.garena.game.fctw"
+      },
+      "aliases": [
+        "Garena 極速領域：矩陣突破"
+      ],
+      "developer": "Garena Online Private Limited",
+      "icon": "https://play-lh.googleusercontent.com/u4HdUp8YR4m3T7hG_ntWYR41rI3ZQqKg2NbbWaxyWj0sCv_IfqLbAzjG0DpOVsGhyZJv3-kzSe7whglBUw1bHJc",
+      "slug": "garena-speed-drifters",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "zh-tw": "Garena 極速領域：莊園別墅"
+      }
+    },
     "熟語消し：ことわざ四字熟語脳トレ暇つぶし漢字パズル単語ゲーム": {
       "appIds": {
         "android": "com.kerun.idiomblock.ja"
@@ -79468,8 +79949,7 @@
     },
     "불릿 히어로즈: 타워 디펜스 게임 (Homa)": {
       "appIds": {
-        "android": "com.goosebump.bulletheroes",
-        "ios": 6752606721
+        "android": "com.goosebump.bulletheroes"
       },
       "aliases": [
         "불릿 히어로즈: 타워 디펜스 게임",
@@ -79480,19 +79960,14 @@
       "icon": "https://play-lh.googleusercontent.com/ZtPR_QbxKnWuuqLBWmBqulQK50FeqL1GNqPijK2hAr7UjRo2rVO4ulp-jZMO_XsW9YvwFkuRbhL0POqfY8sDZkU",
       "slug": "bullet-heroes-td-rpg-shooter",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "불릿 히어로즈: 타워 디펜스 게임",
         "en": "Bullet Heroes: TD RPG Shooter",
         "ja": "バレットヒーローズ: タワーディフェンス RPG",
         "zh-tw": "子彈英雄：塔防 × 戰棋策略 RPG"
-      },
-      "legacySlugs": [
-        "bullet-heroes-td-rpg-shooter-homa-games",
-        "불릿-히어로즈-타워-디펜스-게임"
-      ]
+      }
     },
     "RO仙境傳說：守護永恆的愛 Classic": {
       "appIds": {
@@ -79716,30 +80191,24 @@
     },
     "water sort puzzle - 컬러 분류 퍼즐게임": {
       "appIds": {
-        "android": "com.playvalve.watersort",
-        "ios": "1615960653"
+        "android": "com.playvalve.watersort"
       },
       "aliases": [
         "Water Sort Puz - Color Game",
-        "Water Sort 色合わせパズルゲーム - 楽しい脳トレ",
-        "Water Sort Puz - 색상 분류 게임"
+        "Water Sort 色合わせパズルゲーム - 楽しい脳トレ"
       ],
       "developer": "Bluetile",
       "icon": "https://play-lh.googleusercontent.com/_f_6LTpnGqCLFIdbdxY-jqpsjYuKXdrJKSWzHtIz6eMqtalT1oONHqFkSrQQkW0Ft8lDdJ59QHrQZslHwMKY",
       "slug": "water-sort-puz-color-game",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "water sort puzzle - 컬러 분류 퍼즐게임",
         "en": "Water Sort Puz - Color Game",
         "ja": "Water Sort 色合わせパズルゲーム - 楽しい脳トレ",
         "zh-tw": "Water Sort Puz - Color Game"
-      },
-      "legacySlugs": [
-        "water-sort-puz-color-game-us"
-      ]
+      }
     },
     "Burger Master: Cooking Games": {
       "appIds": {
@@ -84945,25 +85414,18 @@
     },
     "Arknights": {
       "appIds": {
-        "android": "com.YoStarEN.Arknights",
-        "ios_us": "1464872022"
+        "android": "com.YoStarEN.Arknights"
       },
-      "aliases": [
-        "Arknights (YOSTAR (HONG KONG) LIMITED)"
-      ],
+      "aliases": [],
       "developer": "Yostar Limited.",
       "icon": "https://play-lh.googleusercontent.com/pBNlu-ZHQlVdfXhzI7TGIjqt_00sAeYFFK6AqTygfF3rwQfoPIkfIz-zROY31POTDKtxqcMDMPaDLJVlwCdc",
       "slug": "arknights",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "en": "Arknights"
-      },
-      "legacySlugs": [
-        "arknights-us"
-      ]
+      }
     },
     "暗影紀元-魔幻冒险之旅": {
       "appIds": {
@@ -85236,29 +85698,21 @@
     },
     "Goods Sort Match - Sorting Fun": {
       "appIds": {
-        "ios": "6760751569",
-        "android": "com.hypervation.goodssort"
+        "ios": "6760751569"
       },
-      "aliases": [
-        "Goods Sort Match - 퍼즐"
-      ],
+      "aliases": [],
       "developer": "Gamovation B.V.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/15/b2/11/15b211e3-77fc-6958-023d-d3da92d4aa6a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "goods-sort-match-sorting-fun",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Goods Sort Match - Sorting Fun",
         "en": "Goods Sort Match - Sorting Fun",
         "ja": "Goods Sort Match - Sorting Fun",
         "zh-tw": "Goods Sort Match - Sorting Fun"
-      },
-      "legacySlugs": [
-        "goods-sort-match-sorting-fun-gamovation",
-        "goods-sort-match-퍼즐"
-      ]
+      }
     },
     "Party At: 보드게임·파티게임 17종": {
       "appIds": {
@@ -86062,30 +86516,23 @@
     },
     "방치형 광부 타이쿤: 광산 매니저": {
       "appIds": {
-        "android": "com.fluffyfairygames.idleminertycoon",
-        "ios": "1116645064"
+        "android": "com.fluffyfairygames.idleminertycoon"
       },
       "aliases": [
-        "採礦大亨：掘金之旅 (Idle Miner Tycoon)",
-        "방치형 광산 타이쿤: 기업 관리 및 키우기 게임",
-        "Idle Miner Tycoon: Gold digger"
+        "採礦大亨：掘金之旅 (Idle Miner Tycoon)"
       ],
       "developer": "Kolibri Games",
       "icon": "https://play-lh.googleusercontent.com/3acxjAhQA5fvNUj2zkm20XBNLSsW4mEtdJCriWo3ePTBfOzzQYmoljwE4sN4krdo0eJDvyOofIhaSzk8566r_w",
       "slug": "idle-miner-tycoon-gold-games",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "방치형 광부 타이쿤: 광산 매니저",
         "en": "Idle Miner Tycoon: Gold Games",
         "ja": "ザクザクキング：放置採掘王国 (Idle Miner)",
         "zh-tw": "採礦大亨：掘金之旅 (Idle Miner Tycoon)"
-      },
-      "legacySlugs": [
-        "idle-miner-tycoon-gold-digger"
-      ]
+      }
     },
     "Bside: 채팅, 스토리, 시뮬레이션": {
       "appIds": {
@@ -86461,8 +86908,7 @@
     },
     "뱀 탈출: 탭 어웨이 퍼즐 게임": {
       "appIds": {
-        "android": "com.snake.away.defense.cm",
-        "ios": 6800611110
+        "android": "com.snake.away.defense.cm"
       },
       "aliases": [
         "Snake Away: Casual Puzzle"
@@ -86471,18 +86917,14 @@
       "icon": "https://play-lh.googleusercontent.com/b6ScTsDNSONAYoeYUepaoSRTcCDJtb6xgKrT2a3gwQH4ZPLK8g3zA5JGbwZwrdk4rcrMJNS3cihmt8l_t6hZ",
       "slug": "snake-away-casual-puzzle",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "뱀 탈출: 탭 어웨이 퍼즐 게임",
         "en": "Snake Away: Casual Puzzle",
         "ja": "スネーク出撃：ひらめき防衛戦！",
         "zh-tw": "Snake Away: Casual Puzzle"
-      },
-      "legacySlugs": [
-        "snake-away-casual-puzzle-6800611110"
-      ]
+      }
     },
     "Block Flower: Wood Puzzle": {
       "appIds": {
@@ -86961,29 +87403,21 @@
     },
     "Tidy Up - Satisfeel ASMR": {
       "appIds": {
-        "ios": "6738069648",
-        "android": "com.diy.perfect.asmr"
+        "ios": "6738069648"
       },
-      "aliases": [
-        "Tidy Master: 완벽하게 정리하다 - 정리게임"
-      ],
+      "aliases": [],
       "developer": "PIXON PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/85/24/2c/85242c78-e4b8-dfa1-7515-6d39cbffcabb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "tidy-up-satisfeel-asmr",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Tidy Up - Satisfeel ASMR",
         "en": "Tidy Up - Satisfeel ASMR",
         "ja": "Tidy Up - Satisfeel ASMR",
         "zh-tw": "Tidy Up - Satisfeel ASMR"
-      },
-      "legacySlugs": [
-        "tidy-up-satisfeel-asmr-pixon-games",
-        "tidy-master-완벽하게-정리하다-정리게임"
-      ]
+      }
     },
     "Undercover: Guess The Imposter": {
       "appIds": {
@@ -87928,6 +88362,23 @@
         "zh-tw": "MeowBlock!"
       }
     },
+    "Go! Food God": {
+      "appIds": {
+        "android": "com.oceanjoy.cookgod.an"
+      },
+      "aliases": [
+        "我要當食神"
+      ],
+      "developer": "Ocean Joy",
+      "icon": "https://play-lh.googleusercontent.com/2L-s9EwOZW1FxeqCf96ALUSuE7HUPgWLCVUSKHHaJUQVhA9fOTWcRi5Niw5gvxCdRzt5vOnpg6rNQDs-NqD-",
+      "slug": "go-food-god",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "zh-tw": "我要當食神"
+      }
+    },
     "Sniper 3D: Alien War": {
       "appIds": {
         "android": "com.sniper3d.sfgame"
@@ -88121,6 +88572,26 @@
         "zh-tw": "Cyber Strike Manager Idle"
       }
     },
+    "Brain Baits: 기발한 묘수": {
+      "appIds": {
+        "android": "com.lemjoy.oversea.google.brainbaits"
+      },
+      "aliases": [
+        "抖個腿子"
+      ],
+      "developer": "TapRomance",
+      "icon": "https://play-lh.googleusercontent.com/PLndsx2Oa-KEEwD1B5Dkxf9j4o9tZk-sXi5nJLrePSBcYH--p37iQuS_qxqRo3Ep8-mfsbmF-QmRYAreWBHnJao",
+      "slug": "brain-baitstricky-riddles",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Brain Baits: 기발한 묘수",
+        "en": "Brain Baits:Tricky Riddles",
+        "ja": "Brain Baits: トリック難問",
+        "zh-tw": "抖個腿子"
+      }
+    },
     "箭神請息怒": {
       "appIds": {
         "android": "com.nsngames.archery",
@@ -88271,6 +88742,27 @@
         "en": "THE NEW DENPA MEN",
         "ja": "New 電波人間のRPG FREE！",
         "zh-tw": "THE NEW DENPA MEN"
+      }
+    },
+    "악마왕키우기 (Gameduo)": {
+      "appIds": {
+        "android": "com.deepgames.release.becamethedevil"
+      },
+      "aliases": [
+        "악마왕키우기",
+        "成為惡魔：放置型RPG"
+      ],
+      "developer": "Gameduo",
+      "icon": "https://play-lh.googleusercontent.com/kThyrTXs9Bn5rJjuq-m4ZiZAp1AZR84x9zdM-6IqQnoZ98wgJVPus-ScIJOKbsrXrZFdkJYuAo_i71L5LruM0A",
+      "slug": "the-demonized-idle-rpg",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "악마왕키우기",
+        "en": "The Demonized: Idle RPG",
+        "ja": "悪魔の道 : 放置系 RPG",
+        "zh-tw": "成為惡魔：放置型RPG"
       }
     },
     "這梗不一樣": {
@@ -88699,6 +89191,23 @@
       ],
       "names": {
         "zh-tw": "戰姬少女：終焉召喚"
+      }
+    },
+    "我的森友家園": {
+      "appIds": {
+        "android": "com.zerobound.lmfxdj"
+      },
+      "aliases": [
+        "守護！森友家園"
+      ],
+      "developer": "ZeroBound Creative Tech Co., Ltd.",
+      "icon": "https://play-lh.googleusercontent.com/2u3QxzGySArtWgK0Q7VICIW8x_N9z9qGQJvH3HGU8k5KRhySJR_jJmVi3sYFxnACDK23uRrRbt1uy7Q7roYBXg",
+      "slug": "我的森友家園",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "zh-tw": "守護！森友家園"
       }
     },
     "Word Kitchen": {
@@ -93195,8 +93704,7 @@
     },
     "萌獸寶貝:捕捉＆進化 寵物捕捉休閒養成遊戲": {
       "appIds": {
-        "android": "com.sqsss.gp",
-        "ios_tw": "6767219112"
+        "android": "com.sqsss.gp"
       },
       "aliases": [
         "我是大酋長:抓寵版 寵物捕捉休閒養成遊戲"
@@ -93205,15 +93713,11 @@
       "icon": "https://play-lh.googleusercontent.com/rC2rj5xQJB-ihsqcxm2DACRe4ReJkEL2jB5wUndsBc4OA8UUNVAx1OYCr5sNzJDuPeEwp5Oley3x52yDQOC1BA",
       "slug": "萌獸寶貝捕捉進化-寵物捕捉休閒養成遊戲",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "zh-tw": "我是大酋長:抓寵版 寵物捕捉休閒養成遊戲"
-      },
-      "legacySlugs": [
-        "我是大酋長抓寵版-寵物捕捉休閒養成遊戲"
-      ]
+      }
     },
     "High School Driving Test 3D": {
       "appIds": {
@@ -93681,30 +94185,23 @@
     },
     "브릭 팩토리!": {
       "appIds": {
-        "ios": "6756774105",
-        "android": "com.fc.color.brick.sort.match"
+        "ios": "6756774105"
       },
       "aliases": [
-        "ブリック工場：カラー仕分けパズル!",
-        "브릭 팩토리: 색상 정렬 퍼즐!"
+        "ブリック工場：カラー仕分けパズル!"
       ],
       "developer": "FALCON GAMES PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fc/73/46/fc7346f4-cb8b-cc80-d3d6-f0fbe60a543d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "brick-factory",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "브릭 팩토리!",
         "en": "Brick Factory!",
         "ja": "ブリック工場：カラー仕分けパズル!",
         "zh-tw": "磚塊工廠！"
-      },
-      "legacySlugs": [
-        "brick-factory-falcon-games",
-        "브릭-팩토리-색상-정렬-퍼즐"
-      ]
+      }
     },
     "Arrow Go Tap Away": {
       "appIds": {
@@ -95180,29 +95677,23 @@
     },
     "Maze Clear: Tap Away Puzzle": {
       "appIds": {
-        "ios": "6768880286",
-        "android": "com.flyfox.arrow.away.escape.out.color.master.game"
+        "ios": "6768880286"
       },
       "aliases": [
-        "Arrow Away: 頭を悩ませる脱出パズルゲーム",
-        "Arrow Away: Tap Escape Puzzle!"
+        "Arrow Away: 頭を悩ませる脱出パズルゲーム"
       ],
       "developer": "FLYFOX PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/60/24/9e/60249e4e-d912-dad3-9e43-e97e5adbfdbe/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "maze-clear-tap-away-puzzle",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Maze Clear: Tap Away Puzzle",
         "en": "Maze Clear: Tap Away Puzzle",
         "ja": "Arrow Away: 頭を悩ませる脱出パズルゲーム",
         "zh-tw": "Maze Clear：邏輯點擊謎題"
-      },
-      "legacySlugs": [
-        "arrow-away-tap-escape-puzzle"
-      ]
+      }
     },
     "Join Blocks 2048 Number Puzzle": {
       "appIds": {
@@ -95589,6 +96080,26 @@
         "zh-tw": "香腸傳說 - 線上對戰遊戲"
       }
     },
+    "방치형 광산 타이쿤: 기업 관리 및 키우기 게임": {
+      "appIds": {
+        "ios": "1116645064"
+      },
+      "aliases": [
+        "Idle Miner Tycoon: Gold digger"
+      ],
+      "developer": "Kolibri Games GmbH",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/89/64/2e896415-20fc-aa7d-6bfc-8912a26f99e8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "idle-miner-tycoon-gold-digger",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "방치형 광산 타이쿤: 기업 관리 및 키우기 게임",
+        "en": "Idle Miner Tycoon: Gold digger",
+        "ja": "ザクザクキング：放置採掘王国(Idle Miner)",
+        "zh-tw": "採礦大亨：掘金之旅 (Idle Miner Tycoon)"
+      }
+    },
     "Fancy Screw: Story & Makeover": {
       "appIds": {
         "ios": "6754550279",
@@ -95686,29 +96197,23 @@
     },
     "Brain Baits": {
       "appIds": {
-        "ios": "6736925629",
-        "android": "com.lemjoy.oversea.google.brainbaits"
+        "ios": "6736925629"
       },
       "aliases": [
-        "抖個腿子",
-        "Brain Baits: 기발한 묘수"
+        "抖個腿子"
       ],
       "developer": "TAPROMANCE PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/3a/68/fa3a68b9-5ab5-3f3d-32f6-d1787bcda2bf/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "brain-baits",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Brain Baits",
         "en": "Brain Baits",
         "ja": "Brain Baits",
         "zh-tw": "抖個腿子"
-      },
-      "legacySlugs": [
-        "brain-baitstricky-riddles"
-      ]
+      }
     },
     "Shoot Out: 사격게임 시뮬레이터": {
       "appIds": {
@@ -96918,30 +97423,23 @@
     },
     "헝그리 샤크 에볼루션: 최강 상어 먹방 서바이벌 게임": {
       "appIds": {
-        "android": "com.fgol.HungrySharkEvolution",
-        "ios": 535500008
+        "android": "com.fgol.HungrySharkEvolution"
       },
       "aliases": [
-        "Hungry Shark Evolution",
-        "헝그리 샤크 에볼루션:  상어 먹방 & 서바이벌 모험"
+        "Hungry Shark Evolution"
       ],
       "developer": "Ubisoft Entertainment",
       "icon": "https://play-lh.googleusercontent.com/TuZfflVLR77RhChmQguIsTfQ5nJ_2vWr4MNk9gE5Te6JEd2UluZKlpF2iN21qQcmGLfDgrqEUv53sxjonhIY7Q",
       "slug": "hungry-shark-evolution",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "헝그리 샤크 에볼루션: 최강 상어 먹방 서바이벌 게임",
         "en": "Hungry Shark Evolution",
         "ja": "ハングリーシャークエボリューション：大食いサメのサバイバル",
         "zh-tw": "Hungry Shark Evolution"
-      },
-      "legacySlugs": [
-        "hungry-shark-evolution-ubisoft",
-        "헝그리-샤크-에볼루션-상어-먹방-서바이벌-모험"
-      ]
+      }
     },
     "엄마 라이프 시뮬레이터: 가족과 아기 돌보기 게임": {
       "appIds": {
@@ -100378,6 +100876,21 @@
         "zh-tw": "BangBang僵屍：避難所戰爭"
       }
     },
+    "三国志·極彩 - うさぎ 100% 武士語コラボ中": {
+      "appIds": {
+        "android": "com.supernova.qy.gp"
+      },
+      "aliases": [],
+      "developer": "SuperNova Game",
+      "icon": "https://play-lh.googleusercontent.com/HX65BjKEXizzoL7Tft7VGFQYdS3iRRR8mJegfOf2yBkneuuFpZr7Fewn6WAbH6FipjOXhMqBwWdcG2HTU6TWGA",
+      "slug": "三国志極彩-うさぎ-100-武士語コラボ中",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ja": "三国志·極彩 - うさぎ 100% 武士語コラボ中"
+      }
+    },
     "작은 섬 농장 : 섬을 나의 보금자리로": {
       "appIds": {
         "android": "com.TinyIslandFarm.TinyIslandFarm"
@@ -100770,6 +101283,23 @@
       ],
       "names": {
         "ja": "巨獣戦線"
+      }
+    },
+    "三國志幻想大陸：輕量版": {
+      "appIds": {
+        "android": "com.qookkagames.starg2.gp.global"
+      },
+      "aliases": [
+        "オリアカ：ライト"
+      ],
+      "developer": "QOOKKA GAMES",
+      "icon": "https://play-lh.googleusercontent.com/2dy9EOlzIMzHrkrCQmQjfMk8msoYZ_uIA3XfdR2NHZCQrPDLesFQ7SEySKNTT6kCSCh_OA_d4iTBG2TVtMDmlg",
+      "slug": "三國志幻想大陸輕量版",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ja": "オリアカ：ライト"
       }
     },
     "鐳明閃擊": {
@@ -102088,6 +102618,23 @@
         "zh-tw": "百鬼異聞錄"
       }
     },
+    "패스트던전": {
+      "appIds": {
+        "android": "net.gameduo.fastdungeon"
+      },
+      "aliases": [
+        "疾速地下城"
+      ],
+      "developer": "Gameduo",
+      "icon": "https://play-lh.googleusercontent.com/JRjuaQ7Zb8TSbUA-dLz1hz3tjBRWrNpMLRdB3RjH5WLnsi8OXz7faW09yqqC4ApI-tPm7yHKfanPgtDNtxtXoA",
+      "slug": "fast-dungeon",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "zh-tw": "疾速地下城"
+      }
+    },
     "탈출 게임 - 일본식 방": {
       "appIds": {
         "ios": "6760157614"
@@ -102127,30 +102674,23 @@
     },
     "이상한 병원：IDLE": {
       "appIds": {
-        "android": "com.leyo.madhouse",
-        "ios": 6747965532
+        "android": "com.leyo.madhouse"
       },
       "aliases": [
-        "失控瘋人院：躺赢大亨",
-        "이상한 병원"
+        "失控瘋人院：躺赢大亨"
       ],
       "developer": "LEYO",
       "icon": "https://play-lh.googleusercontent.com/N82A0FQ2mqMAQ8IMy-D2SY_WqfWAUOqp8ncnW4g9YJBPWWLihIEfw3u8D591pjg7xHxeEnQXKGhlttC9tM1EA7A",
       "slug": "idle-mad-house-tycoon",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "이상한 병원：IDLE",
         "en": "IDLE MAD HOUSE TYCOON",
         "ja": "ヤバすぎ！マッドハウス経営",
         "zh-tw": "失控瘋人院：躺赢大亨"
-      },
-      "legacySlugs": [
-        "idle-mad-house-tycoon-leyo-game",
-        "이상한-병원"
-      ]
+      }
     },
     "Mini Relaxing – Stress Relief": {
       "appIds": {
@@ -103801,6 +104341,26 @@
         "zh-tw": "Car Driving School Parking Sim"
       }
     },
+    "Water Sort Puz - 색상 분류 게임": {
+      "appIds": {
+        "ios": "1615960653"
+      },
+      "aliases": [
+        "Water Sort 色合わせパズルゲーム - 楽しい脳トレ"
+      ],
+      "developer": "Bluetile Games S.L.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/86/30/fd/8630fd3f-a362-ba86-59b6-a52dea35a3aa/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "water-sort-puz-color-game-us",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Water Sort Puz - 색상 분류 게임",
+        "en": "Water Sort Puz - Color Game",
+        "ja": "Water Sort 色合わせパズルゲーム - 楽しい脳トレ",
+        "zh-tw": "Water Sort Puz - Color Game"
+      }
+    },
     "Astro Pinball": {
       "appIds": {
         "ios": "6744948059"
@@ -104988,6 +105548,26 @@
         "zh-tw": "Ball Sort Puz - Color Game"
       }
     },
+    "Escape Game: Sakura Kominka": {
+      "appIds": {
+        "android": "com.takasimapon.kominka"
+      },
+      "aliases": [
+        "脱出ゲーム 桜咲く古民家"
+      ],
+      "developer": "Room's Room",
+      "icon": "https://play-lh.googleusercontent.com/2VrWECs0kk7O4okUHR39GHZmQsg13OLx5e-aNDwVgJ57mBgbVC12rgr_WV7zOS-Sxb-GCU_op-_KOT7utlYQCg",
+      "slug": "escape-game-sakura-kominka",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Escape Game: Sakura Kominka",
+        "en": "Escape Game: Sakura Kominka",
+        "ja": "脱出ゲーム 桜咲く古民家",
+        "zh-tw": "Escape Game: Sakura Kominka"
+      }
+    },
     "異能獵人": {
       "appIds": {
         "android": "com.tg.xscs5.tw",
@@ -106078,29 +106658,21 @@
     },
     "Belt It": {
       "appIds": {
-        "ios": "1575056736",
-        "android": "com.linear.beltit"
+        "ios": "1575056736"
       },
-      "aliases": [
-        "Belt It: 매듭 풀기 퍼즐",
-        "Belt It: Tangled Rope Puzzle"
-      ],
+      "aliases": [],
       "developer": "Sunday GmbH",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/17/1e/f2/171ef200-109b-a08f-847f-8e8a8d49865a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "belt-it",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Belt It: Untangle Rope Puzzle",
         "en": "Belt It",
         "ja": "Belt It: Untangle Rope Puzzle",
         "zh-tw": "Belt It: Untangle Rope Puzzle"
-      },
-      "legacySlugs": [
-        "belt-it-tangled-rope-puzzle"
-      ]
+      }
     },
     "クラシルボックスマージ ポイ活ゲームでポイントが貯まる": {
       "appIds": {
@@ -107230,8 +107802,7 @@
     },
     "姬不可失：三國塔防": {
       "appIds": {
-        "android": "com.lovemoodstudio.sgtd",
-        "ios_tw": "6754364750"
+        "android": "com.lovemoodstudio.sgtd"
       },
       "aliases": [
         "姬不可失：據點不設防"
@@ -107240,15 +107811,11 @@
       "icon": "https://play-lh.googleusercontent.com/jTwGk_G9gbN_GeovDKkMkDfLfb2c28ogsCMTv2AlIpyBPP2uxPYKC-g5JWksIBBNZVz6NOHhNyaWQJWMKZ0185o",
       "slug": "姬不可失三國塔防",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "zh-tw": "姬不可失：據點不設防"
-      },
-      "legacySlugs": [
-        "姬不可失據點不設防"
-      ]
+      }
     },
     "英単語・英会話・英検も！！｜マグナ": {
       "appIds": {
@@ -108657,6 +109224,26 @@
         "zh-tw": "Bells sleeping in the Forest"
       }
     },
+    "블라썸 매치: Blossom Sort®, 꽃 타일 퍼즐": {
+      "appIds": {
+        "android": "color.match.line.connect.brain.puzzle"
+      },
+      "aliases": [
+        "花マッチ - Blossom Sort · 3 マッチパズル"
+      ],
+      "developer": "Gloryway Puzzle",
+      "icon": "https://play-lh.googleusercontent.com/M-B1EWJS0Y2MN9FFEEzKtZhPqCzLSo_MykBg__UJ72RUg0AwZIS6GbJj9uEmx800DC278YzVa8CjBXqfjbX33Q",
+      "slug": "blossom-sort-flower-games-us",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "블라썸 매치: Blossom Sort®, 꽃 타일 퍼즐",
+        "en": "Blossom Sort® - Flower Games",
+        "ja": "花マッチ - Blossom Sort · 3 マッチパズル",
+        "zh-tw": "插花消消樂 - Blossom Sort® · 消除遊戲"
+      }
+    },
     "全明星格鬥社": {
       "appIds": {
         "android": "com.qmxgdh.goo.kf"
@@ -108842,29 +109429,21 @@
     },
     "Alien Invasion: RPG Idle Space": {
       "appIds": {
-        "android": "com.multicastgames.venomSurvive",
-        "ios": 6443697602
+        "android": "com.multicastgames.venomSurvive"
       },
-      "aliases": [
-        "외계인의 침공: Alien Invasion RPG"
-      ],
+      "aliases": [],
       "developer": "CrazyLabs LTD",
       "icon": "https://play-lh.googleusercontent.com/s2nkwoUhxWhW80iBXM4Mml5BCUWyBd9QXF4h3Y78AgdQVhF7Z5vaXLDmVTwc1MRKnb9TRlzPHxOlKgzsfEa9kQE",
       "slug": "alien-invasion-rpg-idle-space",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "Alien Invasion: RPG Idle Space",
         "en": "Alien Invasion: RPG Idle Space",
         "ja": "Alien Invasion: RPG Idle Space",
         "zh-tw": "Alien Invasion: RPG Idle Space"
-      },
-      "legacySlugs": [
-        "alien-invasion-rpg-idle-space-crazy-labs",
-        "외계인의-침공-alien-invasion-rpg"
-      ]
+      }
     },
     "패시브 마스터 키우기": {
       "appIds": {
@@ -110748,8 +111327,7 @@
     },
     "Pokémon GOITA: Tutorial App": {
       "appIds": {
-        "android": "jp.pokemon.pokemongoita",
-        "ios_jp": "6751881838"
+        "android": "jp.pokemon.pokemongoita"
       },
       "aliases": [
         "ポケモンごいた：遊び方"
@@ -110758,17 +111336,12 @@
       "icon": "https://play-lh.googleusercontent.com/A4_MhWjVmib7N4mJJ-DDMAeuQjwc2X0W6MybGBfQm4dxMXl_lmOl2lyNafbStaADSvqgqGGVIAcnVDCupiv6Png",
       "slug": "pokemon-goita-tutorial-app",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ja": "ポケモンごいた：遊び方",
         "zh-tw": "Pokémon GOITA: Tutorial App"
-      },
-      "legacySlugs": [
-        "pokemon-goita-tutorial-app-the-pokemon",
-        "ポケモンごいた遊び方"
-      ]
+      }
     },
     "宝石家族": {
       "appIds": {
@@ -110896,6 +111469,21 @@
         "en": "三國武聖記：趙雲開局3D國戰策略卡牌SLG",
         "ja": "三国名将伝",
         "zh-tw": "三國名將傳：三國趙雲開局、七日領關羽，3D國戰策略卡牌SLG"
+      }
+    },
+    "救世者之樹M": {
+      "appIds": {
+        "android": "com.gamania.tosm"
+      },
+      "aliases": [],
+      "developer": "Gamania Digital Entertainment Co Ltd",
+      "icon": "https://play-lh.googleusercontent.com/XHq7OI2yl3i5Nv05gYnuX1WZuNzIWpaks8Z_aODzs9CWqT43aOOyGSedlL1y7P4veos5HLE6Kckw8Ln9emM",
+      "slug": "救世者之樹m",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "zh-tw": "救世者之樹M"
       }
     },
     "바이킹 라이즈": {
@@ -112531,6 +113119,23 @@
         "zh-cn": "诛仙-十周年庆典"
       }
     },
+    "Garena 傳說對決：十週年裂隙穿梭版本 (Garena Online Private Ltd.)": {
+      "appIds": {
+        "ios_tw": "1089079153"
+      },
+      "aliases": [
+        "Garena 傳說對決：十週年裂隙穿梭版本"
+      ],
+      "developer": "Garena Online Private Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7e/52/ae/7e52ae37-1a66-2d72-aaf5-fa2b45d5d083/AppIcon-1x_U007emarketing-0-11-0-85-220-0.png/512x512bb.jpg",
+      "slug": "garena-傳說對決十週年裂隙穿梭版本-garena-online-private-ltd",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "Garena 傳說對決：十週年裂隙穿梭版本"
+      }
+    },
     "Jackpot Magic Slots & Casino": {
       "appIds": {
         "ios_us": "1090242126"
@@ -112908,6 +113513,21 @@
         "zh-cn": "奇迹：觉醒"
       }
     },
+    "天堂2：革命": {
+      "appIds": {
+        "ios_tw": "1200727466"
+      },
+      "aliases": [],
+      "developer": "Netmarble Corporation",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ed/6d/ad/ed6dadc5-0053-ac4b-9a10-ec8c54e6cc77/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "天堂2革命",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "天堂2：革命"
+      }
+    },
     "キングダム 乱 -天下統一への道- 究極の戦略・戦争ゲーム": {
       "appIds": {
         "ios_jp": "1208396151"
@@ -113199,6 +113819,24 @@
       "names": {
         "en": "新三國志手機版",
         "zh-tw": "新三國志手機版"
+      }
+    },
+    "MapleStory M: Fantasy MMORPG": {
+      "appIds": {
+        "ios_us": "1290086677"
+      },
+      "aliases": [
+        "楓之谷M - 奇幻冒險MMORPG"
+      ],
+      "developer": "NEXON Korea Corporation",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/20/06/9c200670-0b77-59e2-8923-c0d8bdca6788/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "maplestory-m-fantasy-mmorpg-us",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "MapleStory M: Fantasy MMORPG",
+        "zh-tw": "楓之谷M - 奇幻冒險MMORPG"
       }
     },
     "坦克世界闪击战": {
@@ -113820,25 +114458,18 @@
     },
     "Jリーグクラブチャンピオンシップ": {
       "appIds": {
-        "ios_jp": "1449539696",
-        "android": "jp.konami.jlccs"
+        "ios_jp": "1449539696"
       },
-      "aliases": [
-        "Ｊリーグクラブチャンピオンシップ"
-      ],
+      "aliases": [],
       "developer": "Konami Digital Entertainment Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/46/f8/f3/46f8f3e4-2a4c-4d2b-d452-3591bcb2aeae/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "jリーグクラブチャンピオンシップ-jp",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ja": "Jリーグクラブチャンピオンシップ"
-      },
-      "legacySlugs": [
-        "jリーグクラブチャンピオンシップ"
-      ]
+      }
     },
     "星际猎人-无尽的拉格朗日全面焕新": {
       "appIds": {
@@ -114828,6 +115459,23 @@
         "zh-cn": "长安幻想"
       }
     },
+    "世界計畫 繽紛舞台！feat. 初音未來 (Nuverse (Hong Kong) Limited)": {
+      "appIds": {
+        "ios_tw": "1557595935"
+      },
+      "aliases": [
+        "世界計畫 繽紛舞台！feat. 初音未來"
+      ],
+      "developer": "Nuverse (Hong Kong) Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/ba/65/a3ba65a6-cb2a-fb92-b5a4-18934c49b52c/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "世界計畫-繽紛舞台feat-初音未來-nuverse-hong-kong-limited",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "世界計畫 繽紛舞台！feat. 初音未來"
+      }
+    },
     "斗罗大陆:魂师对决": {
       "appIds": {
         "ios_cn": "1558453472"
@@ -114951,30 +115599,18 @@
     },
     "我的安吉拉2": {
       "appIds": {
-        "ios_cn": "1567889307",
-        "android": "com.outfit7.mytalkingangela2"
+        "ios_cn": "1567889307"
       },
-      "aliases": [
-        "마이토킹안젤라 2",
-        "My Talking Angela 2"
-      ],
+      "aliases": [],
       "developer": "Outfit7 Network Technology Co., Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/52/71/3d/52713d92-7408-ae3d-fbd4-d5840cde6793/AppIcon-0-0-1x_U007emarketing-0-9-0-85-220.png/512x512bb.jpg",
       "slug": "我的安吉拉2",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
-        "zh-cn": "我的安吉拉2",
-        "ko": "마이토킹안젤라 2",
-        "en": "My Talking Angela 2",
-        "ja": "マイトーキングアンジェラ2:ペットのお世話・着せ替えゲーム",
-        "zh-tw": "我的安吉拉2"
-      },
-      "legacySlugs": [
-        "my-talking-angela-2"
-      ]
+        "zh-cn": "我的安吉拉2"
+      }
     },
     "云·原神": {
       "appIds": {
@@ -116614,6 +117250,23 @@
       "legacySlugs": [
         "18trip-エイトリ"
       ]
+    },
+    "Once Human (LONG E CO., LTD.)": {
+      "appIds": {
+        "ios_tw": "6477342989"
+      },
+      "aliases": [
+        "Once Human"
+      ],
+      "developer": "LONG E CO., LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/6e/3c/54/6e3c5426-17a3-7995-cb90-3ecb43b9902b/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "once-human-long-e-co-ltd",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "Once Human"
+      }
     },
     "我的梦想医院": {
       "appIds": {
@@ -119135,6 +119788,26 @@
         "ja": "LINE：ディズニー ツムツム"
       }
     },
+    "Let's Vegas - Slots Casino": {
+      "appIds": {
+        "ios_tw": "730209957"
+      },
+      "aliases": [
+        "拉斯維加斯娛樂城-捕魚,老虎機,拉霸,麻將,賭場遊戲"
+      ],
+      "developer": "Userjoy Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2e/a2/87/2ea287b4-d725-2db2-7118-d5f86356ca56/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "lets-vegas-slots-casino",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Let's Vegas - Online Slots",
+        "ja": "レッツベガス(Let's Vegas Slots)",
+        "zh-cn": "王牌街机捕鱼-水果机,捕鱼,棋牌,电玩游戏厅",
+        "zh-tw": "拉斯維加斯娛樂城-捕魚,老虎機,拉霸,麻將"
+      }
+    },
     "割绳子2": {
       "appIds": {
         "ios_cn": "747314884"
@@ -119425,6 +120098,21 @@
         "en": "XinStars-Win Big Now!",
         "ja": "星城-大運西遊．紅孩兒登場",
         "zh-tw": "星城-大運西遊．紅孩兒登場"
+      }
+    },
+    "プロ野球スピリッツＡ": {
+      "appIds": {
+        "ios_jp": "940320341"
+      },
+      "aliases": [],
+      "developer": "Konami Digital Entertainment Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bb/5c/99/bb5c993e-23a7-4fe7-1083-81be3a54a161/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "プロ野球スピリッツa-jp",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "プロ野球スピリッツＡ"
       }
     },
     "梦幻西游": {
@@ -120426,30 +121114,22 @@
     },
     "Let's Vegas Slots-Casino Slots": {
       "appIds": {
-        "android_tw": "com.userjoy.LetsVegasSlots",
-        "ios_tw": "730209957"
+        "android_tw": "com.userjoy.LetsVegasSlots"
       },
       "aliases": [
-        "拉斯維加斯娛樂城 (Let's Vegas Slots)",
-        "Let's Vegas - Slots Casino",
-        "拉斯維加斯娛樂城-捕魚,老虎機,拉霸,麻將,賭場遊戲"
+        "拉斯維加斯娛樂城 (Let's Vegas Slots)"
       ],
       "developer": "USERJOY",
       "icon": "https://play-lh.googleusercontent.com/OUXTwwuMyZ3_qF5aQxRf3MD3CsNE_NBf2cun4gKOVSwo767ORJD4z18u5DpbjPpHE3-A09PKN3ouc2BHZp2t",
       "slug": "lets-vegas-slots-casino-slots",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "en": "Let's Vegas Slots-Casino Slots",
         "ja": "レッツベガス(Let's Vegas Slots)",
-        "zh-tw": "拉斯維加斯娛樂城 (Let's Vegas Slots)",
-        "zh-cn": "王牌街机捕鱼-水果机,捕鱼,棋牌,电玩游戏厅"
-      },
-      "legacySlugs": [
-        "lets-vegas-slots-casino"
-      ]
+        "zh-tw": "拉斯維加斯娛樂城 (Let's Vegas Slots)"
+      }
     },
     "立志做老祖": {
       "appIds": {
@@ -120790,6 +121470,25 @@
       "names": {
         "zh-cn": "整理师的任务 - 货柜爱消除 收纳消除游戏"
       }
+    },
+    "麻雀格闘倶楽部Sp |麻雀の初心者におすすめ! 麻雀ゲーム": {
+      "appIds": {
+        "ios_jp": "640023408"
+      },
+      "aliases": [],
+      "developer": "Konami Digital Entertainment Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/61/1b/75611bc3-1651-0d0c-06a1-918372de1484/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "mah-jong-fight-club-sp-konami-digital",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "麻雀格闘倶楽部Sp |麻雀の初心者におすすめ! 麻雀ゲーム",
+        "zh-tw": "MAH-JONG FIGHT CLUB Sp"
+      },
+      "legacySlugs": [
+        "麻雀格闘倶楽部sp-麻雀の初心者におすすめ-麻雀ゲーム"
+      ]
     },
     "NIGHT CROWS (Wemade Co., Ltd.)": {
       "appIds": {
@@ -121376,26 +122075,18 @@
     },
     "Garena 極速領域：莊園別墅": {
       "appIds": {
-        "ios_tw": "1416604843",
-        "android": "com.garena.game.fctw"
+        "ios_tw": "1416604843"
       },
-      "aliases": [
-        "Garena Speed Drifters",
-        "Garena 極速領域：矩陣突破"
-      ],
+      "aliases": [],
       "developer": "Garena Online Private Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/f9/76/67f9766a-5bf8-e038-15c0-2b8010365d3e/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/512x512bb.jpg",
       "slug": "garena-極速領域莊園別墅",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "zh-tw": "Garena 極速領域：莊園別墅"
-      },
-      "legacySlugs": [
-        "garena-speed-drifters"
-      ]
+      }
     },
     "Kiss of War": {
       "appIds": {
@@ -122603,6 +123294,23 @@
       ],
       "names": {
         "ja": "イラストチェイナー - 絵しりとりオンラインお絵描きアプリ"
+      }
+    },
+    "Rise of Kingdoms ―万国覚醒― (LILITH TECHNOLOGY HONG KONG LIMITED)": {
+      "appIds": {
+        "ios_jp": "1483025097"
+      },
+      "aliases": [
+        "Rise of Kingdoms ―万国覚醒―"
+      ],
+      "developer": "LILITH TECHNOLOGY HONG KONG LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/06/f5/93/06f59358-cf2a-c0b8-4033-0ff4effdfdac/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "rise-of-kingdoms-万国覚醒-lilith-technology-hong-kong-limited",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "Rise of Kingdoms ―万国覚醒―"
       }
     },
     "偶像梦幻祭2": {
@@ -128030,8 +128738,7 @@
     },
     "侍寢三國志-屍亂天下": {
       "appIds": {
-        "android_tw": "com.sanguosp.twgp",
-        "ios_tw": "1635530810"
+        "android_tw": "com.sanguosp.twgp"
       },
       "aliases": [
         "侍寢三國志"
@@ -128040,15 +128747,11 @@
       "icon": "https://play-lh.googleusercontent.com/BrOXPBjvXGVO4RxpE2SPWyT8PdMfGJfUGwts6MRsX8qw27YOulOZY1un-S5kiqSU83e_TUATZffnFxdeQrxWKw",
       "slug": "侍寢三國志-屍亂天下",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "zh-tw": "侍寢三國志"
-      },
-      "legacySlugs": [
-        "侍寢三國志"
-      ]
+      }
     },
     "Water Sort Flow": {
       "appIds": {
@@ -128751,25 +129454,18 @@
     },
     "守護！森友家園": {
       "appIds": {
-        "ios_tw": "6760751542",
-        "android": "com.zerobound.lmfxdj"
+        "ios_tw": "6760751542"
       },
-      "aliases": [
-        "我的森友家園"
-      ],
+      "aliases": [],
       "developer": "ZeroBound Creative Tech Company Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4a/81/1f/4a811fc0-54dc-4c3b-f7e2-793862a386bb/AppIcon-1x_U007emarketing-0-9-0-85-220-0.png/512x512bb.jpg",
       "slug": "守護森友家園",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "zh-tw": "守護！森友家園"
-      },
-      "legacySlugs": [
-        "我的森友家園"
-      ]
+      }
     },
     "ともしびの夜": {
       "appIds": {
@@ -129041,6 +129737,23 @@
       ],
       "names": {
         "zh-cn": "疯狂找一找-百景觅异"
+      }
+    },
+    "Arknights (YOSTAR (HONG KONG) LIMITED)": {
+      "appIds": {
+        "ios_us": "1464872022"
+      },
+      "aliases": [
+        "Arknights"
+      ],
+      "developer": "YOSTAR (HONG KONG) LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c6/81/4c/c6814c25-eec2-0e25-d331-ac7a2ee1e3bd/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "arknights-us",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Arknights"
       }
     },
     "いつどこでオンライン": {
@@ -129328,6 +130041,21 @@
       ],
       "names": {
         "en": "Quizy Fortune"
+      }
+    },
+    "侍寢三國志": {
+      "appIds": {
+        "ios_tw": "1635530810"
+      },
+      "aliases": [],
+      "developer": "SPGame Co., Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4c/f5/eb/4cf5ebbb-21e7-a76d-b45f-c6960247f7af/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "侍寢三國志",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "侍寢三國志"
       }
     },
     "瞄准实验室": {
@@ -129761,25 +130489,18 @@
     },
     "我要當食神": {
       "appIds": {
-        "ios_tw": "6480405264",
-        "android": "com.oceanjoy.cookgod.an"
+        "ios_tw": "6480405264"
       },
-      "aliases": [
-        "Go! Food God"
-      ],
-      "developer": "Ocean Joy",
-      "icon": "https://play-lh.googleusercontent.com/2L-s9EwOZW1FxeqCf96ALUSuE7HUPgWLCVUSKHHaJUQVhA9fOTWcRi5Niw5gvxCdRzt5vOnpg6rNQDs-NqD-",
+      "aliases": [],
+      "developer": "",
+      "icon": "",
       "slug": "我要當食神",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "zh-tw": "我要當食神"
-      },
-      "legacySlugs": [
-        "go-food-god"
-      ]
+      }
     },
     "[777Real]スマスロスーパーブラックジャック": {
       "appIds": {
@@ -130692,27 +131413,20 @@
     },
     "myKONAMI® Casino Slot Machines": {
       "appIds": {
-        "android_us": "com.playstudios.mykonami",
-        "ios_us": "1040172229"
+        "android_us": "com.playstudios.mykonami"
       },
-      "aliases": [
-        "myKONAMI® Slots"
-      ],
+      "aliases": [],
       "developer": "PLAYSTUDIOS US, LLC",
       "icon": "https://play-lh.googleusercontent.com/7AKhww7dL9ZJ9_rrleSaDEgt4EysR1cNq7kz1_rout90c9Y7IiIrtJM9dTpE59jHR8KYw152TFdhgQDx-HpRh58",
       "slug": "mykonami-casino-slot-machines",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "en": "myKONAMI® Casino Slot Machines",
         "ja": "my KONAMI Slots Las Vegas",
         "zh-tw": "myKONAMI® Casino Slot Machines"
-      },
-      "legacySlugs": [
-        "mykonami-slots"
-      ]
+      }
     },
     "X-ヒーロー：ナイフブリンガー": {
       "appIds": {
@@ -131087,6 +131801,23 @@
         "en": "奇幻捕魚online - 次世代3D捕魚大作戰",
         "ja": "奇幻捕魚online - 次世代3D捕魚大作戰",
         "zh-tw": "奇幻捕魚online - 次世代3D捕魚大作戰"
+      }
+    },
+    "myKONAMI® Slots": {
+      "appIds": {
+        "ios_us": "1040172229"
+      },
+      "aliases": [],
+      "developer": "Playstudios, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b1/9d/f3/b19df384-b4e2-b81a-78ba-bfde709a6991/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mykonami-slots",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "myKONAMI® Slots",
+        "ja": "myKONAMI® Casino Slot Machines",
+        "zh-tw": "myKONAMI® Casino Slot Machines"
       }
     },
     "NBA 2K26 MyTEAM": {
@@ -132932,6 +133663,21 @@
       ],
       "names": {
         "zh-cn": "羁绊进化觉醒"
+      }
+    },
+    "我是大酋長:抓寵版 寵物捕捉休閒養成遊戲": {
+      "appIds": {
+        "ios_tw": "6767219112"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "",
+      "slug": "我是大酋長抓寵版-寵物捕捉休閒養成遊戲",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "我是大酋長:抓寵版 寵物捕捉休閒養成遊戲"
       }
     },
     "Mecha Chameleon": {
@@ -135745,8 +136491,7 @@
     },
     "三国志·極彩 - うさぎ 100% 武士語コラボ中 (SUPERNOVA OVERSEAS LIMITED)": {
       "appIds": {
-        "ios_jp": "6756111327",
-        "android": "com.supernova.qy.gp"
+        "ios_jp": "6756111327"
       },
       "aliases": [
         "三国志·極彩 - うさぎ 100% 武士語コラボ中"
@@ -135755,15 +136500,11 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7a/f3/cf/7af3cf4a-e715-38a1-ae58-0a35eb99f803/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "三国志極彩-うさぎ-100-武士語コラボ中-supernova-overseas-limited",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ja": "三国志·極彩 - うさぎ 100% 武士語コラボ中"
-      },
-      "legacySlugs": [
-        "三国志極彩-うさぎ-100-武士語コラボ中"
-      ]
+      }
     },
     "跑了只羊-指尖上的羊": {
       "appIds": {
@@ -138219,25 +138960,18 @@
     },
     "オリアカ：ライト": {
       "appIds": {
-        "ios_jp": "6753206865",
-        "android": "com.qookkagames.starg2.gp.global"
+        "ios_jp": "6753206865"
       },
-      "aliases": [
-        "三國志幻想大陸：輕量版"
-      ],
+      "aliases": [],
       "developer": "Qookka Entertainment Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6f/9f/39/6f9f395f-35ec-7249-06a2-747bbfa257e6/AppIcon-global-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "オリアカライト",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ja": "オリアカ：ライト"
-      },
-      "legacySlugs": [
-        "三國志幻想大陸輕量版"
-      ]
+      }
     },
     "暗棋大戰Online (SOHOMOB LIMITED)": {
       "appIds": {
@@ -138503,25 +139237,18 @@
     },
     "疾速地下城": {
       "appIds": {
-        "ios_tw": "6747064557",
-        "android": "net.gameduo.fastdungeon"
+        "ios_tw": "6747064557"
       },
-      "aliases": [
-        "패스트던전"
-      ],
+      "aliases": [],
       "developer": "Game Duo Co.,Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4b/81/d3/4b81d3f6-7d5f-d934-39f9-a8e636a44e11/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "疾速地下城",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "zh-tw": "疾速地下城"
-      },
-      "legacySlugs": [
-        "fast-dungeon"
-      ]
+      }
     },
     "家電カノジョ": {
       "appIds": {
@@ -140394,25 +141121,18 @@
     },
     "救世者之樹Ｍ": {
       "appIds": {
-        "ios_tw": "6458050011",
-        "android": "com.gamania.tosm"
+        "ios_tw": "6458050011"
       },
-      "aliases": [
-        "救世者之樹M"
-      ],
+      "aliases": [],
       "developer": "Gamania Digital Entertainment",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3d/32/61/3d32613c-f5e6-f452-d7a7-edcb99161411/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "救世者之樹m-tw",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "zh-tw": "救世者之樹Ｍ"
-      },
-      "legacySlugs": [
-        "救世者之樹m"
-      ]
+      }
     },
     "ポイントキャット": {
       "appIds": {
@@ -140484,28 +141204,18 @@
     },
     "脱出ゲーム 桜咲く古民家": {
       "appIds": {
-        "ios_jp": "6759100962",
-        "android": "com.takasimapon.kominka"
+        "ios_jp": "6759100962"
       },
-      "aliases": [
-        "Escape Game: Sakura Kominka"
-      ],
-      "developer": "Room's Room",
-      "icon": "https://play-lh.googleusercontent.com/2VrWECs0kk7O4okUHR39GHZmQsg13OLx5e-aNDwVgJ57mBgbVC12rgr_WV7zOS-Sxb-GCU_op-_KOT7utlYQCg",
+      "aliases": [],
+      "developer": "",
+      "icon": "",
       "slug": "脱出ゲーム-桜咲く古民家",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
-        "ja": "脱出ゲーム 桜咲く古民家",
-        "ko": "Escape Game: Sakura Kominka",
-        "en": "Escape Game: Sakura Kominka",
-        "zh-tw": "Escape Game: Sakura Kominka"
-      },
-      "legacySlugs": [
-        "escape-game-sakura-kominka"
-      ]
+        "ja": "脱出ゲーム 桜咲く古民家"
+      }
     },
     "釣魚新境界": {
       "appIds": {
@@ -141392,6 +142102,25 @@
       "names": {
         "zh-cn": "卡车之星 - 国产模拟驾驶游戏"
       }
+    },
+    "ポケモンごいた：遊び方": {
+      "appIds": {
+        "ios_jp": "6751881838"
+      },
+      "aliases": [],
+      "developer": "The Pokemon Company",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/17/9d/f5/179df5a6-bffb-dd75-30e5-af9619529f23/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "pokemon-goita-tutorial-app-the-pokemon",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ポケモンごいた：遊び方",
+        "zh-tw": "Pokémon GOITA: Tutorial App"
+      },
+      "legacySlugs": [
+        "ポケモンごいた遊び方"
+      ]
     },
     "Minesweeper ZERO": {
       "appIds": {
@@ -142802,6 +143531,21 @@
       ],
       "names": {
         "zh-cn": "花语迷踪"
+      }
+    },
+    "姬不可失：據點不設防": {
+      "appIds": {
+        "ios_tw": "6754364750"
+      },
+      "aliases": [],
+      "developer": "",
+      "icon": "",
+      "slug": "姬不可失據點不設防",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "姬不可失：據點不設防"
       }
     },
     "Kettle-Cup Count": {
@@ -148003,18 +148747,14 @@
     },
     "Ludo Go! - 주사위 보드게임": {
       "appIds": {
-        "android": "com.easybrain.ludo.board.games",
-        "ios": 6815260519
+        "android": "com.easybrain.ludo.board.games"
       },
-      "aliases": [
-        "Ludo Go! - 루도 보드게임"
-      ],
+      "aliases": [],
       "developer": "Easybrain",
       "icon": "https://play-lh.googleusercontent.com/jeI55qFK3IjtLyt6okMfh0fN2QoG8FzXGex6aavr3ccN-7R-4EsQ2tY7DRIkGDOFZDDb3duMmqWgqWSbxT03cKE",
       "slug": "ludo-go-dice-board-games",
       "platforms": [
-        "android",
-        "ios"
+        "android"
       ],
       "names": {
         "ko": "Ludo Go! - 주사위 보드게임",
@@ -148023,9 +148763,7 @@
         "zh-tw": "Ludo Go!——骰子桌遊"
       },
       "legacySlugs": [
-        "ludo-go-주사위-보드게임",
-        "ludo-go-dice-board-games-easybrain-ltd",
-        "ludo-go-루도-보드게임"
+        "ludo-go-주사위-보드게임"
       ]
     },
     "Alchemy Infinite Craft World": {
@@ -149574,6 +150312,27 @@
         "ja": "スウィート3マッチ :Triple Crush",
         "zh-tw": "Triple Crush: Sweety Elite"
       }
+    },
+    "숨은 그림 찾기 게임: Find & Go": {
+      "appIds": {
+        "android": "com.gurupuzzle.find.go.hidden.objects"
+      },
+      "aliases": [],
+      "developer": "Guru Puzzle Game",
+      "icon": "https://play-lh.googleusercontent.com/p51TvVIQbWa6G1aeQnZZETFCV_DXxBkdnk5xmvX8cxqkD_A9HVQmCC-f-cKnS0uu31Zg_9eW1uzXPuHuJpMT",
+      "slug": "hidden-objects-game-find-go-guru-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "숨은 그림 찾기 게임: Find & Go",
+        "en": "Hidden Objects Game: Find & Go",
+        "ja": "アイテム探しゲーム：Find & Go",
+        "zh-tw": "尋物遊戲：Find & Go"
+      },
+      "legacySlugs": [
+        "숨은-그림-찾기-게임-find-go"
+      ]
     },
     "覺醒吧主公：像素重生": {
       "appIds": {
@@ -151305,6 +152064,24 @@
         "steam"
       ]
     },
+    "Snake Away: Casual Puzzle": {
+      "appIds": {
+        "ios": 6800611110
+      },
+      "aliases": [],
+      "developer": "MellowPlay Interactive Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/74/c5/15/74c5156e-e9a0-656e-85db-6afff891f72b/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "snake-away-casual-puzzle-6800611110",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Snake Away: Casual Puzzle",
+        "en": "Snake Away: Casual Puzzle",
+        "ja": "Snake Away: Casual Puzzle",
+        "zh-tw": "Snake Away: Casual Puzzle"
+      }
+    },
     "Tropico 7": {
       "appIds": {
         "steam": "1853440"
@@ -152262,6 +153039,29 @@
       },
       "legacySlugs": [
         "원피스-그랜드-레스토랑"
+      ]
+    },
+    "총잡이 디펜스": {
+      "appIds": {
+        "android": "com.cookapps.towerroguedefense",
+        "ios": 6760276770
+      },
+      "aliases": [],
+      "developer": "Purplecow games",
+      "icon": "https://play-lh.googleusercontent.com/PG5hyWvfp_N5JHWbdpz0AtYRCf52Dy3t9IF7elYSi13m6nuh5GBHb5XwDvsoy1CusSlkFKxB2Ws5x13dEzyplw",
+      "slug": "galactic-outlaw-tower-defense-purplecow-games",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "총잡이 디펜스",
+        "en": "Galactic Outlaw: Tower Defense",
+        "ja": "ギャラクティック・アウトロー：タワーディフェンス",
+        "zh-tw": "星際亡命徒：肉鴿塔防"
+      },
+      "legacySlugs": [
+        "총잡이-디펜스"
       ]
     },
     "CarLoop: Block Sort": {
@@ -153916,6 +154716,27 @@
         "픽스글로우-컬러-소트-퍼즐"
       ]
     },
+    "Arrow Puzzle 3D - 화살퍼즐게임": {
+      "appIds": {
+        "ios": 6777942798
+      },
+      "aliases": [],
+      "developer": "Easybrain Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/89/74/73/8974730d-8a04-fd7f-b685-43553e9a0068/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "arrow-puzzle-3d-arrows-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Arrow Puzzle 3D - 화살퍼즐게임",
+        "en": "Arrow Puzzle 3D - Arrows Game",
+        "ja": "Arrow Puzzle 3D - アローパズルゲーム",
+        "zh-tw": "Arrow Puzzle 3D - 箭頭益智遊戲"
+      },
+      "legacySlugs": [
+        "arrow-puzzle-3d-화살퍼즐게임"
+      ]
+    },
     "開拓うさぎ by クラシル": {
       "appIds": {
         "android": "com.kurashiru.kaitaku.usagi",
@@ -154746,6 +155567,18 @@
       "developer": "Sports Interactive",
       "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4530370/3d06aef381c925bb6c091f13be44dd294b205a72/capsule_231x87.jpg?t=1793296899",
       "slug": "football-manager-27",
+      "platforms": [
+        "steam"
+      ]
+    },
+    "Epic Seven": {
+      "appIds": {
+        "steam": "5019180"
+      },
+      "aliases": [],
+      "developer": "Smilegate",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5019180/bb198e38698a469c0af46e637ce3aebe01f8aca3/capsule_231x87.jpg?t=1793256460",
+      "slug": "epic-seven",
       "platforms": [
         "steam"
       ]
@@ -155777,6 +156610,27 @@
         "zh-tw": "Fill It: Organize Puzzle"
       }
     },
+    "Ludo Go! - 루도 보드게임": {
+      "appIds": {
+        "ios": 6815260519
+      },
+      "aliases": [],
+      "developer": "Easybrain Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7b/42/de/7b42de08-786d-3935-7209-453b74903827/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ludo-go-dice-board-games-easybrain-ltd",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Ludo Go! - 루도 보드게임",
+        "en": "Ludo Go! - Dice Board Games",
+        "ja": "Ludo Go! - ルドーボードゲーム",
+        "zh-tw": "Ludo Go!——骰子桌遊"
+      },
+      "legacySlugs": [
+        "ludo-go-루도-보드게임"
+      ]
+    },
     "Secret Jigsaw Charm": {
       "appIds": {
         "android": "com.secret.jigsaw.charm"
@@ -156685,26 +157539,18 @@
     },
     "來種水果吧！": {
       "appIds": {
-        "ios_tw": 6806929534,
-        "android": "com.riftsky.mfo.ap.gp"
+        "ios_tw": 6806929534
       },
-      "aliases": [
-        "Fruit Days"
-      ],
+      "aliases": [],
       "developer": "RiftSky Games Co.,Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/cc/d9/fc/ccd9fce6-172e-3309-0a40-4ad378ab6319/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "來種水果吧",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
-        "zh-tw": "來種水果吧！",
-        "ko": "Fruit Days"
-      },
-      "legacySlugs": [
-        "fruit-days"
-      ]
+        "zh-tw": "來種水果吧！"
+      }
     },
     "超人力霸王：光之英雄": {
       "appIds": {
@@ -157055,6 +157901,22 @@
       "legacySlugs": [
         "hix-퍼즐-아일랜드"
       ]
+    },
+    "Fruit Days": {
+      "appIds": {
+        "android": "com.riftsky.mfo.ap.gp"
+      },
+      "aliases": [],
+      "developer": "Riftsky Games",
+      "icon": "https://play-lh.googleusercontent.com/59-ZjpFWwuRT29IcyW6sTnZf0Ki4fLc5JqPWAt7kZyc_SBkwe4iRiZ-rLnOvivYil7K_HighxUExN283ikxYhg",
+      "slug": "fruit-days",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Fruit Days",
+        "zh-tw": "來種水果吧！"
+      }
     },
     "False Myth 2": {
       "appIds": {
@@ -161128,6 +161990,27 @@
         "zh-tw": "Fashion Arena: Dress Up Game"
       }
     },
+    "Tidy Master: 완벽하게 정리하다 - 정리게임": {
+      "appIds": {
+        "android": "com.diy.perfect.asmr"
+      },
+      "aliases": [],
+      "developer": "PixOn Games",
+      "icon": "https://play-lh.googleusercontent.com/XbSz-t0ny4Rd2xM-O5PEoPhjA6R2PPSTR42Irwv3o0jcpRQq1ka2yb4P1D__-X0LNP_zIXVf3vVMu8qiOOZG-O8",
+      "slug": "tidy-up-satisfeel-asmr-pixon-games",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Tidy Master: 완벽하게 정리하다 - 정리게임",
+        "en": "Tidy Up - Satisfeel ASMR",
+        "ja": "Tidy Master: 整理マスターASMR",
+        "zh-tw": "Tidy Up - Satisfeel ASMR"
+      },
+      "legacySlugs": [
+        "tidy-master-완벽하게-정리하다-정리게임"
+      ]
+    },
     "追憶の屋敷からの脱出 -脱出ゲーム": {
       "appIds": {
         "android": "jp.globalgear.lab.g271"
@@ -162614,29 +163497,21 @@
     },
     "Cruise Chefs - Cooking Game": {
       "appIds": {
-        "ios": 6751276002,
-        "android": "com.nordcurrent.cruisechefs"
+        "ios": 6751276002
       },
-      "aliases": [
-        "크루즈 셰프"
-      ],
+      "aliases": [],
       "developer": "Nordcurrent UAB",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a8/ab/a9/a8aba932-24a8-807c-ca7a-08663bf2b383/AppIcon-1x_U007epad-0-1-85-220-0.png/512x512bb.jpg",
       "slug": "cruise-chefs-cooking-game",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Cruise Chefs - Cooking Game",
         "en": "Cruise Chefs - Cooking Game",
         "ja": "Cruise Chefs - Cooking Game",
         "zh-tw": "Cruise Chefs - Cooking Game"
-      },
-      "legacySlugs": [
-        "cruise-chefs-cooking-game-nordcurrent-games",
-        "크루즈-셰프"
-      ]
+      }
     },
     "Tidy House: 숨은그림찾기와 정리 퍼즐": {
       "appIds": {
@@ -162849,29 +163724,21 @@
     },
     "Hidden Objects Game: Find & Go": {
       "appIds": {
-        "ios": 6772895198,
-        "android": "com.gurupuzzle.find.go.hidden.objects"
+        "ios": 6772895198
       },
-      "aliases": [
-        "숨은 그림 찾기 게임: Find & Go"
-      ],
+      "aliases": [],
       "developer": "Guru Smart Holding Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/07/93/9a/07939aa1-ce97-f324-3b20-099451d5cec0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "hidden-objects-game-find-go",
       "platforms": [
-        "ios",
-        "android"
+        "ios"
       ],
       "names": {
         "ko": "Hidden Objects Game: Find & Go",
         "en": "Hidden Objects Game: Find & Go",
         "ja": "Hidden Objects Game: Find & Go",
         "zh-tw": "Hidden Objects Game: Find & Go"
-      },
-      "legacySlugs": [
-        "hidden-objects-game-find-go-guru-puzzle",
-        "숨은-그림-찾기-게임-find-go"
-      ]
+      }
     },
     "Goddess Cultivation: Idle RPG": {
       "appIds": {
@@ -163757,6 +164624,31 @@
       },
       "legacySlugs": [
         "퍼즐-게임-퍼즐-맞추기-수수께끼-잇다-색깔"
+      ]
+    },
+    "크루즈 셰프": {
+      "appIds": {
+        "android": "com.nordcurrent.cruisechefs",
+        "ios": 6751276002
+      },
+      "aliases": [
+        "Cruise Chefs - Cooking Game"
+      ],
+      "developer": "Nordcurrent Games",
+      "icon": "https://play-lh.googleusercontent.com/zWzEfJNxMWfz0IeELvqdyuJcBUrQprD1R0XfHSG-HiWnlfKhZbEXu9I2ca1VEu0kA5-QsSMxtt78-nef558xYw",
+      "slug": "cruise-chefs-cooking-game-nordcurrent-games",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "크루즈 셰프",
+        "en": "Cruise Chefs - Cooking Game",
+        "ja": "クルーズ船の料理人",
+        "zh-tw": "Cruise Chefs - Cooking Game"
+      },
+      "legacySlugs": [
+        "크루즈-셰프"
       ]
     },
     "Mystery Dumpling: DIY ASMR": {
@@ -165050,5 +165942,5 @@
     }
   },
   "lastUpdated": "2026-11-25",
-  "totalGames": 9403
+  "totalGames": 9477
 }
