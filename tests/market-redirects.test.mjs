@@ -28,7 +28,7 @@ test('edition auto-redirect lands on a built page or its nearest built parent', 
   assert.deepEqual(await visit('/rankings/genres/idle/', { country: 'CN' }), { status: 302, location: '/zh-cn/rankings/genres/' });
   assert.deepEqual(await visit('/rankings/genres/rpg/', { country: 'CN' }), { status: 302, location: '/zh-cn/rankings/genres/rpg/' });
   assert.deepEqual(await visit('/rankings/genres/idle/', { country: 'JP' }), { status: 302, location: '/ja/rankings/genres/idle/' });
-  assert.deepEqual(await visit('/rankings/genres/tcg/', { ua: 'Mozilla/5.0 (compatible; Baiduspider/2.0)' }), { status: 302, location: '/zh-cn/rankings/genres/' });
+  assert.deepEqual(await visit('/rankings/genres/tcg/', { ua: 'Mozilla/5.0 (compatible; Baiduspider/2.0)' }), { status: 301, location: '/zh-cn/rankings/genres/' });
 });
 
 test('removed market pages 301 to the edition\'s nearest built parent; unknown URLs stay 404-able', async () => {
