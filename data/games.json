@@ -74063,7 +74063,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "jp.co.mixi.monsterstrikeTW"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -83551,14 +83551,16 @@
     },
     "Oops! Tidy Up": {
       "appIds": {
-        "ios": "6747096801"
+        "ios": 6747096801,
+        "android": "com.lemjoy.oversea.google.cozyroom"
       },
       "aliases": [],
       "developer": "TAPROMANCE PTE. LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/31/ad/8431addc-3e3c-b030-d202-0198e3682d8f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "oops-tidy-up",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Oops! Tidy Up",
@@ -157694,14 +157696,16 @@
     },
     "Sand Hole: Block Sort Jam": {
       "appIds": {
-        "ios": 6795585457
+        "ios": 6795585457,
+        "android": "com.zm.shole"
       },
       "aliases": [],
       "developer": "Tripledot Studios",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/02/b6/8c02b6fd-b0fe-1336-502a-1eb3a817fa29/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "sand-hole-block-sort-jam",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Sand Hole: Block Sort Jam",
@@ -162463,14 +162467,16 @@
     },
     "Crazy Story: Plot Twist": {
       "appIds": {
-        "ios": 6801039859
+        "ios": 6801039859,
+        "android": "com.story.plot.joygame"
       },
       "aliases": [],
       "developer": "SmallStep Dev Team",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/b2/03/73b203fa-44f7-451f-67bf-198934d91828/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "crazy-story-plot-twist",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Crazy Story: Plot Twist",
@@ -166254,8 +166260,85 @@
       "platforms": [
         "steam"
       ]
+    },
+    "Sandy Bus: Masterpiece": {
+      "appIds": {
+        "ios": 6807326174
+      },
+      "aliases": [],
+      "developer": "Hyper Surfer Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/7e/13/ff7e131d-7963-331f-5f53-6e0071d75217/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "sandy-bus-masterpiece",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Sandy Bus: Masterpiece",
+        "en": "Sandy Bus: Masterpiece",
+        "ja": "Sandy Bus: Masterpiece",
+        "zh-tw": "Sandy Bus: Masterpiece"
+      }
+    },
+    "Car Driving City: StreetPro": {
+      "appIds": {
+        "android": "com.streetpro.real3d.cardriving"
+      },
+      "aliases": [],
+      "developer": "BROWNE CURTIS HENRY",
+      "icon": "https://play-lh.googleusercontent.com/GWHW7sTFCXbiKQtwV7vwD48BD4TNrHeWLZc9yL0VGxVQ8TvNh2xgHhMLJd50vB-S4N04DzePUgxPIyJRM8g4Cko",
+      "slug": "car-driving-city-streetpro",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Car Driving City: StreetPro",
+        "en": "Car Driving City: StreetPro",
+        "ja": "Car Driving City: StreetPro",
+        "zh-tw": "Car Driving City: StreetPro"
+      }
+    },
+    "Wool Connect: 뜨개질 퍼즐 게임": {
+      "appIds": {
+        "ios": 6814395879
+      },
+      "aliases": [],
+      "developer": "Arcloom., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/14/d1/9514d172-b2bf-a8eb-a521-9d8607f2ad36/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "wool-connect-yarn-pixel-games",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Wool Connect: 뜨개질 퍼즐 게임",
+        "en": "Wool Connect: Yarn Pixel Games",
+        "ja": "Wool Connect：毛糸パズルゲーム",
+        "zh-tw": "Wool Connect: 毛線拼圖大師遊戲"
+      },
+      "legacySlugs": [
+        "wool-connect-뜨개질-퍼즐-게임"
+      ]
+    },
+    "Hexascapes - Block Puzzle": {
+      "appIds": {
+        "android": "hexa.out.tap.puzzle.color.away.escape.block.master",
+        "ios": 6761900868
+      },
+      "aliases": [],
+      "developer": "EASY PLAY GAME TECHNOLOGY LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/vJwoMNDzYNt7Q4CmqfJmbfx8Xu5tpl1VoMQD7K0Mx5287OpNsF1fgIEZi9QmlOgdujWNqEnSq0WwqCUE_TPZBw",
+      "slug": "hexascapes-block-puzzle",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Hexascapes - Block Puzzle",
+        "en": "Hexascapes - Block Puzzle",
+        "ja": "Hexascapes - Block Puzzle",
+        "zh-tw": "Hexascapes - Block Puzzle"
+      }
     }
   },
   "lastUpdated": "2026-11-26",
-  "totalGames": 9494
+  "totalGames": 9498
 }

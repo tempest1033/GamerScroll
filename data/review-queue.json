@@ -48770,13 +48770,27 @@
     },
     {
       "title": "Sand Hole: Block Sort Jam",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6795585457
+        "ios": 6795585457,
+        "android": "com.zm.shole"
       },
       "developer": "Tripledot Studios",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8c/02/b6/8c02b6fd-b0fe-1336-502a-1eb3a817fa29/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Sand Hole: Block Sort Jam",
+          "appId": 6795585457
+        },
+        {
+          "title": "Fill Sand: Block Puzzle",
+          "appId": 6797907221
+        },
+        {
+          "title": "Color Sand: Fill The Blocks",
+          "appId": 6810972527
+        }
+      ],
       "addedAt": "2026-11-05T05:03:19.830Z"
     },
     {
@@ -51637,13 +51651,19 @@
     },
     {
       "title": "Crazy Story: Plot Twist",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6801039859
+        "ios": 6801039859,
+        "android": "com.story.plot.joygame"
       },
       "developer": "SmallStep Dev Team",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/73/b2/03/73b203fa-44f7-451f-67bf-198934d91828/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Crazy Story: Plot Twist",
+          "appId": 6801039859
+        }
+      ],
       "addedAt": "2026-11-17T11:02:45.825Z"
     },
     {
@@ -53742,7 +53762,7 @@
       "title": "怪物彈珠 - RPG手機遊戲",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "jp.co.mixi.monsterstrikeTW"
       },
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
@@ -53857,6 +53877,90 @@
         }
       ],
       "addedAt": "2026-11-25T19:01:58.939Z"
+    },
+    {
+      "title": "Sandy Bus: Masterpiece",
+      "status": "single",
+      "appIds": {
+        "ios": 6807326174
+      },
+      "developer": "Hyper Surfer Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/7e/13/ff7e131d-7963-331f-5f53-6e0071d75217/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T23:01:49.604Z"
+    },
+    {
+      "title": "Car Driving City: StreetPro",
+      "status": "single",
+      "appIds": {
+        "android": "com.streetpro.real3d.cardriving"
+      },
+      "developer": "BROWNE CURTIS HENRY",
+      "icon": "https://play-lh.googleusercontent.com/GWHW7sTFCXbiKQtwV7vwD48BD4TNrHeWLZc9yL0VGxVQ8TvNh2xgHhMLJd50vB-S4N04DzePUgxPIyJRM8g4Cko",
+      "searchResults": [
+        {
+          "title": "오프로드 프라도 4x4 드라이빙",
+          "appId": 1141250602
+        },
+        {
+          "title": "Caucasus Parking: Парковка 3D",
+          "appId": 1660186804
+        },
+        {
+          "title": "3D Car Series Free Driving",
+          "appId": 6457546969
+        }
+      ],
+      "addedAt": "2026-11-25T23:01:50.216Z"
+    },
+    {
+      "title": "Wool Connect: 뜨개질 퍼즐 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6814395879
+      },
+      "developer": "Arcloom., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/14/d1/9514d172-b2bf-a8eb-a521-9d8607f2ad36/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T23:01:50.580Z"
+    },
+    {
+      "title": "Hexascapes - Block Puzzle",
+      "status": "matched",
+      "appIds": {
+        "android": "hexa.out.tap.puzzle.color.away.escape.block.master",
+        "ios": 6761900868
+      },
+      "developer": "EASY PLAY GAME TECHNOLOGY LIMITED",
+      "icon": "https://play-lh.googleusercontent.com/vJwoMNDzYNt7Q4CmqfJmbfx8Xu5tpl1VoMQD7K0Mx5287OpNsF1fgIEZi9QmlOgdujWNqEnSq0WwqCUE_TPZBw",
+      "searchResults": [
+        {
+          "title": "Hexascapes - Block Puzzle",
+          "appId": 6761900868
+        },
+        {
+          "title": "Hexascapes!",
+          "appId": 6748702720
+        }
+      ],
+      "addedAt": "2026-11-25T23:01:51.500Z"
+    },
+    {
+      "title": "Oops! Tidy Up",
+      "status": "matched",
+      "appIds": {
+        "ios": 6747096801,
+        "android": "com.lemjoy.oversea.google.cozyroom"
+      },
+      "developer": "TAPROMANCE PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/31/ad/8431addc-3e3c-b030-d202-0198e3682d8f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "Oops! Tidy Up",
+          "appId": 6747096801
+        }
+      ],
+      "addedAt": "2026-11-25T23:01:51.792Z"
     }
   ],
   "approved": [
