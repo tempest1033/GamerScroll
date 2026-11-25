@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53670,6 +53670,39 @@
         }
       ],
       "addedAt": "2026-11-25T03:02:01.316Z"
+    },
+    {
+      "title": "루프타워:랜덤타워디펜스",
+      "status": "single",
+      "appIds": {
+        "android": "com.looptower"
+      },
+      "developer": "LoopCity",
+      "icon": "https://play-lh.googleusercontent.com/5_Lm4aammH4lNdMYWfRlX-UW2ATF0BCVC0LiO2KEdFsSxpVigv9L1v1sKLGfQfxfY29BAOtJyPX0_iRO3uImsK0",
+      "searchResults": [],
+      "addedAt": "2026-11-25T07:02:06.829Z"
+    },
+    {
+      "title": "MONSTER HUNTER RISE NETFLIX",
+      "status": "single",
+      "appIds": {
+        "ios": 6740350229
+      },
+      "developer": "Netflix, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/86/98/0086984d-6a5d-07e6-e763-c9fba6521600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T07:02:08.081Z"
+    },
+    {
+      "title": "Cheese Run: Hill Escape",
+      "status": "single",
+      "appIds": {
+        "ios": 6837705456
+      },
+      "developer": "Mustafa Bugra Sozeri",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3c/65/ff/3c65ff29-beed-0c35-d16f-a63c6009f77f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T07:02:08.474Z"
     }
   ],
   "approved": [

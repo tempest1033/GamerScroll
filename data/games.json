@@ -73418,7 +73418,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "com.square_enix.android_googleplay.dqsgj"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -80110,6 +80110,7 @@
         "android"
       ],
       "names": {
+        "ko": "필드데이",
         "en": "Field Day",
         "zh-tw": "街頭獵場"
       }
@@ -166892,8 +166893,89 @@
       "platforms": [
         "steam"
       ]
+    },
+    "루프타워:랜덤타워디펜스": {
+      "appIds": {
+        "android": "com.looptower"
+      },
+      "aliases": [],
+      "developer": "LoopCity",
+      "icon": "https://play-lh.googleusercontent.com/5_Lm4aammH4lNdMYWfRlX-UW2ATF0BCVC0LiO2KEdFsSxpVigv9L1v1sKLGfQfxfY29BAOtJyPX0_iRO3uImsK0",
+      "slug": "루프타워랜덤타워디펜스",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "루프타워:랜덤타워디펜스",
+        "en": "루프타워:랜덤타워디펜스",
+        "ja": "루프타워:랜덤타워디펜스",
+        "zh-tw": "루프타워:랜덤타워디펜스"
+      }
+    },
+    "ホロライブ麻雀 -ホロじゃん-": {
+      "appIds": {
+        "ios_jp": 6762111285
+      },
+      "aliases": [],
+      "developer": "Aiming Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/59/6c/ab596ce5-b7f3-fb7f-1b9c-87528fe08207/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "ホロライブ麻雀-ホロじゃん",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ホロライブ麻雀 -ホロじゃん-"
+      }
+    },
+    "MONSTER HUNTER RISE NETFLIX": {
+      "appIds": {
+        "ios": 6740350229
+      },
+      "aliases": [],
+      "developer": "Netflix, Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/86/98/0086984d-6a5d-07e6-e763-c9fba6521600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "monster-hunter-rise-netflix",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "MONSTER HUNTER RISE NETFLIX",
+        "en": "MONSTER HUNTER RISE NETFLIX",
+        "ja": "MONSTER HUNTER RISE NETFLIX",
+        "zh-tw": "MONSTER HUNTER RISE NETFLIX"
+      }
+    },
+    "Cheese Run: Hill Escape": {
+      "appIds": {
+        "ios": 6837705456
+      },
+      "aliases": [],
+      "developer": "Mustafa Bugra Sozeri",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3c/65/ff/3c65ff29-beed-0c35-d16f-a63c6009f77f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "cheese-run-hill-escape",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Cheese Run: Hill Escape",
+        "en": "Cheese Run: Hill Escape",
+        "ja": "チーズラン：坂道ころころ逃走ゲーム",
+        "zh-tw": "Cheese Run: Hill Escape"
+      }
+    },
+    "SHRED A BILLION": {
+      "appIds": {
+        "steam": "5472080"
+      },
+      "aliases": [],
+      "developer": "ImSoTiredStudio",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5472080/4241e6a58cf5461b96f9ed399e661fa16391d0fa/capsule_231x87.jpg?t=1795542942",
+      "slug": "shred-a-billion",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-25",
-  "totalGames": 9563
+  "totalGames": 9568
 }
