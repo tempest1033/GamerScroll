@@ -17176,7 +17176,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -74063,7 +74063,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -165304,18 +165304,25 @@
     },
     "[777Real]パチスロ かぐや様は告らせたい": {
       "appIds": {
-        "ios_jp": 6832461356
+        "ios_jp": 6832461356,
+        "android_jp": "jp.sammynet.next.ort.a0212"
       },
-      "aliases": [],
+      "aliases": [
+        "[777Real]パチスロ かぐや様は告らせたい (JP)"
+      ],
       "developer": "Sammy Networks Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/d8/87/0ad88791-c787-76e9-6f35-24a5ab991adb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "slug": "777realパチスロ-かぐや様は告らせたい",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ja": "[777Real]パチスロ かぐや様は告らせたい"
-      }
+      },
+      "legacySlugs": [
+        "777realパチスロ-かぐや様は告らせたい-jp"
+      ]
     },
     "Fresh Today: Cozy Supermarket": {
       "appIds": {
@@ -165472,14 +165479,16 @@
     },
     "귀혼키우기": {
       "appIds": {
-        "ios": "6795757139"
+        "ios": "6795757139",
+        "android": "com.mgame.gsir"
       },
       "aliases": [],
       "developer": "MGAME Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a7/69/1d/a7691d06-f345-b376-19ef-4ab70a98700e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "귀혼키우기",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "귀혼키우기"
@@ -165487,14 +165496,16 @@
     },
     "아주르 프로밀리아": {
       "appIds": {
-        "ios": 6754899430
+        "ios": 6754899430,
+        "android": "com.nexon.azurpromilia"
       },
       "aliases": [],
       "developer": "NEXON Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b1/46/ee/b146ee5d-03be-78d3-b02e-4fbd32b1e053/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "아주르-프로밀리아",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "아주르 프로밀리아"
@@ -165538,16 +165549,19 @@
     },
     "アズールプロミリア": {
       "appIds": {
-        "ios_jp": 6787982572
+        "ios_jp": 6787982572,
+        "android": "com.Yostar.AzurpromiliaJP"
       },
       "aliases": [],
       "developer": "YOSTAR (HONG KONG) LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/15/6c/47/156c471a-e3fc-5fba-a0be-8f640e876515/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "アズールプロミリア",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "アズールプロミリア",
         "ja": "アズールプロミリア"
       }
     },
@@ -165638,16 +165652,19 @@
     },
     "藍色星原：旅謠": {
       "appIds": {
-        "ios_tw": 6789139052
+        "ios_tw": 6789139052,
+        "android": "com.jimi.azurpromilia"
       },
       "aliases": [],
       "developer": "JIMI PTE.LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/84/85/3484852d-e233-496c-df80-58c9365ba08d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "藍色星原旅謠",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "藍色星原：旅謠",
         "zh-tw": "藍色星原：旅謠"
       }
     },
@@ -165735,16 +165752,19 @@
     },
     "天外星原：魔女覺醒": {
       "appIds": {
-        "ios_tw": 6795026490
+        "ios_tw": 6795026490,
+        "android": "com.silverwingtw.gp"
       },
       "aliases": [],
       "developer": "Infinite Respawn Network Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/6e/f6/3c6ef668-e3a5-2ad4-bea4-ec0d2fead0a8/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "天外星原魔女覺醒",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "天外星原：魔女覺醒",
         "zh-tw": "天外星原：魔女覺醒"
       }
     },
@@ -165886,16 +165906,19 @@
     },
     "ホロライブ麻雀 -ホロじゃん-": {
       "appIds": {
-        "ios_jp": 6762111285
+        "ios_jp": 6762111285,
+        "android": "com.aiming.hololive.mahjong"
       },
       "aliases": [],
       "developer": "Aiming Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ab/59/6c/ab596ce5-b7f3-fb7f-1b9c-87528fe08207/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "ホロライブ麻雀-ホロじゃん",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "ホロライブ麻雀 -ホロじゃん-",
         "ja": "ホロライブ麻雀 -ホロじゃん-"
       }
     },
@@ -166160,8 +166183,79 @@
       "platforms": [
         "steam"
       ]
+    },
+    "ムシエース": {
+      "appIds": {
+        "ios_jp": 6832552281
+      },
+      "aliases": [],
+      "developer": "Ryusei Sato",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/91/23/a7/9123a788-e271-b12b-95d1-358b7530287b/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "ムシエース",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "ムシエース"
+      }
+    },
+    "참마도 키우기 : 흡수 성장 RPG": {
+      "appIds": {
+        "ios": 6835444082,
+        "android": "net.gameduo.jt"
+      },
+      "aliases": [],
+      "developer": "Game Duo Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/40/89/73/4089737d-c356-fa9d-869c-756a8fdcd1f5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "soul-stealer-devouring-blade",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "참마도 키우기 : 흡수 성장 RPG",
+        "en": "Soul Stealer : Devouring Blade",
+        "ja": "斬魔刀の剣士：吸収育成RPG",
+        "zh-tw": "我的斬魔刀：吞噬放置RPG"
+      },
+      "legacySlugs": [
+        "참마도-키우기-흡수-성장-rpg"
+      ]
+    },
+    "큐브 솔버: 큐브 게임": {
+      "appIds": {
+        "android": "ai.cubesolver3d.scanner.cubetimer.magic.cube.game"
+      },
+      "aliases": [],
+      "developer": "TV Master - Smart TV Remote Control",
+      "icon": "https://play-lh.googleusercontent.com/cIDBWT6HGgkeHxLQmZV31fZ8EZYtsTzypnYmFOgE9qR88q6gmDQDj4EuJwHh0y6amIR80RbmQ-R4jXIZU8WGrg",
+      "slug": "easy-cube-3d-cube-solver",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "큐브 솔버: 큐브 게임",
+        "en": "Easy Cube - 3D Cube Solver",
+        "ja": "キューブソルバー 3D：キューブゲーム",
+        "zh-tw": "魔術方塊還原 - 魔方解法、扭計骰遊戲"
+      },
+      "legacySlugs": [
+        "큐브-솔버-큐브-게임"
+      ]
+    },
+    "Company of Heroes 3: Operation Torch": {
+      "appIds": {
+        "steam": "5210790"
+      },
+      "aliases": [],
+      "developer": "Relic Entertainment",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5210790/60029c62f92bf0ef9bce0f1f50883dad34a0f4ed/capsule_231x87.jpg?t=1795630203",
+      "slug": "company-of-heroes-3-operation-torch",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-26",
-  "totalGames": 9490
+  "totalGames": 9494
 }

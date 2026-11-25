@@ -53378,13 +53378,19 @@
     },
     {
       "title": "귀혼키우기",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6795757139"
+        "ios": "6795757139",
+        "android": "com.mgame.gsir"
       },
       "developer": "MGAME Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a7/69/1d/a7691d06-f345-b376-19ef-4ab70a98700e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "귀혼키우기",
+          "appId": "6795757139"
+        }
+      ],
       "addedAt": "2026-11-24T19:01:53.851Z"
     },
     {
@@ -53407,13 +53413,19 @@
     },
     {
       "title": "아주르 프로밀리아",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6754899430
+        "ios": 6754899430,
+        "android": "com.nexon.azurpromilia"
       },
       "developer": "NEXON Company",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b1/46/ee/b146ee5d-03be-78d3-b02e-4fbd32b1e053/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "아주르 프로밀리아",
+          "appId": 6754899430
+        }
+      ],
       "addedAt": "2026-11-24T19:01:54.964Z"
     },
     {
@@ -53730,7 +53742,7 @@
       "title": "怪物彈珠 - RPG手機遊戲",
       "status": "single",
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW"
+        "android": "com.interserv.L3K"
       },
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
@@ -53804,6 +53816,47 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/fc/ca/10/fcca105a-28dd-f70e-6547-8b76291a6ae7/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-25T15:02:56.572Z"
+    },
+    {
+      "title": "참마도 키우기 : 흡수 성장 RPG",
+      "status": "matched",
+      "appIds": {
+        "ios": 6835444082,
+        "android": "net.gameduo.jt"
+      },
+      "developer": "Game Duo Co.,Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/40/89/73/4089737d-c356-fa9d-869c-756a8fdcd1f5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "참마도 키우기 : 흡수 성장 RPG",
+          "appId": 6835444082
+        }
+      ],
+      "addedAt": "2026-11-25T19:01:58.037Z"
+    },
+    {
+      "title": "큐브 솔버: 큐브 게임",
+      "status": "single",
+      "appIds": {
+        "android": "ai.cubesolver3d.scanner.cubetimer.magic.cube.game"
+      },
+      "developer": "TV Master - Smart TV Remote Control",
+      "icon": "https://play-lh.googleusercontent.com/cIDBWT6HGgkeHxLQmZV31fZ8EZYtsTzypnYmFOgE9qR88q6gmDQDj4EuJwHh0y6amIR80RbmQ-R4jXIZU8WGrg",
+      "searchResults": [
+        {
+          "title": "ASolver > 퍼즐을 풀어드리겠습니다: 루빅스 큐브",
+          "appId": 1505663005
+        },
+        {
+          "title": "큐브 맞추기",
+          "appId": 6446096806
+        },
+        {
+          "title": "Solviks: 루빅스 큐브 솔버",
+          "appId": 1660925812
+        }
+      ],
+      "addedAt": "2026-11-25T19:01:58.939Z"
     }
   ],
   "approved": [
