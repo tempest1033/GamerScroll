@@ -25,6 +25,8 @@ function renderGenre(id = 'all', country = 'kr') {
   if (id !== 'all' && !selected) throw new Error(`Unknown genre: ${id}`);
   const { makeCtx, storeList, subnav, HSCROLL_SCRIPT } = require('./rank-hub');
   const C = makeCtx(S), label = selected?.label || t('genres.all');
+  // The genre as it reads before "games" in a title or sentence.
+  const noun = id === 'all' ? label : t(`genre_noun.${id}`);
   const filter = (row, game) => taxonomy.matches(game, id);
   const { ios, android, monthlyRows } = marketRows(S, taxonomy, id, country);
   if (!hasData({ ios, android, monthlyRows })) return null;
@@ -35,9 +37,10 @@ function renderGenre(id = 'all', country = 'kr') {
   const mean = values => { const valid = values.filter(Number.isFinite); return valid.length ? (valid.reduce((a, b) => a + b, 0) / valid.length).toFixed(1) : '-'; };
   const monthlyCard = `<div class="rk-card"><h2>${t('genres.monthly_top_10', { latestMonth: formatYearMonth(S.latestMonth), label })} <small>${t('genres.monthly_combined_basis')}</small></h2><div class="rk-scroll"><table class="rk-table rk-mh-4 rk-mh-5"><thead><tr><th class="rank">${t('genres.in_category')}</th><th>${t('est.game')}</th><th class="c">${t('genres.combined')}</th><th class="c">${t('genres.app_store_average')}</th><th class="c">${t('genres.google_play_average')}</th></tr></thead><tbody>${monthlyRows.map((a, i) => `<tr><td class="rk-rank">${i + 1}</td><td>${C.appCell(a.row, a.store)}</td><td class="c">${t('genres.rank_number', { rank: a.rank })}</td><td class="c">${mean(a.ios)}</td><td class="c">${mean(a.android)}</td></tr>`).join('') || t('genres.there_are_no_monthly_ranking')}</tbody></table></div></div>`;
   const curves = renderGenreCurves(id, currentEdition().country);
-  const body = `<section class="section active" id="rankings">${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}<div class="page-container rk rk-genres"><div class="rk-head"><h1>${id === 'all' ? t('genres.game_revenue_rankings_by_genre') : `${t('genres.game_revenue_rankings', { label })}`}</h1></div>${subnav(S, 'genres')}${classification}<input type="radio" name="rk-store" id="rk-st-and" class="rk-control" checked><input type="radio" name="rk-store" id="rk-st-ios" class="rk-control"><div class="rk-storeseg"><label for="rk-st-and">${t('stats.google_play')}</label><label for="rk-st-ios">${t('stats.app_store')}</label></div><div class="rk-cols">${column('android', t('stats.google_play'), 'and', android.length)}${column('ios', t('stats.app_store'), 'ios', ios.length)}</div>${monthlyCard}${curves}</div></section>`;
-  const title = t(id === 'all' ? 'genres.mobile_game_revenue_rankings_by_genre_top' : 'genres.mobile_game_revenue_rankings_top', { p0: label, p1: Math.max(ios.length, android.length), date: formatDay(S.today.date) });
-  const description = t(id === 'all' ? 'genres.rankings_of_all_games_in_the' : 'genres.rankings_of_games_in_the', { date: formatDay(S.today.date), label, p2: Math.max(ios.length, android.length), p3: android[0] ? `${t('genres.google_play_1', { p0: S.nameOf('android', android[0]) })}` : '', p4: ios[0] ? `${t('genres.app_store_1', { p0: S.nameOf('ios', ios[0]) })}` : '', latestMonth: formatYearMonth(S.latestMonth), cname: S.COUNTRIES[country] });
+  const body = `<section class="section active" id="rankings">${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}<div class="page-container rk rk-genres"><div class="rk-head"><h1>${id === 'all' ? t('genres.game_revenue_rankings_by_genre') : `${t('genres.game_revenue_rankings', { label: noun })}`}</h1></div>${subnav(S, 'genres')}${classification}<input type="radio" name="rk-store" id="rk-st-and" class="rk-control" checked><input type="radio" name="rk-store" id="rk-st-ios" class="rk-control"><div class="rk-storeseg"><label for="rk-st-and">${t('stats.google_play')}</label><label for="rk-st-ios">${t('stats.app_store')}</label></div><div class="rk-cols">${column('android', t('stats.google_play'), 'and', android.length)}${column('ios', t('stats.app_store'), 'ios', ios.length)}</div>${monthlyCard}${curves}</div></section>`;
+  // No date in the title: the URL always shows today's chart.
+  const title = id === 'all' ? t('genres.mobile_game_revenue_rankings_by_genre_top') : t('genres.mobile_game_revenue_rankings_top', { label: noun });
+  const description = t(id === 'all' ? 'genres.rankings_of_all_games_in_the' : 'genres.rankings_of_games_in_the', { date: formatDay(S.today.date), label: noun, p2: Math.max(ios.length, android.length), p3: android[0] ? `${t('genres.google_play_1', { p0: S.nameOf('android', android[0]) })}` : '', p4: ios[0] ? `${t('genres.app_store_1', { p0: S.nameOf('ios', ios[0]) })}` : '', latestMonth: formatYearMonth(S.latestMonth), cname: S.COUNTRIES[country] });
   return wrapWithLayout(body, {
     currentPage: 'rankings', title, description,
     canonical: `https://gamerscroll.com${href(id)}`,
@@ -45,7 +48,7 @@ function renderGenre(id = 'all', country = 'kr') {
       name: title, url: absoluteUrl(currentEdition().code, href(id)), country,
       description: id === 'all'
         ? t('rank.dataset_genres_all', { country: S.COUNTRIES[country], stores: datasetStores(S, country) })
-        : t('rank.dataset_genre', { country: S.COUNTRIES[country], stores: datasetStores(S, country), genre: label }),
+        : t('rank.dataset_genre', { country: S.COUNTRIES[country], stores: datasetStores(S, country), genre: noun }),
     }, S)],
     breadcrumbs: [{ name: t('about.home'), url: 'https://gamerscroll.com/' }, { name: t('layout.rankings_by_genre'), url: 'https://gamerscroll.com/rankings/genres/' }, ...(selected ? [{ name: label, url: `https://gamerscroll.com${href(id)}` }] : [])],
   });

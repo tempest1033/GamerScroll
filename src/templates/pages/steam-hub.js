@@ -97,7 +97,6 @@ ${gameSummary(t('steam.recent_new_entry'), fresh, fresh ? `${t('steam.players', 
   const monthly = ST.monthlyTop(mo, 10).map((a) => `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.avg)}<small>${t('home.monthly_avg_concurrent_players')}</small></td></tr>`).join('');
   const peaks = ST.allTimePeaks(10).map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.ccu)}<small>${formatDay(a.date)}</small></td></tr>`).join('');
   const lead = `${t('steam.steam_concurrent_players_1_players', { name: ST.info(top.appid).name, p1: fmt(top.ccu), p2: T.mp[1] ? ST.info(T.mp[1].appid).name : '-', p3: T.mp[2] ? ST.info(T.mp[2].appid).name : '-', p4: T.sellers[0] ? ST.info(T.sellers[0].appid).name : '-', date: formatDay(T.date) })}`;
-  // 화면 h1은 '스팀'을 뺀다 — 상단 탭이 이미 '스팀' (2026-09-09). <title>·메타는 유지.
   const body = `<div class="rk-head"><h1>${t('steam.game_rankings')}</h1></div>
 ${kpi}
 ${cols}
@@ -105,7 +104,8 @@ ${cols}
   const canonical = `${siteBaseUrl}/steam/`;
   return shell(ST, {
     body,
-    title: `${t('steam.steam_game_rankings_concurrent_players', { date: formatDay(T.date) })}`,
+    // No date: the URL always shows the latest charts.
+    title: t('steam.steam_game_rankings_concurrent_players'),
     description: lead,
     keywords: t('steam.steam_rankings_steam_concurrent_player'),
     canonical,

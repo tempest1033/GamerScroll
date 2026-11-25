@@ -6,7 +6,7 @@ const i18n = require('../src/i18n');
 
 const ldOf = (html) => [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
 const crumbsOf = (html) => ldOf(html).filter((n) => n['@type'] === 'BreadcrumbList').flatMap((n) => n.itemListElement.map((item) => item.item));
-const inEdition = (code, fn) => { i18n.setEdition(code); try { return fn(); } finally { i18n.setEdition('en'); } };
+const inEdition = (code, fn) => { const before = i18n.currentEdition().code; i18n.setEdition(code); try { return fn(); } finally { i18n.setEdition(before); } };
 
 test('breadcrumbs of a localized page name that edition\'s pages, never the English root URLs', () => {
   const rankHub = require('../src/templates/pages/rank-hub');

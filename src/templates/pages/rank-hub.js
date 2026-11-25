@@ -225,7 +225,10 @@ ${links}`;
     });
   }
 
-  const body = `<div class="rk-head"><h1>${country === homeCountry() ? tt('rank.game_revenue_rankings_4') : `${tt('rank.game_revenue_rankings_3', { cname })}`}</h1></div>
+  // The stores the page's charts come from: China has no Google Play chart.
+  const twoStores = stores.includes('android');
+  const where = tt(`rank.where_${country}`);
+  const body = `<div class="rk-head"><h1>${country === homeCountry() ? tt('rank.game_revenue_rankings_4') : `${tt('rank.game_revenue_rankings_3', { where })}`}</h1></div>
 ${subnav(S, 'rank')}
 <div class="rk-toolbar">${countryTabs(country)}</div>
 ${hl}
@@ -233,8 +236,8 @@ ${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
   const canonical = `${siteBaseUrl}${countryHref(country)}`;
   return shell(S, {
     body,
-    // 2026-09-09 title 정책: 핵심 키워드 — 범위 (날짜) | 게이머스크롤, 60자 안팎. 한국은 국가명 생략.
-    title: `${tt('rank.mobile_game_revenue_rankings_top_2', { p0: country === homeCountry() ? '' : `${cname} `, date: formatDay(today.date) })}`,
+    // Search wording ("top-grossing mobile games"), no date: the URL always shows today's chart. The home market's page names no country.
+    title: tt(country === homeCountry() ? 'rank.mobile_game_revenue_rankings_top_2' : 'rank.title_country', { where, stores: tt(twoStores ? 'rank.stores_both' : 'rank.stores_ios') }),
     description: lead,
     keywords: `${tt('rank.mobile_game_revenue_rankings_app', { cname })}`,
     canonical,
@@ -283,7 +286,7 @@ function renderMonthly(month, country = 'kr') {
 
   const monthLinks = S.builtMonths.filter((mo) => require('../../i18n').editionHasPage(require('../../i18n').currentEdition().code, `/rankings/monthly/${mo}/`));
   const lead = `${tt('rank.monthly_combined_ranking_for_in', { y, m, p2: COUNTRIES[country], p3: nameA(top), p4: cur.list[1] ? nameA(cur.list[1]) : '-', p5: cur.list[2] ? nameA(cur.list[2]) : '-', n: cur.n, length: cur.list.filter((a) => a.rank <= 100 && !prevRank.has(a.key)).length })}`;
-  const body = `<div class="rk-head"><h1>${tt('rank.game_revenue_rankings_2', { y, m })}</h1></div>
+  const body = `<div class="rk-head"><h1>${tt('rank.game_revenue_rankings_2', { month: formatYearMonth(month) })}</h1></div>
 ${subnav(S, 'monthly')}
 <div class="rk-toolbar"><div class="rk-tabs months rk-hscroll">${monthLinks.map((mo) => `<a class="${mo === month ? 'active' : ''}" href="/rankings/monthly/${mo}/">${formatYearMonth(mo)}</a>`).join('')}</div>${HSCROLL_SCRIPT}</div>
 <div class="rk-colh rk-listh"><h2>${tt('rank.monthly_combined_top_100')}</h2><small>${tt('rank.daily_average_of_two_stores')}</small></div>
@@ -293,7 +296,7 @@ ${monthList}
   const canonical = `${siteBaseUrl}/rankings/monthly/${month}/`;
   return shell(S, {
     body,
-    title: `${tt('rank.mobile_game_revenue_rankings_top', { y, m, p2: COUNTRIES[country] })}`,
+    title: tt('rank.mobile_game_revenue_rankings_top', { month: formatYearMonth(month) }),
     description: lead,
     keywords: `${tt('rank.mobile_game_revenue_rankings_game', { y, m, m2: m })}`,
     canonical,
