@@ -55,7 +55,7 @@ function spark(vals, { w = 72, h = 22, color } = {}) {
 const subnav = (active) => { const item = (id, href, label, cls = '') => `<a class="${[active === id ? 'active' : '', cls].filter(Boolean).join(' ')}" href="${href}">${label}</a>`; return `<nav class="rk-subnav" aria-label="${t('steam.steam_ranking_types')}">${item('ccu', '/steam/', t('steam.concurrent_2'))}${item('sell', '/steam/#sell', t('steam.sales_2'))}${item('monthly', '/steam/#monthly', t('rank.monthly'))}${item('records', '/steam/#records', t('steam.all_time_records'))}${item('about', '/rankings/about/', t('steam.methodology'), 'right')}</nav>`; };
 const appCell = (m) => `<div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t">${nameLink(steamHref(m.appid), m.name)}</div><div class="d" data-name>${esc(m.developer)}</div></div></div>`;
 
-function shell(ST, { body, title, description, canonical, crumbs, keywords }) {
+function shell(ST, { body, title, brand = true, description, canonical, crumbs, keywords }) {
   const content = `
     <section class="section active" id="steam">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
@@ -65,7 +65,7 @@ function shell(ST, { body, title, description, canonical, crumbs, keywords }) {
   return wrapWithLayout(content, {
     currentPage: 'steam',
     pageScripts: `<script>(function(){function sync(){if(location.hash==='#sell'){const tab=document.getElementById('rk-st-ios');if(tab)tab.checked=true;}else if(location.hash==='#rk-list'){const tab=document.getElementById('rk-st-and');if(tab)tab.checked=true;}}window.addEventListener('hashchange',sync);sync();})();</script>`,
-    title, description, keywords, canonical,
+    title, brand, description, keywords, canonical,
     breadcrumbs: [{ name: t('about.home'), url: `${siteBaseUrl}/` }, { name: t('layout.steam'), url: `${siteBaseUrl}/steam/` }, ...(crumbs || [])].filter((c, i, a) => a.findIndex((d) => d.url === c.url) === i),
   });
 }
@@ -128,9 +128,11 @@ function renderSteamGame(appid) {
 <div class="rk-hero"><img src="${esc(d.img)}" alt="" fetchpriority="high"><div><h1 data-name>${esc(d.name)}</h1><div class="meta"><b data-name>${esc(d.developer)}</b><span>·</span><span>Steam</span>${d.first ? `<span>·</span><span>${t('steam.first_recorded', { first: formatDay(d.first) })}</span>` : ''}</div>${steamPills(d)}</div><div class="actions">${steamStoreLink(d)}</div></div>
 ${renderSteamRecord(d)}`;
   const canonical = `${siteBaseUrl}/steam/${d.id}/`;
+  const title = require('../helpers/fit-description').fitTitle(d.name, (name) => ['steam.steam_concurrent_players_and_sales', 'game.seo_title_steam_short'].map((k) => t(k, { name })));
   return shell(null, {
     body,
-    title: require('../helpers/fit-description').fitTitle(d.name, (name) => ['steam.steam_concurrent_players_and_sales', 'game.seo_title_steam_short'].map((k) => t(k, { name }))),
+    title,
+    brand: title !== d.name,
     description: steamLead(d),
     keywords: `${t('steam.concurrent_players_steam_ranking_concurrent', { name: d.name, name2: d.name, name3: d.name, name4: d.name })}`,
     canonical,

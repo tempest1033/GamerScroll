@@ -24,6 +24,7 @@ const METRICS_PATH_TEST = `/^\\/(?:(?:${i18n.EDITIONS.map((e) => e.prefix.slice(
 function generateHead(options = {}) {
   const {
     title = t('head.gamerscroll_game_ranking_data_analysis'),
+    brand = true,  // false: the title stays without the " | GamerScroll" suffix (a name-only title, fitTitle)
     description = t('head.daily_records_and_analysis_of'),
     keywords = t('head.game_rankings_mobile_game_revenue'),
     canonical = 'https://gamerscroll.com',
@@ -74,7 +75,7 @@ function generateHead(options = {}) {
   // <title> 태그용: 사이트명이 없으면 "| 게이머스크롤" 추가 (og:title은 원본 유지)
   const SITE_SUFFIX = t('head.gamerscroll_2');
   // The brand goes only where it fits the SERP title budget; the page's own keywords come first.
-  const needsSuffix = !title.includes(t('head.gamerscroll')) && width(title + SITE_SUFFIX) <= MAX_TITLE_WIDTH;
+  const needsSuffix = brand && !title.includes(t('head.gamerscroll')) && width(title + SITE_SUFFIX) <= MAX_TITLE_WIDTH;
   const pageTitleText = needsSuffix ? escapeHtmlText(title + SITE_SUFFIX) : safeTitle;
   // Description: whole sentences within ~155 columns (CJK counts double), no "..." cut
   const trimmedDescription = fitSentences(description, t('head.daily_records_and_analysis_of'));

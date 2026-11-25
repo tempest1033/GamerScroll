@@ -148,7 +148,7 @@ const storeCols = (S, C, country, chart, opts, stores) => {
 
 // dataset: { country, description, dateModified? } of the data the page shows (Dataset JSON-LD named after the page,
 // src/templates/helpers/site-schema.js), or null.
-function shell(S, { body, title, description, canonical, crumbs, keywords, dataset = null }) {
+function shell(S, { body, title, brand = true, description, canonical, crumbs, keywords, dataset = null }) {
   const content = `
     <section class="section active" id="rankings">
       ${generateHomeAdPairSlot(AD_SLOTS.PCHome001, AD_SLOTS.Mobile001)}
@@ -157,7 +157,7 @@ function shell(S, { body, title, description, canonical, crumbs, keywords, datas
     </section>`;
   return wrapWithLayout(content, {
     currentPage: 'rankings',
-    title, description, keywords, canonical,
+    title, brand, description, keywords, canonical,
     breadcrumbs: [{ name: tt('about.home'), url: `${siteBaseUrl}/` }, { name: tt('rank.mobile_rankings'), url: `${siteBaseUrl}/rankings/` }, ...(crumbs || [])].filter((c, i, a) => a.findIndex((d) => d.url === c.url) === i),
     jsonLd: dataset ? [datasetNode({ name: title, url: pageUrl(canonical), ...dataset }, S)] : null,
   });
@@ -444,10 +444,12 @@ ${kpi}
 <div class="rk-card"><h2>${tt('rank.today_s_ranking')} <small>${tt('rank.app_store_google_play')}</small></h2><div class="rk-scroll"><table class="rk-table rk-mh-spk rk-mh-last"><thead><tr><th>${tt('est.game')}</th><th class="c" colspan="2">${tt('stats.app_store')}</th><th class="c" colspan="2">${tt('stats.google_play')}</th><th class="spk">${tt('rank.30_days')}</th><th class="c rk-m-hide">${tt('rank.all_time_best')}</th><th class="c">${tt('rank.time_in_chart')}</th></tr></thead><tbody>${rows}</tbody></table></div></div>
 <div class="rk-links rk-links-row"><a href="/rankings/publishers/">${tt('rank.all_publisher_rankings')}</a><a href="${countryHref(country)}">${tt('rank.revenue_rankings_top_200', { cname })}</a><a href="/rankings/monthly/${S.latestMonth}/">${tt('rank.monthly_rankings', { latestMonth: formatYearMonth(S.latestMonth) })}</a></div>`;
   const canonical = `${siteBaseUrl}/rankings/publishers/${encodeURIComponent(pub.slug)}/`;
+  const pubTitle = require('../helpers/fit-description').fitTitle(pub.name, (name) => [tt('rank.game_revenue_rankings_in_the', { name, size: pub.games.size })]);
   return shell(S, {
     body,
     // 상세 페이지는 날짜를 빼고 짧게 (개발사명이 길어 70자를 넘던 페이지 19개)
-    title: require('../helpers/fit-description').fitTitle(pub.name, (name) => [tt('rank.game_revenue_rankings_in_the', { name, size: pub.games.size })]),
+    title: pubTitle,
+    brand: pubTitle !== pub.name,
     description: lead,
     keywords: `${tt('rank.game_rankings_revenue_rankings_mobile', { name: pub.name, name2: pub.name, name3: pub.name, name4: pub.name })}`,
     canonical,

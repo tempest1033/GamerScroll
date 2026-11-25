@@ -29,7 +29,8 @@ function fitSentences(text, fallback, max = MAX_WIDTH) {
 }
 
 // A title naming `name` within MAX_TITLE_WIDTH: the first of `variants(name)` (longest first) that fits, then the same with the
-// name's main part (before a subtitle separator), then the last variant with that main part cut to fit.
+// name's main part (before a subtitle separator). A name is never cut: when nothing fits, the title is the full name alone
+// (its page drops the brand suffix, even where the name exceeds the budget).
 function fitTitle(name, variants) {
   const full = String(name || '');
   const main = full.split(/\s*[:：|｜【\[(（]|\s+[-–—]\s+/)[0].trim() || full;
@@ -37,11 +38,7 @@ function fitTitle(name, variants) {
     const hit = variants(n).find((s) => width(s) <= MAX_TITLE_WIDTH);
     if (hit) return hit;
   }
-  const last = (n) => variants(n).at(-1);
-  const room = MAX_TITLE_WIDTH - width(last(''));
-  let cut = '';
-  for (const ch of main) { if (width(cut + ch) > room) break; cut += ch; }
-  return last(cut.trim());
+  return full;
 }
 
 module.exports = { fitSentences, fitTitle, width, MAX_WIDTH, MAX_TITLE_WIDTH };

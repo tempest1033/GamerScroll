@@ -2839,6 +2839,7 @@ function wrapWithLayout(content, options = {}) {
   const {
     currentPage = 'home',
     title = tt('layout.gamerscroll_game_data_articles'),
+    brand = true,  // false: no brand suffix on the title (generateHead)
     description = tt('layout.game_data_articles_rankings_news'),
     keywords,
     canonical = 'https://gamerscroll.com',
@@ -2922,7 +2923,7 @@ function wrapWithLayout(content, options = {}) {
   const html = `<!DOCTYPE html>
 <html lang="${currentEdition().htmlLang}">
 <head>
-  ${generateHead({ title, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, alternateEditions, breadcrumbs, softwareSchema, jsonLd, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage, usesWsrv: /wsrv\.nl/.test(pageSource), steamImageHost })}
+  ${generateHead({ title, brand, description, keywords, canonical, pageData, articleSchema, articleSection: resolvedArticleSection, noindex, alternateEditions, breadcrumbs, softwareSchema, jsonLd, ogImage, cssFilename, cssFilenames: resolvedCssFiles, preloadImage: lcpPreloadImage, usesWsrv: /wsrv\.nl/.test(pageSource), steamImageHost })}
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>

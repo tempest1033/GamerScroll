@@ -401,6 +401,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
   const html = wrapWithLayout(content, {
     currentPage: 'game',
     title: seoTitle,
+    brand: seoTitle !== plainName,
     description: seoDescription,
     keywords: seoKeywords,
     canonical: canonicalUrl,

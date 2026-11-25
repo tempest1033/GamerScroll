@@ -604,7 +604,7 @@ module.exports = {
   "trend.title": "正在走红的游戏",
   "trend.meta_title": "趋势游戏排行：本周飙升、下跌与 TOP 10 变化",
   "trend.lead": "基于{date}{country}手游畅销榜。每天整理一周内升幅最大的游戏{p1}、进入和跌出 TOP 10 的游戏，以及在多个国家同时上升的游戏。",
-  "trend.sub": "截至{date} · {country} App Store 与 Google Play 畅销榜 · 较一周前",
+  "trend.sub": "截至{date} · {country} App Store 畅销榜 · 较一周前",
   "trend.keywords": "趋势游戏, 飙升游戏, 手游飙升榜, 游戏排名变化, 畅销榜飙升, 新游排行",
   "trend.risers_sub": "近7天升幅最大的游戏",
   "trend.fallers_sub": "近7天跌幅最大的游戏 · 一周前位于 TOP 100",

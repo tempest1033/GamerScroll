@@ -42,12 +42,13 @@ function allPages(edition) {
     out.push([`rankings/${c}`, hub.renderRankingsHub(c)], [`rankings/free/${c}`, hub.renderRankingsHub(c, 'free')], [`trending/${c}`, hub.renderTrending(c)]);
   }
   for (const id of ['all', ...genreIdsWithData(home)]) out.push([`genres/${id}`, hub.renderGenre(id, home)]);
-  for (const p of hub.publisherPages(hub.publisherIndex(S, home))) out.push([`publishers/${p.slug}`, hub.renderPublisher(p, home)]);
+  for (const p of hub.publisherPages(hub.publisherIndex(S, home))) out.push([`publishers/${p.slug}`, hub.renderPublisher(p, home), p.name]);
   for (const mo of S.builtMonths) out.push([`monthly/${mo}`, hub.renderMonthly(mo, home)]);
-  for (const id of m.steamHub.steamGameIds()) out.push([`steam/${id}`, m.steamHub.renderSteamGame(id)]);
+  for (const id of m.steamHub.steamGameIds()) out.push([`steam/${id}`, m.steamHub.renderSteamGame(id), require('../src/rank/steam-stats').loadSteamStats().info(id).name]);
   const LONG = 'Borderlands®4 - Story Pack 1: Mad Ellie and the Vault of the Damned 7Rスマスロ痛いのは嫌なので防御力に極振り';
+  const UNSPLIT = 'A Game About Feeding A Black Hole And Other Very Long Stories Told Twice';
   for (const platforms of [['ios'], ['steam']]) {
-    for (const name of ['G', LONG]) out.push([`game ${platforms} ${name.length}`, generateGamePage({ name, slug: 'g', platforms, developer: 'D', steam: { rank: 3 }, steamHistory: [], rank: null }, { days: ['2026-11-25'], hourlyDate: '' })]);
+    for (const name of ['G', LONG, UNSPLIT]) out.push([`game ${platforms} ${name.length}`, generateGamePage({ name, slug: 'g', platforms, developer: 'D', steam: { rank: 3 }, steamHistory: [], rank: null }, { days: ['2026-11-25'], hourlyDate: '' }), name]);
   }
   return out.filter(([, html]) => html);
 }
@@ -99,6 +100,11 @@ test('game page titles name the grossing rank history or the Steam player count'
   const steam = { name: 'G', slug: 'g', platforms: ['steam'], developer: 'D', steam: { rank: 3 }, steamHistory: [], rank: null };
   assert.equal(titleOf(generateGamePage(steam, ctx)), branded('G Steam Player Count — Current & Peak Players'));
   assert.equal(titleOf(generateGamePage({ ...steam, platforms: ['ios'] }, ctx)), branded('G Grossing Rank History'));
+  assert.equal(titleOf(generateGamePage({ ...steam, name: 'Borderlands®4 - Story Pack 1: Mad Ellie and the Vault of the Damned' }, ctx)), 'Borderlands®4 Steam Player Count — Current & Peak Players');
+  const unsplit = 'A Game About Feeding A Black Hole And Other Very Long Stories Told Twice';
+  assert.equal(titleOf(generateGamePage({ ...steam, platforms: ['ios'], name: unsplit }, ctx)), unsplit, 'a name is never cut and its title carries no brand');
+  const fits = 'A Game About Feeding A Black Hole And More Stories';
+  assert.equal(titleOf(generateGamePage({ ...steam, platforms: ['ios'], name: fits }, ctx)), fits, 'name-only even where the brand would fit');
   const names = { ja: 'Gの売上ランキング推移', ko: 'G 매출 순위 추이', 'zh-cn': 'G 畅销榜排名走势', 'zh-tw': 'G 暢銷榜排名走勢' };
   for (const [code, title] of Object.entries(names)) inEdition(code, () => assert.equal(i18n.t('game.seo_title_mobile', { name: 'G' }), title));
 }));
@@ -120,15 +126,16 @@ test('every edition: live pages carry no date in the title, the home market is n
   }
 });
 
-test('every page type of every market in every edition: a title within 70 columns and its own description', () => {
+test('every page type of every market in every edition: a title within 70 columns (or the name alone) and its own description', () => {
   const bad = [];
   for (const edition of i18n.EDITIONS) {
     inEdition(edition.code, () => {
       const generic = i18n.t('head.daily_records_and_analysis_of');
-      for (const [kind, html] of allPages(edition)) {
+      for (const [kind, html, name] of allPages(edition)) {
         const title = titleOf(html);
         const description = dec((html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '');
-        if (width(title) > MAX_TITLE_WIDTH) bad.push(`${edition.code} ${kind} title (${width(title)}): ${title}`);
+        // Only a name-only title (a name no title template fits, never cut) may exceed the budget.
+        if (width(title) > MAX_TITLE_WIDTH && title !== name) bad.push(`${edition.code} ${kind} title (${width(title)}): ${title}`);
         if (!description || width(description) > 155) bad.push(`${edition.code} ${kind} description: "${description}"`);
         else if (description === generic && kind !== '404') bad.push(`${edition.code} ${kind}: generic description`);
       }
