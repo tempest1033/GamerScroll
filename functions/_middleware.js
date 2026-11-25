@@ -217,10 +217,8 @@ async function handleGamerScrollLegacyRedirect(url, fullPath, loadPlans) {
     return Response.redirect("https://aiscroll.io/ko/", 301);
   }
 
-  // 2026-09-09 위키·출시 게임 섹션 폐기: 옛 URL은 가장 가까운 허브(리포트·게임 DB)로 301.
-  if (path === "/wiki" || path.startsWith("/wiki/")) {
-    return Response.redirect(`${url.origin}/rankings/`, 301);
-  }
+  // 2026-09-09 위키 섹션 폐기: 대체 페이지가 없으므로 410 (순위 허브로 보내면 soft 404).
+  if (path === "/wiki" || path.startsWith("/wiki/")) return goneResponse();
   // 2026-10 구 트렌드 섹션(/trend/, /trends/) → 새 트렌딩 페이지 (언어판 접두사 유지)
   if (/^\/trends?(\/|$)/.test(path)) {
     return Response.redirect(`${url.origin}${prefix ? "/" + prefix : ""}/trending/`, 301);

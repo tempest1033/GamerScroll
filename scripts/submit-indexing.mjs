@@ -23,7 +23,7 @@
 // Failures never abort: IndexNow non-2xx responses are warned but the process
 // exits 0 so CI stays green.
 
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { pathToFileURL } from 'node:url'
 import path from 'node:path'
@@ -32,8 +32,12 @@ import taxonomy from '../src/templates/ai-blog/taxonomy.js'
 const buildAiscrollUrls = article => Object.values(taxonomy.articlePublicationUrls(article))
 
 const DRY_RUN = process.argv.includes('--dry-run')
-// Sitemap mode: submit every gamerscroll.com URL listed in the sitemap index.
+// Sitemap mode: submit the gamerscroll.com sitemap URLs whose content changed since the last submission: a <lastmod>
+// that differs from the one last submitted for that URL, or a URL not submitted before. INDEXING_STATE is the JSON file
+// { <url>: <lastmod> } of the last submission (kept between runs by the workflow's cache); it is rewritten after a
+// successful submission. Without it every sitemap URL counts as changed once.
 const SITEMAP_MODE = process.argv.includes('--sitemap') || process.env.INDEXING_MODE === 'sitemap'
+const STATE_FILE = process.env.INDEXING_STATE || '.indexnow-state.json'
 const SITEMAP_INDEX = 'https://gamerscroll.com/sitemap.xml'
 const INDEXNOW_BATCH = 10000
 const USER_AGENT = 'Mozilla/5.0 (compatible; GamerScrollIndexNow/1.0; +https://gamerscroll.com)'
@@ -53,9 +57,8 @@ const SITE_BY_PREFIX = [
   // 2026-09 재출발: 폴더가 카테고리를 강제하지 않는다 — URL은 JSON category(news/reviews/guides/benchmarks/hot)로 결정
   { prefix: 'data/tech/vibecoding/', build: buildAiscrollUrls },
   { prefix: 'data/tech/normal/',     build: ({ slug })          => [`https://gamerscroll.com/tech/normal/${slug}/`] },
-  { prefix: 'data/wiki/business/',   build: ({ slug })          => [`https://gamerscroll.com/wiki/business/${slug}/`] },
-  { prefix: 'data/wiki/history/',    build: ({ slug })          => [`https://gamerscroll.com/wiki/history/${slug}/`] },
-  { prefix: 'data/wiki/knowledge/',  build: ({ slug })          => [`https://gamerscroll.com/wiki/knowledge/${slug}/`] },
+  // 위키 폐기: /wiki/* 는 410 (functions/_middleware.js)
+  { prefix: 'data/wiki/',            build: () => [] },
   // GamerScroll 매거진 폐기: reports/issue·hotpick 은 AIScroll 발행분(site: aiscroll)만 핑한다
   { prefix: 'reports/issue/',        build: () => [] },
   { prefix: 'reports/hotpick/',      build: () => [] },
@@ -89,19 +92,47 @@ async function readSitemap(url) {
   return res.text()
 }
 
-const extractLocs = xml => [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map(m => m[1].replace(/&amp;/g, '&'))
+const unescape = s => s.replace(/&amp;/g, '&')
+const extractLocs = xml => [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map(m => unescape(m[1]))
 
-async function collectSitemapUrls() {
+// { <url>: <lastmod or ''> } of a <urlset>
+export function sitemapEntries(xml) {
+  const out = {}
+  for (const [, body] of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = body.match(/<loc>\s*([^<\s]+)\s*<\/loc>/)
+    if (!loc) continue
+    const lastmod = body.match(/<lastmod>\s*([^<\s]+)\s*<\/lastmod>/)
+    out[unescape(loc[1])] = lastmod ? lastmod[1] : ''
+  }
+  return out
+}
+
+// URLs whose lastmod differs from the last submitted one, or that were never submitted.
+export function changedUrls(current, previous) {
+  return Object.keys(current).filter(u => !Object.prototype.hasOwnProperty.call(previous, u) || previous[u] !== current[u])
+}
+
+async function collectSitemapEntries() {
   const children = extractLocs(await readSitemap(SITEMAP_INDEX))
     .filter(u => new URL(u).host === 'gamerscroll.com')
-  const urls = new Set()
+  const entries = {}
   for (const child of children) {
-    for (const u of extractLocs(await readSitemap(child))) {
-      if (new URL(u).host === 'gamerscroll.com') urls.add(u)
+    for (const [u, lastmod] of Object.entries(sitemapEntries(await readSitemap(child)))) {
+      if (new URL(u).host === 'gamerscroll.com') entries[u] = lastmod
     }
   }
-  console.log(`[indexnow] sitemap mode: ${children.length} child sitemap(s), ${urls.size} URL(s)`)
-  return [...urls]
+  return { children, entries }
+}
+
+const readState = () => { try { return JSON.parse(readFileSync(STATE_FILE, 'utf8')) } catch { return {} } }
+
+let sitemapState = null
+async function collectSitemapUrls() {
+  const { children, entries } = await collectSitemapEntries()
+  const changed = changedUrls(entries, readState())
+  sitemapState = entries
+  console.log(`[indexnow] sitemap mode: ${children.length} child sitemap(s), ${Object.keys(entries).length} URL(s), ${changed.length} changed since the last submission`)
+  return changed
 }
 
 async function getUrls() {
@@ -147,10 +178,8 @@ async function main() {
   if (unknown.length) {
     console.log(`[indexnow] skipping ${unknown.length} URL(s) with no registered host key: ${unknown.join(', ')}`)
   }
-  if (groups.size === 0) {
-    console.log('[indexnow] no submittable URLs')
-    return
-  }
+  let failed = false
+  if (groups.size === 0) console.log('[indexnow] no submittable URLs')
   for (const [host, urls] of groups) {
     console.log(`[indexnow] ${DRY_RUN ? 'would submit' : 'submitting'} ${urls.length} URL(s) for ${host}:`)
     for (const u of SITEMAP_MODE ? urls.slice(0, 5) : urls) console.log(`  ${u}`)
@@ -163,10 +192,13 @@ async function main() {
       } else {
         // Warn only — IndexNow non-2xx must not fail the workflow.
         console.warn(`[indexnow] WARN ${r.status} (${host}, ${batch.length} URL(s)) :: ${String(r.body).slice(0, 300)}`)
+        failed = true
       }
     }
   }
   if (DRY_RUN) console.log('[indexnow] --dry-run: no live submission')
+  // A failed submission keeps the previous state, so its URLs count as changed again next time.
+  else if (sitemapState && !failed) writeFileSync(STATE_FILE, JSON.stringify(sitemapState), 'utf8')
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch(err => {

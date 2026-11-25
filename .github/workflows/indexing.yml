@@ -18,13 +18,14 @@ on:
       - 'data/wiki/**.json'
       - 'reports/issue/**.json'
       - 'reports/hotpick/**.json'
-  # Daily full-sitemap ping (ranking pages change daily): 02:30 UTC
+  # Daily sitemap ping, 02:30 UTC: only the sitemap URLs whose <lastmod> changed since the last successful submission
+  # (state kept in the Actions cache below; a missing cache submits every sitemap URL once).
   schedule:
     - cron: '30 2 * * *'
   workflow_dispatch:
     inputs:
       mode:
-        description: 'articles = changed article JSON / URL list; sitemap = every gamerscroll.com URL in the sitemap index'
+        description: 'articles = changed article JSON / URL list; sitemap = gamerscroll.com sitemap URLs whose lastmod changed since the last submission'
         required: false
         default: 'articles'
         type: choice
@@ -56,14 +57,30 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Restore last sitemap submission
+        id: state
+        if: github.event_name == 'schedule' || inputs.mode == 'sitemap'
+        uses: actions/cache/restore@v4
+        with:
+          path: .indexnow-state.json
+          key: indexnow-sitemap-${{ github.run_id }}
+          restore-keys: indexnow-sitemap-
       - name: Submit URLs to IndexNow
         # IndexNow non-2xx is warned but never fails the run (script exits 0).
         continue-on-error: true
         env:
           # schedule -> sitemap mode; dispatch -> inputs.mode; push -> articles
           INDEXING_MODE: ${{ (github.event_name == 'schedule' && 'sitemap') || inputs.mode || 'articles' }}
+          INDEXING_STATE: .indexnow-state.json
           INDEXING_URLS: ${{ inputs.urls }}
           # push event: github.event.before..sha (전체 새 커밋 누락 없이 scan)
           # workflow_dispatch: inputs.diff_range 우선, 없으면 HEAD~1..HEAD
           INDEXING_DIFF_RANGE: ${{ inputs.diff_range || (github.event_name == 'push' && format('{0}..{1}', github.event.before, github.sha)) || 'HEAD~1..HEAD' }}
         run: node scripts/submit-indexing.mjs
+      - name: Save sitemap submission state
+        # The script rewrites the state only after a successful submission; an unchanged file is saved under the new key too.
+        if: steps.state.outcome == 'success' && hashFiles('.indexnow-state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .indexnow-state.json
+          key: indexnow-sitemap-${{ github.run_id }}

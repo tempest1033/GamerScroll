@@ -156,7 +156,7 @@ await t("games hub and files under /games/ are not game pages", async () => { as
 await t("/ko/reports/ 410", async () => assert.equal((await call(G + "/ko/reports/", { country: "KR" })).status, 410));
 await t("/reports/x 410", async () => assert.equal((await call(G + "/reports/x")).status, 410));
 await t("/tech/normal/x 410", async () => assert.equal((await call(G + "/tech/normal/macbook-neo-reviews/")).status, 410));
-await t("/wiki/a -> /rankings/", async () => { const r = await call(G + "/wiki/a"); assert.equal(r.status, 301); assert.equal(loc(r), "/rankings/"); });
+await t("/wiki 410 (no successor page)", async () => { for (const p of ["/wiki", "/wiki/a", "/wiki/business/x/", "/ko/wiki/history/y/"]) assert.equal((await call(G + p, { country: "KR" })).status, 410, p); });
 await t("/upcoming -> /games/", async () => { const r = await call(G + "/upcoming"); assert.equal(r.status, 301); assert.equal(loc(r), "/games/"); });
 await t("/tech/foo -> aiscroll", async () => { const r = await call(G + "/tech/foo/"); assert.equal(r.status, 301); assert.equal(r.headers.get("location"), "https://aiscroll.io/ko/"); });
 const YETI = "Mozilla/5.0 (compatible; Yeti/1.1; +https://naver.me/spd)";
