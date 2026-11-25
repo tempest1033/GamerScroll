@@ -1230,19 +1230,21 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     console.warn('⚠️ _routes.json 생성 실패:', err.message);
   }
 
-  // Localized rankings and Steam pages are excluded from Functions above, so removed genre/publisher/month pages of an edition and
-  // Steam record pages that moved to a game page cannot be redirected by the middleware: static Pages redirects (301) do it instead.
+  // Localized rankings pages are excluded from Functions above, so removed genre/publisher/month pages of an edition cannot be
+  // redirected by the middleware: static Pages redirects (301) do it instead. Publishing without these rules would serve
+  // removed pages, so a failure fails the build.
   try {
     const plansFile = `${DOCS_DIR}/games-data/_pages.json`;
     if (fs.existsSync(plansFile)) {
       const prefixes = Object.fromEntries(require('./src/i18n').EDITIONS.map((e) => [e.code, e.prefix]));
-      const steam = JSON.parse(fs.readFileSync(`${DOCS_DIR}/games-data/_steam.json`, 'utf8'));
-      const text = require('./src/build/routing').redirectsText(JSON.parse(fs.readFileSync(plansFile, 'utf8')), prefixes, steam);
+      const text = require('./src/build/routing').redirectsText(JSON.parse(fs.readFileSync(plansFile, 'utf8')), prefixes);
       if (text) fs.writeFileSync(`${DOCS_DIR}/_redirects`, text, 'utf8');
-      console.log(`↪️ _redirects ${text ? text.trim().split('\n').length : 0}건 생성 (에디션별 미생성 마켓 페이지 · 게임 페이지로 옮긴 스팀 페이지 301)`);
+      console.log(`↪️ _redirects ${text ? text.trim().split('\n').length : 0}건 생성 (에디션별 미생성 마켓 페이지 301)`);
     }
   } catch (err) {
-    console.warn('⚠️ _redirects 생성 실패:', err.message);
+    console.error('❌ _redirects 생성 실패:', err.message);
+    process.exitCode = 1;
+    throw err;
   }
 
   // Service Worker 전체 생성 (template literal)

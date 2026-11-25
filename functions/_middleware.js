@@ -179,13 +179,15 @@ async function gameRedirect(context, url, path, www, country) {
 }
 
 // A Steam record page whose app has a game page (the page shows the same record): one redirect to that game page,
-// settling host and edition like gameRedirect. Unknown apps and an unreadable map fall through to the static page.
+// settling host and edition like gameRedirect, for every edition prefix, with or without the trailing slash. Unknown apps
+// fall through to the static page; with the map unreadable the page may have moved, so the same 503 as gameRedirect.
 async function steamRedirect(context, url, path, country) {
   const prefix = gsLocalePrefixOf(path);
   const app = steamAppOf(prefix ? path.slice(prefix.length + 1) : path);
   if (!app || !context.env || !context.env.ASSETS) return null;
   const pages = await loadSteamPages(context.env, url);
-  const slug = pages && Object.prototype.hasOwnProperty.call(pages, app) ? pages[app] : null;
+  if (!pages) return new Response("Game data unavailable", { status: 503, headers: { "Cache-Control": "no-store", "Retry-After": "60" } });
+  const slug = Object.prototype.hasOwnProperty.call(pages, app) ? pages[app] : null;
   return slug ? gamePageRedirect(context, url, prefix, slug, country) : null;
 }
 

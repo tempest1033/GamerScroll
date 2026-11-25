@@ -109,6 +109,11 @@ await t("Steam page with a game page, KR visitor: one 302 to the Korean game pag
 await t("Steam page under an edition prefix and on www: one 301 within that edition", async () => {
   assert.deepEqual(await hop(G + "/ja/steam/1973710/", { country: "KR" }), [301, "https://gamerscroll.com/ja/games/%ED%97%A4%EB%B8%90-%EB%B2%88%EC%A6%88-%EB%A0%88%EB%93%9C/", null]);
   assert.deepEqual(await hop(W + "/ko/steam/730", { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/ko/games/counter-strike-2/", null]);
+  for (const prefix of ["/ko", "/ja", "/zh-cn", "/zh-tw"]) {
+    for (const p of [`${prefix}/steam/730/`, `${prefix}/steam/730`]) {
+      assert.deepEqual(await hop(G + p, { country: "US" }), [301, `https://gamerscroll.com${prefix}/games/counter-strike-2/`, null], p);
+    }
+  }
 });
 await t("Steam pages without a game page and the Steam hub are untouched", async () => {
   assert.deepEqual(await hop(G + "/steam/999/", { country: "US" }), [200, null, null]);
@@ -144,7 +149,7 @@ await t("redirect map unreadable: game URLs get 503 no-store, not a host or edit
     await build({ entryPoints: [fileURLToPath(new URL("../functions/_middleware.js", import.meta.url))], bundle: true, format: "esm", platform: "neutral", outfile, logLevel: "silent" });
     const isolate = await import(pathToFileURL(outfile).href);
     let up = false;
-    const flaky = { fetch: async (req) => (!up && new URL(req.url).pathname === "/games-data/_redirects.json" ? new Response("down", { status: 500 }) : ASSETS.fetch(req)) };
+    const flaky = { fetch: async (req) => (!up && ["/games-data/_redirects.json", "/games-data/_steam.json"].includes(new URL(req.url).pathname) ? new Response("down", { status: 500 }) : ASSETS.fetch(req)) };
     const ask = async (url, { country, ua } = {}) => {
       const u = new URL(url);
       const headers = new Headers({ host: u.host });
@@ -161,8 +166,12 @@ await t("redirect map unreadable: game URLs get 503 no-store, not a host or edit
     assert.deepEqual(await ask(G + "/ja" + OLD, { ua: "Googlebot/2.1" }), unavailable, "edition URL");
     assert.deepEqual(await ask(W + "/games/"), [301, "https://gamerscroll.com/games/", null, null], "the hub is not a game page");
     assert.deepEqual((await ask(G + "/rankings/", { country: "US" })).slice(0, 2), [200, null]);
+    assert.deepEqual(await ask(G + "/steam/730/", { ua: "Googlebot/2.1" }), unavailable, "Steam record URL");
+    assert.deepEqual(await ask(G + "/zh-tw/steam/730", { ua: "Googlebot/2.1" }), unavailable, "edition Steam record URL");
+    assert.deepEqual((await ask(G + "/ko/steam/", { country: "KR" })).slice(0, 2), [200, null], "the Steam hub is not a record page");
     up = true;
     assert.deepEqual(await ask(W + OLD, { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/games/monopoly-go/", null, null], "read again on the next request");
+    assert.deepEqual(await ask(G + "/zh-tw/steam/730", { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/zh-tw/games/counter-strike-2/", null, null], "Steam map read again");
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 await t("games hub and files under /games/ are not game pages", async () => { assert.deepEqual(await hop(W + "/games/"), [301, "https://gamerscroll.com/games/", null]); assert.deepEqual(await hop(G + "/games/search-index.json", { country: "KR" }), [200, null, null]); });

@@ -45,12 +45,18 @@ test('/rankings/subculture/ moved to /rankings/genres/subculture/ (or the editio
   assert.ok(rules.includes('/zh-cn/rankings/subculture/ /zh-cn/rankings/genres/ 301'));
 });
 
-test('localized Steam record pages of apps with a game page 301 to that page in one static hop', () => {
+test('Steam record pages of every edition reach the middleware, which redirects them; no static Steam rules', () => {
+  const { routesJson } = require('../src/build/routing');
+  const routes = routesJson();
+  const matches = (rule, p) => new RegExp(`^${rule.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*')}$`).test(p) || (rule.endsWith('/*') && p === rule.slice(0, -2));
+  const reachesFunctions = (p) => routes.include.some((r) => matches(r, p)) && !routes.exclude.some((r) => matches(r, p));
+  for (const prefix of ['', '/ko', '/ja', '/zh-cn', '/zh-tw']) {
+    assert.equal(reachesFunctions(`${prefix}/steam/730/`), true, `${prefix}/steam/730/`);
+    assert.equal(reachesFunctions(`${prefix}/steam/730`), true, `${prefix}/steam/730`);
+  }
+  assert.equal(reachesFunctions('/ko/steam/'), false, 'the localized Steam hub stays static');
   const plans = { en: { genres: ['all'], publisherHub: true, publishers: [], monthly: [], records: true } };
-  const rules = redirectsText(plans, { en: '', ko: '/ko', ja: '/ja' }, { 730: 'counter-strike-2', 1973710: '헤븐-번즈-레드' }).trim().split('\n');
-  assert.ok(rules.includes('/ko/steam/730/ /ko/games/counter-strike-2/ 301'));
-  assert.ok(rules.includes('/ja/steam/1973710/ /ja/games/%ED%97%A4%EB%B8%90-%EB%B2%88%EC%A6%88-%EB%A0%88%EB%93%9C/ 301'));
-  assert.ok(!rules.some((r) => r.startsWith('/steam/')), 'the unprefixed edition is redirected by the middleware');
+  assert.ok(!redirectsText(plans, { en: '', ko: '/ko', ja: '/ja' }).includes('/steam/'));
 });
 
 test('a Steam app moves to the first game page that names it', () => {

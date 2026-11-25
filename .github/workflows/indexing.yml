@@ -63,7 +63,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: .indexnow-state.json
-          key: indexnow-sitemap-${{ github.run_id }}
+          key: indexnow-sitemap-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: indexnow-sitemap-
       - name: Submit URLs to IndexNow
         # IndexNow non-2xx is warned but never fails the run (script exits 0).
@@ -83,4 +83,4 @@ jobs:
         uses: actions/cache/save@v4
         with:
           path: .indexnow-state.json
-          key: indexnow-sitemap-${{ github.run_id }}
+          key: indexnow-sitemap-${{ github.run_id }}-${{ github.run_attempt }}

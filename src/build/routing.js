@@ -5,12 +5,13 @@
 const marketPlan = require('../../functions/_lib/market-plan');
 
 // The comment above the _routes.json step in generate-html-report.js explains each rule. The localized rankings tree is
-// excluded from Functions, which is why removed market pages need static redirects (redirectsText).
+// excluded from Functions, which is why removed market pages need static redirects (redirectsText). Steam record pages
+// (/<locale>/steam/<id>) reach Functions, whose middleware redirects those that moved to a game page; only the hub is excluded.
 const LOCALES = ['ko', 'ja', 'zh-cn', 'zh-tw'];
 
 function routesJson() {
   const localeStatic = LOCALES.flatMap((p) => [
-    `/${p}`, `/${p}/`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/*`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
+    `/${p}`, `/${p}/`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
   ]);
   return {
     version: 1,
@@ -37,12 +38,9 @@ function routesJson() {
   };
 }
 
-// Static redirects for localized market pages an edition does not build (plans = docs/games-data/_pages.json, prefixes = { code: '/ko' })
-// and for localized Steam record pages that moved to a game page (steam = docs/games-data/_steam.json, app ID → slug).
-// The unprefixed edition's URLs reach the middleware, which redirects them itself.
-function redirectsText(plans, prefixes, steam = {}) {
-  const steamRules = Object.values(prefixes).filter(Boolean).flatMap((prefix) => Object.entries(steam).map(([id, slug]) => `${prefix}/steam/${id}/ ${prefix}/games/${encodeURIComponent(slug)}/ 301`));
-  const rules = [...marketPlan.redirectRules(plans, prefixes), ...steamRules];
+// Static redirects for localized market pages an edition does not build (plans = docs/games-data/_pages.json, prefixes = { code: '/ko' }).
+function redirectsText(plans, prefixes) {
+  const rules = marketPlan.redirectRules(plans, prefixes);
   if (rules.length > 2000) throw new Error(`too many static redirects: ${rules.length}`);
   return rules.length ? rules.join('\n') + '\n' : '';
 }
