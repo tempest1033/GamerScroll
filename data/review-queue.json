@@ -47456,7 +47456,7 @@
       "title": "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG",
       "status": "single",
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "developer": "SQUARE ENIX Co.,Ltd.",
       "icon": "https://play-lh.googleusercontent.com/1sdqXY812mSKhGAdlb__4rqDj3PnFxhBgLuqWzPzu83sN0ap6wniQMlk0bVj-Nmjo1LDh_6rsfSCTHt1VlSyGg",
@@ -53295,13 +53295,19 @@
     },
     {
       "title": "소울시프트 리:본",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6784551416
+        "ios": 6784551416,
+        "android": "com.playlinks.ogag.live"
       },
       "developer": "PLAYLINKS Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/a2/4f/92a24fb4-5159-b91b-8e67-02911fb039bc/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "SOULSHIFT：重生",
+          "appId": 6784551416
+        }
+      ],
       "addedAt": "2026-11-24T07:01:59.407Z"
     },
     {
@@ -53569,6 +53575,101 @@
         }
       ],
       "addedAt": "2026-11-24T23:02:01.407Z"
+    },
+    {
+      "title": "아크：오리진",
+      "status": "single",
+      "appIds": {
+        "android": "com.hkbufftechnology.arkorigin"
+      },
+      "developer": "HK BUFF TECHNOLOGY",
+      "icon": "https://play-lh.googleusercontent.com/vpBiHx9OyMjulfYW14MhDsbogJdLQ6UNBlW-wwrLnB72LfkkbuBjf0s-pF__c7XEje7W5s-rpwscfRcJ1T_T",
+      "searchResults": [
+        {
+          "title": "Zero City: 좀비 서바이벌",
+          "appId": 1463289293
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        }
+      ],
+      "addedAt": "2026-11-25T03:01:58.689Z"
+    },
+    {
+      "title": "The Bazaar Game",
+      "status": "single",
+      "appIds": {
+        "ios": 6479399580
+      },
+      "developer": "Tempo Storm",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/c1/47/d5c1471d-f5c2-c405-5578-357e7b51f2ea/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T03:01:59.218Z"
+    },
+    {
+      "title": "City Bus Rush",
+      "status": "single",
+      "appIds": {
+        "android": "com.busruty.parstop"
+      },
+      "developer": "See My Shops",
+      "icon": "https://play-lh.googleusercontent.com/YXqmIsLkhlgRmw-G0_qtRygJSCYba8nmP2GFIgdHxq4VoN5y7LROAXgTIluFXag-lAHuAxfetWPFx2BMXcR6",
+      "searchResults": [
+        {
+          "title": "City Drive & Rush Hour Drive",
+          "appId": 6745582675
+        },
+        {
+          "title": "Google Maps",
+          "appId": 585027354
+        },
+        {
+          "title": "Traffix: 도시의 질주",
+          "appId": 1465703539
+        }
+      ],
+      "addedAt": "2026-11-25T03:01:59.711Z"
+    },
+    {
+      "title": "Unloop Logic: Arrow Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.unloop.games.logic.puzzle"
+      },
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/JK4gL6tcsvKJk2t1y09TWm-F78r0uE2g-A3QK-jkhBVRs-NOE9XFt20GHocs7wWspjsYuZmSHF1yY1xfDZUe",
+      "searchResults": [
+        {
+          "title": "Unloop",
+          "appId": 1632256862
+        },
+        {
+          "title": "Rotate Ring Puzzle: Unloop",
+          "appId": 6830296448
+        },
+        {
+          "title": "Unloop Rings",
+          "appId": 6821080301
+        }
+      ],
+      "addedAt": "2026-11-25T03:02:00.430Z"
+    },
+    {
+      "title": "Sea Playground: 배 침몰 시뮬레이터",
+      "status": "single",
+      "appIds": {
+        "android": "com.gameoverflow.seaplayground"
+      },
+      "developer": "Freeplay Inc",
+      "icon": "https://play-lh.googleusercontent.com/w1jVkOIvC_RKclHMXPD5SzZMkvYQ3Jnp9aYc_FT-YFQYWwJCpQ04xf1z6SHwdf7Zik0ViVWRROv45wzUOmWpBA",
+      "searchResults": [
+        {
+          "title": "Transatlantic Ships Sim",
+          "appId": 1510788496
+        }
+      ],
+      "addedAt": "2026-11-25T03:02:01.316Z"
     }
   ],
   "approved": [

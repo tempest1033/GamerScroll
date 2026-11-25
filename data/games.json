@@ -73418,7 +73418,7 @@
     },
     "ドラゴンクエストスマッシュグロウ ドラクエローグライトRPG": {
       "appIds": {
-        "android": "com.square_enix.android_googleplay.dqsgj"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG",
@@ -166306,14 +166306,18 @@
     },
     "소울시프트 리:본": {
       "appIds": {
-        "ios": 6784551416
+        "ios": 6784551416,
+        "android": "com.playlinks.ogag.live"
       },
-      "aliases": [],
+      "aliases": [
+        "SOULSHIFT：重生"
+      ],
       "developer": "PLAYLINKS Corp.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/a2/4f/92a24fb4-5159-b91b-8e67-02911fb039bc/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "soulshift-re-born",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "소울시프트 리:본",
@@ -166786,8 +166790,110 @@
         "ko": "픽셀 코어: 클래시",
         "zh-tw": "全明星風暴：對決"
       }
+    },
+    "아크：오리진": {
+      "appIds": {
+        "android": "com.hkbufftechnology.arkorigin"
+      },
+      "aliases": [],
+      "developer": "HK BUFF TECHNOLOGY",
+      "icon": "https://play-lh.googleusercontent.com/vpBiHx9OyMjulfYW14MhDsbogJdLQ6UNBlW-wwrLnB72LfkkbuBjf0s-pF__c7XEje7W5s-rpwscfRcJ1T_T",
+      "slug": "아크오리진",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "아크：오리진"
+      }
+    },
+    "The Bazaar Game": {
+      "appIds": {
+        "ios": 6479399580
+      },
+      "aliases": [],
+      "developer": "Tempo Storm",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d5/c1/47/d5c1471d-f5c2-c405-5578-357e7b51f2ea/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "the-bazaar-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "The Bazaar Game",
+        "en": "The Bazaar Game",
+        "ja": "The Bazaar Game",
+        "zh-tw": "The Bazaar Game"
+      }
+    },
+    "City Bus Rush": {
+      "appIds": {
+        "android": "com.busruty.parstop"
+      },
+      "aliases": [],
+      "developer": "See My Shops",
+      "icon": "https://play-lh.googleusercontent.com/YXqmIsLkhlgRmw-G0_qtRygJSCYba8nmP2GFIgdHxq4VoN5y7LROAXgTIluFXag-lAHuAxfetWPFx2BMXcR6",
+      "slug": "city-bus-rush",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "City Bus Rush",
+        "en": "City Bus Rush",
+        "ja": "City Bus Rush",
+        "zh-tw": "City Bus Rush"
+      }
+    },
+    "Unloop Logic: Arrow Puzzle": {
+      "appIds": {
+        "android": "com.unloop.games.logic.puzzle"
+      },
+      "aliases": [],
+      "developer": "SOFISH GAMES",
+      "icon": "https://play-lh.googleusercontent.com/JK4gL6tcsvKJk2t1y09TWm-F78r0uE2g-A3QK-jkhBVRs-NOE9XFt20GHocs7wWspjsYuZmSHF1yY1xfDZUe",
+      "slug": "unloop-logic-arrow-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Unloop Logic: Arrow Puzzle",
+        "en": "Unloop Logic: Arrow Puzzle",
+        "ja": "Unloop Logic: Arrow Puzzle",
+        "zh-tw": "Unloop Logic: Arrow Puzzle"
+      }
+    },
+    "Sea Playground: 배 침몰 시뮬레이터": {
+      "appIds": {
+        "android": "com.gameoverflow.seaplayground"
+      },
+      "aliases": [],
+      "developer": "Freeplay Inc",
+      "icon": "https://play-lh.googleusercontent.com/w1jVkOIvC_RKclHMXPD5SzZMkvYQ3Jnp9aYc_FT-YFQYWwJCpQ04xf1z6SHwdf7Zik0ViVWRROv45wzUOmWpBA",
+      "slug": "sea-playground-ship-sandbox",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sea Playground: 배 침몰 시뮬레이터",
+        "en": "Sea Playground: Ship Sandbox",
+        "ja": "Sea Playground: 船沈没シミュレーター",
+        "zh-tw": "Sea Playground: 沉船沙盒"
+      },
+      "legacySlugs": [
+        "sea-playground-배-침몰-시뮬레이터"
+      ]
+    },
+    "No Asteroids": {
+      "appIds": {
+        "steam": "5527800"
+      },
+      "aliases": [],
+      "developer": "Unruled Games",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5527800/4035626db4bbe9b8fb5140e6815c9d08665e67c9/capsule_231x87.jpg?t=1795542925",
+      "slug": "no-asteroids",
+      "platforms": [
+        "steam"
+      ]
     }
   },
   "lastUpdated": "2026-11-25",
-  "totalGames": 9557
+  "totalGames": 9563
 }

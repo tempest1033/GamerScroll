@@ -1,17 +1,29 @@
 {
-  "updatedAt": "2026-11-23T23:02:03.551Z",
+  "updatedAt": "2026-11-25T03:02:04.939Z",
   "period": "30days",
   "games": [
     {
       "slug": "hero-wars-alliance-rpg",
-      "views": 8
+      "views": 7
     },
     {
       "slug": "피망-포커-카지노-로얄-홀덤-7포커-바둑이",
       "views": 7
     },
     {
+      "slug": "age-of-origins",
+      "views": 6
+    },
+    {
       "slug": "epic-seven-smilegate-holdings",
+      "views": 6
+    },
+    {
+      "slug": "pirate-legends-idle-rpg",
+      "views": 6
+    },
+    {
+      "slug": "sled-surfers",
       "views": 6
     },
     {
@@ -23,10 +35,6 @@
       "views": 6
     },
     {
-      "slug": "탑-히어로즈-영웅의-시대",
-      "views": 6
-    },
-    {
       "slug": "한게임-로얄홀덤",
       "views": 6
     },
@@ -35,11 +43,7 @@
       "views": 5
     },
     {
-      "slug": "age-of-origins",
-      "views": 5
-    },
-    {
-      "slug": "barotrauma",
+      "slug": "arrow-pro-3d",
       "views": 5
     },
     {
@@ -47,7 +51,11 @@
       "views": 5
     },
     {
-      "slug": "hero-siege",
+      "slug": "geometry-dash-lite",
+      "views": 5
+    },
+    {
+      "slug": "mistfall-hunter",
       "views": 5
     },
     {
@@ -59,19 +67,11 @@
       "views": 5
     },
     {
-      "slug": "pirate-legends-idle-rpg",
-      "views": 5
-    },
-    {
       "slug": "pixel-flow",
       "views": 5
     },
     {
-      "slug": "skate",
-      "views": 5
-    },
-    {
-      "slug": "sled-surfers",
+      "slug": "sakura-school-simulator",
       "views": 5
     },
     {
