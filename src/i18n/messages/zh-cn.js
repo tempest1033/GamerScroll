@@ -294,7 +294,7 @@ module.exports = {
   "rank.daily_revenue_and_popularity_rankings": "每日畅销榜与免费榜",
   "rank.data_is_collected_several_times": "数据每天收集多次，所示更新时间为最后一次收集时间；日度历史每天保存一次。受商店更新时间影响，可能与商店当前榜单有出入。",
   "rank.data_sources_and_collection": "数据来源与收集",
-  "rank.dataset_description": "GamerScroll 每天收集并每天更新的游戏排行数据。",
+  "rank.dataset_description": "韩国、日本、美国、中国、台湾的 App Store 营收榜和免费榜排名，除中国外四个市场的 Google Play 营收榜和免费榜排名，以及 Steam 同时在线人数排名，由 GamerScroll 每天收集并每天更新。",
   "rank.dataset_measurement": "每天收集，每天更新。",
   "rank.date": "日期",
   "rank.days": "天",

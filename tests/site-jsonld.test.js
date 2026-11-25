@@ -104,13 +104,24 @@ test('ranking pages describe their data as a Dataset by the Organization, collec
       assert.equal(dataset.creator['@id'], 'https://gamerscroll.com/ko/#organization');
       assert.equal('temporalCoverage' in dataset, false, 'no start date');
       assert.ok(!JSON.stringify(dataset).includes(S.days[0].date), 'the first history day appears nowhere');
-      assert.equal(dataset.description, '게이머스크롤이 매일 수집하고 매일 갱신하는 게임 순위 데이터입니다.');
+      assert.equal(dataset.description, i18n.t('rank.dataset_description'));
       assert.equal(dataset.measurementTechnique, '매일 수집하고 매일 갱신합니다.');
       assert.deepEqual(dataset.spatialCoverage.map((p) => p.name), ['한국', '일본', '미국', '중국', '대만']);
       assert.equal('license' in dataset, false);
     }
     assert.equal(ofType(rankHub.renderRankingsHub('jp'), 'Dataset').length, 0, 'country pages other than the hub carry none');
   });
+});
+
+test('every edition\'s Dataset description is 50-5,000 characters, names its five markets, and states no date', () => {
+  for (const edition of i18n.EDITIONS) {
+    inEdition(edition.code, () => {
+      const text = i18n.t('rank.dataset_description');
+      assert.ok(text.length >= 50 && text.length <= 5000, `${edition.code}: ${text.length} characters`);
+      for (const key of ['stats.korea', 'stats.japan', 'stats.united_states', 'stats.china', 'stats.taiwan']) assert.ok(text.includes(i18n.t(key)), `${edition.code} names ${i18n.t(key)}`);
+      assert.doesNotMatch(text, /\d{4}|\d+\s*(?:년|年)/, `${edition.code}: no date`);
+    });
+  }
 });
 
 test('edition home links the genres hub and the newest monthly page only where the edition builds them', () => {
