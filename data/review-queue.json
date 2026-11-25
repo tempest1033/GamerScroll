@@ -53730,7 +53730,7 @@
       "title": "怪物彈珠 - RPG手機遊戲",
       "status": "single",
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW"
+        "android": "com.interserv.L3K"
       },
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
@@ -53749,6 +53749,28 @@
         }
       ],
       "addedAt": "2026-11-25T08:09:34.211Z"
+    },
+    {
+      "title": "Fishing Inc: Legendary Catch",
+      "status": "single",
+      "appIds": {
+        "ios": 6770534658
+      },
+      "developer": "Snapbreak Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/c5/e2/5fc5e29c-23fc-50c5-48b2-beb1b42083b7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T10:28:26.125Z"
+    },
+    {
+      "title": "Wealth Roll",
+      "status": "single",
+      "appIds": {
+        "ios": 6812995025
+      },
+      "developer": "Albert Pelzberger",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5a/84/c8/5a84c8f1-74f3-f3eb-2146-4f58f5b6ac18/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-25T10:28:26.403Z"
     }
   ],
   "approved": [

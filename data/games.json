@@ -17176,7 +17176,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "1329410",
+        "steam": "2739990",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -74063,7 +74063,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -166014,8 +166014,58 @@
         "ja": "脳力＋ 支払い技術検定",
         "zh-tw": "脳力＋ 支払い技術検定"
       }
+    },
+    "Fishing Inc: Legendary Catch": {
+      "appIds": {
+        "ios": 6770534658
+      },
+      "aliases": [],
+      "developer": "Snapbreak Games",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5f/c5/e2/5fc5e29c-23fc-50c5-48b2-beb1b42083b7/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "fishing-inc-legendary-catch",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Fishing Inc: Legendary Catch",
+        "en": "Fishing Inc: Legendary Catch",
+        "ja": "Fishing Inc: 伝説の大物",
+        "zh-tw": "Fishing Inc: Legendary Catch"
+      }
+    },
+    "Wealth Roll": {
+      "appIds": {
+        "ios": 6812995025
+      },
+      "aliases": [],
+      "developer": "Albert Pelzberger",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5a/84/c8/5a84c8f1-74f3-f3eb-2146-4f58f5b6ac18/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "wealth-roll",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Wealth Roll",
+        "en": "Wealth Roll",
+        "ja": "Wealth Roll"
+      }
+    },
+    "灵宝派对": {
+      "appIds": {
+        "ios_cn": 6762598411
+      },
+      "aliases": [],
+      "developer": "Xiaoshu Technology Limited",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b4/e2/4b/b4e24ba1-556b-3def-da72-7f28d1af903a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "灵宝派对",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "灵宝派对"
+      }
     }
   },
   "lastUpdated": "2026-11-25",
-  "totalGames": 9481
+  "totalGames": 9484
 }
