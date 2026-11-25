@@ -18,7 +18,7 @@ const i18n = require('../src/i18n');
 const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
 const { gameLastmod, collectRankData, rankSeries, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow, steamIdOf, steamPageSlugs } = require('../src/build/game-data');
-const { isIndexableGame, chartsInMarket } = require('../src/templates/helpers/game-rank-summary');
+const { indexableEditionCodes, chartsInMarket } = require('../src/templates/helpers/game-rank-summary');
 const { publisherIndex } = require('../src/templates/pages/rank-hub');
 const { loadSteamStats } = require('../src/rank/steam-stats');
 const { steamRecord } = require('../src/templates/helpers/steam-game');
@@ -133,7 +133,7 @@ function chartOf(country) {
   charts.set(country, chart);
   return chart;
 }
-// Editions where the game's page is indexable (isIndexableGame): the page's robots tag and hreflang, the sitemaps' hreflang
+// Editions where the game's page is indexable (indexableEditionCodes): the page's robots tag and hreflang, the sitemaps' hreflang
 // and the related-game links of other pages follow it.
 const indexableMemo = new Map();
 function indexableEditions(g) {
@@ -141,7 +141,7 @@ function indexableEditions(g) {
     const { mp, ts } = steamMatch(g, steamChartLists);
     const onSteam = Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === pageSlugs.get(g);
     const rank = { s: rankSeries(S, g.appIds) };
-    indexableMemo.set(g, i18n.EDITIONS.filter((e) => isIndexableGame(rank, onSteam, meta, e.country)).map((e) => e.code));
+    indexableMemo.set(g, indexableEditionCodes(rank, onSteam, meta));
   }
   return indexableMemo.get(g);
 }
@@ -229,6 +229,7 @@ const dataHash = crypto.createHash('md5');
 const searchIndex = [];
 const indexable = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
 const listed = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
+const steamHubSlugs = require('../src/templates/pages/steam-hub').steamHubGameSlugs();
 const lastmodBySlug = {};
 let rankedCount = 0, steamCount = 0, revenueCount = 0;
 const revenueBySlug = new Map();
@@ -327,10 +328,10 @@ for (const g of S.games) {
   if (ranked) rankedCount++;
   if (steam) steamCount++;
 
-  // 색인 허용은 에디션별 (그 시장 순위 이력 30일 이상 · 지금 그 시장 차트에 있음 · 스팀). 사이트맵에는 그중 그 시장 최근 14일 매출 TOP 100 게임만 싣는다.
+  // Indexable per edition (indexableEditionCodes). The sitemap lists, of those, the market's recent revenue TOP 100 games and the games the /steam/ hub links.
   const editionsIndexable = indexableEditions(g);
   for (const code of editionsIndexable) indexable[code].push(slug);
-  for (const e of i18n.EDITIONS) if (editionsIndexable.includes(e.code) && chartsInMarket(rank, meta, e.country)) listed[e.code].push(slug);
+  for (const e of i18n.EDITIONS) if (editionsIndexable.includes(e.code) && (chartsInMarket(rank, meta, e.country) || steamHubSlugs.has(slug))) listed[e.code].push(slug);
   // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
   const dataDates = [
     ...(rank ? Object.values(rank.s).flatMap((stores) => Object.values(stores).map((e) => meta.days[e.o + e.v.length - 1])) : []),

@@ -138,10 +138,12 @@ test('the edition selector of a game page sends crawlers only to editions where 
     const links = [...html.matchAll(/<a href="([^"]+)" data-edition-link data-edition="([^"]+)"([^>]*)>/g)];
     assert.ok(links.length >= 5);
     for (const [, href, code, rest] of links) {
-      assert.equal(href, code === 'ko' ? '/ko/games/kr-game/' : i18n.editionPath(code, '/games/'), code);
+      // Korea's edition and the English one (the global default) index this Korea-only game; the others do not.
+      assert.equal(href, ['ko', 'en'].includes(code) ? i18n.editionPath(code, '/games/kr-game/') : i18n.editionPath(code, '/games/'), code);
       assert.doesNotMatch(rest, /data-path/, 'a visitor\'s click still opens the same game in that edition');
     }
     assert.match(html, /<link rel="alternate" hreflang="ko" href="https:\/\/gamerscroll\.com\/ko\/games\/kr-game\/"/);
-    assert.doesNotMatch(html, /<link rel="alternate" hreflang="en"/);
+    assert.match(html, /<link rel="alternate" hreflang="x-default" href="https:\/\/gamerscroll\.com\/games\/kr-game\/"/);
+    assert.doesNotMatch(html, /<link rel="alternate" hreflang="ja"/);
   } finally { i18n.setEdition('en'); }
 });

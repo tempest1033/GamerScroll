@@ -69,8 +69,8 @@ function summaryDays(rank, meta, home) {
 // Whether a game's page is indexable in the edition whose home market is `home`: 30+ chart days in that market, on that
 // market's revenue chart in the latest data, or on Steam (`onSteam`: on a Steam list or carrying a Steam record; Steam charts
 // have no market). An edition offers search engines only the games its own market knows: the same page in a language whose
-// market never charted the game is a thin copy, and thousands of those kept Google from crawling any game page. The game
-// page's robots tag and hreflang, the game sitemaps' hreflang, the games hub list and every in-page game link use it.
+// market never charted the game is a thin copy, and thousands of those kept Google from crawling any game page. The
+// English edition is the exception (indexableEditionCodes).
 // rank needs only its daily series `s`.
 function isIndexableGame(rank, onSteam, meta, home) {
   if (onSteam) return true;
@@ -78,6 +78,14 @@ function isIndexableGame(rank, onSteam, meta, home) {
   const length = meta.days.length;
   const onChartNow = Object.values(rank.s[home] || {}).some((e) => e.o + e.v.length === length);
   return onChartNow || countryDays(rank, home, length) >= INDEXABLE_DAYS;
+}
+
+// Editions (codes) where a game's page is indexable: each edition by its own market's rule (isIndexableGame), and the
+// English edition, the global default and the x-default, whenever any edition indexes the game.
+function indexableEditionCodes(rank, onSteam, meta) {
+  const { EDITIONS } = require('../../i18n');
+  const own = EDITIONS.filter((e) => isIndexableGame(rank, onSteam, meta, e.country)).map((e) => e.code);
+  return own.length ? EDITIONS.filter((e) => e.code === 'en' || own.includes(e.code)).map((e) => e.code) : own;
 }
 
 const PRIORITY_RANK = 100;
@@ -226,4 +234,4 @@ ${countryCard}
   return { html, text, cur, baseStore, days: present.length, hero };
 }
 
-module.exports = { renderGameRankSummary, summaryDays, isIndexableGame, chartsInMarket, pickCountry, expand, INDEXABLE_DAYS, PRIORITY_RANK, PRIORITY_DAYS };
+module.exports = { renderGameRankSummary, summaryDays, isIndexableGame, indexableEditionCodes, chartsInMarket, pickCountry, expand, INDEXABLE_DAYS, PRIORITY_RANK, PRIORITY_DAYS };

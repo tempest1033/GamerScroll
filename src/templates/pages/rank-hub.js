@@ -447,7 +447,7 @@ ${kpi}
   return shell(S, {
     body,
     // 상세 페이지는 날짜를 빼고 짧게 (개발사명이 길어 70자를 넘던 페이지 19개)
-    title: `${tt('rank.game_revenue_rankings_in_the', { name: pub.name, size: pub.games.size })}`,
+    title: require('../helpers/fit-description').fitTitle(pub.name, (name) => [tt('rank.game_revenue_rankings_in_the', { name, size: pub.games.size })]),
     description: lead,
     keywords: `${tt('rank.game_rankings_revenue_rankings_mobile', { name: pub.name, name2: pub.name, name3: pub.name, name4: pub.name })}`,
     canonical,

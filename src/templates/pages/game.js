@@ -5,14 +5,14 @@
  * Node 와 Workers 런타임에서 똑같이 동작한다. 입력은 docs/games-data/<slug>.json 한 개와 공용 _meta.json 이다.
  */
 
-const { t, has, currentEdition, EDITIONS, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
+const { t, has, currentEdition, formatNumber, href, formatDay, formatMonthDay } = require('../../i18n');
 const { wrapWithLayout, AD_SLOTS, generateHomeAdPairSlot } = require('../layout');
 const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { describeGame, trimDescription, cleanDescription } = require('../helpers/game-description');
-const { renderGameRankSummary, summaryDays, isIndexableGame } = require('../helpers/game-rank-summary');
-const { fitSentences, width, MAX_WIDTH } = require('../helpers/fit-description');
+const { renderGameRankSummary, summaryDays, indexableEditionCodes } = require('../helpers/game-rank-summary');
+const { fitSentences, fitTitle, width, MAX_WIDTH } = require('../helpers/fit-description');
 const { renderRevenueSection } = require('../components/revenue-section');
 const { renderSteamRecord, steamPills, steamStoreLink } = require('../helpers/steam-game');
 
@@ -375,12 +375,11 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     })();
   </script>`;
 
-  // 이 에디션 시장의 우선 게임(최근 14일 매출 TOP 100)도, 스팀 기록이 있는 게임도 아니면 noindex (thin content 방지). 사이트맵·게임 허브·게임 링크와 같은 규칙(isIndexableGame).
-  const indexableEditions = EDITIONS.filter((e) => isIndexableGame(rank, Boolean(game.steam || game.steamRecord), meta, e.country)).map((e) => e.code);
+  // Indexable editions: the sitemaps, games hub and game links follow the same rule (indexableEditionCodes).
+  const indexableEditions = indexableEditionCodes(rank, Boolean(game.steam || game.steamRecord), meta);
   const indexable = indexableEditions.includes(edition.code);
 
-  // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎
-  const seoTitle = t(hasMobilePlatform ? 'game.seo_title_mobile' : 'game.seo_title_steam', { name: plainName });
+  const seoTitle = fitTitle(plainName, (name) => (hasMobilePlatform ? ['game.seo_title_mobile'] : ['game.seo_title_steam', 'game.seo_title_steam_short']).map((k) => t(k, { name })));
   // The data-derived overview replaces the formulaic rank-summary / generic description.
   // Short complete sentence used when the data-derived text does not fit the meta budget (a name-free site line if the name makes even this too long).
   const nameDescription = t(hasMobilePlatform ? 'game.seo_desc_mobile' : 'game.seo_desc_steam', { name: plainName });

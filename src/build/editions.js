@@ -130,13 +130,13 @@ function buildEditions(ctx) {
   const steamStats = (() => { try { return require('../rank/steam-stats').loadSteamStats(); } catch (e) { return null; } })();
   const lastDate = (days) => (days && days.length ? days[days.length - 1].date : null);
   const rankDate = rankStats ? lastDate(rankStats.days) : null;
-  // Game pages indexable per edition (isIndexableGame, the game pages' own rule): the games hub A-Z list and every in-page game
+  // Game pages indexable per edition (indexableEditionCodes, the game pages' own rule): the games hub A-Z list and every in-page game
   // link name only these, so crawlers are not sent to thousands of noindex pages. The other game pages stay reachable through the hub search.
   // Steam: apps with a record page (pageApps) whose game record names them are shown on that game's page (steamPageSlugs).
   const steamPages = steamStats && rankStats ? require('./game-data').steamPageSlugs(rankStats.games, new Set(steamStats.pageApps(14))) : new Map();
   const indexableSlugs = rankStats ? (() => {
     const { rankSeries, summaryMeta, loadLatestSteam, steamLists, steamMatch, steamIdOf, createSlug } = require('./game-data');
-    const { isIndexableGame } = require('../templates/helpers/game-rank-summary');
+    const { indexableEditionCodes } = require('../templates/helpers/game-rank-summary');
     const meta = summaryMeta(rankStats);
     const lists = steamLists(loadLatestSteam(path.join(__dirname, '..', '..', 'history')));
     // Slugs resolve as in scripts/generate-game-pages.js: a record without one has its page under the generated slug,
@@ -147,9 +147,10 @@ function buildEditions(ctx) {
       if (taken.has(slug)) return [];
       taken.add(slug);
       const { mp, ts } = steamMatch(g, lists);
-      return [{ slug, rank: { s: rankSeries(rankStats, g.appIds) }, onSteam: Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === slug }];
+      const onSteam = Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === slug;
+      return [{ slug, editions: indexableEditionCodes({ s: rankSeries(rankStats, g.appIds) }, onSteam, meta) }];
     });
-    return Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, new Set(games.filter((g) => isIndexableGame(g.rank, g.onSteam, meta, e.country)).map((g) => g.slug))]));
+    return Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, new Set(games.filter((g) => g.editions.includes(e.code)).map((g) => g.slug))]));
   })() : null;
   const steamDate = steamStats ? lastDate(steamStats.days) : null;
   const homeDate = [rankDate, steamDate].filter(Boolean).sort().pop() || null;

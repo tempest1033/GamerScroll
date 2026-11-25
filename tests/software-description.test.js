@@ -28,6 +28,14 @@ test('an over-budget first sentence is replaced by the complete fallback sentenc
   assert.equal(fitSentences('日'.repeat(100) + '。', fallback), fallback);
 });
 
+test('a "." before Hangul or "#" ends a sentence; a first sentence exactly at the limit is kept, not emptied', () => {
+  const first = '가'.repeat(70) + '.';
+  assert.equal(fitSentences(`${first} 나${'다'.repeat(80)}.`, 'Fallback.'), first);
+  assert.equal(fitSentences(`Monthly ranking. #1 ${'X'.repeat(150)}.`, 'Fallback.'), 'Monthly ranking.');
+  const atLimit = 'a'.repeat(154) + '.';
+  assert.equal(fitSentences(`${atLimit} Second sentence.`, 'Fallback.'), atLimit);
+});
+
 test('structured sentences keep names with punctuation intact', () => {
   const lead = 'MONOPOLY GO! revenue ranking history for the Scopely casual game.';
   const out = trimDescription([lead, 'It is at its all-time high right now: #1 on the United States App Store top-grossing chart for a long stretch.'], ' ', 'x.');

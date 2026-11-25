@@ -19,8 +19,10 @@ module.exports = {
   "game.period_week": "周",
   "game.period_month": "月",
   "game.chart_note": "各时段已收录记录中的最高排名 · 数字越小排名越靠前",
-  "game.seo_title_mobile": "{name} 收入与畅销榜排名走势",
+  "game.seo_title_mobile": "{name} 畅销榜排名走势",
   "game.seo_title_steam": "{name} Steam 在线人数 — 当前与历史最高同时在线",
+
+  "game.seo_title_steam_short": "{name} Steam 在线人数",
   "game.seo_desc_mobile": "查看 {name} 在 App Store 和 Google Play 的畅销榜排名走势及历史最高排名记录。",
   "game.seo_desc_steam": "查看 {name} 的 Steam 同时在线人数与销量排名走势及历史排名记录。",
   "game.seo_keywords_mobile": "{name}, {name} 流水, {name} 排名, {name} 畅销榜, {name} App Store 排名, {name} Google Play 排名, 手游畅销榜",

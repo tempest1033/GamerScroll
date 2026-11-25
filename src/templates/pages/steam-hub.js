@@ -31,6 +31,14 @@ const steamHref = (id) => {
   const key = String(id);
   return merged.has(key) ? `/games/${encodeURIComponent(merged.get(key))}/` : built.includes(key) ? `/steam/${key}/` : null;
 };
+const monthlyRows = (ST) => ST.monthlyTop(ST.latestMonth, 10);
+const peakRows = (ST) => ST.allTimePeaks(10);
+// Game pages the hub links (its two charts and two record tables): every edition's game sitemap lists them.
+function steamHubGameSlugs() {
+  const ST = loadSteamStats();
+  const ids = [...ST.today.mp, ...ST.today.sellers, ...monthlyRows(ST), ...peakRows(ST)].map((r) => String(r.appid));
+  return new Set(ids.map((id) => steamTargets().merged.get(id)).filter(Boolean));
+}
 const nameLink = (href, name) => (href ? `<a data-name href="${href}">${esc(name)}</a>` : `<span data-name>${esc(name)}</span>`);
 
 // 동접자 스파크라인 (값이 클수록 위)
@@ -94,8 +102,8 @@ ${gameSummary(t('steam.recent_new_entry'), fresh, fresh ? `${t('steam.players', 
 <div class="rk-cols" id="rk-list">${col('rk-more-ccu', 'and', t('steam.concurrent_player_rankings'), t('steam.players_at_collection_time_vs'), mpRows, T.mp.length)}${col('rk-more-sell', 'ios', t('steam.sales_rankings'), t('steam.korea_store_price_discount_rate'), sellRows, T.sellers.length)}</div>`;
 
   const mo = ST.latestMonth;
-  const monthly = ST.monthlyTop(mo, 10).map((a) => `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.avg)}<small>${t('home.monthly_avg_concurrent_players')}</small></td></tr>`).join('');
-  const peaks = ST.allTimePeaks(10).map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.ccu)}<small>${formatDay(a.date)}</small></td></tr>`).join('');
+  const monthly = monthlyRows(ST).map((a) => `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.avg)}<small>${t('home.monthly_avg_concurrent_players')}</small></td></tr>`).join('');
+  const peaks = peakRows(ST).map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.ccu)}<small>${formatDay(a.date)}</small></td></tr>`).join('');
   const lead = `${t('steam.steam_concurrent_players_1_players', { name: ST.info(top.appid).name, p1: fmt(top.ccu), p2: T.mp[1] ? ST.info(T.mp[1].appid).name : '-', p3: T.mp[2] ? ST.info(T.mp[2].appid).name : '-', p4: T.sellers[0] ? ST.info(T.sellers[0].appid).name : '-', date: formatDay(T.date) })}`;
   const body = `<div class="rk-head"><h1>${t('steam.game_rankings')}</h1></div>
 ${kpi}
@@ -122,8 +130,7 @@ ${renderSteamRecord(d)}`;
   const canonical = `${siteBaseUrl}/steam/${d.id}/`;
   return shell(null, {
     body,
-    // 상세 페이지는 날짜 없이 짧게 (2026-09-09 title 정책)
-    title: `${t('steam.steam_concurrent_players_and_sales', { name: d.name })}`,
+    title: require('../helpers/fit-description').fitTitle(d.name, (name) => ['steam.steam_concurrent_players_and_sales', 'game.seo_title_steam_short'].map((k) => t(k, { name }))),
     description: steamLead(d),
     keywords: `${t('steam.concurrent_players_steam_ranking_concurrent', { name: d.name, name2: d.name, name3: d.name, name4: d.name })}`,
     canonical,
@@ -134,4 +141,4 @@ ${renderSteamRecord(d)}`;
 // /steam/<appid>/ pages to build: record apps without a game page
 function steamGameIds() { return steamTargets().built; }
 
-module.exports = { renderSteamHub, renderSteamGame, steamGameIds, steamHref, steamTargets };
+module.exports = { renderSteamHub, renderSteamGame, steamGameIds, steamHref, steamTargets, steamHubGameSlugs };

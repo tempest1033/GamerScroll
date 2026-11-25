@@ -28,6 +28,19 @@ test('breadcrumbs of a localized page name that edition\'s pages, never the Engl
   }
 });
 
+test('a game charting only in Japan: its English page is indexable and is the x-default of the Japanese one', () => {
+  const { generateGamePage } = require('../src/templates/pages/game');
+  const days = Array.from({ length: 40 }, (_, i) => `2026-10-${String(i + 1).padStart(2, '0')}`);
+  const game = { name: 'G', slug: 'g', platforms: ['ios'], developer: 'D', steamHistory: [], rank: { s: { jp: { ios: { o: 39, v: [5] } } }, h: {} } };
+  const meta = { days, hourlyDate: '' };
+  const alternates = (html) => [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)">/g)].map((m) => [m[1], m[2]]);
+  const ja = inEdition('ja', () => generateGamePage(game, meta));
+  assert.deepEqual(alternates(ja), [['en', 'https://gamerscroll.com/games/g/'], ['ja', 'https://gamerscroll.com/ja/games/g/'], ['x-default', 'https://gamerscroll.com/games/g/']]);
+  const en = inEdition('en', () => generateGamePage(game, meta));
+  assert.doesNotMatch(en, /name="robots" content="[^"]*noindex/);
+  assert.match(inEdition('ko', () => generateGamePage(game, meta)), /name="robots" content="[^"]*noindex/);
+});
+
 test('a localized game page keeps its own edition URLs in the breadcrumb', () => {
   const { generateGamePage } = require('../src/templates/pages/game');
   const game = { name: 'G', slug: 'g', platforms: ['steam'], developer: 'D', steam: { rank: 3 }, steamHistory: [], rank: null };

@@ -19,6 +19,13 @@ assert.equal(isIndexableGame(null, true, meta, 'us'), true, 'no mobile rank data
 assert.equal(isIndexableGame(null, false, meta, 'us'), false, 'neither');
 assert.equal(isIndexableGame(rankWith(350, 150, 40), false, meta, 'kr'), true, 'a long-charting game stays indexable off the TOP 100');
 
+const { indexableEditionCodes } = require('../src/templates/helpers/game-rank-summary');
+const jpOnly = { s: { jp: { ios: { o: 99, v: [1] } } } };
+assert.deepEqual(indexableEditionCodes(jpOnly, false, meta), ['en', 'ja'], 'a Japan-only game: its own edition plus the English one (the x-default)');
+assert.deepEqual(indexableEditionCodes(rankWithDays(3, 0), false, meta), ['en', 'ko'], 'a Korea-only game');
+assert.deepEqual(indexableEditionCodes(null, true, meta), ['en', 'ja', 'zh-cn', 'ko', 'zh-tw'], 'a Steam game: every edition');
+assert.deepEqual(indexableEditionCodes(rankWithDays(INDEXABLE_DAYS - 1), false, meta), [], 'indexable nowhere: not in English either');
+
 assert.equal(chartsInMarket(rankWith(1, PRIORITY_RANK), meta, 'kr'), true, 'in the market TOP 100 today');
 assert.equal(chartsInMarket(rankWith(1, PRIORITY_RANK, PRIORITY_DAYS - 1), meta, 'kr'), true, 'in the TOP 100 on the oldest day of the window');
 assert.equal(chartsInMarket(rankWith(60, 1, PRIORITY_DAYS), meta, 'kr'), false, 'not in the TOP 100 in the last 14 days');

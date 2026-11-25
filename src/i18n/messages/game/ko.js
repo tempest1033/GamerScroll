@@ -19,8 +19,10 @@ module.exports = {
   "game.period_week": "주",
   "game.period_month": "월",
   "game.chart_note": "기간별 수집 기록 중 최고 순위 · 숫자가 작을수록 상위",
-  "game.seo_title_mobile": "{name} 매출·매출 순위 추이 — 구글플레이·앱스토어",
+  "game.seo_title_mobile": "{name} 매출 순위 추이",
   "game.seo_title_steam": "{name} 스팀 동접자 수 — 현재·최고 동접 기록",
+
+  "game.seo_title_steam_short": "{name} 스팀 동접자 수",
   "game.seo_desc_mobile": "{name}의 앱스토어·구글플레이 매출 순위 추이와 역대 순위 기록.",
   "game.seo_desc_steam": "{name}의 스팀 동접자·판매 순위 추이와 역대 순위 기록.",
   "game.seo_keywords_mobile": "{name}, {name} 매출, {name} 순위, {name} 매출 순위, {name} 앱스토어 순위, {name} 구글플레이 순위, 모바일 게임 매출 순위",

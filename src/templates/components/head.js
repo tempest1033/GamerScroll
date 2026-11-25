@@ -9,7 +9,7 @@ const { t } = i18n;
 const ADS_ENABLED = process.env.ADS_ENABLED !== 'false';
 const { renderCssLinks } = require('../../build/css-links');
 const { lazyImageLoaderScript } = require('../../build/lazy-images');
-const { fitSentences } = require('../helpers/fit-description');
+const { fitSentences, width, MAX_TITLE_WIDTH } = require('../helpers/fit-description');
 const siteSchema = require('../helpers/site-schema');
 
 // Inline-script test for a metrics page (/analysis/ of any edition), the only place a rewarded ad may gate content.
@@ -73,7 +73,8 @@ function generateHead(options = {}) {
   const safeTitle = escapeHtmlText(title);
   // <title> 태그용: 사이트명이 없으면 "| 게이머스크롤" 추가 (og:title은 원본 유지)
   const SITE_SUFFIX = t('head.gamerscroll_2');
-  const needsSuffix = !title.includes(t('head.gamerscroll'));
+  // The brand goes only where it fits the SERP title budget; the page's own keywords come first.
+  const needsSuffix = !title.includes(t('head.gamerscroll')) && width(title + SITE_SUFFIX) <= MAX_TITLE_WIDTH;
   const pageTitleText = needsSuffix ? escapeHtmlText(title + SITE_SUFFIX) : safeTitle;
   // Description: whole sentences within ~155 columns (CJK counts double), no "..." cut
   const trimmedDescription = fitSentences(description, t('head.daily_records_and_analysis_of'));
