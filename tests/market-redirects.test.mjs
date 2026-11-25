@@ -13,7 +13,7 @@ const { onRequest } = await import(pathToFileURL(outfile).href);
 
 // zh-cn builds no 'idle' genre, no 'bilibili' publisher; ja builds both; 'zz' is built in ja only.
 const plan = (genres, publishers) => ({ genres: ['all', ...genres], publisherHub: true, publishers, monthly: ['2026-10'], records: true });
-const plans = { en: plan(['rpg', 'tcg', 'idle'], []), ja: plan(['rpg', 'idle', 'zz'], ['bilibili']), 'zh-cn': plan(['rpg'], []), ko: plan(['rpg', 'idle'], []), 'zh-tw': plan(['rpg'], []) };
+const plans = { en: plan(['rpg', 'tcg', 'idle', 'subculture'], []), ja: plan(['rpg', 'idle', 'zz'], ['bilibili']), 'zh-cn': plan(['rpg'], []), ko: plan(['rpg', 'idle', 'subculture'], []), 'zh-tw': plan(['rpg'], []) };
 let served = plans; // what /games-data/_pages.json currently returns (null = missing)
 const ASSETS = { fetch: async (req) => (served && new URL(req.url).pathname === '/games-data/_pages.json' ? new Response(JSON.stringify(served)) : new Response('nope', { status: 404 })) };
 
@@ -41,6 +41,12 @@ test('removed market pages 301 to the edition\'s nearest built parent; unknown U
 });
 
 
+test('/rankings/subculture/ 301s to the edition\'s subculture genre page, or its nearest built parent', async () => {
+  assert.deepEqual(await visit('/rankings/subculture/', { ua: 'Googlebot' }), { status: 301, location: 'https://gamerscroll.com/rankings/genres/subculture/' });
+  assert.deepEqual(await visit('/ko/rankings/subculture/?a=1'), { status: 301, location: 'https://gamerscroll.com/ko/rankings/genres/subculture/?a=1' });
+  assert.deepEqual(await visit('/ja/rankings/subculture/'), { status: 301, location: 'https://gamerscroll.com/ja/rankings/genres/' });
+  assert.deepEqual(await visit('/rankings/subculture/', { country: 'KR' }), { status: 301, location: 'https://gamerscroll.com/rankings/genres/subculture/' });
+});
 
 test('the plan is re-read after the TTL; a failed refresh keeps the last good plan', async () => {
   const realNow = Date.now;

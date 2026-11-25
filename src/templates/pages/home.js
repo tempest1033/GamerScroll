@@ -13,6 +13,7 @@ const { loadRankStats, STORES, COUNTRIES, util } = require('../../rank/stats');
 const { clientTranslator, currentEdition, formatDay, formatYearMonth } = require('../../i18n');
 const { loadSteamStats } = require('../../rank/steam-stats');
 const { makeCtx, storeList, countryHref, homeCountry, orderedCountries, chg, sparkline, metricsHref } = require('./rank-hub');
+const { steamHref } = require('./steam-hub');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const { esc, tsText, tsTime, avg, fmt1 } = util;
@@ -124,7 +125,7 @@ function renderHome() {
     const streak = S.streakAtOne(country, s, r.appId);
     return kpi(`${tt('home.revenue_1', { p0: STORES[s] })}`, C.hrefOf(g) || countryHref(country), C.iconOf(r, g), S.nameOf(s, r), streak > 1 ? `${tt('home.1_for_days_in_a', { streak })}` : tt('home.1_today'));
   };
-  const steamKpi = (label, r, sub) => { if (!r) return ''; const m = ST.info(r.appid); return kpi(label, `/steam/${m.appid}/`, m.img, m.name, sub); };
+  const steamKpi = (label, r, sub) => { if (!r) return ''; const m = ST.info(r.appid); return kpi(label, steamHref(m.appid) || '/steam/', m.img, m.name, sub); };
   const ccu1 = ST && ST.today.mp[0];
   const sell1 = ST && ST.today.sellers[0];
   const kpis = `<div class="rk-kpis">${stores.map(storeKpi).join('')}${ccu1 ? steamKpi(tt('home.steam_concurrent_players_1_2'), ccu1, `${tt('home.players_collected', { p0: fmt(ccu1.ccu), p1: tsTime(ST.today.ts) })}`) : ''}${sell1 ? steamKpi(tt('home.steam_sales_1'), sell1, esc([sell1.price, sell1.discount].filter(Boolean).join(' · ') || tt('home.korea_store'))) : ''}</div>`;
@@ -166,7 +167,7 @@ function renderHome() {
       const key = `steam-${m.appid}`;
       const series = ST.series(m.appid).slice(-30);
       const ccu = ST.ccuOf(T, m.appid);
-      previews[key] = { name: m.name, icon: m.img, developer: m.developer || '', label: tt('home.steam_concurrent_players_2'), value: ccu, change: ccu == null ? tt('home.outside_concurrent_top_100') : '', series, d: 's', ranked: false, href: `/steam/${m.appid}/`, steam: true, ...summary(series, false) };
+      previews[key] = { name: m.name, icon: m.img, developer: m.developer || '', label: tt('home.steam_concurrent_players_2'), value: ccu, change: ccu == null ? tt('home.outside_concurrent_top_100') : '', series, d: 's', ranked: false, href: steamHref(m.appid) || '/steam/', steam: true, ...summary(series, false) };
       return `<li><span class="rk-rk ${r.rank <= 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm"><button type="button" data-name data-rk-preview="${key}" aria-controls="rk-home-preview" aria-pressed="false">${esc(m.name)}</button><span class="dv" data-name>${esc(m.developer)}</span></div><div class="rt">${rt}</div>${spark}<span class="rk-chev" aria-hidden="true">›</span></li>`;
     };
     const ccu = T.mp.slice(0, 10).map((r) => li(r, ST.info(r.appid), `${chg(r.rank, ST.rankOf(Y, r.appid))}<span class="sub">${tt('home.concurrent', { p0: fmt(r.ccu) })}</span>`, sparkUp(ST.series(r.appid).slice(-30), { w: 72, h: 22, color: 'var(--rk-text2)' }))).join('');
@@ -298,7 +299,7 @@ ${Object.keys(HOME_COUNTRIES).map((c, i) => `<input type="radio" name="rk-hc" id
   const ms = S.monthStats(S.latestMonth, country);
   const podium = ms ? `<div class="rk-podium">${ms.list.slice(0, 3).map((a, i) => `<a class="p${i + 1}" href="${C.hrefOf(a.game) || `/rankings/monthly/${S.latestMonth}/`}"><img src="${esc(C.iconOf(a.row, a.game))}" alt="" loading="lazy"><b>${i + 1}</b><span class="n" data-name>${esc(S.nameOf(a.store, a.row))}</span><span class="s">${tt('home.avg_rank', { p0: a.score.toFixed(1) })}</span></a>`).join('')}</div>` : '';
   // 스팀 월간 동접 TOP 5: 이 줄에서만 볼 수 있는 스팀 월간 데이터 (2026-09-09, 이전엔 '이달의 상승 게임' — 주요 순위 변동과 성격이 겹쳐 교체)
-  const steamMonthRows = ST ? ST.monthlyTop(ST.latestMonth, 5).map((a) => { const m = ST.info(a.appid); return `<tr>${rankCell(a.rank)}<td><div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t"><a data-name href="/steam/${m.appid}/">${esc(m.name)}</a></div><div class="d" data-name>${esc(m.developer)}</div></div></div></td><td class="v">${fmt(a.avg)}<small>${tt('home.monthly_avg_concurrent_players')}</small></td></tr>`; }).join('') : '';
+  const steamMonthRows = ST ? ST.monthlyTop(ST.latestMonth, 5).map((a) => { const m = ST.info(a.appid); return `<tr>${rankCell(a.rank)}<td><div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t">${steamHref(m.appid) ? `<a data-name href="${steamHref(m.appid)}">${esc(m.name)}</a>` : `<span data-name>${esc(m.name)}</span>`}</div><div class="d" data-name>${esc(m.developer)}</div></div></div></td><td class="v">${fmt(a.avg)}<small>${tt('home.monthly_avg_concurrent_players')}</small></td></tr>`; }).join('') : '';
   const steamMonthSub = tt('home.daily_average');
   const debuts = S.debutRows(country, 'ios').slice(0, 5).map((x) => `<tr>${rankCell(x.cur)}<td>${C.appCell(x.r, 'ios')}</td><td class="v">${tt('home.day', { age: x.age })}<small>${tt('home.best', { best: x.best })}</small></td></tr>`).join('');
   const mini = (title, sub, rows, href, label) => `<div class="rk-card"><h2>${title} <small>${sub}</small></h2><table class="rk-table"><tbody>${rows || EMPTY}</tbody></table><div class="rk-note">${listLink(href, label)}</div></div>`;

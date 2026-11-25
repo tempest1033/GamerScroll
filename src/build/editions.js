@@ -10,7 +10,6 @@ const path = require('path');
 const crypto = require('crypto');
 const i18n = require('../i18n');
 const { ensureDir, externalizeDeferredJsonFromHtml } = require('./utils');
-const { ANALYSIS_SITEMAP_URL, readAnalysisLastmod } = require('./analysis-pages');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const TEMPLATES_DIR = path.join(ROOT, 'src', 'templates') + path.sep;
@@ -131,29 +130,41 @@ function buildEditions(ctx) {
   const steamStats = (() => { try { return require('../rank/steam-stats').loadSteamStats(); } catch (e) { return null; } })();
   const lastDate = (days) => (days && days.length ? days[days.length - 1].date : null);
   const rankDate = rankStats ? lastDate(rankStats.days) : null;
-  // Games hub A-Z list: only the games whose page is indexable (isIndexableGame, the game sitemaps' rule). The other game pages stay
-  // reachable through the hub search and the rank pages, without sending crawlers to thousands of noindex pages.
-  const hubSlugsOf = rankStats ? (() => {
-    const { rankSeries, summaryMeta, loadLatestSteam, steamLists, steamMatch } = require('./game-data');
+  // Game pages indexable per edition (isIndexableGame, the game pages' own rule): the games hub A-Z list and every in-page game
+  // link name only these, so crawlers are not sent to thousands of noindex pages. The other game pages stay reachable through the hub search.
+  // Steam: apps with a record page (pageApps) whose game record names them are shown on that game's page (steamPageSlugs).
+  const steamPages = steamStats && rankStats ? require('./game-data').steamPageSlugs(rankStats.games, new Set(steamStats.pageApps(14))) : new Map();
+  const indexableSlugs = rankStats ? (() => {
+    const { rankSeries, summaryMeta, loadLatestSteam, steamLists, steamMatch, steamIdOf } = require('./game-data');
     const { isIndexableGame } = require('../templates/helpers/game-rank-summary');
     const meta = summaryMeta(rankStats);
     const lists = steamLists(loadLatestSteam(path.join(__dirname, '..', '..', 'history')));
     const games = rankStats.games.filter((g) => g.slug).map((g) => {
       const { mp, ts } = steamMatch(g, lists);
-      return { slug: g.slug, rank: { s: rankSeries(rankStats, g.appIds) }, onSteam: Boolean(mp || ts) };
+      return { slug: g.slug, rank: { s: rankSeries(rankStats, g.appIds) }, onSteam: Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === g.slug };
     });
-    return (country) => new Set(games.filter((g) => isIndexableGame(g.rank, g.onSteam, meta, country)).map((g) => g.slug));
+    return Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, new Set(games.filter((g) => isIndexableGame(g.rank, g.onSteam, meta, e.country)).map((g) => g.slug))]));
   })() : null;
   const steamDate = steamStats ? lastDate(steamStats.days) : null;
   const homeDate = [rankDate, steamDate].filter(Boolean).sort().pop() || null;
-  const steamGameDate = (id) => lastDate(steamStats.days.filter((d) => steamStats.ccuOf(d, id) != null || steamStats.sellOf(d, id) != null));
 
   // Per-edition market plan, known before any page renders so hreflang and in-page links only name pages that get built.
   const plans = rankStats ? Object.fromEntries(i18n.EDITIONS.map((e) => {
     i18n.setEdition(e.code);
     return [e.code, require('../templates/pages/rank-hub').marketPages(rankStats, e.country)];
   })) : {};
-  i18n.setPageAvailability(rankStats ? require('../templates/pages/rank-hub').marketAvailability(plans) : null);
+  // What each edition serves as an indexable page: market pages by its plan (moved pages such as /rankings/subculture/ never),
+  // game pages by isIndexableGame, Steam record pages that are built; /analysis/ pages are noindex. hreflang, sitemaps and in-page links follow it.
+  const marketPlan = require('../../functions/_lib/market-plan');
+  const builtSteamPages = new Set(steamStats ? steamStats.pageApps(14).filter((id) => !steamPages.has(id)) : []);
+  i18n.setPageAvailability((code, p) => {
+    const game = /^\/games\/([^/]+)\/$/.exec(p);
+    if (game) { try { return !indexableSlugs || indexableSlugs[code].has(decodeURIComponent(game[1]).normalize('NFC')); } catch { return false; } }
+    const steam = /^\/steam\/(\d+)\/$/.exec(p);
+    if (steam) return builtSteamPages.has(steam[1]);
+    if (/^\/analysis\//.test(p)) return false;
+    return marketPlan.available(plans[code], p);
+  });
 
   for (const edition of i18n.EDITIONS) {
     const started = Date.now();
@@ -208,28 +219,28 @@ function buildEditions(ctx) {
     const trendingHtml = rankStats ? attempt('trending', () => m.rankHub.renderTrending(home)) : null;
     if (trendingHtml) write('trending/index.html', trendingHtml, '0.8', rankDate);
     if (trendingHtml) attempt('trending subpages', () => {
-      // /trending/<cc>/ for every country (the home country's page canonicalizes to /trending/ → not in the sitemap) + /trending/global/
-      for (const c of Object.keys(rankStats.COUNTRIES)) write(`trending/${c}/index.html`, m.rankHub.renderTrending(c), c === home ? null : '0.7', rankDate);
-      write('trending/global/index.html', m.rankHub.renderTrending('global'), '0.7', rankDate);
+      // /trending/<cc>/ for every country (the home country's page canonicalizes to /trending/) + /trending/global/; not in the sitemap
+      for (const c of Object.keys(rankStats.COUNTRIES)) write(`trending/${c}/index.html`, m.rankHub.renderTrending(c));
+      write('trending/global/index.html', m.rankHub.renderTrending('global'));
     });
     const steamHtml = attempt('steam', () => m.steamHub.renderSteamHub())
       || attempt('steam (legacy)', () => m.steam.generateSteamPage({ ...data, cacheVersion: ctx.steamCacheVersion }));
     if (steamHtml) write('steam/index.html', steamHtml, '0.8', steamDate);
-    const hubHtml = attempt('games hub', () => m.gamesHub.generateGamesHubPage({ games: gamesData, popularGames: popularGames || [], searchIndexVersion: searchVersion, listedSlugs: hubSlugsOf && hubSlugsOf(edition.country) }));
+    const hubHtml = attempt('games hub', () => m.gamesHub.generateGamesHubPage({ games: gamesData, popularGames: popularGames || [], searchIndexVersion: searchVersion, listedSlugs: indexableSlugs && indexableSlugs[edition.code] }));
     if (hubHtml) write('games/index.html', hubHtml, '0.8', rankDate);
     const notFoundHtml = attempt('404', () => m.notFound.generate404Page());
     if (notFoundHtml) write('404.html', notFoundHtml);
     const aboutHtml = attempt('about', () => m.about.renderAboutPage());
-    if (aboutHtml) write('about/index.html', aboutHtml, '0.5');
+    if (aboutHtml) write('about/index.html', aboutHtml);
     const privacyHtml = attempt('privacy', () => m.privacy.renderPrivacyPage());
-    if (privacyHtml) write('privacy/index.html', privacyHtml, '0.3');
+    if (privacyHtml) write('privacy/index.html', privacyHtml);
 
     // ----- rank hub subpages -----
     if (rankingsHtml && rankStats) attempt('rank hub', () => {
       const S = rankStats;
       const hub = m.rankHub;
-      // rankings/about is static text: no trustworthy content date → no <lastmod>
-      const sub = (rel, html, priority = '0.7', lastmod = rel === 'about' ? null : rankDate) => write(`rankings/${rel}/index.html`, html, rel === 'subculture' ? null : priority, lastmod);
+      // The sitemap lists the rankings hubs, genre and monthly pages; publisher pages and rankings/about stay out of it.
+      const sub = (rel, html, priority = '0.7', lastmod = rankDate) => write(`rankings/${rel}/index.html`, html, priority, lastmod);
       // Every country has its own /rankings/<cc>/ (kr included); the home country's page canonicalizes to /rankings/.
       for (const c of Object.keys(S.COUNTRIES)) {
         const duplicate = c === home ? null : '0.7'; // the home country's own subpage duplicates /rankings/ (canonical) → not in the sitemap
@@ -237,18 +248,18 @@ function buildEditions(ctx) {
         sub(`free/${c}`, hub.renderRankingsHub(c, 'free'), duplicate);
       }
       sub('free', hub.renderRankingsHub(home, 'free'));
-      sub('subculture', hub.renderSubculture('kr'));
       // Genre, publisher, records and monthly pages show the edition's home market; a page the market has no data for is not built.
       const plan = plans[edition.code];
       const categories = require('../rank/genres').loadGenres().categories.filter((c) => plan.genres.has(c.id));
       const removeStale = (rel) => fs.rmSync(path.join(outDir, 'rankings', rel, 'index.html'), { force: true }); // deployed output is seeded from the previous deploy
+      removeStale('subculture'); // moved to /rankings/genres/subculture/ (functions/_lib/market-plan.js MOVED)
       if (plan.genres.has('all')) sub('genres', hub.renderGenre('all', home)); else removeStale('genres');
       for (const category of categories) sub(`genres/${category.id}`, hub.renderGenre(category.id, home));
       sub('global', hub.renderGlobal());
-      sub('about', hub.renderAbout());
+      sub('about', hub.renderAbout(), null);
       if (plan.publisherHub) sub('publishers', hub.renderPublishers(home)); else removeStale('publishers');
       const pubs = hub.publisherPages(hub.publisherIndex(S, home));
-      for (const p of pubs) sub(`publishers/${p.slug}`, hub.renderPublisher(p, home));
+      for (const p of pubs) sub(`publishers/${p.slug}`, hub.renderPublisher(p, home), null);
       removeOrphanDirs(path.join(outDir, 'rankings', 'publishers'), new Set(pubs.map((p) => p.slug)), () => true, `${edition.code}/rankings/publishers`);
       removeOrphanDirs(path.join(outDir, 'rankings', 'genres'), new Set(categories.map((c) => c.id)), () => true, `${edition.code}/rankings/genres`);
       removeOrphanDirs(path.join(outDir, 'rankings', 'monthly'), plan.monthly, (name) => /^\d{4}-\d{2}$/.test(name), `${edition.code}/rankings/monthly`);
@@ -267,10 +278,10 @@ function buildEditions(ctx) {
       } else removeStale('monthly');
     });
 
-    // ----- Steam game pages -----
+    // ----- Steam game pages (apps without a game page; not in the sitemap) -----
     if (steamHtml) attempt('steam game pages', () => {
       const ids = new Set(m.steamHub.steamGameIds());
-      for (const id of ids) write(`steam/${id}/index.html`, m.steamHub.renderSteamGame(id), '0.6', steamGameDate(id));
+      for (const id of ids) write(`steam/${id}/index.html`, m.steamHub.renderSteamGame(id));
       removeOrphanDirs(path.join(outDir, 'steam'), ids, (name) => /^\d+$/.test(name), `${edition.code}/steam`);
     });
 
@@ -291,11 +302,14 @@ function buildEditions(ctx) {
   // The request-time game pages (functions/_lib/game-route.js) reference the same runtime bundles and search index versions.
   if (rankStats) {
     // Read by functions/_middleware.js: the edition redirect and the 301s of removed pages follow the same plan as the build.
-    const marketPlan = require('../../functions/_lib/market-plan');
     const pagesFile = path.join(docsDir, 'games-data', '_pages.json');
     ensureDir(path.dirname(pagesFile));
     fs.writeFileSync(pagesFile, JSON.stringify(Object.fromEntries(Object.entries(plans).map(([code, plan]) => [code, marketPlan.serialize(plan)]))), 'utf8');
   }
+  // Steam app ID → game slug whose page carries the app's record: /steam/<id>/ 301s there (functions/_middleware.js, docs/_redirects).
+  const steamFile = path.join(docsDir, 'games-data', '_steam.json');
+  ensureDir(path.dirname(steamFile));
+  fs.writeFileSync(steamFile, JSON.stringify(Object.fromEntries(steamPages)), 'utf8');
   const editionsFile = path.join(docsDir, 'games-data', '_editions.json');
   ensureDir(path.dirname(editionsFile));
   fs.writeFileSync(editionsFile, JSON.stringify(Object.fromEntries(results.map((r) => [r.code, { runtime: r.assets.version, search: r.searchVersion }]))), 'utf8');
@@ -322,27 +336,39 @@ function writeSitemaps(docsDir, results) {
   return writeSitemapIndex(docsDir);
 }
 
-// docs/sitemap.xml lists every docs/sitemap-*.xml (page sitemaps and the game sitemaps written by scripts/generate-game-pages.js).
-// A child's <lastmod> is the newest <lastmod> of its URLs (omitted when it has none). The metrics pages' sitemap is served by
-// another Worker (not in docs/) and is always listed.
+// docs/sitemap.xml lists every docs/sitemap-*.xml (page sitemaps and the game sitemaps written by scripts/generate-game-pages.js),
+// the Korean edition first (most of the site's search traffic), then the editions in their selector order, each edition's pages
+// before its games. A child's <lastmod> is the newest <lastmod> of its URLs (omitted when it has none).
+const SITEMAP_EDITION_ORDER = ['ko', ...i18n.EDITIONS.map((e) => e.code).filter((code) => code !== 'ko')];
+function sitemapOrder(name) {
+  const m = /^sitemap-(games-)?(.+?)(?:-(\d+))?\.xml$/.exec(name);
+  const edition = m ? SITEMAP_EDITION_ORDER.indexOf(m[2]) : -1;
+  return [edition < 0 ? SITEMAP_EDITION_ORDER.length : edition, m && m[1] ? 1 : 0, m && m[3] ? Number(m[3]) : 0];
+}
 function writeSitemapIndex(docsDir) {
-  const names = fs.readdirSync(docsDir).filter((f) => /^sitemap-[\w-]+\.xml$/.test(f)).sort();
+  const names = fs.readdirSync(docsDir).filter((f) => /^sitemap-[\w-]+\.xml$/.test(f)).sort().sort((a, b) => {
+    const x = sitemapOrder(a), y = sitemapOrder(b);
+    return x[0] - y[0] || x[1] - y[1] || x[2] - y[2];
+  });
   const newest = (n) => [...fs.readFileSync(path.join(docsDir, n), 'utf8').matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((x) => x[1]).sort().pop();
-  const locs = [...names.map((n) => `  <sitemap>\n    <loc>${i18n.SITE_ORIGIN}/${n}</loc>${lastmodTag(newest(n))}\n  </sitemap>`), `  <sitemap>\n    <loc>${ANALYSIS_SITEMAP_URL}</loc>${lastmodTag(readAnalysisLastmod())}\n  </sitemap>`];
-  const index = locs.join('\n');
+  const index = names.map((n) => `  <sitemap>\n    <loc>${i18n.SITE_ORIGIN}/${n}</loc>${lastmodTag(newest(n))}\n  </sitemap>`).join('\n');
   fs.writeFileSync(path.join(docsDir, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${index}\n</sitemapindex>\n`, 'utf8');
   return names;
 }
 
 // Game detail URLs of every edition, with reciprocal hreflang alternates, split into sitemap-games-<code>-<n>.xml files (< 50,000 URLs each).
-// slugsByEdition: { <code>: [slug, ...] } lists only indexable games; the hreflang set of a URL is the editions that list the slug.
+// slugsByEdition: { <code>: [slug, ...] } the edition's priority games (chartsInMarket), the URLs listed;
+// indexableByEdition: { <code>: [slug, ...] } every indexable game page (isIndexableGame, a superset): the hreflang set of a URL is
+// the editions whose page of the slug is indexable, the same set the page itself names.
 // lastmodBySlug: { <slug>: 'YYYY-MM-DD' } date of each game's latest data (no entry → no <lastmod>).
 const SITEMAP_MAX_URLS = 45000;
-function writeGameSitemaps(docsDir, slugsByEdition, lastmodBySlug) {
+function writeGameSitemaps(docsDir, slugsByEdition, lastmodBySlug, indexableByEdition = slugsByEdition) {
   for (const f of fs.readdirSync(docsDir)) if (/^sitemap-games-[\w-]+\.xml$/.test(f)) fs.unlinkSync(path.join(docsDir, f));
   const xmlEscape = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
   const pathOf = (slug) => `/games/${encodeURIComponent(slug)}/`;
-  const listed = Object.fromEntries(Object.entries(slugsByEdition).map(([code, slugs]) => [code, new Set(slugs)]));
+  const toSets = (byEdition) => Object.fromEntries(Object.entries(byEdition).map(([code, slugs]) => [code, new Set(slugs)]));
+  const listed = toSets(slugsByEdition);
+  const indexable = toSets(indexableByEdition);
   const names = [];
   for (const edition of i18n.EDITIONS) {
     const slugs = [...(listed[edition.code] || [])].sort();
@@ -350,8 +376,8 @@ function writeGameSitemaps(docsDir, slugsByEdition, lastmodBySlug) {
       const entries = slugs.slice(part * SITEMAP_MAX_URLS, (part + 1) * SITEMAP_MAX_URLS).map((slug) => {
         const p = pathOf(slug);
         const alternates = [
-          ...i18n.EDITIONS.filter((x) => listed[x.code] && listed[x.code].has(slug)).map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${xmlEscape(i18n.absoluteUrl(x.code, p))}"/>`),
-          ...(listed.en && listed.en.has(slug) ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(i18n.absoluteUrl('en', p))}"/>`] : []),
+          ...i18n.EDITIONS.filter((x) => indexable[x.code] && indexable[x.code].has(slug)).map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${xmlEscape(i18n.absoluteUrl(x.code, p))}"/>`),
+          ...(indexable.en && indexable.en.has(slug) ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${xmlEscape(i18n.absoluteUrl('en', p))}"/>`] : []),
         ].join('\n');
         return `  <url>\n    <loc>${xmlEscape(i18n.absoluteUrl(edition.code, p))}</loc>${lastmodTag(lastmodBySlug[slug])}\n    <priority>0.6</priority>\n${alternates}\n  </url>`;
       }).join('\n');

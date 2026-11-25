@@ -71,7 +71,8 @@ await t("every article of the historical inventory redirects; URLs that never ex
 
 // Game URLs: host, edition and retired slug settle in one redirect (through the whole middleware, with the redirect map as an asset).
 const OLD = "/games/monopoly-go-%EB%AA%A8%EB%85%B8%ED%8F%B4%EB%A6%AC-go/";
-const ASSETS = { fetch: async (req) => (new URL(req.url).pathname === "/games-data/_redirects.json" ? new Response(JSON.stringify({ "monopoly-go-모노폴리-go": "monopoly-go" })) : new Response("nope", { status: 404 })) };
+const ASSET_FILES = { "/games-data/_redirects.json": { "monopoly-go-모노폴리-go": "monopoly-go" }, "/games-data/_steam.json": { 730: "counter-strike-2", 1973710: "헤븐-번즈-레드" } };
+const ASSETS = { fetch: async (req) => { const file = ASSET_FILES[new URL(req.url).pathname]; return file ? new Response(JSON.stringify(file)) : new Response("nope", { status: 404 }); } };
 async function hop(url, { country, ua, cookie } = {}) {
   const u = new URL(url);
   const headers = new Headers({ host: u.host });
@@ -102,6 +103,18 @@ await t("www + removed section: 410 without a host hop; www + trends: one 301", 
   assert.deepEqual(await hop(W + "/ja/trends/"), [301, "https://gamerscroll.com/ja/trending/", null]);
 });
 await t("www + ordinary page: one 301 to the bare host, query kept", async () => assert.deepEqual(await hop(W + "/ja/steam/?a=1"), [301, "https://gamerscroll.com/ja/steam/?a=1", null]));
+// Steam record pages of apps with a game page: one hop to /games/<slug>/ (the page that now shows the record).
+await t("Steam page with a game page, Googlebot: one 301 to the game page", async () => assert.deepEqual(await hop(G + "/steam/730/", { country: "KR", ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/games/counter-strike-2/", null]));
+await t("Steam page with a game page, KR visitor: one 302 to the Korean game page", async () => assert.deepEqual(await hop(G + "/steam/730/?a=1", { country: "KR" }), [302, "https://gamerscroll.com/ko/games/counter-strike-2/?a=1", "private, no-store"]));
+await t("Steam page under an edition prefix and on www: one 301 within that edition", async () => {
+  assert.deepEqual(await hop(G + "/ja/steam/1973710/", { country: "KR" }), [301, "https://gamerscroll.com/ja/games/%ED%97%A4%EB%B8%90-%EB%B2%88%EC%A6%88-%EB%A0%88%EB%93%9C/", null]);
+  assert.deepEqual(await hop(W + "/ko/steam/730", { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/ko/games/counter-strike-2/", null]);
+});
+await t("Steam pages without a game page and the Steam hub are untouched", async () => {
+  assert.deepEqual(await hop(G + "/steam/999/", { country: "US" }), [200, null, null]);
+  assert.deepEqual(await hop(G + "/steam/", { country: "US" }), [200, null, null]);
+  assert.deepEqual(await hop(G + "/ko/steam/data.json", { country: "KR" }), [200, null, null]);
+});
 await t("a redirect map that cannot be read is null (unknown), not an empty map", async () => {
   const down = { fetch: async () => new Response("down", { status: 500 }) };
   const fresh = await import(new URL("../functions/_lib/game-redirects.js?down", import.meta.url).href);

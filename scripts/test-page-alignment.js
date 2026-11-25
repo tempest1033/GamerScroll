@@ -6,9 +6,9 @@ const { chromium } = require('playwright');
 const path = require('node:path');
 const base = process.env.PREVIEW_URL || 'http://127.0.0.1:4175';
 const routes = [
-  '/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/subculture/',
+  '/', '/rankings/', '/rankings/jp/', '/rankings/free/', '/rankings/genres/subculture/',
   '/rankings/monthly/2026-08/', '/rankings/global/', '/rankings/records/',
-  '/rankings/publishers/', '/rankings/about/', '/steam/', '/steam/730/',
+  '/rankings/publishers/', '/rankings/about/', '/steam/', '/games/counter-strike-2/',
   '/games/', '/games/maplestory-idle-rpg/',
 ];
 

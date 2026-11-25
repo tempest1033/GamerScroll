@@ -10,6 +10,10 @@ const GENRE_RE = /^\/rankings\/genres\/([^/]+)\/$/;
 const PUBLISHER_RE = /^\/rankings\/publishers\/([^/]+)\/$/;
 const MONTH_RE = /^\/rankings\/monthly\/(\d{4}-\d{2})\/$/;
 
+// Pages that moved: built in no edition any more, they redirect to their successor (or its nearest built parent).
+const MOVED = { '/rankings/subculture/': '/rankings/genres/subculture/' };
+const moved = (p) => Object.prototype.hasOwnProperty.call(MOVED, p);
+
 function decode(value) {
   try { return decodeURIComponent(value); } catch { return value; }
 }
@@ -17,11 +21,12 @@ function decode(value) {
 // Paths this module governs; every other path is always available.
 function isMarketPath(p) {
   return p === '/rankings/genres/' || p === '/rankings/publishers/' || p === '/rankings/monthly/' || p === '/rankings/records/'
-    || GENRE_RE.test(p) || PUBLISHER_RE.test(p) || MONTH_RE.test(p);
+    || GENRE_RE.test(p) || PUBLISHER_RE.test(p) || MONTH_RE.test(p) || moved(p);
 }
 
 function available(plan, p) {
   let m;
+  if (moved(p)) return false;
   if (!plan) return true;
   if (p === '/rankings/genres/') return has(plan.genres, 'all');
   if ((m = GENRE_RE.exec(p))) return has(plan.genres, decode(m[1]));
@@ -37,14 +42,14 @@ const parentOf = (p) => (GENRE_RE.test(p) ? '/rankings/genres/' : PUBLISHER_RE.t
 
 // The page itself, else its nearest built parent in the edition.
 function nearestBuilt(plan, p) {
-  let target = p;
+  let target = moved(p) ? MOVED[p] : p;
   while (!available(plan, target)) target = parentOf(target);
   return target;
 }
 
-// Built in at least one edition: a URL that used to exist and is now gone from this one (as opposed to a made-up URL).
+// Built in at least one edition, or moved: a URL that used to exist and is now gone from this one (as opposed to a made-up URL).
 function builtSomewhere(plans, p) {
-  return Object.values(plans).some((plan) => available(plan, p));
+  return moved(p) || Object.values(plans).some((plan) => available(plan, p));
 }
 
 // Arrays for JSON (docs/games-data/_pages.json, read by the middleware).
@@ -56,7 +61,7 @@ function serialize(plan) {
 // the localized rankings tree is excluded from Functions in _routes.json, so the middleware never sees these requests.
 // prefixes = { <edition code>: '/ko' | ... }; the unprefixed edition is served by the middleware and not listed.
 function redirectRules(plans, prefixes) {
-  const candidates = new Set(['/rankings/genres/', '/rankings/publishers/', '/rankings/monthly/', '/rankings/records/']);
+  const candidates = new Set(['/rankings/genres/', '/rankings/publishers/', '/rankings/monthly/', '/rankings/records/', ...Object.keys(MOVED)]);
   for (const plan of Object.values(plans)) {
     for (const id of plan.genres) candidates.add(`/rankings/genres/${id === 'all' ? '' : id + '/'}`);
     for (const slug of plan.publishers) candidates.add(`/rankings/publishers/${slug}/`);

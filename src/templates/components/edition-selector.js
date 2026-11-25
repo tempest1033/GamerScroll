@@ -7,9 +7,11 @@
  */
 const { EDITIONS, currentEdition, editionPath, editionHasPage, stripEditionPrefix, RAW_LINK_MARK, t } = require('../../i18n');
 
-// Same page in the target edition; when that edition does not build it (market without data) its nearest built parent page.
-function selectorPath(code, path) {
+// Same page in the target edition; when that edition does not build it (market without data), or does not index it (a page
+// indexed in some editions only, `editions`), its nearest built parent page.
+function selectorPath(code, path, editions = null) {
   let p = stripEditionPrefix(path);
+  if (editions && !editions.includes(code)) p = p.replace(/[^/]+\/$/, '');
   while (p !== '/' && !editionHasPage(code, p)) p = p.replace(/[^/]+\/$/, '');
   return p;
 }
@@ -40,9 +42,11 @@ const editionSelectorStyle = `
     .gs-lang-mobile { display: none; }
     @media (max-width: 768px) { .gs-lang-mobile { display: block; position: relative; flex: 0 0 auto; } .gs-lang-mobile .gs-lang-btn { height: 34px; padding: 0 8px; gap: 4px; background: transparent; } .gs-lang-mobile .gs-lang-code { font-size: 13px; line-height: 1; } }`;
 
-function renderEditionSelector({ path = '/', variant = '' } = {}) {
+// editions: the editions where this page is indexable (layout alternateEditions). The link of another edition then names its
+// parent page, so crawlers are not sent to a noindex copy; a visitor's click still opens the same page (no data-path).
+function renderEditionSelector({ path = '/', variant = '', editions = null } = {}) {
   const current = currentEdition();
-  const items = EDITIONS.map((e) => `<li><a href="${RAW_LINK_MARK}${editionPath(e.code, selectorPath(e.code, path))}" data-edition-link data-edition="${e.code}"${selectorPath(e.code, path) !== stripEditionPrefix(path) ? ` data-path="${selectorPath(e.code, path)}"` : ''} data-prefix="${e.prefix}" lang="${e.htmlLang}" hreflang="${e.hreflang}"${e.code === current.code ? ' aria-current="true"' : ''}>${FLAGS[e.flag]}<span data-name>${e.label}</span></a></li>`).join('');
+  const items = EDITIONS.map((e) => `<li><a href="${RAW_LINK_MARK}${editionPath(e.code, selectorPath(e.code, path, editions))}" data-edition-link data-edition="${e.code}"${selectorPath(e.code, path) !== stripEditionPrefix(path) ? ` data-path="${selectorPath(e.code, path)}"` : ''} data-prefix="${e.prefix}" lang="${e.htmlLang}" hreflang="${e.hreflang}"${e.code === current.code ? ' aria-current="true"' : ''}>${FLAGS[e.flag]}<span data-name>${e.label}</span></a></li>`).join('');
   // Mobile variant: compact flag + short country code (US/JP/CN/KR/TW); full labels stay in the dropdown.
   const currentText = variant === 'mobile' ? `<span class="gs-lang-code">${current.flag.toUpperCase()}</span>` : `<span class="gs-lang-label" data-name>${current.label}</span>`;
   return `<div class="gs-lang${variant ? ` gs-lang-${variant}` : ''}" data-edition-selector>

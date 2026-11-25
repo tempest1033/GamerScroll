@@ -73,11 +73,27 @@ function steamLists(latest) {
 
 // The game's entries in the Steam lists: by Steam app ID, else by name or alias.
 function steamMatch(g, lists) {
-  const appIds = g.appIds || {};
-  const steamId = appIds['steam:global'] || appIds.steam;
-  const names = [g.key, ...(g.aliases || [])].map(normalizeName);
+  const steamId = steamIdOf(g);
+  const names =[g.key, ...(g.aliases || [])].map(normalizeName);
   const pick = (idMap, nameMap) => (steamId && idMap.get(String(steamId))) || names.map((n) => nameMap.get(n)).find(Boolean) || null;
   return { mp: pick(lists.mpById, lists.mpByName), ts: pick(lists.tsById, lists.tsByName) };
+}
+
+const steamIdOf = (g) => { const appIds = g.appIds || {}; const id = appIds['steam:global'] || appIds.steam; return id ? String(id) : null; };
+
+// Steam app ID → slug of the game page that carries the app's Steam record, for every app in `pageIds` (steam-stats pageApps)
+// that a game record names. Slugs resolve as in scripts/generate-game-pages.js: the first game with a slug owns its page.
+function steamPageSlugs(games, pageIds) {
+  const taken = new Set();
+  const out = new Map();
+  for (const g of games) {
+    const slug = g.slug || createSlug(g.key, g.appIds);
+    if (taken.has(slug)) continue;
+    taken.add(slug);
+    const id = steamIdOf(g);
+    if (id && pageIds.has(id) && !out.has(id)) out.set(id, slug);
+  }
+  return out;
 }
 
 // Whether the game is on any tracked chart in the latest data: the daily revenue or free chart of any country and store, or a Steam list.
@@ -121,4 +137,4 @@ function createSlug(name, appIds = null) {
   }
   return slug;
 }
-module.exports = { gameLastmod, collectRankData, rankSeries, summaryMeta, idFor, createSlug, loadLatestSteam, steamLists, steamMatch, chartingNow };
+module.exports = { gameLastmod, collectRankData, rankSeries, summaryMeta, idFor, createSlug, loadLatestSteam, steamLists, steamMatch, chartingNow, steamIdOf, steamPageSlugs };

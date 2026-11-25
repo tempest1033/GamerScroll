@@ -114,8 +114,8 @@ function generateGamesHubPage(options = {}) {
     // slug로만 매칭 (실제 존재하는 페이지)
     const gameInfo = gamesList.find(g => g.slug === pg.slug || g.legacySlugs.includes(pg.slug));
 
-    // 매칭 안되면 스킵 (appId 형태 등)
-    if (!gameInfo) continue;
+    // 매칭 안되면 스킵 (appId 형태 등), 이 언어판에서 색인되지 않는 게임 페이지도 스킵
+    if (!gameInfo || (listedSlugs && !listedSlugs.has(gameInfo.slug))) continue;
 
     // 중복 게임 스킵
     if (seenSlugs.has(gameInfo.slug)) continue;
@@ -148,7 +148,7 @@ function generateGamesHubPage(options = {}) {
     const { STORES: STORE_NAMES } = require('../../rank/stats');
     for (const store of [chartStore]) ((rankStats.today.rows[country] || {})[store] || []).slice(0, 30).forEach((row, i) => {
       const g = row && rankStats.gameOf(store, row);
-      if (!g || !g.slug) return;
+      if (!g || !g.slug || (listedSlugs && !listedSlugs.has(g.slug))) return;
       const cur = best.get(g.slug);
       if (!cur || i + 1 < cur.rank) best.set(g.slug, { slug: g.slug, rank: i + 1, name: rankStats.nameOf(store, row), icon: row.icon || g.icon, developer: row.developer || g.developer || '' });
     });

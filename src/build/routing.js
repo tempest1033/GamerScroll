@@ -37,9 +37,12 @@ function routesJson() {
   };
 }
 
-// Static redirects for localized market pages an edition does not build (plans = docs/games-data/_pages.json, prefixes = { code: '/ko' }).
-function redirectsText(plans, prefixes) {
-  const rules = marketPlan.redirectRules(plans, prefixes);
+// Static redirects for localized market pages an edition does not build (plans = docs/games-data/_pages.json, prefixes = { code: '/ko' })
+// and for localized Steam record pages that moved to a game page (steam = docs/games-data/_steam.json, app ID → slug).
+// The unprefixed edition's URLs reach the middleware, which redirects them itself.
+function redirectsText(plans, prefixes, steam = {}) {
+  const steamRules = Object.values(prefixes).filter(Boolean).flatMap((prefix) => Object.entries(steam).map(([id, slug]) => `${prefix}/steam/${id}/ ${prefix}/games/${encodeURIComponent(slug)}/ 301`));
+  const rules = [...marketPlan.redirectRules(plans, prefixes), ...steamRules];
   if (rules.length > 2000) throw new Error(`too many static redirects: ${rules.length}`);
   return rules.length ? rules.join('\n') + '\n' : '';
 }

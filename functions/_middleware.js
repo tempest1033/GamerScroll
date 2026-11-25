@@ -2,7 +2,7 @@
 // AIScroll has its own middleware in functions-aiscroll/_middleware.js; the two share no code.
 
 import marketPlan from "./_lib/market-plan.js";
-import { loadGameRedirects, gameSlugOf } from "./_lib/game-redirects.js";
+import { loadGameRedirects, loadSteamPages, gameSlugOf, steamAppOf } from "./_lib/game-redirects.js";
 
 let aiscrollArticleIndexPromise = null;
 const MARKET_PLANS_TTL_MS = 5 * 60 * 1000;
@@ -175,7 +175,24 @@ async function gameRedirect(context, url, path, www, country) {
   if (!redirects) return new Response("Game data unavailable", { status: 503, headers: { "Cache-Control": "no-store", "Retry-After": "60" } });
   const moved = Object.prototype.hasOwnProperty.call(redirects, slug) ? redirects[slug] : null;
   if (!www && !moved) return null;
-  const page = `/games/${encodeURIComponent(moved || slug)}/${url.search}`;
+  return gamePageRedirect(context, url, prefix, moved || slug, country);
+}
+
+// A Steam record page whose app has a game page (the page shows the same record): one redirect to that game page,
+// settling host and edition like gameRedirect. Unknown apps and an unreadable map fall through to the static page.
+async function steamRedirect(context, url, path, country) {
+  const prefix = gsLocalePrefixOf(path);
+  const app = steamAppOf(prefix ? path.slice(prefix.length + 1) : path);
+  if (!app || !context.env || !context.env.ASSETS) return null;
+  const pages = await loadSteamPages(context.env, url);
+  const slug = pages && Object.prototype.hasOwnProperty.call(pages, app) ? pages[app] : null;
+  return slug ? gamePageRedirect(context, url, prefix, slug, country) : null;
+}
+
+// Redirect to /games/<slug>/ on the bare host, in the URL's edition (prefix) or, for an unprefixed URL, the visitor's.
+// 302 when the visitor's edition is part of it (per visitor, never cached), otherwise 301.
+function gamePageRedirect(context, url, prefix, slug, country) {
+  const page = `/games/${encodeURIComponent(slug)}/${url.search}`;
   const choice = prefix ? null : gsEditionChoice(context.request, url, country);
   const local = Boolean(choice && choice.locale !== "en");
   const headers = new Headers({ Location: `https://gamerscroll.com${local ? "/" + choice.locale : prefix ? "/" + prefix : ""}${page}` });
@@ -239,7 +256,7 @@ export async function onRequest(context) {
 
   if (host.includes("gamerscroll.com")) {
     const www = host.startsWith("www.");
-    const gameHop = await gameRedirect(context, url, path, www, country);
+    const gameHop = (await gameRedirect(context, url, path, www, country)) || (await steamRedirect(context, url, path, country));
     if (gameHop) return gameHop;
     // Removed-section rules run before the host hop and build their targets on the bare host, so a www URL of a
     // removed page reaches its successor (or its 410) in one step.

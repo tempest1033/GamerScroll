@@ -138,14 +138,14 @@ const LAYOUT_RUNTIME_ASSET = `${ASSET_DIR}layout-runtime.js`;
 const MOBILE_LOGO_SVG = LOGO_SVG;
 
 // 상단 검색바 (홈/일반 페이지용)
-const searchBarHtml = (pagePath) => `
+const searchBarHtml = (pagePath, alternateEditions) => `
   <div class="search-container">
     <div class="search-box">
       <a href="/" class="search-home-icon search-logo" aria-label="${tt('layout.gamerscroll_home')}">
         ${MOBILE_LOGO_SVG}
       </a>
       <input type="text" class="search-input" aria-label="${tt('layout.search_game_rankings')}" placeholder="${tt('layout.search_game_rankings')}" autocomplete="off">
-      ${renderEditionSelector({ path: pagePath, variant: 'mobile' })}
+      ${renderEditionSelector({ path: pagePath, variant: 'mobile', editions: alternateEditions })}
       <button class="search-btn" type="button" aria-label="${tt('layout.search')}">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -2925,8 +2925,8 @@ function wrapWithLayout(content, options = {}) {
 </head>
 <body class="${currentPage ? `page-${currentPage}` : ''}${bodyClass ? ` ${bodyClass}` : ''}${!ADS_ENABLED ? ' ads-disabled' : ''}">
   <script>try{if(sessionStorage.getItem('gs-search-hidden')==='1'){document.body.classList.add('search-hidden');sessionStorage.removeItem('gs-search-hidden');}}catch(e){}</script>
-  ${generateHeader(currentPage, pagePath)}
-  ${showSearchBar ? searchBarHtml(pagePath) : ''}
+  ${generateHeader(currentPage, pagePath, alternateEditions)}
+  ${showSearchBar ? searchBarHtml(pagePath, alternateEditions) : ''}
   ${generateNav(currentPage)}
   <main class="site-container">
     ${coreReadyBootstrapScript}

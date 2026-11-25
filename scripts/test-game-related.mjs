@@ -59,13 +59,17 @@ function checkBanner($, label) {
   assert.ok(!prev.is('.ad-card') && !banner.prevAll('.ad-card').length, `${label}: not adjacent to the top ad`);
 }
 
+// Entries link only where that game's page is indexable (entry.x); elsewhere they are plain text.
 function checkCard($, card, code, items, related, label) {
-  const links = card.find('a.rk-rel-item');
+  const links = card.find('.rk-rel-item');
   assert.equal(links.length, items.length, `${label}: item count`);
   links.each((i, a) => {
     const entry = related.g[items[i][0]];
-    assert.equal($(a).attr('href'), expectedHref(code, entry.s), `${label}: same-edition href #${i}`);
-    assert.ok(fs.existsSync(path.join(dataDir, `${entry.s}.json`)), `${label}: link target has a game page (${entry.s})`);
+    if (entry.x.includes(code)) {
+      assert.ok($(a).is('a'), `${label}: indexable entry is a link #${i}`);
+      assert.equal($(a).attr('href'), expectedHref(code, entry.s), `${label}: same-edition href #${i}`);
+    } else assert.ok($(a).is('span') && $(a).attr('href') === undefined, `${label}: entry not indexable in ${code} is plain text #${i}`);
+    assert.ok(fs.existsSync(path.join(dataDir, `${entry.s}.json`)), `${label}: entry has a game page (${entry.s})`);
     assert.equal($(a).find('.rk-rel-tx .t').text(), (entry.n && entry.n[code]) || entry.k, `${label}: name #${i}`);
     if (items[i][2]) assert.match($(a).find('.rk-rel-rank').text(), new RegExp(`${items[i][2]}`), `${label}: rank text #${i}`);
     if (entry.i) assert.ok($(a).find('.rk-rel-ic img[data-gs-src][data-img-fallback]').length, `${label}: lazy icon #${i}`);
@@ -93,6 +97,7 @@ try {
       assert.ok(mine.d.length >= 1, 'ko: NCSOFT has other games');
       assert.equal(section.find('.rk-rel-near h2').text(), '순위가 비슷한 게임');
       assert.equal(section.find('.rk-rel-dev h2').text(), `${game.developer}의 다른 게임`);
+      assert.ok(section.find('a.rk-rel-item').length > 0, 'ko: ranking neighbours of a Korean TOP game are linked');
       section.find('a.rk-rel-item').each((i, a) => assert.ok($(a).attr('href').startsWith('/ko/games/'), 'ko links stay in /ko/'));
     }
     checked++;
@@ -106,7 +111,7 @@ try {
     checkBanner($, 'ko no-developer');
     const section = $('#game .game-page-grid > .rk.rk-related');
     assert.equal(section.find('.rk-rel-dev').length, 0, 'no developer card');
-    assert.equal(section.find('.rk-rel-near a.rk-rel-item').length, 6, 'ranking card kept');
+    assert.equal(section.find('.rk-rel-near .rk-rel-item').length, 6, 'ranking card kept');
     assert.ok(section.hasClass('rk-related-single'), 'ranking card spans the full width');
     checked++;
   }

@@ -17,8 +17,10 @@ const crypto = require('crypto');
 const i18n = require('../src/i18n');
 const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
-const { gameLastmod, collectRankData, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow } = require('../src/build/game-data');
-const { isIndexableGame } = require('../src/templates/helpers/game-rank-summary');
+const { gameLastmod, collectRankData, rankSeries, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow, steamIdOf, steamPageSlugs } = require('../src/build/game-data');
+const { isIndexableGame, chartsInMarket } = require('../src/templates/helpers/game-rank-summary');
+const { loadSteamStats } = require('../src/rank/steam-stats');
+const { steamRecord } = require('../src/templates/helpers/steam-game');
 const { writeGameSitemaps, writeSitemapIndex, writeEditionSearchIndex } = require('../src/build/editions');
 const { computeCssAssetVersion } = require('../src/build/css-version');
 const { loadServiceExports, coverage } = require('../src/build/service-exports');
@@ -62,6 +64,9 @@ for (const file of historyFiles) {
   latestSteam = { mostPlayed: steam.mostPlayed || [], topSellers: steam.topSellers || [] };
 }
 const steamChartLists = steamLists(latestSteam);
+// Steam record pages (/steam/<appid>/) of apps a game record names move to that game's page (src/build/game-data.js steamPageSlugs).
+const steamStats = loadSteamStats();
+const steamPages = steamPageSlugs(S.games, new Set(steamStats.pageApps(14)));
 
 // ---------- 차트 아이콘 (games.json 에 icon 이 없는 게임용) ----------
 const chartIcon = new Map();
@@ -127,6 +132,18 @@ function chartOf(country) {
   charts.set(country, chart);
   return chart;
 }
+// Editions where the game's page is indexable (isIndexableGame): the page's robots tag and hreflang, the sitemaps' hreflang
+// and the related-game links of other pages follow it.
+const indexableMemo = new Map();
+function indexableEditions(g) {
+  if (!indexableMemo.has(g)) {
+    const { mp, ts } = steamMatch(g, steamChartLists);
+    const onSteam = Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === pageSlugs.get(g);
+    const rank = { s: rankSeries(S, g.appIds) };
+    indexableMemo.set(g, i18n.EDITIONS.filter((e) => isIndexableGame(rank, onSteam, meta, e.country)).map((e) => e.code));
+  }
+  return indexableMemo.get(g);
+}
 const chartDaysMemo = new Map();
 function chartDays(g, country) {
   const key = `${country}:${pageSlugs.get(g)}`;
@@ -178,7 +195,7 @@ function relatedOf(g) {
     const ref = (e) => {
       if (!index.has(e.g)) {
         index.set(e.g, pool.length);
-        pool.push({ s: pageSlugs.get(e.g), k: e.g.key, d: e.g.developer || undefined, i: e.g.icon || chartIcon.get(e.g) || undefined });
+        pool.push({ s: pageSlugs.get(e.g), k: e.g.key, d: e.g.developer || undefined, i: e.g.icon || chartIcon.get(e.g) || undefined, x: indexableEditions(e.g) });
       }
       const at = index.get(e.g);
       const name = S.displayName(e.g);
@@ -210,6 +227,7 @@ const written = new Set();
 const dataHash = crypto.createHash('md5');
 const searchIndex = [];
 const indexable = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
+const listed = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
 const lastmodBySlug = {};
 let rankedCount = 0, steamCount = 0, revenueCount = 0;
 const revenueBySlug = new Map();
@@ -225,7 +243,7 @@ for (const g of S.games) {
   const ranked = Boolean(rank) && Object.values(rank.s).some((stores) => Object.values(stores).some((e) => e.o + e.v.length === meta.days.length));
 
   // 스팀 (현재 + 이력)
-  const steamId = appIds['steam:global'] || appIds.steam;
+  const steamId = steamIdOf(g);
   const { mp, ts } = steamMatch(g, steamChartLists);
   let steam = null;
   if (mp) steam = { currentPlayers: mp.ccu || mp.currentPlayers, rank: mp.rank, img: mp.img };
@@ -244,6 +262,7 @@ for (const g of S.games) {
     ranked,
     steam,
     steamHistory: steamId ? (steamHistoryById.get(String(steamId)) || []) : [],
+    ...(steamId && steamPages.get(steamId) === slug ? { steamRecord: steamRecord(steamStats, steamId) } : {}),
     rank,
     related: relatedOf(g),
     ...(charting ? { charting: true } : {}),
@@ -272,8 +291,9 @@ for (const g of S.games) {
   if (ranked) rankedCount++;
   if (steam) steamCount++;
 
-  // 색인 허용은 에디션별 (그 에디션 시장의 순위 이력 30일 이상 · 지금 그 시장 차트에 있음 · 스팀 차트에 있음)
-  for (const e of i18n.EDITIONS) if (isIndexableGame(rank, Boolean(steam), meta, e.country)) indexable[e.code].push(slug);
+  // 색인 허용은 에디션별 (그 에디션 시장의 최근 14일 매출 TOP 100 · 스팀 기록). 사이트맵에는 그 시장의 우선 게임만 싣는다.
+  for (const code of indexableEditions(g)) indexable[code].push(slug);
+  for (const e of i18n.EDITIONS) if (chartsInMarket(rank, meta, e.country)) listed[e.code].push(slug);
   // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
   const dataDates = [
     ...(rank ? Object.values(rank.s).flatMap((stores) => Object.values(stores).map((e) => meta.days[e.o + e.v.length - 1])) : []),
@@ -332,7 +352,7 @@ for (const edition of i18n.EDITIONS) {
 }
 
 // ---------- 사이트맵 ----------
-const sitemapNames = writeGameSitemaps(docsDir, indexable, lastmodBySlug);
+const sitemapNames = writeGameSitemaps(docsDir, listed, lastmodBySlug, indexable);
 writeSitemapIndex(docsDir);
 
 i18n.setEdition('ko');
@@ -350,5 +370,5 @@ if (serviceExports) {
 }
 console.log(`🧹 옛 정적 상세 디렉토리 ${removedDirs}개 제거`);
 console.log(`🔑 검색 인덱스 버전: ${searchIndexVersion}, 데이터 버전: ${version}`);
-console.log(`📍 사이트맵: 색인 허용 ${i18n.EDITIONS.map((e) => `${e.code} ${indexable[e.code].length}`).join(' · ')} → ${sitemapNames.length}개 파일`);
+console.log(`📍 게임 사이트맵: ${i18n.EDITIONS.map((e) => `${e.code} ${listed[e.code].length}/${indexable[e.code].length} (사이트맵/색인 허용)`).join(' · ')} → ${sitemapNames.length}개 파일`);
 console.log(`📦 docs 파일 수: ${countFiles(docsDir)} (Cloudflare Pages Free 한도 20,000)`);

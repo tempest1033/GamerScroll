@@ -43,7 +43,9 @@ const dirText = (rank, prev) => (prev == null || rank == null ? '' : prev - rank
 
 function makeCtx(S) {
   const iconOf = (r, g) => { const src = (r && r.icon) || (g && g.icon) || ''; return src ? resizeIcon(src) : ''; };
-  const hrefOf = (g) => (g && g.slug ? `/games/${g.slug}/` : null);
+  // A game's page, only where it is indexable in this edition (editionHasPage, src/build/editions.js); otherwise the row is plain text.
+  const i18n = require('../../i18n');
+  const hrefOf = (g) => (g && g.slug && i18n.editionHasPage(i18n.currentEdition().code, `/games/${g.slug}/`) ? `/games/${g.slug}/` : null);
   const nameLink = (s, r, cls = '') => { const g = S.gameOf(s, r); const name = esc(S.nameOf(s, r)); const href = hrefOf(g); return href ? `<a class="${cls}" data-name href="${href}">${name}</a>` : `<span class="${cls}" data-name>${name}</span>`; };
   const appCell = (r, s, extra = '') => { const g = S.gameOf(s, r); return `<div class="rk-app"><img src="${esc(iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div><div class="t">${nameLink(s, r)}${extra}</div><div class="d" data-name>${esc(r.developer || (g && g.developer) || '')}</div></div></div>`; };
   const tick = (label, r, s, val, g) => (r ? `<a href="${hrefOf(g || S.gameOf(s, r)) || '#rk-list'}"><span class="tl">${label}</span><img src="${esc(iconOf(r, g || S.gameOf(s, r)))}" alt="" loading="lazy"><span class="tn" data-name>${esc(S.nameOf(s, r))}</span>${val}</a>` : `<a><span class="tl">${label}</span><span class="tn dim">-</span></a>`);
@@ -103,15 +105,9 @@ function publisherIndex(S, country = 'kr') {
 }
 const countryTabs = (active, chart = 'grossing') => `<div class="rk-tabs rk-country-tabs" role="navigation" aria-label="${tt('rank.country')}">${orderedCountries().map((c) => `<a class="${c === active ? 'active' : ''}" href="${countryHref(c, chart)}">${COUNTRIES[c]}</a>`).join('')}</div>`;
 
-// Metrics ("지표 분석") entry of a ranking row: only for games with a metrics page in this edition. The single
-// swappable visual piece — change the markup/class here (styles: .rk-metrics in 60-rank-chart.css). Link prefixing is done by localizeHtml.
-const METRICS_ICON = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 13.5h12"/><path d="M4 10.5v-2"/><path d="M7 10.5V5"/><path d="M10 10.5V7"/><path d="M13 10.5V3"/></svg>';
-// Metrics page of a game in the current edition, or null when that edition has none.
+// Metrics ("지표 분석") page of a game in the current edition, or null when that edition has none (the home preview's action).
+// Ranking rows do not link it: metrics pages are noindex. Link prefixing is done by localizeHtml.
 const metricsHref = (g) => { const slug = analysisSlug(g, require('../../i18n').currentEdition().code); return slug ? `/analysis/${encodeURIComponent(slug)}/` : null; };
-const metricsEntry = (g, name) => (metricsHref(g)
-  ? `<a class="rk-metrics" href="${metricsHref(g)}" aria-label="${esc(`${name} ${tt('game.tab_analysis')}`)}" title="${esc(tt('game.tab_analysis'))}">${METRICS_ICON}</a>`
-  // Empty cell keeps the rank numbers of rows without a metrics page aligned with the rest of the list.
-  : '<span class="rk-metrics-none" aria-hidden="true"></span>');
 
 // 두 스토어 리스트 한 열 (매출/인기 공용). 최대 200위까지 접지 않고 표시한다.
 function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit = 200, preview = null, withinCategory = false, defaultKey = null, listClass = '', podium = false } = {}) {
@@ -135,7 +131,7 @@ function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit 
     const name = preview ? `<button type="button" data-name data-rk-preview="${esc(key)}"${defaultKey != null && key === defaultKey ? ' data-rk-default' : ''} aria-controls="rk-home-preview" aria-pressed="false">${esc(S.nameOf(s, r))}</button>` : C.nameLink(s, r);
     const displayRank = withinCategory ? categoryIndex + 1 : rank;
     // Preview rows only switch the home panel; the panel carries the links. The chevron marks the selected row.
-    return `<li${podium && displayRank <= 3 ? ` class="rk-pod rk-pod${displayRank}"` : ''}>${preview ? '' : metricsEntry(g, S.nameOf(s, r))}<span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">${tt('rank.overall_2', { rank })}</span> · ` : ''}<span data-name>${esc(r.developer || (g && g.developer) || '')}</span>${extra}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}${preview ? '<span class="rk-chev" aria-hidden="true">›</span>' : ''}</li>`;
+    return `<li${podium && displayRank <= 3 ? ` class="rk-pod rk-pod${displayRank}"` : ''}><span class="rk-rk ${displayRank <= 3 ? 'top' : ''}">${displayRank}</span><img src="${esc(C.iconOf(r, g))}" alt="" loading="lazy" decoding="async"><div class="nm">${name}<span class="dv">${withinCategory ? `<span class="rk-genre-overall">${tt('rank.overall_2', { rank })}</span> · ` : ''}<span data-name>${esc(r.developer || (g && g.developer) || '')}</span>${extra}</span></div><div class="rt">${chg(rank, prev)}</div>${sparkline(week, { color: trendColor(week) })}${preview ? '<span class="rk-chev" aria-hidden="true">›</span>' : ''}</li>`;
   };
   return `<ol class="rk-list${podium ? ' rk-pods' : ''}${listClass ? ` ${esc(listClass)}` : ''}">${items.map(li).join('') || tt('rank.no_matching_games')}</ol>`;
 }
@@ -199,7 +195,10 @@ function renderRankingsHub(country = homeCountry(), chart = 'grossing') {
   const cols = storeCols(S, C, country, chart, { podium: true }, stores);
 
   if (isFree) {
-    const links = `<div class="rk-card"><h2>${tt('rank.related_rankings')}</h2><div class="rk-links"><a href="${countryHref(country)}">${tt('rank.revenue_rankings', { cname })} <span>${tt('rank.app_store_and_google_play')}</span></a><a href="/rankings/subculture/">${tt('rank.subculture_game_rankings')} <span>${tt('rank.collectible_anime_style_and_anime')}</span></a><a href="/rankings/monthly/${S.latestMonth}/">${tt('rank.monthly_revenue_rankings', { latestMonth: formatYearMonth(S.latestMonth) })} <span>${tt('rank.combined_ranking_based_on_the')}</span></a></div></div>`;
+    const i18n = require('../../i18n');
+    const built = (href) => i18n.editionHasPage(i18n.currentEdition().code, href);
+    const related = (href, html) => (built(href) ? `<a href="${href}">${html}</a>` : '');
+    const links = `<div class="rk-card"><h2>${tt('rank.related_rankings')}</h2><div class="rk-links"><a href="${countryHref(country)}">${tt('rank.revenue_rankings', { cname })} <span>${tt('rank.app_store_and_google_play')}</span></a>${related('/rankings/genres/subculture/', `${tt('rank.subculture_game_rankings')} <span>${tt('rank.collectible_anime_style_and_anime')}</span>`)}${related(`/rankings/monthly/${S.latestMonth}/`, `${tt('rank.monthly_revenue_rankings', { latestMonth: formatYearMonth(S.latestMonth) })} <span>${tt('rank.combined_ranking_based_on_the')}</span>`)}</div></div>`;
     // 화면 h1은 '모바일'을 뺀다 — 상단 탭이 이미 '모바일'이라 중복 (2026-09-09). <title>·메타·키워드는 검색 유입용으로 유지.
     const body = `<div class="rk-head"><h1>${tt('rank.game_popularity_rankings', { cname })}</h1></div>
 ${subnav(S, 'free')}
@@ -232,55 +231,6 @@ ${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
     keywords: `${tt('rank.mobile_game_revenue_rankings_app', { cname })}`,
     canonical,
     crumbs: country === homeCountry() ? [] : [{ name: cname, url: canonical }],
-  });
-}
-
-// ---------- 1b. 서브컬처 (한국 매출 차트에서 서브컬처 게임만) ----------
-function renderSubculture(country = 'kr') {
-  const S = loadRankStats();
-  const { today, yday, days, rankOf } = S;
-  const C = makeCtx(S);
-  const cname = COUNTRIES[country];
-  const filter = (r, g) => S.isSub(g);
-  const rows = (s) => (today.rows[country][s] || []).map((r, i) => ({ r, rank: i + 1, g: S.gameOf(s, r) })).filter(({ g }) => S.isSub(g));
-  const ios = rows('ios'); const and = rows('android');
-  const hasAnd = (today.rows[country].android || []).length > 0;
-  const stores = hasAnd ? ['android', 'ios'] : ['ios'];
-  // 급등·급락 (서브컬처 안에서, 앱스토어)
-  const withPrev = ios.map((x) => ({ ...x, prev: rankOf(yday, country, 'ios', x.r.appId) }));
-  const up = withPrev.filter((x) => x.prev != null && x.prev - x.rank >= 3).sort((a, b) => (b.prev - b.rank) - (a.prev - a.rank))[0];
-  const down = withPrev.filter((x) => x.prev != null && x.rank - x.prev >= 3).sort((a, b) => (b.rank - b.prev) - (a.rank - a.prev))[0];
-  const fresh = withPrev.find((x) => x.prev == null);
-  const t1 = (s, list) => (list[0] ? C.tick(`${tt('rank.subculture_1', { p0: STORES[s] })}`, list[0].r, s, `<span class="rk-chg same">${tt('rank.overall_2', { rank: list[0].rank })}</span>`, list[0].g) : '');
-  const ticker = `<div class="rk-ticker">${hasAnd ? t1('android', and) : ''}${t1('ios', ios)}${C.tick(tt('rank.rises'), up && up.r, 'ios', up ? `<span class="rk-chg up">▲${up.prev - up.rank}</span>` : '')}${C.tick(tt('rank.falls'), down && down.r, 'ios', down ? `<span class="rk-chg down">▼${down.rank - down.prev}</span>` : '')}${C.tick(tt('rank.new_entries'), fresh && fresh.r, 'ios', '<span class="rk-chg new">NEW</span>')}</div>`;
-  // TOP 100 안 서브컬처 게임 수 30일 추이
-  const countSeries = days.slice(-30).map((d) => d.rows[country].ios.slice(0, 100).filter((r) => S.isSub(S.gameOf('ios', r))).length);
-  const cur100 = countSeries[countSeries.length - 1] || 0;
-  // 이달 서브컬처 월간 TOP 10
-  const ms = S.monthStats(S.latestMonth, country);
-  const mTop = ms ? ms.list.filter((a) => S.isSub(a.game)).slice(0, 10) : [];
-  const [y, m] = S.latestMonth.split('-').map(Number);
-  const monthCard = mTop.length ? `<div class="rk-card"><h2>${tt('rank.subculture_monthly_top_10', { y, m })} <small>${tt('rank.sum_of_daily_average_ranks')}</small></h2><table class="rk-table"><thead><tr><th class="rank">#</th><th>${tt('est.game')}</th><th class="c">${tt('rank.combined_ranking')}</th><th class="c">${tt('genres.app_store_average')}</th><th class="c">${tt('genres.google_play_average')}</th></tr></thead><tbody>${mTop.map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${C.appCell(a.row, a.store)}</td><td class="c"><b>${tt('genres.rank_number', { rank: a.rank })}</b></td><td class="c">${fmt1(avg(a.ios))}</td><td class="c">${fmt1(avg(a.android))}</td></tr>`).join('')}</tbody></table><div class="rk-note"><a href="/rankings/monthly/${S.latestMonth}/">${tt('rank.view_full_monthly_ranking', { latestMonth: formatYearMonth(S.latestMonth) })}</a></div></div>` : '';
-  const kpi = `<div class="rk-stats sub3">
-<div class="rk-stat"><div class="l">${tt('rank.subculture_in_app_store_top')}</div><div class="v">${cur100}<small>${tt('rank.count_unit')}</small></div><div class="s">${tt('rank.30_day_trend')}</div>${sparkline(countSeries, { w: 100, h: 30, color: 'var(--rk-sub)', cap: 999 })}</div>
-<div class="rk-stat"><div class="l">${tt('rank.in_app_store_top_200')}</div><div class="v">${ios.length}<small>${tt('rank.count_unit')}</small></div><div class="s">${tt('rank.best_rank', { p0: ios[0] ? ios[0].rank + tt('rank.rank_separator') + `<span data-name>${esc(S.nameOf('ios', ios[0].r))}</span>` : '-' })}</div></div>
-<div class="rk-stat"><div class="l">${tt('rank.in_google_play_top_200')}</div><div class="v">${and.length}<small>${tt('rank.count_unit')}</small></div><div class="s">${tt('rank.best_rank', { p0: and[0] ? and[0].rank + tt('rank.rank_separator') + `<span data-name>${esc(S.nameOf('android', and[0].r))}</span>` : '-' })}</div></div>
-</div>`;
-  const lead = `${tt('rank.ranking_of_only_the_subculture', { cname, p1: ios[0] ? `${tt('rank.overall', { p0: S.nameOf('ios', ios[0].r), rank: ios[0].rank })}` : '-', cur100, p3: tsText(today.ts) })}`;
-  const body = `<div class="rk-head"><h1>${tt('rank.subculture_game_revenue_rankings')}</h1></div>
-${subnav(S, 'sub')}
-${kpi}
-${storeCols(S, C, country, 'grossing', { filter, podium: true }, stores)}
-${monthCard}
-<div class="rk-note">${tt('rank.the_subculture_classification_follows_the')}</div>`;
-  const canonical = `${siteBaseUrl}/rankings/subculture/`;
-  return shell(S, {
-    body,
-    title: `${tt('rank.subculture_game_revenue_rankings_korea', { date: formatDay(today.date) })}`,
-    description: lead,
-    keywords: tt('rank.subculture_game_rankings_subculture_game'),
-    canonical,
-    crumbs: [{ name: tt('rank.subculture'), url: canonical }],
   });
 }
 
@@ -650,4 +600,4 @@ function renderGameRankSummary(gameInfo, slug) {
   return require('../helpers/game-rank-summary').renderGameRankSummary(rank, summaryMeta(S), gameInfo.key || gameInfo.name || slug, homeCountry());
 }
 
-module.exports = { metricsHref, renderTrending, renderRankingsHub, renderSubculture: () => require('./genres').renderGenre('subculture'), renderGenre: (id, country = 'kr') => require('./genres').renderGenre(id, country), marketPages, marketAvailability, renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };
+module.exports = { metricsHref, renderTrending, renderRankingsHub, renderGenre: (id, country = 'kr') => require('./genres').renderGenre(id, country), marketPages, marketAvailability, renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };

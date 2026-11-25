@@ -25,7 +25,6 @@ const FEED_ASSETS_DIR = './assets/feed';
 const { ensureDir, collectHtmlFilesUnderDir } = require('./src/build/utils');
 const i18n = require('./src/i18n');
 const { buildEditions, writeSitemaps } = require('./src/build/editions');
-const { ANALYSIS_SITEMAP_URL } = require('./src/build/analysis-pages');
 const { CSS_ASSET_FILES, computeCssAssetVersion, ensureDocsCssAssetCopies } = require('./src/build/css-version');
 const { buildServiceWorker } = require('./src/build/service-worker');
 let currentCssAssetVersion = '';
@@ -467,7 +466,7 @@ async function purgeCssInDocs(docsDir) {
     {
       css: `${docsDir}/styles-core.css`,
       // 게임 상세는 정적 HTML 이 없고 요청 시 렌더링되므로 템플릿 원본에서 클래스를 보존한다.
-      content: [`${docsDir}/**/*.html`, './src/templates/pages/game.js', './src/templates/helpers/game-rank-summary.js'],
+      content: [`${docsDir}/**/*.html`, './src/templates/pages/game.js', './src/templates/helpers/game-rank-summary.js', './src/templates/helpers/steam-game.js'],
       label: 'styles-core.css',
     },
     {
@@ -478,6 +477,7 @@ async function purgeCssInDocs(docsDir) {
         // 게임 상세는 CSS 정리 이후 생성되므로 새 클래스도 원본에서 보존한다.
         './src/templates/pages/game.js',
         './src/templates/helpers/game-rank-summary.js',
+        './src/templates/helpers/steam-game.js',
         `${docsDir}/rankings/**/*.html`,
         `${docsDir}/steam/**/*.html`,
         `${docsDir}/about/**/*.html`,
@@ -1170,7 +1170,6 @@ Allow: /
 
 # Sitemap
 Sitemap: https://gamerscroll.com/sitemap.xml
-Sitemap: ${ANALYSIS_SITEMAP_URL}
 `;
   fs.writeFileSync(`${DOCS_DIR}/robots.txt`, robotsTxt, 'utf8');
   console.log('🤖 robots.txt 생성 완료');
@@ -1231,15 +1230,16 @@ Sitemap: ${ANALYSIS_SITEMAP_URL}
     console.warn('⚠️ _routes.json 생성 실패:', err.message);
   }
 
-  // Localized rankings pages are excluded from Functions above, so removed genre/publisher/month pages of an edition cannot be
-  // redirected by the middleware: static Pages redirects (301) generated from the same per-edition plan do it instead.
+  // Localized rankings and Steam pages are excluded from Functions above, so removed genre/publisher/month pages of an edition and
+  // Steam record pages that moved to a game page cannot be redirected by the middleware: static Pages redirects (301) do it instead.
   try {
     const plansFile = `${DOCS_DIR}/games-data/_pages.json`;
     if (fs.existsSync(plansFile)) {
       const prefixes = Object.fromEntries(require('./src/i18n').EDITIONS.map((e) => [e.code, e.prefix]));
-      const text = require('./src/build/routing').redirectsText(JSON.parse(fs.readFileSync(plansFile, 'utf8')), prefixes);
+      const steam = JSON.parse(fs.readFileSync(`${DOCS_DIR}/games-data/_steam.json`, 'utf8'));
+      const text = require('./src/build/routing').redirectsText(JSON.parse(fs.readFileSync(plansFile, 'utf8')), prefixes, steam);
       if (text) fs.writeFileSync(`${DOCS_DIR}/_redirects`, text, 'utf8');
-      console.log(`↪️ _redirects ${text ? text.trim().split('\n').length : 0}건 생성 (에디션별 미생성 마켓 페이지 301)`);
+      console.log(`↪️ _redirects ${text ? text.trim().split('\n').length : 0}건 생성 (에디션별 미생성 마켓 페이지 · 게임 페이지로 옮긴 스팀 페이지 301)`);
     }
   } catch (err) {
     console.warn('⚠️ _redirects 생성 실패:', err.message);

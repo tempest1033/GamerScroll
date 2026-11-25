@@ -14,6 +14,7 @@ const { describeGame, trimDescription, cleanDescription } = require('../helpers/
 const { renderGameRankSummary, summaryDays, isIndexableGame } = require('../helpers/game-rank-summary');
 const { fitSentences, width, MAX_WIDTH } = require('../helpers/fit-description');
 const { renderRevenueSection } = require('../components/revenue-section');
+const { renderSteamRecord, steamPills, steamStoreLink } = require('../helpers/steam-game');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const REVENUE_SLOT = '<rv-slot></rv-slot>';
@@ -45,10 +46,12 @@ function renderRelated(related, code, developer) {
   const ad = renderInPageAd();
   const mine = related && related.e && related.e[code];
   if (!mine) return ad;
+  // o.x: the editions where that game's page is indexable; elsewhere the entry is plain text.
   const row = ([index, store, rank]) => {
     const o = related.g[index];
     const rankText = rank ? `${t(store === 'ios' ? 'stats.app_store' : 'stats.google_play')} ${t('rank.rank_number', { p0: rank })}` : '';
-    return `<li><a class="rk-rel-item" href="/games/${encodeURIComponent(o.s)}/"><span class="rk-rel-ic">${o.i ? `<img src="${esc(resizeIcon(o.i))}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}</span><span class="rk-rel-tx"><span class="t" data-name>${esc((o.n && o.n[code]) || o.k)}</span>${o.d ? `<span class="d" data-name>${esc(o.d)}</span>` : ''}</span>${rankText ? `<span class="rk-rel-rank">${rankText}</span>` : ''}</a></li>`;
+    const linked = o.x.includes(code);
+    return `<li><${linked ? `a class="rk-rel-item" href="/games/${encodeURIComponent(o.s)}/"` : 'span class="rk-rel-item"'}><span class="rk-rel-ic">${o.i ? `<img src="${esc(resizeIcon(o.i))}" alt="" loading="lazy" decoding="async" data-img-fallback="hide">` : ''}</span><span class="rk-rel-tx"><span class="t" data-name>${esc((o.n && o.n[code]) || o.k)}</span>${o.d ? `<span class="d" data-name>${esc(o.d)}</span>` : ''}</span>${rankText ? `<span class="rk-rel-rank">${rankText}</span>` : ''}</${linked ? 'a' : 'span'}></li>`;
   };
   const near = mine.n && mine.n.length
     ? `<div class="rk-card rk-rel-near"><h2>${t(mine.k === 'genre' ? 'game.related_genre_title' : 'game.related_rank_title')}</h2><ul class="rk-rel-list rk-rel-cols" style="--rk-rel-rows:${Math.ceil(mine.n.length / 2)}">${mine.n.map(row).join('')}</ul></div>`
@@ -322,6 +325,13 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
           <div class="home-card-body">${summary ? summary.html : `<div class="game-empty">${t('game.no_analysis_records')}</div>`}</div>
         </div>
         ` : ''}
+        ${game.steamRecord ? `
+        <!-- Steam record (the former /steam/<appid>/ page) -->
+        <div class="home-card grid-full game-steam-record">
+          <div class="home-card-header"><h2 class="home-card-title">${t('layout.steam')}</h2></div>
+          <div class="home-card-body"><div class="rk rk-game"><div class="rk-hero">${steamPills(game.steamRecord)}<div class="actions">${steamStoreLink(game.steamRecord)}</div></div>${renderSteamRecord(game.steamRecord)}</div></div>
+        </div>
+        ` : ''}
         ${renderRelated(game.related, edition.code, developer)}${revenueSection ? REVENUE_SLOT : ''}
 
       </div>
@@ -352,8 +362,8 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     })();
   </script>`;
 
-  // 이 에디션 시장의 순위 이력이 30일 미만이고 지금 그 시장 차트·스팀 차트에도 없으면 noindex (thin content 방지). 사이트맵·게임 허브와 같은 규칙(isIndexableGame).
-  const indexableEditions = EDITIONS.filter((e) => isIndexableGame(rank, Boolean(game.steam), meta, e.country)).map((e) => e.code);
+  // 이 에디션 시장의 우선 게임(최근 14일 매출 TOP 100)도, 스팀 기록이 있는 게임도 아니면 noindex (thin content 방지). 사이트맵·게임 허브·게임 링크와 같은 규칙(isIndexableGame).
+  const indexableEditions = EDITIONS.filter((e) => isIndexableGame(rank, Boolean(game.steam || game.steamRecord), meta, e.country)).map((e) => e.code);
   const indexable = indexableEditions.includes(edition.code);
 
   // 2026-09-09 title 정책: 순위 데이터 사이트 어휘로 통일('뉴스' 제거), 상세 페이지는 날짜 없이 60자 안팎

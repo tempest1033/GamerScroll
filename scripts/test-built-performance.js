@@ -7,7 +7,7 @@ const { chromium } = require('playwright');
 
 async function main() {
   const docs = path.resolve(process.env.PERF_DOCS || path.join(__dirname, '../docs'));
-  const routes = ['/', '/rankings/', '/steam/', '/games/', '/steam/730/', '/ko/', '/ko/games/'];
+  const routes = ['/', '/rankings/', '/steam/', '/games/', '/games/counter-strike-2/', '/ko/', '/ko/games/'];
   const errors = [];
   const types = { '.html': 'text/html', '.css': 'text/css', '.js': 'application/javascript', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.woff2': 'font/woff2', '.webp': 'image/webp' };
   const server = http.createServer((request, response) => {

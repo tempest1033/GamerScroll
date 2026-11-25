@@ -23,7 +23,7 @@ console.log('PASS 기록 없음·분석 미생성 상태도 신형 UI 유지');
     for (const width of [1440, 390]) {
       const page = await browser.newPage({ viewport: { width, height: 1000 } });
       await page.route('**/*', r => r.request().url().startsWith(base) ? r.continue() : r.abort());
-      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/rankings/', '/rankings/cn/', '/rankings/free/', '/rankings/subculture/', '/rankings/monthly/2026-08/', '/rankings/records/', '/ko/games/pixel-tamerz/'])) {
+      for (const route of (process.env.TEST_ROUTES ? process.env.TEST_ROUTES.split(',') : ['/rankings/', '/rankings/cn/', '/rankings/free/', '/rankings/genres/subculture/', '/rankings/monthly/2026-08/', '/rankings/records/', '/ko/games/pixel-tamerz/'])) {
         try {
           assert.equal((await page.goto(base + route, { waitUntil: 'networkidle' })).status(), 200);
           assert.equal(await page.locator('.rk-ticker').count(), 0, '메뉴 아래 요약 띠 제거');

@@ -15,7 +15,7 @@ function setHeaderStatus(text) { headerStatus = String(text || ''); }
 const LOGO_SVG = require('node:fs').readFileSync(require('node:path').join(__dirname, '../../../assets/logo-wordmark-outlined.svg'), 'utf8')
   .replace(/-?\d+\.\d{2,}/g, (n) => String(+Number(n).toFixed(1)));
 
-function generateHeader(currentPage = 'home', pagePath = '/') {
+function generateHeader(currentPage = 'home', pagePath = '/', alternateEditions = null) {
   const activeId = navIdOf(currentPage);
   return `
   <style>
@@ -125,7 +125,7 @@ function generateHeader(currentPage = 'home', pagePath = '/') {
         <div class="search-dropdown"></div>
       </div>
       ${headerStatus ? `<span class="gs-status">${headerStatus}</span>` : ''}
-      ${renderEditionSelector({ path: pagePath })}
+      ${renderEditionSelector({ path: pagePath, editions: alternateEditions })}
     </div>
   </header>`;
 }
