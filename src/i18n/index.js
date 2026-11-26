@@ -94,13 +94,50 @@ function editionPath(code, pathname) {
 // an edition serves its home country at the bare path and every other country under /<cc>/, so the same chart lives at
 // different paths per edition (ko: /ko/rankings/ = Korea; ja: /ja/rankings/kr/ = Korea). Other pages share one path.
 const COUNTRY_SCOPED_RE = /^\/(rankings(?:\/free)?|trending)\/(?:(us|jp|cn|kr|tw)\/)?$/;
+const CN_STORE_RE = /^\/rankings\/cn\/app-store\/(top-grossing|top-free)\/$/;
 function alternatePath(targetCode, pathname, sourceCode) {
+  const cnStore = CN_STORE_RE.exec(pathname);
+  if (cnStore) {
+    const target = EDITION_BY_CODE.get(targetCode);
+    if (target && target.country === 'cn') return cnStore[1] === 'top-free' ? '/rankings/free/' : '/rankings/';
+    return pathname;
+  }
   const m = COUNTRY_SCOPED_RE.exec(pathname);
   if (!m) return pathname;
   const source = EDITION_BY_CODE.get(sourceCode) || current;
   const target = EDITION_BY_CODE.get(targetCode);
   const country = m[2] || source.country;
+  if (country === 'cn' && m[1].startsWith('rankings')) {
+    if (target && target.country === 'cn') return `/${m[1]}/`;
+    return m[1] === 'rankings/free' ? '/rankings/cn/app-store/top-free/' : '/rankings/cn/app-store/top-grossing/';
+  }
   return target && target.country === country ? `/${m[1]}/` : `/${m[1]}/${country}/`;
+}
+
+// Korean subject particle (이/가) following the pronounced final consonant (받침) of a title.
+function koSubject(name) {
+  const cleaned = String(name || '').replace(/[\s!?.:;~'"’”)\]}™®©\-–—/]+$/g, '');
+  if (!cleaned) return '이';
+  const last = cleaned[cleaned.length - 1];
+  const cp = last.codePointAt(0);
+  if (cp >= 0xAC00 && cp <= 0xD7A3) return (cp - 0xAC00) % 28 !== 0 ? '이' : '가';
+  if (last >= '0' && last <= '9') return '013678'.includes(last) ? '이' : '가';
+  if ((cp >= 0x3040 && cp <= 0x30FF) || (cp >= 0x31F0 && cp <= 0x31FF)) return last === 'ん' || last === 'ン' ? '이' : '가';
+  const tokenMatch = /([A-Za-z]+)$/.exec(cleaned);
+  if (tokenMatch) {
+    const tok = tokenMatch[1];
+    if (/^(?:II|III|IV|V|VI|VII|VIII|IX|X)$/.test(tok) && (cleaned.length === tok.length || /[\s:\-–—(]/.test(cleaned[cleaned.length - tok.length - 1]))) {
+      return /^(?:III|VI|VII|VIII|X)$/.test(tok) ? '이' : '가';
+    }
+    if (tok.length === 1 || tok === tok.toUpperCase()) {
+      if (tok.length >= 4 && /[AEIOU]/.test(tok) && !/^(?:PUBG|MMORPG|JRPG|ARPG|ASMR)$/.test(tok)) {
+        return /(?:[lmn]|ng|le|ne|me|[aeiou](?:ck|k|p|b|c))$/.test(tok.toLowerCase()) ? '이' : '가';
+      }
+      return 'LMNR'.includes(tok[tok.length - 1]) ? '이' : '가';
+    }
+    return /(?:[lmn]|ng|le|ne|me|[aeiou](?:ck|k|p|b|c))$/.test(tok.toLowerCase()) ? '이' : '가';
+  }
+  return '가';
 }
 
 // Market pages (genres, publishers, monthly, records) are built per edition from its home market, so a page may exist in
@@ -209,6 +246,7 @@ const formatTime = (ts) => formatStamp(ts, { hour: 'numeric', minute: '2-digit' 
 
 module.exports = {
   alternatePath,
+  koSubject,
   setPageAvailability,
   editionHasPage,
   formatDay,

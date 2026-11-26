@@ -205,9 +205,10 @@ function loadRankStats(options = {}) {
     const list = rows[country][s].slice(0, 200).map((r, i) => ({ r, rank: i + 1, prev: rk(yday, country, s, r.appId) }));
     const up = list.filter((x) => x.prev != null && x.prev - x.rank >= 5 && x.rank <= 100).sort((a, b) => (b.prev - b.rank) - (a.prev - a.rank)).slice(0, 3);
     const down = list.filter((x) => x.prev != null && x.rank - x.prev >= 5 && x.prev <= 100).sort((a, b) => (b.rank - b.prev) - (a.rank - a.prev)).slice(0, 3);
-    const fresh = list.filter((x) => x.prev == null && x.rank <= 100).slice(0, 3);
+    const freshAll = list.filter((x) => x.prev == null);
+    const fresh = freshAll.filter((x) => x.rank <= 100).slice(0, 3);
     const record = chart === 'free' ? [] : list.filter((x) => { const b = allTimeBest(country, s, x.r.appId, days.length - 2); return x.rank <= 100 && b != null && x.rank < b && daysOnChart(country, s, x.r.appId) > 7; }).slice(0, 3);
-    return { up, down, fresh, record };
+    return { up, down, fresh, freshCount: freshAll.length, freshTop: freshAll[0] || null, record };
   }
 
   // 신작 성적표: 최근 45일 내 첫 진입

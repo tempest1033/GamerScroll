@@ -184,7 +184,7 @@ function renderGameRankSummary(rank, meta, name, home) {
   const comparisonCard = `<div class="rk-card"><h2>${tt('rank.recent_period_comparison')} <small>${tt('game.sum_as_of', { c, date: formatDay(todayDate) })}</small></h2><table class="rk-table"><thead><tr><th>${tt('rank.store')}</th><th class="c">${tt('rank.period')}</th><th class="c">${tt('rank.avg_rank')}</th><th class="c">${tt('home.best_rank')}</th><th class="c">${tt('rank.days_on_chart')}</th></tr></thead><tbody>${comparisonRows}</tbody></table><div class="rk-note">${tt('rank.only_chart_entry_records_within')}</div></div>`;
 
   // 국가별 (이 에디션의 홈 국가 페이지가 /rankings/ 이다)
-  const countryHref = (cc) => (cc === home ? '/rankings/' : `/rankings/${cc}/`);
+  const countryHref = (cc) => (cc === home ? '/rankings/' : cc === 'cn' ? '/rankings/cn/app-store/top-grossing/' : `/rankings/${cc}/`);
   const countryIdx = days.map((d, i) => i).filter((i) => Date.parse(days[i]) >= Date.parse(todayDate) - 29 * 86400000);
   const countryRows = COUNTRIES.map((cc) => {
     const fullIos = series(cc, 'ios'), fullAndroid = series(cc, 'android');

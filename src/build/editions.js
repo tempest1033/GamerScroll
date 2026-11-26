@@ -159,11 +159,11 @@ function buildEditions(ctx) {
     const steam = /^\/steam\/(\d+)\/$/.exec(p);
     if (steam) return builtSteamPages.has(steam[1]);
     if (/^\/analysis\//.test(p)) return false;
+    const ed = i18n.EDITIONS.find((e) => e.code === code);
     const countryHub = /^\/rankings\/(?:free\/)?(kr|jp|us|cn|tw)\/$/.exec(p);
-    if (countryHub) {
-      const ed = i18n.EDITIONS.find((e) => e.code === code);
-      if (ed && countryHub[1] !== ed.country && singleStoreCountries.has(countryHub[1])) return false;
-    }
+    if (countryHub && ed && (countryHub[1] === ed.country || singleStoreCountries.has(countryHub[1]))) return false;
+    const storePage = /^\/rankings\/(kr|jp|us|cn|tw)\/(?:app-store|google-play)(?:\/(?:top-grossing|top-free))?\/$/.exec(p);
+    if (storePage && ed && storePage[1] === ed.country && singleStoreCountries.has(storePage[1])) return false;
     return marketPlan.available(plans[code], p);
   });
 
@@ -256,7 +256,8 @@ function buildEditions(ctx) {
       sub('free', hub.renderRankingsHub(home, 'free'));
       for (const spec of hub.storeChartSpecs(S)) {
         const html = hub.renderStoreChart(spec.country, spec.store, spec.chart);
-        if (html) sub(spec.rel, html, '0.7', rankDate);
+        const duplicateHome = spec.country === home && singleStoreCountries.has(spec.country);
+        if (html) sub(spec.rel, html, duplicateHome ? null : '0.7', rankDate);
       }
       // Genre, publisher, records and monthly pages show the edition's home market; a page the market has no data for is not built.
       const plan = plans[edition.code];

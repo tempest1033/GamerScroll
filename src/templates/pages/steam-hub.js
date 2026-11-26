@@ -131,7 +131,8 @@ ${cols}
 // ---------- 1b. 스팀 동접자 TOP 100 전용 (/steam/most-played/) ----------
 function renderSteamMostPlayed() {
   const ST = loadSteamStats();
-  const { util, STORES } = require('../../rank/stats');
+  const { koSubject } = require('../../i18n');
+  const { STORES } = require('../../rank/stats');
   const { today: T, yday: Y, days } = ST;
   const wk = days[Math.max(0, days.length - 8)];
   const total = ST.sumToday(T);
@@ -147,12 +148,18 @@ function renderSteamMostPlayed() {
 
   const summaryParts = [];
   if (top && topInfo) {
+    const topName = esc(topInfo.name);
+    const subjectName = currentEdition().code === 'ko' ? `${topName}${koSubject(topInfo.name)}` : topName;
     summaryParts.push(streak > 1
-      ? t('steam.summary_leader_streak', { name: esc(topInfo.name), ccu: fmt(top.ccu), days: streak, total: fmt(total) })
-      : t('steam.summary_leader_one', { name: esc(topInfo.name), ccu: fmt(top.ccu), total: fmt(total) }));
+      ? t('steam.summary_leader_streak', { name: subjectName, ccu: fmt(top.ccu), days: streak, total: fmt(total) })
+      : t('steam.summary_leader_one', { name: topName, ccu: fmt(top.ccu), total: fmt(total) }));
   }
   if (up) summaryParts.push(t('steam.summary_mover', { name: esc(ST.info(up.r.appid).name), pct: up.p.toFixed(0), rank: up.r.rank }));
-  if (freshList.length) summaryParts.push(t('steam.summary_new_entry', { count: freshList.length, name: esc(ST.info(fresh.appid).name), rank: fresh.rank }));
+  if (freshList.length) {
+    summaryParts.push(freshList.length === 1
+      ? t('steam.summary_new_entry_one', { name: esc(ST.info(fresh.appid).name), rank: fresh.rank })
+      : t('steam.summary_new_entry', { count: freshList.length, name: esc(ST.info(fresh.appid).name), rank: fresh.rank }));
+  }
   const summary = summaryParts.length ? `<p class="rk-lead">${summaryParts.join(' ')}</p>` : '';
 
   const gameSummary = (label, row, value, detail) => {
@@ -180,14 +187,18 @@ ${gameSummary(t('steam.recent_new_entry'), fresh, fresh ? `${t('steam.players', 
   const siblingLinks = [
     `<a href="/steam/">${t('steam.nav_overview')}</a>`,
     `<a href="/rankings/">${t('rank.mobile_rankings')}</a>`,
-    `<a href="/rankings/${home}/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: homeShort, store: STORES.ios })}</a>`,
-    ...(home !== 'cn' ? [`<a href="/rankings/${home}/google-play/top-grossing/">${t('rank.store_h1_grossing', { country: homeShort, store: STORES.android })}</a>`] : []),
-    ...(home !== 'us' ? [`<a href="/rankings/us/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: t('rank.short_us'), store: STORES.ios })}</a>`] : []),
+    ...(home !== 'cn' ? [
+      `<a href="/rankings/${home}/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: homeShort, store: STORES.ios })}</a>`,
+      `<a href="/rankings/${home}/google-play/top-grossing/">${t('rank.store_h1_grossing', { country: homeShort, store: STORES.android })}</a>`,
+    ] : [
+      `<a href="/rankings/us/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: t('rank.short_us'), store: STORES.ios })}</a>`,
+      `<a href="/rankings/jp/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: t('rank.short_jp'), store: STORES.ios })}</a>`,
+    ]),
+    ...(home !== 'us' && home !== 'cn' ? [`<a href="/rankings/us/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: t('rank.short_us'), store: STORES.ios })}</a>`] : []),
   ];
   const bottomNav = `<div class="rk-card"><h2>${t('rank.sibling_charts')}</h2><div class="rk-links-row">${siblingLinks.join('')}</div></div>`;
 
   const dateText = formatDay(T.date);
-  const ts = T.ts ? util.tsText(T.ts) : T.date;
   const description = t('steam.most_played_desc', {
     n1: topInfo ? topInfo.name : '-',
     ccu: top ? fmt(top.ccu) : '-',
@@ -195,7 +206,7 @@ ${gameSummary(t('steam.recent_new_entry'), fresh, fresh ? `${t('steam.players', 
     n3: T.mp[2] ? ST.info(T.mp[2].appid).name : '-',
     date: dateText,
   });
-  const body = `<div class="rk-head"><h1>${t('steam.most_played_h1')}</h1><span class="rk-sub">${t('rank.updated_on', { date: `<time datetime="${esc(T.date)}">${esc(dateText)}</time>`, ts: esc(ts) })}</span></div>
+  const body = `<div class="rk-head"><h1>${t('steam.most_played_h1')}</h1><span class="rk-sub">${t('rank.updated_on', { date: `<time datetime="${esc(T.date)}">${esc(dateText)}</time>` })}</span></div>
 ${subnav('most-played')}
 ${summary}
 ${kpi}
