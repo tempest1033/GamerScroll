@@ -17,8 +17,8 @@ const crypto = require('crypto');
 const i18n = require('../src/i18n');
 const { loadRankStats, util: { pubKey } } = require('../src/rank/stats');
 const { loadGenres } = require('../src/rank/genres');
-const { gameLastmod, collectRankData, rankSeries, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow, steamIdOf, steamPageSlugs } = require('../src/build/game-data');
-const { indexableEditionCodes, chartsInMarket } = require('../src/templates/helpers/game-rank-summary');
+const { gameLastmod, collectRankData, summaryMeta, idFor, createSlug, steamLists, steamMatch, chartingNow, steamIdOf, steamPageSlugs } = require('../src/build/game-data');
+const { chartsInMarket } = require('../src/templates/helpers/game-rank-summary');
 const { publisherIndex } = require('../src/templates/pages/rank-hub');
 const { loadSteamStats } = require('../src/rank/steam-stats');
 const { steamRecord } = require('../src/templates/helpers/steam-game');
@@ -27,6 +27,7 @@ const { computeCssAssetVersion } = require('../src/build/css-version');
 const { loadServiceExports, coverage } = require('../src/build/service-exports');
 const { splitRevenue, stringifyGameData } = require('../src/templates/components/revenue-payload');
 const { readAnalysisPages, analysisEntry } = require('../src/build/analysis-pages');
+const { gamePages } = require('../src/build/game-pages');
 
 const ROOT = path.join(__dirname, '..');
 const docsDir = path.join(ROOT, 'docs');
@@ -80,17 +81,6 @@ for (const country of Object.keys(S.COUNTRIES)) {
   }
 }
 
-// ---------- 에디션별 게임 이름 ----------
-const namesOf = (g) => {
-  const out = {};
-  for (const edition of i18n.EDITIONS) {
-    i18n.setEdition(edition.code);
-    const name = S.displayName(g);
-    if (name !== g.key) out[edition.code] = name;
-  }
-  return out;
-};
-
 // ---------- 관련 게임 (게임 상세 하단 '순위가 비슷한 게임' · '<개발사>의 다른 게임') ----------
 // 순위 목록: 순위 페이지(/rankings/)가 보여 주는 에디션 홈 국가의 스토어별 오늘 매출 TOP 200 중 상세 페이지가 있는 게임.
 // 결과는 data.related = { g: [{ s: slug, k: DB 이름, n: { 에디션: 이름 }, d: 개발사, i: 아이콘 }], e: { 에디션: { k: 'rank'|'genre', n: [항목], d: [항목] } } }
@@ -100,14 +90,10 @@ const RELATED_NEAR = 6;
 const RELATED_DEV = 3;
 const HANGUL = /[\uAC00-\uD7A3]/;
 const genres = loadGenres();
-const pageSlugs = new Map(); // g → slug (아래 루프와 같이 중복 slug 는 먼저 나온 게임만 페이지를 가진다)
-{
-  const taken = new Set();
-  for (const g of S.games) {
-    const slug = g.slug || createSlug(g.key, g.appIds);
-    if (!taken.has(slug)) { taken.add(slug); pageSlugs.set(g, slug); }
-  }
-}
+// The game pages (src/build/game-pages.js): per page its slug (a duplicate slug's page belongs to the first game, as in the loop
+// below), its names, the editions where it is indexable and its regional versions.
+const pages = new Map(gamePages(S, { lists: steamChartLists, pages: steamPages, stats: steamStats }).map((p) => [p.g, p]));
+const pageSlugs = new Map([...pages].map(([g, p]) => [g, p.slug]));
 const byDeveloper = new Map();
 for (const g of pageSlugs.keys()) {
   const key = pubKey(g.developer);
@@ -133,18 +119,11 @@ function chartOf(country) {
   charts.set(country, chart);
   return chart;
 }
-// Editions where the game's page is indexable (indexableEditionCodes): the page's robots tag and hreflang, the sitemaps' hreflang
-// and the related-game links of other pages follow it.
-const indexableMemo = new Map();
-function indexableEditions(g) {
-  if (!indexableMemo.has(g)) {
-    const { mp, ts } = steamMatch(g, steamChartLists);
-    const onSteam = Boolean(mp || ts) || steamPages.get(steamIdOf(g)) === pageSlugs.get(g);
-    const rank = { s: rankSeries(S, g.appIds) };
-    indexableMemo.set(g, indexableEditionCodes(rank, onSteam, meta));
-  }
-  return indexableMemo.get(g);
-}
+// Editions where the game's page is indexable: the page's robots tag and hreflang, the sitemaps' hreflang and the related-game
+// links of other pages follow it.
+const indexableEditions = (g) => pages.get(g).editions;
+// Edition names that differ from the DB name.
+const editionNames = (g) => Object.fromEntries(Object.entries(pages.get(g).names).filter(([, name]) => name !== g.key));
 const chartDaysMemo = new Map();
 function chartDays(g, country) {
   const key = `${country}:${pageSlugs.get(g)}`;
@@ -288,7 +267,8 @@ for (const g of S.games) {
 
   const data = {
     name: gameName,
-    names: namesOf(g),
+    names: editionNames(g),
+    ...(pages.get(g).regional ? { regional: pages.get(g).regional } : {}),
     slug,
     platforms: g.platforms || [],
     developer: g.developer || '',

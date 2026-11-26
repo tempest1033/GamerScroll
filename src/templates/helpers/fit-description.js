@@ -28,17 +28,24 @@ function fitSentences(text, fallback, max = MAX_WIDTH) {
   return out.trim();
 }
 
-// A title naming `name` within MAX_TITLE_WIDTH: the first of `variants(name)` (longest first) that fits, then the same with the
-// name's main part (before a subtitle separator). A name is never cut: when nothing fits, the title is the full name alone
-// (its page drops the brand suffix, even where the name exceeds the budget).
-function fitTitle(name, variants) {
+// A name and its main part (before a subtitle separator).
+const forms = (name) => {
   const full = String(name || '');
-  const main = full.split(/\s*[:：|｜【\[(（]|\s+[-–—]\s+/)[0].trim() || full;
-  for (const n of [full, main]) {
-    const hit = variants(n).find((s) => width(s) <= MAX_TITLE_WIDTH);
-    if (hit) return hit;
-  }
-  return full;
+  return [full, full.split(/\s*[:：|｜【\[(（]|\s+[-–—]\s+/)[0].trim() || full];
+};
+
+// The titles that are a name alone, with its label (`labels`, see fitTitle): their pages drop the brand suffix.
+const nameAlone = (name, labels = [(n) => n]) => forms(name).flatMap((n) => labels.map((label) => label(n)));
+
+// A title naming `name` within MAX_TITLE_WIDTH: the first of `variants(name)` (longest first) that fits, then the same with the
+// name's main part. A name with a label (a regional version's market; `labels`: functions adding it, the full label first,
+// then shortened ones) keeps its whole name first: its templates with each label, then the labelled name alone, and only
+// then the main part the same way. A name is never cut: when nothing fits, the title is the full name alone (with its full
+// label), even where it exceeds the budget.
+function fitTitle(name, variants, labels) {
+  const [full] = forms(name);
+  const tries = forms(name).flatMap((n) => (labels ? [...labels.flatMap((label) => variants(label(n))), ...labels.map((label) => label(n))] : variants(n)));
+  return tries.find((s) => width(s) <= MAX_TITLE_WIDTH) || (labels ? labels[0](full) : full);
 }
 
-module.exports = { fitSentences, fitTitle, width, MAX_WIDTH, MAX_TITLE_WIDTH };
+module.exports = { fitSentences, fitTitle, nameAlone, width, MAX_WIDTH, MAX_TITLE_WIDTH };

@@ -11,8 +11,8 @@ const { renderDesktopOnlyHomeAd } = require('../components/ads');
 const { resizeIcon } = require('../../utils/resize-icon');
 const { interactiveRankChart } = require('../components/interactive-rank-chart');
 const { describeGame, trimDescription, cleanDescription } = require('../helpers/game-description');
-const { renderGameRankSummary, summaryDays, indexableEditionCodes } = require('../helpers/game-rank-summary');
-const { fitSentences, fitTitle, width, MAX_WIDTH } = require('../helpers/fit-description');
+const { renderGameRankSummary, summaryDays, indexableEditionCodes, COUNTRY_KEYS, STORE_KEYS } = require('../helpers/game-rank-summary');
+const { fitSentences, fitTitle, nameAlone, width, MAX_WIDTH } = require('../helpers/fit-description');
 const { renderRevenueSection } = require('../components/revenue-section');
 const { renderSteamRecord, steamPills, steamStoreLink } = require('../helpers/steam-game');
 
@@ -62,8 +62,31 @@ function renderRelated(related, code, developer) {
   return ad + (near || dev ? `<div class="rk rk-related grid-full${near && dev ? '' : ' rk-related-single'}">${near}${dev}</div>` : '');
 }
 
+// A regional version's name with its market (src/build/regional-versions.js qualifier q).
+function regionalName(name, q) {
+  const market = [q.m === 'steam' ? t('layout.steam') : q.m === 'global' ? t('game.regional_global') : t(COUNTRY_KEYS[q.m]), q.st && t(STORE_KEYS[q.st]), q.d].filter(Boolean).join(t('game.regional_sep'));
+  return t('game.regional_name', { name, market });
+}
+
+// A regional version's labels (fitTitle): its full label, then the one with the developer without its company form (q.ds).
+const labelsOf = (q) => q && [q, ...(q.ds ? [{ ...q, d: q.ds }] : [])].map((label) => (n) => regionalName(n, label));
+
+// A game page's title in the current edition: the title template of its platforms, within the title budget (fitTitle), with
+// the label of a regional version (qualifier q).
+function gameTitle(plainName, platforms, q) {
+  const mobile = platforms.some((p) => p === 'ios' || p === 'android');
+  return fitTitle(plainName, (name) => (mobile ? ['game.seo_title_mobile'] : ['game.seo_title_steam', 'game.seo_title_steam_short']).map((k) => t(k, { name })), labelsOf(q));
+}
+
+// The other pages of the edition under the same name (game.regional[<edition>].o), each with its market.
+function renderRegional(regional) {
+  if (!regional || !regional.o) return '';
+  const items = regional.o.map((o) => `<li><a href="/games/${encodeURIComponent(o.s)}/" data-name>${esc(regionalName(o.n, o.q))}</a></li>`).join('');
+  return `<div class="home-card grid-full game-regional"><div class="home-card-header"><h2 class="home-card-title">${t('game.regional_title')}</h2></div><div class="home-card-body"><ul class="game-regional-list">${items}</ul></div></div>`;
+}
+
 /**
- * @param {object} game  games-data 한 건: { name, names, slug, platforms, developer, icon, ranked, steam, steamHistory, rank, revenue? }
+ * @param {object} game  games-data 한 건: { name, names, slug, platforms, developer, icon, ranked, steam, steamHistory, rank, revenue?, regional? }
  * @param {object} meta  { days, hourlyDate }
  */
 function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {}) {
@@ -72,6 +95,10 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
   const plainName = (game.names && game.names[edition.code]) || game.name;
   // One name per edition (rank/stats.js displayName); the DB name is never appended in parentheses.
   const name = esc(plainName);
+  // A page sharing its name with other indexable pages of the edition names its market in the title, H1 and schema name.
+  const regional = game.regional && game.regional[edition.code];
+  const q = regional && regional.q;
+  const pageName = q ? regionalName(plainName, q) : plainName;
 
   // 플랫폼 체크
   const hasMobilePlatform = platforms.some(p => p === 'ios' || p === 'android');
@@ -283,7 +310,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
           <div class="game-hero-content">
             ${iconHtml}
             <div class="game-hero-info">
-              <h1 class="game-hero-title" data-name>${name}</h1>
+              <h1 class="game-hero-title" data-name>${esc(pageName)}</h1>
               ${developer ? `<div class="game-hero-developer">${developerHtml}</div>` : ''}
               ${platforms.length > 0 ? `<div class="game-hero-platforms">${platformBadges}</div>` : ''}
               ${genreBadges ? `<div class="game-hero-platforms game-hero-genres" aria-label="${esc(t('genres.genre'))}">${genreBadges}</div>` : ''}
@@ -294,6 +321,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
         ${previewEnabled ? preview.generateAnalysisTabs(game, { lang: edition.code, active: analysisPage ? 'analysis' : 'rank' }) : renderGameTabs(game.analysis, slug, edition.code, game.analysisSlug || slug)}
         <!-- rank-content-start -->
         ${overviewHtml}
+        ${renderRegional(regional)}
             ${isSteamOnly && steam ? `
         <div class="home-card grid-full game-steam-summary">
           <div class="home-card-header"><h2 class="home-card-title">${t('game.steam_analysis')}</h2></div>
@@ -375,11 +403,12 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     })();
   </script>`;
 
-  // Indexable editions: the sitemaps, games hub and game links follow the same rule (indexableEditionCodes).
-  const indexableEditions = indexableEditionCodes(rank, Boolean(game.steam || game.steamRecord), meta);
+  // Indexable editions: the sitemaps, games hub and game links follow the same rule (src/build/game-pages.js): the page's own
+  // (indexableEditionCodes) less those where a same-name twin with a longer chart history is indexed instead (regional x).
+  const indexableEditions = indexableEditionCodes(rank, Boolean(game.steam || game.steamRecord), meta).filter((code) => !(game.regional && game.regional[code] && game.regional[code].x));
   const indexable = indexableEditions.includes(edition.code);
 
-  const seoTitle = fitTitle(plainName, (name) => (hasMobilePlatform ? ['game.seo_title_mobile'] : ['game.seo_title_steam', 'game.seo_title_steam_short']).map((k) => t(k, { name })));
+  const seoTitle = gameTitle(plainName, platforms, q);
   // The data-derived overview replaces the formulaic rank-summary / generic description.
   // Short complete sentence used when the data-derived text does not fit the meta budget (a name-free site line if the name makes even this too long).
   const nameDescription = t(hasMobilePlatform ? 'game.seo_desc_mobile' : 'game.seo_desc_steam', { name: plainName });
@@ -401,7 +430,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
   const html = wrapWithLayout(content, {
     currentPage: 'game',
     title: seoTitle,
-    brand: seoTitle !== plainName,
+    brand: !nameAlone(plainName, labelsOf(q)).includes(seoTitle),
     description: seoDescription,
     keywords: seoKeywords,
     canonical: canonicalUrl,
@@ -414,11 +443,11 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
       { name: plainName, url: canonicalUrl }
     ],
     // noindex 페이지는 스키마 생략. genre: 히어로에 보이는 장르, sameAs: 공식 스토어 페이지 (game.storeUrls)
-    softwareSchema: indexable ? { name: plainName, description: cleanDescription(seoDescription, overview, t('game.desc_join')), url: canonicalUrl, image: icon || null, operatingSystem, genre: genreIds.map(genreLabel), sameAs: Array.isArray(game.storeUrls) ? game.storeUrls : [] } : null
+    softwareSchema: indexable ? { name: pageName, description: cleanDescription(seoDescription, overview, t('game.desc_join')), url: canonicalUrl, image: icon || null, operatingSystem, genre: genreIds.map(genreLabel), sameAs: Array.isArray(game.storeUrls) ? game.storeUrls : [] } : null
   });
   // The revenue section (no links, images or names to post-process; its charts and tables render in the browser) joins
   // after the layout's whole-page passes, which would otherwise rescan it within the Workers CPU budget.
   return revenueSection ? html.replace(REVENUE_SLOT, () => revenueSection) : html;
 }
 
-module.exports = { generateGamePage, summaryDays, renderInPageAd };
+module.exports = { generateGamePage, summaryDays, renderInPageAd, regionalName, gameTitle };

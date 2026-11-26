@@ -234,4 +234,4 @@ ${countryCard}
   return { html, text, cur, baseStore, days: present.length, hero };
 }
 
-module.exports = { renderGameRankSummary, summaryDays, isIndexableGame, indexableEditionCodes, chartsInMarket, pickCountry, expand, INDEXABLE_DAYS, PRIORITY_RANK, PRIORITY_DAYS };
+module.exports = { COUNTRY_KEYS, STORE_KEYS, renderGameRankSummary, summaryDays, isIndexableGame, indexableEditionCodes, chartsInMarket, pickCountry, expand, INDEXABLE_DAYS, PRIORITY_RANK, PRIORITY_DAYS };
