@@ -1,9 +1,10 @@
 'use strict';
 
 /**
- * Merges duplicate game records: records that carry the same store app (one App Store, Google Play or Steam ID), and records
- * that one edition shows under the same title (names[<code>], else the DB name) from the same developer (both named, the
- * same string), whose store IDs never name two different apps for one market and store (e.g. a Google Play record and an
+ * Merges duplicate game records: records that carry the same store app (one App Store, Google Play or Steam ID, or an App
+ * Store app whose bundle ID is the other's Google Play package), and records that one edition shows under the same title
+ * (names[<code>], else the DB name) from the same developer (both named, the same string), whose store IDs never name two
+ * different apps for one market and store (e.g. a Google Play record and an
  * App Store US record of one game). Each group becomes the record with the longest revenue-chart history, under the group's
  * clean slug (the one the others extend: "z-route-redemption" of "z-route-redemption-37games-global"); the other slugs join
  * its `legacySlugs`, so their URLs 301 to it through docs/games-data/_redirects.json (scripts/generate-game-pages.js).
@@ -18,8 +19,13 @@ const STORES = ['ios', 'android'];
 const norm = (s) => String(s || '').normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
 const titleOf = (key, g, code) => norm((g.names && g.names[code]) || key);
 const sameDeveloper = (a, b) => Boolean(a.developer) && a.developer === b.developer;
-// A record's store apps: `<store>:<id>` (an App Store ID is one app on every storefront).
-const appsOf = (g) => Object.entries(g.appIds || {}).filter(([, id]) => id).map(([slot, id]) => `${slot.split(/[_:]/)[0]}:${id}`);
+// A record's store apps: `<store>:<id>` (an App Store ID is one app on every storefront); an App Store app whose bundle ID
+// (bundleOf) is a Google Play package is that Google Play app too.
+const appsOf = (g, bundleOf) => Object.entries(g.appIds || {}).filter(([, id]) => id).flatMap(([slot, id]) => {
+  const store = slot.split(/[_:]/)[0];
+  const bundle = store === 'ios' && bundleOf(String(id));
+  return [`${store}:${id}`, ...(bundle ? [`android:${bundle}`] : [])];
+});
 // The URL slug of a record: records without one have their page under the generated slug (scripts/generate-game-pages.js).
 const slugOf = (key, g) => g.slug || createSlug(key, g.appIds);
 const steamOf = (g) => (g.appIds && (g.appIds['steam:global'] || g.appIds.steam)) || null;
@@ -41,8 +47,9 @@ const chartDaysOf = (S) => (g) => COUNTRIES.reduce((n, country) => n + STORES.re
   return m + (id ? S.daysOnChart(country, store, id) : 0);
 }, 0), 0);
 
-// Groups of DB keys to merge, kept key first. chartDays(game) → revenue-chart days of the record's apps.
-function duplicateGroups(games, chartDays) {
+// Groups of DB keys to merge, kept key first. chartDays(game) → revenue-chart days of the record's apps; bundleOf(App Store ID)
+// → the app's bundle ID, if known.
+function duplicateGroups(games, chartDays, bundleOf = () => null) {
   const keys = Object.keys(games);
   const parent = new Map(keys.map((k) => [k, k]));
   const find = (k) => { while (parent.get(k) !== k) k = parent.get(k); return k; };
@@ -66,7 +73,7 @@ function duplicateGroups(games, chartDays) {
   }
   const byApp = new Map();
   for (const key of keys) {
-    for (const app of appsOf(games[key])) {
+    for (const app of appsOf(games[key], bundleOf)) {
       const first = byApp.get(app);
       if (!first) byApp.set(app, key);
       else if (first !== key && compatible(games[first], games[key])) parent.set(find(key), find(first));
@@ -101,10 +108,10 @@ function mergeInto(kept, keptKey, other, otherKey) {
 const cleanSlug = (slugs) => slugs.find((c) => slugs.every((s) => s === c || s.startsWith(`${c}-`)));
 
 // Mutates gamesData.games; returns [{ kept, merged: [slug, ...] }] (kept: the merged record's slug).
-function merge(gamesData, chartDays) {
+function merge(gamesData, chartDays, bundleOf) {
   const games = gamesData.games;
   const out = [];
-  for (const [keptKey, ...rest] of duplicateGroups(games, chartDays)) {
+  for (const [keptKey, ...rest] of duplicateGroups(games, chartDays, bundleOf)) {
     const slugs = [keptKey, ...rest].map((k) => slugOf(k, games[k]));
     const clean = cleanSlug(slugs);
     const kept = games[keptKey];

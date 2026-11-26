@@ -29,24 +29,38 @@ const fixture = () => ({ games: {
   // A pair without slugs: their pages live under generated slugs.
   'Puzzle Quest': { appIds: { ios: '42' }, aliases: [], developer: 'Infinity Plus 2', platforms: ['ios'], names: { en: 'Puzzle Quest' } },
   'Puzzle Quest (GP)': { appIds: { android: 'com.ip2.pq' }, aliases: [], developer: 'Infinity Plus 2', platforms: ['android'], names: { en: 'Puzzle Quest' } },
+  // An App Store app whose bundle ID is another record's Google Play package is that app, whatever the titles and developers.
+  'Puzzle & Dragons(龍族拼圖)': { appIds: { android: 'jp.gungho.padHT' }, aliases: [], developer: 'GungHo Online Entertainment, Inc.', slug: 'puzzle-dragons-2', platforms: ['android'], names: { 'zh-tw': 'Puzzle & Dragons(龍族拼圖)' } },
+  '젤리 마스터: 먹방 ASMR': { appIds: { android: 'com.fc.p.cp.jelly.mukbang.asmr.live.diy' }, aliases: [], developer: 'FALCON GAME', slug: 'jelly-master-mukbang-asmr', platforms: ['android'], names: { en: 'Jelly Master: Mukbang ASMR' } },
+  '젤리 마스터: 먹방 게임': { appIds: { ios: 6738694162 }, aliases: [], developer: 'Hieu Nguyen Trung', slug: 'jelly-master-mukbang-asmr-hieu-nguyen', platforms: ['ios'], names: { 'zh-tw': '美食直播超級巨星' } },
 } });
 // Revenue-chart days per app: the App Store US app and the App Store Puzzle Quest have the longer history.
-const DAYS = { 1464872022: 100, 'com.YoStarEN.Arknights': 1, 42: 50, 'com.zroute.global': 30 };
+const DAYS = { 1464872022: 100, 'com.YoStarEN.Arknights': 1, 42: 50, 'com.zroute.global': 30, 'jp.gungho.padHT': 40, 'com.fc.p.cp.jelly.mukbang.asmr.live.diy': 20, 6738694162: 5 };
 const S = { daysOnChart: (country, store, id) => DAYS[id] || 0 };
+// App Store bundle IDs (data/ios-bundle-ids.json); 493470467 is the Japanese app's, another package than the HK/TW one.
+const BUNDLES = { 808027845: 'jp.gungho.padHT', 6738694162: 'com.fc.p.cp.jelly.mukbang.asmr.live.diy', 493470467: 'jp.gungho.pad' };
 
 test('sync merges records with one title, one developer and compatible store IDs into the one with the longer chart history', () => {
   const gamesData = fixture();
-  assert.deepEqual(mergeSameTitle(gamesData, S), [
+  assert.deepEqual(mergeSameTitle(gamesData, S, BUNDLES), [
     { kept: 'arknights', merged: ['arknights-us'] },
+    { kept: 'puzzle-dragons', merged: ['puzzle-dragons-2'] },
     { kept: 'z-route-redemption', merged: ['z-route-redemption-37games-global'] },
     { kept: 'puzzle-quest', merged: ['com-ip2-pq'] },
+    { kept: 'jelly-master-mukbang-asmr', merged: ['jelly-master-mukbang-asmr-hieu-nguyen'] },
   ]);
   const kept = gamesData.games['Arknights (Yostar)'];
   assert.equal(gamesData.games.Arknights, undefined);
   assert.deepEqual(kept.appIds, { ios_us: '1464872022', android: 'com.YoStarEN.Arknights' });
   assert.equal(kept.slug, 'arknights', 'the kept record takes the clean slug');
   assert.deepEqual(kept.legacySlugs, ['arknights-old', 'arknights-us']);
-  assert.ok(gamesData.games['Puzzle & Dragons'] && gamesData.games['パズル＆ドラゴンズ'], 'developer strings that differ in case: kept apart');
+  const pad = gamesData.games['Puzzle & Dragons(龍族拼圖)'];
+  assert.deepEqual([pad.slug, pad.appIds], ['puzzle-dragons', { android: 'jp.gungho.padHT', ios_tw: '808027845' }], 'the HK/TW App Store app, bundle ID jp.gungho.padHT, joins the HK/TW Google Play record');
+  assert.equal(gamesData.games['Puzzle & Dragons'], undefined);
+  assert.deepEqual(gamesData.games['パズル＆ドラゴンズ'].appIds, { android: 'jp.gungho.pad', ios_jp: '493470467' }, 'developer strings that differ in case: kept apart');
+  const jelly = gamesData.games['젤리 마스터: 먹방 ASMR'];
+  assert.deepEqual([jelly.developer, jelly.appIds], ['FALCON GAME', { android: 'com.fc.p.cp.jelly.mukbang.asmr.live.diy', ios: 6738694162 }], 'one app under two developer names: one record');
+  assert.equal(gamesData.games['젤리 마스터: 먹방 게임'], undefined);
   const z = gamesData.games['Z 루트: 리뎀션'];
   assert.deepEqual([z.slug, z.legacySlugs, z.appIds], ['z-route-redemption', ['z-route-redemption-37games-global'], { android: 'com.zroute.global', ios: '6762268182' }]);
   assert.equal(gamesData.games['Z Route: Redemption'], undefined, 'one App Store app: one record');
@@ -60,8 +74,23 @@ test('sync merges records with one title, one developer and compatible store IDs
   const pq = gamesData.games['Puzzle Quest'];
   assert.equal(pq.slug, 'puzzle-quest');
   assert.deepEqual(pq.legacySlugs, ['com-ip2-pq']);
-  assert.equal(gamesData.totalGames, 15);
-  assert.deepEqual(mergeSameTitle(gamesData, S), [], 'a merged DB stays as it is');
+  assert.equal(gamesData.totalGames, 16);
+  assert.deepEqual(mergeSameTitle(gamesData, S, BUNDLES), [], 'a merged DB stays as it is');
+  assert.deepEqual(mergeSameTitle(fixture(), S, {}).map((m) => m.kept), ['arknights', 'z-route-redemption', 'puzzle-quest'], 'without bundle IDs those apps stay apart');
+});
+
+test('the daily sync looks up the bundle IDs of App Store apps that have none, each on its storefront, once', async () => {
+  const { fillBundleIds } = require('../scripts/sync-and-enrich');
+  const games = { A: { appIds: { ios_tw: '808027845', android: 'jp.gungho.padHT' } }, B: { appIds: { ios: '6738694162' } }, C: { appIds: { ios_us: '9' } }, D: { appIds: { ios_jp: '493470467' } } };
+  const asked = [];
+  const lookup = async (ids, cc, failed, attempts) => {
+    asked.push(`${cc} ${ids.join(',')} ${attempts}`);
+    return new Map(ids.filter((id) => id !== '9').map((id) => [id, { bundleId: `bundle.${id}` }]));
+  };
+  const bundles = { 493470467: 'jp.gungho.pad' };
+  assert.equal(await fillBundleIds(games, bundles, lookup), 2);
+  assert.deepEqual(asked, ['tw 808027845 1', 'kr 6738694162 1', 'us 9 1']);
+  assert.deepEqual(bundles, { 493470467: 'jp.gungho.pad', 808027845: 'bundle.808027845', 6738694162: 'bundle.6738694162' }, 'an app the storefront does not list is asked again next run');
 });
 
 test('the committed game DB: mixed-up apps sit with their own game', () => {
@@ -78,17 +107,19 @@ test('the committed game DB: mixed-up apps sit with their own game', () => {
   assert.deepEqual([pad.slug, pad.appIds.android], ['puzzle-dragons', 'jp.gungho.padHT'], 'the HK/TW App Store app with the HK/TW Google Play app');
   assert.equal(withApp('android', 'jp.gungho.pad')[0].appIds.ios_tw, undefined, 'not with the Japanese record');
   assert.equal(withApp('android', 'com.fc.p.cp.jelly.mukbang.asmr.live.diy').length, 1, 'Jelly Master\'s Google Play app only on Jelly Master');
+  const [jelly] = withApp('ios', '6738694162');
+  assert.deepEqual([jelly.developer, jelly.appIds.android], ['FALCON GAME', 'com.fc.p.cp.jelly.mukbang.asmr.live.diy'], 'Jelly Master\'s App Store app, the same bundle ID, on the FALCON GAME record');
   assert.deepEqual(withApp('android', 'com.awesome.puzzlehexasort').map((g) => g.appIds.ios), [6590876141], 'Color Slide\'s apps on one record');
 });
 
 test('the committed game DB: developers that differ as strings stay apart; one store app is one record under the clean slug', () => {
   const games = Object.values(require('../scripts/sync-and-enrich').loadGames().games);
   const withApp = (slot, id) => games.filter((g) => Object.entries(g.appIds || {}).some(([s, v]) => s.split(/[_:]/)[0] === slot && String(v) === id));
-  // 蟋蟀江湖 (Future TV Co. Ltd / FUTURE TV CO.,LTD), 冰的啦 (MOREFUN（H.K.) / MOREFUN (H.K.) LIMITED)
-  for (const [ios, android] of [['6780728088', 'com.newtv.cricketduel'], ['6736687450', 'com.pgfight.an.tw']]) {
-    const [a] = withApp('ios', ios), [b] = withApp('android', android);
-    assert.ok(a && b && a !== b, `${a && a.developer} / ${b && b.developer}`);
-  }
+  // 冰的啦 (MOREFUN（H.K.) / MOREFUN (H.K.) LIMITED; App Store bundle ID com.pgfight.ios.tw)
+  const [a] = withApp('ios', '6736687450'), [b] = withApp('android', 'com.pgfight.an.tw');
+  assert.ok(a && b && a !== b, `${a && a.developer} / ${b && b.developer}`);
+  // 蟋蟀江湖 (Future TV Co. Ltd / FUTURE TV CO.,LTD): the App Store app's bundle ID is the Google Play package, one app
+  assert.equal(withApp('ios', '6780728088')[0], withApp('android', 'com.newtv.cricketduel')[0]);
   const byApp = new Map();
   for (const g of games) for (const [slot, id] of Object.entries(g.appIds || {})) if (id) byApp.set(`${slot.split(/[_:]/)[0]}:${id}`, [...(byApp.get(`${slot.split(/[_:]/)[0]}:${id}`) || []), g.slug]);
   assert.deepEqual([...byApp].filter(([, slugs]) => new Set(slugs).size > 1), [], 'no store app on two records');

@@ -389,7 +389,7 @@ async function pool(items, size, fn) {
   }));
 }
 
-// iTunes lookup 배치 (콤마 구분 최대 200개) → Map(appId -> {title, developer, icon})
+// iTunes lookup 배치 (콤마 구분 최대 200개) → Map(appId -> {title, developer, icon, bundleId})
 // iTunes 는 그 국가 스토어에 출시된 앱만 돌려준다. failed(Set)를 넘기면 재시도가 모두 실패한 id 를 기록한다.
 // attempts: 요청 시도 횟수 (실패 사이 대기)
 async function lookupIosBatch(ids, cc, failed, attempts = 4) {
@@ -409,7 +409,8 @@ async function lookupIosBatch(ids, cc, failed, attempts = 4) {
             out.set(String(r.trackId), {
               title: r.trackName,
               developer: r.sellerName || r.artistName || '',
-              icon: r.artworkUrl512 || r.artworkUrl100 || ''
+              icon: r.artworkUrl512 || r.artworkUrl100 || '',
+              bundleId: r.bundleId || ''
             });
           }
         }
@@ -893,6 +894,42 @@ function saveEnglishNameChecks(checks) {
   fs.writeFileSync(englishChecksPath, JSON.stringify(sorted, null, 1) + '\n', 'utf8');
 }
 
+// ============================================
+// App Store bundle IDs
+// ============================================
+
+// data/ios-bundle-ids.json: App Store ID -> bundle ID. An App Store app whose bundle ID is a Google Play package is that app
+// (src/build/game-merge.js). An app without one is asked on its storefront once a run, a failed or unlisted one again the next.
+const bundleIdsPath = path.join(dataDir, 'ios-bundle-ids.json');
+
+function loadBundleIds() {
+  return fs.existsSync(bundleIdsPath) ? JSON.parse(fs.readFileSync(bundleIdsPath, 'utf8')) : {};
+}
+
+function saveBundleIds(bundles) {
+  const sorted = Object.fromEntries(Object.keys(bundles).sort().map(k => [k, bundles[k]]));
+  fs.writeFileSync(bundleIdsPath, JSON.stringify(sorted, null, 1) + '\n', 'utf8');
+}
+
+// bundles ← the bundle IDs of the DB's App Store apps that have none. Returns how many were found.
+async function fillBundleIds(games, bundles, lookup = lookupIosBatch) {
+  const byStorefront = new Map();
+  for (const g of Object.values(games)) {
+    for (const a of storeAppsOf(g)) {
+      if (a.store !== 'ios' || bundles[a.id]) continue;
+      if (!byStorefront.has(a.cc)) byStorefront.set(a.cc, new Set());
+      byStorefront.get(a.cc).add(a.id);
+    }
+  }
+  let found = 0;
+  for (const [cc, ids] of byStorefront) {
+    for (const [id, app] of await lookup([...ids].filter(id => !bundles[id]), cc, undefined, 1)) {
+      if (app.bundleId && !bundles[id]) { bundles[id] = app.bundleId; found++; }
+    }
+  }
+  return found;
+}
+
 // 같은 appId 중복 제거 + 진입한 모든 국가의 차트 행 수집 (KR 진입 앱은 region=kr 우선)
 function dedupeRows(rows) {
   const map = new Map();
@@ -1144,10 +1181,11 @@ async function processGame(game, gamesData, appIdIndex, nameKeyIndex, stats, pai
   };
 }
 
-// 같은 제목·같은 개발사·충돌 없는 스토어 ID 의 중복 레코드를 매출 차트 이력이 긴 쪽으로 합친다 (src/build/game-merge.js).
-// 없어진 쪽 슬러그는 legacySlugs 에 남아 301 된다. S: 순위 통계 (기본은 history/ 전체).
-function mergeSameTitle(gamesData, S = loadRankStats({ force: true })) {
-  return mergeDuplicates(gamesData, chartDaysOf(S));
+// 같은 앱(같은 스토어 ID, 또는 Google Play 패키지와 같은 App Store 번들 ID)이거나 같은 제목·같은 개발사인, 충돌 없는 스토어 ID 의
+// 중복 레코드를 매출 차트 이력이 긴 쪽으로 합친다 (src/build/game-merge.js). 없어진 쪽 슬러그는 legacySlugs 에 남아 301 된다.
+// S: 순위 통계 (기본은 history/ 전체), bundles: App Store ID -> 번들 ID (기본은 data/ios-bundle-ids.json).
+function mergeSameTitle(gamesData, S = loadRankStats({ force: true }), bundles = loadBundleIds()) {
+  return mergeDuplicates(gamesData, chartDaysOf(S), (id) => bundles[id]);
 }
 
 async function main() {
@@ -1252,7 +1290,10 @@ async function main() {
   const reslugged = reslugLatinNamed(gamesData);
   for (const r of reslugged) console.log(`  슬러그 변경: ${r.from} → ${r.to}`);
 
-  for (const m of mergeSameTitle(gamesData)) console.log(`  중복 통합: ${m.kept} ← ${m.merged.join(', ')}`);
+  // App Store 번들 ID: 없는 앱만 조회 (Google Play 패키지와 같으면 같은 앱으로 통합)
+  const bundles = loadBundleIds();
+  console.log('App Store 번들 ID:', await fillBundleIds(gamesData.games, bundles), '개 새로 확인');
+  for (const m of mergeSameTitle(gamesData, undefined, bundles)) console.log(`  중복 통합: ${m.kept} ← ${m.merged.join(', ')}`);
 
   // pending 추가/업데이트 (targetName 단위 1건만 유지)
   upsertPending(reviewQueue, Array.from(pendingMap.values()));
@@ -1263,6 +1304,7 @@ async function main() {
   saveGames(gamesData);
   saveReviewQueue(reviewQueue);
   saveEnglishNameChecks(englishChecks);
+  saveBundleIds(bundles);
 
   console.log('\n=== 결과 ===');
   console.log('이미 등록됨:', stats.existing);
@@ -1281,7 +1323,8 @@ module.exports = {
   MARKETS, NAME_KEYS, REGION_PREF, rowsFromHistory, dedupeRows, mergeNames, buildAppIdIndex,
   buildAliasIndex, addAliases, normalizeNameKey, slugifyTitle, uniqueSlug, marketsOfGame, processGame, buildNameKeyIndex, lookupOne, getRegCtx, registerCandidate, lookupIosBatch, lookupAndroid, upsertPending,
   loadLatestChartRows, backfillNames, lookupMarketTitles, resolveMarketName, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool,
-  mergeSameTitle, englishName, nextCheckDate, lookupSteamEnglish, lookupAndroidEnglish, lookupEnglishNames, englishNameDue, fillEnglishNames, loadEnglishNameChecks, saveEnglishNameChecks
+  mergeSameTitle, englishName, nextCheckDate, lookupSteamEnglish, lookupAndroidEnglish, lookupEnglishNames, englishNameDue, fillEnglishNames, loadEnglishNameChecks, saveEnglishNameChecks,
+  loadBundleIds, saveBundleIds, fillBundleIds
 };
 
 if (require.main === module) {
