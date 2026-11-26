@@ -11,13 +11,14 @@ const LOCALES = ['ko', 'ja', 'zh-cn', 'zh-tw'];
 
 function routesJson() {
   const localeStatic = LOCALES.flatMap((p) => [
-    `/${p}`, `/${p}/`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/`, `/${p}/steam/most-played/*`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
+    `/${p}`, `/${p}/`, `/${p}/badge/*`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/`, `/${p}/steam/most-played/*`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
   ]);
   return {
     version: 1,
     include: ['/*'],
     exclude: [
       '/assets/*/*.*',
+      '/badge/*',
       '/games-data/*',
       '/images/*',
       '/styles/*',
@@ -38,6 +39,22 @@ function routesJson() {
   };
 }
 
+// Cloudflare Pages _headers rules for static rank badges (cacheable, non-indexed, hotlinkable across origins).
+function badgeHeaderLines() {
+  const paths = ['/badge/*', ...LOCALES.map((p) => `/${p}/badge/*`)];
+  return paths.flatMap((rule) => [
+    rule,
+    '  Cache-Control: public, max-age=1800, s-maxage=3600, stale-while-revalidate=3600',
+    '  X-Robots-Tag: noindex, nofollow',
+    '  Access-Control-Allow-Origin: *',
+    '  Cross-Origin-Resource-Policy: cross-origin',
+    '  Timing-Allow-Origin: *',
+    "  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'",
+    '  X-Content-Type-Options: nosniff',
+    '',
+  ]);
+}
+
 // Static redirects for localized market pages an edition does not build (plans = docs/games-data/_pages.json, prefixes = { code: '/ko' }).
 function redirectsText(plans, prefixes) {
   const rules = marketPlan.redirectRules(plans, prefixes);
@@ -45,5 +62,5 @@ function redirectsText(plans, prefixes) {
   return rules.length ? rules.join('\n') + '\n' : '';
 }
 
-module.exports = { routesJson, redirectsText };
+module.exports = { routesJson, badgeHeaderLines, redirectsText };
 

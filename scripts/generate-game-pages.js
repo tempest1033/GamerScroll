@@ -28,6 +28,7 @@ const { loadServiceExports, coverage } = require('../src/build/service-exports')
 const { splitRevenue, stringifyGameData } = require('../src/templates/components/revenue-payload');
 const { readAnalysisPages, analysisEntry } = require('../src/build/analysis-pages');
 const { gamePages } = require('../src/build/game-pages');
+const { renderGameBadge } = require('../src/templates/helpers/rank-badge');
 
 const ROOT = path.join(__dirname, '..');
 const docsDir = path.join(ROOT, 'docs');
@@ -208,6 +209,9 @@ const dataHash = crypto.createHash('md5');
 const searchIndex = [];
 const indexable = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
 const listed = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, []]));
+const badgeDirs = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, path.join(docsDir, e.prefix ? e.prefix.slice(1) : '', 'badge')]));
+const badgeSvgs = Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, new Map()]));
+for (const dir of Object.values(badgeDirs)) fs.mkdirSync(dir, { recursive: true });
 const steamHubSlugs = require('../src/templates/pages/steam-hub').steamHubGameSlugs();
 const lastmodBySlug = {};
 let rankedCount = 0, steamCount = 0, revenueCount = 0;
@@ -310,7 +314,10 @@ for (const g of S.games) {
 
   // Indexable per edition (indexableEditionCodes). The sitemap lists, of those, the market's recent revenue TOP 100 games and the games the /steam/ hub links.
   const editionsIndexable = indexableEditions(g);
-  for (const code of editionsIndexable) indexable[code].push(slug);
+  for (const code of editionsIndexable) {
+    indexable[code].push(slug);
+    badgeSvgs[code].set(slug, renderGameBadge(data, meta, code).svg);
+  }
   for (const e of i18n.EDITIONS) if (editionsIndexable.includes(e.code) && (chartsInMarket(rank, meta, e.country) || steamHubSlugs.has(slug))) listed[e.code].push(slug);
   // 사이트맵 <lastmod>: 이 게임 데이터의 최신 일자 (마지막 차트 등장일 · 오늘 시간대 순위 · 스팀 이력)
   const dataDates = [
@@ -340,6 +347,28 @@ for (const f of fs.readdirSync(dataDir)) if (f.endsWith('.json') && !f.startsWit
 // 바뀐 slug 의 옛 주소 → 새 주소 (functions/_lib/game-route.js 가 301 로 보낸다). 지금 다른 게임이 쓰는 slug 는 넣지 않는다.
 for (const old of Object.keys(redirects)) if (written.has(old) || !written.has(redirects[old])) delete redirects[old];
 fs.writeFileSync(path.join(dataDir, '_redirects.json'), JSON.stringify(redirects), 'utf8');
+
+// ---------- 정적 순위 배지 (docs/[<edition>/]badge/<slug>.svg, 구 슬러그 포함) ----------
+// _routes.json 에서 Functions 제외 → 배지 조회는 Workers Free 한도를 쓰지 않는다.
+let badgeActiveCount = 0, badgeRetiredCount = 0;
+for (const e of i18n.EDITIONS) {
+  const dir = badgeDirs[e.code];
+  const svgs = badgeSvgs[e.code];
+  const writtenBadges = new Set();
+  const writeBadge = (name, svg) => {
+    const file = path.join(dir, `${name}.svg`);
+    if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== svg) fs.writeFileSync(file, svg, 'utf8');
+    writtenBadges.add(name);
+  };
+  for (const [slug, svg] of svgs) { writeBadge(slug, svg); badgeActiveCount++; }
+  for (const [old, current] of Object.entries(redirects)) {
+    const svg = svgs.get(current);
+    if (!svg || writtenBadges.has(old)) continue;
+    writeBadge(old, svg);
+    badgeRetiredCount++;
+  }
+  for (const f of fs.readdirSync(dir)) if (f.endsWith('.svg') && !writtenBadges.has(f.slice(0, -4))) fs.unlinkSync(path.join(dir, f));
+}
 
 // ---------- 공용 메타 ----------
 let editions = {};
@@ -389,4 +418,5 @@ if (serviceExports) {
 console.log(`🧹 옛 정적 상세 디렉토리 ${removedDirs}개 제거`);
 console.log(`🔑 검색 인덱스 버전: ${searchIndexVersion}, 데이터 버전: ${version}`);
 console.log(`📍 게임 사이트맵: ${i18n.EDITIONS.map((e) => `${e.code} ${listed[e.code].length}/${indexable[e.code].length} (사이트맵/색인 허용)`).join(' · ')} → ${sitemapNames.length}개 파일`);
+console.log(`🏷️ 정적 배지: ${badgeActiveCount}개 (+ 구 슬러그 ${badgeRetiredCount}개) → docs/[<edition>/]badge/`);
 console.log(`📦 docs 파일 수: ${countFiles(docsDir)} (Cloudflare Pages Free 한도 20,000)`);

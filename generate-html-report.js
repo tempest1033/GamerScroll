@@ -1205,6 +1205,8 @@ Sitemap: https://gamerscroll.com/sitemap.xml
     headerLines.push('/assets/feed/*', '  Cache-Control: public, max-age=31536000, immutable', '');
     // 벤더 에셋은 경로에 버전이 박혀 있어 immutable 안전
     headerLines.push('/assets/apexcharts-*.min.js', '  Cache-Control: public, max-age=31536000, immutable', '');
+    // 정적 순위 배지 (docs/[<edition>/]badge/*.svg): 캐시 가능·비색인·외부 사이트 핫링크(CORS/CORP/CSP) 허용
+    headerLines.push(...require('./src/build/routing').badgeHeaderLines());
     fs.writeFileSync(`${DOCS_DIR}/_headers`, headerLines.join('\n') + '\n', 'utf8');
     console.log('🧾 _headers 생성 완료');
   } catch (err) {
