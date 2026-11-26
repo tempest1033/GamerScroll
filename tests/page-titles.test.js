@@ -83,8 +83,8 @@ test('English titles and H1s use the searched wording', () => inEdition('en', ()
   assert.equal(titleOf(p.country), branded('Top-Grossing Mobile Games in Korea Today: iOS & Google Play'));
   assert.equal(h1Of(p.country), 'Top-Grossing Mobile Games in Korea Today');
   assert.equal(titleOf(p.monthly), branded(`Top-Grossing Mobile Games of ${i18n.formatYearMonth(S.latestMonth)}: Monthly Ranking`));
-  assert.equal(titleOf(p.steam), branded('Steam Charts: Most-Played Games & Daily Concurrent Players'));
-  assert.equal(h1Of(p.steam), 'Most-Played Steam Games Today');
+  assert.equal(titleOf(p.steam), branded('Steam Charts: Live Player Counts, Top Sellers & Records'));
+  assert.equal(h1Of(p.steam), 'Steam Charts & Game Rankings');
   assert.equal(titleOf(p.genres), branded('Top-Grossing Mobile Games by Genre Today'));
   assert.equal(titleOf(p.genre), branded('Top-Grossing RPG Mobile Games Today'));
   assert.equal(h1Of(p.genre), 'Top-Grossing RPG Mobile Games Today');
