@@ -85,17 +85,19 @@ test('fillEnglishNames asks this run\'s new games first, within the limit', asyn
   assert.deepEqual(calls, ['steam 3240220']);
 });
 
-test('Steam: a name only from the app asked for; a failed lookup is asked once', async (t) => {
+test('Steam: a name only from the app asked for, on the US storefront; a failed lookup is asked once', async (t) => {
   const answers = {
     1449560: { 1449560: { success: true, data: { steam_appid: 412020, name: 'Metro Exodus' } } },
     202990: { 202990: { success: true, data: { steam_appid: 202970, name: 'Call of Duty: Black Ops II' } } },
     3240220: { 3240220: { success: true, data: { steam_appid: 3240220, name: 'Grand Theft Auto V Enhanced' } } },
   };
   let asked = 0;
-  t.mock.method(axios, 'get', async (url, { params }) => { asked++; if (params.appids === 'down') throw new Error('503'); return { data: answers[params.appids] }; });
+  const seenParams = [];
+  t.mock.method(axios, 'get', async (url, { params }) => { asked++; seenParams.push(params); if (params.appids === 'down') throw new Error('503'); return { data: answers[params.appids] }; });
   assert.equal(await lookupSteamEnglish(1449560), null);
   assert.equal(await lookupSteamEnglish(202990), null);
   assert.equal(await lookupSteamEnglish(3240220), 'Grand Theft Auto V Enhanced');
+  assert.ok(seenParams.every((p) => p.l === 'english' && p.cc === 'us'), 'Steam asks the US storefront in English');
   asked = 0;
   assert.equal(await lookupSteamEnglish('down'), undefined);
   assert.equal(asked, 1);

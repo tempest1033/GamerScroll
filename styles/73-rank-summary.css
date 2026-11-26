@@ -44,7 +44,12 @@
 .rk .rk-rel-tx .d { font-size: 12.5px; color: var(--rk-muted); }
 .rk .rk-rel-rank { flex: none; font-size: 13px; color: var(--rk-muted); white-space: nowrap; }
 .rk .rk-rel-item:hover .t { text-decoration: underline; }
+.page-game #game .game-regional .game-regional-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+.page-game #game .game-regional .game-regional-list li { min-width: 0; }
+.page-game #game .game-regional .game-regional-list a { display: block; padding: 10px 0; color: var(--text, #111113); text-decoration: none; font-size: 14.5px; font-weight: 600; letter-spacing: -.015em; line-height: 1.35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.page-game #game .game-regional .game-regional-list a:hover { text-decoration: underline; }
 @media (max-width: 760px) {
   .rk.rk-related { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .rk .rk-rel-list.rk-rel-cols { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-flow: row; }
+  .page-game #game .game-regional .game-regional-list { grid-template-columns: minmax(0, 1fr); }
 }

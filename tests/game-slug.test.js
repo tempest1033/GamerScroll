@@ -68,6 +68,7 @@ test('each edition shows the name in its own script when the game has one', () =
     // and, on zh-tw, before a Latin Taiwan store name; a Simplified one, without its Latin gloss, where none is Traditional
     assert.equal(nameIn('zh-tw', '클래시 로얄'), '部落衝突:皇室戰爭');
     assert.equal(nameIn('zh-tw', 'Mahjong Soul'), '雀魂麻将');
+    assert.equal(nameIn('zh-tw', 'Mahjong Scapes®'), 'Mahjong Scapes®', 'a Japanese kanji-only names.ja never counts as Chinese on zh-tw');
     assert.match(nameIn('zh-cn', 'Call of Duty®: Mobile - Garena'), /^决胜时刻/);
     assert.equal(nameIn('zh-cn', '三國志・戰略版'), '三国志・战略版', 'the ・ of a Chinese title is not kana');
     assert.equal(nameIn('zh-tw', '三國志・戰略版'), '三國志・戰略版');
@@ -104,17 +105,34 @@ test('a game known only by a native-script name has no Latin slug', () => {
   assert.equal(latinSlug('三国杀', { names: { en: '三国杀' } }), '');
 });
 
-test('migration renames only non-ASCII slugs of games with a Latin name and keeps the old slug', () => {
+test('migration renames non-ASCII and game-* hash slugs with a Latin name and lets a record reclaim its own legacySlugs', () => {
   const data = { games: {
     'MONOPOLY GO! (모노폴리 GO!)': { slug: 'monopoly-go-모노폴리-go', names: { en: 'MONOPOLY GO!' } },
     '나이트 크로우': { slug: '나이트-크로우', developer: 'Wemade Co., Ltd', aliases: ['Night Crows'] },
     'Night Crows': { slug: 'night-crows' },
     '운빨존많겜': { slug: '운빨존많겜' },
     Roblox: { slug: 'roblox' },
+    'レーシングマスター': { slug: 'レーシングマスター', developer: 'NETEASE', names: { en: 'Racing Master' }, legacySlugs: ['racing-master'] },
+    'RO仙境傳說: 新世代的誕生': { slug: 'ro仙境傳說-新世代的誕生', developer: 'Nuverse (Hong Kong) Limited', names: { en: 'Ragnarok X: Next Generation' }, legacySlugs: ['ragnarok-x-next-generation-nuverse'] },
+    'Ragnarok X: Next Generation': { slug: 'ragnarok-x-next-generation' },
+    '麻辣湯ものがたり（マーラータン）': { slug: 'game-nezjts', names: { en: 'HotPot Story: Malatang Shop' } },
+    '森のかき氷屋さん　甘雪': { slug: 'game-woe3oi', names: { ja: '脱出ゲーム　森のかき氷屋さん　甘雪' } },
+    'Game Center': { slug: 'game-center', names: { en: 'Game Center' } },
   } };
   const renamed = migrate(data);
-  assert.deepEqual(renamed.map((r) => [r.from, r.to]), [['monopoly-go-모노폴리-go', 'monopoly-go'], ['나이트-크로우', 'night-crows-wemade-co']]);
+  assert.deepEqual(renamed.map((r) => [r.from, r.to]), [
+    ['monopoly-go-모노폴리-go', 'monopoly-go'],
+    ['나이트-크로우', 'night-crows-wemade-co'],
+    ['レーシングマスター', 'racing-master'],
+    ['ro仙境傳說-新世代的誕生', 'ragnarok-x-next-generation-nuverse'],
+    ['game-nezjts', 'hotpot-story-malatang-shop'],
+  ]);
   assert.deepEqual(data.games['MONOPOLY GO! (모노폴리 GO!)'], { slug: 'monopoly-go', names: { en: 'MONOPOLY GO!' }, legacySlugs: ['monopoly-go-모노폴리-go'] });
+  assert.deepEqual(data.games['レーシングマスター'].legacySlugs, ['レーシングマスター']);
+  assert.deepEqual(data.games['RO仙境傳說: 新世代的誕生'].legacySlugs, ['ro仙境傳說-新世代的誕生']);
+  assert.deepEqual(data.games['麻辣湯ものがたり（マーラータン）'].legacySlugs, ['game-nezjts']);
+  assert.equal(data.games['森のかき氷屋さん　甘雪'].slug, 'game-woe3oi');
+  assert.equal(data.games['Game Center'].slug, 'game-center');
   assert.equal(data.games['운빨존많겜'].slug, '운빨존많겜');
   assert.deepEqual(migrate(data), [], 'a second run changes nothing');
   assert.equal(uniqueOf('a', '', new Set(['a', 'a-2'])), 'a-3');

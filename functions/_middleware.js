@@ -190,15 +190,18 @@ async function steamRedirect(context, url, path, country) {
   if (!app || !context.env || !context.env.ASSETS) return null;
   const pages = await loadSteamPages(context.env, url);
   if (!pages) return new Response("Game data unavailable", { status: 503, headers: { "Cache-Control": "no-store", "Retry-After": "60" } });
-  const slug = Object.prototype.hasOwnProperty.call(pages, app) ? pages[app] : null;
-  return slug ? gamePageRedirect(context, url, prefix, slug, country) : null;
+  const entry = Object.prototype.hasOwnProperty.call(pages, app) ? pages[app] : null;
+  if (!entry) return null;
+  const choice = prefix ? null : gsEditionChoice(context.request, url, country);
+  const edition = prefix || (choice && choice.locale) || "en";
+  const slug = typeof entry === "string" ? entry : (Object.prototype.hasOwnProperty.call(entry, edition) ? entry[edition] : entry._);
+  return slug ? gamePageRedirect(context, url, prefix, slug, country, choice) : null;
 }
 
 // Redirect to /games/<slug>/ on the bare host, in the URL's edition (prefix) or, for an unprefixed URL, the visitor's.
 // 302 when the visitor's edition is part of it (per visitor, never cached; 301 for a regional search engine), otherwise 301.
-function gamePageRedirect(context, url, prefix, slug, country) {
+function gamePageRedirect(context, url, prefix, slug, country, choice = prefix ? null : gsEditionChoice(context.request, url, country)) {
   const page = `/games/${encodeURIComponent(slug)}/${url.search}`;
-  const choice = prefix ? null : gsEditionChoice(context.request, url, country);
   const local = Boolean(choice && choice.locale !== "en");
   const headers = new Headers({ Location: `https://gamerscroll.com${local ? "/" + choice.locale : prefix ? "/" + prefix : ""}${page}` });
   if (local) headers.set("Cache-Control", "private, no-store");

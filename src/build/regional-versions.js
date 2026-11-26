@@ -13,6 +13,7 @@ const COUNTRIES = ['kr', 'jp', 'us', 'cn', 'tw'];
 const STORES = ['ios', 'android'];
 
 const norm = (s) => String(s || '').normalize('NFKC').toLowerCase().replace(/\s+/g, ' ').trim();
+const normDev = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
 const chartDays = (s, country, store) => { const e = s && s[country] && s[country][store]; return e ? e.v.filter((r) => r != null).length : 0; };
 
 // A record's market: the one country of its revenue-chart history, or global when that history spans several countries;
@@ -46,23 +47,24 @@ const historyOf = (p) => COUNTRIES.reduce((n, country) => n + STORES.reduce((m, 
 function qualify(group) {
   const q = group.map((p) => ({ m: marketOf(p.s) }));
   const store = group.map((p) => onlyStore(p.appIds));
+  const keyOf = (x) => JSON.stringify({ m: x.m, st: x.st || '', d: x.d ? normDev(x.d) : '' });
   const same = (list) => {
     const by = new Map();
-    for (const i of list) by.set(JSON.stringify(q[i]), [...(by.get(JSON.stringify(q[i])) || []), i]);
+    for (const i of list) by.set(keyOf(q[i]), [...(by.get(keyOf(q[i])) || []), i]);
     return [...by.values()].filter((l) => l.length > 1);
   };
   const twins = [];
   for (const open = same(group.map((p, i) => i)); open.length;) {
     const list = open.pop();
     if (!q[list[0]].st && list.every((i) => store[i]) && new Set(list.map((i) => store[i])).size > 1) for (const i of list) q[i].st = store[i];
-    else if (!q[list[0]].d && new Set(list.map((i) => group[i].developer || '')).size > 1) for (const i of list) { if (group[i].developer) q[i].d = group[i].developer; }
+    else if (!q[list[0]].d && new Set(list.map((i) => normDev(group[i].developer))).size > 1) for (const i of list) { if (group[i].developer) q[i].d = group[i].developer; }
     else { twins.push(list); continue; }
     open.push(...same(list));
   }
   // A title too long for the full developer takes it without its company form, where that still tells the page apart.
   group.forEach((p, i) => {
     const ds = q[i].d && shortDeveloper(q[i].d);
-    if (ds && ds !== q[i].d && group.every((o, j) => j === i || q[j].m !== q[i].m || q[j].st !== q[i].st || shortDeveloper(o.developer || '') !== ds)) q[i].ds = ds;
+    if (ds && ds !== q[i].d && group.every((o, j) => j === i || q[j].m !== q[i].m || q[j].st !== q[i].st || normDev(shortDeveloper(o.developer || '')) !== normDev(ds))) q[i].ds = ds;
   });
   return { q, twins };
 }

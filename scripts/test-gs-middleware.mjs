@@ -71,7 +71,10 @@ await t("every article of the historical inventory redirects; URLs that never ex
 
 // Game URLs: host, edition and retired slug settle in one redirect (through the whole middleware, with the redirect map as an asset).
 const OLD = "/games/monopoly-go-%EB%AA%A8%EB%85%B8%ED%8F%B4%EB%A6%AC-go/";
-const ASSET_FILES = { "/games-data/_redirects.json": { "monopoly-go-모노폴리-go": "monopoly-go" }, "/games-data/_steam.json": { 730: "counter-strike-2", 1973710: "헤븐-번즈-레드" } };
+const ASSET_FILES = {
+  "/games-data/_redirects.json": { "monopoly-go-모노폴리-go": "monopoly-go" },
+  "/games-data/_steam.json": { 730: "counter-strike-2", 1973710: "헤븐-번즈-레드", 271590: { _: "grand-theft-auto-v-legacy", ko: "grand-theft-auto-v-enhanced" } },
+};
 const ASSETS = { fetch: async (req) => { const file = ASSET_FILES[new URL(req.url).pathname]; return file ? new Response(JSON.stringify(file)) : new Response("nope", { status: 404 }); } };
 async function hop(url, { country, ua, cookie } = {}) {
   const u = new URL(url);
@@ -115,6 +118,13 @@ await t("Steam page under an edition prefix and on www: one 301 within that edit
       assert.deepEqual(await hop(G + p, { country: "US" }), [301, `https://gamerscroll.com${prefix}/games/counter-strike-2/`, null], p);
     }
   }
+});
+await t("Steam page whose own page is a noindex twin on ko redirects ko to the edition's winner", async () => {
+  assert.deepEqual(await hop(G + "/ko/steam/271590/", { ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/ko/games/grand-theft-auto-v-enhanced/", null]);
+  assert.deepEqual(await hop(G + "/steam/271590/", { country: "KR" }), [302, "https://gamerscroll.com/ko/games/grand-theft-auto-v-enhanced/", "private, no-store"]);
+  assert.deepEqual(await hop(G + "/steam/271590/", { ua: "Mozilla/5.0 (compatible; Yeti/1.1; +https://naver.me/spd)" }), [301, "https://gamerscroll.com/ko/games/grand-theft-auto-v-enhanced/", "private, no-store"]);
+  assert.deepEqual(await hop(G + "/steam/271590/", { country: "KR", ua: "Googlebot/2.1" }), [301, "https://gamerscroll.com/games/grand-theft-auto-v-legacy/", null]);
+  assert.deepEqual(await hop(G + "/ja/steam/271590/", { country: "KR" }), [301, "https://gamerscroll.com/ja/games/grand-theft-auto-v-legacy/", null]);
 });
 await t("Steam pages without a game page and the Steam hub are untouched", async () => {
   assert.deepEqual(await hop(G + "/steam/999/", { country: "US" }), [200, null, null]);

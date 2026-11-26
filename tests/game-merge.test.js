@@ -79,18 +79,59 @@ test('sync merges records with one title, one developer and compatible store IDs
   assert.deepEqual(mergeSameTitle(fixture(), S, {}).map((m) => m.kept), ['arknights', 'z-route-redemption', 'puzzle-quest'], 'without bundle IDs those apps stay apart');
 });
 
-test('the daily sync looks up the bundle IDs of App Store apps that have none, each on its storefront, once', async () => {
+test('merging a non-ASCII record with an ASCII one keeps the ASCII slug directly', () => {
+  const data = { games: {
+    'レーシングマスター': { appIds: { ios_jp: '6474962684' }, aliases: [], developer: 'NETEASE', slug: 'レーシングマスター', platforms: ['ios'], names: { ja: 'レーシングマスター' } },
+    'Racing Master': { appIds: { android: 'com.netease.dfjsjp' }, aliases: [], developer: 'Exptional', slug: 'racing-master', platforms: ['android'], names: { en: 'Racing Master' } },
+    'RO仙境傳說: 新世代的誕生': { appIds: { ios_tw: '1545808948' }, aliases: [], developer: 'Nuverse (Hong Kong) Limited', slug: 'ro仙境傳說-新世代的誕生', platforms: ['ios'], names: { 'zh-tw': 'RO仙境傳說: 新世代的誕生' } },
+    'RO仙境傳說：新世代的誕生': { appIds: { android_tw: 'com.play.rosea' }, aliases: [], developer: 'Nuverse', slug: 'ragnarok-x-next-generation-nuverse', platforms: ['android'], names: { en: 'Ragnarok X: Next Generation' }, legacySlugs: ['ro仙境傳說新世代的誕生'] },
+  } };
+  const days = { 6474962684: 100, 'com.netease.dfjsjp': 10, 1545808948: 100, 'com.play.rosea': 10 };
+  const merged = mergeSameTitle(data, { daysOnChart: (c, s, id) => days[id] || 0 }, { 6474962684: 'com.netease.dfjsjp', 1545808948: 'com.play.rosea' });
+  assert.deepEqual(merged, [
+    { kept: 'racing-master', merged: ['レーシングマスター'] },
+    { kept: 'ragnarok-x-next-generation-nuverse', merged: ['ro仙境傳說-新世代的誕生'] },
+  ]);
+  assert.equal(data.games['レーシングマスター'].slug, 'racing-master');
+  assert.deepEqual(data.games['レーシングマスター'].legacySlugs, ['レーシングマスター']);
+  assert.equal(data.games['RO仙境傳說: 新世代的誕生'].slug, 'ragnarok-x-next-generation-nuverse');
+  assert.deepEqual(data.games['RO仙境傳說: 新世代的誕生'].legacySlugs, ['ro仙境傳說新世代的誕生', 'ro仙境傳說-新世代的誕生']);
+});
+
+test('the daily sync looks up missing bundle IDs once, records delisted apps with a 30-day recheck date, and leaves failed lookups undated', async () => {
   const { fillBundleIds } = require('../scripts/sync-and-enrich');
-  const games = { A: { appIds: { ios_tw: '808027845', android: 'jp.gungho.padHT' } }, B: { appIds: { ios: '6738694162' } }, C: { appIds: { ios_us: '9' } }, D: { appIds: { ios_jp: '493470467' } } };
+  const games = {
+    A: { appIds: { ios_tw: '808027845', android: 'jp.gungho.padHT' } },
+    B: { appIds: { ios: '6738694162' } },
+    C: { appIds: { ios_us: '9' } },
+    D: { appIds: { ios_jp: '493470467' } },
+    E: { appIds: { ios_kr: '55' } },
+  };
   const asked = [];
   const lookup = async (ids, cc, failed, attempts) => {
     asked.push(`${cc} ${ids.join(',')} ${attempts}`);
-    return new Map(ids.filter((id) => id !== '9').map((id) => [id, { bundleId: `bundle.${id}` }]));
+    if (ids.includes('55') && failed) failed.add(`ios|${cc}|55`);
+    return new Map(ids.filter((id) => !['9', '55'].includes(id)).map((id) => [id, { bundleId: `bundle.${id}` }]));
   };
   const bundles = { 493470467: 'jp.gungho.pad' };
-  assert.equal(await fillBundleIds(games, bundles, lookup), 2);
-  assert.deepEqual(asked, ['tw 808027845 1', 'kr 6738694162 1', 'us 9 1']);
-  assert.deepEqual(bundles, { 493470467: 'jp.gungho.pad', 808027845: 'bundle.808027845', 6738694162: 'bundle.6738694162' }, 'an app the storefront does not list is asked again next run');
+  assert.equal(await fillBundleIds(games, bundles, '2026-11-26', lookup), 2);
+  assert.deepEqual(asked, ['tw 808027845 1', 'kr 6738694162,55 1', 'us 9 1']);
+  assert.equal(bundles['808027845'], 'bundle.808027845');
+  assert.equal(bundles['6738694162'], 'bundle.6738694162');
+  assert.match(bundles['9'], /^\d{4}-\d{2}-\d{2}$/, 'delisted app gets a recheck date');
+  assert.ok(bundles['9'] > '2026-11-26' && bundles['9'] <= '2026-12-26', 'recheck date is within 30 days');
+  assert.equal(bundles['55'], undefined, 'a failed lookup is left undated for the next run');
+  // Next day: delisted app 9 is not asked again, failed app 55 is asked again
+  asked.length = 0;
+  await fillBundleIds(games, bundles, '2026-11-27', lookup);
+  assert.deepEqual(asked, ['kr 55 1']);
+  // On its due date, app 9 is asked again
+  asked.length = 0;
+  await fillBundleIds(games, bundles, bundles['9'], lookup);
+  assert.ok(asked.includes('us 9 1'));
+  // Recheck dates in bundles are never treated as bundle IDs by mergeSameTitle
+  const dup = { games: { X: { appIds: { ios: '9' }, developer: 'D1', slug: 'x' }, Y: { appIds: { android: bundles['9'] }, developer: 'D2', slug: 'y' } } };
+  assert.deepEqual(mergeSameTitle(dup, S, bundles), []);
 });
 
 test('the committed game DB: mixed-up apps sit with their own game', () => {
@@ -110,6 +151,10 @@ test('the committed game DB: mixed-up apps sit with their own game', () => {
   const [jelly] = withApp('ios', '6738694162');
   assert.deepEqual([jelly.developer, jelly.appIds.android], ['FALCON GAME', 'com.fc.p.cp.jelly.mukbang.asmr.live.diy'], 'Jelly Master\'s App Store app, the same bundle ID, on the FALCON GAME record');
   assert.deepEqual(withApp('android', 'com.awesome.puzzlehexasort').map((g) => g.appIds.ios), [6590876141], 'Color Slide\'s apps on one record');
+  const [baseball] = withApp('android', 'tw.com.joybomb.pi2017');
+  assert.deepEqual([baseball.slug, baseball.appIds.ios_tw], ['棒球殿堂live-netmarble-joybomb-inc', '1212704444'], '棒球殿堂Live pairs tw.com.joybomb.pi2017 with iOS 1212704444');
+  const [quiz] = withApp('ios', '1244019527');
+  assert.deepEqual([quiz.slug, quiz.appIds.android], ['知識王live', 'com.braveknight.quiz02'], '知識王LIVE pairs com.braveknight.quiz02 with iOS 1244019527');
 });
 
 test('the committed game DB: developers that differ as strings stay apart; one store app is one record under the clean slug', () => {

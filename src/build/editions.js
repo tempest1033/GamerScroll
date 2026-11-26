@@ -134,12 +134,12 @@ function buildEditions(ctx) {
   // link name only these, so crawlers are not sent to thousands of noindex pages. The other game pages stay reachable through the hub search.
   // Steam: apps with a record page (pageApps) whose game record names them are shown on that game's page (steamPageSlugs).
   const steamPages = steamStats && rankStats ? require('./game-data').steamPageSlugs(rankStats.games, new Set(steamStats.pageApps(14))) : new Map();
-  const indexableSlugs = rankStats ? (() => {
+  const allGamePages = rankStats ? (() => {
     const { loadLatestSteam, steamLists } = require('./game-data');
     const lists = steamLists(loadLatestSteam(path.join(__dirname, '..', '..', 'history')));
-    const pages = require('./game-pages').gamePages(rankStats, { lists, pages: steamPages, stats: steamStats });
-    return Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, new Set(pages.filter((p) => p.editions.includes(e.code)).map((p) => p.slug))]));
+    return require('./game-pages').gamePages(rankStats, { lists, pages: steamPages, stats: steamStats });
   })() : null;
+  const indexableSlugs = allGamePages ? Object.fromEntries(i18n.EDITIONS.map((e) => [e.code, new Set(allGamePages.filter((p) => p.editions.includes(e.code)).map((p) => p.slug))])) : null;
   const steamDate = steamStats ? lastDate(steamStats.days) : null;
   const homeDate = [rankDate, steamDate].filter(Boolean).sort().pop() || null;
 
@@ -301,10 +301,11 @@ function buildEditions(ctx) {
     ensureDir(path.dirname(pagesFile));
     fs.writeFileSync(pagesFile, JSON.stringify(Object.fromEntries(Object.entries(plans).map(([code, plan]) => [code, marketPlan.serialize(plan)]))), 'utf8');
   }
-  // Steam app ID → game slug whose page carries the app's record: /steam/<id>/ 301s there in every edition (functions/_middleware.js).
+  // Steam app ID → game slug whose page carries the app's record (per-edition override where an edition marks it a noindex twin).
   const steamFile = path.join(docsDir, 'games-data', '_steam.json');
   ensureDir(path.dirname(steamFile));
-  fs.writeFileSync(steamFile, JSON.stringify(Object.fromEntries(steamPages)), 'utf8');
+  const steamMap = allGamePages ? require('./game-pages').steamPageTargets(steamPages, allGamePages) : Object.fromEntries(steamPages);
+  fs.writeFileSync(steamFile, JSON.stringify(steamMap), 'utf8');
   const editionsFile = path.join(docsDir, 'games-data', '_editions.json');
   ensureDir(path.dirname(editionsFile));
   fs.writeFileSync(editionsFile, JSON.stringify(Object.fromEntries(results.map((r) => [r.code, { runtime: r.assets.version, search: r.searchVersion }]))), 'utf8');

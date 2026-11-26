@@ -1,5 +1,5 @@
 'use strict';
-const { t, formatDay, formatYearMonth } = require('../../i18n');
+const { t, formatDay, formatYearMonth, currentEdition, editionHasPage } = require('../../i18n');
 /**
  * 스팀 허브 · 스팀 게임 상세 (정적 HTML)
  *   /steam/            동접자 TOP 100 · 한국 스토어 판매 TOP 100 · 월간 평균 동접 · 역대 최고 동접
@@ -15,29 +15,35 @@ const siteBaseUrl = 'https://gamerscroll.com';
 const pctChg = (p) => (p == null ? '<span class="rk-chg new">NEW</span>' : `<span class="rk-chg ${p >= 0 ? 'up' : 'down'}">${p >= 0 ? '▲' : '▼'}${Math.abs(p).toFixed(0)}%</span>`);
 const rankChg = (cur, prev) => (prev == null ? '<span class="rk-chg new">NEW</span>' : cur < prev ? `<span class="rk-chg up">▲${prev - cur}</span>` : cur > prev ? `<span class="rk-chg down">▼${cur - prev}</span>` : '<span class="rk-chg same">=</span>');
 
-// Apps with a record page (pageApps): merged = app ID → game slug (the game page shows the record), built = /steam/<id>/ pages.
-let targets = null;
+// Apps with a record page (pageApps): merged = app ID → game slug, targets = per-edition target slug (regional winner
+// when an edition marks the app's own page noindex), built = /steam/<id>/ pages.
 function steamTargets() {
-  if (!targets) {
-    const pages = new Set(loadSteamStats().pageApps(14));
-    const merged = require('../../build/game-data').steamPageSlugs(require('../../rank/stats').loadRankStats().games, pages);
-    targets = { merged, built: [...pages].filter((id) => !merged.has(id)) };
-  }
-  return targets;
+  return require('../../build/game-pages').cachedSteamTargets(require('../../rank/stats').loadRankStats(), loadSteamStats());
 }
-// The app's record page, or null when it has none (the row is plain text). Game pages with a Steam record are indexable in every edition.
+// The app's indexable record page in the current edition, or null when it has none (the row is plain text).
 const steamHref = (id) => {
-  const { merged, built } = steamTargets();
+  const { targets: byApp, built } = steamTargets();
   const key = String(id);
-  return merged.has(key) ? `/games/${encodeURIComponent(merged.get(key))}/` : built.includes(key) ? `/steam/${key}/` : null;
+  if (Object.prototype.hasOwnProperty.call(byApp, key)) {
+    const code = currentEdition().code;
+    const slug = require('../../build/game-pages').steamSlugFor(byApp[key], code);
+    if (!slug) return null;
+    const href = `/games/${encodeURIComponent(slug)}/`;
+    return editionHasPage(code, href) ? href : null;
+  }
+  return built.includes(key) ? `/steam/${key}/` : null;
 };
 const monthlyRows = (ST) => ST.monthlyTop(ST.latestMonth, 10);
 const peakRows = (ST) => ST.allTimePeaks(10);
 // Game pages the hub links (its two charts and two record tables): every edition's game sitemap lists them.
 function steamHubGameSlugs() {
   const ST = loadSteamStats();
+  const { targets: byApp } = steamTargets();
   const ids = [...ST.today.mp, ...ST.today.sellers, ...monthlyRows(ST), ...peakRows(ST)].map((r) => String(r.appid));
-  return new Set(ids.map((id) => steamTargets().merged.get(id)).filter(Boolean));
+  return new Set(ids.flatMap((id) => {
+    const e = byApp[id];
+    return !e ? [] : typeof e === 'string' ? [e] : Object.values(e).filter(Boolean);
+  }));
 }
 const nameLink = (href, name) => (href ? `<a data-name href="${href}">${esc(name)}</a>` : `<span data-name>${esc(name)}</span>`);
 

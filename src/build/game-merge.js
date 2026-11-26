@@ -11,6 +11,10 @@
  * Run by the daily sync (scripts/sync-and-enrich.js) on every save; merging an already merged DB changes nothing.
  */
 const { idFor, createSlug } = require('./game-data');
+const { asciiSlug } = require('./game-slug');
+
+const NON_ASCII = /[^\u0000-\u007F]/;
+const isHashSlug = (key, g) => Boolean(g.slug && /^game-[a-z0-9]+$/.test(g.slug) && [key, ...(g.aliases || [])].some((k) => g.slug === createSlug(k) && asciiSlug(k) !== g.slug));
 
 const CODES = ['en', 'ja', 'zh-cn', 'ko', 'zh-tw'];
 const COUNTRIES = ['kr', 'jp', 'us', 'cn', 'tw'];
@@ -104,16 +108,27 @@ function mergeInto(kept, keptKey, other, otherKey) {
   kept.legacySlugs = [...new Set([...(kept.legacySlugs || []), slugOf(otherKey, other), ...(other.legacySlugs || [])])].filter((s) => s && s !== keptSlug);
 }
 
-// The group's clean slug: the one every other slug of the group equals or extends ("<clean>-…"), if there is one.
-const cleanSlug = (slugs) => slugs.find((c) => slugs.every((s) => s === c || s.startsWith(`${c}-`)));
+// The group's clean slug: the one every other slug of the group equals or extends ("<clean>-…"), else when the kept record
+// has a non-ASCII or hash slug, the cleanest explicit ASCII slug of the merged records.
+function cleanSlug(entries) {
+  const slugs = entries.map(([k, g]) => slugOf(k, g));
+  const prefix = slugs.find((c) => slugs.every((s) => s === c || s.startsWith(`${c}-`)));
+  if (prefix) return prefix;
+  const [keptKey, kept] = entries[0];
+  if (!NON_ASCII.test(slugs[0]) && !isHashSlug(keptKey, kept)) return undefined;
+  const ascii = entries.filter(([k, g]) => g.slug && !NON_ASCII.test(g.slug) && !isHashSlug(k, g)).map(([, g]) => g.slug);
+  if (!ascii.length) return undefined;
+  return ascii.find((c) => ascii.every((s) => s === c || s.startsWith(`${c}-`))) || ascii.sort((a, b) => a.length - b.length || a.localeCompare(b))[0];
+}
 
 // Mutates gamesData.games; returns [{ kept, merged: [slug, ...] }] (kept: the merged record's slug).
 function merge(gamesData, chartDays, bundleOf) {
   const games = gamesData.games;
   const out = [];
   for (const [keptKey, ...rest] of duplicateGroups(games, chartDays, bundleOf)) {
-    const slugs = [keptKey, ...rest].map((k) => slugOf(k, games[k]));
-    const clean = cleanSlug(slugs);
+    const entries = [keptKey, ...rest].map((k) => [k, games[k]]);
+    const slugs = entries.map(([k, g]) => slugOf(k, g));
+    const clean = cleanSlug(entries);
     const kept = games[keptKey];
     for (const key of rest) { mergeInto(kept, keptKey, games[key], key); delete games[key]; }
     if (clean && clean !== kept.slug) {

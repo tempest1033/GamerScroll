@@ -27,8 +27,8 @@ async function main() {
     limit = PASS_SIZE;
     await new Promise((r) => setTimeout(r, PASS_WAIT_MS));
   }
-  for (const r of reslugLatinNamed(gamesData)) console.log(`  슬러그 변경: ${r.from} → ${r.to}`);
   for (const m of S.mergeSameTitle(gamesData)) console.log(`  중복 통합: ${m.kept} ← ${m.merged.join(', ')}`);
+  for (const r of reslugLatinNamed(gamesData)) console.log(`  슬러그 변경: ${r.from} → ${r.to}`);
   gamesData.totalGames = Object.keys(gamesData.games).length;
   S.saveGames(gamesData);
   S.saveEnglishNameChecks(checks);

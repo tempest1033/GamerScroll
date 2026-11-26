@@ -63,12 +63,26 @@ test('the store tells pages apart only when each has apps on one store and those
   assert.deepEqual(gf2['girls-frontline-2'].en.q, { m: 'global', d: 'HaoPlay Limited', ds: 'HaoPlay' }, 'a page on both stores is never labelled with one');
   assert.deepEqual(gf2['girls-frontline-2-exilium'].en.q, { m: 'global', d: 'Darkwinter Software Co., Ltd.', ds: 'Darkwinter Software' });
   // one page on both stores, one on the App Store only: the App Store tells neither from the other
-  const quiz = regionalVersions([
-    page('知識王live', charted('tw', 'android', 60), 'Netmarble Joybomb Inc.', { name: '棒球殿堂Live', editions: ['zh-tw'] }),
-    page('棒球殿堂live-netmarble-joybomb-inc', charted('tw', 'ios', 60), 'NETMARBLE JOYBOMB INC', { name: '棒球殿堂Live', editions: ['zh-tw'], appIds: { ios_tw: '2' } }),
+  const mixedStores = regionalVersions([
+    page('a-both', charted('tw', 'android', 60), 'Studio Alpha Inc.', { name: 'Twin Store Game', editions: ['zh-tw'] }),
+    page('a-ios', charted('tw', 'ios', 60), 'Studio Beta Ltd.', { name: 'Twin Store Game', editions: ['zh-tw'], appIds: { ios_tw: '2' } }),
   ], ['zh-tw']);
-  assert.deepEqual([quiz['知識王live']['zh-tw'].q, quiz['棒球殿堂live-netmarble-joybomb-inc']['zh-tw'].q], [
-    { m: 'tw', d: 'Netmarble Joybomb Inc.', ds: 'Netmarble Joybomb' }, { m: 'tw', d: 'NETMARBLE JOYBOMB INC', ds: 'NETMARBLE JOYBOMB' }]);
+  assert.deepEqual([mixedStores['a-both']['zh-tw'].q, mixedStores['a-ios']['zh-tw'].q], [
+    { m: 'tw', d: 'Studio Alpha Inc.', ds: 'Studio Alpha' }, { m: 'tw', d: 'Studio Beta Ltd.', ds: 'Studio Beta' }]);
+  // developers differing only in case and punctuation count as identical: the longer history is indexed, the other is noindex
+  const devCase = regionalVersions([
+    page('dev-case-a', charted('tw', 'android', 80), 'Netmarble Joybomb Inc.', { name: 'Case Dev Game', editions: ['zh-tw'] }),
+    page('dev-case-b', charted('tw', 'ios', 60), 'NETMARBLE JOYBOMB INC', { name: 'Case Dev Game', editions: ['zh-tw'], appIds: { ios_tw: '2' } }),
+  ], ['zh-tw']);
+  assert.deepEqual(devCase, { 'dev-case-b': { 'zh-tw': { x: 'dev-case-a' } } });
+  const devCaseThree = regionalVersions([
+    page('dc-1', charted('tw', 'android', 80), 'Future TV Co., Ltd.', { name: 'Three Dev', editions: ['en'] }),
+    page('dc-2', charted('tw', 'ios', 40), 'FUTURE TV CO.,LTD', { name: 'Three Dev', editions: ['en'] }),
+    page('dc-3', charted('tw', 'android', 50), 'Other Studio', { name: 'Three Dev', editions: ['en'] }),
+  ], ['en']);
+  assert.deepEqual(devCaseThree['dc-2'].en, { x: 'dc-1' });
+  assert.deepEqual(devCaseThree['dc-1'].en.q, { m: 'tw', d: 'Future TV Co., Ltd.', ds: 'Future TV' });
+  assert.deepEqual(devCaseThree['dc-3'].en.q, { m: 'tw', d: 'Other Studio' });
   // the developer first, then the store between the two one-store pages of one developer
   const mixed = regionalVersions([
     page('x', global, 'Dev X', { name: 'Same' }),

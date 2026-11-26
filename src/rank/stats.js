@@ -131,17 +131,18 @@ function loadRankStats(options = {}) {
     const edition = currentEdition();
     const code = edition.code;
     const names = g.names || {};
-    const nativeAlias = (g.aliases || []).find((a) => (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !(code === 'zh-cn' ? KANA_LETTER : KANA).test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsEdition(a, code));
+    const notJa = (n) => !(code === 'zh-tw' && names.ja && n === names.ja && n !== names['zh-tw'] && n !== names['zh-cn'] && n !== names.ko);
+    const nativeAlias = (g.aliases || []).find((a) => notJa(a) && (code === 'ja' ? KANA.test(a) : code.startsWith('zh') ? /[\u3400-\u9FFF]/.test(a) && !(code === 'zh-cn' ? KANA_LETTER : KANA).test(a) && !HANGUL.test(a) : code === 'ko' && HANGUL.test(a)) && fitsEdition(a, code));
     const latin = (x) => x && !CJK.test(x);
     const developerSuffix = g.developer ? ` (${g.developer})` : null;
     const key = developerSuffix && g.key.endsWith(developerSuffix) ? g.key.slice(0, -developerSuffix.length) : g.key;
     // The Chinese editions read a Chinese name in either script before an English one (zh-cn shows it converted). zh-tw reads
     // one before a Latin store name too, and a Simplified one (without a Latin gloss) where it has no Traditional one.
-    const chineseNames = code.startsWith('zh') ? [names['zh-tw'], names['zh-cn'], ...(g.aliases || []), key].filter((n) => n && HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n)) : [];
+    const chineseNames = code.startsWith('zh') ? [names['zh-tw'], names['zh-cn'], ...(g.aliases || []), key].filter((n) => n && notJa(n) && HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n)) : [];
     const chinese = chineseNames.find((n) => fitsEdition(n, code));
     const simplified = code === 'zh-tw' && !chinese && chineseNames.length ? withoutLatinGloss(chineseNames[0]) : null;
     const store = [names[code], homeTitleOf(g, edition.country)];
-    const own = [...(g.aliases || []), key].find((a) => ownLanguage(a, code));
+    const own = [...(g.aliases || []), key].find((a) => notJa(a) && ownLanguage(a, code));
     const candidates = [
       ...(code === 'zh-tw' ? [...store.filter((n) => n && CJK.test(n)), own, chinese, simplified] : []),
       ...store, own, chinese, names.en,

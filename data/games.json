@@ -8624,7 +8624,9 @@
         "오버워치 2",
         "Overwatch 2"
       ],
-      "names": {}
+      "names": {
+        "en": "Overwatch"
+      }
     },
     "Red Dead Redemption 2": {
       "appIds": {
@@ -10166,7 +10168,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Path of Exile 2"
+      }
     },
     "EA SPORTS FC™ 26": {
       "appIds": {
@@ -10764,7 +10768,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Black Desert"
+      }
     },
     "Counter-Strike: Source": {
       "appIds": {
@@ -11281,7 +11287,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "FINAL FANTASY XIV Online"
+      }
     },
     "Phasmophobia": {
       "appIds": {
@@ -13991,7 +13999,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Blood Strike"
+      }
     },
     "Aseprite": {
       "appIds": {
@@ -21438,7 +21448,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Path of Exile"
+      }
     },
     "Cairn": {
       "appIds": {
@@ -25211,7 +25223,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "MapleStory"
+      }
     },
     "타이니팜: 리마스터": {
       "appIds": {
@@ -26638,7 +26652,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Lost Ark"
+      }
     },
     "The Elder Scrolls® Online": {
       "appIds": {
@@ -33595,7 +33611,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Blue Protocol: Star Resonance"
+      }
     },
     "Cuphead": {
       "appIds": {
@@ -34246,7 +34264,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Mortal Kombat 1"
+      }
     },
     "Farthest Frontier": {
       "appIds": {
@@ -34877,6 +34897,7 @@
         "ios"
       ],
       "names": {
+        "en": "Onmyoji",
         "zh-tw": "陰陽師Onmyoji"
       }
     },
@@ -37757,7 +37778,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "EA SPORTS FC 25"
+      }
     },
     "Room Sort": {
       "appIds": {
@@ -44983,7 +45006,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Mortal Kombat 11"
+      }
     },
     "Warframe: TennoCon 2026 Digital Pack": {
       "appIds": {
@@ -53159,7 +53184,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "Persona5: The Phantom X"
+      }
     },
     "Your Chronicle": {
       "appIds": {
@@ -57335,7 +57362,9 @@
       "platforms": [
         "steam"
       ],
-      "names": {}
+      "names": {
+        "en": "FINAL FANTASY XIV Online Free Trial"
+      }
     },
     "Star Trek Online": {
       "appIds": {
@@ -76673,24 +76702,22 @@
     "棒球殿堂Live": {
       "appIds": {
         "android": "tw.com.joybomb.pi2017",
-        "ios": "1244019527"
+        "ios_tw": "1212704444"
       },
       "aliases": [
-        "知識王LIVE"
+        "棒球殿堂Live (NETMARBLE JOYBOMB INC)"
       ],
       "developer": "Netmarble Joybomb Inc.",
       "icon": "https://play-lh.googleusercontent.com/O5QHtj4_4SOySgYL6HHCDAhvIXPof6El4UcpzlnySk7Y7QdEnhOvRh9TxATIpnK3RZIavBT7UaDOwhyG7p0bouQ",
-      "slug": "知識王live",
+      "slug": "棒球殿堂live-netmarble-joybomb-inc",
       "platforms": [
         "android",
         "ios"
       ],
       "names": {
-        "ko": "知識王LIVE",
-        "en": "知識王LIVE",
-        "ja": "知識王LIVE",
         "zh-tw": "棒球殿堂Live"
-      }
+      },
+      "legacySlugs": []
     },
     "賽爾號：巔峰之戰": {
       "appIds": {
@@ -98204,21 +98231,26 @@
     },
     "知識王LIVE": {
       "appIds": {
-        "android": "com.braveknight.quiz02"
+        "android": "com.braveknight.quiz02",
+        "ios": "1244019527"
       },
       "aliases": [],
       "developer": "BRAVE KNIGHT CO.,LTD.",
       "icon": "https://play-lh.googleusercontent.com/yAYDXoW6IIZQka6KbsepvFuIW7xp5nPmRKWgNu_Y_sWgjdPzxdahwrpr6OF2FRG6YPy2Yv7woI3kFe4sWaEeOOY",
-      "slug": "知識王live-us",
+      "slug": "知識王live",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "知識王LIVE",
         "en": "知識王LIVE",
         "ja": "知識王LIVE",
         "zh-tw": "知識王LIVE"
-      }
+      },
+      "legacySlugs": [
+        "知識王live-us"
+      ]
     },
     "夢巡り少女〜異世界宮廷綺譚〜": {
       "appIds": {
@@ -115159,23 +115191,6 @@
         "zh-cn": "途游捕鱼-3D次时代千炮捕鱼"
       }
     },
-    "棒球殿堂Live (NETMARBLE JOYBOMB INC)": {
-      "appIds": {
-        "ios_tw": "1212704444"
-      },
-      "aliases": [
-        "棒球殿堂Live"
-      ],
-      "developer": "NETMARBLE JOYBOMB INC",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d5/88/1c/d5881cfd-feee-0ab7-327e-211733c31344/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "slug": "棒球殿堂live-netmarble-joybomb-inc",
-      "platforms": [
-        "ios"
-      ],
-      "names": {
-        "zh-tw": "棒球殿堂Live"
-      }
-    },
     "MONOPOLY Slots Casino: Go Spin": {
       "appIds": {
         "ios_us": "1215145992",
@@ -116882,7 +116897,7 @@
       ],
       "developer": "Nuverse (Hong Kong) Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7b/54/c7/7b54c703-da27-2a88-6154-3e3d59bf82f2/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "slug": "ragnarok-x-next-generation-nuverse-hong",
+      "slug": "ragnarok-x-next-generation-nuverse",
       "platforms": [
         "ios",
         "android"
@@ -116894,7 +116909,6 @@
       },
       "legacySlugs": [
         "ro仙境傳說-新世代的誕生",
-        "ragnarok-x-next-generation-nuverse",
         "ro仙境傳說新世代的誕生"
       ]
     },
@@ -118650,7 +118664,7 @@
       ],
       "developer": "NETEASE INTERACTIVE ENTERTAINMENT PTE. LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b1/64/66/b164669c-9280-b23a-1e49-ac404500f529/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "racing-master-netease-interactive",
+      "slug": "racing-master",
       "platforms": [
         "ios",
         "android"
@@ -118660,8 +118674,7 @@
         "en": "Racing Master"
       },
       "legacySlugs": [
-        "レーシングマスター",
-        "racing-master"
+        "レーシングマスター"
       ]
     },
     "再玩亿关": {
@@ -123209,7 +123222,7 @@
       ],
       "developer": "Garena Online Private Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/f9/76/67f9766a-5bf8-e038-15c0-2b8010365d3e/AppIcon-1x_U007emarketing-0-10-0-85-220-0.png/512x512bb.jpg",
-      "slug": "garena-speed-drifters-garena-online",
+      "slug": "garena-speed-drifters",
       "platforms": [
         "ios",
         "android"
@@ -123219,8 +123232,7 @@
         "en": "Garena Speed Drifters"
       },
       "legacySlugs": [
-        "garena-極速領域莊園別墅",
-        "garena-speed-drifters"
+        "garena-極速領域莊園別墅"
       ]
     },
     "Kiss of War": {
@@ -125331,7 +125343,7 @@
       ],
       "developer": "Taiwan Mobile Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f0/ec/ec/f0ecec18-1bce-a638-7daa-4d0294bb8b7e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "tft-teamfight-tactics-taiwan-mobile",
+      "slug": "tft-teamfight-tactics",
       "platforms": [
         "ios",
         "android"
@@ -125341,8 +125353,7 @@
         "en": "TFT: Teamfight Tactics"
       },
       "legacySlugs": [
-        "tft-聯盟戰棋",
-        "tft-teamfight-tactics"
+        "tft-聯盟戰棋"
       ]
     },
     "AZUREA-空の唄-": {
@@ -130190,7 +130201,7 @@
       ],
       "developer": "FUTURE TV CO.,LTD",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/0b/f6/67/0bf66791-f0cd-3f20-6c09-7b65f0388651/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "cricketduel-future-tv",
+      "slug": "cricketduel",
       "platforms": [
         "ios",
         "android"
@@ -130201,7 +130212,6 @@
       },
       "legacySlugs": [
         "蟋蟀江湖",
-        "cricketduel",
         "蟋蟀江湖-模擬經營養成手遊"
       ]
     },
@@ -130844,7 +130854,7 @@
       ],
       "developer": "LY Corporation",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b3/9e/f1/b39ef1b5-e797-b0cc-f15e-b164fd91ed21/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "line-idle-rangers-afk-rpg-ly-corporation",
+      "slug": "line-idle-rangers-afk-rpg",
       "platforms": [
         "ios",
         "android"
@@ -130855,8 +130865,7 @@
         "en": "LINE Idle Rangers AFK RPG"
       },
       "legacySlugs": [
-        "line-rangers-放置戰爭",
-        "line-idle-rangers-afk-rpg"
+        "line-rangers-放置戰爭"
       ]
     },
     "不休旅途：繪卷世界": {
@@ -147552,7 +147561,7 @@
       ],
       "developer": "Ryusei Okamoto",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/33/bb/bd/33bbbd19-0ce1-000e-908c-7a684bcf5f6a/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
-      "slug": "game-nezjts",
+      "slug": "hotpot-story-malatang-shop",
       "platforms": [
         "ios",
         "android"
@@ -147564,6 +147573,7 @@
         "zh-tw": "麻辣湯ものがたり（マーラータン）"
       },
       "legacySlugs": [
+        "game-nezjts",
         "appful-maratan"
       ]
     },
@@ -155592,7 +155602,7 @@
       ],
       "developer": "Ryong Game Co., Ltd",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1f/a9/80/1fa98014-8bb2-5dae-36dd-230a03ffa291/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "dragon-knight-idle-rpg-ryong-game",
+      "slug": "dragon-knight-idle-rpg",
       "platforms": [
         "ios",
         "android"
@@ -155603,7 +155613,6 @@
       },
       "legacySlugs": [
         "드래곤-나이트-키우기",
-        "dragon-knight-idle-rpg",
         "드래곤-나이트-키우기-방치형-rpg"
       ]
     },
@@ -163140,7 +163149,7 @@
       ],
       "developer": "GlobalGearLab Co. Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3b/ba/04/3bba0445-e765-475a-bab4-1e2987549f58/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "slug": "game-gadw14",
+      "slug": "unfading-echoes",
       "platforms": [
         "ios",
         "android"
@@ -163151,6 +163160,7 @@
         "ja": "追憶の屋敷からの脱出"
       },
       "legacySlugs": [
+        "game-gadw14",
         "jp-globalgear-lab-g271"
       ]
     },
@@ -167506,5 +167516,5 @@
     }
   },
   "lastUpdated": "2026-11-26",
-  "totalGames": 9272
+  "totalGames": 9271
 }

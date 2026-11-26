@@ -93,17 +93,30 @@ test('ranking rows link only game pages indexable in the edition; the rest are p
 
 test('the Steam hub links only built Steam pages or the game pages that replaced them', () => {
   const steamHub = require('../src/templates/pages/steam-hub');
-  const { merged, built } = steamHub.steamTargets();
+  const { merged, built, targets } = steamHub.steamTargets();
+  const { steamPageTargets } = require('../src/build/game-pages');
+  // A Steam app whose game page is a noindex regional twin in an edition links to the edition's winner instead.
+  const synthetic = steamPageTargets(new Map([['271590', 'gta-legacy'], ['730', 'cs2']]), [
+    { slug: 'gta-legacy', editions: ['en', 'ja', 'zh-cn', 'zh-tw'], regional: { ko: { x: 'gta-enhanced' } } },
+    { slug: 'gta-enhanced', editions: ['en', 'ja', 'zh-cn', 'ko', 'zh-tw'] },
+    { slug: 'cs2', editions: ['en', 'ja', 'zh-cn', 'ko', 'zh-tw'] },
+  ], ['en', 'ja', 'zh-cn', 'ko', 'zh-tw']);
+  assert.deepEqual(synthetic, { 271590: { _: 'gta-legacy', ko: 'gta-enhanced' }, 730: 'cs2' });
   i18n.setEdition('ko');
   try {
+    assert.equal(steamHub.steamHref('271590'), '/games/grand-theft-auto-v-enhanced/', 'ko links GTA V Legacy to the indexable Enhanced page');
+    assert.deepEqual(targets['271590'], { _: 'grand-theft-auto-v-legacy', ko: 'grand-theft-auto-v-enhanced' });
     const html = steamHub.renderSteamHub();
     const steamLinks = [...html.matchAll(/href="\/ko\/steam\/(\d+)\/"/g)].map((m) => m[1]);
     for (const id of steamLinks) assert.ok(built.includes(id), `/steam/${id}/ is built`);
     const gameLinks = [...html.matchAll(/href="\/ko\/games\/([^/"]+)\/"/g)].map((m) => decodeURIComponent(m[1]));
     assert.ok(gameLinks.length > 0);
+    assert.ok(!gameLinks.includes('grand-theft-auto-v-legacy'), 'ko Steam hub never links the noindex twin');
     const slugs = new Set(merged.values());
     for (const slug of gameLinks) assert.ok(slugs.has(slug), slug);
     for (const id of ['3764200', '3041230', '3357650', '2000950']) if (!built.includes(id) && !merged.has(id)) assert.doesNotMatch(html, new RegExp(`/steam/${id}/`));
+    i18n.setEdition('en');
+    assert.equal(steamHub.steamHref('271590'), '/games/grand-theft-auto-v-legacy/', 'en indexes Legacy itself');
   } finally { i18n.setEdition('en'); }
 });
 

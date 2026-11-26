@@ -7,9 +7,13 @@
  * developer has the longer chart history. scripts/generate-game-pages.js (page data, sitemaps, related links) and
  * src/build/editions.js (in-page links, games hub) read the same list.
  */
+const path = require('path');
 const i18n = require('../i18n');
-const { createSlug, rankSeries, summaryMeta, steamMatch, steamIdOf } = require('./game-data');
+const { createSlug, rankSeries, summaryMeta, loadLatestSteam, steamLists, steamMatch, steamIdOf, steamPageSlugs } = require('./game-data');
 const { regionalVersions } = require('./regional-versions');
+
+const HISTORY_DIR = path.join(__dirname, '..', '..', 'history');
+const steamTargetCache = new WeakMap();
 
 // S: src/rank/stats.js loadRankStats(); steam: { lists: game-data.js steamLists, pages: steamPageSlugs, stats: src/rank/steam-stats.js }.
 // → [{ g, slug, names: { <code>: name }, editions: [<code>], regional }]
@@ -43,4 +47,43 @@ function gamePages(S, steam) {
   return pages.map(({ g, slug, editions, names }) => ({ g, slug, names, regional: regional[slug], editions: editions.filter((code) => !twin(slug, code)) }));
 }
 
-module.exports = { gamePages };
+// Steam app ID → target game slug: a plain string when every edition indexes the same page, or { _: slug, <code>: winner }
+// where an edition marks the app's own page as a noindex regional twin (regional[code].x) and links/redirects to its winner.
+function steamPageTargets(steamPages, pages, codes = i18n.EDITIONS.map((e) => e.code)) {
+  const bySlug = new Map(pages.map((p) => [p.slug, p]));
+  const resolve = (slug, code) => {
+    let cur = slug;
+    const seen = new Set();
+    while (cur && !seen.has(cur)) {
+      seen.add(cur);
+      const next = bySlug.get(cur) && bySlug.get(cur).regional && bySlug.get(cur).regional[code] && bySlug.get(cur).regional[code].x;
+      if (!next) break;
+      cur = next;
+    }
+    const page = bySlug.get(cur);
+    return page && page.editions.includes(code) ? cur : null;
+  };
+  const out = {};
+  for (const [id, slug] of steamPages) {
+    const diffs = codes.map((c) => [c, resolve(slug, c)]).filter(([, s]) => s !== slug);
+    out[id] = diffs.length ? { _: slug, ...Object.fromEntries(diffs) } : slug;
+  }
+  return out;
+}
+
+const steamSlugFor = (entry, code) => (typeof entry === 'string' ? entry : entry ? (Object.prototype.hasOwnProperty.call(entry, code) ? entry[code] : entry._) : null);
+
+function cachedSteamTargets(S, steamStats) {
+  let entry = steamTargetCache.get(S);
+  if (!entry || entry.steamStats !== steamStats) {
+    const pageIds = new Set(steamStats.pageApps(14));
+    const merged = steamPageSlugs(S.games, pageIds);
+    const lists = steamLists(loadLatestSteam(HISTORY_DIR));
+    const pages = gamePages(S, { lists, pages: merged, stats: steamStats });
+    entry = { steamStats, merged, built: [...pageIds].filter((id) => !merged.has(id)), targets: steamPageTargets(merged, pages) };
+    steamTargetCache.set(S, entry);
+  }
+  return entry;
+}
+
+module.exports = { gamePages, steamPageTargets, steamSlugFor, cachedSteamTargets };
