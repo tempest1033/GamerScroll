@@ -88,7 +88,7 @@ const canonicalOf = (html) => ((html.match(/<link\b[^>]*rel="canonical"[^>]*>/) 
           const options = await selector.locator('[data-edition-link]').evaluateAll((els) => els.map((e) => ({ code: e.dataset.edition, label: e.textContent.trim(), href: e.getAttribute('href') })));
           assert.deepEqual(options.map((o) => o.code), EDITIONS.map((e) => e.code), 'selector order');
           assert.deepEqual(options.map((o) => o.label), EDITIONS.map((e) => e.label), 'selector labels');
-          assert.deepEqual(options.map((o) => o.href), EDITIONS.map((e) => editionPath(e.code, pagePath)), 'selector paths');
+          assert.deepEqual(options.map((o) => o.href), EDITIONS.map((e) => editionPath(e.code, listed.includes(e) ? pagePath : pagePath.replace(/[^/]+\/$/, ''))), 'selector paths');
 
           // chart country: the edition's own country comes first and is the default
           if (pagePath === '/rankings/') {
@@ -98,7 +98,8 @@ const canonicalOf = (html) => ((html.match(/<link\b[^>]*rel="canonical"[^>]*>/) 
             assert.equal(tabs[0].text, messages[COUNTRY_NAME_KEY[edition.country]], 'home country label');
             assert.equal(tabs[0].href, localized, 'home country tab links to /rankings/');
             const others = ALL_COUNTRIES.filter((c) => c !== edition.country);
-            assert.deepEqual(tabs.slice(1).map((t) => t.href).sort(), others.map((c) => editionPath(edition.code, `/rankings/${c}/`)).sort(), 'other countries stay on /rankings/<cc>/');
+            const expectedOtherHref = (c) => editionPath(edition.code, c === 'cn' ? '/rankings/cn/app-store/top-grossing/' : `/rankings/${c}/`);
+            assert.deepEqual(tabs.slice(1).map((t) => t.href).sort(), others.map(expectedOtherHref).sort(), 'other countries link to their canonical chart');
             if (edition.country === 'cn') assert.equal(await page.locator('.rk-cols .rk-col').count(), 1, 'cn: App Store only');
           }
           if (pagePath === '/') {

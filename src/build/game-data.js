@@ -110,9 +110,14 @@ function chartingNow(S, g, lists) {
   return false;
 }
 
-// Shared by every game: the chart days and the archived hourly day.
+// Shared by every game: the chart days, archived hourly day, built months and single-store markets.
 function summaryMeta(S) {
-  return { days: S.days.map((d) => d.date), hourlyDate: S.hourly ? S.hourly.date : '', builtMonthsByEdition: Object.fromEntries(require('../i18n').EDITIONS.map((e) => [e.code, S.builtMonthsFor(e.country)])) };
+  return {
+    days: S.days.map((d) => d.date),
+    hourlyDate: S.hourly ? S.hourly.date : '',
+    builtMonthsByEdition: Object.fromEntries(require('../i18n').EDITIONS.map((e) => [e.code, S.builtMonthsFor(e.country)])),
+    singleStoreCountries: Array.isArray(S.singleStoreCountries) ? S.singleStoreCountries : [],
+  };
 }
 
 // Sitemap <lastmod> of a game: its newest data date. A game that is charting but has no dated series (e.g. only on the free-popularity

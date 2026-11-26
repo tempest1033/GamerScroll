@@ -152,7 +152,7 @@ function buildEditions(ctx) {
   // game pages by isIndexableGame, Steam record pages that are built; /analysis/ pages are noindex. hreflang, sitemaps and in-page links follow it.
   const marketPlan = require('../../functions/_lib/market-plan');
   const builtSteamPages = new Set(steamStats ? steamStats.pageApps(14).filter((id) => !steamPages.has(id)) : []);
-  const singleStoreCountries = new Set(rankStats ? Object.keys(rankStats.COUNTRIES).filter((c) => !((rankStats.today.rows[c] || {}).android || []).length) : []);
+  const singleStoreCountries = new Set(rankStats ? rankStats.singleStoreCountries : []);
   i18n.setPageAvailability((code, p) => {
     const game = /^\/games\/([^/]+)\/$/.exec(p);
     if (game) { try { return !indexableSlugs || indexableSlugs[code].has(decodeURIComponent(game[1]).normalize('NFC')); } catch { return false; } }

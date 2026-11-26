@@ -114,32 +114,6 @@ function alternatePath(targetCode, pathname, sourceCode) {
   return target && target.country === country ? `/${m[1]}/` : `/${m[1]}/${country}/`;
 }
 
-// Korean subject particle (이/가) following the pronounced final consonant (받침) of a title.
-function koSubject(name) {
-  const cleaned = String(name || '').replace(/[\s!?.:;~'"’”)\]}™®©\-–—/]+$/g, '');
-  if (!cleaned) return '이';
-  const last = cleaned[cleaned.length - 1];
-  const cp = last.codePointAt(0);
-  if (cp >= 0xAC00 && cp <= 0xD7A3) return (cp - 0xAC00) % 28 !== 0 ? '이' : '가';
-  if (last >= '0' && last <= '9') return '013678'.includes(last) ? '이' : '가';
-  if ((cp >= 0x3040 && cp <= 0x30FF) || (cp >= 0x31F0 && cp <= 0x31FF)) return last === 'ん' || last === 'ン' ? '이' : '가';
-  const tokenMatch = /([A-Za-z]+)$/.exec(cleaned);
-  if (tokenMatch) {
-    const tok = tokenMatch[1];
-    if (/^(?:II|III|IV|V|VI|VII|VIII|IX|X)$/.test(tok) && (cleaned.length === tok.length || /[\s:\-–—(]/.test(cleaned[cleaned.length - tok.length - 1]))) {
-      return /^(?:III|VI|VII|VIII|X)$/.test(tok) ? '이' : '가';
-    }
-    if (tok.length === 1 || tok === tok.toUpperCase()) {
-      if (tok.length >= 4 && /[AEIOU]/.test(tok) && !/^(?:PUBG|MMORPG|JRPG|ARPG|ASMR)$/.test(tok)) {
-        return /(?:[lmn]|ng|le|ne|me|[aeiou](?:ck|k|p|b|c))$/.test(tok.toLowerCase()) ? '이' : '가';
-      }
-      return 'LMNR'.includes(tok[tok.length - 1]) ? '이' : '가';
-    }
-    return /(?:[lmn]|ng|le|ne|me|[aeiou](?:ck|k|p|b|c))$/.test(tok.toLowerCase()) ? '이' : '가';
-  }
-  return '가';
-}
-
 // Market pages (genres, publishers, monthly, records) are built per edition from its home market, so a page may exist in
 // some editions only. The build registers a predicate (code, pathname) → boolean; hreflang, sitemaps and in-page links
 // use editionHasPage so they only name built pages. Without a predicate every page exists.
@@ -246,7 +220,6 @@ const formatTime = (ts) => formatStamp(ts, { hour: 'numeric', minute: '2-digit' 
 
 module.exports = {
   alternatePath,
-  koSubject,
   setPageAvailability,
   editionHasPage,
   formatDay,

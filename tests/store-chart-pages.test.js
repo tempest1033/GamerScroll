@@ -241,20 +241,51 @@ test('existing /rankings/<cc>/ and /steam/ stay rendered, link to canonical targ
   }
 });
 
-test('new-entry counts reflect all TOP 200 entries (not capped at 3 / top 100) with singular/plural wording', () => {
+test('new-entry counts reflect all TOP 200 entries not in yesterday top 200 (including rows ranked 201+ yesterday) with singular/plural wording', () => {
   const S = loadRankStats();
+  for (const chart of ['grossing', 'free']) {
+    for (const country of Object.keys(S.COUNTRIES)) {
+      for (const store of ['ios', 'android']) {
+        const todayRows = (chart === 'free' ? S.today.rowsFree : S.today.rows)[country][store] || [];
+        if (!todayRows.length) continue;
+        const ydayRows = (chart === 'free' ? S.yday.rowsFree : S.yday.rows)[country][store] || [];
+        const ydayTop200 = new Set(ydayRows.slice(0, 200).filter((r) => r && r.appId).map((r) => String(r.appId)));
+        const actual = todayRows.slice(0, 200).filter((r) => !ydayTop200.has(String(r.appId))).length;
+        const mv = S.movers(country, store, chart);
+        assert.equal(mv.freshCount, actual, `${country} ${store} ${chart} freshCount matches TOP 200 vs yday TOP 200`);
+      }
+    }
+  }
   for (const country of ['us', 'jp', 'kr']) {
-    const rows = S.today.rows[country].ios.slice(0, 200);
-    const actual = rows.filter((r) => S.rankOf(S.yday, country, 'ios', r.appId) == null).length;
     const mv = S.movers(country, 'ios', 'grossing');
-    assert.equal(mv.freshCount, actual, `${country} ios grossing freshCount matches full TOP 200`);
     assert.ok(mv.freshCount > 3, `${country} ios grossing has >3 new entries in TOP 200 (${mv.freshCount})`);
     inEdition('en', () => {
       const m = loadTemplates();
       const html = m.rankHub.renderStoreChart(country, 'ios', 'grossing');
       const lead = dec((html.match(/<p class="rk-lead">([\s\S]*?)<\/p>/) || [])[1] || '');
-      assert.ok(lead.includes(`${actual} new entries joined the TOP 200`), `${country} lead: ${lead}`);
+      assert.ok(lead.includes(`${mv.freshCount} new entries joined the TOP 200`), `${country} lead: ${lead}`);
     });
+  }
+  // Synthetic 205-row history: a game ranked 201 yesterday entering today's TOP 200 counts as new, while rank 200 does not.
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gs-top200-'));
+  try {
+    const mkRows = (ids) => ids.map((id, i) => ({ rank: i + 1, appId: id, title: `Game ${id}`, developer: 'Dev' }));
+    const ydayIds = Array.from({ length: 205 }, (_, i) => `app-${i + 1}`);
+    const todayIds = [...ydayIds.slice(0, 198), 'app-200', 'app-201', 'app-new', 'app-202'];
+    const mkDay = (date, ios) => ({
+      timestamp: `${date}T11:00:00Z`,
+      rankings: { grossing: { kr: { ios, android: [] }, jp: { ios: [], android: [] }, us: { ios: [], android: [] }, cn: { ios: [], android: [] }, tw: { ios: [], android: [] } }, free: { kr: { ios: [], android: [] }, jp: { ios: [], android: [] }, us: { ios: [], android: [] }, cn: { ios: [], android: [] }, tw: { ios: [], android: [] } } },
+    });
+    fs.writeFileSync(path.join(dir, '2026-11-25.json'), JSON.stringify(mkDay('2026-11-25', mkRows(ydayIds))));
+    fs.writeFileSync(path.join(dir, '2026-11-26.json'), JSON.stringify(mkDay('2026-11-26', mkRows(todayIds))));
+    const syn = loadRankStats({ force: true, historyDir: dir });
+    const mv = syn.movers('kr', 'ios', 'grossing');
+    assert.equal(mv.freshCount, 1, 'app-201 entering rank 200 counts as new; app-200 staying in TOP 200 does not; app-new at rank 201 is outside TOP 200');
+    assert.equal(mv.freshTop.r.appId, 'app-201');
+    assert.equal(mv.freshTop.rank, 200);
+  } finally {
+    loadRankStats({ force: true });
+    fs.rmSync(dir, { recursive: true, force: true });
   }
   // Singular vs plural phrasing in every edition.
   for (const edition of i18n.EDITIONS) {
@@ -271,33 +302,58 @@ test('new-entry counts reflect all TOP 200 entries (not capped at 3 / top 100) w
   }
 });
 
-test('Korean subject particle (이/가) follows the final consonant of game titles', () => {
-  const cases = [
-    ['Counter-Strike 2', '가'],
-    ['Dota 2', '가'],
-    ['Civilization 6', '이'],
-    ['MONOPOLY GO!', '가'],
-    ['MONOPOLY GO! (모노폴리 GO!)', '가'],
-    ['원신', '이'],
-    ['브롤스타즈', '가'],
-    ['리니지M', '이'],
-    ['Last War: Survival', '이'],
-    ['Fate/Grand Order', '가'],
-    ['PUBG: BATTLEGROUNDS', '가'],
-    ['Honkai: Star Rail', '이'],
-    ['Diablo IV', '가'],
-    ['Persona 3', '이'],
-    ['雀魂 -じゃんたま-', '가'],
-  ];
-  for (const [name, expected] of cases) {
-    assert.equal(i18n.koSubject(name), expected, `${name} -> ${expected}`);
-  }
+test('Korean summary sentences avoid subject particles after game titles', () => {
   inEdition('ko', () => {
+    for (const title of ['Kingshot', 'Pocket', 'Tower of God', '꿈의 정원 (Gardenscapes)', 'Counter-Strike 2', '원신']) {
+      const rankLine = i18n.t('rank.summary_leader_streak', { name: title, days: 5 });
+      const steamLine = i18n.t('steam.summary_leader_streak', { name: title, ccu: '1,234', days: 5, total: '9,876' });
+      assert.ok(rankLine.includes(title), rankLine);
+      assert.ok(steamLine.includes(title), steamLine);
+      assert.equal(rankLine.includes(`${title}이`) || rankLine.includes(`${title}가`), false, `rank particle attached: ${rankLine}`);
+      assert.equal(steamLine.includes(`${title}이`) || steamLine.includes(`${title}가`), false, `steam particle attached: ${steamLine}`);
+    }
     const m = loadTemplates();
     const mpHtml = m.steamHub.renderSteamMostPlayed();
-    const lead = dec((mpHtml.match(/<p class="rk-lead">([\s\S]*?)<\/p>/) || [])[1] || '');
-    assert.ok(lead.includes('Counter-Strike 2가'), `ko steam lead: ${lead}`);
-    assert.equal(lead.includes('Counter-Strike 2이'), false, `ko steam lead: ${lead}`);
+    const mpLead = dec((mpHtml.match(/<p class="rk-lead">([\s\S]*?)<\/p>/) || [])[1] || '');
+    assert.ok(mpLead.includes('Counter-Strike 2('), `ko steam lead: ${mpLead}`);
+    assert.equal(mpLead.includes('Counter-Strike 2가') || mpLead.includes('Counter-Strike 2이'), false, `ko steam lead: ${mpLead}`);
+
+    const usIosHtml = m.rankHub.renderStoreChart('us', 'ios', 'grossing');
+    const usIosLead = dec((usIosHtml.match(/<p class="rk-lead">([\s\S]*?)<\/p>/) || [])[1] || '');
+    assert.match(usIosLead, /1위는 .+입니다\./, `ko store lead: ${usIosLead}`);
+  });
+});
+
+test('game rank summary country links follow data-driven singleStoreCountries', () => {
+  const { summaryMeta } = require('../src/build/game-data');
+  const { renderGameRankSummary } = require('../src/templates/helpers/game-rank-summary');
+  const S = loadRankStats();
+  const meta = summaryMeta(S);
+  assert.deepEqual(meta.singleStoreCountries, S.singleStoreCountries);
+  assert.deepEqual(meta.singleStoreCountries, ['cn']);
+
+  const rank = { s: { us: { ios: { o: meta.days.length - 5, v: [1, 2, 3, 4, 5] } } }, h: {} };
+  inEdition('en', () => {
+    const withCn = renderGameRankSummary(rank, { ...meta, singleStoreCountries: ['cn'] }, 'Sample', 'us').html;
+    assert.ok(withCn.includes('href="/rankings/"'));
+    assert.ok(withCn.includes('href="/rankings/cn/app-store/top-grossing/"'));
+    assert.equal(withCn.includes('href="/rankings/cn/"'), false);
+    assert.ok(withCn.includes('href="/rankings/tw/"'));
+
+    const withTw = renderGameRankSummary(rank, { ...meta, singleStoreCountries: ['tw'] }, 'Sample', 'us').html;
+    assert.ok(withTw.includes('href="/rankings/tw/app-store/top-grossing/"'));
+    assert.equal(withTw.includes('href="/rankings/tw/"'), false);
+    assert.ok(withTw.includes('href="/rankings/cn/"'));
+    assert.equal(withTw.includes('href="/rankings/cn/app-store/top-grossing/"'), false);
+
+    const withNone = renderGameRankSummary(rank, { ...meta, singleStoreCountries: [] }, 'Sample', 'us').html;
+    assert.ok(withNone.includes('href="/rankings/cn/"'));
+    assert.equal(withNone.includes('href="/rankings/cn/app-store/top-grossing/"'), false);
+  });
+  inEdition('zh-cn', () => {
+    const cnHome = renderGameRankSummary(rank, { ...meta, singleStoreCountries: ['cn'] }, 'Sample', 'cn').html;
+    assert.ok(cnHome.includes('href="/rankings/"'));
+    assert.equal(cnHome.includes('href="/rankings/cn/app-store/top-grossing/"'), false);
   });
 });
 

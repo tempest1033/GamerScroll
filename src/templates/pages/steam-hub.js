@@ -131,7 +131,6 @@ ${cols}
 // ---------- 1b. 스팀 동접자 TOP 100 전용 (/steam/most-played/) ----------
 function renderSteamMostPlayed() {
   const ST = loadSteamStats();
-  const { koSubject } = require('../../i18n');
   const { STORES } = require('../../rank/stats');
   const { today: T, yday: Y, days } = ST;
   const wk = days[Math.max(0, days.length - 8)];
@@ -149,9 +148,8 @@ function renderSteamMostPlayed() {
   const summaryParts = [];
   if (top && topInfo) {
     const topName = esc(topInfo.name);
-    const subjectName = currentEdition().code === 'ko' ? `${topName}${koSubject(topInfo.name)}` : topName;
     summaryParts.push(streak > 1
-      ? t('steam.summary_leader_streak', { name: subjectName, ccu: fmt(top.ccu), days: streak, total: fmt(total) })
+      ? t('steam.summary_leader_streak', { name: topName, ccu: fmt(top.ccu), days: streak, total: fmt(total) })
       : t('steam.summary_leader_one', { name: topName, ccu: fmt(top.ccu), total: fmt(total) }));
   }
   if (up) summaryParts.push(t('steam.summary_mover', { name: esc(ST.info(up.r.appid).name), pct: up.p.toFixed(0), rank: up.r.rank }));

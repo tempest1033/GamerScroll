@@ -201,11 +201,13 @@ function loadRankStats(options = {}) {
   // 급등·급락·신규·역대 최고 경신 (전일 대비). chart='free' 면 인기 차트 기준 (역대 최고 경신은 매출만)
   function movers(country, s, chart = 'grossing') {
     const rows = chart === 'free' ? today.rowsFree : today.rows;
+    const ydayRows = (chart === 'free' ? yday.rowsFree : yday.rows)[country][s] || [];
     const rk = chart === 'free' ? freeRankOf : rankOf;
     const list = rows[country][s].slice(0, 200).map((r, i) => ({ r, rank: i + 1, prev: rk(yday, country, s, r.appId) }));
     const up = list.filter((x) => x.prev != null && x.prev - x.rank >= 5 && x.rank <= 100).sort((a, b) => (b.prev - b.rank) - (a.prev - a.rank)).slice(0, 3);
     const down = list.filter((x) => x.prev != null && x.rank - x.prev >= 5 && x.prev <= 100).sort((a, b) => (b.rank - b.prev) - (a.rank - a.prev)).slice(0, 3);
-    const freshAll = list.filter((x) => x.prev == null);
+    const ydayTop200 = new Set(ydayRows.slice(0, 200).filter((r) => r && r.appId).map((r) => String(r.appId)));
+    const freshAll = list.filter((x) => !x.r || !x.r.appId || !ydayTop200.has(String(x.r.appId)));
     const fresh = freshAll.filter((x) => x.rank <= 100).slice(0, 3);
     const record = chart === 'free' ? [] : list.filter((x) => { const b = allTimeBest(country, s, x.r.appId, days.length - 2); return x.rank <= 100 && b != null && x.rank < b && daysOnChart(country, s, x.r.appId) > 7; }).slice(0, 3);
     return { up, down, fresh, freshCount: freshAll.length, freshTop: freshAll[0] || null, record };
@@ -301,8 +303,10 @@ function loadRankStats(options = {}) {
     return { all, crown };
   }
 
+  const singleStoreCountries = Object.keys(COUNTRIES).filter((c) => !((today.rows[c] || {}).android || []).length);
+
   cached = {
-    COUNTRIES, STORES, games, byApp, bySlug, byTitle, isSub,
+    COUNTRIES, STORES, singleStoreCountries, games, byApp, bySlug, byTitle, isSub,
     days, today, yday, months, builtMonths, builtMonthsFor, latestMonth, daysIn, hourly, hourlyRanks,
     rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf, displayName,
     allTimeBest, daysOnChart, streakAtOne, freeStreakAtOne, firstSeen, gameFirstSeen,

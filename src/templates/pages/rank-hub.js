@@ -282,7 +282,6 @@ ${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
 // ---------- 1b. 국가 × 스토어 × 차트 전용 페이지 (/rankings/{cc}/{store}/{chart}/) ----------
 function renderStoreChart(country, store, chart = 'grossing') {
   const S = loadRankStats();
-  const i18n = require('../../i18n');
   const { today } = S;
   const isFree = chart === 'free';
   const rows = ((isFree ? today.rowsFree : today.rows)[country] || {})[store] || [];
@@ -301,10 +300,8 @@ function renderStoreChart(country, store, chart = 'grossing') {
   const streak = top ? (isFree ? S.freeStreakAtOne(country, store, top.appId) : S.streakAtOne(country, store, top.appId)) : 0;
   const summaryParts = [];
   if (top) {
-    const rawTop = S.nameOf(store, top);
-    const topName = esc(rawTop);
-    const subjectName = i18n.currentEdition().code === 'ko' ? `${topName}${i18n.koSubject(rawTop)}` : topName;
-    summaryParts.push(streak > 1 ? tt('rank.summary_leader_streak', { name: subjectName, days: streak }) : tt('rank.summary_leader_one', { name: topName }));
+    const topName = esc(S.nameOf(store, top));
+    summaryParts.push(streak > 1 ? tt('rank.summary_leader_streak', { name: topName, days: streak }) : tt('rank.summary_leader_one', { name: topName }));
   }
   if (mv.up[0]) summaryParts.push(tt('rank.summary_mover_up', { name: esc(S.nameOf(store, mv.up[0].r)), jump: mv.up[0].prev - mv.up[0].rank, rank: mv.up[0].rank }));
   if (mv.freshCount > 0 && mv.freshTop) {
