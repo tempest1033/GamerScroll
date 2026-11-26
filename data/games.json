@@ -39797,8 +39797,8 @@
         "ko": "Pistol Duel",
         "en": "Pistol Duel",
         "ja": "Pistol Duel",
-        "zh-tw": "Pistol Duel",
-        "zh-cn": "Pistol Duel: 3D Gun Battle"
+        "zh-cn": "Pistol Duel: 3D Gun Battle",
+        "zh-tw": "Pistol Duel"
       },
       "legacySlugs": [
         "pistol-duel-3d-gun-battle"
@@ -66436,8 +66436,8 @@
         "ko": "MiniMuse",
         "en": "MiniMuse",
         "ja": "MiniMuse",
-        "zh-tw": "MiniMuse",
-        "zh-cn": "MiniMuses"
+        "zh-cn": "MiniMuses",
+        "zh-tw": "MiniMuse"
       },
       "legacySlugs": [
         "minimuses"
@@ -71909,8 +71909,8 @@
         "ko": "成語達人",
         "en": "Idiom Master - 成語達人",
         "ja": "成語達人",
-        "zh-tw": "成語達人",
-        "zh-cn": "成语达人 - 成语接龙"
+        "zh-cn": "成语达人 - 成语接龙",
+        "zh-tw": "成語達人"
       },
       "legacySlugs": [
         "idiom-solitaire-成語達人"
@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW",
+        "android": "com.interserv.L3K",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -95856,7 +95856,7 @@
       ],
       "names": {
         "ko": "둘이서 탈출 게임  Opened By Bonds",
-        "en": "Escape Game  Opened By Bonds",
+        "en": "Escape Game Opened By Bonds",
         "ja": "2人で脱出ゲーム Opened By Bonds",
         "zh-tw": "Escape Game  Opened By Bonds"
       }
@@ -97742,8 +97742,8 @@
         "ko": "脱出ゲーム　湖畔キャンプ",
         "en": "脱出ゲーム　湖畔キャンプ",
         "ja": "脱出ゲーム　湖畔キャンプ",
-        "zh-tw": "脱出ゲーム　湖畔キャンプ",
-        "zh-cn": "脱出ゲーム　湖畔キャンプ場"
+        "zh-cn": "脱出ゲーム　湖畔キャンプ場",
+        "zh-tw": "脱出ゲーム　湖畔キャンプ"
       },
       "legacySlugs": [
         "脱出ゲーム-湖畔キャンプ場"
@@ -99495,7 +99495,7 @@
       ],
       "names": {
         "ko": "탈출 게임 BIAS",
-        "en": "Escape Game  BIAS",
+        "en": "Escape Game BIAS",
         "ja": "脱出ゲーム BIAS",
         "zh-tw": "脫出遊戲 BIAS"
       }
@@ -101688,7 +101688,7 @@
       ],
       "names": {
         "ko": "Dream  Piano",
-        "en": "Dream  Piano",
+        "en": "Dream Piano",
         "ja": "Dream  Piano",
         "zh-tw": "夢幻鋼琴"
       }
@@ -104659,7 +104659,7 @@
       ],
       "names": {
         "ko": "脱出ゲーム  ゲーム配信者の家から出たい",
-        "en": "脱出ゲーム  ゲーム配信者の家から出たい",
+        "en": "脱出ゲーム ゲーム配信者の家から出たい",
         "ja": "脱出ゲーム  ゲーム配信者の家から出たい",
         "zh-cn": "脱出ゲーム  ゲーム配信者の家から出たい",
         "zh-tw": "脱出ゲーム  ゲーム配信者の家から出たい"
@@ -112701,9 +112701,9 @@
         "ios"
       ],
       "names": {
+        "ko": "定時退社オンライン 非対称型マルチバトル",
         "en": "JapaneseOfficeSimulator",
         "ja": "定時退社オンライン",
-        "ko": "定時退社オンライン 非対称型マルチバトル",
         "zh-tw": "定時退社オンライン 非対称型マルチバトル"
       },
       "legacySlugs": [
@@ -116904,8 +116904,8 @@
       ],
       "names": {
         "ko": "라그나로크X：Next Generation",
-        "zh-tw": "RO仙境傳說: 新世代的誕生",
-        "en": "Ragnarok X: Next Generation"
+        "en": "Ragnarok X: Next Generation",
+        "zh-tw": "RO仙境傳說: 新世代的誕生"
       },
       "legacySlugs": [
         "ro仙境傳說-新世代的誕生",
@@ -118670,8 +118670,8 @@
         "android"
       ],
       "names": {
-        "ja": "レーシングマスター",
-        "en": "Racing Master"
+        "en": "Racing Master",
+        "ja": "レーシングマスター"
       },
       "legacySlugs": [
         "レーシングマスター"
@@ -122009,10 +122009,10 @@
         "ios"
       ],
       "names": {
+        "ko": "탈출 게임 화금을 즐기고 싶다",
         "en": "Want to Enjoy Friday Night",
         "ja": "脱出ゲーム 華金を楽しみたい",
-        "zh-tw": "逃脱游戏　我想好好享受周五晚上",
-        "ko": "탈출 게임 화금을 즐기고 싶다"
+        "zh-tw": "逃脱游戏　我想好好享受周五晚上"
       },
       "legacySlugs": [
         "want-to-enjoy-friday-night-shiro-miyahara",
@@ -122389,8 +122389,8 @@
       "names": {
         "en": "Let's Vegas Slots-Casino Slots",
         "ja": "レッツベガス(Let's Vegas Slots)",
-        "zh-tw": "拉斯維加斯娛樂城 (Let's Vegas Slots)",
-        "zh-cn": "王牌街机捕鱼-水果机,捕鱼,棋牌,电玩游戏厅"
+        "zh-cn": "王牌街机捕鱼-水果机,捕鱼,棋牌,电玩游戏厅",
+        "zh-tw": "拉斯維加斯娛樂城 (Let's Vegas Slots)"
       },
       "legacySlugs": [
         "lets-vegas-slots-casino-slots"
@@ -123228,8 +123228,8 @@
         "android"
       ],
       "names": {
-        "zh-tw": "Garena 極速領域：莊園別墅",
-        "en": "Garena Speed Drifters"
+        "en": "Garena Speed Drifters",
+        "zh-tw": "Garena 極速領域：莊園別墅"
       },
       "legacySlugs": [
         "garena-極速領域莊園別墅"
@@ -125349,8 +125349,8 @@
         "android"
       ],
       "names": {
-        "zh-tw": "TFT: 聯盟戰棋",
-        "en": "TFT: Teamfight Tactics"
+        "en": "TFT: Teamfight Tactics",
+        "zh-tw": "TFT: 聯盟戰棋"
       },
       "legacySlugs": [
         "tft-聯盟戰棋"
@@ -130207,8 +130207,8 @@
         "android"
       ],
       "names": {
-        "zh-tw": "蟋蟀江湖",
-        "en": "CricketDuel"
+        "en": "CricketDuel",
+        "zh-tw": "蟋蟀江湖"
       },
       "legacySlugs": [
         "蟋蟀江湖",
@@ -130860,9 +130860,9 @@
         "android"
       ],
       "names": {
+        "en": "LINE Idle Rangers AFK RPG",
         "ja": "LINE おまかせレンジャー 放置育成RPG",
-        "zh-tw": "LINE Rangers 放置戰爭",
-        "en": "LINE Idle Rangers AFK RPG"
+        "zh-tw": "LINE Rangers 放置戰爭"
       },
       "legacySlugs": [
         "line-rangers-放置戰爭"
@@ -139999,8 +139999,8 @@
       "names": {
         "en": "Slot & Brave: Roguelike RPG",
         "ja": "運と戦略のローグライクRPG：スロット＆ブレイブ",
-        "zh-tw": "Slot & Brave: Roguelike RPG",
-        "zh-cn": "Slot & Brave: Roguelike RPG"
+        "zh-cn": "Slot & Brave: Roguelike RPG",
+        "zh-tw": "Slot & Brave: Roguelike RPG"
       },
       "legacySlugs": [
         "slot-brave-roguelike-rpg-jp"
@@ -161693,27 +161693,6 @@
         "en": "WARNO - Tropic Storm"
       }
     },
-    "개구리 말차 카페 - 방치 머지 타이쿤": {
-      "appIds": {
-        "android": "com.fm.frogcafe"
-      },
-      "aliases": [],
-      "developer": "4th May Games",
-      "icon": "https://play-lh.googleusercontent.com/dqp2zbWIaX33Jk7i2vgFBpyompRBJPv-zAJo815iCVrMm3HSw8kD3zwyeuRVmeynN_dmsn-f0vTLJ956U5_qnKQ",
-      "slug": "frog-matcha-cafe-idle-tycoon",
-      "platforms": [
-        "android"
-      ],
-      "names": {
-        "ko": "개구리 말차 카페 - 방치 머지 타이쿤",
-        "en": "Frog Matcha Cafe: Idle Tycoon",
-        "ja": "カエルの抹茶カフェ　放置マージ経営",
-        "zh-tw": "青蛙抹茶咖啡館：放置合成經營"
-      },
-      "legacySlugs": [
-        "개구리-말차-카페-방치-머지-타이쿤"
-      ]
-    },
     "Viora Glass: Color Sort": {
       "appIds": {
         "android": "com.vioraglass.colorsort"
@@ -163197,9 +163176,9 @@
         "android"
       ],
       "names": {
+        "ko": "ルナと忘却の迷宮",
         "en": "Luna's Labyrinth",
-        "ja": "ルナと忘却の迷宮",
-        "ko": "ルナと忘却の迷宮"
+        "ja": "ルナと忘却の迷宮"
       },
       "legacySlugs": [
         "jp-yugi-lunalabyrinth-prod"
@@ -164709,7 +164688,7 @@
         "android"
       ],
       "names": {
-        "en": "Cash Rings:  Rotate & Earn",
+        "en": "Cash Rings: Rotate & Earn",
         "ja": "Cash Rings:  Rotate & Earn"
       }
     },
@@ -167513,8 +167492,133 @@
       "names": {
         "zh-cn": "仙临九界"
       }
+    },
+    "天諭": {
+      "appIds": {
+        "ios_tw": "1546438860"
+      },
+      "aliases": [],
+      "developer": "I CAN ENTERTAINMENT H.K. CO. LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/4f/25/76/4f257655-5ef7-dbda-8bc9-ac2b8eb11bd3/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "天諭",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "天諭"
+      }
+    },
+    "올림포스X아스가르드 총력전": {
+      "appIds": {
+        "ios": 6824414587
+      },
+      "aliases": [],
+      "developer": "NEWLEAP SOFT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c7/6b/b5/c76bb5c7-04ff-a171-eaeb-de5a5eabb458/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "올림포스x아스가르드-총력전",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "올림포스X아스가르드 총력전"
+      }
+    },
+    "개구리 말차 카페 - 방치형 타이쿤": {
+      "appIds": {
+        "ios": 6787887558,
+        "android": "com.fm.frogcafe"
+      },
+      "aliases": [
+        "개구리 말차 카페 - 방치 머지 타이쿤"
+      ],
+      "developer": "4th May Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/ae/3f/d8ae3f31-1be4-7010-0309-786e54d99bd2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "frog-matcha-cafe-idle-tycoon",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "개구리 말차 카페 - 방치형 타이쿤",
+        "en": "Frog Matcha Cafe: Idle Tycoon",
+        "ja": "カエルの抹茶カフェ　放置経営",
+        "zh-tw": "青蛙抹茶咖啡館：放置經營"
+      },
+      "legacySlugs": [
+        "개구리-말차-카페-방치-머지-타이쿤",
+        "개구리-말차-카페-방치형-타이쿤"
+      ]
+    },
+    "ぴこぴこゲーム": {
+      "appIds": {
+        "ios": 6837298357
+      },
+      "aliases": [],
+      "developer": "ruka tokushige",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/89/fc/9589fc28-1c16-892b-afde-739729b6d6a2/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "ぴこぴこゲーム",
+        "en": "ぴこぴこゲーム",
+        "ja": "ぴこぴこゲーム",
+        "zh-tw": "ぴこぴこゲーム"
+      }
+    },
+    "人人有功練：懦夫救星": {
+      "appIds": {
+        "ios_tw": 6825232884
+      },
+      "aliases": [],
+      "developer": "LIGHTYEAR INTERACTIVE LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/ce/39/55ce395e-ab25-d9af-8166-62676bdde41a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "人人有功練懦夫救星",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "人人有功練：懦夫救星"
+      }
+    },
+    "大陸冒險: 米拉奇": {
+      "appIds": {
+        "ios_tw": 6830109494
+      },
+      "aliases": [],
+      "developer": "Cara Ritter Rodman & Inaba Inc",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/54/09/3f/54093f03-0321-a61c-6ecc-b5d2dbb2c8f4/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "大陸冒險-米拉奇",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "大陸冒險: 米拉奇"
+      }
+    },
+    "Plunge: 스카이다이빙 스틱맨": {
+      "appIds": {
+        "ios": 6820654658
+      },
+      "aliases": [],
+      "developer": "HAKAN OZGER",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/d9/e2/6bd9e27e-d059-27a6-5c13-71c583890b07/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "plunge-skydiving-jump-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Plunge: 스카이다이빙 스틱맨",
+        "en": "Plunge: Skydiving Jump Game",
+        "ja": "Plunge: パラシュート 落下ゲーム",
+        "zh-tw": "Plunge: Skydiving Jump Game"
+      },
+      "legacySlugs": [
+        "plunge-스카이다이빙-스틱맨"
+      ]
     }
   },
   "lastUpdated": "2026-11-26",
-  "totalGames": 9271
+  "totalGames": 9277
 }

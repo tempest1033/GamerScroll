@@ -54065,6 +54065,50 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d6/32/bb/d632bbff-9b66-7d4d-d06b-09abf5818fcf/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-26T07:01:58.362Z"
+    },
+    {
+      "title": "올림포스X아스가르드 총력전",
+      "status": "single",
+      "appIds": {
+        "ios": 6824414587
+      },
+      "developer": "NEWLEAP SOFT",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c7/6b/b5/c76bb5c7-04ff-a171-eaeb-de5a5eabb458/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T10:23:13.803Z"
+    },
+    {
+      "title": "개구리 말차 카페 - 방치형 타이쿤",
+      "status": "single",
+      "appIds": {
+        "ios": 6787887558
+      },
+      "developer": "4th May Games Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/ae/3f/d8ae3f31-1be4-7010-0309-786e54d99bd2/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T10:23:13.994Z"
+    },
+    {
+      "title": "ぴこぴこゲーム",
+      "status": "single",
+      "appIds": {
+        "ios": 6837298357
+      },
+      "developer": "ruka tokushige",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/95/89/fc/9589fc28-1c16-892b-afde-739729b6d6a2/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T10:23:14.279Z"
+    },
+    {
+      "title": "Plunge: 스카이다이빙 스틱맨",
+      "status": "single",
+      "appIds": {
+        "ios": 6820654658
+      },
+      "developer": "HAKAN OZGER",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/d9/e2/6bd9e27e-d059-27a6-5c13-71c583890b07/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T10:23:15.400Z"
     }
   ],
   "approved": [
