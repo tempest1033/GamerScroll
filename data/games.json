@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K",
+        "android": "jp.co.mixi.monsterstrikeTW",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -166291,24 +166291,6 @@
         "777realパチスロ-かぐや様は告らせたい-jp"
       ]
     },
-    "Fresh Today: Cozy Supermarket": {
-      "appIds": {
-        "ios": 6836499974
-      },
-      "aliases": [],
-      "developer": "Emre Beyoglu",
-      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/35/e7/9235e78f-3571-9ba0-b28f-51db8e96ff97/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "fresh-today-cozy-supermarket",
-      "platforms": [
-        "ios"
-      ],
-      "names": {
-        "ko": "Fresh Today: Cozy Supermarket",
-        "en": "Fresh Today: Cozy Supermarket",
-        "ja": "Fresh Today: Cozy Supermarket",
-        "zh-tw": "Fresh Today: Cozy Supermarket"
-      }
-    },
     "Candy Cattie": {
       "appIds": {
         "ios": 6837213694
@@ -166717,18 +166699,28 @@
     },
     "ケロロ軍曹 ぽちっと大出動であります！": {
       "appIds": {
-        "ios_jp": 6805005476
+        "ios_jp": 6805005476,
+        "android": "com.gholdings.keroro"
       },
-      "aliases": [],
+      "aliases": [
+        "개구리 중사 케로로 Fluke Invasion"
+      ],
       "developer": "G HOLDINGS CO., LTD.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/fe/56/5cfe565e-bc5f-3029-5013-93fcde914272/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "slug": "ケロロ軍曹-ぽちっと大出動であります",
+      "slug": "keroro-tap-tap-defense",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
-        "ja": "ケロロ軍曹 ぽちっと大出動であります！"
-      }
+        "ja": "ケロロ軍曹 ぽちっと大出動であります！",
+        "ko": "개구리 중사 케로로 Fluke Invasion",
+        "en": "KERORO Tap! Tap! Defense!"
+      },
+      "legacySlugs": [
+        "ケロロ軍曹-ぽちっと大出動であります",
+        "개구리-중사-케로로-fluke-invasion"
+      ]
     },
     "天外星原：魔女覺醒": {
       "appIds": {
@@ -166967,14 +166959,16 @@
     },
     "삼국지 GO! : 방치형 키우기 RPG": {
       "appIds": {
-        "ios": 6761039504
+        "ios": 6761039504,
+        "android": "com.highbrow.games.tkr"
       },
       "aliases": [],
       "developer": "Highbrow",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/1a/77/2a1a7773-6b16-8fb2-03ca-97ce8256cc67/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "three-kingdoms-go-idle-rpg",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "삼국지 GO! : 방치형 키우기 RPG",
@@ -167510,14 +167504,16 @@
     },
     "올림포스X아스가르드 총력전": {
       "appIds": {
-        "ios": 6824414587
+        "ios": 6824414587,
+        "android": "com.newleapsoft.zszz.g"
       },
       "aliases": [],
       "developer": "NEWLEAP SOFT",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c7/6b/b5/c76bb5c7-04ff-a171-eaeb-de5a5eabb458/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "올림포스x아스가르드-총력전",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "올림포스X아스가르드 총력전"
@@ -167698,8 +167694,148 @@
       "names": {
         "en": "Reshine"
       }
+    },
+    "Sheepy Town:Wooly Jam": {
+      "appIds": {
+        "android": "com.sheepytownwoolyjam.jamgame"
+      },
+      "aliases": [],
+      "developer": "Game Ocean Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/cT5e4nzcTF4GeZOv1DQQUhksaJSUbaULa6laJalLz7-pmtC4wmX7a-TRfuePNfsmM-W88MZJtzGvNHkB8PQ1zVE",
+      "slug": "sheepy-town-wooly-jam",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Sheepy Town:Wooly Jam",
+        "en": "Sheepy Town:Wooly Jam",
+        "ja": "Sheepy Town:Wooly Jam",
+        "zh-tw": "Sheepy Town:Wooly Jam"
+      }
+    },
+    "대항해: 열혈 소녀 격전": {
+      "appIds": {
+        "android": "app.hzyter.kr2g"
+      },
+      "aliases": [],
+      "developer": "UBEAUTY FASHION",
+      "icon": "https://play-lh.googleusercontent.com/57nVSVoNFTHmWR8aCYVBIM_aKHihm0coX03Jsu1Bk8tCs0dfehF-iP6UCkCNLll75OHkeYfEoPX4qrBhpni7",
+      "slug": "대항해-열혈-소녀-격전",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "대항해: 열혈 소녀 격전"
+      }
+    },
+    "Fresh Today: 아늑한 슈퍼마켓": {
+      "appIds": {
+        "android": "com.beekgames.freshtoday",
+        "ios": 6836499974
+      },
+      "aliases": [
+        "Fresh Today: Cozy Supermarket"
+      ],
+      "developer": "Beek Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/9jj3caYw1iqwMdkLLtnZ1uXC7sxbRi49ONsX2Be2v_bdRP53YR4W4BP4uZdhpgaBlTHeOC0ITNe5ch0J6BdY",
+      "slug": "fresh-today-cozy-supermarket",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Fresh Today: 아늑한 슈퍼마켓",
+        "en": "Fresh Today: Cozy Supermarket",
+        "ja": "Fresh Today: ほのぼのスーパー",
+        "zh-tw": "Fresh Today: 溫馨小超市"
+      },
+      "legacySlugs": [
+        "fresh-today-아늑한-슈퍼마켓"
+      ]
+    },
+    "Spin Ring Cash Puzzle": {
+      "appIds": {
+        "android": "com.spinringcashpuzzlezl.game"
+      },
+      "aliases": [],
+      "developer": "Bgt groups",
+      "icon": "https://play-lh.googleusercontent.com/HpTB7HpzNDvPTCoFEbP5nViqlKZ_6OE_B9WA7RKzCz7Owrsh7dm6w-nl5L0uvsAZytiQwbd-c0FdpGbi1I8h-IA",
+      "slug": "spin-ring-cash-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Spin Ring Cash Puzzle",
+        "en": "Spin Ring Cash Puzzle",
+        "ja": "Spin Ring Cash Puzzle",
+        "zh-tw": "Spin Ring Cash Puzzle"
+      }
+    },
+    "Jigsaw Card: Video Master": {
+      "appIds": {
+        "android": "com.jigsol.gif.gp",
+        "ios": 6758008801
+      },
+      "aliases": [
+        "Jigsaw Card:Video Master"
+      ],
+      "developer": "Mia Game.",
+      "icon": "https://play-lh.googleusercontent.com/LTGyvrzdsyOlBy9ngEq41KTARJfjExAcyHVVubicLCej1MqTG1VsI18H14uMdOgGUMyWLfHjAxXRIjwdHFeBuzk",
+      "slug": "jigsaw-card-video-master",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "Jigsaw Card: Video Master",
+        "en": "Jigsaw Card:Video Master",
+        "ja": "Jigsaw Card: Video Master",
+        "zh-tw": "Jigsaw Card:Video Master"
+      }
+    },
+    "Guessong: 음악 맞추기 게임": {
+      "appIds": {
+        "ios": 6752951225
+      },
+      "aliases": [],
+      "developer": "Seray Catikkas Cimen",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/43/e2/e5/43e2e575-a146-fff7-80d7-b1fc230adc46/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "guessong-guess-the-song",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Guessong: 음악 맞추기 게임",
+        "en": "Guessong: Guess the Song",
+        "ja": "Guessong: 音楽当てゲーム",
+        "zh-tw": "Guessong: Guess the Song"
+      },
+      "legacySlugs": [
+        "guessong-음악-맞추기-게임"
+      ]
+    },
+    "파칭코 롤플레잉 — 디펜스": {
+      "appIds": {
+        "android": "com.game.pachinkorpg"
+      },
+      "aliases": [],
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/camkpSEmg95woU_iFPqLpSM2zREEiL0m2S9CF39MIG9i3kyDv8AIXvePc3_aYAj-V4nSJhyNTGo43m6VF6NIMnk",
+      "slug": "pachinko-rpg-tower-defense",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "파칭코 롤플레잉 — 디펜스",
+        "en": "Pachinko RPG — Tower Defense",
+        "ja": "パチンコロールプレイング — ゾンビタワーディフェンス",
+        "zh-tw": "Pachinko RPG — Tower Defense"
+      },
+      "legacySlugs": [
+        "파칭코-롤플레잉-디펜스"
+      ]
     }
   },
   "lastUpdated": "2026-11-27",
-  "totalGames": 9282
+  "totalGames": 9288
 }

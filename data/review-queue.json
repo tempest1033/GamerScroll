@@ -53744,13 +53744,19 @@
     },
     {
       "title": "삼국지 GO! : 방치형 키우기 RPG",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6761039504
+        "ios": 6761039504,
+        "android": "com.highbrow.games.tkr"
       },
       "developer": "Highbrow",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2a/1a/77/2a1a7773-6b16-8fb2-03ca-97ce8256cc67/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "삼국지 GO! : 방치형 키우기 RPG",
+          "appId": 6761039504
+        }
+      ],
       "addedAt": "2026-11-25T08:09:32.199Z"
     },
     {
@@ -54068,13 +54074,19 @@
     },
     {
       "title": "올림포스X아스가르드 총력전",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6824414587
+        "ios": 6824414587,
+        "android": "com.newleapsoft.zszz.g"
       },
       "developer": "NEWLEAP SOFT",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c7/6b/b5/c76bb5c7-04ff-a171-eaeb-de5a5eabb458/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "올림포스X아스가르드 총력전",
+          "appId": 6824414587
+        }
+      ],
       "addedAt": "2026-11-26T10:23:13.803Z"
     },
     {
@@ -54120,6 +54132,131 @@
       "icon": "https://play-lh.googleusercontent.com/2gQvTkOPfCINt7Cd9z-HCehT5qjAmQMtMxrKamWuVg3Ls0hcZ2sg8yCf1V7Mz1uEM78XOHhVC85CELg4rpOiCA",
       "searchResults": [],
       "addedAt": "2026-11-26T12:48:55.711Z"
+    },
+    {
+      "title": "Sheepy Town:Wooly Jam",
+      "status": "single",
+      "appIds": {
+        "android": "com.sheepytownwoolyjam.jamgame"
+      },
+      "developer": "Game Ocean Technology Limited",
+      "icon": "https://play-lh.googleusercontent.com/cT5e4nzcTF4GeZOv1DQQUhksaJSUbaULa6laJalLz7-pmtC4wmX7a-TRfuePNfsmM-W88MZJtzGvNHkB8PQ1zVE",
+      "searchResults": [],
+      "addedAt": "2026-11-26T21:01:59.903Z"
+    },
+    {
+      "title": "대항해: 열혈 소녀 격전",
+      "status": "single",
+      "appIds": {
+        "android": "app.hzyter.kr2g"
+      },
+      "developer": "UBEAUTY FASHION",
+      "icon": "https://play-lh.googleusercontent.com/57nVSVoNFTHmWR8aCYVBIM_aKHihm0coX03Jsu1Bk8tCs0dfehF-iP6UCkCNLll75OHkeYfEoPX4qrBhpni7",
+      "searchResults": [],
+      "addedAt": "2026-11-26T21:02:00.297Z"
+    },
+    {
+      "title": "Fresh Today: 아늑한 슈퍼마켓",
+      "status": "single",
+      "appIds": {
+        "android": "com.beekgames.freshtoday"
+      },
+      "developer": "Beek Game Studio",
+      "icon": "https://play-lh.googleusercontent.com/9jj3caYw1iqwMdkLLtnZ1uXC7sxbRi49ONsX2Be2v_bdRP53YR4W4BP4uZdhpgaBlTHeOC0ITNe5ch0J6BdY",
+      "searchResults": [
+        {
+          "title": "Discounty : 크레이지 마트",
+          "appId": 6753793150
+        }
+      ],
+      "addedAt": "2026-11-26T21:02:00.712Z"
+    },
+    {
+      "title": "개구리 중사 케로로 Fluke Invasion",
+      "status": "single",
+      "appIds": {
+        "android": "com.gholdings.keroro"
+      },
+      "developer": "G Holdings co., ltd.",
+      "icon": "https://play-lh.googleusercontent.com/iKZJ6F0GNiIS7LgRNRa0V_6MOJ91iT4-f6bxo5CDLBjMApuIwjwuizMwlsy0ySs7Bfsc7JyW7FQbrC3v3tA32g",
+      "searchResults": [
+        {
+          "title": "케로로 팬클럽",
+          "appId": 1668371511
+        }
+      ],
+      "addedAt": "2026-11-26T21:02:01.240Z"
+    },
+    {
+      "title": "Spin Ring Cash Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.spinringcashpuzzlezl.game"
+      },
+      "developer": "Bgt groups",
+      "icon": "https://play-lh.googleusercontent.com/HpTB7HpzNDvPTCoFEbP5nViqlKZ_6OE_B9WA7RKzCz7Owrsh7dm6w-nl5L0uvsAZytiQwbd-c0FdpGbi1I8h-IA",
+      "searchResults": [
+        {
+          "title": "MultiPolls - 돈버는앱머니워크",
+          "appId": 6448284927
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        },
+        {
+          "title": "TopSurveys: Paid Survey & Poll",
+          "appId": 6740480652
+        }
+      ],
+      "addedAt": "2026-11-26T21:02:01.829Z"
+    },
+    {
+      "title": "Jigsaw Card: Video Master",
+      "status": "matched",
+      "appIds": {
+        "android": "com.jigsol.gif.gp",
+        "ios": 6758008801
+      },
+      "developer": "Mia Game.",
+      "icon": "https://play-lh.googleusercontent.com/LTGyvrzdsyOlBy9ngEq41KTARJfjExAcyHVVubicLCej1MqTG1VsI18H14uMdOgGUMyWLfHjAxXRIjwdHFeBuzk",
+      "searchResults": [
+        {
+          "title": "Jigsaw Card:Video Master",
+          "appId": 6758008801
+        },
+        {
+          "title": "지그소 드롭: 솔리테어 퍼즐",
+          "appId": 6767091927
+        },
+        {
+          "title": "블록 블라스트 (Block Blast)",
+          "appId": 1617391485
+        }
+      ],
+      "addedAt": "2026-11-26T21:02:02.347Z"
+    },
+    {
+      "title": "Guessong: 음악 맞추기 게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6752951225
+      },
+      "developer": "Seray Catikkas Cimen",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/43/e2/e5/43e2e575-a146-fff7-80d7-b1fc230adc46/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T21:02:03.189Z"
+    },
+    {
+      "title": "파칭코 롤플레잉 — 디펜스",
+      "status": "single",
+      "appIds": {
+        "android": "com.game.pachinkorpg"
+      },
+      "developer": "SayGames Ltd",
+      "icon": "https://play-lh.googleusercontent.com/camkpSEmg95woU_iFPqLpSM2zREEiL0m2S9CF39MIG9i3kyDv8AIXvePc3_aYAj-V4nSJhyNTGo43m6VF6NIMnk",
+      "searchResults": [],
+      "addedAt": "2026-11-26T21:02:03.658Z"
     }
   ],
   "approved": [
