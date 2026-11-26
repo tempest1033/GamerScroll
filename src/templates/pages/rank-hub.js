@@ -59,6 +59,24 @@ function makeCtx(S) {
 // Each edition's home country (en→us, ja→jp, zh-cn→cn, ko→kr, zh-tw→tw) owns /rankings/; the others stay on /rankings/{cc}/ (kr included).
 const homeCountry = () => require('../../i18n').currentEdition().country;
 const countryHref = (c, chart = 'grossing') => (chart === 'free' ? (c === homeCountry() ? '/rankings/free/' : `/rankings/free/${c}/`) : (c === homeCountry() ? '/rankings/' : `/rankings/${c}/`));
+const STORE_SLUGS = { ios: 'app-store', android: 'google-play' };
+const CHART_SLUGS = { grossing: 'top-grossing', free: 'top-free' };
+const storeChartHref = (c, store, chart = 'grossing') => `/rankings/${c}/${STORE_SLUGS[store]}/${CHART_SLUGS[chart]}/`;
+function storeChartSpecs(S = loadRankStats()) {
+  const out = [];
+  for (const country of Object.keys(COUNTRIES)) {
+    for (const store of ['ios', 'android']) {
+      for (const chart of ['grossing', 'free']) {
+        const rows = ((chart === 'free' ? S.today.rowsFree : S.today.rows)[country] || {})[store] || [];
+        if (!rows.length) continue;
+        const storeSlug = STORE_SLUGS[store];
+        const chartSlug = CHART_SLUGS[chart];
+        out.push({ country, store, chart, storeSlug, chartSlug, rel: `${country}/${storeSlug}/${chartSlug}`, href: storeChartHref(country, store, chart) });
+      }
+    }
+  }
+  return out;
+}
 // Home country first, then the rest in the fixed order.
 const orderedCountries = () => Object.keys(COUNTRIES).sort((a, b) => (b === homeCountry()) - (a === homeCountry()));
 // 한 줄 가로 스크롤 메뉴(.rk-hscroll) 바로 뒤에 붙이는 스크립트: 선택한 항목이 가려져 있을 때만 필요한 만큼 스크롤하고,
@@ -141,7 +159,8 @@ function storeList(S, C, country, s, chart = 'grossing', { filter = null, limit 
 const storeCols = (S, C, country, chart, opts, stores) => {
   const hasAnd = stores.includes('android');
   const limit = opts && opts.limit ? opts.limit : 200;
-  const colH = (s, n) => `<div class="rk-colh"><h2>${STORES[s]}</h2><small>${tt('rank.top_vs_previous_day', { p0: chart === 'free' ? tt('layout.popular_free') : tt('est.revenue'), n })}</small></div>`;
+  const linkHeaders = Boolean(opts && opts.linkStoreHeaders);
+  const colH = (s, n) => `<div class="rk-colh"><h2>${linkHeaders ? `<a href="${storeChartHref(country, s, chart)}">${STORES[s]}</a>` : STORES[s]}</h2><small>${tt('rank.top_vs_previous_day', { p0: chart === 'free' ? tt('layout.popular_free') : tt('est.revenue'), n })}</small></div>`;
   return `${hasAnd ? tt('rank.google_play_app_store') : ''}
 <div class="rk-cols${hasAnd ? '' : ' single'}" id="rk-list">${stores.map((s) => `<div class="rk-col ${s === 'ios' ? 'ios' : 'and'}">${colH(s, Math.min(limit, ((chart === 'free' ? S.today.rowsFree : S.today.rows)[country][s] || []).length))}${storeList(S, C, country, s, chart, opts)}</div>`).join('')}</div>`;
 };
@@ -200,7 +219,9 @@ function renderRankingsHub(country = homeCountry(), chart = 'grossing') {
   const hl = highlights ? `<div class="rk-hl">${highlights}</div>` : '';
   const top3 = ios.slice(0, 3).map((r) => S.nameOf('ios', r));
   const lead = `${tt('rank.app_store_1_2_3', { cname, chartName, p2: top3[0] || '-', p3: top3[1] || '-', p4: top3[2] || '-', p5: hasAnd && and[0] ? `${tt('genres.google_play_1', { p0: S.nameOf('android', and[0]) })}` : '', p6: tsText(today.ts) })}`;
-  const cols = storeCols(S, C, country, chart, { podium: true }, stores);
+  const cols = storeCols(S, C, country, chart, { podium: true, linkStoreHeaders: true }, stores);
+  const storeLinks = `<div class="rk-toolbar rk-store-bar"><div class="rk-tabs rk-store-links" role="navigation" aria-label="${tt('rank.store_chart_nav')}">${['grossing', 'free'].flatMap((ch) => stores.filter((s) => ((ch === 'free' ? today.rowsFree : today.rows)[country][s] || []).length > 0).map((s) => `<a href="${storeChartHref(country, s, ch)}">${tt(ch === 'free' ? 'rank.store_tab_free' : 'rank.store_tab_grossing', { store: STORES[s] })}</a>`)).join('')}</div></div>`;
+  const singleStoreDuplicate = !hasAnd && country !== homeCountry();
 
   if (isFree) {
     const i18n = require('../../i18n');
@@ -211,10 +232,11 @@ function renderRankingsHub(country = homeCountry(), chart = 'grossing') {
     const body = `<div class="rk-head"><h1>${tt('rank.game_popularity_rankings', { cname })}</h1></div>
 ${subnav(S, 'free')}
 <div class="rk-toolbar">${countryTabs(country, 'free')}</div>
+${storeLinks}
 ${hl}
 ${cols}
 ${links}`;
-    const canonical = `${siteBaseUrl}${countryHref(country, 'free')}`;
+    const canonical = singleStoreDuplicate ? `${siteBaseUrl}${storeChartHref(country, stores[0], 'free')}` : `${siteBaseUrl}${countryHref(country, 'free')}`;
     return shell(S, {
       body,
       title: `${tt('rank.mobile_game_popularity_rankings_top', { p0: country === homeCountry() ? '' : `${cname} `, date: formatDay(today.date) })}`,
@@ -231,9 +253,10 @@ ${links}`;
   const body = `<div class="rk-head"><h1>${country === homeCountry() ? tt('rank.game_revenue_rankings_4') : `${tt('rank.game_revenue_rankings_3', { where })}`}</h1></div>
 ${subnav(S, 'rank')}
 <div class="rk-toolbar">${countryTabs(country)}</div>
+${storeLinks}
 ${hl}
 ${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
-  const canonical = `${siteBaseUrl}${countryHref(country)}`;
+  const canonical = singleStoreDuplicate ? `${siteBaseUrl}${storeChartHref(country, stores[0], 'grossing')}` : `${siteBaseUrl}${countryHref(country)}`;
   return shell(S, {
     body,
     // Search wording ("top-grossing mobile games"), no date: the URL always shows today's chart. The home market's page names no country.
@@ -243,6 +266,104 @@ ${cols}${require('../components/revenue-reference').renderBandTable(country)}`;
     canonical,
     crumbs: country === homeCountry() ? [] : [{ name: cname, url: canonical }],
     dataset: country === homeCountry() ? { country, description: tt('rank.dataset_grossing', { country: cname, stores: datasetStores(S, country) }) } : null,
+  });
+}
+
+// ---------- 1b. 국가 × 스토어 × 차트 전용 페이지 (/rankings/{cc}/{store}/{chart}/) ----------
+function renderStoreChart(country, store, chart = 'grossing') {
+  const S = loadRankStats();
+  const { today } = S;
+  const isFree = chart === 'free';
+  const rows = ((isFree ? today.rowsFree : today.rows)[country] || {})[store] || [];
+  if (!rows.length) return null;
+
+  const C = makeCtx(S);
+  const cname = COUNTRIES[country];
+  const shortCountry = tt(`rank.short_${country}`);
+  const storeName = STORES[store];
+  const hasAnd = ((isFree ? today.rowsFree : today.rows)[country].android || []).length > 0;
+  const stores = hasAnd ? ['android', 'ios'] : ['ios'];
+  const dateText = formatDay(today.date);
+  const ts = tsText(today.ts);
+  const mv = S.movers(country, store, chart);
+
+  const top = rows[0];
+  const streak = top ? (isFree ? S.freeStreakAtOne(country, store, top.appId) : S.streakAtOne(country, store, top.appId)) : 0;
+  const summaryParts = [];
+  if (top) {
+    const topName = esc(S.nameOf(store, top));
+    summaryParts.push(streak > 1 ? tt('rank.summary_leader_streak', { name: topName, days: streak }) : tt('rank.summary_leader_one', { name: topName }));
+  }
+  if (mv.up[0]) summaryParts.push(tt('rank.summary_mover_up', { name: esc(S.nameOf(store, mv.up[0].r)), jump: mv.up[0].prev - mv.up[0].rank, rank: mv.up[0].rank }));
+  if (mv.fresh.length) summaryParts.push(tt('rank.summary_new_entries', { count: mv.fresh.length, name: esc(S.nameOf(store, mv.fresh[0].r)), rank: mv.fresh[0].rank }));
+  const summary = summaryParts.length ? `<p class="rk-lead">${summaryParts.join(' ')}</p>` : '';
+
+  const hlCard = (label, x, val) => {
+    if (!x) return '';
+    const g = S.gameOf(store, x.r);
+    const href = C.hrefOf(g);
+    const tag = href ? 'a' : 'div';
+    return `<${tag} class="rk-hl-card"${href ? ` href="${href}"` : ''}><img src="${esc(C.iconOf(x.r, g))}" alt="" loading="lazy" decoding="async"><div class="tx"><span class="lb">${label} · ${storeName}</span><span class="nm" data-name>${esc(S.nameOf(store, x.r))}</span></div><div class="vl">${val(x)}</div></${tag}>`;
+  };
+  const oneCard = top ? hlCard(tt('trend.rank_one'), { r: top, rank: 1 }, () => (streak > 1 ? `<b>${tt('rank.days_9', { p0: streak })}</b>` : '<b>1</b>')) : '';
+  const highlights = [
+    hlCard(tt('rank.rises'), mv.up[0], (x) => `<b>${x.prev} → ${x.rank}</b><span class="rk-chg up">▲${x.prev - x.rank}</span>`),
+    hlCard(tt('rank.new_entries'), mv.fresh[0], (x) => `<b>${x.rank}</b><span class="rk-chg new">NEW</span>`),
+    isFree ? '' : hlCard(tt('rank.all_time_best'), mv.record[0], (x) => `<b>${x.rank}</b>${chg(x.rank, x.prev)}`),
+    hlCard(tt('rank.falls'), mv.down[0], (x) => `<b>${x.prev} → ${x.rank}</b><span class="rk-chg down">▼${x.rank - x.prev}</span>`),
+    oneCard,
+  ].filter(Boolean).slice(0, 3).join('');
+  const hl = highlights ? `<div class="rk-hl">${highlights}</div>` : '';
+
+  const overviewCanonical = hasAnd || country === homeCountry();
+  const storeTabs = `<div class="rk-tabs rk-store-links" role="navigation" aria-label="${tt('rank.store_chart_nav')}">${overviewCanonical ? `<a href="${countryHref(country, chart)}">${tt('rank.overview_tab', { country: shortCountry })}</a>` : ''}${['grossing', 'free'].flatMap((ch) => stores.filter((s) => ((ch === 'free' ? today.rowsFree : today.rows)[country][s] || []).length > 0).map((s) => `<a class="${s === store && ch === chart ? 'active' : ''}"${s === store && ch === chart ? ' aria-current="page"' : ''} href="${storeChartHref(country, s, ch)}">${tt(ch === 'free' ? 'rank.store_tab_free' : 'rank.store_tab_grossing', { store: STORES[s] })}</a>`)).join('')}</div>`;
+  const siblingCountryTabs = `<div class="rk-tabs" role="navigation" aria-label="${tt('rank.country')}">${orderedCountries().filter((c) => (((isFree ? today.rowsFree : today.rows)[c] || {})[store] || []).length > 0).map((c) => `<a class="${c === country ? 'active' : ''}"${c === country ? ' aria-current="page"' : ''} href="${storeChartHref(c, store, chart)}">${COUNTRIES[c]}</a>`).join('')}</div>`;
+
+  const cols = storeCols(S, C, country, chart, { podium: true }, [store]);
+  const otherStore = store === 'ios' ? 'android' : 'ios';
+  const otherChart = isFree ? 'grossing' : 'free';
+  const siblingLinks = [];
+  if (((isFree ? today.rowsFree : today.rows)[country][otherStore] || []).length > 0) {
+    siblingLinks.push(`<a href="${storeChartHref(country, otherStore, chart)}">${tt(isFree ? 'rank.store_h1_free' : 'rank.store_h1_grossing', { country: shortCountry, store: STORES[otherStore] })}</a>`);
+  }
+  if (((otherChart === 'free' ? today.rowsFree : today.rows)[country][store] || []).length > 0) {
+    siblingLinks.push(`<a href="${storeChartHref(country, store, otherChart)}">${tt(otherChart === 'free' ? 'rank.store_h1_free' : 'rank.store_h1_grossing', { country: shortCountry, store: storeName })}</a>`);
+  }
+  if (overviewCanonical) siblingLinks.push(`<a href="${countryHref(country, chart)}">${tt('rank.overview_tab', { country: shortCountry })}</a>`);
+  if (store === 'android' && (((isFree ? today.rowsFree : today.rows).cn || {}).ios || []).length > 0) {
+    siblingLinks.push(`<a href="${storeChartHref('cn', 'ios', chart)}">${tt(isFree ? 'rank.store_h1_free' : 'rank.store_h1_grossing', { country: tt('rank.short_cn'), store: STORES.ios })}</a>`);
+  }
+  siblingLinks.push(`<a href="/steam/most-played/">${tt('steam.most_played_h1')}</a>`);
+  siblingLinks.push(`<a href="/rankings/global/">${tt('layout.global')}</a>`);
+  const bottomNav = `<div class="rk-card"><h2>${tt('rank.sibling_charts')}</h2><div class="rk-links-row">${siblingLinks.join('')}</div></div>`;
+
+  const title = tt(isFree ? 'rank.store_title_free' : 'rank.store_title_grossing', { country: shortCountry, store: storeName });
+  const h1 = tt(isFree ? 'rank.store_h1_free' : 'rank.store_h1_grossing', { country: shortCountry, store: storeName });
+  const top3 = rows.slice(0, 3).map((r) => S.nameOf(store, r));
+  const description = tt(isFree ? 'rank.store_desc_free' : 'rank.store_desc_grossing', { country: shortCountry, store: storeName, n1: top3[0] || '-', n2: top3[1] || '-', n3: top3[2] || '-', date: dateText });
+  const keywords = tt(isFree ? 'rank.store_keywords_free' : 'rank.store_keywords_grossing', { country: shortCountry, store: storeName });
+  const canonical = `${siteBaseUrl}${storeChartHref(country, store, chart)}`;
+  const body = `<div class="rk-head"><h1>${h1}</h1><span class="rk-sub">${tt('rank.updated_on', { date: `<time datetime="${esc(today.date)}">${esc(dateText)}</time>`, ts: esc(ts) })}</span></div>
+${subnav(S, isFree ? 'free' : 'rank')}
+${summary}
+<div class="rk-toolbar">${siblingCountryTabs}</div>
+<div class="rk-toolbar rk-store-bar">${storeTabs}</div>
+${hl}
+${cols}
+${bottomNav}`;
+  const crumbs = [
+    ...(isFree ? [{ name: tt('layout.popular_free'), url: `${siteBaseUrl}/rankings/free/` }] : []),
+    ...(overviewCanonical && country !== homeCountry() ? [{ name: cname, url: `${siteBaseUrl}${countryHref(country, chart)}` }] : []),
+    { name: `${shortCountry} ${storeName} ${tt(isFree ? 'rank.chart_label_free' : 'rank.chart_label_grossing')}`, url: canonical },
+  ];
+  return shell(S, {
+    body,
+    title,
+    description,
+    keywords,
+    canonical,
+    crumbs,
+    dataset: isFree ? null : { country, description: tt('rank.dataset_grossing', { country: cname, stores: storeName }) },
   });
 }
 
@@ -617,4 +738,4 @@ function renderGameRankSummary(gameInfo, slug) {
   return require('../helpers/game-rank-summary').renderGameRankSummary(rank, summaryMeta(S), gameInfo.key || gameInfo.name || slug, homeCountry());
 }
 
-module.exports = { metricsHref, renderTrending, renderRankingsHub, renderGenre: (id, country = 'kr') => require('./genres').renderGenre(id, country), marketPages, marketAvailability, renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };
+module.exports = { metricsHref, renderTrending, renderRankingsHub, renderStoreChart, storeChartSpecs, storeChartHref, STORE_SLUGS, CHART_SLUGS, renderGenre: (id, country = 'kr') => require('./genres').renderGenre(id, country), marketPages, marketAvailability, renderMonthly, renderGlobal, renderRecords, renderPublishers, renderPublisher, renderAbout, renderGameRankSummary, publisherIndex, publisherPages, countryHref, homeCountry, orderedCountries, makeCtx, storeList, subnav, HSCROLL_SCRIPT, chg, sparkline, trendColor };

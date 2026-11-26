@@ -47,6 +47,7 @@ function loadSteamStats(options = {}) {
   const latestMonth = fullMonths[fullMonths.length - 1] || months[months.length - 1];
   const firstSeen = (id) => { for (const d of days) if (ccuOf(d, id) != null || sellOf(d, id) != null) return d.date; return null; };
   const daysOnChart = (id) => days.filter((d) => ccuOf(d, id) != null).length;
+  const streakAtOne = (id) => { let n = 0; for (let i = days.length - 1; i >= 0; i--) { if (rankOf(days[i], id) === 1) n++; else break; } return n; };
   const peak = (id) => { let b = null, bd = null; for (const d of days) { const v = ccuOf(d, id); if (v != null && (b == null || v > b)) { b = v; bd = d.date; } } return { ccu: b, date: bd }; };
   // 월간: 일 평균 동접 상위
   const monthlyTop = (mo, n = 100) => {
@@ -73,7 +74,7 @@ function loadSteamStats(options = {}) {
   };
   const sumToday = (d) => d.mp.reduce((a, r) => a + (r.ccu || 0), 0);
 
-  cached = { days, today, yday, months, latestMonth, daysIn, info, ccuOf, rankOf, sellOf, series, rankSeries, sellSeries, firstSeen, daysOnChart, peak, monthlyTop, allTimePeaks, pageApps, sumToday };
+  cached = { days, today, yday, months, latestMonth, daysIn, info, ccuOf, rankOf, sellOf, series, rankSeries, sellSeries, firstSeen, daysOnChart, streakAtOne, peak, monthlyTop, allTimePeaks, pageApps, sumToday };
   return cached;
 }
 

@@ -189,6 +189,7 @@ function loadRankStats(options = {}) {
   }
   function daysOnChart(c, s, appId) { let n = 0; for (const d of days) if (rankOf(d, c, s, appId) != null) n++; return n; }
   function streakAtOne(c, s, appId) { let n = 0; for (let i = days.length - 1; i >= 0; i--) { if (rankOf(days[i], c, s, appId) === 1) n++; else break; } return n; }
+  function freeStreakAtOne(c, s, appId) { let n = 0; for (let i = days.length - 1; i >= 0; i--) { if (freeRankOf(days[i], c, s, appId) === 1) n++; else break; } return n; }
   function firstSeen(c, s, appId) { for (const d of days) if (rankOf(d, c, s, appId) != null) return d.date; return null; }
   // 게임 단위 첫 등장일: 같은 게임의 다른 스토어 기록까지 본다 (한 스토어에서만 늦게 잡힌 오래된 게임을 신작으로 오판하지 않도록)
   function gameFirstSeen(c, s, r) {
@@ -303,7 +304,7 @@ function loadRankStats(options = {}) {
     COUNTRIES, STORES, games, byApp, bySlug, byTitle, isSub,
     days, today, yday, months, builtMonths, builtMonthsFor, latestMonth, daysIn, hourly, hourlyRanks,
     rankOf, seriesOf, freeRankOf, freeSeriesOf, gameOf, keyOf, nameOf, displayName,
-    allTimeBest, daysOnChart, streakAtOne, firstSeen, gameFirstSeen,
+    allTimeBest, daysOnChart, streakAtOne, freeStreakAtOne, firstSeen, gameFirstSeen,
     movers, debutRows, monthStats, monthlyAvg, aggregateGlobal, allTimeStats,
     util: { nums, min, avg, std, fmt1, esc, tsText, tsTime, pubKey },
   };

@@ -53,15 +53,17 @@
 .rk h1 { font-size: 28px; font-weight: 800; letter-spacing: -.03em; margin: 0; line-height: 1.2; color: var(--rk-text); }
 .rk .rk-sub { display: block; font-size: 13px; color: var(--rk-muted); font-weight: 500; margin-top: 8px; letter-spacing: -.01em; }
 .rk .rk-sub .live { color: var(--rk-text2); font-weight: 600; }
-.rk .rk-lead { color: var(--rk-text2); font-size: 15px; line-height: 1.65; margin: 0 0 4px; max-width: 760px; }
+.rk .rk-lead { color: var(--rk-text2); font-size: 15px; line-height: 1.65; margin: 14px 0 4px; max-width: 760px; }
 .rk .rk-subnav { display: flex; gap: 26px; margin: 22px 0 0; border-bottom: 1px solid var(--rk-line2); overflow-x: auto; scrollbar-width: none; }
 .rk .rk-subnav::-webkit-scrollbar { display: none; }
 .rk .rk-subnav a { padding: 12px 0; font-size: 15px; font-weight: 600; color: var(--rk-muted); white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -1px; }
 .rk .rk-subnav a.active { color: var(--rk-accent); border-color: var(--rk-accent); }
 .rk .rk-toolbar { display: flex; align-items: center; gap: 8px; margin: 18px 0 0; flex-wrap: wrap; }
+.rk .rk-toolbar.rk-store-bar { margin-top: 10px; }
 .rk .rk-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
 .rk .rk-tabs a { display: inline-flex; align-items: center; height: 32px; padding: 0 13px; border-radius: 999px; font-size: 13px; color: var(--rk-text2); border: 1px solid var(--rk-line2); font-weight: 500; white-space: nowrap; background: var(--rk-bg); }
 .rk .rk-tabs a.active { background: var(--rk-accent-bg); color: var(--rk-accent); border-color: transparent; font-weight: 600; }
+.rk .rk-colh h2 a:hover { text-decoration: underline; }
 
 /* ---------- 티커 ---------- */
 .rk .rk-ticker { display: flex; gap: 6px 32px; flex-wrap: wrap; align-items: center; margin: 18px 0 0; padding: 12px 16px; background: var(--rk-bg2); border-radius: 12px; font-size: 13px; }

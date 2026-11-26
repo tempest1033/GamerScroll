@@ -152,12 +152,18 @@ function buildEditions(ctx) {
   // game pages by isIndexableGame, Steam record pages that are built; /analysis/ pages are noindex. hreflang, sitemaps and in-page links follow it.
   const marketPlan = require('../../functions/_lib/market-plan');
   const builtSteamPages = new Set(steamStats ? steamStats.pageApps(14).filter((id) => !steamPages.has(id)) : []);
+  const singleStoreCountries = new Set(rankStats ? Object.keys(rankStats.COUNTRIES).filter((c) => !((rankStats.today.rows[c] || {}).android || []).length) : []);
   i18n.setPageAvailability((code, p) => {
     const game = /^\/games\/([^/]+)\/$/.exec(p);
     if (game) { try { return !indexableSlugs || indexableSlugs[code].has(decodeURIComponent(game[1]).normalize('NFC')); } catch { return false; } }
     const steam = /^\/steam\/(\d+)\/$/.exec(p);
     if (steam) return builtSteamPages.has(steam[1]);
     if (/^\/analysis\//.test(p)) return false;
+    const countryHub = /^\/rankings\/(?:free\/)?(kr|jp|us|cn|tw)\/$/.exec(p);
+    if (countryHub) {
+      const ed = i18n.EDITIONS.find((e) => e.code === code);
+      if (ed && countryHub[1] !== ed.country && singleStoreCountries.has(countryHub[1])) return false;
+    }
     return marketPlan.available(plans[code], p);
   });
 
@@ -221,6 +227,10 @@ function buildEditions(ctx) {
     const steamHtml = attempt('steam', () => m.steamHub.renderSteamHub())
       || attempt('steam (legacy)', () => m.steam.generateSteamPage({ ...data, cacheVersion: ctx.steamCacheVersion }));
     if (steamHtml) write('steam/index.html', steamHtml, '0.8', steamDate);
+    if (steamHtml && steamStats) {
+      const mostPlayedHtml = attempt('steam most-played', () => m.steamHub.renderSteamMostPlayed());
+      if (mostPlayedHtml) write('steam/most-played/index.html', mostPlayedHtml, '0.8', steamDate);
+    }
     const hubHtml = attempt('games hub', () => m.gamesHub.generateGamesHubPage({ games: gamesData, popularGames: popularGames || [], searchIndexVersion: searchVersion, listedSlugs: indexableSlugs && indexableSlugs[edition.code] }));
     if (hubHtml) write('games/index.html', hubHtml, '0.8', rankDate);
     const notFoundHtml = attempt('404', () => m.notFound.generate404Page());
@@ -236,13 +246,18 @@ function buildEditions(ctx) {
       const hub = m.rankHub;
       // The sitemap lists the rankings hubs, genre and monthly pages; publisher pages and rankings/about stay out of it.
       const sub = (rel, html, priority = '0.7', lastmod = rankDate) => write(`rankings/${rel}/index.html`, html, priority, lastmod);
-      // Every country has its own /rankings/<cc>/ (kr included); the home country's page canonicalizes to /rankings/.
+      // Every country has its own /rankings/<cc>/ (kr included); the home country's page canonicalizes to /rankings/,
+      // and single-store non-home countries (cn on non-zh-cn) canonicalize to their dedicated App Store chart page.
       for (const c of Object.keys(S.COUNTRIES)) {
-        const duplicate = c === home ? null : '0.7'; // the home country's own subpage duplicates /rankings/ (canonical) → not in the sitemap
+        const duplicate = c === home || singleStoreCountries.has(c) ? null : '0.7';
         sub(c, hub.renderRankingsHub(c), duplicate);
         sub(`free/${c}`, hub.renderRankingsHub(c, 'free'), duplicate);
       }
       sub('free', hub.renderRankingsHub(home, 'free'));
+      for (const spec of hub.storeChartSpecs(S)) {
+        const html = hub.renderStoreChart(spec.country, spec.store, spec.chart);
+        if (html) sub(spec.rel, html, '0.7', rankDate);
+      }
       // Genre, publisher, records and monthly pages show the edition's home market; a page the market has no data for is not built.
       const plan = plans[edition.code];
       const categories = require('../rank/genres').loadGenres().categories.filter((c) => plan.genres.has(c.id));
@@ -321,8 +336,9 @@ function writeSitemaps(docsDir, results) {
   const names = [];
   for (const r of results) {
     const entries = r.sitemap.map((e) => {
-      const alt = (code) => xmlEscape(encodeURI(i18n.absoluteUrl(code, i18n.alternatePath(code, e.path, r.code))));
-      const alternates = [...i18n.EDITIONS.filter((x) => i18n.editionHasPage(x.code, e.path)).map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${alt(x.code)}"/>`), ...(i18n.editionHasPage('en', e.path) ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${alt('en')}"/>`] : [])].join('\n');
+      const altPath = (code) => i18n.alternatePath(code, e.path, r.code);
+      const alt = (code) => xmlEscape(encodeURI(i18n.absoluteUrl(code, altPath(code))));
+      const alternates = [...i18n.EDITIONS.filter((x) => i18n.editionHasPage(x.code, altPath(x.code))).map((x) => `    <xhtml:link rel="alternate" hreflang="${x.hreflang}" href="${alt(x.code)}"/>`), ...(i18n.editionHasPage('en', altPath('en')) ? [`    <xhtml:link rel="alternate" hreflang="x-default" href="${alt('en')}"/>`] : [])].join('\n');
       return `  <url>\n    <loc>${xmlEscape(encodeURI(e.loc))}</loc>${lastmodTag(e.lastmod)}\n    <priority>${e.priority}</priority>\n${alternates}\n  </url>`;
     }).join('\n');
     const name = `sitemap-${r.code}.xml`;

@@ -105,7 +105,7 @@ function generateHead(options = {}) {
   const schemaBreadcrumbs = breadcrumbs && breadcrumbs.length > 0
     ? breadcrumbs.map(item => ({ ...item, url: editionUrl(item.url) }))
     : null;
-  const hasAlternate = (code) => (alternateEditions ? alternateEditions.includes(code) : i18n.editionHasPage(code, pagePath));
+  const hasAlternate = (code) => (alternateEditions ? alternateEditions.includes(code) : i18n.editionHasPage(code, i18n.alternatePath(code, pagePath, edition.code)));
   const alternateLink = editionMode && !noindex
     ? [...i18n.EDITIONS.filter((e) => hasAlternate(e.code)).map((e) => `<link rel="alternate" hreflang="${e.hreflang}" href="${i18n.absoluteUrl(e.code, i18n.alternatePath(e.code, pagePath, edition.code))}">`), ...(hasAlternate('en') ? [`<link rel="alternate" hreflang="x-default" href="${i18n.absoluteUrl('en', i18n.alternatePath('en', pagePath, edition.code))}">`] : [])].join('\n  ')
     : '';

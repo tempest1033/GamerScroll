@@ -11,7 +11,7 @@ const LOCALES = ['ko', 'ja', 'zh-cn', 'zh-tw'];
 
 function routesJson() {
   const localeStatic = LOCALES.flatMap((p) => [
-    `/${p}`, `/${p}/`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
+    `/${p}`, `/${p}/`, `/${p}/games/`, `/${p}/rankings/*`, `/${p}/steam/`, `/${p}/steam/most-played/*`, `/${p}/trending/*`, `/${p}/about/*`, `/${p}/privacy/*`
   ]);
   return {
     version: 1,

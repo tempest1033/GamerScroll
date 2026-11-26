@@ -58,7 +58,7 @@ function spark(vals, { w = 72, h = 22, color } = {}) {
   const c = color || (nums[nums.length - 1] > nums[0] ? 'var(--rk-up)' : nums[nums.length - 1] < nums[0] ? 'var(--rk-down)' : 'var(--rk-dim)');
   return `<svg class="rk-spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d}" fill="none" stroke="${c}" stroke-width="1.4" stroke-linejoin="round"/></svg>`;
 }
-const subnav = (active) => { const item = (id, href, label, cls = '') => `<a class="${[active === id ? 'active' : '', cls].filter(Boolean).join(' ')}" href="${href}">${label}</a>`; return `<nav class="rk-subnav" aria-label="${t('steam.steam_ranking_types')}">${item('ccu', '/steam/', t('steam.concurrent_2'))}${item('sell', '/steam/#sell', t('steam.sales_2'))}${item('monthly', '/steam/#monthly', t('rank.monthly'))}${item('records', '/steam/#records', t('steam.all_time_records'))}${item('about', '/rankings/about/', t('steam.methodology'), 'right')}</nav>`; };
+const subnav = (active) => { const item = (id, href, label, cls = '') => `<a class="${[active === id ? 'active' : '', cls].filter(Boolean).join(' ')}"${active === id ? ' aria-current="page"' : ''} href="${href}">${label}</a>`; return `<nav class="rk-subnav" aria-label="${t('steam.steam_ranking_types')}">${item('overview', '/steam/', t('steam.nav_overview'))}${item('most-played', '/steam/most-played/', t('steam.nav_most_played'))}${item('sell', '/steam/#sell', t('steam.sales_2'))}${item('monthly', '/steam/#monthly', t('rank.monthly'))}${item('records', '/steam/#records', t('steam.all_time_records'))}${item('about', '/rankings/about/', t('steam.methodology'), 'right')}</nav>`; };
 const appCell = (m) => `<div class="rk-app cap"><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div><div class="t">${nameLink(steamHref(m.appid), m.name)}</div><div class="d" data-name>${esc(m.developer)}</div></div></div>`;
 
 function shell(ST, { body, title, brand = true, description, canonical, crumbs, keywords }) {
@@ -103,15 +103,16 @@ ${gameSummary(t('steam.recent_new_entry'), fresh, fresh ? `${t('steam.players', 
   const VISIBLE = 20;
   const mpRows = T.mp.map((r, i) => { const m = ST.info(r.appid); const p = pct(r.ccu, ST.ccuOf(wk, r.appid)); const pr = ST.rankOf(Y, r.appid); return `<li${i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${i < 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm">${nameLink(steamHref(r.appid), m.name)}<span class="dv" data-name>${esc(m.developer)}</span></div><div class="num"><b>${fmt(r.ccu)}</b><i>${t('steam.rank', { p0: pr == null ? 'NEW' : pr === r.rank ? '=' : pr > r.rank ? `▲${pr - r.rank}` : `▼${r.rank - pr}` })}</i></div><div class="pct">${pctChg(p)}</div>${spark(ST.series(r.appid).slice(-30))}</li>`; }).join('');
   const sellRows = T.sellers.map((r, i) => { const m = ST.info(r.appid); const pr = ST.sellOf(Y, r.appid); return `<li${i >= VISIBLE ? ' class="ext"' : ''}><span class="rk-rk ${i < 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm">${nameLink(steamHref(r.appid), m.name)}<span class="dv" data-name>${esc(m.developer)}</span></div><div class="rk-price">${r.discount ? `<span class="rk-disc">${esc(r.discount)}</span>` : ''}<span>${esc(r.price || '')}</span></div><div class="rt">${rankChg(r.rank, pr)}</div></li>`; }).join('');
-  const col = (id, s, title, sub, rows, n) => `<div class="rk-col ${s}"${s === 'ios' ? ' id="sell"' : ''}><div class="rk-colh"><h2>${title}</h2><small>${sub}</small></div><input type="checkbox" id="${id}" class="rk-more-toggle rk-control" aria-label="${t('steam.show_full_ranking', { title })}"><ol class="rk-list steam${s === 'ios' ? ' sell' : ''}">${rows}</ol>${n > VISIBLE ? expandLabel(id, n, VISIBLE) : ''}</div>`;
+  const col = (id, s, title, sub, rows, n, href = '') => `<div class="rk-col ${s}"${s === 'ios' ? ' id="sell"' : ''}><div class="rk-colh"><h2>${href ? `<a href="${href}">${title}</a>` : title}</h2><small>${sub}</small></div><input type="checkbox" id="${id}" class="rk-more-toggle rk-control" aria-label="${t('steam.show_full_ranking', { title })}"><ol class="rk-list steam${s === 'ios' ? ' sell' : ''}">${rows}</ol>${n > VISIBLE ? expandLabel(id, n, VISIBLE) : ''}</div>`;
   const cols = `<input type="radio" name="rk-store" id="rk-st-and" class="rk-control" checked><input type="radio" name="rk-store" id="rk-st-ios" class="rk-control"><div class="rk-storeseg"><label for="rk-st-and">${t('steam.concurrent_2')}</label><label for="rk-st-ios">${t('steam.sales_2')}</label></div>
-<div class="rk-cols" id="rk-list">${col('rk-more-ccu', 'and', t('steam.concurrent_player_rankings'), t('steam.players_at_collection_time_vs'), mpRows, T.mp.length)}${col('rk-more-sell', 'ios', t('steam.sales_rankings'), t('steam.korea_store_price_discount_rate'), sellRows, T.sellers.length)}</div>`;
+<div class="rk-cols" id="rk-list">${col('rk-more-ccu', 'and', t('steam.concurrent_player_rankings'), t('steam.players_at_collection_time_vs'), mpRows, T.mp.length, '/steam/most-played/')}${col('rk-more-sell', 'ios', t('steam.sales_rankings'), t('steam.korea_store_price_discount_rate'), sellRows, T.sellers.length)}</div>`;
 
   const mo = ST.latestMonth;
   const monthly = monthlyRows(ST).map((a) => `<tr><td class="rk-rank ${a.rank <= 3 ? 'top' : ''}">${a.rank}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.avg)}<small>${t('home.monthly_avg_concurrent_players')}</small></td></tr>`).join('');
   const peaks = peakRows(ST).map((a, i) => `<tr><td class="rk-rank ${i < 3 ? 'top' : ''}">${i + 1}</td><td>${appCell(ST.info(a.appid))}</td><td class="v">${fmt(a.ccu)}<small>${formatDay(a.date)}</small></td></tr>`).join('');
   const lead = `${t('steam.steam_concurrent_players_1_players', { name: ST.info(top.appid).name, p1: fmt(top.ccu), p2: T.mp[1] ? ST.info(T.mp[1].appid).name : '-', p3: T.mp[2] ? ST.info(T.mp[2].appid).name : '-', p4: T.sellers[0] ? ST.info(T.sellers[0].appid).name : '-', date: formatDay(T.date) })}`;
   const body = `<div class="rk-head"><h1>${t('steam.game_rankings')}</h1></div>
+${subnav('overview')}
 ${kpi}
 ${cols}
 <div class="rk-grid2 home" id="monthly"><div class="rk-card"><h2>${t('steam.monthly_concurrent_player_rankings')} <small>${t('steam.average_of_daily_records_top', { mo: formatYearMonth(mo) })}</small></h2><table class="rk-table"><tbody>${monthly}</tbody></table></div><div class="rk-card" id="records"><h2>${t('steam.peak_concurrent_player_records')} <small>${t('steam.top_10_since', { date: formatDay(days[0].date) })}</small></h2><table class="rk-table"><tbody>${peaks}</tbody></table></div></div>`;
@@ -124,6 +125,90 @@ ${cols}
     keywords: t('steam.steam_rankings_steam_concurrent_player'),
     canonical,
     crumbs: [],
+  });
+}
+
+// ---------- 1b. 스팀 동접자 TOP 100 전용 (/steam/most-played/) ----------
+function renderSteamMostPlayed() {
+  const ST = loadSteamStats();
+  const { util, STORES } = require('../../rank/stats');
+  const { today: T, yday: Y, days } = ST;
+  const wk = days[Math.max(0, days.length - 8)];
+  const total = ST.sumToday(T);
+  const total7 = avg(days.slice(-8, -1).map(ST.sumToday));
+  const movers = T.mp.map((r) => ({ r, p: pct(r.ccu, ST.ccuOf(wk, r.appid)) })).filter((x) => x.p != null && x.p > 0).sort((a, b) => b.p - a.p);
+  const up = movers[0];
+  const cutoff = days[Math.max(0, days.length - 15)].date;
+  const freshList = T.mp.filter((r) => { const s = ST.firstSeen(r.appid); return s && s >= cutoff; });
+  const fresh = freshList[0];
+  const top = T.mp[0];
+  const topInfo = top ? ST.info(top.appid) : null;
+  const streak = top ? ST.streakAtOne(top.appid) : 0;
+
+  const summaryParts = [];
+  if (top && topInfo) {
+    summaryParts.push(streak > 1
+      ? t('steam.summary_leader_streak', { name: esc(topInfo.name), ccu: fmt(top.ccu), days: streak, total: fmt(total) })
+      : t('steam.summary_leader_one', { name: esc(topInfo.name), ccu: fmt(top.ccu), total: fmt(total) }));
+  }
+  if (up) summaryParts.push(t('steam.summary_mover', { name: esc(ST.info(up.r.appid).name), pct: up.p.toFixed(0), rank: up.r.rank }));
+  if (freshList.length) summaryParts.push(t('steam.summary_new_entry', { count: freshList.length, name: esc(ST.info(fresh.appid).name), rank: fresh.rank }));
+  const summary = summaryParts.length ? `<p class="rk-lead">${summaryParts.join(' ')}</p>` : '';
+
+  const gameSummary = (label, row, value, detail) => {
+    const info = row ? ST.info(row.appid) : null;
+    const href = info && steamHref(row.appid);
+    const tag = href ? 'a' : 'div';
+    return `<div class="rk-stat rk-steam-game-card"><div class="l">${label}</div>${info ? `<${tag} class="rk-steam-card-game"${href ? ` href="${href}"` : ''}><img src="${esc(info.img)}" alt="" width="68" height="44"><span>${esc(info.name)}</span></${tag}>` : t('steam.no_record')}<div class="s"><strong>${value}</strong>${detail ? `<br>${detail}` : ''}</div></div>`;
+  };
+  const kpi = `<div class="rk-stats four rk-steam-summary">
+<div class="rk-stat"><div class="l">${t('steam.top_100_concurrent_players')}</div><div class="v"><span>${fmt(total)}</span><small>${t('home.players')}</small></div><div class="s">${t('steam.vs_7_day_average', { p0: total7 ? `<span class="rk-chg ${total >= total7 ? 'up' : 'down'}">${total >= total7 ? '▲' : '▼'}${Math.abs(pct(total, total7)).toFixed(1)}%</span>` : '-' })}</div></div>
+${gameSummary(t('steam.concurrent_players_1'), top, top ? `${t('steam.players', { p0: fmt(top.ccu) })}` : '-', streak > 1 ? t('rank.1_for_days_2', { streak }) : t('steam.current_concurrent_players_2'))}
+${gameSummary(t('steam.biggest_7_day_increase'), up && up.r, up ? `▲${up.p.toFixed(0)}%` : '-', up ? `${t('steam.now_players', { p0: fmt(up.r.ccu) })}` : t('steam.no_comparison_record'))}
+${gameSummary(t('steam.recent_new_entry'), fresh, fresh ? `${t('steam.players', { p0: fmt(fresh.ccu) })}` : '-', fresh ? `${t('steam.now', { rank: fresh.rank })}` : t('steam.no_new_entries_in_the'))}</div>`;
+
+  const mpRows = T.mp.map((r, i) => {
+    const m = ST.info(r.appid);
+    const p = pct(r.ccu, ST.ccuOf(wk, r.appid));
+    const pr = ST.rankOf(Y, r.appid);
+    return `<li${i < 3 ? ` class="rk-pod rk-pod${i + 1}"` : ''}><span class="rk-rk ${i < 3 ? 'top' : ''}">${r.rank}</span><img src="${esc(m.img)}" alt="" loading="lazy" decoding="async"><div class="nm">${nameLink(steamHref(r.appid), m.name)}<span class="dv" data-name>${esc(m.developer)}</span></div><div class="num"><b>${fmt(r.ccu)}</b><i>${t('steam.rank', { p0: pr == null ? 'NEW' : pr === r.rank ? '=' : pr > r.rank ? `▲${pr - r.rank}` : `▼${r.rank - pr}` })}</i></div><div class="pct">${pctChg(p)}</div>${spark(ST.series(r.appid).slice(-30))}</li>`;
+  }).join('');
+  const list = `<div class="rk-cols single" id="rk-list"><div class="rk-col and"><div class="rk-colh"><h2>${t('steam.concurrent_player_rankings')}</h2><small>${t('steam.players_at_collection_time_vs')}</small></div><ol class="rk-list steam rk-pods">${mpRows}</ol></div></div>`;
+
+  const home = currentEdition().country;
+  const homeShort = t(`rank.short_${home}`);
+  const siblingLinks = [
+    `<a href="/steam/">${t('steam.nav_overview')}</a>`,
+    `<a href="/rankings/">${t('rank.mobile_rankings')}</a>`,
+    `<a href="/rankings/${home}/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: homeShort, store: STORES.ios })}</a>`,
+    ...(home !== 'cn' ? [`<a href="/rankings/${home}/google-play/top-grossing/">${t('rank.store_h1_grossing', { country: homeShort, store: STORES.android })}</a>`] : []),
+    ...(home !== 'us' ? [`<a href="/rankings/us/app-store/top-grossing/">${t('rank.store_h1_grossing', { country: t('rank.short_us'), store: STORES.ios })}</a>`] : []),
+  ];
+  const bottomNav = `<div class="rk-card"><h2>${t('rank.sibling_charts')}</h2><div class="rk-links-row">${siblingLinks.join('')}</div></div>`;
+
+  const dateText = formatDay(T.date);
+  const ts = T.ts ? util.tsText(T.ts) : T.date;
+  const description = t('steam.most_played_desc', {
+    n1: topInfo ? topInfo.name : '-',
+    ccu: top ? fmt(top.ccu) : '-',
+    n2: T.mp[1] ? ST.info(T.mp[1].appid).name : '-',
+    n3: T.mp[2] ? ST.info(T.mp[2].appid).name : '-',
+    date: dateText,
+  });
+  const body = `<div class="rk-head"><h1>${t('steam.most_played_h1')}</h1><span class="rk-sub">${t('rank.updated_on', { date: `<time datetime="${esc(T.date)}">${esc(dateText)}</time>`, ts: esc(ts) })}</span></div>
+${subnav('most-played')}
+${summary}
+${kpi}
+${list}
+${bottomNav}`;
+  const canonical = `${siteBaseUrl}/steam/most-played/`;
+  return shell(ST, {
+    body,
+    title: t('steam.most_played_title'),
+    description,
+    keywords: t('steam.most_played_keywords'),
+    canonical,
+    crumbs: [{ name: t('steam.nav_most_played'), url: canonical }],
   });
 }
 
@@ -149,4 +234,4 @@ ${renderSteamRecord(d)}`;
 // /steam/<appid>/ pages to build: record apps without a game page
 function steamGameIds() { return steamTargets().built; }
 
-module.exports = { renderSteamHub, renderSteamGame, steamGameIds, steamHref, steamTargets, steamHubGameSlugs };
+module.exports = { renderSteamHub, renderSteamMostPlayed, renderSteamGame, steamGameIds, steamHref, steamTargets, steamHubGameSlugs };
