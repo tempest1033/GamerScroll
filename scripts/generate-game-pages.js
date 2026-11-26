@@ -348,24 +348,18 @@ for (const f of fs.readdirSync(dataDir)) if (f.endsWith('.json') && !f.startsWit
 for (const old of Object.keys(redirects)) if (written.has(old) || !written.has(redirects[old])) delete redirects[old];
 fs.writeFileSync(path.join(dataDir, '_redirects.json'), JSON.stringify(redirects), 'utf8');
 
-// ---------- 정적 순위 배지 (docs/[<edition>/]badge/<slug>.svg, 구 슬러그 포함) ----------
+// ---------- 정적 순위 배지 (docs/[<edition>/]badge/<slug>.svg, 현재 슬러그만) ----------
 // _routes.json 에서 Functions 제외 → 배지 조회는 Workers Free 한도를 쓰지 않는다.
-let badgeActiveCount = 0, badgeRetiredCount = 0;
+let badgeCount = 0;
 for (const e of i18n.EDITIONS) {
   const dir = badgeDirs[e.code];
   const svgs = badgeSvgs[e.code];
   const writtenBadges = new Set();
-  const writeBadge = (name, svg) => {
-    const file = path.join(dir, `${name}.svg`);
+  for (const [slug, svg] of svgs) {
+    const file = path.join(dir, `${slug}.svg`);
     if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== svg) fs.writeFileSync(file, svg, 'utf8');
-    writtenBadges.add(name);
-  };
-  for (const [slug, svg] of svgs) { writeBadge(slug, svg); badgeActiveCount++; }
-  for (const [old, current] of Object.entries(redirects)) {
-    const svg = svgs.get(current);
-    if (!svg || writtenBadges.has(old)) continue;
-    writeBadge(old, svg);
-    badgeRetiredCount++;
+    writtenBadges.add(slug);
+    badgeCount++;
   }
   for (const f of fs.readdirSync(dir)) if (f.endsWith('.svg') && !writtenBadges.has(f.slice(0, -4))) fs.unlinkSync(path.join(dir, f));
 }
@@ -418,5 +412,5 @@ if (serviceExports) {
 console.log(`🧹 옛 정적 상세 디렉토리 ${removedDirs}개 제거`);
 console.log(`🔑 검색 인덱스 버전: ${searchIndexVersion}, 데이터 버전: ${version}`);
 console.log(`📍 게임 사이트맵: ${i18n.EDITIONS.map((e) => `${e.code} ${listed[e.code].length}/${indexable[e.code].length} (사이트맵/색인 허용)`).join(' · ')} → ${sitemapNames.length}개 파일`);
-console.log(`🏷️ 정적 배지: ${badgeActiveCount}개 (+ 구 슬러그 ${badgeRetiredCount}개) → docs/[<edition>/]badge/`);
+console.log(`🏷️ 정적 배지: ${badgeCount}개 → docs/[<edition>/]badge/`);
 console.log(`📦 docs 파일 수: ${countFiles(docsDir)} (Cloudflare Pages Free 한도 20,000)`);
