@@ -27,6 +27,7 @@ function allPages(edition) {
   const out = [
     ['home', m.index.generateIndexPage()],
     ['steam', m.steamHub.renderSteamHub()],
+    ['steam/most-played', m.steamHub.renderSteamMostPlayed()],
     ['games hub', m.gamesHub.generateGamesHubPage({ games: [], popularGames: [] })],
     ['about', m.about.renderAboutPage()],
     ['privacy', m.privacy.renderPrivacyPage()],
@@ -40,6 +41,9 @@ function allPages(edition) {
   ];
   for (const c of Object.keys(S.COUNTRIES)) {
     out.push([`rankings/${c}`, hub.renderRankingsHub(c)], [`rankings/free/${c}`, hub.renderRankingsHub(c, 'free')], [`trending/${c}`, hub.renderTrending(c)]);
+  }
+  for (const spec of hub.storeChartSpecs(S)) {
+    out.push([`rankings/${spec.rel}`, hub.renderStoreChart(spec.country, spec.store, spec.chart)]);
   }
   for (const id of ['all', ...genreIdsWithData(home)]) out.push([`genres/${id}`, hub.renderGenre(id, home)]);
   for (const p of hub.publisherPages(hub.publisherIndex(S, home))) out.push([`publishers/${p.slug}`, hub.renderPublisher(p, home), p.name]);
