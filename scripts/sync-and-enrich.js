@@ -1,4 +1,4 @@
-﻿/**
+/**
  * 통합 게임 동기화 스크립트
  * - 히스토리에서 신규 게임 감지
  * - iOS/Android: kr 이름 조회 + 반대 플랫폼 검색 + 통합 등록
@@ -14,6 +14,7 @@ const { latinSlug, uniqueOf, takenSlugs } = require('../src/build/game-slug');
 const { migrate: reslugLatinNamed } = require('./migrate-game-slugs');
 const { merge: mergeDuplicates, chartDaysOf } = require('../src/build/game-merge');
 const { loadRankStats } = require('../src/rank/stats');
+const { fitsEdition } = require('../src/rank/name-script');
 
 const historyDir = path.join(__dirname, '../history');
 const dataDir = path.join(__dirname, '../data');
@@ -359,12 +360,15 @@ function isNameMatch(name1, name2) {
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 const cleanName = (t) => String(t == null ? '' : t).trim();
+// ™ and ® are no part of a stored English name
+const stripMarks = (t) => cleanName(String(t == null ? '' : t).replace(/[™®]\uFE0F?/g, '').replace(/\s{2,}/g, ' '));
 
 // names: 비어 있는 키만 채운다 (기존 값은 유지), 키 순서 고정
 function mergeNames(existing, patch) {
   const out = {};
   for (const k of NAME_KEYS) {
-    const v = cleanName(existing?.[k]) || cleanName(patch?.[k]);
+    const pick = k === 'en' ? stripMarks : cleanName;
+    const v = pick(existing?.[k]) || pick(patch?.[k]);
     if (v) out[k] = v;
   }
   return out;
@@ -387,12 +391,13 @@ async function pool(items, size, fn) {
 
 // iTunes lookup 배치 (콤마 구분 최대 200개) → Map(appId -> {title, developer, icon})
 // iTunes 는 그 국가 스토어에 출시된 앱만 돌려준다. failed(Set)를 넘기면 재시도가 모두 실패한 id 를 기록한다.
-async function lookupIosBatch(ids, cc, failed) {
+// attempts: 요청 시도 횟수 (실패 사이 대기)
+async function lookupIosBatch(ids, cc, failed, attempts = 4) {
   const out = new Map();
   for (let i = 0; i < ids.length; i += 200) {
     const chunk = ids.slice(i, i + 200);
     let ok = false;
-    for (let attempt = 0; attempt < 4 && !ok; attempt++) {
+    for (let attempt = 0; attempt < attempts && !ok; attempt++) {
       try {
         const { data } = await axios.get('https://itunes.apple.com/lookup', {
           params: { id: chunk.join(','), country: cc },
@@ -410,7 +415,7 @@ async function lookupIosBatch(ids, cc, failed) {
         }
         ok = true;
       } catch (e) {
-        await sleep(2000 * (attempt + 1) * (attempt + 1));
+        if (attempt + 1 < attempts) await sleep(2000 * (attempt + 1) * (attempt + 1));
       }
     }
     if (!ok && failed) for (const id of chunk) failed.add(`ios|${cc}|${id}`);
@@ -744,6 +749,148 @@ function resolveMarketName(current, storeTitle, chartTitles) {
   const evidence = [storeTitle, ...chartTitles].filter(Boolean);
   if (!evidence.length) return null;
   return current && evidence.includes(current) ? current : evidence[0];
+}
+
+// ============================================
+// 영어판 이름: 공식 영어 스토어 이름
+// ============================================
+
+// The English edition's name of a game is the official English name of one of its store listings, never a translation or
+// transliteration: the App Store US name, Google Play in English (hl=en), Steam in English. A listing without an English
+// version comes back in its original script, which is no English name. ™ and ® are not part of the stored name.
+const englishName = (title) => {
+  const n = stripMarks(title);
+  return n && fitsEdition(n, 'en') ? n : null;
+};
+const hasEnglishName = (g) => Boolean(englishName(g.names && g.names.en));
+// Apps whose stores had no English name are asked again within this many days, each game on its own day of the window
+// (data/english-name-checks.json: `<store>:<id>` -> the date it is due again), so the rechecks spread over the daily runs.
+const EN_RECHECK_DAYS = 30;
+const MAX_EN_LOOKUPS = Number(process.env.GS_MAX_EN_NAME_LOOKUPS) || 300;
+const englishChecksPath = path.join(dataDir, 'english-name-checks.json');
+const DAY_MS = 86400000;
+// The app's next check date: the first day after `today` that falls on the app's own day of the EN_RECHECK_DAYS window.
+function nextCheckDate(appKey, today) {
+  let h = 0x811c9dc5;
+  for (const ch of appKey) h = Math.imul(h ^ ch.codePointAt(0), 0x01000193) >>> 0;
+  const day = Date.parse(today) / DAY_MS;
+  const ahead = ((h % EN_RECHECK_DAYS) - (day + 1) % EN_RECHECK_DAYS + EN_RECHECK_DAYS) % EN_RECHECK_DAYS + 1;
+  return new Date((day + ahead) * DAY_MS).toISOString().slice(0, 10);
+}
+
+// A game's store apps { store, id, cc }: cc is the storefront of a regional slot, KR for a bare ios/android slot.
+function storeAppsOf(g) {
+  return Object.entries(g.appIds || {}).flatMap(([slot, id]) => {
+    const [store, cc] = slot.split(/[_:]/);
+    if (!id || !['ios', 'android', 'steam'].includes(store)) return [];
+    return [{ store, id: String(id), cc: store === 'steam' ? null : cc || 'kr' }];
+  });
+}
+const checkKey = (app) => `${app.store}:${app.id}`;
+
+// The English-name lookups ask once: a failed one (undefined) is left for the next run.
+// Google Play title in English, from the first of `countries` that lists the app.
+// got's defaults would retry with backoff, wait out any Retry-After and never time out.
+const ANDROID_ONCE = { retry: 0, timeout: 15000 };
+async function lookupAndroidEnglish(appId, countries) {
+  for (const country of countries) {
+    try {
+      const r = await gplay.app({ appId, lang: 'en', country, requestOptions: ANDROID_ONCE });
+      return r?.title || null;
+    } catch (e) {
+      if (!(e?.status === 404 || /not found/i.test(e?.message || ''))) return undefined;
+    }
+  }
+  return null;
+}
+
+// Steam store name in English, only from the app asked for: appdetails answers some IDs with another app (a successor,
+// the base game of a mode), whose steam_appid differs.
+async function lookupSteamEnglish(appId) {
+  try {
+    const { data } = await axios.get('https://store.steampowered.com/api/appdetails', {
+      params: { appids: appId, l: 'english' },
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+      timeout: 15000
+    });
+    const entry = data?.[appId];
+    return entry?.success && String(entry.data?.steam_appid) === String(appId) ? cleanName(entry.data?.name) || null : null;
+  } catch (e) {
+    return undefined;
+  }
+}
+
+const ENGLISH_STORES = {
+  ios: (ids, failed) => lookupIosBatch(ids, 'us', failed, 1),
+  android: lookupAndroidEnglish,
+  steam: lookupSteamEnglish
+};
+
+// Official English names of the games `keys`: Map(key -> name). The apps of a game left without one get their next check
+// date in `checks` unless one of its lookups failed; a named game's apps leave it.
+async function lookupEnglishNames(games, keys, checks, today, stores = ENGLISH_STORES) {
+  const apps = new Map(keys.map(k => [k, storeAppsOf(games[k])]));
+  const named = new Map();
+  const unknown = new Set();
+  const settle = (k, title) => { const n = englishName(title); if (n && !named.has(k)) named.set(k, n); };
+  const open = (store) => keys.filter(k => !named.has(k)).flatMap(k => apps.get(k).filter(a => a.store === store).map(a => ({ k, a })));
+  // App Store: the US storefront listing
+  const iosJobs = open('ios');
+  if (iosJobs.length) {
+    const failed = new Set();
+    const found = await stores.ios([...new Set(iosJobs.map(({ a }) => a.id))], failed);
+    for (const { k, a } of iosJobs) {
+      if (failed.has(`ios|us|${a.id}`)) unknown.add(k);
+      else settle(k, found.get(a.id)?.title);
+    }
+  }
+  for (const [store, size, ask] of [['android', 6, a => stores.android(a.id, [...new Set([a.cc, 'us'])])], ['steam', 2, a => stores.steam(a.id)]]) {
+    const jobs = open(store);
+    const titles = new Map();
+    await pool(jobs, size, async (job) => { titles.set(job, await ask(job.a)); });
+    for (const job of jobs) {
+      if (titles.get(job) === undefined) unknown.add(job.k);
+      else settle(job.k, titles.get(job));
+    }
+  }
+  for (const k of keys) {
+    if (named.has(k)) for (const a of apps.get(k)) delete checks[checkKey(a)];
+    else if (!unknown.has(k)) {
+      // one date for the game's apps, so the game is asked once a window
+      const due = nextCheckDate(checkKey(apps.get(k)[0]), today);
+      for (const a of apps.get(k)) checks[checkKey(a)] = due;
+    }
+  }
+  return named;
+}
+
+// Games without an English name with an app never asked or due again.
+function englishNameDue(games, checks, today) {
+  return Object.keys(games).filter(k => {
+    const apps = storeAppsOf(games[k]);
+    return !hasEnglishName(games[k]) && apps.some(a => !checks[checkKey(a)] || checks[checkKey(a)] <= today);
+  });
+}
+
+// names.en ← the official English name, for up to `limit` due games, `first` (this run's new and linked games) first.
+// A non-English names.en (a US listing in its original script) gives way to it. Returns { asked, named }.
+async function fillEnglishNames(gamesData, checks, first, today, limit = MAX_EN_LOOKUPS, stores = ENGLISH_STORES) {
+  const games = gamesData.games;
+  const due = englishNameDue(games, checks, today);
+  const dueSet = new Set(due);
+  const keys = [...new Set([...first.filter(k => dueSet.has(k)), ...due])].slice(0, limit);
+  const named = await lookupEnglishNames(games, keys, checks, today, stores);
+  for (const [k, name] of named) games[k].names = mergeNames({ ...games[k].names, en: name });
+  return { asked: keys.length, named: named.size };
+}
+
+function loadEnglishNameChecks() {
+  return fs.existsSync(englishChecksPath) ? JSON.parse(fs.readFileSync(englishChecksPath, 'utf8')) : {};
+}
+
+function saveEnglishNameChecks(checks) {
+  const sorted = Object.fromEntries(Object.keys(checks).sort().map(k => [k, checks[k]]));
+  fs.writeFileSync(englishChecksPath, JSON.stringify(sorted, null, 1) + '\n', 'utf8');
 }
 
 // 같은 appId 중복 제거 + 진입한 모든 국가의 차트 행 수집 (KR 진입 앱은 region=kr 우선)
@@ -1096,6 +1243,11 @@ async function main() {
     .map(g => [`${g.platform}|${g.appId}|${g.region}`, { title: g.title, date: dateStr }]));
   console.log('시장별 이름 보강:', changedKeys.length, '개 게임 스토어 조회,', backfillNames(gamesData, todayRows), '개 게임 차트 제목');
 
+  // 영어판 이름: 영어 이름이 없는 게임에 공식 영어 스토어 이름 (이번 실행의 등록·연결 게임 먼저, 1회 상한)
+  const englishChecks = loadEnglishNameChecks();
+  const english = await fillEnglishNames(gamesData, englishChecks, changedKeys, dateStr);
+  console.log('영어 이름:', english.asked, '개 게임 조회,', english.named, '개 공식 영어 이름');
+
   // 등록 뒤에 Latin 이름이 생긴 게임(스토어 이름 보강·별칭 추가)은 ASCII 슬러그로 바꾸고 옛 슬러그를 legacySlugs 에 남긴다 (옛 주소 301)
   const reslugged = reslugLatinNamed(gamesData);
   for (const r of reslugged) console.log(`  슬러그 변경: ${r.from} → ${r.to}`);
@@ -1110,6 +1262,7 @@ async function main() {
   gamesData.totalGames = Object.keys(gamesData.games).length;
   saveGames(gamesData);
   saveReviewQueue(reviewQueue);
+  saveEnglishNameChecks(englishChecks);
 
   console.log('\n=== 결과 ===');
   console.log('이미 등록됨:', stats.existing);
@@ -1128,7 +1281,7 @@ module.exports = {
   MARKETS, NAME_KEYS, REGION_PREF, rowsFromHistory, dedupeRows, mergeNames, buildAppIdIndex,
   buildAliasIndex, addAliases, normalizeNameKey, slugifyTitle, uniqueSlug, marketsOfGame, processGame, buildNameKeyIndex, lookupOne, getRegCtx, registerCandidate, lookupIosBatch, lookupAndroid, upsertPending,
   loadLatestChartRows, backfillNames, lookupMarketTitles, resolveMarketName, loadGames, saveGames, loadReviewQueue, saveReviewQueue, pool,
-  mergeSameTitle
+  mergeSameTitle, englishName, nextCheckDate, lookupSteamEnglish, lookupAndroidEnglish, lookupEnglishNames, englishNameDue, fillEnglishNames, loadEnglishNameChecks, saveEnglishNameChecks
 };
 
 if (require.main === module) {

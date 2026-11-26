@@ -60,6 +60,12 @@ test('each edition shows the name in its own script when the game has one', () =
     assert.equal(nameIn('zh-tw', '메이플스토리M'), '楓之谷M');
     assert.equal(nameIn('zh-cn', '代號鳶-沉浸式劇情卡牌手遊'), '代号鸢-沉浸式剧情卡牌手游');
     assert.equal(nameIn('zh-tw', '代號鳶-沉浸式劇情卡牌手遊'), '代號鳶-沉浸式劇情卡牌手遊');
+    // a Chinese name in either script comes before the official English store name on both Chinese editions
+    for (const [key, cn, tw] of [['開心水族箱', '开心水族箱', '開心水族箱'], ['小小蟻國', '小小蚁国', '小小蟻國'], ['블리치: 소울 레조넌스', 'BLEACH：刀鸣', 'BLEACH：刀鳴']]) {
+      assert.equal(nameIn('zh-cn', key), cn);
+      assert.equal(nameIn('zh-tw', key), tw);
+    }
+    assert.match(nameIn('zh-cn', 'Call of Duty®: Mobile - Garena'), /^决胜时刻/);
     assert.equal(nameIn('zh-cn', '三國志・戰略版'), '三国志・战略版', 'the ・ of a Chinese title is not kana');
     assert.equal(nameIn('zh-tw', '三國志・戰略版'), '三國志・戰略版');
     assert.equal(nameIn('zh-cn', '三國志 真戦'), '三国志 真战', 'Japanese shinjitai in a Han-only name is converted too');
@@ -75,7 +81,9 @@ test('each edition shows the name in its own script when the game has one', () =
     const gbk = new TextDecoder('gbk');
     for (let hi = 0xB0; hi <= 0xF7; hi++) for (let lo = 0xA1; lo <= 0xFE; lo++) gb2312.add(gbk.decode(Uint8Array.of(hi, lo)));
     assert.ok(gb2312.has('战') && gb2312.has('国') && !gb2312.has('戰') && !gb2312.has('戦') && !gb2312.has('寳'));
-    const REVIEWED = new Set(['啰', '槃', '喰']); // 啰嗦, 涅槃; 喰 is in the official mainland title 东京喰种
+    // 啰嗦, 涅槃; 喰 is in the official mainland title 东京喰种; 囧, 囍, 瞭望, 麻糬; 紴 is the Taiwan store title's own
+    // character (培養軍事階紴), which has no Simplified form
+    const REVIEWED = new Set(['啰', '槃', '喰', '囧', '囍', '瞭', '糬', '紴']);
     i18n.setEdition('zh-cn');
     const shown = S.games.map((g) => S.displayName(g));
     const hanOnly = shown.filter((n) => HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n));

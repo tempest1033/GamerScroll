@@ -3,6 +3,7 @@
  *   node scripts/verify-market-names.js [--dry-run] [--cache file]
  * names[언어]에는 그 시장의 실제 이름만 둔다: 현재 스토어 이름(그 시장에 출시된 앱만) 또는 그 시장 차트에 실린 제목.
  * 둘 다 없으면(그 시장 미출시) 지운다 — 화면은 다른 시장 이름으로 표시되고, 나중에 출시되면 매 빌드 동기화가 다시 채운다.
+ * 예외: names.en 의 공식 영어 이름(다른 스토어의 영어 등록명)은 미국 스토어에 영어 이름이 없어도 남긴다.
  * 조회가 실패한 시장은 건드리지 않는다.
  */
 const fs = require('fs');
@@ -34,7 +35,9 @@ async function main() {
       const chart = ['ios', 'android'].flatMap(store => ids.filter(([s]) => s === store).map(([, id]) => latest.get(`${store}|${id}|${cc}`)))
         .filter(Boolean).sort((a, b) => b.date.localeCompare(a.date)).map(r => r.title);
       const cur = (g.names && g.names[m.name]) || null;
-      const v = S.resolveMarketName(cur, t[m.name], chart);
+      const resolved = S.resolveMarketName(cur, t[m.name], chart);
+      // 영어판은 미국 스토어에 영어 이름이 없으면 다른 스토어의 공식 영어 이름(fillEnglishNames)을 유지한다
+      const v = m.name === 'en' && S.englishName(cur) && !S.englishName(resolved) ? cur : resolved;
       if (v) next[m.name] = v;
       if (!(m.name in t)) report.unknown++;
       else if (cur === v) { if (v) report.kept++; }

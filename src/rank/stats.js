@@ -119,7 +119,8 @@ function loadRankStats(options = {}) {
   };
   // Store titles of games without a localized version come back in the original script (Hangul, kana, Simplified Chinese),
   // so a candidate is usable in an edition only when its script belongs there. Order of preference: the market's own store
-  // name → an alias verifiably in the edition's own language (name-script.js ownLanguage) → English store name → another
+  // name → an alias or the DB key verifiably in the edition's own language (name-script.js ownLanguage) → on zh-cn and zh-tw, a
+  // Chinese name in either script → English store name → another
   // edition's Latin name → an alias in the edition's script or Latin → the DB key
   // without its " (developer)" disambiguator → the Latin name written in that key ("Name (다른 문자 이름)"), for the
   // editions the key's own script does not belong in. When nothing fits, the first candidate stands (no localized name exists).
@@ -132,8 +133,10 @@ function loadRankStats(options = {}) {
     const latin = (x) => x && !CJK.test(x);
     const developerSuffix = g.developer ? ` (${g.developer})` : null;
     const key = developerSuffix && g.key.endsWith(developerSuffix) ? g.key.slice(0, -developerSuffix.length) : g.key;
+    // The Chinese editions read a Chinese name in either script before an English one (zh-cn shows it converted).
+    const chinese = code.startsWith('zh') ? [names['zh-tw'], names['zh-cn'], ...(g.aliases || []), key].find((n) => n && HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n) && fitsEdition(n, code)) : null;
     const candidates = [
-      names[code], homeTitleOf(g, edition.country), (g.aliases || []).find((a) => ownLanguage(a, code)), names.en,
+      names[code], homeTitleOf(g, edition.country), [...(g.aliases || []), key].find((a) => ownLanguage(a, code)), chinese, names.en,
       Object.values(names).find(latin), nativeAlias, (g.aliases || []).find(latin), key, keyLatinName(g.key, g.developer),
     ].filter(Boolean);
     const chosen = candidates.find((c) => fitsEdition(c, code)) || candidates[0];
