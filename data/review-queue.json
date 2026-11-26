@@ -54109,6 +54109,17 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/6b/d9/e2/6bd9e27e-d059-27a6-5c13-71c583890b07/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-26T10:23:15.400Z"
+    },
+    {
+      "title": "Cozy Repair: 수리 시뮬 & ASMR",
+      "status": "single",
+      "appIds": {
+        "android": "com.fc.electronic.repair.shop.simulator"
+      },
+      "developer": "Think Different FC.",
+      "icon": "https://play-lh.googleusercontent.com/2gQvTkOPfCINt7Cd9z-HCehT5qjAmQMtMxrKamWuVg3Ls0hcZ2sg8yCf1V7Mz1uEM78XOHhVC85CELg4rpOiCA",
+      "searchResults": [],
+      "addedAt": "2026-11-26T12:48:55.711Z"
     }
   ],
   "approved": [

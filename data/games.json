@@ -17741,7 +17741,7 @@
     },
     "Mahjong Soul": {
       "appIds": {
-        "steam": "2739990",
+        "steam": "1329410",
         "ios_us": "1464872167"
       },
       "aliases": [
@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K",
+        "android": "jp.co.mixi.monsterstrikeTW",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -167617,8 +167617,74 @@
       "legacySlugs": [
         "plunge-스카이다이빙-스틱맨"
       ]
+    },
+    "云·蓝色星原：旅谣": {
+      "appIds": {
+        "ios_cn": 6783319398
+      },
+      "aliases": [],
+      "developer": "Shanghai ManNai Network Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/35/29/2a/35292a35-a609-16b6-54df-922b488228f0/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
+      "slug": "云蓝色星原旅谣",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "云·蓝色星原：旅谣"
+      }
+    },
+    "Cozy Repair: 수리 시뮬 & ASMR": {
+      "appIds": {
+        "android": "com.fc.electronic.repair.shop.simulator"
+      },
+      "aliases": [],
+      "developer": "Think Different FC.",
+      "icon": "https://play-lh.googleusercontent.com/2gQvTkOPfCINt7Cd9z-HCehT5qjAmQMtMxrKamWuVg3Ls0hcZ2sg8yCf1V7Mz1uEM78XOHhVC85CELg4rpOiCA",
+      "slug": "cozy-repair",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Cozy Repair: 수리 시뮬 & ASMR",
+        "en": "Cozy Repair",
+        "ja": "Cozy Repair: 修理シミュレーション ASMR",
+        "zh-tw": "舒適修理：療癒維修模擬 ASMR"
+      },
+      "legacySlugs": [
+        "cozy-repair-수리-시뮬-asmr"
+      ]
+    },
+    "Tom Clancy’s The Division 2 – Spearfall Supply Drop": {
+      "appIds": {
+        "steam": "5333250"
+      },
+      "aliases": [],
+      "developer": "Ubisoft",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5333250/6b5542552d99b5d1b74dfd60ac48419c3db44c92/capsule_231x87.jpg?t=1795680030",
+      "slug": "tom-clancys-the-division-2-spearfall-supply-drop",
+      "platforms": [
+        "steam"
+      ],
+      "names": {
+        "en": "Tom Clancy’s The Division 2 – Spearfall Supply Drop"
+      }
+    },
+    "When Chests Rain Tons of Loot": {
+      "appIds": {
+        "steam": "5057800"
+      },
+      "aliases": [],
+      "developer": "LeenGameDev",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5057800/40b6efd28d61a7e791e87cc4a6db3840a6071e4a/capsule_231x87.jpg?t=1795645131",
+      "slug": "when-chests-rain-tons-of-loot",
+      "platforms": [
+        "steam"
+      ],
+      "names": {
+        "en": "When Chests Rain Tons of Loot"
+      }
     }
   },
   "lastUpdated": "2026-11-26",
-  "totalGames": 9277
+  "totalGames": 9281
 }
