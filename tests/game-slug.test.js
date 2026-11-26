@@ -65,6 +65,9 @@ test('each edition shows the name in its own script when the game has one', () =
       assert.equal(nameIn('zh-cn', key), cn);
       assert.equal(nameIn('zh-tw', key), tw);
     }
+    // and, on zh-tw, before a Latin Taiwan store name; a Simplified one, without its Latin gloss, where none is Traditional
+    assert.equal(nameIn('zh-tw', '클래시 로얄'), '部落衝突:皇室戰爭');
+    assert.equal(nameIn('zh-tw', 'Mahjong Soul'), '雀魂麻将');
     assert.match(nameIn('zh-cn', 'Call of Duty®: Mobile - Garena'), /^决胜时刻/);
     assert.equal(nameIn('zh-cn', '三國志・戰略版'), '三国志・战略版', 'the ・ of a Chinese title is not kana');
     assert.equal(nameIn('zh-tw', '三國志・戰略版'), '三國志・戰略版');

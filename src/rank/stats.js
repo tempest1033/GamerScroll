@@ -16,6 +16,8 @@ const STORES = labelMap([['ios', 'stats.app_store'], ['android', 'stats.google_p
 const { currentEdition, formatDateTime, formatTime } = require('../i18n');
 
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8').replace(/^\uFEFF/, ''));
+// A name without its glosses in Latin script ("雀魂麻将(MahjongSoul)" → "雀魂麻将").
+const withoutLatinGloss = (name) => name.replace(/\s*[(（][^()（）]*[)）]/g, (gloss) => (CJK.test(gloss) ? gloss : '')).trim() || name;
 const nums = (arr) => arr.filter((x) => x != null);
 const min = (arr) => (nums(arr).length ? Math.min(...nums(arr)) : null);
 const avg = (arr) => (nums(arr).length ? nums(arr).reduce((x, y) => x + y, 0) / nums(arr).length : null);
@@ -120,7 +122,7 @@ function loadRankStats(options = {}) {
   // Store titles of games without a localized version come back in the original script (Hangul, kana, Simplified Chinese),
   // so a candidate is usable in an edition only when its script belongs there. Order of preference: the market's own store
   // name → an alias or the DB key verifiably in the edition's own language (name-script.js ownLanguage) → on zh-cn and zh-tw, a
-  // Chinese name in either script → English store name → another
+  // Chinese name in either script (on zh-tw before a Latin store name) → English store name → another
   // edition's Latin name → an alias in the edition's script or Latin → the DB key
   // without its " (developer)" disambiguator → the Latin name written in that key ("Name (다른 문자 이름)"), for the
   // editions the key's own script does not belong in. When nothing fits, the first candidate stands (no localized name exists).
@@ -133,13 +135,19 @@ function loadRankStats(options = {}) {
     const latin = (x) => x && !CJK.test(x);
     const developerSuffix = g.developer ? ` (${g.developer})` : null;
     const key = developerSuffix && g.key.endsWith(developerSuffix) ? g.key.slice(0, -developerSuffix.length) : g.key;
-    // The Chinese editions read a Chinese name in either script before an English one (zh-cn shows it converted).
-    const chinese = code.startsWith('zh') ? [names['zh-tw'], names['zh-cn'], ...(g.aliases || []), key].find((n) => n && HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n) && fitsEdition(n, code)) : null;
+    // The Chinese editions read a Chinese name in either script before an English one (zh-cn shows it converted). zh-tw reads
+    // one before a Latin store name too, and a Simplified one (without a Latin gloss) where it has no Traditional one.
+    const chineseNames = code.startsWith('zh') ? [names['zh-tw'], names['zh-cn'], ...(g.aliases || []), key].filter((n) => n && HAN.test(n) && !KANA_LETTER.test(n) && !HANGUL.test(n)) : [];
+    const chinese = chineseNames.find((n) => fitsEdition(n, code));
+    const simplified = code === 'zh-tw' && !chinese && chineseNames.length ? withoutLatinGloss(chineseNames[0]) : null;
+    const store = [names[code], homeTitleOf(g, edition.country)];
+    const own = [...(g.aliases || []), key].find((a) => ownLanguage(a, code));
     const candidates = [
-      names[code], homeTitleOf(g, edition.country), [...(g.aliases || []), key].find((a) => ownLanguage(a, code)), chinese, names.en,
+      ...(code === 'zh-tw' ? [...store.filter((n) => n && CJK.test(n)), own, chinese, simplified] : []),
+      ...store, own, chinese, names.en,
       Object.values(names).find(latin), nativeAlias, (g.aliases || []).find(latin), key, keyLatinName(g.key, g.developer),
     ].filter(Boolean);
-    const chosen = candidates.find((c) => fitsEdition(c, code)) || candidates[0];
+    const chosen = candidates.find((c) => fitsEdition(c, code) || c === simplified) || candidates[0];
     // The Simplified edition never shows a Traditional or mixed-form Chinese name: the chosen one is converted.
     return code === 'zh-cn' && HAN.test(chosen) && fitsEdition(chosen, code) ? toSimplified(chosen) : chosen;
   };
