@@ -53716,13 +53716,19 @@
     },
     {
       "title": "MONSTER HUNTER RISE NETFLIX",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6740350229
+        "ios": 6740350229,
+        "android": "com.netflix.NGP.MonsterHunterRise"
       },
       "developer": "Netflix, Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/86/98/0086984d-6a5d-07e6-e763-c9fba6521600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "MONSTER HUNTER RISE NETFLIX",
+          "appId": 6740350229
+        }
+      ],
       "addedAt": "2026-11-25T07:02:08.081Z"
     },
     {
@@ -53762,7 +53768,7 @@
       "title": "怪物彈珠 - RPG手機遊戲",
       "status": "single",
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW"
+        "android": "com.interserv.L3K"
       },
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
@@ -53806,13 +53812,19 @@
     },
     {
       "title": "DIGIMON ALYSION",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6745321429
+        "ios": "6745321429",
+        "android": "com.bandai.digimonalysionw"
       },
       "developer": "BANDAI Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/13/77/4013775c-0838-aebd-96e7-0ffa712e5912/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "DIGIMON ALYSION",
+          "appId": "6745321429"
+        }
+      ],
       "addedAt": "2026-11-25T15:02:53.653Z"
     },
     {
@@ -53961,6 +53973,76 @@
         }
       ],
       "addedAt": "2026-11-25T23:01:51.792Z"
+    },
+    {
+      "title": "CUBU",
+      "status": "single",
+      "appIds": {
+        "ios": 6834689285
+      },
+      "developer": "Sungwon Lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bf/b4/80/bfb480d2-5ee2-64e8-9aae-2e511481c17c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T03:01:52.901Z"
+    },
+    {
+      "title": "フックAim - フック設定クレーンゲーム練習",
+      "status": "single",
+      "appIds": {
+        "ios": 6831628665
+      },
+      "developer": "RITO TANAKA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/31/bd/a431bd57-84f2-bcef-1e36-7cafe51863f6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T03:01:53.243Z"
+    },
+    {
+      "title": "버블 슈터: 재미있는 거품 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.lynnmobile.bubbleshooter"
+      },
+      "developer": "Bubble Shooter Fun Games",
+      "icon": "https://play-lh.googleusercontent.com/SFT7p8ur3UNKOOwS8VNXCRHuD7A1eiAIo-86A5H6VsCyl3N_PHoPH_mRXKsbeGv4gHE-aIT-eKVJfPRuljiu",
+      "searchResults": [
+        {
+          "title": "버블 슈터",
+          "appId": 412192869
+        },
+        {
+          "title": "공룡 버블 슈터 에그 샷",
+          "appId": 1563711673
+        },
+        {
+          "title": "버블슈터 • 버블 팝 • BubbleShoota",
+          "appId": 1509912024
+        }
+      ],
+      "addedAt": "2026-11-26T03:01:55.863Z"
+    },
+    {
+      "title": "좀비 로그비: 슈팅 게임",
+      "status": "single",
+      "appIds": {
+        "android": "com.boom.zombie.survival"
+      },
+      "developer": "Metajoy",
+      "icon": "https://play-lh.googleusercontent.com/qpX2xFwrLifenJxRhA6lfba8Ocj8fjdek3Hn_2R12A507cWRYJOgwN8tki3udnB79fSomGvzI0otSzsck0t1hw",
+      "searchResults": [
+        {
+          "title": "DEAD TRIGGER 2 온라인 좀비 슈팅 게임",
+          "appId": 720063540
+        },
+        {
+          "title": "라스트 워: 서바이벌",
+          "appId": 6448786147
+        },
+        {
+          "title": "좀비 웨이브스",
+          "appId": 6443760593
+        }
+      ],
+      "addedAt": "2026-11-26T03:01:56.363Z"
     }
   ],
   "approved": [

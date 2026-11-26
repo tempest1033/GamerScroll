@@ -74063,7 +74063,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW"
+        "android": "com.interserv.L3K"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -165930,14 +165930,16 @@
     },
     "MONSTER HUNTER RISE NETFLIX": {
       "appIds": {
-        "ios": 6740350229
+        "ios": 6740350229,
+        "android": "com.netflix.NGP.MonsterHunterRise"
       },
       "aliases": [],
       "developer": "Netflix, Inc.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/00/86/98/0086984d-6a5d-07e6-e763-c9fba6521600/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "monster-hunter-rise-netflix",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "MONSTER HUNTER RISE NETFLIX",
@@ -166096,14 +166098,16 @@
     },
     "DIGIMON ALYSION": {
       "appIds": {
-        "ios": 6745321429
+        "ios": "6745321429",
+        "android": "com.bandai.digimonalysionw"
       },
       "aliases": [],
       "developer": "BANDAI Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/40/13/77/4013775c-0838-aebd-96e7-0ffa712e5912/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "digimon-alysion",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "DIGIMON ALYSION",
@@ -166113,16 +166117,19 @@
     },
     "デジモンアリシオン": {
       "appIds": {
-        "ios_jp": 6740988190
+        "ios_jp": 6740988190,
+        "android": "com.bandai.digimonalysion"
       },
       "aliases": [],
       "developer": "BANDAI Co., Ltd.",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/65/5d/f0/655df06f-481e-60c0-7319-8b791ea4dc8f/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "デジモンアリシオン",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "デジモンアリシオン",
         "ja": "デジモンアリシオン"
       }
     },
@@ -166147,14 +166154,16 @@
     },
     "凍土大冒險": {
       "appIds": {
-        "ios_tw": 6824813808
+        "ios_tw": 6824813808,
+        "android_tw": "com.overseasgp.bhdmx"
       },
       "aliases": [],
       "developer": "Electronic Soul Interaction Entertainment (Hong Kong) Co., Limited",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f7/59/0c/f7590c27-293c-983f-af17-7cb2acf324ae/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
       "slug": "凍土大冒險",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "zh-tw": "凍土大冒險"
@@ -166337,8 +166346,104 @@
         "ja": "Hexascapes - Block Puzzle",
         "zh-tw": "Hexascapes - Block Puzzle"
       }
+    },
+    "CUBU": {
+      "appIds": {
+        "ios": 6834689285
+      },
+      "aliases": [],
+      "developer": "Sungwon Lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bf/b4/80/bfb480d2-5ee2-64e8-9aae-2e511481c17c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "cubu",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "CUBU",
+        "en": "CUBU - Snap to Blocks",
+        "ja": "CUBU",
+        "zh-tw": "CUBU"
+      }
+    },
+    "フックAim - フック設定クレーンゲーム練習": {
+      "appIds": {
+        "ios": 6831628665
+      },
+      "aliases": [],
+      "developer": "RITO TANAKA",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a4/31/bd/a431bd57-84f2-bcef-1e36-7cafe51863f6/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "aim",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "フックAim - フック設定クレーンゲーム練習",
+        "en": "フックAim - フック設定クレーンゲーム練習",
+        "ja": "フックAim - フック設定クレーンゲーム練習",
+        "zh-tw": "フックAim - フック設定クレーンゲーム練習"
+      }
+    },
+    "버블 슈터: 재미있는 거품 게임": {
+      "appIds": {
+        "android": "com.lynnmobile.bubbleshooter"
+      },
+      "aliases": [],
+      "developer": "Bubble Shooter Fun Games",
+      "icon": "https://play-lh.googleusercontent.com/SFT7p8ur3UNKOOwS8VNXCRHuD7A1eiAIo-86A5H6VsCyl3N_PHoPH_mRXKsbeGv4gHE-aIT-eKVJfPRuljiu",
+      "slug": "bubble-shooter-fun-pop-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "버블 슈터: 재미있는 거품 게임",
+        "en": "Bubble Shooter: Fun Pop Game",
+        "ja": "バブルシューター:おもしろ泡パズルゲーム",
+        "zh-tw": "泡泡龍射擊-歡樂連連消"
+      },
+      "legacySlugs": [
+        "버블-슈터-재미있는-거품-게임"
+      ]
+    },
+    "좀비 로그비: 슈팅 게임": {
+      "appIds": {
+        "android": "com.boom.zombie.survival"
+      },
+      "aliases": [],
+      "developer": "Metajoy",
+      "icon": "https://play-lh.googleusercontent.com/qpX2xFwrLifenJxRhA6lfba8Ocj8fjdek3Hn_2R12A507cWRYJOgwN8tki3udnB79fSomGvzI0otSzsck0t1hw",
+      "slug": "zombie-roguebie-survivor-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "좀비 로그비: 슈팅 게임",
+        "en": "Zombie Roguebie: Survivor Game",
+        "zh-tw": "爆僵行動：殭屍射擊"
+      },
+      "legacySlugs": [
+        "좀비-로그비-슈팅-게임"
+      ]
+    },
+    "Cherry Master 92 Classic Slots": {
+      "appIds": {
+        "android_tw": "com.naxos.cherrymaster"
+      },
+      "aliases": [
+        "Cherry Master 92 經典水果盤"
+      ],
+      "developer": "Naxos Apps",
+      "icon": "https://play-lh.googleusercontent.com/i3WBFxwoyUl8Hz7ARV7uiVQ9mpA24YcFyaqvETIVyn83l3Jypyiopdypp3aKEVCsbasJafNX4t8viFf39dCT",
+      "slug": "cherry-master-92-classic-slots",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "en": "Cherry Master 92 Classic Slots",
+        "ja": "Cherry Master 92 チェリーマスター",
+        "zh-tw": "Cherry Master 92 經典水果盤"
+      }
     }
   },
   "lastUpdated": "2026-11-26",
-  "totalGames": 9498
+  "totalGames": 9503
 }
