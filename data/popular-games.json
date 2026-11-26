@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-11-25T03:02:04.939Z",
+  "updatedAt": "2026-11-26T07:02:04.781Z",
   "period": "30days",
   "games": [
     {
-      "slug": "hero-wars-alliance-rpg",
+      "slug": "pirate-legends-idle-rpg",
       "views": 7
     },
     {
@@ -15,11 +15,15 @@
       "views": 6
     },
     {
+      "slug": "cell-survivor-shoot-defense",
+      "views": 6
+    },
+    {
       "slug": "epic-seven-smilegate-holdings",
       "views": 6
     },
     {
-      "slug": "pirate-legends-idle-rpg",
+      "slug": "hero-wars-alliance-rpg",
       "views": 6
     },
     {
@@ -47,11 +51,15 @@
       "views": 5
     },
     {
-      "slug": "cell-survivor-shoot-defense",
+      "slug": "blight-war-idle-rpg",
       "views": 5
     },
     {
       "slug": "geometry-dash-lite",
+      "views": 5
+    },
+    {
+      "slug": "lordrush",
       "views": 5
     },
     {
@@ -68,14 +76,6 @@
     },
     {
       "slug": "pixel-flow",
-      "views": 5
-    },
-    {
-      "slug": "sakura-school-simulator",
-      "views": 5
-    },
-    {
-      "slug": "snipers-duel",
       "views": 5
     }
   ]

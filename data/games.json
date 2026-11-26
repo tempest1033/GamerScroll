@@ -74063,7 +74063,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "jp.co.mixi.monsterstrikeTW"
       },
       "aliases": [
         "我在三國當村長-經營養成系RPG"
@@ -163789,7 +163789,9 @@
         "ios"
       ],
       "names": {
+        "ko": "Slice Away! - Physics Puzzle",
         "en": "Slice Away! - Physics Puzzle",
+        "ja": "Slice Away! - Physics Puzzle",
         "zh-tw": "Slice Away! - Physics Puzzle"
       }
     },
@@ -166442,8 +166444,60 @@
         "ja": "Cherry Master 92 チェリーマスター",
         "zh-tw": "Cherry Master 92 經典水果盤"
       }
+    },
+    "시크릿코드: 방탈출 미스터리 추리게임": {
+      "appIds": {
+        "ios": 6837958102
+      },
+      "aliases": [],
+      "developer": "Mojoday",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/29/fb/8129fbe2-3401-ba09-6e4f-54fc841a93a8/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "시크릿코드-방탈출-미스터리-추리게임",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "시크릿코드: 방탈출 미스터리 추리게임",
+        "en": "시크릿코드: 방탈출 미스터리 추리게임",
+        "ja": "시크릿코드: 방탈출 미스터리 추리게임",
+        "zh-tw": "시크릿코드: 방탈출 미스터리 추리게임"
+      }
+    },
+    "好运来敲门-拼图之谜": {
+      "appIds": {
+        "ios": 6758904788
+      },
+      "aliases": [],
+      "developer": "天罡 刘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d6/32/bb/d632bbff-9b66-7d4d-d06b-09abf5818fcf/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "好运来敲门-拼图之谜",
+        "en": "好运来敲门-拼图之谜",
+        "ja": "好运来敲门-拼图之谜",
+        "zh-cn": "好运来敲门-拼图之谜",
+        "zh-tw": "好运来敲门-拼图之谜"
+      }
+    },
+    "仙临九界": {
+      "appIds": {
+        "ios_cn": 6812216248
+      },
+      "aliases": [],
+      "developer": "Shenzhen Mengqu Technology Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/26/2d/95/262d95c4-34dc-7c7b-96ed-3a82250c508b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "仙临九界",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "仙临九界"
+      }
     }
   },
   "lastUpdated": "2026-11-26",
-  "totalGames": 9503
+  "totalGames": 9506
 }

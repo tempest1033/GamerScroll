@@ -53768,7 +53768,7 @@
       "title": "怪物彈珠 - RPG手機遊戲",
       "status": "single",
       "appIds": {
-        "android": "com.interserv.L3K"
+        "android": "jp.co.mixi.monsterstrikeTW"
       },
       "developer": "XFLAG, Inc.",
       "icon": "https://play-lh.googleusercontent.com/VXmEovF11TDuMVkScxKtOeg9P4bjQa6ugINkZ32fp7ayDtXZhymRbXXpI63ju5hSPqg8U2SQzelaydmjjoDu",
@@ -54043,6 +54043,28 @@
         }
       ],
       "addedAt": "2026-11-26T03:01:56.363Z"
+    },
+    {
+      "title": "시크릿코드: 방탈출 미스터리 추리게임",
+      "status": "single",
+      "appIds": {
+        "ios": 6837958102
+      },
+      "developer": "Mojoday",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/81/29/fb/8129fbe2-3401-ba09-6e4f-54fc841a93a8/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T07:01:58.139Z"
+    },
+    {
+      "title": "好运来敲门-拼图之谜",
+      "status": "single",
+      "appIds": {
+        "ios": 6758904788
+      },
+      "developer": "天罡 刘",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d6/32/bb/d632bbff-9b66-7d4d-d06b-09abf5818fcf/AppIcon-0-1x_U007ephone-0-1-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-26T07:01:58.362Z"
     }
   ],
   "approved": [
