@@ -15,6 +15,7 @@ const { renderGameRankSummary, summaryDays, indexableEditionCodes, COUNTRY_KEYS,
 const { fitSentences, fitTitle, nameAlone, width, MAX_WIDTH } = require('../helpers/fit-description');
 const { renderRevenueSection } = require('../components/revenue-section');
 const { renderSteamRecord, steamPills, steamStoreLink } = require('../helpers/steam-game');
+const { renderGameBadge, embedSnippets } = require('../helpers/rank-badge');
 
 const siteBaseUrl = 'https://gamerscroll.com';
 const REVENUE_SLOT = '<rv-slot></rv-slot>';
@@ -85,6 +86,32 @@ function renderRegional(regional) {
   return `<div class="home-card grid-full game-regional"><div class="home-card-header"><h2 class="home-card-title">${t('game.regional_title')}</h2></div><div class="home-card-body"><ul class="game-regional-list">${items}</ul></div></div>`;
 }
 
+// Compact "Embed this badge" card below main chart content on indexable pages whose game holds a current rank.
+function renderEmbedBadge({ slug, pageName, canonicalUrl, game, meta, edition }) {
+  if (!slug) return '';
+  const badge = renderGameBadge(game, meta, edition.code);
+  if (badge.resolved.status !== 'ranked') return '';
+  const altText = t('game.embed_alt', { name: pageName });
+  const snippets = embedSnippets({ slug, editionCode: edition.code, pageUrl: canonicalUrl, altText });
+  const copyText = esc(t('game.embed_copy'));
+  const copiedText = esc(t('game.embed_copied'));
+  const htmlLabel = esc(t('game.embed_html'));
+  const mdLabel = esc(t('game.embed_markdown'));
+  return `<div class="home-card grid-full game-embed-badge">`
+    + `<div class="home-card-header"><h2 class="home-card-title">${esc(t('game.embed_title'))}</h2></div>`
+    + `<div class="home-card-body">`
+    + `<div class="game-embed-top">`
+    + `<p class="game-embed-desc">${esc(t('game.embed_desc'))}</p>`
+    + `<div class="game-embed-preview"><img class="game-embed-preview-img" src="${esc(snippets.previewUrl)}" alt="${esc(altText)}" width="${badge.width}" height="${badge.height}" loading="lazy" decoding="async"></div>`
+    + `</div>`
+    + `<div class="game-embed-rows">`
+    + `<div class="game-embed-row"><span class="game-embed-label">${htmlLabel}</span><input type="text" class="game-embed-code" readonly value="${esc(snippets.html)}" aria-label="${htmlLabel}"><button type="button" class="game-embed-copy" data-embed-copy data-copy-label="${copyText}" data-copied-label="${copiedText}">${copyText}</button></div>`
+    + `<div class="game-embed-row"><span class="game-embed-label">${mdLabel}</span><input type="text" class="game-embed-code" readonly value="${esc(snippets.markdown)}" aria-label="${mdLabel}"><button type="button" class="game-embed-copy" data-embed-copy data-copy-label="${copyText}" data-copied-label="${copiedText}">${copyText}</button></div>`
+    + `</div>`
+    + `</div>`
+    + `</div>`;
+}
+
 /**
  * @param {object} game  games-data 한 건: { name, names, slug, platforms, developer, icon, ranked, steam, steamHistory, rank, revenue?, regional? }
  * @param {object} meta  { days, hourlyDate }
@@ -114,6 +141,12 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
   const previewEnabled = preview.localPreview === true && Boolean(game.revenue) && Boolean(preview.generateAnalysisTabs);
   const analysisPage = previewEnabled && preview.active === 'analysis';
   if (preview.active === 'analysis' && !analysisPage) return null;
+  // Indexable editions: the sitemaps, games hub and game links follow the same rule (src/build/game-pages.js): the page's own
+  // (indexableEditionCodes) less those where a same-name twin with a longer chart history is indexed instead (regional x).
+  const indexableEditions = indexableEditionCodes(rank, Boolean(game.steam || game.steamRecord), meta).filter((code) => !(game.regional && game.regional[code] && game.regional[code].x));
+  const indexable = indexableEditions.includes(edition.code);
+  const canonicalUrl = `${siteBaseUrl}${href(analysisPage ? `/analysis/${encodeURIComponent(slug)}/` : `/games/${encodeURIComponent(slug)}/`)}`;
+  const embedBadgeHtml = indexable && !analysisPage ? renderEmbedBadge({ slug, pageName, canonicalUrl, game, meta, edition }) : '';
   const revenueSection = previewEnabled ? '' : renderRevenueSection(game.revenue, { slug });
   const overview = describeGame(game, meta, edition.country);
   const overviewHtml = overview.length
@@ -373,7 +406,7 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
           <div class="home-card-body"><div class="rk rk-game"><div class="rk-hero">${steamPills(game.steamRecord)}<div class="actions">${steamStoreLink(game.steamRecord)}</div></div>${renderSteamRecord(game.steamRecord)}</div></div>
         </div>
         ` : ''}
-        ${renderRelated(game.related, edition.code, developer)}${revenueSection ? REVENUE_SLOT : ''}
+        ${renderRelated(game.related, edition.code, developer)}${embedBadgeHtml}${revenueSection ? REVENUE_SLOT : ''}
 
       </div>
     </section>
@@ -387,7 +420,45 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
       `<a href="${href(`/games/${encodeURIComponent(slug)}/`)}" data-name>${esc(plainName)}</a><span>›</span><span>${esc(preview.analysisText(edition.code).tabAnalysis)}</span></div>`);
   }
 
-  // 최근 본 게임 저장
+  // 최근 본 게임 저장 + 임베드 배지 복사
+  const embedCopyScript = embedBadgeHtml ? `
+    (function() {
+      var root = document.querySelector('.game-embed-badge');
+      if (!root) return;
+      root.querySelectorAll('.game-embed-code').forEach(function(input) {
+        input.addEventListener('focus', function() { input.select(); });
+      });
+      root.querySelectorAll('[data-embed-copy]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var row = btn.closest('.game-embed-row');
+          var input = row && row.querySelector('.game-embed-code');
+          if (!input) return;
+          var text = input.value;
+          var done = function() {
+            btn.textContent = btn.dataset.copiedLabel || 'Copied';
+            btn.classList.add('is-copied');
+            clearTimeout(btn._t);
+            btn._t = setTimeout(function() {
+              btn.textContent = btn.dataset.copyLabel || 'Copy';
+              btn.classList.remove('is-copied');
+            }, 1800);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, function() {
+              input.focus();
+              input.select();
+              try { document.execCommand('copy'); } catch (e) {}
+              done();
+            });
+          } else {
+            input.focus();
+            input.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            done();
+          }
+        });
+      });
+    })();` : '';
   const pageScripts = `<script>
     (function() {
       const RECENT_KEY = 'gamerscroll_recent_searches';
@@ -400,13 +471,8 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
         recent = recent.slice(0, MAX_RECENT);
         localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
       } catch (e) {}
-    })();
+    })();${embedCopyScript}
   </script>`;
-
-  // Indexable editions: the sitemaps, games hub and game links follow the same rule (src/build/game-pages.js): the page's own
-  // (indexableEditionCodes) less those where a same-name twin with a longer chart history is indexed instead (regional x).
-  const indexableEditions = indexableEditionCodes(rank, Boolean(game.steam || game.steamRecord), meta).filter((code) => !(game.regional && game.regional[code] && game.regional[code].x));
-  const indexable = indexableEditions.includes(edition.code);
 
   const seoTitle = gameTitle(plainName, platforms, q);
   // The data-derived overview replaces the formulaic rank-summary / generic description.
@@ -419,8 +485,6 @@ function generateGamePage(game, meta = { days: [], hourlyDate: '' }, preview = {
     ? fitSentences(summary.text, fallbackDescription)
     : fallbackDescription;
   const seoKeywords = t(hasMobilePlatform ? 'game.seo_keywords_mobile' : 'game.seo_keywords_steam', { name: plainName });
-
-  const canonicalUrl = `${siteBaseUrl}${href(analysisPage ? `/analysis/${encodeURIComponent(slug)}/` : `/games/${encodeURIComponent(slug)}/`)}`;
 
   // 플랫폼에 따른 운영체제 목록 생성
   const osMap = { ios: 'iOS', android: 'Android', pc: 'Windows', steam: 'Windows', ps5: 'PlayStation 5', xbox: 'Xbox', switch: 'Nintendo Switch' };

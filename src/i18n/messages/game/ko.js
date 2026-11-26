@@ -189,5 +189,12 @@ module.exports = {
   "rev.sg_family": "가족",
   "rev.sg_arcade": "아케이드",
   "rev.sg_educational": "교육",
-  "rev.sg_trivia": "퀴즈"
+  "rev.sg_trivia": "퀴즈",
+  "game.embed_title": "이 배지 삽입하기",
+  "game.embed_desc": "GamerScroll 차트 업데이트에 맞춰 순위가 자동으로 갱신되는 배지입니다.",
+  "game.embed_html": "HTML",
+  "game.embed_markdown": "Markdown",
+  "game.embed_copy": "복사",
+  "game.embed_copied": "복사됨",
+  "game.embed_alt": "GamerScroll {name} 순위"
 };

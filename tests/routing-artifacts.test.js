@@ -1,7 +1,7 @@
 'use strict';
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { routesJson, redirectsText } = require('../src/build/routing');
+const { routesJson, badgeHeaderLines, redirectsText } = require('../src/build/routing');
 
 // Cloudflare Pages _routes.json matching: `*` spans `/`; a trailing `/*` also matches the prefix itself.
 const matches = (rule, p) => new RegExp(`^${rule.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*')}$`).test(p)
@@ -42,4 +42,25 @@ test('removed localized market pages are redirected by static rules because the 
     assert.notEqual(from, to);
     assert.ok(!rules.has(to), `redirect target ${to} is itself redirected`);
   }
+});
+
+test('static rank badges are excluded from Functions in _routes.json and get cacheable noindex CORS/CSP _headers', () => {
+  const routes = routesJson();
+  const totalRules = routes.include.length + routes.exclude.length;
+  assert.ok(totalRules <= 100, `routes count ${totalRules} <= 100`);
+  for (const r of [...routes.include, ...routes.exclude]) assert.ok(r.length <= 100, r);
+
+  for (const p of ['/badge/fategrand-order.svg', '/ja/badge/fategrand-order.svg', '/ko/badge/counter-strike-2.svg', '/zh-cn/badge/counter-strike-2.svg', '/zh-tw/badge/counter-strike-2.svg']) {
+    assert.equal(reachesFunctions(routes, p), false, `${p} must stay static and never invoke Functions`);
+  }
+
+  const headersText = badgeHeaderLines().join('\n');
+  for (const rule of ['/badge/*', '/ja/badge/*', '/ko/badge/*', '/zh-cn/badge/*', '/zh-tw/badge/*']) {
+    assert.ok(headersText.includes(`${rule}\n`), `header rule for ${rule}`);
+  }
+  assert.match(headersText, /Cache-Control: public, max-age=\d+, s-maxage=\d+/);
+  assert.match(headersText, /X-Robots-Tag: noindex, nofollow/);
+  assert.match(headersText, /Access-Control-Allow-Origin: \*/);
+  assert.match(headersText, /Cross-Origin-Resource-Policy: cross-origin/);
+  assert.match(headersText, /Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'/);
 });

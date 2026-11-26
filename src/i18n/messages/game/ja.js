@@ -189,5 +189,12 @@ module.exports = {
   "rev.sg_family": "ファミリー",
   "rev.sg_arcade": "アーケード",
   "rev.sg_educational": "教育",
-  "rev.sg_trivia": "クイズ"
+  "rev.sg_trivia": "クイズ",
+  "game.embed_title": "このバッジを埋め込む",
+  "game.embed_desc": "GamerScrollのチャート更新に合わせて順位が自動更新されるバッジです。",
+  "game.embed_html": "HTML",
+  "game.embed_markdown": "Markdown",
+  "game.embed_copy": "コピー",
+  "game.embed_copied": "コピー済み",
+  "game.embed_alt": "GamerScrollの{name}ランキング"
 };

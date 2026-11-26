@@ -189,5 +189,12 @@ module.exports = {
   "rev.sg_family": "家庭",
   "rev.sg_arcade": "街机",
   "rev.sg_educational": "教育",
-  "rev.sg_trivia": "问答"
+  "rev.sg_trivia": "问答",
+  "game.embed_title": "嵌入此徽章",
+  "game.embed_desc": "随 GamerScroll 榜单自动更新排名的实时徽章。",
+  "game.embed_html": "HTML",
+  "game.embed_markdown": "Markdown",
+  "game.embed_copy": "复制",
+  "game.embed_copied": "已复制",
+  "game.embed_alt": "GamerScroll {name} 排名"
 };

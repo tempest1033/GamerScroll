@@ -189,5 +189,12 @@ module.exports = {
   "rev.sg_family": "Family",
   "rev.sg_arcade": "Arcade",
   "rev.sg_educational": "Educational",
-  "rev.sg_trivia": "Trivia"
+  "rev.sg_trivia": "Trivia",
+  "game.embed_title": "Embed this badge",
+  "game.embed_desc": "Live rank badge updated automatically with GamerScroll charts.",
+  "game.embed_html": "HTML",
+  "game.embed_markdown": "Markdown",
+  "game.embed_copy": "Copy",
+  "game.embed_copied": "Copied",
+  "game.embed_alt": "{name} rank on GamerScroll"
 };
