@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K",
+        "android": "jp.co.mixi.monsterstrikeTW",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -168026,8 +168026,40 @@
       "names": {
         "ko": "머지좀비: 엔드리스워"
       }
+    },
+    "Arcane Legends MMORPG": {
+      "appIds": {
+        "ios_us": "543335870"
+      },
+      "aliases": [],
+      "developer": "Spacetime Studios, LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/73/ae/1c/73ae1c8a-73c8-efb1-1aab-abe342e3f871/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "arcane-legends-mmorpg",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "Arcane Legends MMORPG",
+        "ja": "Arcane Legends MMORPG",
+        "zh-tw": "Arcane Legends MMORPG"
+      }
+    },
+    "Split Brain Samsara": {
+      "appIds": {
+        "steam": "4370210"
+      },
+      "aliases": [],
+      "developer": "Kusa Games",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4370210/23815508cb8c2be720fd61a94bd418d73a35c549/capsule_231x87.jpg?t=1795705312",
+      "slug": "split-brain-samsara",
+      "platforms": [
+        "steam"
+      ],
+      "names": {
+        "en": "Split Brain Samsara"
+      }
     }
   },
   "lastUpdated": "2026-11-27",
-  "totalGames": 9298
+  "totalGames": 9300
 }
