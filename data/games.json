@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW",
+        "android": "com.interserv.L3K",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -76620,7 +76620,8 @@
     "BRAVE FRONTIER LEGION": {
       "appIds": {
         "android": "jp.scbf",
-        "ios_jp": "6744011639"
+        "ios_jp": "6744011639",
+        "ios_us": 6790776425
       },
       "aliases": [],
       "developer": "GrandSoft-inc",
@@ -76632,7 +76633,8 @@
       ],
       "names": {
         "en": "BRAVE FRONTIER LEGION",
-        "ja": "BRAVE FRONTIER LEGION"
+        "ja": "BRAVE FRONTIER LEGION",
+        "zh-tw": "BRAVE FRONTIER LEGION"
       }
     },
     "ポイムのはちうえ": {
@@ -155597,7 +155599,8 @@
       ],
       "names": {
         "ko": "드래곤 나이트 키우기",
-        "en": "Dragon Knight: Idle RPG"
+        "en": "Dragon Knight: Idle RPG",
+        "zh-tw": "龍騎士養成：放置型RPG"
       },
       "legacySlugs": [
         "드래곤-나이트-키우기",
@@ -167553,16 +167556,19 @@
     },
     "人人有功練：懦夫救星": {
       "appIds": {
-        "ios_tw": 6825232884
+        "ios_tw": 6825232884,
+        "android": "com.djxhkxy.gp"
       },
       "aliases": [],
       "developer": "LIGHTYEAR INTERACTIVE LIMITED",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/55/ce/39/55ce395e-ab25-d9af-8166-62676bdde41a/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "人人有功練懦夫救星",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
+        "ko": "人人有功練：懦夫救星",
         "zh-tw": "人人有功練：懦夫救星"
       }
     },
@@ -167825,14 +167831,16 @@
     },
     "놀러와 마이홈": {
       "appIds": {
-        "ios": "6816853767"
+        "ios": "6816853767",
+        "android": "com.skywalkgames.myhome.reboot"
       },
       "aliases": [],
       "developer": "SKYWALK",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/fa/86/aefa8616-9018-e4e0-fc83-04143121eb0d/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
       "slug": "놀러와-마이홈",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "놀러와 마이홈"
@@ -168014,17 +168022,22 @@
     },
     "머지좀비: 엔드리스워": {
       "appIds": {
-        "ios": 6825592426
+        "ios": 6825592426,
+        "android": "com.enp.mergezombie.google"
       },
       "aliases": [],
       "developer": "ENP GAMES",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/09/32/65/093265be-5e26-2eec-4baa-40dd29ace83f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "머지좀비-엔드리스워",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
-        "ko": "머지좀비: 엔드리스워"
+        "ko": "머지좀비: 엔드리스워",
+        "en": "머지좀비: 엔드리스워",
+        "ja": "머지좀비: 엔드리스워",
+        "zh-tw": "머지좀비: 엔드리스워"
       }
     },
     "Arcane Legends MMORPG": {
@@ -168058,8 +168071,47 @@
       "names": {
         "en": "Split Brain Samsara"
       }
+    },
+    "별꾹": {
+      "appIds": {
+        "ios": 6832807561
+      },
+      "aliases": [],
+      "developer": "sungmin lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/1e/2e/c41e2e06-c0d0-be29-2b82-ed8b9408c07f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "slug": "starkkuk",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "별꾹",
+        "en": "Starkkuk",
+        "ja": "별꾹",
+        "zh-tw": "별꾹"
+      },
+      "legacySlugs": [
+        "별꾹"
+      ]
+    },
+    "Cup & Pour: Latte Art": {
+      "appIds": {
+        "ios": 6835552815
+      },
+      "aliases": [],
+      "developer": "Kaloyan Donev",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/db/15/fadb15b4-d241-2508-67cc-f9acfbd8a85c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "cup-pour-latte-art",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Cup & Pour: Latte Art",
+        "en": "Cup & Pour: Latte Art",
+        "ja": "Cup & Pour: Latte Art",
+        "zh-tw": "Cup & Pour: Latte Art"
+      }
     }
   },
-  "lastUpdated": "2026-11-27",
-  "totalGames": 9300
+  "lastUpdated": "2026-11-28",
+  "totalGames": 9302
 }

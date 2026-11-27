@@ -54260,13 +54260,19 @@
     },
     {
       "title": "놀러와 마이홈",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": "6816853767"
+        "ios": "6816853767",
+        "android": "com.skywalkgames.myhome.reboot"
       },
       "developer": "SKYWALK",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/fa/86/aefa8616-9018-e4e0-fc83-04143121eb0d/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "놀러와 마이홈",
+          "appId": "6816853767"
+        }
+      ],
       "addedAt": "2026-11-27T01:02:02.319Z"
     },
     {
@@ -54365,14 +54371,42 @@
     },
     {
       "title": "머지좀비: 엔드리스워",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6825592426
+        "ios": 6825592426,
+        "android": "com.enp.mergezombie.google"
       },
       "developer": "ENP GAMES",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/09/32/65/093265be-5e26-2eec-4baa-40dd29ace83f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "머지좀비: 엔드리스워",
+          "appId": 6825592426
+        }
+      ],
       "addedAt": "2026-11-27T09:01:55.317Z"
+    },
+    {
+      "title": "별꾹",
+      "status": "single",
+      "appIds": {
+        "ios": 6832807561
+      },
+      "developer": "sungmin lee",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c4/1e/2e/c41e2e06-c0d0-be29-2b82-ed8b9408c07f/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T17:02:06.467Z"
+    },
+    {
+      "title": "Cup & Pour: Latte Art",
+      "status": "single",
+      "appIds": {
+        "ios": 6835552815
+      },
+      "developer": "Kaloyan Donev",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/db/15/fadb15b4-d241-2508-67cc-f9acfbd8a85c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T17:02:06.796Z"
     }
   ],
   "approved": [
