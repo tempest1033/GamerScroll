@@ -54279,6 +54279,89 @@
       "icon": "https://play-lh.googleusercontent.com/UH_5hR27e-hnoJy9B7AFhYMJ1e-4U1jIdU2agiQTEdfSTxAEDNh88rI1TNrJbqRdSDaEiDKPU0G-Ey3a2gF29w",
       "searchResults": [],
       "addedAt": "2026-11-27T01:02:03.579Z"
+    },
+    {
+      "title": "두뇌놀이터",
+      "status": "single",
+      "appIds": {
+        "ios": 6776155903
+      },
+      "developer": "Jihoon Bang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/98/e2/da98e21d-cf2e-66c7-cb2b-a1f6f35e3a5e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T05:02:09.881Z"
+    },
+    {
+      "title": "필드데이",
+      "status": "matched",
+      "appIds": {
+        "ios": 6754967275,
+        "android": "com.bitodd.vortex"
+      },
+      "developer": "BIT ODD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/6b/f0/5c6bf0a2-1340-25c8-c342-7b5d40cae692/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [
+        {
+          "title": "필드데이",
+          "appId": "com.bitodd.vortex"
+        }
+      ],
+      "addedAt": "2026-11-27T05:02:09.988Z"
+    },
+    {
+      "title": "DOP 4: Draw One Part",
+      "status": "single",
+      "appIds": {
+        "ios": 1600034464
+      },
+      "developer": "SayGames LTD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ce/71/22/ce712237-7a67-6858-53a2-563a02944d71/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T05:02:10.190Z"
+    },
+    {
+      "title": "Arrow Crush: 3D Cube Puzzle",
+      "status": "single",
+      "appIds": {
+        "ios": 6784167001
+      },
+      "developer": "LONGSEA LINK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a8/4f/bc/a84fbcda-f07a-e1fc-7d3e-28c7c49a1fa0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T05:02:10.571Z"
+    },
+    {
+      "title": "Clutch Drop",
+      "status": "single",
+      "appIds": {
+        "ios": 6826918866
+      },
+      "developer": "Anas Almomany",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/92/89/ce/9289ce46-66e1-0394-6821-ee4d336eb950/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T05:02:10.998Z"
+    },
+    {
+      "title": "レジェンズオンファイア",
+      "status": "single",
+      "appIds": {
+        "ios": 6831624635
+      },
+      "developer": "Shunji Hagimoto",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e8/c0/b8/e8c0b8db-c3fd-ad11-33b6-28b7a2b832d4/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T05:02:11.252Z"
+    },
+    {
+      "title": "Evermyth - 신의 인생 시뮬레이터",
+      "status": "single",
+      "appIds": {
+        "ios": 6818594733
+      },
+      "developer": "Eververse LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/f4/6d/0af46d0d-e170-464e-37f3-38823160bd4c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T05:02:11.887Z"
     }
   ],
   "approved": [

@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K",
+        "android": "jp.co.mixi.monsterstrikeTW",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -81763,23 +81763,6 @@
         "en": "Ants Flow: Pixel Color Puzzle!",
         "ja": "Ants Flow: ドット絵ブロックぱずる・カラーマッチ",
         "zh-tw": "Ants Flow: Pixel Color Puzzle!"
-      }
-    },
-    "Field Day": {
-      "appIds": {
-        "android": "com.bitodd.vortex"
-      },
-      "aliases": [],
-      "developer": "BIT ODD",
-      "icon": "https://play-lh.googleusercontent.com/nTzigZ3JQctmfhnOxM8A-2st3oYMX0344hyAroFUoSFbw7vv07Ceslgc92-M2D_3hsVhhhC-JFOql4wG6-OyAi8",
-      "slug": "field-day",
-      "platforms": [
-        "android"
-      ],
-      "names": {
-        "ko": "필드데이",
-        "en": "Field Day",
-        "zh-tw": "街頭獵場"
       }
     },
     "블록 퍼즐 : 보석 폭발 게임": {
@@ -106734,7 +106717,8 @@
     },
     "드로우 원 파트(DOP 4: Draw One Part)": {
       "appIds": {
-        "android": "com.playstrom.dop4"
+        "android": "com.playstrom.dop4",
+        "ios": 1600034464
       },
       "aliases": [
         "DOP 4: Draw One Part"
@@ -106743,14 +106727,18 @@
       "icon": "https://play-lh.googleusercontent.com/AUhQvXHUzhouohRFDzBXBE5GUC1cb8ta91VsFRz3rHdtgOsPXipEI-Lt_zR687u4kdWjXoWHKlhTeoTxHK8T",
       "slug": "dop-4-draw-one-part",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "드로우 원 파트(DOP 4: Draw One Part)",
         "en": "DOP 4: Draw One Part",
         "ja": "一つ描き足そう (DOP 4: Draw One Part)",
         "zh-tw": "DOP 4: Draw One Part"
-      }
+      },
+      "legacySlugs": [
+        "dop-4-draw-one-part-saygames-ltd"
+      ]
     },
     "Mini Golf Club－PvP Multiplayer": {
       "appIds": {
@@ -167885,8 +167873,146 @@
       "legacySlugs": [
         "밥줘-동물-먹이-꼬치-소팅-퍼즐"
       ]
+    },
+    "두뇌놀이터": {
+      "appIds": {
+        "ios": 6776155903
+      },
+      "aliases": [],
+      "developer": "Jihoon Bang",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/da/98/e2/da98e21d-cf2e-66c7-cb2b-a1f6f35e3a5e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "brain-playground",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "두뇌놀이터",
+        "en": "Brain Playground",
+        "ja": "Brain Playground",
+        "zh-tw": "Brain Playground"
+      },
+      "legacySlugs": [
+        "두뇌놀이터"
+      ]
+    },
+    "필드데이": {
+      "appIds": {
+        "ios": 6754967275,
+        "android": "com.bitodd.vortex"
+      },
+      "aliases": [
+        "Field Day"
+      ],
+      "developer": "BIT ODD",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5c/6b/f0/5c6bf0a2-1340-25c8-c342-7b5d40cae692/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "field-day",
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "names": {
+        "ko": "필드데이",
+        "en": "Field Day",
+        "ja": "フィールドデイ",
+        "zh-tw": "街頭獵場"
+      },
+      "legacySlugs": [
+        "필드데이"
+      ]
+    },
+    "Arrow Crush: 3D Cube Puzzle": {
+      "appIds": {
+        "ios": 6784167001
+      },
+      "aliases": [],
+      "developer": "LONGSEA LINK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a8/4f/bc/a84fbcda-f07a-e1fc-7d3e-28c7c49a1fa0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "arrow-crush-3d-cube-puzzle",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Arrow Crush: 3D Cube Puzzle",
+        "en": "Arrow Crush: 3D Cube Puzzle",
+        "ja": "Arrow Crush: 3D Cube Puzzle",
+        "zh-tw": "Arrow Crush: 3D Cube Puzzle"
+      }
+    },
+    "Clutch Drop": {
+      "appIds": {
+        "ios": 6826918866
+      },
+      "aliases": [],
+      "developer": "Anas Almomany",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/92/89/ce/9289ce46-66e1-0394-6821-ee4d336eb950/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "clutch-drop",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Clutch Drop",
+        "en": "Clutch Drop",
+        "ja": "Clutch Drop",
+        "zh-cn": "Clutch Drop",
+        "zh-tw": "Clutch Drop"
+      }
+    },
+    "レジェンズオンファイア": {
+      "appIds": {
+        "ios": 6831624635
+      },
+      "aliases": [],
+      "developer": "Shunji Hagimoto",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e8/c0/b8/e8c0b8db-c3fd-ad11-33b6-28b7a2b832d4/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
+      "slug": "",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "レジェンズオンファイア",
+        "en": "Legends on Fire",
+        "ja": "レジェンズオンファイア",
+        "zh-tw": "レジェンズオンファイア"
+      }
+    },
+    "怪物與我": {
+      "appIds": {
+        "ios_tw": 6836635192
+      },
+      "aliases": [],
+      "developer": "KuanChih Lin",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/46/41/36/464136a2-70d1-fb2d-a129-af4e09c2e9c5/AppIcon-0-0-1x_U007ephone-0-11-0-85-220.png/512x512bb.jpg",
+      "slug": "怪物與我",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "en": "怪物與我",
+        "zh-tw": "怪物與我"
+      }
+    },
+    "Evermyth - 신의 인생 시뮬레이터": {
+      "appIds": {
+        "ios": 6818594733
+      },
+      "aliases": [],
+      "developer": "Eververse LLC",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0a/f4/6d/0af46d0d-e170-464e-37f3-38823160bd4c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "evermyth-god-life-simulator",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Evermyth - 신의 인생 시뮬레이터",
+        "en": "Evermyth - God Life Simulator",
+        "ja": "Evermyth - 神の人生シミュレーター",
+        "zh-tw": "Evermyth：神明人生模擬器"
+      },
+      "legacySlugs": [
+        "evermyth-신의-인생-시뮬레이터"
+      ]
     }
   },
   "lastUpdated": "2026-11-27",
-  "totalGames": 9291
+  "totalGames": 9297
 }
