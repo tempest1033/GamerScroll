@@ -1,9 +1,17 @@
 {
-  "updatedAt": "2026-11-26T07:02:04.781Z",
+  "updatedAt": "2026-11-27T09:02:05.961Z",
   "period": "30days",
   "games": [
     {
       "slug": "pirate-legends-idle-rpg",
+      "views": 8
+    },
+    {
+      "slug": "epic-seven-smilegate-holdings",
+      "views": 7
+    },
+    {
+      "slug": "stylish-room-decorating-games",
       "views": 7
     },
     {
@@ -19,19 +27,11 @@
       "views": 6
     },
     {
-      "slug": "epic-seven-smilegate-holdings",
-      "views": 6
-    },
-    {
       "slug": "hero-wars-alliance-rpg",
       "views": 6
     },
     {
       "slug": "sled-surfers",
-      "views": 6
-    },
-    {
-      "slug": "stylish-room-decorating-games",
       "views": 6
     },
     {
@@ -43,19 +43,7 @@
       "views": 6
     },
     {
-      "slug": "1-하트-윌-우들-스크류-온",
-      "views": 5
-    },
-    {
-      "slug": "arrow-pro-3d",
-      "views": 5
-    },
-    {
       "slug": "blight-war-idle-rpg",
-      "views": 5
-    },
-    {
-      "slug": "geometry-dash-lite",
       "views": 5
     },
     {
@@ -63,11 +51,11 @@
       "views": 5
     },
     {
-      "slug": "mistfall-hunter",
+      "slug": "monopoly-go-모노폴리-go",
       "views": 5
     },
     {
-      "slug": "monopoly-go-모노폴리-go",
+      "slug": "monopoly-go",
       "views": 5
     },
     {
@@ -75,7 +63,19 @@
       "views": 5
     },
     {
+      "slug": "palworld",
+      "views": 5
+    },
+    {
       "slug": "pixel-flow",
+      "views": 5
+    },
+    {
+      "slug": "snipers-duel",
+      "views": 5
+    },
+    {
+      "slug": "tanghulu-master-mukbang-asmr",
       "views": 5
     }
   ]
