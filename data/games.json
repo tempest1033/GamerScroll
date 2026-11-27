@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW",
+        "android": "com.interserv.L3K",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -166713,9 +166713,9 @@
         "android"
       ],
       "names": {
-        "ja": "ケロロ軍曹 ぽちっと大出動であります！",
         "ko": "개구리 중사 케로로 Fluke Invasion",
-        "en": "KERORO Tap! Tap! Defense!"
+        "en": "KERORO Tap! Tap! Defense!",
+        "ja": "ケロロ軍曹 ぽちっと大出動であります！"
       },
       "legacySlugs": [
         "ケロロ軍曹-ぽちっと大出動であります",
@@ -167834,8 +167834,59 @@
       "legacySlugs": [
         "파칭코-롤플레잉-디펜스"
       ]
+    },
+    "놀러와 마이홈": {
+      "appIds": {
+        "ios": "6816853767"
+      },
+      "aliases": [],
+      "developer": "SKYWALK",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/fa/86/aefa8616-9018-e4e0-fc83-04143121eb0d/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "slug": "놀러와-마이홈",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "놀러와 마이홈"
+      }
+    },
+    "發了咪 Online": {
+      "appIds": {
+        "ios_tw": 6814773704
+      },
+      "aliases": [],
+      "developer": "Yusen Interactive Co., Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/7c/37/3d/7c373d2e-256d-0192-6339-7fac37f2c8ec/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "發了咪-online",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-tw": "發了咪 Online"
+      }
+    },
+    "밥줘! - 동물 먹이 꼬치 소팅 퍼즐": {
+      "appIds": {
+        "android": "com.penta.gimmegrub.google"
+      },
+      "aliases": [],
+      "developer": "Penta Game",
+      "icon": "https://play-lh.googleusercontent.com/UH_5hR27e-hnoJy9B7AFhYMJ1e-4U1jIdU2agiQTEdfSTxAEDNh88rI1TNrJbqRdSDaEiDKPU0G-Ey3a2gF29w",
+      "slug": "gimme-grub-food-sort-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "밥줘! - 동물 먹이 꼬치 소팅 퍼즐",
+        "en": "Gimme Grub! - Food Sort Puzzle",
+        "ja": "ごはんちょうだい！食べ物ソート",
+        "zh-tw": "餵飯啦！美食分類拼圖"
+      },
+      "legacySlugs": [
+        "밥줘-동물-먹이-꼬치-소팅-퍼즐"
+      ]
     }
   },
   "lastUpdated": "2026-11-27",
-  "totalGames": 9288
+  "totalGames": 9291
 }

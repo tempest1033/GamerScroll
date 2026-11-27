@@ -54257,6 +54257,28 @@
       "icon": "https://play-lh.googleusercontent.com/camkpSEmg95woU_iFPqLpSM2zREEiL0m2S9CF39MIG9i3kyDv8AIXvePc3_aYAj-V4nSJhyNTGo43m6VF6NIMnk",
       "searchResults": [],
       "addedAt": "2026-11-26T21:02:03.658Z"
+    },
+    {
+      "title": "놀러와 마이홈",
+      "status": "single",
+      "appIds": {
+        "ios": "6816853767"
+      },
+      "developer": "SKYWALK",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ae/fa/86/aefa8616-9018-e4e0-fc83-04143121eb0d/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T01:02:02.319Z"
+    },
+    {
+      "title": "밥줘! - 동물 먹이 꼬치 소팅 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.penta.gimmegrub.google"
+      },
+      "developer": "Penta Game",
+      "icon": "https://play-lh.googleusercontent.com/UH_5hR27e-hnoJy9B7AFhYMJ1e-4U1jIdU2agiQTEdfSTxAEDNh88rI1TNrJbqRdSDaEiDKPU0G-Ey3a2gF29w",
+      "searchResults": [],
+      "addedAt": "2026-11-27T01:02:03.579Z"
     }
   ],
   "approved": [
