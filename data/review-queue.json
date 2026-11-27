@@ -54407,6 +54407,136 @@
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/fa/db/15/fadb15b4-d241-2508-67cc-f9acfbd8a85c/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
       "searchResults": [],
       "addedAt": "2026-11-27T17:02:06.796Z"
+    },
+    {
+      "title": "Party in My Dorm: Campus Life",
+      "status": "single",
+      "appIds": {
+        "ios": "1161865954"
+      },
+      "developer": "A Thinking Ape Entertainment Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/cc/73/98cc73c5-f485-3097-b1c6-bed8761fb46c/AppIcon-1x_U007emarketing-0-8-0-sRGB-85-220-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-27T21:01:58.574Z"
+    },
+    {
+      "title": "Coffee Color Stack",
+      "status": "single",
+      "appIds": {
+        "android": "com.sushi.stack.jam"
+      },
+      "developer": "HM Games Pty Ltd",
+      "icon": "https://play-lh.googleusercontent.com/ec6HOFEMy4dfp8Cu3L-9lVg4PDcoYZYd1O57TaBpWWPSIZAID2W6nfbo6IvENXesHUuIHUFlS_2TILbwT07pkA",
+      "searchResults": [
+        {
+          "title": "커피 정렬: 색상 패키지",
+          "appId": 6738715748
+        },
+        {
+          "title": "Coffee Master: Color Block",
+          "appId": 6744635698
+        },
+        {
+          "title": "Cup Color Stack: 컵 색깔 스택 힐링퍼즐",
+          "appId": 6783588458
+        }
+      ],
+      "addedAt": "2026-11-27T21:01:59.834Z"
+    },
+    {
+      "title": "黄金爆走デコトラプリンセス",
+      "status": "single",
+      "appIds": {
+        "android": "jp.jword.decopri"
+      },
+      "developer": "GMO INSIGHT Inc.",
+      "icon": "https://play-lh.googleusercontent.com/rBBZWbq7Cc_rnjfGCPZRM9xFfwFhJf9NP2Ndc04_1Y5-kR9_O9naAPe7_C06wFg1EjyZyWQojG6I5UoNsSI_hA",
+      "searchResults": [],
+      "addedAt": "2026-11-27T21:02:00.366Z"
+    },
+    {
+      "title": "冰之石：絆之進化",
+      "status": "single",
+      "appIds": {
+        "android": "com.bzs.tw.gp1"
+      },
+      "developer": "Luminescent Echo Guild",
+      "icon": "https://play-lh.googleusercontent.com/tTFoXPoJrAoPMTnr4M0Bmmo1TaJyB6B3cO6NR0QUcrmAFxfSQ_kvjTwxUwx25H3-AzyZzzI_OMV_WQ7TmXIQ",
+      "searchResults": [],
+      "addedAt": "2026-11-27T21:02:00.849Z"
+    },
+    {
+      "title": "오디세이 GO!",
+      "status": "matched",
+      "appIds": {
+        "android": "com.playland.odysseygo",
+        "ios": 6828378069
+      },
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/F9yt_sJ_P_aWOZ9NT8oHndoKl3xMn2HTQYKPCWfWZ-tjDvmOAN4ZKQYR0JnfWPDUwq1NySBY0BIMlbT_Cl_DC6E",
+      "searchResults": [
+        {
+          "title": "오디세이 GO!",
+          "appId": 6828378069
+        },
+        {
+          "title": "Super Mario Run",
+          "appId": 1145275343
+        },
+        {
+          "title": "Green the Planet 2",
+          "appId": 1069236120
+        }
+      ],
+      "addedAt": "2026-11-27T21:02:01.678Z"
+    },
+    {
+      "title": "Muse Flow 3D - Cube Crush",
+      "status": "single",
+      "appIds": {
+        "android": "com.museflow3d.pixelpuzzle.gp"
+      },
+      "developer": "Projectku",
+      "icon": "https://play-lh.googleusercontent.com/EG8z0fvIdoGkczolFTg_dEtcGbYQp8R5Vb56cY6RvEAm7K15OGIRtg9jDrwWAgmCDJO49ZabglfGmYRZCLwR",
+      "searchResults": [
+        {
+          "title": "로블록스(Roblox)",
+          "appId": 431946152
+        },
+        {
+          "title": "Instagram",
+          "appId": 389801252
+        }
+      ],
+      "addedAt": "2026-11-27T21:02:02.246Z"
+    },
+    {
+      "title": "샤브샤브 만찬: 푸드 소트",
+      "status": "single",
+      "appIds": {
+        "android": "com.hotpot.feast.food.sort"
+      },
+      "developer": "Quark Ltd",
+      "icon": "https://play-lh.googleusercontent.com/WoQTgJCcvEsMClUTg9T3gCCdsGbrBsPM5rup_Jf1GcgvoNnbGdE3TH0K9hhqTm34HZaVFV6QndyP8AXNHCcJ",
+      "searchResults": [],
+      "addedAt": "2026-11-27T21:02:02.693Z"
+    },
+    {
+      "title": "마왕군 하청 대장간",
+      "status": "matched",
+      "appIds": {
+        "android": "com.yellowmintlabs.forge",
+        "ios": 6839529147
+      },
+      "developer": "Yellowmint Labs",
+      "icon": "https://play-lh.googleusercontent.com/myWJAjmsklLGZCD6g9VYIvtu1icqH18yvMylLofNpb8r4SsiSdR2lC9ffTmE1LJYA0_Wfl74uT3ondYSUt-suw",
+      "searchResults": [
+        {
+          "title": "마왕군 하청 대장간",
+          "appId": 6839529147
+        }
+      ],
+      "addedAt": "2026-11-27T21:02:03.203Z"
     }
   ],
   "approved": [

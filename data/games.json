@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K",
+        "android": "jp.co.mixi.monsterstrikeTW",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -168110,8 +168110,164 @@
         "ja": "Cup & Pour: Latte Art",
         "zh-tw": "Cup & Pour: Latte Art"
       }
+    },
+    "Party in My Dorm: Campus Life": {
+      "appIds": {
+        "ios": "1161865954"
+      },
+      "aliases": [],
+      "developer": "A Thinking Ape Entertainment Ltd.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/98/cc/73/98cc73c5-f485-3097-b1c6-bed8761fb46c/AppIcon-1x_U007emarketing-0-8-0-sRGB-85-220-0.png/512x512bb.jpg",
+      "slug": "party-in-my-dorm-campus-life",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Party in My Dorm: Campus Life",
+        "en": "Party in My Dorm: Campus Life",
+        "ja": "Party in My Dorm: Campus Life",
+        "zh-tw": "Party in My Dorm: Campus Life"
+      }
+    },
+    "Coffee Color Stack": {
+      "appIds": {
+        "android": "com.sushi.stack.jam"
+      },
+      "aliases": [],
+      "developer": "HM Games Pty Ltd",
+      "icon": "https://play-lh.googleusercontent.com/ec6HOFEMy4dfp8Cu3L-9lVg4PDcoYZYd1O57TaBpWWPSIZAID2W6nfbo6IvENXesHUuIHUFlS_2TILbwT07pkA",
+      "slug": "coffee-color-stack",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Coffee Color Stack",
+        "en": "Coffee Color Stack",
+        "ja": "Coffee Color Stack",
+        "zh-tw": "Coffee Color Stack"
+      }
+    },
+    "黄金爆走デコトラプリンセス": {
+      "appIds": {
+        "android": "jp.jword.decopri"
+      },
+      "aliases": [],
+      "developer": "GMO INSIGHT Inc.",
+      "icon": "https://play-lh.googleusercontent.com/rBBZWbq7Cc_rnjfGCPZRM9xFfwFhJf9NP2Ndc04_1Y5-kR9_O9naAPe7_C06wFg1EjyZyWQojG6I5UoNsSI_hA",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "黄金爆走デコトラプリンセス",
+        "ja": "黄金爆走デコトラプリンセス"
+      }
+    },
+    "冰之石：絆之進化": {
+      "appIds": {
+        "android": "com.bzs.tw.gp1"
+      },
+      "aliases": [],
+      "developer": "Luminescent Echo Guild",
+      "icon": "https://play-lh.googleusercontent.com/tTFoXPoJrAoPMTnr4M0Bmmo1TaJyB6B3cO6NR0QUcrmAFxfSQ_kvjTwxUwx25H3-AzyZzzI_OMV_WQ7TmXIQ",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "冰之石：絆之進化",
+        "zh-tw": "冰之石：絆之進化"
+      }
+    },
+    "오디세이 GO!": {
+      "appIds": {
+        "android": "com.playland.odysseygo",
+        "ios": 6828378069
+      },
+      "aliases": [
+        "오디세이 GO"
+      ],
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/F9yt_sJ_P_aWOZ9NT8oHndoKl3xMn2HTQYKPCWfWZ-tjDvmOAN4ZKQYR0JnfWPDUwq1NySBY0BIMlbT_Cl_DC6E",
+      "slug": "odyssey-go",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "오디세이 GO",
+        "en": "Odyssey GO!",
+        "ja": "オデッセイ GO!",
+        "zh-tw": "奧德賽 GO"
+      },
+      "legacySlugs": [
+        "오디세이-go"
+      ]
+    },
+    "Muse Flow 3D - Cube Crush": {
+      "appIds": {
+        "android": "com.museflow3d.pixelpuzzle.gp"
+      },
+      "aliases": [],
+      "developer": "Projectku",
+      "icon": "https://play-lh.googleusercontent.com/EG8z0fvIdoGkczolFTg_dEtcGbYQp8R5Vb56cY6RvEAm7K15OGIRtg9jDrwWAgmCDJO49ZabglfGmYRZCLwR",
+      "slug": "muse-flow-3d-cube-crush",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Muse Flow 3D - Cube Crush",
+        "en": "Muse Flow 3D - Cube Crush",
+        "ja": "Muse Flow 3D - Cube Crush",
+        "zh-tw": "Muse Flow 3D - Cube Crush"
+      }
+    },
+    "샤브샤브 만찬: 푸드 소트": {
+      "appIds": {
+        "android": "com.hotpot.feast.food.sort"
+      },
+      "aliases": [],
+      "developer": "Quark Ltd",
+      "icon": "https://play-lh.googleusercontent.com/WoQTgJCcvEsMClUTg9T3gCCdsGbrBsPM5rup_Jf1GcgvoNnbGdE3TH0K9hhqTm34HZaVFV6QndyP8AXNHCcJ",
+      "slug": "hotpot-feast-food-sort",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "샤브샤브 만찬: 푸드 소트",
+        "en": "Hotpot Feast: Food Sort",
+        "ja": "しゃぶしゃぶフェスタ：フードソート",
+        "zh-tw": "火鍋盛宴：美食分類"
+      },
+      "legacySlugs": [
+        "샤브샤브-만찬-푸드-소트"
+      ]
+    },
+    "마왕군 하청 대장간": {
+      "appIds": {
+        "android": "com.yellowmintlabs.forge",
+        "ios": 6839529147
+      },
+      "aliases": [],
+      "developer": "Yellowmint Labs",
+      "icon": "https://play-lh.googleusercontent.com/myWJAjmsklLGZCD6g9VYIvtu1icqH18yvMylLofNpb8r4SsiSdR2lC9ffTmE1LJYA0_Wfl74uT3ondYSUt-suw",
+      "slug": "demon-kings-subcontract-forge",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "names": {
+        "ko": "마왕군 하청 대장간",
+        "en": "Demon King's Subcontract Forge",
+        "ja": "魔王軍下請け鍛冶場",
+        "zh-cn": "魔王军外包铁匠铺",
+        "zh-tw": "魔王軍外包鐵匠鋪"
+      },
+      "legacySlugs": [
+        "마왕군-하청-대장간"
+      ]
     }
   },
   "lastUpdated": "2026-11-28",
-  "totalGames": 9302
+  "totalGames": 9310
 }
