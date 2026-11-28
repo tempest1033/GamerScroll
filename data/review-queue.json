@@ -54537,6 +54537,30 @@
         }
       ],
       "addedAt": "2026-11-27T21:02:03.203Z"
+    },
+    {
+      "title": "Point Away 3D: Cube Puzzle",
+      "status": "single",
+      "appIds": {
+        "android": "com.pointaway.gp"
+      },
+      "developer": "UniRise Studio",
+      "icon": "https://play-lh.googleusercontent.com/XlHHW16aFrsMzKHJn-pYzoNnBpPRt3HIQ6c-COw-8L3m3LpCOe5w4zmhOnPeagLpOPPEd3P4iIwBxlAwQl3_3d4",
+      "searchResults": [
+        {
+          "title": "ArrowCube - 3DPuzzle",
+          "appId": 6760325543
+        },
+        {
+          "title": "Screw Sort 3D 나사 빼기 매치 &볼트 퍼즐",
+          "appId": 6633425539
+        },
+        {
+          "title": "나사 매치 - 볼트업 퍼즐게임",
+          "appId": 6499293031
+        }
+      ],
+      "addedAt": "2026-11-28T01:01:53.230Z"
     }
   ],
   "approved": [

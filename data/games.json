@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW",
+        "android": "com.interserv.L3K",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -168266,8 +168266,26 @@
       "legacySlugs": [
         "마왕군-하청-대장간"
       ]
+    },
+    "Point Away 3D: Cube Puzzle": {
+      "appIds": {
+        "android": "com.pointaway.gp"
+      },
+      "aliases": [],
+      "developer": "UniRise Studio",
+      "icon": "https://play-lh.googleusercontent.com/XlHHW16aFrsMzKHJn-pYzoNnBpPRt3HIQ6c-COw-8L3m3LpCOe5w4zmhOnPeagLpOPPEd3P4iIwBxlAwQl3_3d4",
+      "slug": "point-away-3d-cube-puzzle",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "Point Away 3D: Cube Puzzle",
+        "en": "Point Away 3D: Cube Puzzle",
+        "ja": "Point Away 3D: Cube Puzzle",
+        "zh-tw": "Point Away 3D: Cube Puzzle"
+      }
     }
   },
   "lastUpdated": "2026-11-28",
-  "totalGames": 9310
+  "totalGames": 9311
 }
