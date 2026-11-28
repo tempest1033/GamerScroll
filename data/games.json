@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW",
+        "android": "com.interserv.L3K",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -167257,14 +167257,16 @@
     },
     "Sandy Bus: Masterpiece": {
       "appIds": {
-        "ios": 6807326174
+        "ios": 6807326174,
+        "android": "color.queue.shooter"
       },
       "aliases": [],
       "developer": "Hyper Surfer Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/7e/13/ff7e131d-7963-331f-5f53-6e0071d75217/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
       "slug": "sandy-bus-masterpiece",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "Sandy Bus: Masterpiece",
@@ -168362,8 +168364,59 @@
       "names": {
         "en": "Aksun"
       }
+    },
+    "我还没上车": {
+      "appIds": {
+        "ios_cn": 6822675581
+      },
+      "aliases": [],
+      "developer": "Beijing Wanjia Zhuhua Technology Co., Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ff/98/f1/ff98f12d-729b-0f07-7449-86ffebc7912d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "我还没上车",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "我还没上车"
+      }
+    },
+    "마작 Go: 트리플 매치 퍼즐": {
+      "appIds": {
+        "android": "com.nimblemind.mahjong.tile.puzzle.jam"
+      },
+      "aliases": [],
+      "developer": "NimbleMind Network Inc.",
+      "icon": "https://play-lh.googleusercontent.com/iB2Z_SMDXKmWmUyO0WjPr5ndw4eatT2viZmLN3JPgol7M5kgcbgTxVO2D6xJyTn3T0lx6Q3B9tgRfXN7_Bsccg",
+      "slug": "mahjong-go-triple-match-game",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "마작 Go: 트리플 매치 퍼즐",
+        "en": "Mahjong Go: Triple Match Game",
+        "ja": "麻雀Go：三牌マッチパズル",
+        "zh-tw": "麻將Go：三消對對碰"
+      },
+      "legacySlugs": [
+        "마작-go-트리플-매치-퍼즐"
+      ]
+    },
+    "CHASA : Twilight Reaper": {
+      "appIds": {
+        "steam": "5546750"
+      },
+      "aliases": [],
+      "developer": "Act Seven Entertainment Inc.",
+      "icon": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/5546750/1c195aec146a4cdd62a95c02545017dea8ca6519/capsule_231x87.jpg?t=1795838306",
+      "slug": "chasa-twilight-reaper",
+      "platforms": [
+        "steam"
+      ],
+      "names": {
+        "en": "CHASA : Twilight Reaper"
+      }
     }
   },
   "lastUpdated": "2026-11-28",
-  "totalGames": 9315
+  "totalGames": 9318
 }

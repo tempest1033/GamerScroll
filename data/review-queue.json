@@ -53898,13 +53898,19 @@
     },
     {
       "title": "Sandy Bus: Masterpiece",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6807326174
+        "ios": 6807326174,
+        "android": "color.queue.shooter"
       },
       "developer": "Hyper Surfer Games",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/7e/13/ff7e131d-7963-331f-5f53-6e0071d75217/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "Sandy Bus: Masterpiece",
+          "appId": 6807326174
+        }
+      ],
       "addedAt": "2026-11-25T23:01:49.604Z"
     },
     {
@@ -54600,6 +54606,30 @@
       "icon": "https://play-lh.googleusercontent.com/lBS7dJ0lILCCWuCvN1jE7Vn-ORZYYfa7AJ7LAugfBHT9fARFdVsdg3Lnh-UWk_VAsJQUHQFCn9ljUJfR5HBDAp8",
       "searchResults": [],
       "addedAt": "2026-11-28T05:01:57.216Z"
+    },
+    {
+      "title": "마작 Go: 트리플 매치 퍼즐",
+      "status": "single",
+      "appIds": {
+        "android": "com.nimblemind.mahjong.tile.puzzle.jam"
+      },
+      "developer": "NimbleMind Network Inc.",
+      "icon": "https://play-lh.googleusercontent.com/iB2Z_SMDXKmWmUyO0WjPr5ndw4eatT2viZmLN3JPgol7M5kgcbgTxVO2D6xJyTn3T0lx6Q3B9tgRfXN7_Bsccg",
+      "searchResults": [
+        {
+          "title": "Triple Tile 트리플 타일: 퍼즐 게임 맞추기",
+          "appId": 1572661625
+        },
+        {
+          "title": "Triple Match 3D",
+          "appId": 1607122287
+        },
+        {
+          "title": "매치 팩토리(Match Factory)!",
+          "appId": 6449094229
+        }
+      ],
+      "addedAt": "2026-11-28T09:01:50.155Z"
     }
   ],
   "approved": [
