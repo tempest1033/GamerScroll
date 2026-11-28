@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K",
+        "android": "jp.co.mixi.monsterstrikeTW",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -168415,8 +168415,79 @@
       "names": {
         "en": "CHASA : Twilight Reaper"
       }
+    },
+    "シノビNEXUS ―閃乱カグラ― (シノネク)": {
+      "appIds": {
+        "ios_jp": 6569243522
+      },
+      "aliases": [],
+      "developer": "HONEY PARADE GAMES Inc.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/eb/27/ff/eb27ff41-ea9d-17b9-03c3-c7ade2ac0811/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "シノビnexus-閃乱カグラ-シノネク",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ja": "シノビNEXUS ―閃乱カグラ― (シノネク)"
+      }
+    },
+    "미친 햄버거 가게": {
+      "appIds": {
+        "ios": 1535790532
+      },
+      "aliases": [],
+      "developer": "Farjad Adnan",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/aa/97/bf/aa97bf6f-cd9a-b484-0b12-2fa6c2341fdd/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
+      "slug": "crazy-burger-shop",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "미친 햄버거 가게",
+        "en": "Crazy Burger Shop",
+        "ja": "クレイジーバーガーショップ",
+        "zh-cn": "疯狂的汉堡店",
+        "zh-tw": "瘋狂的漢堡店"
+      },
+      "legacySlugs": [
+        "미친-햄버거-가게"
+      ]
+    },
+    "SafeConsumE": {
+      "appIds": {
+        "ios": 1483429167
+      },
+      "aliases": [],
+      "developer": "Aarhus University",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/60/7f/d1/607fd1ec-7b6a-84d3-3dcc-f50ab37c9ae1/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "slug": "safeconsume",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "SafeConsumE",
+        "en": "SafeConsumE",
+        "ja": "SafeConsumE",
+        "zh-cn": "SafeConsumE",
+        "zh-tw": "SafeConsumE"
+      }
+    },
+    "寻物消不停 - 疯狂的整理师游戏，找到隐藏的物品": {
+      "appIds": {
+        "ios_cn": 6830945454
+      },
+      "aliases": [],
+      "developer": "GLORYWAY PTE. LTD.",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ff/34/4d/ff344d11-70a5-1d39-482a-4d55684f3905/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg",
+      "slug": "寻物消不停-疯狂的整理师游戏找到隐藏的物品",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "zh-cn": "寻物消不停 - 疯狂的整理师游戏，找到隐藏的物品"
+      }
     }
   },
   "lastUpdated": "2026-11-28",
-  "totalGames": 9318
+  "totalGames": 9322
 }

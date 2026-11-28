@@ -54630,6 +54630,28 @@
         }
       ],
       "addedAt": "2026-11-28T09:01:50.155Z"
+    },
+    {
+      "title": "미친 햄버거 가게",
+      "status": "single",
+      "appIds": {
+        "ios": 1535790532
+      },
+      "developer": "Farjad Adnan",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple114/v4/aa/97/bf/aa97bf6f-cd9a-b484-0b12-2fa6c2341fdd/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-28T13:01:50.832Z"
+    },
+    {
+      "title": "SafeConsumE",
+      "status": "single",
+      "appIds": {
+        "ios": 1483429167
+      },
+      "developer": "Aarhus University",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/60/7f/d1/607fd1ec-7b6a-84d3-3dcc-f50ab37c9ae1/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-28T13:01:51.168Z"
     }
   ],
   "approved": [
