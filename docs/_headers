@@ -1,0 +1,99 @@
+/styles-core.3a450f34.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles-catalog.3a450f34.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/styles-game.3a450f34.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*
+  Cache-Control: public, max-age=604800
+
+/icon-*.png
+  Cache-Control: public, max-age=2592000
+
+/favicon*
+  Cache-Control: public, max-age=2592000
+
+/assets/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ja/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ja/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-cn/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-cn/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ko/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/ko/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-tw/layout-core.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/zh-tw/layout-runtime.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/feed/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/apexcharts-*.min.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/badge/*
+  Cache-Control: public, max-age=1800, s-maxage=3600, stale-while-revalidate=3600
+  X-Robots-Tag: noindex, nofollow
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'
+  X-Content-Type-Options: nosniff
+
+/ko/badge/*
+  Cache-Control: public, max-age=1800, s-maxage=3600, stale-while-revalidate=3600
+  X-Robots-Tag: noindex, nofollow
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'
+  X-Content-Type-Options: nosniff
+
+/ja/badge/*
+  Cache-Control: public, max-age=1800, s-maxage=3600, stale-while-revalidate=3600
+  X-Robots-Tag: noindex, nofollow
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'
+  X-Content-Type-Options: nosniff
+
+/zh-cn/badge/*
+  Cache-Control: public, max-age=1800, s-maxage=3600, stale-while-revalidate=3600
+  X-Robots-Tag: noindex, nofollow
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'
+  X-Content-Type-Options: nosniff
+
+/zh-tw/badge/*
+  Cache-Control: public, max-age=1800, s-maxage=3600, stale-while-revalidate=3600
+  X-Robots-Tag: noindex, nofollow
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'
+  X-Content-Type-Options: nosniff
+

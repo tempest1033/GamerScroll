@@ -1,0 +1,68 @@
+/* Edition layout layer (i18n QA, scripts/test-i18n-layout.js).
+   Loaded last in the game and catalog bundles. Longer English / CJK strings must not wrap controls,
+   push tables out of their cards or get clipped. ko keeps its original look: rules that change a
+   layout that already fits in ko are scoped with html:not(:lang(ko)). */
+
+/* Mobile header bar: the edition selector sits inside the search bar next to the search icon
+   (flag + short code); the menu opens downward. */
+@media (max-width: 768px) {
+  body > .search-container .gs-lang-mobile { margin-left: auto; margin-right: 6px; }
+  body > .search-container .gs-lang-mobile + .search-btn,
+  body > .search-container:not(.search-open) .gs-lang-mobile + .search-btn { margin-left: 0; }
+  body > .search-container.search-open .gs-lang-mobile { margin-left: 6px; }
+  body > .search-container .gs-lang-mobile .gs-lang-menu { top: calc(100% + 8px); bottom: auto; right: 0; }
+}
+
+/* Stat cards: two columns cannot hold a single-line label on narrow phones for the longer editions. */
+@media (max-width: 420px) {
+  html:not(:lang(ko)) .rk .rk-stats,
+  html:not(:lang(ko)) .rk .rk-stats.four,
+  html:not(:lang(ko)) .rk .rk-stats.sub3 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 370px) {
+  html:lang(ko) .rk .rk-stats,
+  html:lang(ko) .rk .rk-stats.four,
+  html:lang(ko) .rk .rk-stats.sub3 { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Short column headings never wrap (rank-in-category, store columns); the column grows to fit. */
+body .site-container .rk .rk-table thead th.rank,
+body .site-container .rk .rk-table thead th.spk { white-space: nowrap; }
+
+/* Home store / country tab strips: keep every label visible on a 360px phone. */
+.rk-home .rk-hcountry label { white-space: nowrap; }
+@media (max-width: 420px) {
+  html:not(:lang(ko)) .rk .rk-htabs label { padding-left: 6px; padding-right: 6px; }
+  html:not(:lang(ko)) .rk-home .rk-hcountry label { padding-left: 8px; padding-right: 8px; }
+}
+
+/* Publisher table on phones: rank / count columns wide enough for 3-digit ranks and "第 103 名". */
+@media (max-width: 768px) {
+  body .site-container .rk .rk-pubtable th:first-child,
+  body .site-container .rk .rk-pubtable td:first-child { width: 30px; }
+  body .site-container .rk .rk-pubtable th:nth-child(n+3),
+  body .site-container .rk .rk-pubtable td:nth-child(n+3) { width: 54px; }
+  /* Key records on game pages: the description column wraps instead of stretching the table. */
+  .page-game #game .rk-game-records { min-width: 0; width: 100%; }
+}
+
+/* Ranking cards (records page): the name column absorbs the remaining width and ellipsizes
+   instead of widening the table past its card. */
+.rk .rk-card .rk-table:not(.rk-month-top3) { min-width: 0; width: 100%; }
+body .site-container .rk .rk-card .rk-table:not(.rk-month-top3) thead th { white-space: nowrap; }
+.rk .rk-card .rk-table:not(.rk-month-top3) td:has(> .rk-app) { width: 100%; max-width: 0; }
+.rk .rk-card .rk-table:not(.rk-month-top3) .rk-app > div { min-width: 0; }
+.rk .rk-card .rk-table:not(.rk-month-top3) .rk-app .t,
+.rk .rk-card .rk-table:not(.rk-month-top3) .rk-app .d { max-width: 100%; }
+
+/* Home KPI cards on phones: icon above the name so a long single Latin word (MONOPOLY, BATTLEGROUNDS)
+   gets the full card width instead of being broken mid-word next to the icon. ko keeps its layout. */
+@media (max-width: 420px) {
+  .rk-home .rk-kpi .g { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+
+/* Steam hub cards sit three-across at ~1024px: stack the capsule above the title so one long word
+   (Dressmaker, WARHAMMER) is never split beside the image. */
+@media (min-width: 769px) and (max-width: 1180px) {
+  body .site-container #steam .rk-steam-card-game { flex-direction: column; align-items: flex-start; gap: 10px; }
+}

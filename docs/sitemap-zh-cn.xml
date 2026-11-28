@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/cn/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/cn/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/cn/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/cn/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/cn/app-store/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/trending/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/trending/cn/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/trending/cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/trending/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/trending/cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/trending/cn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/trending/cn/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/steam/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/steam/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/steam/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/steam/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/steam/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/steam/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/steam/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/steam/most-played/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/steam/most-played/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/steam/most-played/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/steam/most-played/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/steam/most-played/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/steam/most-played/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/steam/most-played/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/games/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/games/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/games/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/games/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/games/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/games/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/games/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/kr/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/kr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/kr/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/kr/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/kr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/kr/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/free/kr/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/free/kr/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/free/kr/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/free/kr/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/free/kr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/free/kr/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/jp/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/jp/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/jp/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/jp/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/jp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/jp/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/free/jp/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/free/jp/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/free/jp/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/free/jp/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/free/jp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/free/jp/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/us/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/us/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/us/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/us/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/free/us/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/free/us/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/free/us/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/free/us/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/free/us/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/tw/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/tw/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/tw/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/tw/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/free/tw/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/free/tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/free/tw/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/free/tw/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/free/tw/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/free/tw/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/cn/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/cn/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/cn/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/cn/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/cn/app-store/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/kr/app-store/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/kr/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/kr/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/kr/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/kr/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/kr/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/kr/app-store/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/kr/app-store/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/kr/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/kr/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/kr/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/kr/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/kr/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/kr/app-store/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/kr/google-play/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/kr/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/kr/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/kr/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/kr/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/kr/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/kr/google-play/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/kr/google-play/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/kr/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/kr/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/kr/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/kr/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/kr/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/kr/google-play/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/jp/app-store/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/jp/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/jp/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/jp/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/jp/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/jp/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/jp/app-store/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/jp/app-store/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/jp/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/jp/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/jp/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/jp/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/jp/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/jp/app-store/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/jp/google-play/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/jp/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/jp/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/jp/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/jp/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/jp/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/jp/google-play/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/jp/google-play/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/jp/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/jp/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/jp/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/jp/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/jp/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/jp/google-play/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/us/app-store/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/us/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/us/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/us/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/us/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/us/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/us/app-store/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/us/app-store/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/us/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/us/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/us/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/us/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/us/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/us/app-store/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/us/google-play/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/us/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/us/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/us/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/us/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/us/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/us/google-play/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/us/google-play/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/us/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/us/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/us/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/us/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/us/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/us/google-play/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/tw/app-store/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/tw/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/tw/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/tw/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/tw/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/tw/app-store/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/tw/app-store/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/tw/app-store/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/tw/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/tw/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/tw/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/tw/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/tw/app-store/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/tw/app-store/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/tw/google-play/top-grossing/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/tw/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/tw/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/tw/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/tw/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/tw/google-play/top-grossing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/tw/google-play/top-grossing/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/tw/google-play/top-free/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/tw/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/tw/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/tw/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/tw/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/tw/google-play/top-free/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/tw/google-play/top-free/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/genres/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/genres/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/genres/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/genres/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/genres/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/genres/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/genres/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/genres/rpg/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/genres/rpg/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/genres/rpg/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/genres/rpg/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/genres/rpg/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/genres/rpg/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/genres/rpg/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/genres/casual-puzzle/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/genres/casual-puzzle/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/genres/casual-puzzle/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/genres/casual-puzzle/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/genres/casual-puzzle/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/genres/casual-puzzle/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/genres/casual-puzzle/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/genres/strategy-defense/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/genres/strategy-defense/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/genres/strategy-defense/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/genres/strategy-defense/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/genres/strategy-defense/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/genres/strategy-defense/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/genres/strategy-defense/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/genres/action-shooting/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/genres/action-shooting/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/genres/action-shooting/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/genres/action-shooting/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/genres/action-shooting/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/genres/action-shooting/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/genres/action-shooting/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/genres/simulation/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/genres/simulation/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/genres/simulation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/genres/simulation/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/genres/simulation/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/genres/simulation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/genres/simulation/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/genres/subculture/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/genres/subculture/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/genres/subculture/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/genres/subculture/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/genres/subculture/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/genres/subculture/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/genres/subculture/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/global/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/global/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/global/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/global/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/global/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/global/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/global/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/publishers/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/publishers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/publishers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/publishers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/publishers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/publishers/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/publishers/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/records/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/records/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/records/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/records/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/records/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/records/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/records/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2025-12/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2025-12/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2025-12/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2025-12/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2025-12/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2025-12/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2025-12/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-01/</loc>
+    <lastmod>2026-01-31</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-01/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-02/</loc>
+    <lastmod>2026-02-28</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-02/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-02/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-02/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-02/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-02/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-02/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-03/</loc>
+    <lastmod>2026-03-31</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-03/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-03/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-03/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-03/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-03/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-03/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-04/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-04/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-05/</loc>
+    <lastmod>2026-05-31</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-05/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-06/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-06/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-06/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-06/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-06/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-06/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-06/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-07/</loc>
+    <lastmod>2026-07-31</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-07/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-07/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-07/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-07/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-07/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-07/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-08/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-08/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-08/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-08/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-08/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-08/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-08/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-09/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-09/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-09/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-10/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-10/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-10/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-10/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-10/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-10/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-10/"/>
+  </url>
+  <url>
+    <loc>https://gamerscroll.com/zh-cn/rankings/monthly/2026-11/</loc>
+    <lastmod>2026-11-29</lastmod>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gamerscroll.com/rankings/monthly/2026-11/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gamerscroll.com/ja/rankings/monthly/2026-11/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://gamerscroll.com/zh-cn/rankings/monthly/2026-11/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gamerscroll.com/ko/rankings/monthly/2026-11/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://gamerscroll.com/zh-tw/rankings/monthly/2026-11/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gamerscroll.com/rankings/monthly/2026-11/"/>
+  </url>
+</urlset>
