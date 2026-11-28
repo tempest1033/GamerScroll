@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "jp.co.mixi.monsterstrikeTW",
+        "android": "com.interserv.L3K",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -168488,6 +168488,6 @@
       }
     }
   },
-  "lastUpdated": "2026-11-28",
+  "lastUpdated": "2026-11-29",
   "totalGames": 9322
 }
