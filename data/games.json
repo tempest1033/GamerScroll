@@ -76174,7 +76174,7 @@
     },
     "怪物彈珠 - RPG手機遊戲": {
       "appIds": {
-        "android": "com.interserv.L3K",
+        "android": "jp.co.mixi.monsterstrikeTW",
         "ios_tw": "850251209"
       },
       "aliases": [
@@ -91592,7 +91592,8 @@
     },
     "생존 전쟁: 더 워": {
       "appIds": {
-        "android": "com.thewar.global"
+        "android": "com.thewar.global",
+        "ios": 6812953395
       },
       "aliases": [
         "The War for Survival"
@@ -91601,10 +91602,13 @@
       "icon": "https://play-lh.googleusercontent.com/79Gr5K_tKcluU_8wcyNrlASQtmsR3ymp-qeYIFCRH8ZVYO5EiUd6gbl-7r786WzihhEqnes-dqBt9bl7BLue",
       "slug": "the-war-for-survival",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
+        "ko": "생존 전쟁: 더 워",
         "en": "The War for Survival",
+        "ja": "ザ・ウォー：サバイバル",
         "zh-tw": "The War for Survival"
       }
     },
@@ -163347,18 +163351,21 @@
     },
     "萬妖圖錄卷": {
       "appIds": {
-        "android": "com.playland.wytlj"
+        "android": "com.playland.wytlj",
+        "ios": 6832797258
       },
       "aliases": [],
       "developer": "Play Land Limited",
       "icon": "https://play-lh.googleusercontent.com/W952WxCFcX_Qg-i0sHdtHHncUazXVBnBCpdvI-qVa0t1jIg1wATkdXDfzdpJ6QjM8X4HVv6lZ3K0ySbMpg6_Ew",
       "slug": "",
       "platforms": [
-        "android"
+        "android",
+        "ios"
       ],
       "names": {
         "ko": "萬妖圖錄卷",
         "en": "Scroll of Myriad Demons",
+        "ja": "萬妖圖錄卷",
         "zh-tw": "萬妖圖錄卷"
       }
     },
@@ -167967,14 +167974,16 @@
     },
     "レジェンズオンファイア": {
       "appIds": {
-        "ios": 6831624635
+        "ios": 6831624635,
+        "android": "com.hagimoto.legendsonfire"
       },
       "aliases": [],
       "developer": "Shunji Hagimoto",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e8/c0/b8/e8c0b8db-c3fd-ad11-33b6-28b7a2b832d4/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
       "slug": "",
       "platforms": [
-        "ios"
+        "ios",
+        "android"
       ],
       "names": {
         "ko": "レジェンズオンファイア",
@@ -168284,8 +168293,77 @@
         "ja": "Point Away 3D: Cube Puzzle",
         "zh-tw": "Point Away 3D: Cube Puzzle"
       }
+    },
+    "Shoot the Box: Gun Game": {
+      "appIds": {
+        "ios": 1512581755
+      },
+      "aliases": [],
+      "developer": "Bruh Games Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/97/83/d297837b-9a6f-7c0e-bc02-0f2c7d0ee6c5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "shoot-the-box-gun-game",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Shoot the Box: Gun Game",
+        "en": "Shoot the Box: Gun Game",
+        "ja": "Shoot the Box: Gun Game",
+        "zh-tw": "Shoot the Box: Gun Game"
+      }
+    },
+    "Mahjong Hybrid™: Match & Relax": {
+      "appIds": {
+        "ios": 6755711414
+      },
+      "aliases": [],
+      "developer": "LONGSEA LINK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5e/8a/1d/5e8a1d89-d358-67e2-d727-cbef89d7bedd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "slug": "mahjong-hybrid-match-relax-longsea-link",
+      "platforms": [
+        "ios"
+      ],
+      "names": {
+        "ko": "Mahjong Hybrid™: Match & Relax",
+        "en": "Mahjong Hybrid: Match & Relax",
+        "ja": "Mahjong Hybrid™: Match & Relax",
+        "zh-tw": "Mahjong Hybrid®: Match & Relax"
+      }
+    },
+    "末日房車": {
+      "appIds": {
+        "android": "com.playland.mrfc"
+      },
+      "aliases": [],
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/lBS7dJ0lILCCWuCvN1jE7Vn-ORZYYfa7AJ7LAugfBHT9fARFdVsdg3Lnh-UWk_VAsJQUHQFCn9ljUJfR5HBDAp8",
+      "slug": "",
+      "platforms": [
+        "android"
+      ],
+      "names": {
+        "ko": "末日房車",
+        "en": "末日房車",
+        "ja": "末日房車",
+        "zh-tw": "末日房車"
+      }
+    },
+    "Aksun": {
+      "appIds": {
+        "steam": "3129360"
+      },
+      "aliases": [],
+      "developer": "Wayway Inc",
+      "icon": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3129360/771c85b374a146aa89bb4feaaa6705d141f9a798/capsule_231x87.jpg?t=1795781352",
+      "slug": "aksun",
+      "platforms": [
+        "steam"
+      ],
+      "names": {
+        "en": "Aksun"
+      }
     }
   },
   "lastUpdated": "2026-11-28",
-  "totalGames": 9311
+  "totalGames": 9315
 }

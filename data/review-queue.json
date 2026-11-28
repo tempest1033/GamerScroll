@@ -54349,13 +54349,19 @@
     },
     {
       "title": "レジェンズオンファイア",
-      "status": "single",
+      "status": "matched",
       "appIds": {
-        "ios": 6831624635
+        "ios": 6831624635,
+        "android": "com.hagimoto.legendsonfire"
       },
       "developer": "Shunji Hagimoto",
       "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e8/c0/b8/e8c0b8db-c3fd-ad11-33b6-28b7a2b832d4/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg",
-      "searchResults": [],
+      "searchResults": [
+        {
+          "title": "レジェンズオンファイア",
+          "appId": 6831624635
+        }
+      ],
       "addedAt": "2026-11-27T05:02:11.252Z"
     },
     {
@@ -54561,6 +54567,39 @@
         }
       ],
       "addedAt": "2026-11-28T01:01:53.230Z"
+    },
+    {
+      "title": "Shoot the Box: Gun Game",
+      "status": "single",
+      "appIds": {
+        "ios": 1512581755
+      },
+      "developer": "Bruh Games Ltd",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d2/97/83/d297837b-9a6f-7c0e-bc02-0f2c7d0ee6c5/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-28T05:01:55.590Z"
+    },
+    {
+      "title": "Mahjong Hybrid™: Match & Relax",
+      "status": "single",
+      "appIds": {
+        "ios": 6755711414
+      },
+      "developer": "LONGSEA LINK LIMITED",
+      "icon": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/5e/8a/1d/5e8a1d89-d358-67e2-d727-cbef89d7bedd/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
+      "searchResults": [],
+      "addedAt": "2026-11-28T05:01:56.105Z"
+    },
+    {
+      "title": "末日房車",
+      "status": "single",
+      "appIds": {
+        "android": "com.playland.mrfc"
+      },
+      "developer": "Play Land Limited",
+      "icon": "https://play-lh.googleusercontent.com/lBS7dJ0lILCCWuCvN1jE7Vn-ORZYYfa7AJ7LAugfBHT9fARFdVsdg3Lnh-UWk_VAsJQUHQFCn9ljUJfR5HBDAp8",
+      "searchResults": [],
+      "addedAt": "2026-11-28T05:01:57.216Z"
     }
   ],
   "approved": [
